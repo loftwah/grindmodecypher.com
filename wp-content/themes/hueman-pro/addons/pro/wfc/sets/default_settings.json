@@ -1,0 +1,11 @@
+{
+  "h1_headings" : "h1",
+  "h2_headings" : "h2",
+  "h3_headings" : "h3",
+  "h4_headings" : "h4",
+  "h5_headings" : "h5",
+  "h6_headings" : "h6",
+  "blockquotes" : "blockquote, blockquote > p",
+  "links" : "a",
+  "paragraphs__p" : "p"
+}

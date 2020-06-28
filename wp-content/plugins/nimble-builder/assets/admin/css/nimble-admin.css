@@ -1,0 +1,433 @@
+/* UPDATE NOTICE */
+.czr-update-notice h3, .czr-update-notice h4 {
+  font-weight: normal;
+}
+.czr-update-notice .button {
+  font-weight: normal;
+}
+.czr-update-notice .button.upgrade-to-pro {
+    height: 40px;
+    font-size: 1.2em;
+    padding: 5px 22px;
+    display: inline-block;
+    color: #de8200;
+    color: #fff;
+    background: #eea236;
+    border: 1px solid #eea236;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.1);
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.1);
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 3px;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-top: -4px;
+    font-weight: 400;
+    margin-left: 8px;
+    text-shadow: none;
+}
+.czr-update-notice .button.upgrade-to-pro:hover {
+    color: #fff;
+    background: #ed9c28;
+    border-color: #d58512;
+}
+/*a.czr-rating-link {
+    color: #eea236;
+}*/
+a.czr-rating-link:hover {
+    color: #eea236;
+}
+
+
+/* Nimble btn in admin top bar */
+#wpadminbar .sek-nimble-icon {
+  /*padding-left: 15px;*/
+  display: inline-block;
+}
+#wpadminbar .sek-nimble-icon img {
+  width:28px;
+  position:absolute;
+  top: 2px;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -webkit-filter: gray;
+  filter: gray;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all, 0.3s ease-in-out;
+  -ms-transition: all, 0.3s ease-in-out;
+  -o-transition: all, 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+#wpadminbar .sek-nimble-icon:hover img {
+  -webkit-filter: none;
+  filter: none;
+  -webkit-filter: none;
+  filter: none;
+}
+#wpadminbar .sek-nimble-icon .sek-nimble-admin-bar-title{
+  padding-left:30px
+}
+
+/* Style for the edit button with classical editor */
+#post-body-content .sek-nimble-icon .sek-nimble-mobile-admin-bar-title { display: none; }
+@media (max-width: 960px) {
+  #post-body-content .sek-nimble-icon .sek-nimble-admin-bar-title{ display: none;}
+  #post-body-content .sek-nimble-icon .sek-nimble-mobile-admin-bar-title{ display: inline-block;}
+}
+
+
+
+#presscustomizr-dashboard .dashicons {
+  vertical-align: middle;
+  font-size: 17px;
+}
+
+#presscustomizr-dashboard .nimble-db-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  /* flex-direction: column; */
+  flex: 0 0 100%;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  max-width: 100%;
+  width: 100%;
+  -webkit-box-shadow: 0 5px 8px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 5px 8px rgba(0, 0, 0, 0.05);
+  margin: 0 -12px 8px;
+  padding: 0 12px 12px;
+}
+#presscustomizr-dashboard .nimble-logo-version {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+#presscustomizr-dashboard .nimble-db-header .button-hero {
+  /*
+  commented since wp v5.3, nov 2019
+  height: 34px;
+  line-height: 33px;*/
+  padding: 0 15px;
+}
+#presscustomizr-dashboard .nimble-logo {
+  width: 30px;
+}
+#presscustomizr-dashboard .nimble-version {
+  padding: 0 10px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+#presscustomizr-dashboard .nimble-single-post {
+  margin-top: 10px;
+}
+#presscustomizr-dashboard .nimble-single-post-link {
+  display: inline-block;
+}
+
+#presscustomizr-dashboard .nimble-post-list {
+  font-size: 14px;
+  font-weight: 500;
+}
+#presscustomizr-dashboard .nimble-post-list .nimble-single-post-link {
+   padding-bottom: 5px;
+}
+#presscustomizr-dashboard .nimble-post-list .nimble-post-list-title {
+  border-bottom: 1px solid #eee;
+  margin: 0 -12px;
+  padding: 6px 12px;
+}
+
+
+#presscustomizr-dashboard .nimble-db-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  /* flex-direction: column; */
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  margin: 0 -12px -12px;
+  padding: 12px;
+  border-top: 1px solid #eee;
+}
+#presscustomizr-dashboard .nimble-db-footer > [class*=nimble-footer-link-] {
+  padding: 0 10px;
+  margin: 0;
+  border-left: 1px solid #ddd;
+}
+#presscustomizr-dashboard .nimble-db-footer > [class*=nimble-footer-link-] a {
+  font-size: 13px;
+  line-height: 26px;
+}
+#presscustomizr-dashboard .nimble-db-footer [class*=nimble-footer-link-]:first-child {
+  padding-left: 0;
+  border: none;
+}
+
+/* GO PRO BTN */
+.wp-core-ui #presscustomizr-dashboard .hu-go-pro-btn {
+  font-size: 13px;
+  line-height: 26px;
+  height: 30px;
+  padding: 1px 10px;
+  display: inline-block;
+  color: #fff;
+  background: #e99723;
+  border: 1px solid #eea236;
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 3px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-weight: 400;
+  text-shadow:none;
+}
+
+.wp-core-ui #presscustomizr-dashboard .hu-go-pro-btn:hover,
+.wp-core-ui #presscustomizr-dashboard .hu-go-pro-btn:focus {
+  color: #fff;
+  background: #ed9c28;
+  border-color: #d58512;
+  text-shadow:none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.wp-core-ui #presscustomizr-dashboard .hu-go-pro-btn.no-bg-btn {
+  color: #d58512;
+  background: #fff;
+}
+.wp-core-ui #presscustomizr-dashboard .hu-go-pro-btn.no-bg-btn:hover,
+.wp-core-ui #presscustomizr-dashboard .hu-go-pro-btn.no-bg-btn:focus {
+  color: #fff;
+  background: #e99723;
+}
+
+
+/* BUTTON "EDIT WITH NIMBLE" when editing posts and pages
+Introduced for https://github.com/presscustomizr/nimble-builder/issues/449
+*/
+/* Gutenberg editor style */
+body .block-editor #sek-edit-with-nimble {
+  margin: 2px;
+  height: 33px;
+  font-size: 13px;
+  line-height: 1;
+  position: relative;
+}
+body .block-editor #sek-edit-with-nimble .sek-nimble-icon img {
+  width: 24px;
+  top: 3px;
+  left: 8px;
+  position: absolute;
+}
+
+body .block-editor .sek-nimble-admin-bar-title, body .block-editor .sek-nimble-mobile-admin-bar-title {
+  padding-left: 22px;
+}
+body .block-editor .sek-nimble-mobile-admin-bar-title { display: none; }
+@media (max-width: 960px) {
+  body .block-editor .sek-nimble-admin-bar-title{ display: none;}
+  body .block-editor .sek-nimble-mobile-admin-bar-title{ display: inline-block;}
+}
+
+/* Classic editor style */
+#sek-edit-with-nimble .sek-nimble-icon img {
+    width: 24px;
+    top: 3px;
+    left: 8px;
+    position: absolute;
+}
+#sek-edit-with-nimble.classic-ed {
+  margin: 2px;
+  height: 33px;
+  min-height: 33px;
+  font-size: 13px;
+  line-height: 1;
+  position: relative;
+  padding: 0 15px!important;
+  margin: 10px 0!important;
+}
+#sek-edit-with-nimble.classic-ed .sek-nimble-mobile-admin-bar-title, #sek-edit-with-nimble.classic-ed .sek-nimble-admin-bar-title {
+  padding-left: 22px;
+}
+
+/* loading icon introduced for https://github.com/presscustomizr/nimble-builder/issues/509 */
+#sek-edit-with-nimble .sek-spinner {
+    transition: .18s margin ease-in-out;
+    display: none;
+}
+#sek-edit-with-nimble .sek-spinner {
+    background: url(../img/spinner.gif) no-repeat;
+    background-size: 20px 20px;
+    position: absolute;
+    left: 10px;
+    top: 6px;
+    width: 20px;
+    height: 20px;
+}
+#sek-edit-with-nimble.sek-loading-customizer .sek-spinner {
+  display: block;
+     /* display: inline-block;*/
+}
+#sek-edit-with-nimble.sek-loading-customizer .sek-nimble-icon img {
+  display: none;
+}
+
+
+
+/* WELCOME NOTICE */
+.wrap .nimble-welcome-notice {
+  padding: 10px 20px;
+}
+.nimble-welcome-notice p, .nimble-welcome-content p {
+  font-weight: bold;
+}
+.nimble-welcome-notice .dashicons, .nimble-welcome-content .dashicons {
+  line-height: 44px;
+}
+.nimble-welcome-icon-holder {
+  width: 500px;
+  height: 200px;
+  float: left;
+  margin: 0 38px 38px 0;
+}
+.nimble-welcome-icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.nimble-welcome-notice h1 {
+  font-weight: bold;
+}
+.nimble-welcome-notice h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+.nimble-link-to-doc {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  height: 46px;
+}
+.nimble-link-to-doc .nimble-doc-link-wrap {
+  position: absolute;
+  bottom: 0;
+}
+
+
+/* OPTIONS PAGE */
+#nimble-options .nb-option-page-title {
+  padding-left: 40px;
+  position: relative;
+}
+[dir="rtl"] .nb-option-page-title {
+  padding-right: 40px;
+  padding-left:0;
+}
+.sek-nimble-title-icon {
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 6px;
+}
+[dir="rtl"] .sek-nimble-title-icon {
+  right:0;
+  left:initial;
+}
+.tab-content-wrapper {
+    margin: 10px 0;
+}
+
+
+/* DOC PAGE */
+.nimble-doc-img {
+  max-width: 60%;
+}
+.nimle-doc-img img {
+  max-width: 100%;
+}
+.nimble-doc ul {
+  padding: 10px 20px;
+}
+.nimble-doc ul li {
+  font-size: 16px;
+  line-height: 1.5em;
+}
+.nimble-doc .dashicons {
+  line-height: 44px;
+}
+#nimble-options .nimble-doc .button-hero {
+  margin: 20px;
+}
+
+/* May 2020 Nimble setting menu icon */
+#menu-settings [href="options-general.php?page=nb-options"]:before{
+  content:'';
+  background-image:url('../../img/nimble/nimble_icon.svg?ver=2.0.19');
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  text-decoration: inherit;
+  text-transform: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 22px;
+  height: 22px;
+  font-size: 20px;
+  vertical-align: top;
+  margin-left: -5px;
+  margin-right: 3px;
+  position: relative;
+  top: 0px;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -webkit-filter: gray;
+}
+#menu-settings li [href="options-general.php?page=nb-options"]:hover:before{
+-webkit-filter: none;
+  filter: none;
+}
+.rtl #menu-settings [href="options-general.php?page=nb-options"]:before{
+  margin-right: -5px;
+  margin-left: 3px;
+}

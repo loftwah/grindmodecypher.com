@@ -1,0 +1,98 @@
+/*
+ * Selecter v3.0.9 - 2014-02-10
+ * A jQuery plugin for replacing default select elements. Part of the Formstone Library.
+ * http://formstone.it/selecter/
+ *
+ * Copyright 2014 Ben Plum; MIT Licensed
+ */
+/* SPECIFICS */
+.tc-select-subset .selecter {
+  width: 176px;
+}
+.tc-select-subset .selecter .selecter-selected {
+  background-position: 155px center;
+}
+.tc-select-subset .selecter .selecter-item {
+  width: 80%;
+}
+
+.tc-zones-wrapper .selecter-element { *left: -999999px; position: absolute; opacity: 0; }
+.tc-zones-wrapper .selecter { display: block;float: right;margin: 2px 0;position: relative;width: 110px;z-index: 1; }
+.tc-zones-wrapper .selecter .selecter-selected { background: #F9F9F9 url('img/jquery.fs.selecter-arrow.png') no-repeat 92px center; border: 1px solid #ccc; border-radius: 3px; color: #333; cursor: pointer; display: block; font-size: 13px; margin: 0; overflow: hidden; padding: 4px 0px 4px 8px; position: relative; text-overflow: clip; z-index: 49; box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.07);height: 19px;line-height: 18px; }
+.tc-zones-wrapper .selecter .selecter-options { border: 1px solid #ccc; border-width: 0 1px 1px; background-color: #fefefe; border-radius: 0 0 3px 3px; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15); display: none; left: 0; margin: 0; max-height: 260px; overflow: auto; overflow-x: hidden; padding: 0; position: absolute; top: 100%; width: 99%; *width: auto; z-index: 50; }
+.tc-zones-wrapper .selecter .selecter-group { background: #F9F9F9; border-bottom: 1px solid #e3e3e3; color: #999; display: block; font-size: 11px; padding: 5px 10px 4px; text-transform: uppercase; }
+.tc-zones-wrapper .selecter .selecter-item { background: #fff; border-bottom: 1px solid #e3e3e3; color: #333; cursor: pointer; display: block; font-size: 13px; margin: 0; overflow: hidden; padding: 8px 10px; text-overflow: ellipsis; width: 86%;height: 11px;line-height: 10px;padding: 8px 24px 8px 10px;}
+.tc-zones-wrapper .selecter .selecter-item.selected { background: #F9F9F9; }
+.tc-zones-wrapper .selecter .selecter-item.disabled { color: #999; cursor: default; }
+.tc-zones-wrapper .selecter .selecter-item:first-child { border-radius: 0; }
+.tc-zones-wrapper .selecter .selecter-item:last-child { border-radius: 0 0 2px 2px; border-bottom: 0; }
+.tc-zones-wrapper .tc-select-subset .selecter-selected, .tc-zones-wrapper .tc-select-subset .selecter-item {
+  font-size: 11px;
+}
+
+/* Selecter Specifics for Custom Zone */
+.tc-zones-wrapper .tc-custom-selector-form .selecter {
+  min-width: 100%;
+}
+.tc-zones-wrapper .tc-custom-selector-form .selecter .selecter-selected {
+  background: #F9F9F9 url('img/jquery.fs.selecter-arrow.png') no-repeat 100% center;
+  color: #7C8E54;
+}
+.tc-zones-wrapper .tc-custom-selector-field .selecter .selecter-item {
+  color: #7C8E54;
+}
+
+@media screen and (min-width: 980px) {
+  .selecter .selecter-item:hover,
+  .selecter .selecter-item.selected:hover { background-color: #f3f3f3; }
+  .selecter .selecter-item.disabled:hover { background-color: #fff; }
+
+  .selecter:hover .selecter-selected { background-color: #fff; }
+
+  .selecter.disabled .selecter-item:hover { background: #fff; }
+}
+
+/* Open */
+.selecter.open { z-index: 200; }
+.selecter.open .selecter-selected { border-radius: 3px 3px 0 0; z-index: 51; }
+
+.selecter.open .selecter-selected,
+.selecter.focus .selecter-selected { background-color: #fff; box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); }
+
+/* 'Cover' Positioning */
+.selecter.cover .selecter-options { border-radius: 3px; border-width: 1px; top: 0; }
+.selecter.cover .selecter-options .selecter-item.first { border-radius: 3px 3px 0 0; }
+.selecter.cover.open .selecter-selected { border-radius: 3px 3px 0 0; z-index: 49; }
+
+/* 'Bottom' Positioning */
+.selecter.bottom .selecter-options { border-width: 1px 1px 0; bottom: 100%; top: auto; }
+.selecter.bottom .selecter-item:last-child { border: none; }
+.selecter.bottom.open .selecter-selected { border-radius: 0 0 3px 3px; }
+.selecter.bottom.open .selecter-options { border-radius: 3px 3px 0 0; }
+
+/* 'Bottom' + 'Cover' Positioning */
+.selecter.bottom.cover .selecter-options { bottom: 0; top: auto; }
+.selecter.bottom.cover.open .selecter-selected { border-radius: 3px; }
+.selecter.bottom.cover.open .selecter-options { border-radius: 3px; }
+
+/* Multiple Select */
+.selecter.multiple .selecter-options { border-radius: 3px; border-width: 1px; box-shadow: none; display: block; position: static; width: 100%; }
+
+/* 'Disabled' State */
+.selecter.disabled .selecter-selected { background: #fff; border-color: #eee; color: #ccc; cursor: default; }
+.selecter.disabled .selecter-options { background: #fff; border-color: #eee; }
+.selecter.disabled .selecter-group,
+.selecter.disabled .selecter-item { border-color: #eee; color: #ccc; cursor: default; }
+.selecter.disabled .selecter-item.selected { background: #fafafa; }
+
+/* Scroller Support */
+.selecter .selecter-options.scroller { overflow: hidden; }
+.selecter .selecter-options.scroller .scroller-content { max-height: 260px; padding: 0; }
+
+/* Media Queries */
+@media screen and (max-width: 740px) {
+  .selecter { max-width: 40%; }
+}
+@media screen and (max-width: 500px) {
+  .selecter { max-width: 100%; }
+}

@@ -1,0 +1,6293 @@
+# <!=Copyright (C) 2018 Press Customizr"
+# This file is distributed under the same license as the Themes - Hueman-Pro package.
+msgid ""
+msgstr ""
+"Project-Id-Version: * Hueman-Pro v1.2.13\n"
+"Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
+"POT-Creation-Date: 2020-06-18 14:16:44+00:00\n"
+"PO-Revision-Date: 2017-10-05 12:20:16+0000\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+
+#: addons/pro/grids/init-pro-grids.php:199
+msgid "1"
+msgstr ""
+
+#: addons/pro/grids/init-pro-grids.php:200
+msgid "2"
+msgstr ""
+
+#: addons/pro/grids/init-pro-grids.php:201
+msgid "3"
+msgstr ""
+
+#: addons/pro/grids/init-pro-grids.php:202
+msgid "4"
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:33
+msgid "Theme activation key"
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:34
+msgid "Enter your Activation Key and press \"Save Changes\""
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:35
+#, fuzzy
+msgid "Activation Key"
+msgstr "啟用"
+
+#: addons/activation-key/activation/class_activation_key.php:36
+msgid "Key Action"
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:37
+#, fuzzy
+msgid "Deactivate Key"
+msgstr "啟用"
+
+#: addons/activation-key/activation/class_activation_key.php:38
+#, fuzzy
+msgid "Activate Key"
+msgstr "啟用"
+
+#: addons/activation-key/activation/class_activation_key.php:39
+msgid "Key status is unknown."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:40
+msgid "Renew now."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:41
+msgid "You are not receiving updates for bug fixes and new features anymore."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:42
+msgid "unlimited"
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:43
+msgid ""
+"Your key is valid, you are safely receiving the latest theme updates for bug "
+"fixes and new features."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:44
+msgid "Will be renewed %s."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:45
+msgid "Lifetime Activation Key."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:46
+msgid "You have %1$s / %2$s sites activated."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:47
+msgid "Key expired %s."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:48
+msgid "Key has expired."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:49
+msgid "Lifetime duration."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:50
+msgid "Keys do not match."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:51
+msgid "Activation key is inactive."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:52
+msgid "Activation key is disabled."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:53
+msgid "Site is inactive."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:54
+msgid ""
+"Activation key status is unknown. This is usually due to a connection "
+"problem or a server firewall issue."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:55
+msgid ""
+"Updating this theme will lose any customizations you have made. 'Cancel' to "
+"stop, 'OK' to update."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:56
+msgid ""
+"<strong>%1$s %2$s</strong> is available. <a href=\"%3$s\" class=\"thickbox\" "
+"title=\"%4s\">Check out what's new</a> or <a href=\"%5$s\"%6$s>update now</"
+"a>."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:122
+#: addons/activation-key/activation/class_activation_key.php:123
+#: addons/activation-key/activation/class_activation_key.php:224
+msgid "%1$s Key"
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:181
+msgid "You did not activate the Customizr Pro theme key yet."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:184
+msgid ""
+"It is <span style='text-decoration: underline;'>important to activate your "
+"key</span> in order to receive the new versions of the theme in your "
+"dashboard. This way you'll make sure that <span style='text-decoration: "
+"underline;'>your website is always compatible with the latest version of "
+"WordPress</span>, and that you'll have all the latest features and bug fixes "
+"for the theme."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:185
+msgid "Why should you keep your Wordpress theme up to date ?"
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:187
+msgid "Enter your activation key now"
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:191
+msgid "You'll find your key in your purchase receipt email or in your"
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:193
+msgid "account"
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:199
+#, fuzzy
+msgid "OK got it. Remind me later."
+msgstr "稍後提醒我"
+
+#: addons/activation-key/activation/class_activation_key.php:200
+#: functions/admin/class-admin-update-notification.php:120
+msgid "close"
+msgstr "關閉"
+
+#: addons/activation-key/activation/class_activation_key.php:246
+#, fuzzy
+msgid "active"
+msgstr "啟動"
+
+#: addons/activation-key/activation/class_activation_key.php:279
+msgid "Helpful links"
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:335
+msgid ""
+"We couldn't reach our remote server to get the latest version of the theme."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:336
+msgid ""
+"This can happen sometimes when your host server filters requests to remote "
+"servers."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:337
+msgid ""
+"If the problem persists after several tries, please follow those simple "
+"steps to update your theme : "
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:340
+msgid "Connect to"
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:342
+msgid "your account"
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:345
+msgid "Download the latest version of the theme"
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:348
+msgid "Install the theme ( check "
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:350
+msgid "this guide"
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:351
+msgid "if you're not sure how to install a theme )"
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:414
+msgid ""
+"Error when trying to activate, this is usually due to a connection problem "
+"or a server firewall issue."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:474
+#, fuzzy
+msgid "Your activation key expired on %s."
+msgstr "您的自訂選項已重設"
+
+#: addons/activation-key/activation/class_activation_key.php:481
+#, fuzzy
+msgid "Your activation key has been disabled."
+msgstr "您的自訂選項已重設"
+
+#: addons/activation-key/activation/class_activation_key.php:486
+#, fuzzy
+msgid "Invalid activation key."
+msgstr "外掛啟用失敗。"
+
+#: addons/activation-key/activation/class_activation_key.php:492
+msgid "Your activation key is not active for this URL."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:496
+#: addons/activation-key/activation/class_activation_key.php:791
+msgid "This appears to be an invalid activation key for %s."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:496
+#: addons/activation-key/activation/class_activation_key.php:791
+msgid "your product"
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:501
+#: addons/activation-key/activation/class_activation_key.php:746
+msgid "Your key has reached its activation limit."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:505
+msgid ""
+"<u>An error occurred, please try again.</u> In most of the cases, it's due "
+"to a wrong key, like for example a missing character. Make sure you copy the "
+"correct activation key. Sometimes there can be a missing character at the "
+"beginning or at the end."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:506
+msgid "Where can you find your activation key ?"
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:525
+msgid "You've reached the limit of activated websites for your current plan."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:528
+msgid "Connect to your account on presscustomizr.com"
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:530
+msgid "and upgrade your plan."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:573
+msgid "An error occurred, please try again."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:746
+msgid "Upgrade to unlock new activations."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:757
+msgid ""
+"Key is not activated for this website yet. Enter your key and press "
+"\"Activate Key\"."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:759
+msgid "Key is activated for this website."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:792
+msgid ""
+"This can for example happen if you try to use a Bundle key instead of the "
+"product key."
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:793
+msgid ""
+"<a href=\"https://docs.presscustomizr.com/article/11-how-to-activate-your-"
+"product-key\" target=\"_blank\">%1$s</a>"
+msgstr ""
+
+#: addons/activation-key/activation/class_activation_key.php:793
+msgid "How to activate your product key ?"
+msgstr ""
+
+#: addons/activation-key/updates/class_theme_updater.php:135
+msgid "We couldn't check the updates for "
+msgstr ""
+
+#: addons/activation-key/updates/class_theme_updater.php:137
+msgid ""
+"You might need to check for updates on <a href=\"https://presscustomizr.com/"
+"hueman-pro\" title=\"Press Customizr\" target=\"_blank\">presscustomizr.com</"
+"a> and "
+msgstr ""
+
+#: addons/activation-key/updates/class_theme_updater.php:139
+msgid "upload the theme manually"
+msgstr ""
+
+#: addons/admin/ha-hs-doc.php:56
+msgid "We found {count} article that may help:"
+msgstr ""
+
+#: addons/admin/ha-hs-doc.php:57
+msgid "We found {count} articles that may help:"
+msgstr ""
+
+#: addons/admin/ha-hs-doc.php:58
+msgid "No results found&hellip;"
+msgstr ""
+
+#: addons/admin/ha-hs-doc.php:59
+#, fuzzy
+msgid "Please enter a search term."
+msgstr "請嘗試搜尋其他關鍵字："
+
+#: addons/admin/ha-hs-doc.php:60
+msgid "Search must be at least {minLength} characters."
+msgstr ""
+
+#: addons/admin/ha-hs-doc.php:61
+msgid "There was an error fetching search results."
+msgstr ""
+
+#: addons/czr/ha-czr.php:60
+msgid "If you like"
+msgstr ""
+
+#: addons/czr/ha-czr.php:61
+#, fuzzy
+msgid "the Hueman theme"
+msgstr "Hueman 主題"
+
+#: addons/czr/ha-czr.php:62
+msgid "we would love to receive a"
+msgstr ""
+
+#: addons/czr/ha-czr.php:64
+#, fuzzy
+msgid "Review the Hueman theme"
+msgstr "歡迎使用 Hueman 主題"
+
+#: addons/czr/ha-czr.php:66
+msgid "rating. Thanks :) !"
+msgstr ""
+
+#: addons/czr/ha-czr.php:215
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:78
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1667
+#: functions/czr-base-fmk/czr-base-fmk.php:1667
+#: inc/czr-base-fmk/czr-base-fmk.php:1667
+msgid "Set a custom url"
+msgstr ""
+
+#: addons/ha-backward-compatibility-after-setup-theme-40.php:157
+#: contextualizer/ccat-contextualizer.php:1436
+#: functions/class-utils-settings-map.php:337
+msgid "Body Background"
+msgstr "內文背景"
+
+#: addons/ha-backward-compatibility-after-setup-theme-40.php:160
+#: contextualizer/ccat-contextualizer.php:1440
+#, fuzzy
+msgid "Display a full width header background"
+msgstr "標頭中顯示標誌"
+
+#: addons/ha-backward-compatibility-after-setup-theme-40.php:163
+#, fuzzy
+msgid "Full Width Header Background"
+msgstr "標頭背景"
+
+#: addons/ha-init.php:90
+msgid "Enable a \"per page\" customization"
+msgstr ""
+
+#: addons/ha-init.php:91
+msgid ""
+"Enabling this option allows you to customize each page as a stand alone "
+"website."
+msgstr ""
+
+#: addons/ha-init.php:95
+#, fuzzy
+msgid "Enable"
+msgstr "停用"
+
+#: addons/ha-init.php:96 functions/class-utils-settings-map.php:1369
+#: functions/class-utils-settings-map.php:1385
+#: functions/class-utils-settings-map.php:2074
+msgid "Disable"
+msgstr "停用"
+
+#: addons/ha-init.php:235
+msgid ""
+"This version of the <strong>%1$s</strong> plugin requires at least the "
+"version %2$s of the Hueman theme."
+msgstr ""
+
+#: addons/ha-init.php:240
+msgid "The <strong>%1$s</strong> plugin %2$s."
+msgstr ""
+
+#: addons/ha-init.php:242
+#, fuzzy
+msgid "works only with the Hueman theme"
+msgstr "歡迎使用 Hueman 主題"
+
+#: addons/ha-init.php:339
+#, fuzzy
+msgid "Customize this page !"
+msgstr "自訂化並套用至"
+
+#: addons/pro/__INACTIVE_skins/init-pro-skins.php:34
+msgid "Pick a predefined skin"
+msgstr ""
+
+#: addons/pro/__INACTIVE_skins/init-pro-skins.php:38
+msgid "None"
+msgstr ""
+
+#: addons/pro/__INACTIVE_skins/init-pro-skins.php:39
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:90
+msgid "Light"
+msgstr ""
+
+#: addons/pro/__INACTIVE_skins/init-pro-skins.php:40
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:90
+msgid "Dark"
+msgstr ""
+
+#: addons/pro/__INACTIVE_skins/init-pro-skins.php:43
+msgid ""
+"This will apply a predefined light or dark style to your website. You will "
+"be able to set more specific colors to your website in the other sections of "
+"the customizer : header, content, footer."
+msgstr ""
+
+#: addons/pro/custom-scripts/init-pro-custom-scripts.php:33
+msgid "Additional scripts"
+msgstr ""
+
+#: addons/pro/custom-scripts/init-pro-custom-scripts.php:48
+msgid ""
+"<strong>Note:</strong>You need to click on the refresh button below to see "
+"the code applied to your site live preview."
+msgstr ""
+
+#: addons/pro/custom-scripts/init-pro-custom-scripts.php:50
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:10
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:360
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:116
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:491
+msgid "Refresh"
+msgstr ""
+
+#: addons/pro/custom-scripts/init-pro-custom-scripts.php:57
+msgid "Add your custom scripts to the <head> of your site"
+msgstr ""
+
+#: addons/pro/custom-scripts/init-pro-custom-scripts.php:62
+msgid ""
+"Any code you place here will appear in the head section of every page of "
+"your site. This is particularly useful if you need to input a tracking pixel "
+"for a state counter such as <a href=\"https://developers.google.com/"
+"analytics/devguides/collection/analyticsjs/\" title=\"google-analytics\" "
+"target=\"_blank\">Google Analytics</a>"
+msgstr ""
+
+#: addons/pro/custom-scripts/init-pro-custom-scripts.php:68
+msgid "Add your custom scripts before the </body> of your site"
+msgstr ""
+
+#: addons/pro/custom-scripts/init-pro-custom-scripts.php:76
+msgid ""
+"Any code you place here will appear at the very bottom of every page of your "
+"site, just before the closing &lt;/body&gt; tag."
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/__DEPRECATED_related-posts-module-tmpl.php:13
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:101
+#, fuzzy
+msgid "Design"
+msgstr "頁尾設計"
+
+#: addons/pro/czr_tmpl/mods/__DEPRECATED_related-posts-module-tmpl.php:14
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:152
+#: functions/class-utils-settings-map.php:1363
+msgid "Related posts"
+msgstr "相關文章"
+
+#: addons/pro/czr_tmpl/mods/__DEPRECATED_related-posts-module-tmpl.php:25
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:105
+#, fuzzy
+msgid "Display related posts after a single post"
+msgstr "將精選文章也顯示在文章清單中"
+
+#: addons/pro/czr_tmpl/mods/__DEPRECATED_related-posts-module-tmpl.php:29
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:109
+msgid ""
+"This is a good way to engage your visitors and generate more page views."
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/__DEPRECATED_related-posts-module-tmpl.php:33
+#: addons/pro/grids/init-pro-grids.php:195
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:113
+#, fuzzy
+msgid "Max number of columns"
+msgstr "建議欄位數：3"
+
+#: addons/pro/czr_tmpl/mods/__DEPRECATED_related-posts-module-tmpl.php:37
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:118
+msgid ""
+"1 to 4 columns. The number of post columns will be adapted depending on the "
+"choosen page layout and the user's device."
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/__DEPRECATED_related-posts-module-tmpl.php:44
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:122
+#, fuzzy
+msgid "Display a heading for the related posts"
+msgstr "在您的部落格顯示自訂頁首。"
+
+#: addons/pro/czr_tmpl/mods/__DEPRECATED_related-posts-module-tmpl.php:51
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:129
+msgid "Heading's text"
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/__DEPRECATED_related-posts-module-tmpl.php:53
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:131
+#, fuzzy
+msgid "Enter a heading"
+msgstr "輸入名稱"
+
+#: addons/pro/czr_tmpl/mods/__DEPRECATED_related-posts-module-tmpl.php:61
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:135
+#, fuzzy
+msgid "Free scroll"
+msgstr "向上滾動時顯示"
+
+#: addons/pro/czr_tmpl/mods/__DEPRECATED_related-posts-module-tmpl.php:65
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:139
+msgid ""
+"Enables your posts to be freely scrolled and flicked without being aligned "
+"to an end position."
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/__DEPRECATED_related-posts-module-tmpl.php:72
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:143
+msgid "Load just in time"
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/__DEPRECATED_related-posts-module-tmpl.php:76
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:147
+msgid ""
+"When this option is checked, the block of related posts is loaded just "
+"before becoming visible on scroll. Enabling this option <strong>makes your "
+"single post pages load faster, in particular on mobile devices.</strong><br/"
+"> <strong> Note :</strong> this behaviour is not previewable when "
+"customizing but will take effect on your published posts."
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/__DEPRECATED_related-posts-module-tmpl.php:83
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:156
+#, fuzzy
+msgid "Maximum number of related posts"
+msgstr "單欄 - 相關文章"
+
+#: addons/pro/czr_tmpl/mods/__DEPRECATED_related-posts-module-tmpl.php:90
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:163
+msgid "Relationship"
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/__DEPRECATED_related-posts-module-tmpl.php:97
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:168
+msgid "Choose how to sort your related posts"
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/__DEPRECATED_related-posts-module-tmpl.php:101
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:170
+msgid "The descending order is always used when relevant."
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:10
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:360
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:116
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:491
+msgid "Refresh the preview"
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:15
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:121
+#, fuzzy
+msgid "General Design"
+msgstr "標頭設計"
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:16
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:122
+#, fuzzy
+msgid "Slider Content"
+msgstr "行動裝置側邊欄位內文"
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:17
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:123
+msgid "Effects and performances"
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:23
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:129
+#, fuzzy
+msgid "Slider Height"
+msgstr "幻燈片標題"
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:27
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:133
+msgid ""
+"Set the height of the slider. In percentage of the viewport : 100% = the "
+"full height of the page"
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:30
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:142
+msgid "Overlay style : dark or light"
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:36
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:148
+msgid "Skin opacity"
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:40
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:152
+msgid "Sets the opacity of the skin filter."
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:43
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:155
+#, fuzzy
+msgid "Default background color"
+msgstr "設定網站的背景色彩"
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:47
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:159
+msgid "This color will be applied when no image has been set to a slide."
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:50
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:162
+#, fuzzy
+msgid "Default background image"
+msgstr "背景影像"
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:55
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:167
+msgid "This image will be printed when no image has been set to a slide."
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:62
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:174
+msgid "Slider's caption position"
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:66
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:178
+msgid "Set the vertical position of the caption ( 0% = middle )."
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:72
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:184
+msgid "Set the same fixed title, caption text and button for all slides"
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:76
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:188
+msgid "By default each slide has a specific title, caption text and button."
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:79
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:191
+#: functions/czr-modules/social-links/social_links_module.php:123
+#: inc/czr-modules/social-links/social_links_module.php:123
+#: option-tree/includes/class-ot-meta-box.php:264
+#: option-tree/includes/ot-functions-admin.php:3194
+#: option-tree/includes/ot-functions-admin.php:3279
+msgid "Title"
+msgstr "標題"
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:81
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:274
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:313
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:193
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:396
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:435
+msgid "Enter a title"
+msgstr "輸入標題"
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:85
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:197
+#, fuzzy
+msgid "Subtitle"
+msgstr "幻燈片副標"
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:87
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:280
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:328
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:199
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:402
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:459
+#, fuzzy
+msgid "Enter a subtitle"
+msgstr "輸入標題"
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:91
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:332
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:203
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:463
+msgid "Call to action"
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:93
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:334
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:205
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:465
+msgid "Enter a call to action"
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:97
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:338
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:209
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:469
+#, fuzzy
+msgid "Select a content to link"
+msgstr "選擇圖示"
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:103
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:344
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:215
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:475
+#, fuzzy
+msgid "Custom link url"
+msgstr "社交連結網址"
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:105
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:346
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:217
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:477
+#, fuzzy
+msgid "http//..."
+msgstr "http://..."
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:112
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:353
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:224
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:484
+#, fuzzy
+msgid "Open the link in a new browser tab"
+msgstr "以外部連結開啟新頁"
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:118
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:240
+msgid "Max length of the titles"
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:122
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:129
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:244
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:251
+msgid "In number of characters."
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:125
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:247
+msgid "Max length of the subtitles"
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:132
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:254
+msgid "Titles font size"
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:136
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:258
+msgid "Set the font size of the title and subtitle ( 0% = default )."
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:142
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:264
+msgid ""
+"Use the post thumbnail, title and metas informations as default when "
+"available."
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:146
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:237
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:268
+msgid ""
+"On single posts or pages, a default slide will be displayed, based on the "
+"post or page thumbnail, title, and metas informations ( author, date, "
+"categories)."
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:152
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:274
+msgid "Display contextual metas informations when available"
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:156
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:278
+msgid ""
+"On single post pages, this will display the post categories, comment icon, "
+"author and publish date on the default image background."
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:162
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:284
+#: functions/class-utils-settings-map.php:1300
+#, fuzzy
+msgid "Display categories"
+msgstr "相關類別"
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:171
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:293
+#, fuzzy
+msgid "Display comments bubble"
+msgstr "在縮圖上顯示迴響統計"
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:180
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:302
+#, fuzzy
+msgid "Display author and date"
+msgstr "從類別中顯示文章"
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:192
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:314
+#, fuzzy
+msgid "Autoplay the slider"
+msgstr "顯示兩者側邊欄"
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:199
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:321
+msgid "Time interval in seconds"
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:203
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:325
+msgid "Autoplay : set the time interval between each slides ( in seconds )."
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:210
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:332
+#, fuzzy
+msgid "Pause auto-play on mouse hover"
+msgstr "當滑鼠滑過時顯示文字。"
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:220
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:342
+msgid "Parallax scrolling"
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:224
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:346
+msgid ""
+"Parallax scrolling is a technique used in web design, where background move "
+"slower than foreground content."
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:227
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:349
+msgid "Parallax slow-down"
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:231
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:353
+msgid ""
+"Set this value and try scrolling your page down and up to setup your "
+"background parallax scrolling speed."
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:238
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:360
+#, fuzzy
+msgid "Free Scroll"
+msgstr "捲動"
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:242
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:364
+msgid ""
+"Enables your slides to be freely scrolled and flicked without being aligned "
+"to an end position."
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:249
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:371
+#, fuzzy
+msgid "Lazy load backgrounds"
+msgstr "內文背景"
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:253
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:375
+msgid ""
+"Improve your page load performances by deferring the loading of not visible "
+"images."
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:265
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:292
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:301
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:387
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:414
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:423
+#, fuzzy
+msgid "Slide Background"
+msgstr "標頭背景"
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:272
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:311
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:394
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:433
+#, fuzzy
+msgid "Slide Title"
+msgstr "幻燈片標題"
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:278
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:326
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:400
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:457
+#, fuzzy
+msgid "Slide subtitle"
+msgstr "幻燈片副標"
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:293
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:415
+#, fuzzy
+msgid "Slide Caption"
+msgstr "輪播按鈕"
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:320
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:442
+msgid "Turn the title into a link"
+msgstr ""
+
+#: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:361
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:492
+msgid "Focus on slide"
+msgstr ""
+
+#: addons/pro/footer/init-pro-footer.php:20 footer.php:121
+msgid "Powered by"
+msgstr "技術提供"
+
+#: addons/pro/footer/init-pro-footer.php:20 footer.php:121
+msgid "Powered by WordPress"
+msgstr "技術支援 WordPress"
+
+#: addons/pro/footer/init-pro-footer.php:20 footer.php:121
+msgid "https://wordpress.org/"
+msgstr "https://wordpress.org/"
+
+#: addons/pro/footer/init-pro-footer.php:20
+#, fuzzy
+msgid "Designed with"
+msgstr "設計提供"
+
+#. Theme Name of the plugin/theme
+#, fuzzy
+msgid "Hueman Pro"
+msgstr "移至 Hueman 專業版"
+
+#: addons/pro/grids/init-pro-grids.php:175
+#, fuzzy
+msgid "Post list design"
+msgstr "文章列表設計"
+
+#: addons/pro/grids/init-pro-grids.php:176
+#, fuzzy
+msgid "Select post list design type"
+msgstr "選擇位置內容"
+
+#: addons/pro/grids/init-pro-grids.php:180
+msgid "Standard list"
+msgstr ""
+
+#: addons/pro/grids/init-pro-grids.php:181
+msgid "Classic grid"
+msgstr ""
+
+#: addons/pro/grids/init-pro-grids.php:182
+msgid "Masonry grid"
+msgstr ""
+
+#: addons/pro/grids/init-pro-grids.php:204
+msgid ""
+"Note : columns are limited to 3 for single sidebar layouts and to 2 for "
+"double sidebar layouts."
+msgstr ""
+
+#: addons/pro/grids/masonry/front/tmpl/masonry-article.php:77
+#: addons/pro/related/front/tmpl/related-posts-content.php:354
+#: content-featured.php:42 content-standard.php:47 content.php:67
+#: functions/widgets/alx-posts.php:106 functions/widgets/alx-tabs.php:165
+#: functions/widgets/alx-tabs.php:210 functions/widgets/alx-tabs.php:221
+#: parts/related-posts.php:51
+msgid "Permalink to "
+msgstr ""
+
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:79
+#, fuzzy
+msgid "New Slide created ! Scroll down to edit it."
+msgstr "已建立新的小工具區！向下捲動開始編輯。"
+
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:80
+msgid "Slide"
+msgstr ""
+
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:81
+msgid "The caption content is currently set in"
+msgstr ""
+
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:82
+msgid "the general options"
+msgstr ""
+
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:83
+msgid "You can display or hide the post metas ( categories, author, date ) in"
+msgstr ""
+
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:84
+msgid ""
+"You can set the global options of the slider here by clicking on the gear "
+"icon : height, font size, effects..."
+msgstr ""
+
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:85
+msgid "Those settings will be inherited by the more specific options levels."
+msgstr ""
+
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:136
+msgid "Minimum height of slider (in pixels) on mobile devices"
+msgstr ""
+
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:233
+msgid "Use a H1 tag (default is H2) for slide titles."
+msgstr ""
+
+#: addons/pro/header/czr_slide_module/czr_slide_module.php:451
+msgid "Use a H1 tag (default is H2) for this slide title"
+msgstr ""
+
+#: addons/pro/header/front/tmpl/slider-tmpl.php:468
+#, fuzzy
+msgid "previous"
+msgstr "上一則"
+
+#: addons/pro/header/front/tmpl/slider-tmpl.php:469
+msgid "next"
+msgstr ""
+
+#: addons/pro/infinite/infinite-scroll/class_infinite.php:757
+#, fuzzy
+msgid "Load more"
+msgstr "瞭解更多"
+
+#: addons/pro/infinite/infinite-scroll/class_infinite.php:801
+msgid "Older %s"
+msgstr ""
+
+#: addons/pro/infinite/infinite-scroll/class_infinite.php:826
+msgid "Scroll back to top"
+msgstr ""
+
+#: addons/pro/infinite/infinite-scroll/class_infinite.php:1588
+#, fuzzy
+msgid "Proudly powered by WordPress"
+msgstr "技術支援 WordPress"
+
+#: addons/pro/infinite/infinite-scroll/class_infinite.php:1591
+msgid "Theme: %1$s."
+msgstr ""
+
+#: addons/pro/infinite/init-pro-infinite.php:367
+msgid "Infinite scroll"
+msgstr ""
+
+#: addons/pro/infinite/init-pro-infinite.php:368
+#, fuzzy
+msgid "Enable infinite scroll"
+msgstr "啟動平滑滾動"
+
+#: addons/pro/infinite/init-pro-infinite.php:374
+msgid ""
+"When this option is enabled, your posts are revealed when scrolling down, "
+"from the most recent to the oldest one, like on a Facebook wall."
+msgstr ""
+
+#: addons/pro/infinite/init-pro-infinite.php:375
+msgid ""
+"<strong>Note :</strong> this setting is not applied when customizing, but "
+"will take effect on front end."
+msgstr ""
+
+#: addons/pro/infinite/init-pro-infinite.php:388
+msgid ""
+"Desktop and laptop devices : when the infinite scroll is enabled, load posts "
+"automatically when scrolling."
+msgstr ""
+
+#: addons/pro/infinite/init-pro-infinite.php:393
+msgid ""
+"When this option is disabled, a \"Load more posts\" button will be printed."
+msgstr ""
+
+#: addons/pro/infinite/init-pro-infinite.php:402
+msgid ""
+"Mobile devices : when the infinite scroll is enabled, load posts "
+"automatically when scrolling."
+msgstr ""
+
+#: addons/pro/infinite/init-pro-infinite.php:407
+msgid ""
+"For better performances on mobile devices, we recommend to let this option "
+"unchecked."
+msgstr ""
+
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:82
+msgid "Random order"
+msgstr ""
+
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:83
+msgid "Number of comments"
+msgstr ""
+
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:84
+#, fuzzy
+msgid "Published date"
+msgstr "已發表"
+
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:87
+#: functions/init-sidebars-widgets.php:137
+msgid "Categories"
+msgstr "類別"
+
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:88
+#: functions/widgets/alx-tabs.php:69
+msgid "Tags"
+msgstr "標籤"
+
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:89
+#, fuzzy
+msgid "Post format"
+msgstr "文章迴響"
+
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:90
+msgid "Categories or tags or post formats"
+msgstr ""
+
+#: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:91
+msgid "No conditions"
+msgstr ""
+
+#: addons/pro/related/init-pro-related-posts.php:25 parts/related-posts.php:20
+msgid "You may also like..."
+msgstr "您可能也會喜歡…"
+
+#: addons/pro/related/init-pro-related-posts.php:85
+#, fuzzy
+msgid "Better Related Posts"
+msgstr "相關文章"
+
+#: addons/pro/related/init-pro-related-posts.php:86
+#, fuzzy
+msgid "Display related articles below the post"
+msgstr "在文章下方隨機顯示相關主題"
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:43
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:61
+msgid "normal"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:44
+msgid "bold"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:45
+msgid "bolder"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:46
+#, fuzzy
+msgid "lighter"
+msgstr "右中"
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:59
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:68
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:75
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:83
+#, fuzzy
+msgid "inherit"
+msgstr "繼承"
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:60
+msgid "italic"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:62
+msgid "oblique"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:66
+#, fuzzy
+msgid "center"
+msgstr "中上"
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:67
+msgid "justify"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:69
+#: option-tree/includes/ot-functions-option-types.php:2462
+msgid "left"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:70
+#: option-tree/includes/ot-functions-option-types.php:2446
+msgid "right"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:74
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:82
+msgid "none"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:76
+msgid "line-through"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:77
+msgid "overline"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:78
+msgid "underline"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:84
+msgid "capitalize"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:85
+msgid "uppercase"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:86
+msgid "lowercase"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:276
+msgid "No effect"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:278
+msgid "3D one"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:279
+msgid "3D two"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:283
+msgid "Shadow soft"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:284
+#, fuzzy
+msgid "Shadow simple"
+msgstr "簡易"
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:285
+msgid "Shadow distant"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:286
+#, fuzzy
+msgid "Shadow close one"
+msgstr "請選擇"
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:287
+msgid "Shadow close two"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:288
+msgid "Shadow multiple"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:289
+msgid "Vintage retro"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:290
+msgid "Neon blue"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:291
+msgid "Neon green"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:292
+msgid "Neon orange"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:293
+msgid "Neon pink"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:294
+msgid "Neon red"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:295
+msgid "Neon grey"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:296
+msgid "Neon black"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:297
+msgid "Neon white"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:513
+msgid "Reset all"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:514
+msgid "All settings reset to default"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:515
+msgid "Are you sure you want to reset all your font settings to default?"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:516
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:552
+#: contextualizer/ccat-contextualizer.php:1442
+#: functions/czr-base-fmk/czr-base-fmk.php:552
+#: inc/czr-base-fmk/czr-base-fmk.php:552
+msgid "Yes"
+msgstr "是"
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:517
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:552
+#: contextualizer/ccat-contextualizer.php:1443
+#: functions/czr-base-fmk/czr-base-fmk.php:552
+#: inc/czr-base-fmk/czr-base-fmk.php:552
+msgid "No"
+msgstr "否"
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:518
+msgid "This selector has already been added."
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:519
+#: addons/pro/wfc/wordpress-font-customizer.php:765
+#, fuzzy
+msgid "Custom"
+msgstr "立即自訂"
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:520
+msgid "Please specify a CSS selector"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:521
+#, fuzzy
+msgid "Select a font family"
+msgstr "選擇圖示"
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:522
+msgid "Pre-defined selectors"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:523
+msgid "Define a custom selector"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:524
+msgid "Web Safe Fonts"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:525
+#: option-tree/includes/ot-functions-admin.php:1612
+msgid "Google Fonts"
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:526
+#: contextualizer/ccat-contextualizer.php:1416
+#, fuzzy
+msgid "Please confirm the removal of the customizations for"
+msgstr "請確認您想要重設您已發佈的重設於"
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:527
+msgid "Make sure to use valid css selectors."
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:528
+msgid "This css selector is not valid."
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:529
+msgid "This selector does not exist in this context."
+msgstr ""
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:530
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:11
+#: contextualizer/ccat-contextualizer.php:614
+#: option-tree/includes/ot-functions-admin.php:1625
+#, fuzzy
+msgid "Select"
+msgstr "選擇影像"
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:587
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:248
+#: functions/czr/czr-resources.php:186
+#: functions/czr-base-fmk/czr-base-fmk.php:248
+#: inc/czr-base-fmk/czr-base-fmk.php:248
+#: option-tree/includes/ot-functions-admin.php:125
+#: option-tree/includes/ot-functions-admin.php:126
+#: option-tree/includes/ot-functions-admin.php:162
+#: option-tree/includes/ot-functions-admin.php:186
+#: option-tree/includes/ot-functions-admin.php:3003
+msgid "Settings"
+msgstr "設定"
+
+#: addons/pro/wfc/back/classes/class_admin_font_customizer.php:588
+msgid "System Informations"
+msgstr "系統資訊"
+
+#: addons/pro/wfc/back/classes/class_font_customizer_admin_notices.php:44
+msgid ""
+"The <strong>%1$s</strong> plugin can not be used with a theme (or a parent "
+"theme) different than Customizr with a version less than v3.1.0."
+msgstr ""
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:242
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:543
+#: functions/czr/czr-resources.php:163
+#: functions/czr-base-fmk/czr-base-fmk.php:242
+#: functions/czr-base-fmk/czr-base-fmk.php:543
+#: functions/czr-modules/widget-zones/widget_zones_module.php:227
+#: inc/czr-base-fmk/czr-base-fmk.php:242 inc/czr-base-fmk/czr-base-fmk.php:543
+#: option-tree/includes/ot-functions-admin.php:2839
+#: option-tree/includes/ot-functions-admin.php:2948
+#: option-tree/includes/ot-functions-admin.php:2949
+#: option-tree/includes/ot-functions-admin.php:3108
+#: option-tree/includes/ot-functions-admin.php:3109
+#: option-tree/includes/ot-functions-admin.php:3184
+#: option-tree/includes/ot-functions-admin.php:3185
+#: option-tree/includes/ot-functions-admin.php:3307
+#: option-tree/includes/ot-functions-admin.php:3308
+#: option-tree/includes/ot-functions-admin.php:3450
+#: option-tree/includes/ot-functions-admin.php:3451
+msgid "Edit"
+msgstr "編輯"
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:243
+#: functions/czr/czr-resources.php:164
+#: functions/czr-base-fmk/czr-base-fmk.php:243
+#: inc/czr-base-fmk/czr-base-fmk.php:243
+#: option-tree/includes/ot-functions-admin.php:961
+msgid "Close"
+msgstr "關閉"
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:244
+#: functions/czr/czr-resources.php:168
+#: functions/czr-base-fmk/czr-base-fmk.php:244
+#: functions/czr-modules/widget-zones/widget_zones_module.php:88
+#: inc/czr-base-fmk/czr-base-fmk.php:244
+msgid "Not set"
+msgstr "未設定"
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:245
+#: functions/czr/czr-resources.php:172
+#: functions/czr-base-fmk/czr-base-fmk.php:245
+#: functions/czr-modules/social-links/social_links_module.php:80
+#: inc/czr-base-fmk/czr-base-fmk.php:245
+#: inc/czr-modules/social-links/social_links_module.php:80
+msgid "Done !"
+msgstr "完成！"
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:247
+#: functions/czr/czr-resources.php:185
+#: functions/czr-base-fmk/czr-base-fmk.php:247
+#: inc/czr-base-fmk/czr-base-fmk.php:247
+msgid "Learn more about this in the documentation"
+msgstr "瞭解更多關於這個的文件"
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:249
+#: functions/czr/czr-resources.php:187
+#: functions/czr-base-fmk/czr-base-fmk.php:249
+#: inc/czr-base-fmk/czr-base-fmk.php:249 inc/czr-skope/index.php:392
+msgid "Options for"
+msgstr "設定將套用到"
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:252
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:257
+#: functions/czr-base-fmk/czr-base-fmk.php:252
+#: functions/czr-base-fmk/czr-base-fmk.php:257
+#: inc/czr-base-fmk/czr-base-fmk.php:252 inc/czr-base-fmk/czr-base-fmk.php:257
+msgid "Select Image"
+msgstr "選擇影像"
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:253
+#: functions/czr-base-fmk/czr-base-fmk.php:253
+#: inc/czr-base-fmk/czr-base-fmk.php:253
+msgid "Change Image"
+msgstr "變更影像"
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:254
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:543
+#: functions/czr/controls/class-upload-control.php:68
+#: functions/czr-base-fmk/czr-base-fmk.php:254
+#: functions/czr-base-fmk/czr-base-fmk.php:543
+#: inc/czr-base-fmk/czr-base-fmk.php:254 inc/czr-base-fmk/czr-base-fmk.php:543
+msgid "Remove"
+msgstr "移除"
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:255
+#: functions/czr/controls/class-color-alpha-control.php:26
+#: functions/czr-base-fmk/czr-base-fmk.php:255
+#: inc/czr-base-fmk/czr-base-fmk.php:255
+msgid "Default"
+msgstr "預設"
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:256
+#: functions/czr-base-fmk/czr-base-fmk.php:256
+#: inc/czr-base-fmk/czr-base-fmk.php:256
+msgid "No image selected"
+msgstr "未選擇影像"
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:258
+#: functions/czr-base-fmk/czr-base-fmk.php:258
+#: inc/czr-base-fmk/czr-base-fmk.php:258
+msgid "Choose Image"
+msgstr "選擇影像"
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:260
+#: functions/czr-base-fmk/czr-base-fmk.php:260
+#: inc/czr-base-fmk/czr-base-fmk.php:260
+#, fuzzy
+msgid "Customizing"
+msgstr "立即自訂"
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:453
+#: functions/czr-base-fmk/czr-base-fmk.php:453
+#: inc/czr-base-fmk/czr-base-fmk.php:453
+msgid "ac_set_ajax_czr_tmpl => Security check failed."
+msgstr ""
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:525
+#: functions/czr-base-fmk/czr-base-fmk.php:525
+#: inc/czr-base-fmk/czr-base-fmk.php:525
+#: option-tree/includes/ot-functions-option-types.php:1452
+#: option-tree/includes/ot-functions-option-types.php:2215
+#: option-tree/includes/ot-functions-option-types.php:2380
+msgid "Add New"
+msgstr "新增"
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:530
+#: functions/czr-base-fmk/czr-base-fmk.php:530
+#: inc/czr-base-fmk/czr-base-fmk.php:530
+msgid "Cancel"
+msgstr "取消"
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:530
+#: functions/czr-base-fmk/czr-base-fmk.php:530
+#: inc/czr-base-fmk/czr-base-fmk.php:530
+msgid "Add it"
+msgstr "增加"
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:551
+#: functions/czr-base-fmk/czr-base-fmk.php:551
+#: inc/czr-base-fmk/czr-base-fmk.php:551
+msgid "Are you sure you want to remove : <strong>{{ data.title }} ?</strong>"
+msgstr "您確定要移除：<strong>{{ data.title }} ？</strong>"
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1701
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1901
+#: functions/czr-base-fmk/czr-base-fmk.php:1701
+#: functions/czr-base-fmk/czr-base-fmk.php:1901
+#: inc/czr-base-fmk/czr-base-fmk.php:1701
+#: inc/czr-base-fmk/czr-base-fmk.php:1901
+msgid "ajax_load_available_items => Security check failed."
+msgstr ""
+
+#. translators: %d: ID of a post
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1822
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:2031
+#: functions/czr-base-fmk/czr-base-fmk.php:1822
+#: functions/czr-base-fmk/czr-base-fmk.php:2031
+#: inc/czr-base-fmk/czr-base-fmk.php:1822
+#: inc/czr-base-fmk/czr-base-fmk.php:2031
+msgid "#%d (no title)"
+msgstr ""
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1965
+#: functions/czr-base-fmk/czr-base-fmk.php:1965
+#: inc/czr-base-fmk/czr-base-fmk.php:1965
+msgid "No results found."
+msgstr ""
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:15
+msgid ""
+"Pick a predefined text element to customize or define a custom selector."
+msgstr ""
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:18
+msgid "CSS Selector"
+msgstr ""
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:22
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:168
+msgid "Ex : #my-id > .my-class"
+msgstr ""
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:40
+#: functions/class-utils-settings-map.php:255
+msgid "Font"
+msgstr "字型"
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:41
+msgid "Style"
+msgstr ""
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:42
+#, fuzzy
+msgid "Selector"
+msgstr "選擇圖示"
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:49
+msgid "Languages"
+msgstr ""
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:53
+msgid ""
+"You can narrow down the list of Google fonts available for a particular "
+"language."
+msgstr ""
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:56
+msgid "Font Family"
+msgstr ""
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:63
+msgid "Visit the %1$s to find inspiration."
+msgstr ""
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:66
+msgid "Google Fonts showcase"
+msgstr ""
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:75
+#, fuzzy
+msgid "Font size"
+msgstr "字型"
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:79
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:86
+msgid " ( in pixels, converted in flexible em unit for mobile devices )"
+msgstr ""
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:82
+msgid "Line height"
+msgstr ""
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:89
+msgid "Font weight"
+msgstr ""
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:95
+msgid "Font style"
+msgstr ""
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:101
+msgid "Text alignment"
+msgstr ""
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:107
+msgid "Text decoration"
+msgstr ""
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:113
+msgid "Text transform"
+msgstr ""
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:119
+msgid "Letter spacing"
+msgstr ""
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:125
+msgid "Apply an effect"
+msgstr ""
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:131
+#: functions/czr-modules/body-background/body_bg_module.php:109
+msgid "Color"
+msgstr "色彩"
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:137
+msgid "Color on hover"
+msgstr ""
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:145
+msgid "Override any other style"
+msgstr ""
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:152
+msgid ""
+"When checked, all css customized style properties are flagged with \"!"
+"important.\""
+msgstr ""
+
+#: addons/pro/wfc/back/czr_tmpl/wfc-module-tmpl.php:164
+msgid "Css Selector"
+msgstr ""
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:49
+#, fuzzy
+msgid "Font Customizer"
+msgstr "自訂"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:51
+msgid "Play with beautiful fonts!"
+msgstr ""
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:63
+msgid "Manage your customized text elements."
+msgstr ""
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:64
+msgid "The New WFC"
+msgstr ""
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:76
+msgid ""
+"Check this option to deactivate Font Customizer ( and all related CSS and JS "
+"assets ) on this website."
+msgstr ""
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:107
+#, fuzzy
+msgid "Default website font"
+msgstr "預設站台設定值。"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:108
+#, fuzzy
+msgid "Site title"
+msgstr "幻燈片標題"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:109
+msgid "Site description"
+msgstr ""
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:110
+#, fuzzy
+msgid "Menu items"
+msgstr "頂端選單項目"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:111
+#: functions/init-plugins-compat.php:426
+msgid "Slider title"
+msgstr "幻燈片標題"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:112
+#, fuzzy
+msgid "Slider text"
+msgstr "幻燈片標題"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:113
+#: functions/init-plugins-compat.php:428
+msgid "Slider button"
+msgstr "輪播按鈕"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:114
+#, fuzzy
+msgid "Featured pages title"
+msgstr "精選頁面"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:115
+#, fuzzy
+msgid "Featured pages text"
+msgstr "精選頁面"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:116
+#, fuzzy
+msgid "Featured pages button"
+msgstr "精選頁面"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:117
+#, fuzzy
+msgid "Single post/page titles"
+msgstr "單欄頁面標題"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:118
+#, fuzzy
+msgid "Post list titles"
+msgstr "發表其他文章列表"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:119
+#, fuzzy
+msgid "Archive/Blog titles"
+msgstr "彙整類型標題"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:120
+#, fuzzy
+msgid "Post content / excerpt"
+msgstr "文章／頁面摘要"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:121
+#, fuzzy
+msgid "Post metas"
+msgstr "文章迴響"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:122
+#, fuzzy
+msgid "Links in post/pages"
+msgstr "在文章或頁面列表"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:123
+#, fuzzy
+msgid "H1 headings"
+msgstr "部落格標題"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:124
+#, fuzzy
+msgid "H2 headings"
+msgstr "部落格標題"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:125
+#, fuzzy
+msgid "H3 headings"
+msgstr "部落格標題"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:126
+#, fuzzy
+msgid "H4 headings"
+msgstr "部落格標題"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:127
+#, fuzzy
+msgid "H5 headings"
+msgstr "部落格標題"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:128
+#, fuzzy
+msgid "H6 headings"
+msgstr "部落格標題"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:129
+msgid "Blockquotes"
+msgstr ""
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:130
+#, fuzzy
+msgid "Comments title"
+msgstr "迴響"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:131
+#, fuzzy
+msgid "Comments author"
+msgstr "迴響"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:132
+#, fuzzy
+msgid "Comments content"
+msgstr "其他迴響"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:133
+#, fuzzy
+msgid "Sidebar widget titles"
+msgstr "單欄頁面標題"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:134
+#, fuzzy
+msgid "Links in sidebars"
+msgstr "顯示兩者側邊欄"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:135
+#, fuzzy
+msgid "Widget titles"
+msgstr "幻燈片標題"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:136
+#, fuzzy
+msgid "Footer credits"
+msgstr "頁尾參與名單字樣"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:137
+#, fuzzy
+msgid "Footer credits links"
+msgstr "頁尾參與名單字樣"
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:264
+msgid "All languages"
+msgstr ""
+
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:266
+#: addons/pro/wfc/utils/classes/class_utils_wfc.php:290
+msgid "fonts"
+msgstr ""
+
+#: addons/pro/wfc/wordpress-font-customizer.php:569
+msgid ""
+"The <strong>%s</strong> plugin has been disabled since it is included in "
+"this theme."
+msgstr ""
+
+#: addons/sharrre/ha-sharrre.php:95
+msgid "Display social sharing buttons in your single posts"
+msgstr ""
+
+#: addons/sharrre/ha-sharrre.php:96
+msgid "Social Sharring Bar Settings"
+msgstr ""
+
+#: addons/sharrre/ha-sharrre.php:97
+#, fuzzy
+msgid "Display social sharing buttons in each single articles."
+msgstr "在管理列中顯示說明按鈕"
+
+#: addons/sharrre/ha-sharrre.php:105
+msgid "Make the Share Bar \"sticky\""
+msgstr ""
+
+#: addons/sharrre/ha-sharrre.php:106
+msgid ""
+"Make the social share bar stick to the browser window when scrolling down a "
+"post."
+msgstr ""
+
+#: addons/sharrre/ha-sharrre.php:114
+msgid "Enable Twitter Button"
+msgstr ""
+
+#: addons/sharrre/ha-sharrre.php:117
+msgid ""
+"Since Nov. 2015, Twitter disabled the share counts from its API. If you want "
+"to get the display count anyway, you can create an account for free (as of "
+"Feb. 2016) on [https://opensharecount.com/]. The Hueman Addons plugin is "
+"configured to use opensharecount."
+msgstr ""
+
+#: addons/sharrre/ha-sharrre.php:123
+msgid "Twitter Username (without \"@\")"
+msgstr ""
+
+#: addons/sharrre/ha-sharrre.php:124
+msgid ""
+"Simply enter your username without the \"@\" prefix. Your username will be "
+"added to share-tweets of your posts (optional)."
+msgstr ""
+
+#: addons/sharrre/ha-sharrre.php:133
+msgid "Enable Facebook Button"
+msgstr ""
+
+#: addons/sharrre/ha-sharrre.php:141
+msgid "Enable Pinterest Button"
+msgstr ""
+
+#: addons/sharrre/ha-sharrre.php:149
+msgid "Enable LinkedIn Button"
+msgstr ""
+
+#: addons/sharrre/sharrre-template.php:2
+msgid "Share"
+msgstr ""
+
+#: addons/sharrre/sharrre-template.php:4
+msgid "Tweet"
+msgstr ""
+
+#: addons/sharrre/sharrre-template.php:7
+msgid "Like"
+msgstr ""
+
+#: addons/sharrre/sharrre-template.php:10
+msgid "Pin It"
+msgstr ""
+
+#: addons/sharrre/sharrre-template.php:13
+#, fuzzy
+msgid "Publish on Linked In"
+msgstr "已發表"
+
+#: comments.php:7
+msgid "No Responses"
+msgstr "無回應"
+
+#: comments.php:7
+msgid "1 Response"
+msgstr "1 個回應"
+
+#: comments.php:7
+msgid "% Responses"
+msgstr "% 個回應"
+
+#: comments.php:10 functions/class-utils-settings-map.php:1927
+msgid "Comments"
+msgstr "迴響"
+
+#: comments.php:11
+msgid "Pingbacks"
+msgstr "自動參照通知"
+
+#: contextualizer/ccat-contextualizer.php:545
+#: contextualizer/ccat-contextualizer.php:546
+msgid "Contextual settings"
+msgstr ""
+
+#: contextualizer/ccat-contextualizer.php:615
+msgid "Pick an option and add it to the collection of contextualized settings."
+msgstr ""
+
+#: contextualizer/ccat-contextualizer.php:663
+#: contextualizer/ccat-contextualizer.php:673
+#: contextualizer/ccat-contextualizer.php:698
+#, fuzzy
+msgid "Contextual Value"
+msgstr "十六進位值"
+
+#: contextualizer/ccat-contextualizer.php:1224
+msgid "Contextualizer"
+msgstr ""
+
+#: contextualizer/ccat-contextualizer.php:1229
+msgid "Contextualized Settings"
+msgstr ""
+
+#: contextualizer/ccat-contextualizer.php:1417
+msgid "Back to the site wide option"
+msgstr ""
+
+#: contextualizer/ccat-contextualizer.php:1418
+msgid "Can be contextualized for"
+msgstr ""
+
+#: contextualizer/ccat-contextualizer.php:1419
+msgid "Is contextualized for"
+msgstr ""
+
+#: contextualizer/ccat-contextualizer.php:1420
+#, fuzzy
+msgid "this page"
+msgstr "靜態頁面"
+
+#: contextualizer/ccat-contextualizer.php:1421
+#, fuzzy
+msgid "This setting is already customized for this context"
+msgstr "此選項總是自訂化站台並無法重設。"
+
+#: contextualizer/ccat-contextualizer.php:1422
+msgid "All settings have already been contextualized for this page."
+msgstr ""
+
+#: contextualizer/ccat-contextualizer.php:1423
+#, fuzzy
+msgid "Contextual"
+msgstr "內容"
+
+#: contextualizer/ccat-contextualizer.php:1425
+msgid ""
+"This setting is already contextualized locally. The local customization will "
+"be applied in priority in this context."
+msgstr ""
+
+#: contextualizer/ccat-contextualizer.php:1426
+#, fuzzy
+msgid "When the setting is already customized specifically for"
+msgstr "您可以特定自訂化於"
+
+#: contextualizer/ccat-contextualizer.php:1427
+msgid "Reset"
+msgstr ""
+
+#: contextualizer/ccat-contextualizer.php:1430
+#, fuzzy
+msgid "this local value will be applied in priority."
+msgstr "數值將會套用至"
+
+#: contextualizer/ccat-contextualizer.php:1431
+msgid ""
+"When the setting is contextualized, the contextual value applies in priority."
+msgstr ""
+
+#: contextualizer/ccat-contextualizer.php:1433
+#, fuzzy
+msgid "in context"
+msgstr "所有內容"
+
+#: contextualizer/ccat-contextualizer.php:1438
+#, fuzzy
+msgid "Header Background / Slider"
+msgstr "標頭背景"
+
+#: contextualizer/ccat-contextualizer.php:1439
+#, fuzzy
+msgid "Full Width Header Background / Slider"
+msgstr "標頭背景"
+
+#: contextualizer/ccat-contextualizer.php:1444
+#: functions/czr-modules/body-background/body_bg_module.php:79
+#: functions/czr-modules/body-background/body_bg_module.php:86
+msgid "Inherit"
+msgstr "繼承"
+
+#: contextualizer/ccat-contextualizer.php:1446
+msgid "jump to the contextual settings"
+msgstr ""
+
+#: footer.php:121
+msgid "Designed with the"
+msgstr "設計提供"
+
+#: footer.php:121
+msgid "Hueman theme"
+msgstr "Hueman 主題"
+
+#: footer.php:140 functions/init-front.php:277 sidebar.php:27
+msgid "You can set your social links here from the live customizer"
+msgstr "您可以透過即時自訂在這裡設定您的社交連結"
+
+#: footer.php:142 parts/header-nav-mobile.php:74 sidebar.php:29
+msgid "Customize now"
+msgstr "立即自訂"
+
+#: functions/admin/class-admin-page.php:37
+msgid ""
+"<h2>As per the WordPress themes guidelines (%1$s), all the Hueman theme "
+"options have been moved to the %2$s.</h2>"
+msgstr ""
+"<h2>就像每個 WordPress 主題設定相同 (%1$s)，全部 Hueman 主題的選項已經移動至 "
+"%2$s 。</h2>"
+
+#: functions/admin/class-admin-page.php:38
+#, fuzzy
+msgid "more information here"
+msgstr "點選這裡瞭解詳細資訊"
+
+#: functions/admin/class-admin-page.php:39
+msgid "customizer"
+msgstr "自訂"
+
+#: functions/admin/class-admin-page.php:42
+msgid ""
+"All your previous options have been kept and are available in the customizer "
+"options panel."
+msgstr "所有您先前的選項已被保留並且可用的自訂設定儀表板。"
+
+#: functions/admin/class-admin-page.php:55
+msgid "About Hueman"
+msgstr "關於 Hueman"
+
+#: functions/admin/class-admin-page.php:83
+msgid "Thank you for using %s %s :)"
+msgstr ""
+
+#: functions/admin/class-admin-page.php:99
+msgid "The best way to start is to read the %s."
+msgstr "已最佳的方式開始使用就是閱讀 %s 。"
+
+#: functions/admin/class-admin-page.php:100
+msgid "knowledge base"
+msgstr "知識庫"
+
+#: functions/admin/class-admin-page.php:121
+msgid "Read the documentation"
+msgstr "閱讀文件"
+
+#: functions/admin/class-admin-page.php:126
+msgid "Get help in the free support forum"
+msgstr "在支援討論中獲取協助"
+
+#: functions/admin/class-admin-page.php:143
+msgid "Thank you for using the %s theme for your website."
+msgstr ""
+
+#: functions/admin/class-admin-page.php:144
+msgid ""
+"%s %s has more features, is safer and more stable than ever to help you "
+"designing an awesome webdesign."
+msgstr ""
+
+#: functions/admin/class-admin-page.php:145
+#, fuzzy
+msgid ""
+"For more information about this new version of the theme, %s or check the "
+"changelog below"
+msgstr "瞭解有關這個新版主題的更多訊息， %s 或在下方點選變更紀錄"
+
+#: functions/admin/class-admin-page.php:146
+msgid "read the latest release notes"
+msgstr "閱讀最新的版本資訊"
+
+#: functions/admin/class-admin-page.php:148
+#: functions/admin/class-admin-page.php:277
+msgid "Changelog"
+msgstr "變更紀錄"
+
+#: functions/admin/class-admin-page.php:152
+msgid "The best way to start with %s is to read the %s and visit the %s."
+msgstr "已最佳的方式開始使用 %s 就是閱讀 %s 並瀏覽 %s 。"
+
+#: functions/admin/class-admin-page.php:154
+msgid "getting started guide"
+msgstr "使用者入門導覽"
+
+#: functions/admin/class-admin-page.php:155
+msgid "demo website"
+msgstr "展示網站"
+
+#: functions/admin/class-admin-page.php:169
+msgid ""
+"You are using a child theme of Hueman %1$s : always check the %2$s after "
+"upgrading to see if a function or a template has been deprecated."
+msgstr ""
+"您正在使用 Hueman 的精簡主題 %1$s ：如果在升級後發現功能已被取代，請檢視 "
+"%2$s 。"
+
+#: functions/admin/class-admin-page.php:188
+msgid "Happy user of Hueman?"
+msgstr "Hueman 的滿意使用者？"
+
+#: functions/admin/class-admin-page.php:189
+msgid ""
+"If you are happy with the theme, say it on wordpress.org and give Hueman a "
+"nice review!"
+msgstr "如果您滿意這個主題，請在 wordpress.org 分享並給予 Hueman 不錯的評價！"
+
+#: functions/admin/class-admin-page.php:194
+msgid "Follow us"
+msgstr "關注我們"
+
+#: functions/admin/class-admin-page.php:204
+msgid "Go Hueman Pro"
+msgstr "移至 Hueman 專業版"
+
+#: functions/admin/class-admin-page.php:211
+msgid "Easily take your web design one step further"
+msgstr "輕鬆地將您的網頁更提升一階"
+
+#: functions/admin/class-admin-page.php:213
+msgid ""
+"The Hueman Pro WordPress theme allows anyone to create a beautiful, "
+"professional and mobile friendly website in a few minutes. In the Pro "
+"version, you'll get all features included in the free version plus many "
+"conversion oriented ones, to help you attract and retain more visitors on "
+"your websites."
+msgstr ""
+"WordPress 的 Hueman 專業版主題讓所有人在數分鐘皆可建立美觀、專業並兼具支援行"
+"動裝置的網站。在專業版中，您除了可使用免費版的功能外，還有其他協助您吸引更多"
+"瀏覽者逗留在您的網站中的輔助功能。"
+
+#: functions/admin/class-admin-page.php:216
+msgid "Discover Hueman Pro"
+msgstr "探索 Hueman 專業版"
+
+#: functions/admin/class-admin-page.php:227
+msgid "Go to Dashboard &rarr; Home"
+msgstr "前往控制台 &rarr; 首頁"
+
+#: functions/admin/class-admin-page.php:227
+msgid "Go to Dashboard"
+msgstr "移至控制台"
+
+#: functions/admin/class-admin-page.php:302
+#, fuzzy
+msgid "System Information"
+msgstr "系統資訊"
+
+#: functions/admin/class-admin-page.php:303
+#, fuzzy
+msgid "Please include the following information when posting support requests"
+msgstr "請在發表支援需求時包含下列資訊"
+
+#: functions/admin/class-admin-page.php:304
+msgid ""
+"To copy the system infos, click below then press Ctrl + C (PC) or Cmd + C "
+"(Mac)."
+msgstr ""
+"複製系統資訊，請點選下方並按 Ctrl + C （個人電腦） or Cmd + C （蘋果）。"
+
+#: functions/admin/class-admin-update-notification.php:97
+#, fuzzy
+msgid "Good, you've recently upgraded to"
+msgstr "很棒，您剛才已升級至"
+
+#: functions/admin/class-admin-update-notification.php:99
+msgid "version"
+msgstr "版本"
+
+#: functions/admin/class-admin-update-notification.php:108
+msgid "We'd like to introduce the new features we've been working on."
+msgstr "介紹我們正在一直在努力中的新功能。"
+
+#: functions/admin/class-admin-update-notification.php:110
+msgid "Read the latest release notes"
+msgstr "閱讀最新的版本資訊"
+
+#: functions/admin/class-admin-update-notification.php:113
+#: functions/class-utils-settings-map.php:1981
+msgid "Upgrade to Hueman Pro"
+msgstr "升級至 Hueman 專業版"
+
+#: functions/admin/class-plugin-rec.php:28
+msgid "Activate Nimble Builder Now"
+msgstr ""
+
+#: functions/admin/class-plugin-rec.php:34
+msgid "Install Nimble Builder Now"
+msgstr ""
+
+#: functions/admin/class-plugin-rec.php:46
+#, fuzzy
+msgid "Hueman theme recommends %1$s."
+msgstr "Hueman 主題建議以下附加元件或外掛： %1$s 。"
+
+#: functions/admin/class-plugin-rec.php:49
+#, fuzzy
+msgid "Nimble Page Builder"
+msgstr "單欄頁面標題"
+
+#: functions/admin/class-plugin-rec.php:54
+msgid ""
+"Developers of the Hueman theme have created Nimble Builder, a free, powerful "
+"yet easy-to-use page builder already active on 50K+ WordPress websites."
+msgstr ""
+
+#: functions/admin/class-plugin-rec.php:55
+msgid ""
+"It allows you to drag and drop mobile-ready sections on <i>really</i> any "
+"page of your site, including home, posts, pages, products, archives, 404, "
+"search pages, ..."
+msgstr ""
+
+#: functions/admin/class-plugin-rec.php:57
+msgid ""
+"You can insert simple text zones, but also create %1$s, insert post grids, "
+"column structures, buttons, widget zones, maps, icons, and much more, or use "
+"pre-designed sections with professional %2$s."
+msgstr ""
+
+#: functions/admin/class-plugin-rec.php:58
+#, fuzzy
+msgid "video backgrounds"
+msgstr "標頭背景"
+
+#: functions/admin/class-plugin-rec.php:59
+msgid "parallax effect"
+msgstr ""
+
+#: functions/admin/class-plugin-rec.php:61
+#, fuzzy
+msgid ""
+"The plugin is lightweight and has been designed to integrate seamlessly with "
+"Hueman and any WordPress theme."
+msgstr "專為 WordPress 的 Hueman 主題設計的外掛。輕巧且安全。"
+
+#: functions/admin/class-plugin-rec.php:90
+msgid ""
+"Hueman theme recommends the simple and smart %1$s companion ( free 😍 ) to "
+"help you build pages %2$s."
+msgstr ""
+
+#: functions/admin/class-plugin-rec.php:93
+msgid "Nimble Builder"
+msgstr ""
+
+#: functions/admin/class-plugin-rec.php:96
+msgid "like this"
+msgstr ""
+
+#: functions/class-utils-settings-map.php:165
+msgid "Favicon Upload (supported formats : .ico, .png, .gif)"
+msgstr "上傳網站圖示（支援格式： .ico, .png, .gif）"
+
+#: functions/class-utils-settings-map.php:166
+msgid "FAVICON"
+msgstr "網站圖示"
+
+#: functions/class-utils-settings-map.php:176
+msgid "Display the site title in the header"
+msgstr "標頭中顯示站台標題名稱"
+
+#: functions/class-utils-settings-map.php:179
+msgid "The site title is displayed when there is no logo uploaded"
+msgstr "當未有標誌上傳時顯示站台標題名稱"
+
+#: functions/class-utils-settings-map.php:189
+msgid "Display a logo in the header"
+msgstr "標頭中顯示標誌"
+
+#: functions/class-utils-settings-map.php:194
+#: functions/class-utils-settings-map.php:721
+#: functions/czr-modules/body-background/body_bg_module.php:136
+msgid "here"
+msgstr "這裡"
+
+#: functions/class-utils-settings-map.php:195
+msgid "Set your logo below or"
+msgstr "設定您的標誌低於或"
+
+#: functions/class-utils-settings-map.php:204
+msgid "Use a specific logo for mobile devices"
+msgstr "行動裝置中使用特定標誌"
+
+#: functions/class-utils-settings-map.php:205
+msgid "Logo for mobiles"
+msgstr "行動版標示"
+
+#: functions/class-utils-settings-map.php:217
+#: functions/class-utils-settings-map.php:1656
+#: functions/czr/class-czr-init.php:111
+msgid ""
+"Upload your custom logo image. Supported formats : .jpg, .png, .gif, svg, "
+"svgz"
+msgstr "上傳您的自訂標誌影像。已支援格式： .jpg, .png, .gif, .svg, .svgz"
+
+#: functions/class-utils-settings-map.php:224
+#: functions/class-utils-settings-map.php:798
+#: functions/class-utils-settings-map.php:799
+#: functions/class-utils-settings-map.php:816
+#: functions/class-utils-settings-map.php:1539
+msgid "Desktop devices"
+msgstr "桌面裝置"
+
+#: functions/class-utils-settings-map.php:224
+msgid "Header Logo Image Max-height"
+msgstr "標頭標誌影像最大高度"
+
+#: functions/class-utils-settings-map.php:224
+msgid "(in pixels)"
+msgstr "（以像素為單位）"
+
+#: functions/class-utils-settings-map.php:235
+msgid "Wrap the site title or logo in an H1 tag"
+msgstr ""
+
+#: functions/class-utils-settings-map.php:238
+msgid ""
+"For best SEO results, make sure your pages always include at least one H1 "
+"tag."
+msgstr ""
+
+#: functions/class-utils-settings-map.php:260
+msgid "Select a font for your website"
+msgstr "選擇您要在網站使用的字形"
+
+#: functions/class-utils-settings-map.php:265
+msgid "Set your website default font size in pixels."
+msgstr "設定您的站台預設像素尺寸。"
+
+#: functions/class-utils-settings-map.php:272
+msgid ""
+"This option sets the default font size applied to any text element of your "
+"website, when no font size is already applied."
+msgstr ""
+"沒有字形尺寸被套用時，這個選項會使用預設字形尺寸並套用至所有您站台的所有文字"
+"元件中。"
+
+#: functions/class-utils-settings-map.php:278
+msgid "Website Max-width"
+msgstr "網站最大寬度"
+
+#: functions/class-utils-settings-map.php:284
+msgid ""
+"Max-width of the container. If you use 2 sidebars, your container should be "
+"at least 1200px.<br /><i>Note: For 720px content (default) use "
+"<strong>1380px</strong> for 2 sidebars and <strong>1120px</strong> for 1 "
+"sidebar. If you use a combination of both, try something inbetween.</i>"
+msgstr ""
+"內容總最大寬度。如果您使用兩列式欄位，您的內容總欄位至少要 1200px 。<br /><i>"
+"附註：兩列式欄位中的內容為 720px 預設使用 <strong>1380px</strong> ，一列式欄"
+"位則使用 <strong>1120px</strong> 。如果您結合以上兩種，嘗試設定在兩值間。</i>"
+
+#: functions/class-utils-settings-map.php:289
+msgid "Boxed Layout"
+msgstr "方塊化版外觀"
+
+#: functions/class-utils-settings-map.php:292
+msgid "Use a boxed layout"
+msgstr "使用方塊化版面外觀"
+
+#: functions/class-utils-settings-map.php:297
+msgid "Sidebar Width"
+msgstr "側邊欄寬度"
+
+#: functions/class-utils-settings-map.php:301
+msgid "30px padding for widgets"
+msgstr "小工具與邊框距離為 30px"
+
+#: functions/class-utils-settings-map.php:302
+msgid "20px padding for widgets"
+msgstr "小工具與邊框距離為 20px"
+
+#: functions/class-utils-settings-map.php:304
+msgid "Change left and right sidebars padding"
+msgstr "變更左邊與右邊欄位的邊框距離"
+
+#: functions/class-utils-settings-map.php:313
+msgid "Primary Color"
+msgstr "主要色彩"
+
+#: functions/class-utils-settings-map.php:323
+msgid "Secondary Color"
+msgstr "次要色彩"
+
+#: functions/class-utils-settings-map.php:338
+#: functions/init-after-setup-theme.php:213
+msgid "Set the website background color"
+msgstr "設定網站的背景色彩"
+
+#: functions/class-utils-settings-map.php:352
+msgid "Image Border Radius"
+msgstr "影像邊框半徑"
+
+#: functions/class-utils-settings-map.php:358
+msgid "Give your thumbnails and layout images rounded corners"
+msgstr "將您的縮圖與圖片外觀設為圓角"
+
+#: functions/class-utils-settings-map.php:363
+msgid "Display an icon next to external links"
+msgstr "在外部連結旁顯示圖示"
+
+#: functions/class-utils-settings-map.php:366
+#: functions/class-utils-settings-map.php:376
+msgid ""
+"This will be applied to the links included in post or page content only."
+msgstr "這僅會套用至在文章或頁面內容的連結。"
+
+#: functions/class-utils-settings-map.php:373
+msgid "Open external links in a new tab"
+msgstr "以外部連結開啟新頁"
+
+#: functions/class-utils-settings-map.php:402
+#: functions/init-after-setup-theme.php:173
+msgid "Create and organize your social links"
+msgstr "建立並管理您的社群連結"
+
+#: functions/class-utils-settings-map.php:421
+msgid "Posts Comments"
+msgstr "文章迴響"
+
+#: functions/class-utils-settings-map.php:424
+msgid "Comments on posts"
+msgstr "文章的迴響"
+
+#: functions/class-utils-settings-map.php:430
+msgid "Pages Comments"
+msgstr "頁面迴響"
+
+#: functions/class-utils-settings-map.php:433
+msgid "Comments on pages"
+msgstr "頁面的迴響"
+
+#: functions/class-utils-settings-map.php:466
+msgid "Enable the Mobile Friendly (or Responsive) layout"
+msgstr "啟用友善行動裝置（或回應）外觀"
+
+#: functions/class-utils-settings-map.php:469
+msgid ""
+"Hueman is a mobile friendly WordPress theme out of the box. This means that "
+"it will adapt and render nicely on any devices : desktops, laptops, tablets, "
+"smartphones. <br/>If you uncheck this box, this adaptive (or reponsive) "
+"behaviour will not be working anymore. In most of the cases, you won't need "
+"to disable this option, and it is not recommended."
+msgstr ""
+"點選這個方塊能讓屬於 WordPress 的主題 Hueman 可以針對行動裝更友善。這也代表能"
+"自動調整並正確運算至任何裝置：如桌電、筆電、平板、智慧手機。<br/>如果您取消選"
+"取這個方塊，自動調整（或回應）行為將不會有任何作用。大多數的情況中，您無停用"
+"這個選項，而且也不建議這樣做。"
+
+#: functions/class-utils-settings-map.php:474
+msgid ""
+"Make font sizes flexible. Enable this option to achieve scalable headlines "
+"that fill the width of a parent element."
+msgstr "可使自行尺寸更靈活。啟用此選項可達到符合標題上層元素寬度的文字延展性。"
+
+#: functions/class-utils-settings-map.php:477
+msgid ""
+"This option is good if you want to display a perfect font-size for your "
+"headings on any mobile devices. Note : it might override the css rules "
+"previously set in your custom stylesheet."
+msgstr ""
+"若您想要在行動裝置中完美呈現您的標題字型大小，這個選項將可協助您。附註：這也"
+"許會覆蓋您預先自訂樣式表的 CSS 規則。"
+
+#: functions/class-utils-settings-map.php:490
+msgid "Include images in search results"
+msgstr "搜尋結果包含影像"
+
+#: functions/class-utils-settings-map.php:505
+msgid "Use a minified stylesheet"
+msgstr "使用縮小化樣式表"
+
+#: functions/class-utils-settings-map.php:508
+msgid ""
+"Unchecking this option is not recommended. Minifying css stylesheets "
+"improves performance for your website overall by decreasing the load time."
+msgstr ""
+"不建議取消選取這個選項。最小化 CSS 樣式表可提升載效能並減少載入您的所屬網站的"
+"時間。"
+
+#: functions/class-utils-settings-map.php:513
+msgid "Use Structured Data Markup for your posts"
+msgstr "使用結構化資料標記套用到您的文章"
+
+#: functions/class-utils-settings-map.php:516
+msgid ""
+"\"Structured data markup\" is a standard way to annotate your content so "
+"machines can understand it. Implementing it will help your website rank "
+"higher in search engines."
+msgstr ""
+"「結構化資料標記」可以註記您的內容並讓電腦能耨瞭解的標準方式。採用此方式將會"
+"協助在搜尋引擎中獲得更高的評分。"
+
+#: functions/class-utils-settings-map.php:521
+msgid "Load images on scroll"
+msgstr "滾動時載入影像"
+
+#: functions/class-utils-settings-map.php:524
+msgid ""
+"Check this option to delay the loading of non visible images. Images below "
+"the viewport will be loaded dynamically on scroll. This can really boost "
+"speed performances by reducing the weight of long pages that include many "
+"images."
+msgstr ""
+"勾選此選項以延遲正在載入的影像。在影像下方的檢視區將會滾動時動態載入。可以透"
+"過降低較長且含有大量影像載入的負擔以達到提升呈現結果。"
+
+#: functions/class-utils-settings-map.php:529
+msgid "Mobile device detection"
+msgstr "偵測行動裝置"
+
+#: functions/class-utils-settings-map.php:532
+msgid ""
+"When checked, this option loads a small javascript file ( 30 kb ) to detect "
+"if your site is being displayed by a mobile device like a phone or a tablet. "
+"It is recommended to check this option if you are using a cache plugin."
+msgstr ""
+"勾選後，該功能會載入小量的 javascript 檔案（30 kb）以偵測是否有使用者透過手機"
+"或平板的行動裝置瀏覽您的網站。如果您有使用外掛快取，建議您勾選此選項。"
+
+#: functions/class-utils-settings-map.php:539
+msgid "Defer loading javascript files to avoid render blocking issues"
+msgstr ""
+
+#: functions/class-utils-settings-map.php:554
+msgid "Defer loading Font Awesome icons"
+msgstr ""
+
+#: functions/class-utils-settings-map.php:571
+msgid "Display the \"About Hueman\" page in the \"Appearance\" admin menu"
+msgstr "在管理選單的「外觀」中顯示「關於 Hueman」頁面。"
+
+#: functions/class-utils-settings-map.php:574
+#, fuzzy
+msgid ""
+"This page is intended to provide information about the Hueman theme : "
+"changelog, release note, documentation link. It also display information "
+"about your current install that can be useful if you need to report an issue."
+msgstr ""
+"這個頁面嘗試提供關於 Hueman 主題的資訊：變更紀錄、版本備註、文件連結。如果您"
+"需要回報問題，也會顯示您目前已安裝的有用資訊。"
+
+#: functions/class-utils-settings-map.php:579
+msgid "Display a Help button in the admin bar"
+msgstr "在管理列中顯示說明按鈕"
+
+#: functions/class-utils-settings-map.php:582
+msgid "This button links to the \"About Hueman\" page."
+msgstr "這個按鈕連結至「關於 Hueman」的頁面。"
+
+#: functions/class-utils-settings-map.php:602
+msgid "Display your site's description (tagline)"
+msgstr "顯示您的網站描述（標語）"
+
+#: functions/class-utils-settings-map.php:605
+msgid "The description that appears next to your logo"
+msgstr "描述會顯示在您標誌的右邊"
+
+#: functions/class-utils-settings-map.php:614
+msgid ""
+"Apply your custom background colors in priority for the topbar and the "
+"mobile menu"
+msgstr ""
+
+#: functions/class-utils-settings-map.php:618
+msgid ""
+"This can be used to ensure your background colors are applied when designing "
+"a header with a background image in %1$s"
+msgstr ""
+
+#: functions/class-utils-settings-map.php:627
+msgid "Topbar Background"
+msgstr "至頂列背景"
+
+#: functions/class-utils-settings-map.php:637
+msgid "Header Background"
+msgstr "標頭背景"
+
+#: functions/class-utils-settings-map.php:647
+msgid "Header Menu Background"
+msgstr "標頭選單背景"
+
+#: functions/class-utils-settings-map.php:657
+msgid "Mobile Menu Background"
+msgstr "行動功能表清單背景"
+
+#: functions/class-utils-settings-map.php:667
+msgid "Apply a semi-transparent filter to the topbar and mobile menu on scroll"
+msgstr "在滾動時套用半透明篩選器到至頂列與行動版"
+
+#: functions/class-utils-settings-map.php:682
+msgid "Use a header banner image"
+msgstr "使用標頭橫幅影像"
+
+#: functions/class-utils-settings-map.php:685
+msgid ""
+"Upload a header image (supported formats : .jpg, .png, .gif, svg, svgz). "
+"This will disable header title/logo, site description, header ads widget"
+msgstr ""
+"上傳標頭影像（支援格式： .jpg, .png, .gif, svg, svgz）。這將會停用頁首標題與"
+"標誌、網站描述、頁首廣告小工具"
+
+#: functions/class-utils-settings-map.php:692
+msgid "Image fills 100% of the width"
+msgstr ""
+
+#: functions/class-utils-settings-map.php:699
+msgid "Use the original image height"
+msgstr ""
+
+#: functions/class-utils-settings-map.php:716
+msgid "Display your logo or site title, and tagline on top of the header image"
+msgstr "在標頭影像的上方顯示您的標示或站台名稱與標語"
+
+#: functions/class-utils-settings-map.php:722
+msgid "Set your logo, title and tagline"
+msgstr "設定您的標示、標題與標語"
+
+#: functions/class-utils-settings-map.php:736
+msgid "Display a widget in your header"
+msgstr "在您的標頭顯示小工具"
+
+#: functions/class-utils-settings-map.php:739
+msgid ""
+"Header widget area, perfect to insert advertisements. Note : this feature is "
+"not available when a header image is being displayed."
+msgstr "標頭小工具區，建議插入廣告。附註：頁首影像顯示時，這個功能將無法使用。"
+
+#: functions/class-utils-settings-map.php:744
+msgid "Display the header widget zone on desktop devices"
+msgstr "在桌面裝置上顯示標頭小工具區"
+
+#: functions/class-utils-settings-map.php:747
+msgid ""
+"This will display your widget zone on devices with a width greater than 720 "
+"pixels : laptops and desktops."
+msgstr ""
+"將會使您的小工具區在寬度在小於 720 像素的裝置中顯示：筆記型電腦與桌上型電腦。"
+
+#: functions/class-utils-settings-map.php:752
+msgid "Display the header widget zone on mobile devices"
+msgstr "在行動裝置上顯示標頭小工具區"
+
+#: functions/class-utils-settings-map.php:755
+msgid ""
+"This will display your widget zone on devices with a width smaller than 720 "
+"pixels : tablets, smartphones."
+msgstr "將會使您的小工具區在寬度在小於 720 像素的裝置中顯示：平板、智慧手機。"
+
+#: functions/class-utils-settings-map.php:766
+#: functions/class-utils-settings-map.php:1600
+msgid "You can create menus and set their locations %s."
+msgstr "您能建立選單與設定它們的位置 %s 。"
+
+#: functions/class-utils-settings-map.php:776
+#: functions/class-utils-settings-map.php:1610
+msgid "in the menu panel"
+msgstr "在選單面板"
+
+#: functions/class-utils-settings-map.php:777
+#: functions/class-utils-settings-map.php:1611
+msgid "create/edit menus"
+msgstr "建立與編輯選單"
+
+#: functions/class-utils-settings-map.php:781
+msgid "The Hueman theme supports up to two menu locations in your header."
+msgstr "Hueman 主題在您的標頭中支援至兩個功能表清單。"
+
+#: functions/class-utils-settings-map.php:786
+msgid "Topbar menu"
+msgstr "至頂列功能表清單"
+
+#: functions/class-utils-settings-map.php:786
+#: functions/class-utils-settings-map.php:1626
+msgid "Use a default page menu if no menu has been assigned."
+msgstr "如果未指定任何選單，將使用預設頁面選單。"
+
+#: functions/class-utils-settings-map.php:798
+#: functions/class-utils-settings-map.php:832
+msgid "Menus settings for"
+msgstr "功能表清單設定適用於"
+
+#: functions/class-utils-settings-map.php:799
+#: functions/class-utils-settings-map.php:855
+msgid "top menu visibility on scroll"
+msgstr "滾動時顯示頂端功能表清單"
+
+#: functions/class-utils-settings-map.php:803
+#: functions/class-utils-settings-map.php:859
+msgid "Not visible when scrolling the page"
+msgstr "滾動頁面時不顯示"
+
+#: functions/class-utils-settings-map.php:804
+#: functions/class-utils-settings-map.php:860
+msgid "Reveal on scroll up"
+msgstr "向上滾動時顯示"
+
+#: functions/class-utils-settings-map.php:805
+#: functions/class-utils-settings-map.php:861
+msgid "Always visible"
+msgstr "永遠顯示"
+
+#: functions/class-utils-settings-map.php:816
+#: functions/class-utils-settings-map.php:897
+msgid "display a search field"
+msgstr "顯示搜尋欄"
+
+#: functions/class-utils-settings-map.php:820
+msgid "No search field"
+msgstr "無搜尋欄"
+
+#: functions/class-utils-settings-map.php:821
+msgid "Display a search field in the top menu"
+msgstr "在頂端功能表清單顯示搜尋欄"
+
+#: functions/class-utils-settings-map.php:822
+msgid "Display a search field in the header menu"
+msgstr "在標頭功能表清單中顯示搜尋欄"
+
+#: functions/class-utils-settings-map.php:832
+#: functions/class-utils-settings-map.php:855
+#: functions/class-utils-settings-map.php:886
+#: functions/class-utils-settings-map.php:897
+#: functions/class-utils-settings-map.php:1547
+msgid "Mobile devices"
+msgstr "行動裝置"
+
+#: functions/class-utils-settings-map.php:833
+msgid "Select the menu(s) to use for mobile devices"
+msgstr "選擇要在行動裝置中要使用的功能表清單"
+
+#: functions/class-utils-settings-map.php:837
+msgid "Header Menu"
+msgstr "標頭選單"
+
+#: functions/class-utils-settings-map.php:838
+msgid "Topbar Menu"
+msgstr "至頂列功能表清單"
+
+#: functions/class-utils-settings-map.php:839
+msgid "Specific Mobile Menu"
+msgstr "特定行動裝置版功能表清單"
+
+#: functions/class-utils-settings-map.php:840
+msgid "Topbar and header menus, logo centered"
+msgstr "至頂列與標頭功能表清單、標誌至中"
+
+#: functions/class-utils-settings-map.php:843
+msgid ""
+"When your visitors are using a smartphone or a tablet, the header becomes a "
+"thin bar on top, where the menu is revealed when clicking on the hamburger "
+"button. This option let you choose which menu will be displayed."
+msgstr ""
+"當您的瀏覽者使用智慧手機或平板時，標頭將會成為位於功能表清單的至頂列，透過點"
+"選條列式功能展開。此選項可讓您選擇想要顯示的功能表清單。"
+
+#: functions/class-utils-settings-map.php:844
+msgid ""
+"If the selected menu location has no menu assigned, the theme will try to "
+"assign another menu in this order : topbar, mobile, header."
+msgstr ""
+"若是已選擇的功能表清單尚未指定功能表類型，主題將會嘗試以此順序指定他功能表清"
+"單：至頂列、行動版、標題列。"
+
+#: functions/class-utils-settings-map.php:871
+msgid "Style of the mobile menu button"
+msgstr "行動功能表清單按鈕的樣式"
+
+#: functions/class-utils-settings-map.php:875
+msgid "Animated"
+msgstr "動畫"
+
+#: functions/class-utils-settings-map.php:876
+msgid "Simple"
+msgstr "簡易"
+
+#: functions/class-utils-settings-map.php:886
+#, fuzzy
+msgid "Expand submenus on click"
+msgstr "展開功能表清單"
+
+#: functions/class-utils-settings-map.php:936
+msgid "Columns layout for"
+msgstr "欄位用於"
+
+#: functions/class-utils-settings-map.php:941
+msgid "Global Layout"
+msgstr "共用外觀"
+
+#: functions/class-utils-settings-map.php:945
+msgid "Other layouts will override this option if they are set"
+msgstr "如果設定這個選項，其他的外觀將會被覆蓋"
+
+#: functions/class-utils-settings-map.php:950
+#, fuzzy
+msgid "Force the global layout"
+msgstr "繼承共用外觀"
+
+#: functions/class-utils-settings-map.php:953
+msgid ""
+"The global layout will be applied on every pages, even when a specific "
+"layout is set."
+msgstr ""
+
+#: functions/class-utils-settings-map.php:958 functions/init-front.php:1680
+#: functions/init-sidebars-widgets.php:132
+msgid "Home"
+msgstr "首頁"
+
+#: functions/class-utils-settings-map.php:962
+msgid "[ <strong>is_home</strong> ] Posts homepage layout"
+msgstr "[ <strong>is_home</strong> ] 首頁文章外觀"
+
+#: functions/class-utils-settings-map.php:971
+msgid "Single"
+msgstr "單欄"
+
+#: functions/class-utils-settings-map.php:975
+msgid ""
+"[ <strong>is_single</strong> ] Single post layout - If a post has a set "
+"layout, it will override this."
+msgstr ""
+"[ <strong>is_single</strong> ] 單邊文章外觀 - 若已設定單邊文章外觀，將會被這"
+"個設定覆蓋。"
+
+#: functions/class-utils-settings-map.php:984
+msgid "Archive"
+msgstr "彙整"
+
+#: functions/class-utils-settings-map.php:988
+msgid ""
+"[ <strong>is_archive</strong> ] Category, date, tag and author archive layout"
+msgstr "[ <strong>is_archive</strong> ] 類別、日期、標籤與作者彙整外觀"
+
+#: functions/class-utils-settings-map.php:993
+msgid "Archive - Category"
+msgstr "彙整 - 類別"
+
+#: functions/class-utils-settings-map.php:997
+msgid "[ <strong>is_category</strong> ] Category archive layout"
+msgstr "[ <strong>is_category</strong> ] 類別彙整外觀"
+
+#: functions/class-utils-settings-map.php:1002
+msgid "Search"
+msgstr "搜尋"
+
+#: functions/class-utils-settings-map.php:1006
+msgid "[ <strong>is_search</strong> ] Search page layout"
+msgstr "[ <strong>is_search</strong> ] 搜尋頁面外觀"
+
+#: functions/class-utils-settings-map.php:1011
+msgid "Error 404"
+msgstr "錯誤 404"
+
+#: functions/class-utils-settings-map.php:1015
+msgid "[ <strong>is_404</strong> ] Error 404 page layout"
+msgstr "[ <strong>is_404</strong> ] 錯誤 404 頁面外觀"
+
+#: functions/class-utils-settings-map.php:1020
+msgid "Default Page"
+msgstr "預設頁面"
+
+#: functions/class-utils-settings-map.php:1024
+msgid ""
+"[ <strong>is_page</strong> ] Default page layout - If a page has a set "
+"layout, it will override this."
+msgstr ""
+"[ <strong>is_page</strong> ] 預設頁面外觀 - 若已設定單欄文章外觀，將會被這個"
+"設定覆蓋。"
+
+#: functions/class-utils-settings-map.php:1038
+#: functions/class-utils-settings-map.php:1052
+msgid "Blog Heading"
+msgstr "部落格標題"
+
+#: functions/class-utils-settings-map.php:1039
+msgid "Display a custom heading for your blog."
+msgstr "在您的部落格顯示自訂頁首。"
+
+#: functions/class-utils-settings-map.php:1055
+msgid ""
+"Your blog heading. Html is allowed. Note : write a blank space to hide the "
+"default content."
+msgstr "您的部落格頁首允許使用 HTML 。附註：隱藏預設內容請輸入一個空格。"
+
+#: functions/class-utils-settings-map.php:1065 functions/init-front.php:660
+msgid "Blog"
+msgstr "部落格"
+
+#: functions/class-utils-settings-map.php:1067
+msgid "Blog Sub-Heading"
+msgstr "部落格副標題"
+
+#: functions/class-utils-settings-map.php:1070
+msgid ""
+"Your blog sub-heading. Html is allowed. Note : write a blank space to hide "
+"the default content."
+msgstr "您的部落格子頁首允許使用 HTML 。附註：隱藏預設內容請輸入一個空格。"
+
+#: functions/class-utils-settings-map.php:1082
+msgid "Apply a category filter to your home / blog posts"
+msgstr ""
+
+#: functions/class-utils-settings-map.php:1087
+msgid ""
+"Click inside the above field and pick post categories you want to display. "
+"No filter will be applied when empty."
+msgstr ""
+
+#: functions/class-utils-settings-map.php:1089
+msgid "Learn more about post categories in WordPress"
+msgstr ""
+
+#: functions/class-utils-settings-map.php:1091
+msgid "Note for Pro users:"
+msgstr ""
+
+#: functions/class-utils-settings-map.php:1092
+msgid ""
+"The category filter will not be applied when using the <strong>Classic grid</"
+"strong> post list design if the <strong>infinite scroll</strong> option is "
+"active."
+msgstr ""
+
+#: functions/class-utils-settings-map.php:1103
+msgid "Post List Design"
+msgstr "文章列表設計"
+
+#: functions/class-utils-settings-map.php:1104
+msgid "Display your blog posts as a standard list."
+msgstr "以標準列表顯示您的部落格文章。"
+
+#: functions/class-utils-settings-map.php:1107
+msgid ""
+"While the default blog design is a grid of posts, you can check this option "
+"and display one post per row, whith the thumbnail beside the text."
+msgstr ""
+"當預設部落格設計為以格狀顯示文章，您可以逐一針對每篇顯示文章的縮圖與下方文字"
+"做設定。"
+
+#: functions/class-utils-settings-map.php:1119
+#, fuzzy
+msgid "Display your blog posts in full content"
+msgstr "以標準列表顯示您的部落格文章。"
+
+#: functions/class-utils-settings-map.php:1132
+#, fuzzy
+msgid "Display the post thumbnail"
+msgstr "在縮圖上顯示迴響統計"
+
+#: functions/class-utils-settings-map.php:1146
+#, fuzzy
+msgid "Display featured images in their original dimensions in post lists"
+msgstr "將精選文章也顯示在文章清單中"
+
+#: functions/class-utils-settings-map.php:1149
+msgid ""
+"When checked, the post featured image are displayed in their original size, "
+"instead of the optimized image sizes of the theme. Make sure your original "
+"images are not too large, it could slow down your website."
+msgstr ""
+
+#: functions/class-utils-settings-map.php:1160
+msgid "Post Summary"
+msgstr "文章摘要"
+
+#: functions/class-utils-settings-map.php:1162
+msgid "Excerpt Length"
+msgstr "摘要長度"
+
+#: functions/class-utils-settings-map.php:1168
+msgid ""
+"The WordPress Excerpt is the summary or description of a post. By default, "
+"it will be the first words of a post, but you can write a %s if you want. "
+"You can set the number of words you want to display with this option."
+msgstr ""
+"WordPress 文章摘要是摘記或描敘一篇文章。預設為一篇文章的第一段文字，但如果您"
+"想要也可以寫 %s 。您可以在這個選項設定您想要顯示的字數。"
+
+#: functions/class-utils-settings-map.php:1169
+msgid "custom excerpt"
+msgstr "自訂文章摘要"
+
+#: functions/class-utils-settings-map.php:1181
+#, fuzzy
+msgid "Display the archive type and an icon next to the archive headings"
+msgstr "在外部連結旁顯示圖示"
+
+#: functions/class-utils-settings-map.php:1184
+msgid ""
+"In WordPress, archives are the pages listing posts by category, tag, author "
+"and date."
+msgstr ""
+
+#: functions/class-utils-settings-map.php:1190
+msgid "Featured posts"
+msgstr "精選文章"
+
+#: functions/class-utils-settings-map.php:1192
+msgid "Feature posts on top of your blog"
+msgstr "在您的部落格頂端顯示推薦文章"
+
+#: functions/class-utils-settings-map.php:1195
+msgid ""
+"Check this box to display a selection of posts with a slideshow, on top of "
+"your blog."
+msgstr "點選這個方塊將已選擇的文章以幻燈片方式顯示並在您的部落格中頂端。"
+
+#: functions/class-utils-settings-map.php:1206
+msgid "Select a category to feature"
+msgstr "選擇類別至推薦"
+
+#: functions/class-utils-settings-map.php:1210
+msgid ""
+"If no specific category is selected, the featured posts block will display "
+"your latest post(s) from all categories."
+msgstr ""
+"如果沒有選擇特定的類別，精選文章區塊將會顯示您在所有類別中最後發表的文章。"
+
+#: functions/class-utils-settings-map.php:1222
+msgid "Featured Post Count"
+msgstr "精選文章統計"
+
+#: functions/class-utils-settings-map.php:1228
+msgid ""
+"Max number of featured posts to display. <br /><i>Set to 1 and it will show "
+"it without any slider script</i><br /><i>Set it to 0 to disable</i>"
+msgstr ""
+"顯示精選文章的最大數。 <br /><i>設定 1 將不會有翻頁指令效果</i><br /><i>設定"
+"為 0 將會停用</i>"
+
+#: functions/class-utils-settings-map.php:1239
+msgid "Display the full post content"
+msgstr "顯示完整文章內容"
+
+#: functions/class-utils-settings-map.php:1242
+msgid ""
+"By default, your featured posts display the first words of their content "
+"( the \"excerpt\"). Check this box to display the full content."
+msgstr "預設顯示您的精選文章的第一個字（摘要）。點選這個方塊以顯示完整內容。"
+
+#: functions/class-utils-settings-map.php:1253
+msgid "Animate your featured posts with a slideshow"
+msgstr "以動畫翻頁的方式呈現您的精選文章"
+
+#: functions/class-utils-settings-map.php:1256
+msgid "Enables the automatic animation of the featured posts carousel."
+msgstr "啟用以自動轉盤的動畫方式呈現精選文章。"
+
+#: functions/class-utils-settings-map.php:1268
+msgid "Featured Slideshow Speed"
+msgstr "精選幻燈片速度"
+
+#: functions/class-utils-settings-map.php:1274
+msgid "Speed of the automatic slideshow animation"
+msgstr "幻燈片動畫自動翻轉速度"
+
+#: functions/class-utils-settings-map.php:1285
+msgid "Display the featured posts also in the list of posts"
+msgstr "將精選文章也顯示在文章清單中"
+
+#: functions/class-utils-settings-map.php:1288
+msgid ""
+"If this box is checked, your featured posts will be displayed both in the "
+"featured slider and in the post list below. Usually not recommended because "
+"a given post might appear two times on the same page."
+msgstr ""
+"如果勾選這個方塊，您的精選文章將會同時顯示在熱門幻燈片與文章列表中。通常不建"
+"議，因為同一篇文章可能會在同一頁重複顯示兩次以上。"
+
+#: functions/class-utils-settings-map.php:1299
+#: functions/class-utils-settings-map.php:1410
+#, fuzzy
+msgid "Post Metas"
+msgstr "文章迴響"
+
+#: functions/class-utils-settings-map.php:1308
+#, fuzzy
+msgid "Display post date"
+msgstr "從類別中顯示文章"
+
+#: functions/class-utils-settings-map.php:1316
+#, fuzzy
+msgid "Display author"
+msgstr "顯示兩者側邊欄"
+
+#: functions/class-utils-settings-map.php:1334
+msgid "Single - Author Bio"
+msgstr "單欄 - 作者簡介"
+
+#: functions/class-utils-settings-map.php:1338
+msgid "Display post author description, if it exists"
+msgstr "顯示文章作者描述（若有填寫）"
+
+#: functions/class-utils-settings-map.php:1344
+#: functions/class-utils-settings-map.php:1439
+#, fuzzy
+msgid "Featured image"
+msgstr "精選頁面"
+
+#: functions/class-utils-settings-map.php:1348
+msgid ""
+"Display the post's featured image when it is set. Note that audio and image "
+"post formats automatically display the featured image."
+msgstr ""
+
+#: functions/class-utils-settings-map.php:1354
+msgid "Used cropped image ( max 1320x500 on desktops)"
+msgstr ""
+
+#: functions/class-utils-settings-map.php:1364
+msgid "Single - Related Posts"
+msgstr "單欄 - 相關文章"
+
+#: functions/class-utils-settings-map.php:1370
+msgid "Related by categories"
+msgstr "相關類別"
+
+#: functions/class-utils-settings-map.php:1371
+msgid "Related by tags"
+msgstr "相關標籤"
+
+#: functions/class-utils-settings-map.php:1373
+msgid "Display randomized related articles below the post"
+msgstr "在文章下方隨機顯示相關主題"
+
+#: functions/class-utils-settings-map.php:1379
+msgid "Post navigation"
+msgstr "文章導覽"
+
+#: functions/class-utils-settings-map.php:1380
+msgid "Post navigation in single posts"
+msgstr "在每篇文章顯示導航"
+
+#: functions/class-utils-settings-map.php:1386
+#: option-tree/includes/ot-functions-admin.php:2433
+msgid "Left Sidebar"
+msgstr "左邊欄"
+
+#: functions/class-utils-settings-map.php:1387
+#: option-tree/includes/ot-functions-admin.php:2438
+msgid "Right Sidebar"
+msgstr "右邊欄"
+
+#: functions/class-utils-settings-map.php:1388
+msgid "Below content"
+msgstr "內文下方"
+
+#: functions/class-utils-settings-map.php:1390
+msgid "Display links to the next and previous article"
+msgstr "顯示上一篇與下一篇主題的連結"
+
+#: functions/class-utils-settings-map.php:1400
+#, fuzzy
+msgid "Post Tags"
+msgstr "單欄文章標籤"
+
+#: functions/class-utils-settings-map.php:1401
+#, fuzzy
+msgid "Post tags"
+msgstr "單欄文章標籤"
+
+#: functions/class-utils-settings-map.php:1404
+#, fuzzy
+msgid "Display the post tags after the post content."
+msgstr "顯示完整文章內容"
+
+#: functions/class-utils-settings-map.php:1411
+#, fuzzy
+msgid "Post author name"
+msgstr "發表其他類別列表"
+
+#: functions/class-utils-settings-map.php:1414
+#, fuzzy
+msgid "Display the author name below the post title."
+msgstr "在文章下方隨機顯示相關主題"
+
+#: functions/class-utils-settings-map.php:1420
+msgid "Post date"
+msgstr ""
+
+#: functions/class-utils-settings-map.php:1423
+#, fuzzy
+msgid "Display the date below the post title."
+msgstr "在文章下方隨機顯示相關主題"
+
+#: functions/class-utils-settings-map.php:1442
+#, fuzzy
+msgid "Display the page's featured image when it is set"
+msgstr "即使文章中未設定任何影響也保留精選影像的位置"
+
+#: functions/class-utils-settings-map.php:1447
+msgid "Used cropped image (max 1320x500 on desktops)"
+msgstr ""
+
+#: functions/class-utils-settings-map.php:1464
+msgid "Thumbnail Placeholder"
+msgstr "預留縮圖"
+
+#: functions/class-utils-settings-map.php:1467
+msgid "Display featured image placeholders if no featured image is set"
+msgstr "即使文章中未設定任何影響也保留精選影像的位置"
+
+#: functions/class-utils-settings-map.php:1472
+msgid "Thumbnail Comment Count"
+msgstr "縮圖迴響統計"
+
+#: functions/class-utils-settings-map.php:1475
+msgid "Display comment count on thumbnails"
+msgstr "在縮圖上顯示迴響統計"
+
+#: functions/class-utils-settings-map.php:1500
+#: functions/init-plugins-compat.php:442
+msgid "Sidebar Top Boxes"
+msgstr "側邊欄頂端區域"
+
+#: functions/class-utils-settings-map.php:1503
+msgid "Display boxes at the top of the sidebars"
+msgstr "在側邊欄上方顯示區域"
+
+#: functions/class-utils-settings-map.php:1508
+msgid "Follow:"
+msgstr "跟隨："
+
+#: functions/class-utils-settings-map.php:1509
+#, fuzzy
+msgid "Primary sidebar title"
+msgstr "隱藏主要側邊欄"
+
+#: functions/class-utils-settings-map.php:1514
+#: functions/class-utils-settings-map.php:1524
+#, fuzzy
+msgid "Html is allowed."
+msgstr "附註：允許使用 HTML 。"
+
+#: functions/class-utils-settings-map.php:1518
+msgid "More"
+msgstr "更多"
+
+#: functions/class-utils-settings-map.php:1519
+#, fuzzy
+msgid "Secondary sidebar title"
+msgstr "隱藏次要側邊欄"
+
+#: functions/class-utils-settings-map.php:1529
+#, fuzzy
+msgid "Sidebars background color"
+msgstr "設定網站的背景色彩"
+
+#: functions/class-utils-settings-map.php:1539
+#: functions/class-utils-settings-map.php:1547
+msgid "make sidebars sticky on scroll"
+msgstr "讓側邊欄跟隨滾動"
+
+#: functions/class-utils-settings-map.php:1542
+msgid ""
+"Glues your website's sidebars on top of the page, making them permanently "
+"visible when scrolling up and down. Useful when a sidebar is too tall or too "
+"short compared to the rest of the content."
+msgstr ""
+"讓側邊欄黏在頁面頂端，使它能在上下滾動頁面時永遠可被看見。當側邊欄位太長或太"
+"短於其他內容時，則會很實用。"
+
+#: functions/class-utils-settings-map.php:1550
+msgid ""
+"Decide if your sidebars should be sticky on tablets and smartphones devices."
+msgstr "決定是否讓您的側邊欄跟隨平板或智慧型行動裝置。"
+
+#: functions/class-utils-settings-map.php:1555
+msgid "Mobile Sidebar Content"
+msgstr "行動裝置側邊欄位內文"
+
+#: functions/class-utils-settings-map.php:1560
+msgid "Display both sidebars"
+msgstr "顯示兩者側邊欄"
+
+#: functions/class-utils-settings-map.php:1561
+msgid "Hide primary sidebar"
+msgstr "隱藏主要側邊欄"
+
+#: functions/class-utils-settings-map.php:1562
+msgid "Hide secondary sidebar"
+msgstr "隱藏次要側邊欄"
+
+#: functions/class-utils-settings-map.php:1563
+msgid "Hide both sidebars"
+msgstr "隱藏兩者的側邊欄"
+
+#: functions/class-utils-settings-map.php:1565
+#, fuzzy
+msgid ""
+"Control how the sidebar content is displayed on smartphone mobile devices "
+"(480px)."
+msgstr ""
+"控制側邊欄如何在行動裝置（320px）中呈現。附註：側邊欄在行動裝置中會顯示在內容"
+"的下方。"
+
+#: functions/class-utils-settings-map.php:1574
+msgid ""
+"Display the primary sidebar above the content column on smartphone mobile "
+"devices (480px)."
+msgstr ""
+
+#: functions/class-utils-settings-map.php:1579
+#, fuzzy
+msgid "Display social links in the primary sidebar"
+msgstr "標頭中顯示標誌"
+
+#: functions/class-utils-settings-map.php:1618
+msgid "Display a full width widget area in your footer"
+msgstr "在頁尾顯示全版寬的小工具區"
+
+#: functions/class-utils-settings-map.php:1621
+msgid ""
+"This zone is located before the other footer widgets and takes 100% of the "
+"width. Very appropriate to display a Google Map or an advertisement banner."
+msgstr ""
+"這個區域位於頁尾小工具前並使用 100% 的寬度。非常適合作為 Google 地圖或廣告橫"
+"幅的使用。"
+
+#: functions/class-utils-settings-map.php:1635
+msgid "Select columns to enable footer widgets"
+msgstr "設定欄位以啟用頁尾小工具"
+
+#: functions/class-utils-settings-map.php:1640
+msgid "Recommended number of columns : 3"
+msgstr "建議欄位數：3"
+
+#: functions/class-utils-settings-map.php:1644
+msgid "Upload your custom logo image"
+msgstr "上傳您的自訂標示影像"
+
+#: functions/class-utils-settings-map.php:1661
+msgid "Footer Background"
+msgstr "頁尾背景"
+
+#: functions/class-utils-settings-map.php:1671
+#: functions/czr/czr-resources.php:38
+msgid "All Rights Reserved."
+msgstr "版權所有。"
+
+#: functions/class-utils-settings-map.php:1672
+msgid "Replace the footer copyright text"
+msgstr "取代在頁尾的版權宣告字樣"
+
+#: functions/class-utils-settings-map.php:1677
+msgid ""
+"Note : Html is allowed. The following template tags can be used : {{year}}, "
+"{{site_title}}, {{home_url}}."
+msgstr ""
+
+#: functions/class-utils-settings-map.php:1682
+msgid "Footer credit text"
+msgstr "頁尾參與名單字樣"
+
+#: functions/class-utils-settings-map.php:1691
+#, fuzzy
+msgid "Display social links in the footer"
+msgstr "標頭中顯示標誌"
+
+#: functions/class-utils-settings-map.php:1722
+msgid "Web Page Design"
+msgstr "網頁設計"
+
+#: functions/class-utils-settings-map.php:1723
+msgid "Title, Logo, Fonts, Colors, Background, Socials, Links"
+msgstr "標題、標誌、字型、色彩、背景、社群、連結"
+
+#: functions/class-utils-settings-map.php:1724
+msgid "General settings for the Hueman theme : design, comments, mobile, ..."
+msgstr "Hueman 主題的一般設定：設計、迴響、行動裝置、…"
+
+#: functions/class-utils-settings-map.php:1730
+msgid "Header Design"
+msgstr "標頭設計"
+
+#: functions/class-utils-settings-map.php:1731
+msgid "Header Image, Menu, Widget"
+msgstr "標頭影像、功能表清單、小工具"
+
+#: functions/class-utils-settings-map.php:1732
+msgid "Header settings for the Hueman theme."
+msgstr "Hueman 主題的標頭設定。"
+
+#: functions/class-utils-settings-map.php:1738
+msgid "Main Body Design"
+msgstr "主要主體設計"
+
+#: functions/class-utils-settings-map.php:1739
+msgid "Layout, Sidebars, Blog Posts, Thumbnails"
+msgstr "外觀、側邊欄、部落格文章、縮圖"
+
+#: functions/class-utils-settings-map.php:1740
+msgid "Content settings for the Hueman theme."
+msgstr "Hueman 主題的內文設定。"
+
+#: functions/class-utils-settings-map.php:1752
+msgid "Footer Design"
+msgstr "頁尾設計"
+
+#: functions/class-utils-settings-map.php:1753
+msgid "Logo, Layout, Menu"
+msgstr "標誌、外觀、功能表清單"
+
+#: functions/class-utils-settings-map.php:1754
+msgid "Footer settings for the Hueman theme."
+msgstr "Hueman 主題的頁尾設定。"
+
+#: functions/class-utils-settings-map.php:1760
+msgid "Advanced options"
+msgstr "進階選項"
+
+#: functions/class-utils-settings-map.php:1761
+msgid "Performances, SEO, CSS, Scroll"
+msgstr "效能、搜尋引擎最佳化、CSS、捲動"
+
+#: functions/class-utils-settings-map.php:1762
+msgid "Advanced settings for the Hueman theme."
+msgstr "Hueman 主題的進階選項。"
+
+#: functions/class-utils-settings-map.php:1844
+msgid "Site Identity : Logo, Title, Tagline and Site Icon"
+msgstr "網站識別：標誌、標題、標語與網站圖示"
+
+#: functions/class-utils-settings-map.php:1854
+msgid "General Design Options : Font, Colors, ..."
+msgstr "一般設定選項：字形、色彩、…"
+
+#: functions/class-utils-settings-map.php:1871
+msgid "Header Design : colors and others"
+msgstr "標頭設計：色彩與其他設定"
+
+#: functions/class-utils-settings-map.php:1876
+msgid "Header Image"
+msgstr "標頭圖片"
+
+#: functions/class-utils-settings-map.php:1881
+msgid "Header Advertisement Widget"
+msgstr "標頭廣告小工具"
+
+#: functions/class-utils-settings-map.php:1886
+msgid "Header Menus : mobile settings, scroll behaviour, search button"
+msgstr "標頭功能表清單：行動裝置設定、滾動呈現、搜尋按鍵"
+
+#: functions/class-utils-settings-map.php:1895
+msgid "Column layout for the main content"
+msgstr "主要內容的欄位外觀"
+
+#: functions/class-utils-settings-map.php:1900
+msgid "Sidebars : Design and Mobile Settings"
+msgstr "側邊欄：設計與行動裝置設定"
+
+#: functions/class-utils-settings-map.php:1905
+msgid "Post Lists Design and Content : Blog, Archives, Search Results"
+msgstr "文章清單設計與內容：部落格、彙整、搜尋結果"
+
+#: functions/class-utils-settings-map.php:1911
+#, fuzzy
+msgid "Single Pages Settings"
+msgstr "特定文章設定"
+
+#: functions/class-utils-settings-map.php:1916
+msgid "Single Posts Settings"
+msgstr "特定文章設定"
+
+#: functions/class-utils-settings-map.php:1922
+msgid "Thumbnails Settings"
+msgstr "縮圖設定"
+
+#: functions/class-utils-settings-map.php:1937
+msgid "Footer Design : Logo, layout, ..."
+msgstr "頁為設計：標誌、外觀、…"
+
+#: functions/class-utils-settings-map.php:1954
+msgid "Mobile Devices"
+msgstr "行動裝置"
+
+#: functions/class-utils-settings-map.php:1959
+#: functions/init-sidebars-widgets.php:138
+msgid "Search Results"
+msgstr "搜尋結果"
+
+#: functions/class-utils-settings-map.php:1964
+msgid "Performances and SEO"
+msgstr "效能與搜尋引擎最佳化"
+
+#: functions/class-utils-settings-map.php:1969
+msgid "Hueman Admin Settings"
+msgstr "Hueman 管理設定"
+
+#: functions/class-utils-settings-map.php:1982
+msgid "Go Pro"
+msgstr "至專業版"
+
+#: functions/class-utils-settings-map.php:2009
+msgid "Choose one "
+msgstr "請選擇"
+
+#: functions/class-utils-settings-map.php:2028
+#: functions/class-utils-settings-map.php:2078
+msgid "1 Column"
+msgstr "1 欄"
+
+#: functions/class-utils-settings-map.php:2032
+msgid "2 Columns - Content Left"
+msgstr "2 欄 - 左邊顯示內容"
+
+#: functions/class-utils-settings-map.php:2036
+msgid "2 Columns - Content Right"
+msgstr "2 欄 - 右邊顯示內容"
+
+#: functions/class-utils-settings-map.php:2040
+msgid "3 Columns - Content Middle"
+msgstr "3 欄 - 中間顯示內容"
+
+#: functions/class-utils-settings-map.php:2044
+msgid "3 Columns - Content Left"
+msgstr "3 欄 - 左邊顯示內容"
+
+#: functions/class-utils-settings-map.php:2048
+msgid "3 Columns - Content Right"
+msgstr "3 欄 - 右邊顯示內容"
+
+#: functions/class-utils-settings-map.php:2056
+msgid "Inherit Global Layout"
+msgstr "繼承共用外觀"
+
+#: functions/class-utils-settings-map.php:2082
+msgid "2 Columns"
+msgstr "2 欄"
+
+#: functions/class-utils-settings-map.php:2086
+msgid "3 Columns"
+msgstr "3 欄"
+
+#: functions/class-utils-settings-map.php:2090
+msgid "4 Columns"
+msgstr "4 欄"
+
+#: functions/class-utils-settings-map.php:2115
+#: option-tree/includes/ot-functions-option-types.php:2147
+msgid "No Sidebars"
+msgstr "無側邊欄"
+
+#: functions/class-utils-settings-map.php:2120
+#: option-tree/includes/ot-functions-option-types.php:2142
+msgid "Choose Sidebar"
+msgstr "選擇側邊欄"
+
+#: functions/class-utils.php:215
+msgid "Page %s"
+msgstr "頁數 %s"
+
+#: functions/czr/class-czr-init.php:100
+msgid "Custom Header Logo"
+msgstr "自訂標頭標誌"
+
+#: functions/czr/class-czr-init.php:282
+msgid "Front Page Content"
+msgstr "前台頁面內容"
+
+#: functions/czr/class-czr-init.php:291
+msgid "Don't show any posts or page"
+msgstr "不顯示任何文章與頁面"
+
+#: functions/czr/class-czr-init.php:292
+msgid "Your latest posts"
+msgstr "您最後的文章"
+
+#: functions/czr/class-czr-init.php:293
+msgid "A static page"
+msgstr "靜態頁面"
+
+#: functions/czr/class-czr-init.php:408
+msgid "SITE ICON"
+msgstr "網站圖示"
+
+#: functions/czr/class-czr-init.php:465
+#: functions/init-after-setup-theme.php:252
+msgid "Create And Order Widget Areas"
+msgstr "建立並排序小工具區域"
+
+#: functions/czr/class-czr-init.php:469 functions/czr/class-czr-init.php:500
+#: functions/init-after-setup-theme.php:254
+msgid ""
+"You must save changes for the new areas to appear below. <br /><i>Warning: "
+"Make sure each area has a unique ID.</i>"
+msgstr ""
+"您必須儲存下方區域顯示新區域的變更<br /><i>警告：請確認每個區域都有唯一識別"
+"碼。</i>"
+
+#: functions/czr/class-czr-init.php:496
+msgid "Create And Manage Widget Areas"
+msgstr "建立並管理小工具區域"
+
+#: functions/czr/class-czr-init.php:507
+msgid "Create and manage widget zones"
+msgstr "建立與管理小工具區"
+
+#: functions/czr/class-czr-init.php:528
+msgid "Dynamic Sidebars and Widgets"
+msgstr "動態側邊欄與小工具"
+
+#: functions/czr/controls/class-upload-control.php:67
+#: option-tree/includes/ot-functions-admin.php:1641
+msgid "Upload"
+msgstr "上傳"
+
+#: functions/czr/czr-resources.php:64
+msgid "Jump to the %s."
+msgstr "跳至 %s 。"
+
+#: functions/czr/czr-resources.php:67
+msgid "blog design panel"
+msgstr "部落格設計面板"
+
+#: functions/czr/czr-resources.php:70
+msgid ""
+"The menu currently displayed in your header is a default page menu, you can "
+"disable it in the %s."
+msgstr "功能表清單目前顯示在您的預設功能表頁面中的標頭列，您可以在 %s 停用它。"
+
+#: functions/czr/czr-resources.php:73
+msgid "Header Panel"
+msgstr "標頭列控制台"
+
+#: functions/czr/czr-resources.php:165
+msgid ""
+"Your favicon is currently handled with an old method and will not be "
+"properly displayed on all devices. You might consider to re-upload your "
+"favicon with the new control below."
+msgstr ""
+"您的網站圖示目前正以舊版的的方式呈現，且將不會正常顯示在所有裝置上。您可能需"
+"要考慮在新版的呈現方式中重新上傳您的網站圖示。"
+
+#: functions/czr/czr-resources.php:166
+#: functions/czr-modules/widget-zones/widget_zones_module.php:86
+#: functions/czr-modules/widget-zones/widget_zones_module.php:211
+#: functions/czr-modules/widget-zones/widget_zones_module.php:252
+msgid "Location(s)"
+msgstr "位置"
+
+#: functions/czr/czr-resources.php:167
+#: functions/czr-modules/widget-zones/widget_zones_module.php:87
+#: functions/czr-modules/widget-zones/widget_zones_module.php:259
+msgid "Context(s)"
+msgstr "內容"
+
+#: functions/czr/czr-resources.php:169
+#: functions/czr-modules/social-links/social_links_module.php:77
+#: inc/czr-modules/social-links/social_links_module.php:77
+msgid "Rss"
+msgstr "RSS"
+
+#: functions/czr/czr-resources.php:170
+#: functions/czr-modules/social-links/social_links_module.php:78
+#: inc/czr-modules/social-links/social_links_module.php:78
+msgid "Select a social icon"
+msgstr "選擇社群圖示"
+
+#: functions/czr/czr-resources.php:171
+#: functions/czr-modules/social-links/social_links_module.php:79
+#: inc/czr-modules/social-links/social_links_module.php:79
+msgid "Follow us on"
+msgstr "跟隨我們"
+
+#: functions/czr/czr-resources.php:173
+#: functions/czr-modules/social-links/social_links_module.php:81
+#: inc/czr-modules/social-links/social_links_module.php:81
+msgid "New Social Link created ! Scroll down to edit it."
+msgstr "已建立新的社群連結！向下捲動開始編輯。"
+
+#: functions/czr/czr-resources.php:175
+msgid "Select repeat property"
+msgstr "選擇重複內容"
+
+#: functions/czr/czr-resources.php:176
+msgid "Select attachment property"
+msgstr "選擇附件內容"
+
+#: functions/czr/czr-resources.php:177
+msgid "Select position property"
+msgstr "選擇位置內容"
+
+#: functions/czr/czr-resources.php:191
+msgid "Reset the current customizations for"
+msgstr "重設目前自訂的"
+
+#: functions/czr/czr-resources.php:192
+msgid "Reset the theme options published sitewide"
+msgstr "重設主題選項並發佈到全站台"
+
+#: functions/czr/czr-resources.php:193
+msgid "Reset your website published options for"
+msgstr "重設您已發佈的站台於"
+
+#: functions/czr/czr-resources.php:194
+msgid ""
+"Please confirm that you want to reset your current ( not published ) "
+"customizations for"
+msgstr "請確認您想要重設您目前（尚未發佈）自訂於"
+
+#: functions/czr/czr-resources.php:195
+msgid "Your customizations have been reset for"
+msgstr "您的自訂已重設於"
+
+#: functions/czr/czr-resources.php:196
+msgid ""
+"Please confirm that you want to reset your sitewide published "
+"customizations. Note : this will not reset the customizations made in other "
+"option scopes"
+msgstr ""
+"請確認您想要重設您的站台已發佈的自訂。附註：這個動作將無法在其他選項範圍中被"
+"重設"
+
+#: functions/czr/czr-resources.php:197
+msgid "Please confirm that you want to reset your published customizations for"
+msgstr "請確認您想要重設您已發佈的重設於"
+
+#: functions/czr/czr-resources.php:198
+msgid "Your published customizations have been reset for"
+msgstr "您已發佈的自訂已重設於"
+
+#: functions/czr/czr-resources.php:201
+msgid "Reset your customized ( and published ) value"
+msgstr "重設您的自訂（並已發佈）數值"
+
+#: functions/czr/czr-resources.php:202 functions/czr/czr-resources.php:204
+msgid "Reset your customized ( but not yet published ) value"
+msgstr "重設您的自訂（但尚未發佈）數值"
+
+#: functions/czr/czr-resources.php:203
+msgid "Not customized yet, nothing to reset"
+msgstr "尚未自訂化，無須重設"
+
+#: functions/czr/czr-resources.php:205
+msgid ""
+"Please confirm that you want to reset your current customizations for this "
+"option"
+msgstr "請確認您想要重設此選項到目前自訂的"
+
+#: functions/czr/czr-resources.php:206
+msgid ""
+"Please confirm that you want to reset your current customizations for this "
+"option in"
+msgstr "請確認您想要重設此選項到目前自訂於"
+
+#: functions/czr/czr-resources.php:207
+msgid "sitewide"
+msgstr "全站台"
+
+#: functions/czr/czr-resources.php:208
+msgid "Your customizations have been reset"
+msgstr "您的自訂選項已重設"
+
+#: functions/czr/czr-resources.php:209
+msgid "This WordPress setting can not be reset sitewide"
+msgstr "這個 WordPress 設定無法重設站台"
+
+#: functions/czr/czr-resources.php:210
+msgid "Please confirm that you want to reset this option"
+msgstr "請確認您想要重設此選項"
+
+#: functions/czr/czr-resources.php:211
+msgid "Please confirm that you want to reset this option in"
+msgstr "請確認您想要重設此選項於"
+
+#: functions/czr/czr-resources.php:212
+msgid "The option has been reset"
+msgstr "此選項已重設"
+
+#: functions/czr/czr-resources.php:215
+msgid "Display informations about the scope of this option."
+msgstr "顯示關於此選項範圍的資訊。"
+
+#: functions/czr/czr-resources.php:216
+msgid "This option is always customized sitewide and cannot be reset."
+msgstr "此選項總是自訂化站台並無法重設。"
+
+#: functions/czr/czr-resources.php:217
+msgid "Customized. Will be applied sitewide once published."
+msgstr "已自訂化。將會套用站台一次發佈。"
+
+#: functions/czr/czr-resources.php:218
+msgid "Customized. Will be applied to"
+msgstr "已自訂化。將會套用至"
+
+#: functions/czr/czr-resources.php:219
+msgid "once published."
+msgstr "一次發佈。"
+
+#: functions/czr/czr-resources.php:220
+msgid "Customized and applied sitewide."
+msgstr "自訂化並套用至站台。"
+
+#: functions/czr/czr-resources.php:221
+msgid "Customized and applied to"
+msgstr "自訂化並套用至"
+
+#: functions/czr/czr-resources.php:222
+msgid "Default website value applied sitewide."
+msgstr "預設站台數值並套用。"
+
+#: functions/czr/czr-resources.php:223
+msgid "Default sitewide value."
+msgstr "預設站台設定值。"
+
+#: functions/czr/czr-resources.php:224 functions/czr/czr-resources.php:226
+msgid "You can customize this specifically for"
+msgstr "您可以特定自訂化於"
+
+#: functions/czr/czr-resources.php:225
+msgid "Currently inherited from"
+msgstr "目前已繼承自"
+
+#: functions/czr/czr-resources.php:227
+msgid "The value currently applied to"
+msgstr "數值目前已套用至"
+
+#: functions/czr/czr-resources.php:228
+msgid "The value that will be applied to"
+msgstr "數值將會套用至"
+
+#: functions/czr/czr-resources.php:229
+msgid "is set in"
+msgstr "已設定於"
+
+#: functions/czr/czr-resources.php:230
+msgid "is customized in"
+msgstr "已自訂化於"
+
+#: functions/czr/czr-resources.php:233
+#, fuzzy
+msgid "is always customized sitewide."
+msgstr "此選項總是自訂化站台並無法重設。"
+
+#: functions/czr/czr-resources.php:234
+msgid "Menus are created sitewide."
+msgstr "已建立所有站台的功能表。"
+
+#: functions/czr/czr-resources.php:235
+msgid "Widgets are created sitewide."
+msgstr "已建立所有站台的小工具。"
+
+#: functions/czr/czr-resources.php:236
+#: option-tree/includes/ot-functions-admin.php:3073
+msgid "and"
+msgstr "與"
+
+#: functions/czr/czr-resources.php:237
+msgid "Switch to scope"
+msgstr "切換到範圍"
+
+#: functions/czr/czr-resources.php:238
+msgid "In this context :"
+msgstr "在此內容："
+
+#: functions/czr/czr-resources.php:239
+msgid "inherits from"
+msgstr "繼承來源"
+
+#: functions/czr/czr-resources.php:240
+msgid "overridden by"
+msgstr "複寫由"
+
+#: functions/czr/czr-resources.php:243
+msgid "There was a problem when trying to load the customizer."
+msgstr "嘗試載入自訂化時發生問題。"
+
+#: functions/czr/czr-resources.php:244
+msgid "Please refer to"
+msgstr "請參考"
+
+#: functions/czr/czr-resources.php:245
+msgid "this documentation page"
+msgstr "此文件頁面"
+
+#: functions/czr/czr-resources.php:246
+msgid "to understand how to fix the problem."
+msgstr "排除如何修復問題。"
+
+#: functions/czr/czr-resources.php:249
+msgid ""
+"The customizations made site wide are inherited by all other levels of "
+"customization."
+msgstr "站台自訂透過其他級別的自訂繼承而來。"
+
+#: functions/czr/czr-resources.php:250
+msgid "The current context"
+msgstr "目前的內容"
+
+#: functions/czr/czr-resources.php:251 functions/czr/czr-resources.php:254
+msgid "can be customized more specifically at the following level"
+msgstr "可以在此級別中自訂更多獨特設定"
+
+#: functions/czr/czr-resources.php:252
+msgid "The current customizations will be applied to"
+msgstr "目前的自訂將會套用至"
+
+#: functions/czr/czr-resources.php:253 functions/czr/czr-resources.php:256
+msgid "The options not customized at this level will inherit their value from"
+msgstr "無法在此繼承的級別數值中自訂選項於"
+
+#: functions/czr/czr-resources.php:255
+msgid "can be customized with a specific set of options."
+msgstr "透過設定特定的選項自訂。"
+
+#: functions/czr/panels/class-panels.php:63
+msgid "Press return or enter to open this panel"
+msgstr "請按 return 鍵或 Enter 鍵開啟此控制台"
+
+#: functions/czr/sections/class-widgets-section.php:36
+msgid "Press return or enter to open this section"
+msgstr "按下確認鍵或輸入鍵展開區段清單"
+
+#: functions/czr-modules/body-background/body_bg_module.php:75
+msgid "No Repeat"
+msgstr "不重複"
+
+#: functions/czr-modules/body-background/body_bg_module.php:76
+msgid "Repeat All"
+msgstr "全部重複"
+
+#: functions/czr-modules/body-background/body_bg_module.php:77
+msgid "Repeat Horizontally"
+msgstr "水平重複"
+
+#: functions/czr-modules/body-background/body_bg_module.php:78
+msgid "Repeat Vertically"
+msgstr "垂直重複"
+
+#: functions/czr-modules/body-background/body_bg_module.php:84
+msgid "Fixed"
+msgstr "固定"
+
+#: functions/czr-modules/body-background/body_bg_module.php:85
+msgid "Scroll"
+msgstr "捲動"
+
+#: functions/czr-modules/body-background/body_bg_module.php:91
+msgid "Left Top"
+msgstr "左上"
+
+#: functions/czr-modules/body-background/body_bg_module.php:92
+msgid "Left Center"
+msgstr "左中"
+
+#: functions/czr-modules/body-background/body_bg_module.php:93
+msgid "Left Bottom"
+msgstr "左下"
+
+#: functions/czr-modules/body-background/body_bg_module.php:94
+msgid "Center Top"
+msgstr "中上"
+
+#: functions/czr-modules/body-background/body_bg_module.php:95
+msgid "Center Center"
+msgstr "正中"
+
+#: functions/czr-modules/body-background/body_bg_module.php:96
+msgid "Center Bottom"
+msgstr "中下"
+
+#: functions/czr-modules/body-background/body_bg_module.php:97
+msgid "Right Top"
+msgstr "右上"
+
+#: functions/czr-modules/body-background/body_bg_module.php:98
+msgid "Right Center"
+msgstr "右中"
+
+#: functions/czr-modules/body-background/body_bg_module.php:99
+msgid "Right Bottom"
+msgstr "右下"
+
+#: functions/czr-modules/body-background/body_bg_module.php:115
+msgid "Background Image"
+msgstr "背景影像"
+
+#: functions/czr-modules/body-background/body_bg_module.php:119
+msgid "Repeat"
+msgstr "重複"
+
+#: functions/czr-modules/body-background/body_bg_module.php:123
+msgid "Background attachment"
+msgstr "背景附件"
+
+#: functions/czr-modules/body-background/body_bg_module.php:127
+msgid "Background position"
+msgstr "背景位置"
+
+#: functions/czr-modules/body-background/body_bg_module.php:131
+msgid "Background size"
+msgstr "背景大小"
+
+#: functions/czr-modules/body-background/body_bg_module.php:133
+msgid ""
+"The background-size CSS property specifies the size of the background "
+"images. The size of the image can be fully constrained or only partially in "
+"order to preserve its intrinsic ratio."
+msgstr ""
+"背景大小（ background-size ） CSS 屬性中指定背景影像的大小。影像大小能完全被"
+"限制或僅保留目前既有的部分。"
+
+#: functions/czr-modules/body-background/body_bg_module.php:135
+msgid "Learn more"
+msgstr "瞭解更多"
+
+#: functions/czr-modules/social-links/social_links_module.php:92
+#: inc/czr-modules/social-links/social_links_module.php:92
+msgid "Select an icon"
+msgstr "選擇圖示"
+
+#: functions/czr-modules/social-links/social_links_module.php:96
+#: inc/czr-modules/social-links/social_links_module.php:96
+msgid "Social link url"
+msgstr "社交連結網址"
+
+#: functions/czr-modules/social-links/social_links_module.php:97
+#: functions/czr-modules/social-links/social_links_module.php:118
+#: inc/czr-modules/social-links/social_links_module.php:97
+#: inc/czr-modules/social-links/social_links_module.php:118
+msgid "Enter the full url of your social profile (must be valid url)."
+msgstr "輸入您的完整社交檔案連結（必須是有效網址）。"
+
+#: functions/czr-modules/social-links/social_links_module.php:98
+#: functions/czr-modules/social-links/social_links_module.php:119
+#: inc/czr-modules/social-links/social_links_module.php:98
+#: inc/czr-modules/social-links/social_links_module.php:119
+msgid "http://...,mailto:...,..."
+msgstr ""
+
+#: functions/czr-modules/social-links/social_links_module.php:104
+#: inc/czr-modules/social-links/social_links_module.php:104
+msgid "Size in px"
+msgstr "像素尺寸"
+
+#: functions/czr-modules/social-links/social_links_module.php:113
+#: inc/czr-modules/social-links/social_links_module.php:113
+msgid "Social icon"
+msgstr "社群圖示"
+
+#: functions/czr-modules/social-links/social_links_module.php:117
+#: inc/czr-modules/social-links/social_links_module.php:117
+msgid "Social link"
+msgstr "社群連結"
+
+#: functions/czr-modules/social-links/social_links_module.php:124
+#: inc/czr-modules/social-links/social_links_module.php:124
+msgid "This is the text displayed on mouse over."
+msgstr "當滑鼠滑過時顯示文字。"
+
+#: functions/czr-modules/social-links/social_links_module.php:128
+#: inc/czr-modules/social-links/social_links_module.php:128
+msgid "Icon color"
+msgstr "圖示色彩"
+
+#: functions/czr-modules/social-links/social_links_module.php:128
+#: inc/czr-modules/social-links/social_links_module.php:128
+msgid "default:"
+msgstr "預設："
+
+#: functions/czr-modules/social-links/social_links_module.php:129
+#: inc/czr-modules/social-links/social_links_module.php:129
+msgid "Set a unique color for your icon."
+msgstr "給您的圖示設定一個獨特的色彩。"
+
+#: functions/czr-modules/social-links/social_links_module.php:134
+#: inc/czr-modules/social-links/social_links_module.php:134
+msgid "Link target"
+msgstr "連結目標"
+
+#: functions/czr-modules/social-links/social_links_module.php:135
+#: inc/czr-modules/social-links/social_links_module.php:135
+msgid "Check this option to open the link in a another tab of the browser."
+msgstr "選取這個選項以新視窗開啟作者標籤的連結。"
+
+#: functions/czr-modules/social-links/social_links_module.php:173
+#: inc/czr-modules/social-links/social_links_module.php:173
+msgid "An error occurred: malformed social links"
+msgstr ""
+
+#: functions/czr-modules/social-links/social_links_module.php:217
+#: inc/czr-modules/social-links/social_links_module.php:217
+msgid "Please fill the social link inputs with a valid URLs"
+msgstr ""
+
+#: functions/czr-modules/widget-zones/widget_zones_module.php:81
+msgid "Widget Zone"
+msgstr "小工具區"
+
+#: functions/czr-modules/widget-zones/widget_zones_module.php:82
+msgid "New Widget Zone created ! Scroll down to edit it."
+msgstr "已建立新的小工具區！向下捲動開始編輯。"
+
+#: functions/czr-modules/widget-zones/widget_zones_module.php:83
+msgid "Inactive in current context/location"
+msgstr "停用目前內容與位置"
+
+#: functions/czr-modules/widget-zones/widget_zones_module.php:84
+msgid "Unavailable location. Some settings must be changed."
+msgstr "無法取得位置。部分設定必須變更。"
+
+#: functions/czr-modules/widget-zones/widget_zones_module.php:85
+msgid "A selected location is not available with the current settings."
+msgstr "目前的設定無法使用選擇的位置。"
+
+#: functions/czr-modules/widget-zones/widget_zones_module.php:204
+#: functions/czr-modules/widget-zones/widget_zones_module.php:245
+#: option-tree/includes/ot-functions-admin.php:2633
+msgid "Name"
+msgstr "名稱"
+
+#: functions/czr-modules/widget-zones/widget_zones_module.php:206
+msgid "Give it a name"
+msgstr "取個名字"
+
+#: functions/czr-modules/widget-zones/widget_zones_module.php:208
+#: functions/czr-modules/widget-zones/widget_zones_module.php:249
+msgid "Personalizing the name of the widget zone will help you identify it."
+msgstr "個人化小工具區的名稱將會協助您辨別。"
+
+#: functions/czr-modules/widget-zones/widget_zones_module.php:212
+#: functions/czr-modules/widget-zones/widget_zones_module.php:253
+msgid ""
+"Select the pre-defined location(s) in which you will embed this widget zone."
+msgstr "在您想要崁入的小工具區域中選擇預先設定的位置。"
+
+#: functions/czr-modules/widget-zones/widget_zones_module.php:240
+msgid "id"
+msgstr "識別碼"
+
+#: functions/czr-modules/widget-zones/widget_zones_module.php:242
+msgid "unique id"
+msgstr "唯一識別碼"
+
+#: functions/czr-modules/widget-zones/widget_zones_module.php:247
+msgid "Enter a name"
+msgstr "輸入名稱"
+
+#: functions/czr-modules/widget-zones/widget_zones_module.php:260
+msgid "Pick the context(s) where this widget area will be displayed."
+msgstr "選取小工具區域將會在哪裡顯示內容。"
+
+#: functions/init-admin.php:99
+msgid "Select a widget zone for the primary sidebar."
+msgstr "在主要側邊欄選擇小工具區。"
+
+#: functions/init-admin.php:99
+msgid ""
+"Notes : 1)This will override any default settings of the customizer options "
+"panel. 2) The primary sidebar is placed on the left in a 3 columns layout. "
+"It can be on the right in a 2 columns layout, when the content is on the "
+"left."
+msgstr ""
+"附註： 1) 這樣做將會覆蓋任何自訂化選項面板的預設值。 2) 主要側邊欄位於左邊第"
+"三欄。當內容在左邊時，可以在左邊兩個欄位中顯示。"
+
+#: functions/init-admin.php:105
+msgid "Select a widget zone for the secondary sidebar."
+msgstr "在次要側邊欄選擇小工具區。"
+
+#: functions/init-admin.php:105
+msgid ""
+"Notes : 1)This will override any default settings of the customizer options "
+"panel. 2) The secondary sidebar is placed on the right in a 3 columns layout."
+msgstr ""
+"附註： 1) 這樣做將會覆蓋任何自訂化選項面板的預設值。 2) 次要側邊欄位於右邊第"
+"三欄。"
+
+#: functions/init-admin.php:122
+msgid "Select a widget zone for the left sidebar."
+msgstr "在左側邊欄選擇小工具區。"
+
+#: functions/init-admin.php:122 functions/init-admin.php:128
+#: functions/init-admin.php:184
+msgid ""
+"This will override any default settings of the customizer options panel."
+msgstr ""
+"This will override any default settings of the customizer options panel."
+
+#: functions/init-admin.php:128
+msgid "Select a widget zone for the right sidebar."
+msgstr "在右側邊欄選擇小工具區。"
+
+#: functions/init-admin.php:184
+msgid "Select a layout for this page."
+msgstr "選擇這頁的外觀。"
+
+#: functions/init-after-setup-theme.php:107
+msgid "Topbar"
+msgstr "至頂列"
+
+#: functions/init-after-setup-theme.php:108
+msgid ""
+"Mobile. You can set a specific menu for mobile devices. If not set, the "
+"theme will use the menu assigned to the Topbar, or the Header."
+msgstr ""
+"行動裝置。您可以設定特定的行動裝置版功能表清單。如果未設定，主題將會使用至頂"
+"列或是標頭列指定為功能表清單。"
+
+#: functions/init-after-setup-theme.php:109
+msgid "Header"
+msgstr "頁首"
+
+#: functions/init-after-setup-theme.php:110
+msgid "Footer"
+msgstr "頁尾"
+
+#: functions/init-after-setup-theme.php:166
+msgid "Social links"
+msgstr "社群連結"
+
+#: functions/init-after-setup-theme.php:212
+#, fuzzy
+msgid "Site Wide Body Background"
+msgstr "內文背景"
+
+#: functions/init-core.php:81
+msgid "Theme Options [OLD]"
+msgstr "主題設定 [舊版]"
+
+#: functions/init-front.php:199
+msgid "No widget zones available in this sidebar."
+msgstr "這個側邊欄沒有可用的小工具區域。"
+
+#: functions/init-front.php:200
+msgid ""
+"You can add Widget Areas here from the customizer, in the <strong>Dynamic "
+"Sidebars and Widgets</strong> panel, or you can change the layout to remove "
+"this sidebar in <strong>Content &raquo; Layout Options for the main content</"
+"strong>."
+msgstr ""
+"您可以 <strong>動態側邊欄位與小工具</strong> 面板增加小工具區域，或者您可以使"
+"用變更外觀 <strong>主要  &raquo; 內容外觀選項 </strong> 的方式移除這個側邊"
+"欄。"
+
+#: functions/init-front.php:228
+msgid "You have already assigned the following widget zone here : "
+msgstr "您已經在這裡指定下列小工具："
+
+#: functions/init-front.php:230
+msgid "in this post or page options."
+msgstr "在這個文章或頁面選項。"
+
+#: functions/init-front.php:231
+msgid ""
+"You can change or disable this setting by editing the options of the current "
+"post / page."
+msgstr "您可以透過編輯目前的文章或頁面選項變更或停用這個設定。"
+
+#: functions/init-front.php:237
+msgid "Add widgets to the zone :"
+msgstr "新增小工具至這個區域："
+
+#: functions/init-front.php:489 functions/init-front.php:495
+msgid "Home page"
+msgstr "首頁"
+
+#: functions/init-front.php:547
+msgid "Search result"
+msgstr "搜尋結果"
+
+#: functions/init-front.php:549
+msgid "Search results"
+msgstr "搜尋結果"
+
+#: functions/init-front.php:560
+msgid "Error 404."
+msgstr "錯誤 404 。"
+
+#: functions/init-front.php:561
+msgid "Page not found!"
+msgstr "找不到頁面！"
+
+#: functions/init-front.php:576
+msgid "Author:"
+msgstr "作者："
+
+#: functions/init-front.php:594
+msgid "Category:"
+msgstr "分類："
+
+#: functions/init-front.php:603
+msgid "Tagged:"
+msgstr "標籤："
+
+#: functions/init-front.php:622
+msgid "Daily Archive:"
+msgstr "每日彙整："
+
+#: functions/init-front.php:632
+msgid "Monthly Archive:"
+msgstr "每月彙整："
+
+#: functions/init-front.php:642
+msgid "Yearly Archive:"
+msgstr "每年彙整："
+
+#: functions/init-front.php:1235
+#, fuzzy
+msgid "Expand"
+msgstr "展開功能表清單"
+
+#: functions/init-front.php:1236
+#, fuzzy
+msgid "Collapse"
+msgstr "折疊功能表清單"
+
+#: functions/init-front.php:1728 functions/init-sidebars-widgets.php:134
+msgid "Pages"
+msgstr "頁面"
+
+#: functions/init-front.php:2004
+msgid "Welcome in the Hueman theme"
+msgstr "歡迎使用 Hueman 主題"
+
+#: functions/init-front.php:2007
+msgid "The theme offers a wide range"
+msgstr "主題提供大範圍的"
+
+#: functions/init-front.php:2009
+msgid "of customization options"
+msgstr "的自訂選項"
+
+#: functions/init-front.php:2010
+msgid "to let you create the best possible websites."
+msgstr "讓您建立最棒的精彩站台。"
+
+#: functions/init-front.php:2013
+msgid "If you need inspiration, you can visit our online demos"
+msgstr "如果您需要靈感，您可以瀏覽我們的線上展示"
+
+#: functions/init-front.php:2015
+msgid "Hueman Demo 1"
+msgstr "Hueman 展示 1"
+
+#: functions/init-front.php:2017
+msgid "Hueman Demo 2"
+msgstr "Hueman 展示 2"
+
+#: functions/init-front.php:2020
+msgid "To help you getting started with Hueman, we have published"
+msgstr "協助您開始使用我們已發表的 Hueman "
+
+#: functions/init-front.php:2022
+msgid "a short guide here."
+msgstr "此為簡易指南。"
+
+#: functions/init-plugins-compat.php:425
+msgid "Top-Menu items"
+msgstr "頂端選單項目"
+
+#: functions/init-plugins-compat.php:427
+msgid "Slider subtitle"
+msgstr "幻燈片副標"
+
+#: functions/init-plugins-compat.php:430
+msgid "Single Post titles"
+msgstr "單欄文章標題"
+
+#: functions/init-plugins-compat.php:431
+msgid "Single Page titles"
+msgstr "單欄頁面標題"
+
+#: functions/init-plugins-compat.php:432
+msgid "Post/Page content"
+msgstr "文章／頁面內容"
+
+#: functions/init-plugins-compat.php:433
+msgid "Post/Page excerpt"
+msgstr "文章／頁面摘要"
+
+#: functions/init-plugins-compat.php:434
+msgid "Lists in post/pages"
+msgstr "在文章或頁面列表"
+
+#: functions/init-plugins-compat.php:435
+msgid "Single Post Categories meta"
+msgstr "單欄發表其他類別"
+
+#: functions/init-plugins-compat.php:436
+msgid "Single Post tags"
+msgstr "單欄文章標籤"
+
+#: functions/init-plugins-compat.php:437
+msgid "Archive Type Title"
+msgstr "彙整類型標題"
+
+#: functions/init-plugins-compat.php:438
+msgid "Post list post metas"
+msgstr "發表其他文章列表"
+
+#: functions/init-plugins-compat.php:439
+msgid "Post list category meta"
+msgstr "發表其他類別列表"
+
+#: functions/init-plugins-compat.php:440
+msgid "Single post tags"
+msgstr "單欄文章標籤"
+
+#: functions/init-plugins-compat.php:441
+msgid "Comments metas"
+msgstr "其他迴響"
+
+#: functions/init-plugins-compat.php:443
+msgid "Footer Social Links"
+msgstr "頁尾社群連結"
+
+#: functions/init-plugins-compat.php:456
+msgid "Featured pages"
+msgstr "精選頁面"
+
+#: functions/init-sidebars-widgets.php:17
+msgid "Primary"
+msgstr "主要"
+
+#: functions/init-sidebars-widgets.php:19
+msgid ""
+"Full width widget zone. Located in the left sidebar in a 3 columns layout. "
+"Can be on the right of a 2 columns sidebar when content is on the left."
+msgstr ""
+"滿版小工具區域位於三欄位中的左側邊欄外觀中。當內容在左邊時，可以在左邊兩個欄"
+"位中顯示。"
+
+#: functions/init-sidebars-widgets.php:26
+msgid "Secondary"
+msgstr "次要"
+
+#: functions/init-sidebars-widgets.php:28
+msgid ""
+"Full width widget zone. Located in the right sidebar in a 3 columns layout."
+msgstr "滿版小工具區域位於三欄位中的右邊欄外觀中。"
+
+#: functions/init-sidebars-widgets.php:35
+#: functions/init-sidebars-widgets.php:150
+msgid "Footer 1"
+msgstr "頁尾 1"
+
+#: functions/init-sidebars-widgets.php:37
+msgid "Widgetized footer 1"
+msgstr "小工具化的頁尾 1"
+
+#: functions/init-sidebars-widgets.php:44
+#: functions/init-sidebars-widgets.php:151
+msgid "Footer 2"
+msgstr "頁尾 2"
+
+#: functions/init-sidebars-widgets.php:46
+msgid "Widgetized footer 2"
+msgstr "小工具化的頁尾 2"
+
+#: functions/init-sidebars-widgets.php:53
+#: functions/init-sidebars-widgets.php:152
+msgid "Footer 3"
+msgstr "頁尾 3"
+
+#: functions/init-sidebars-widgets.php:55
+msgid "Widgetized footer 3"
+msgstr "小工具化的頁尾 3"
+
+#: functions/init-sidebars-widgets.php:62
+#: functions/init-sidebars-widgets.php:153
+msgid "Footer 4"
+msgstr "頁尾 4"
+
+#: functions/init-sidebars-widgets.php:64
+msgid "Widgetized footer 4"
+msgstr "小工具化的頁尾 4"
+
+#: functions/init-sidebars-widgets.php:70
+#: functions/init-sidebars-widgets.php:154
+msgid "Header (next to logo / title)"
+msgstr "標頭（標誌旁的文字／標題）"
+
+#: functions/init-sidebars-widgets.php:72
+msgid "The Header Widget Zone is located next to your logo or site title."
+msgstr "標頭小工具區在您的標誌或網站標題的旁邊。"
+
+#: functions/init-sidebars-widgets.php:79
+#: functions/init-sidebars-widgets.php:155
+msgid "Footer Full Width"
+msgstr "滿版頁尾"
+
+#: functions/init-sidebars-widgets.php:81
+msgid ""
+"The Footer Widget Zone is located before the other footer widgets and takes "
+"100% of the width. Very appropriate to display a Google Map or an "
+"advertisement banner."
+msgstr ""
+"這個頁尾小工具區域位於頁尾小工具前並使用 100% 的寬度。非常適合作為 Google 地"
+"圖或廣告橫幅的使用。"
+
+#: functions/init-sidebars-widgets.php:131
+msgid "All contexts"
+msgstr "所有內容"
+
+#: functions/init-sidebars-widgets.php:133
+msgid "Blog Page"
+msgstr "部落格頁數"
+
+#: functions/init-sidebars-widgets.php:135
+msgid "Single Posts"
+msgstr "單欄文章"
+
+#: functions/init-sidebars-widgets.php:136
+msgid "Archives"
+msgstr "存檔"
+
+#: functions/init-sidebars-widgets.php:139
+msgid "404 Error Pages"
+msgstr "404 錯誤頁面"
+
+#: functions/init-sidebars-widgets.php:148
+msgid "Primary Sidebar (on the left in a 3 columns layout)"
+msgstr "主要側邊欄（顯示在左邊第三欄）"
+
+#: functions/init-sidebars-widgets.php:149
+msgid "Secondary Sidebar (on the right in a 3 columns layout)"
+msgstr "次要側邊欄（顯示在右側第三欄）"
+
+#: functions/widgets/alx-posts.php:21
+msgid "Hueman Posts"
+msgstr "Hueman 文章"
+
+#: functions/widgets/alx-posts.php:23
+msgid "Display posts from a category"
+msgstr "從類別中顯示文章"
+
+#: functions/widgets/alx-tabs.php:21
+msgid "Hueman Dynamic Tabs"
+msgstr "Hueman 動態標籤"
+
+#: functions/widgets/alx-tabs.php:23
+msgid "List posts, comments, and/or tags with or without tabs."
+msgstr "最後已標籤或未標籤文章、迴響。"
+
+#: functions/widgets/alx-tabs.php:66
+msgid "Recent Posts"
+msgstr "近期文章"
+
+#: functions/widgets/alx-tabs.php:67
+msgid "Popular Posts"
+msgstr "熱門文章"
+
+#: functions/widgets/alx-tabs.php:68
+msgid "Recent Comments"
+msgstr "近期迴響"
+
+#: functions/widgets/alx-tabs.php:252
+msgid "says:"
+msgstr "提到："
+
+#: functions/widgets/alx-video.php:21
+msgid "Hueman Videos"
+msgstr "Hueman 影片"
+
+#: functions/widgets/alx-video.php:23
+msgid "Display a responsive video with a YouTube or Vimeo link."
+msgstr "顯示 YouTube 或 Vimeo 影片回應的連結。"
+
+#: functions.php:16
+msgid "PHP"
+msgstr ""
+
+#: functions.php:20
+#, fuzzy
+msgid "WordPress"
+msgstr "技術支援 WordPress"
+
+#: functions.php:27
+msgid "The <strong>%1$s</strong> theme requires at least %2$s version %3$s"
+msgstr ""
+
+#: header.php:23
+#, fuzzy
+msgid "Skip to content"
+msgstr "內文下方"
+
+#: inc/czr-skope/index.php:409
+msgid "user"
+msgstr ""
+
+#: inc/czr-skope/index.php:415
+msgid "%1$s archive page"
+msgstr ""
+
+#: inc/czr-skope/index.php:420
+msgid "Undefined"
+msgstr ""
+
+#: inc/czr-skope/index.php:424
+#, fuzzy
+msgid "Options for all"
+msgstr "設定將套用到"
+
+#: inc/czr-skope/index.php:424
+msgid "All"
+msgstr ""
+
+#: inc/czr-skope/index.php:437
+msgid "users"
+msgstr ""
+
+#: inc/czr-skope/index.php:442
+#, fuzzy
+msgid "Sitewide options"
+msgstr "進階選項"
+
+#: option-tree/includes/ot-functions-admin.php:52
+#: option-tree/includes/ot-functions-admin.php:53
+#: option-tree/includes/ot-functions-admin.php:168
+#: option-tree/includes/ot-functions-admin.php:192
+#: option-tree/includes/ot-functions.php:363
+#, fuzzy
+msgid "Theme Options"
+msgstr "主題設定 [舊版]"
+
+#: option-tree/includes/ot-functions-admin.php:58
+#: option-tree/includes/ot-functions-admin.php:131
+#: option-tree/includes/ot-functions-admin.php:219
+#, fuzzy
+msgid "Theme Options updated."
+msgstr "主題設定 [舊版]"
+
+#: option-tree/includes/ot-functions-admin.php:59
+#: option-tree/includes/ot-functions-admin.php:132
+#: option-tree/includes/ot-functions-admin.php:220
+#, fuzzy
+msgid "Theme Options reset."
+msgstr "主題設定 [舊版]"
+
+#: option-tree/includes/ot-functions-admin.php:60
+msgid "Save Changes"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:104
+msgid ""
+"The Theme Options UI Builder is being overridden by a custom file in your "
+"theme. Any changes you make via the UI Builder will not be saved."
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:114
+#: option-tree/includes/ot-functions-admin.php:115
+#, fuzzy
+msgid "OptionTree"
+msgstr "設定將套用到"
+
+#: option-tree/includes/ot-functions-admin.php:133
+#: option-tree/includes/ot-functions-admin.php:221
+#, fuzzy
+msgid "Save Settings"
+msgstr "設定"
+
+#: option-tree/includes/ot-functions-admin.php:138
+#, fuzzy
+msgid "Theme Options UI"
+msgstr "主題設定 [舊版]"
+
+#: option-tree/includes/ot-functions-admin.php:142
+msgid "Import"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:146
+msgid "Export"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:150
+#: option-tree/includes/ot-functions-admin.php:174
+#: option-tree/includes/ot-functions-admin.php:198
+#, fuzzy
+msgid "Layouts"
+msgstr "方塊化版外觀"
+
+#: option-tree/includes/ot-functions-admin.php:156
+#, fuzzy
+msgid "Theme Options UI Builder"
+msgstr "主題設定 [舊版]"
+
+#: option-tree/includes/ot-functions-admin.php:180
+#, fuzzy
+msgid "Settings PHP File"
+msgstr "設定"
+
+#: option-tree/includes/ot-functions-admin.php:204
+msgid "Layout Management"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:213
+#: option-tree/includes/ot-functions-admin.php:214
+#, fuzzy
+msgid "Documentation"
+msgstr "閱讀文件"
+
+#: option-tree/includes/ot-functions-admin.php:226
+msgid "Creating Options"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:230
+#, fuzzy
+msgid "Option Types"
+msgstr "設定將套用到"
+
+#: option-tree/includes/ot-functions-admin.php:234
+msgid "Function References"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:238
+#: option-tree/includes/ot-functions-admin.php:280
+msgid "Theme Mode"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:242
+#: option-tree/includes/ot-functions-admin.php:286
+msgid "Meta Boxes"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:246
+msgid "Code Examples"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:250
+msgid "Layouts Overview"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:256
+msgid "Overview of available Theme Option fields."
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:262
+msgid "Option types in alphabetical order & hooks to filter them."
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:268
+msgid "Function Reference:ot_get_option()"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:274
+msgid "Function Reference:get_option_tree()"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:292
+msgid "Code examples for front-end development."
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:298
+msgid "What's a layout anyhow?"
+msgstr ""
+
+#. translators: %1$s: the input id, %2$s: the field id
+#: option-tree/includes/ot-functions-admin.php:466
+msgid "The %1$s input field for %2$s only allows numeric values."
+msgstr ""
+
+#. translators: %s: the field id
+#: option-tree/includes/ot-functions-admin.php:538
+msgid ""
+"The %s Colorpicker only allows valid hexadecimal or rgba values depending on "
+"the setting type."
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:686
+msgid "slider"
+msgstr ""
+
+#. translators: %1$s: the calling function, %2$s the filter name, %3$s the
+#. option type, %4$s the version number
+#: option-tree/includes/ot-functions-admin.php:746
+msgid ""
+"Notice: %1$s was called incorrectly. All stored data must be filtered "
+"through %2$s, the %3$s option type is not using this filter. This is "
+"required since version %4$s."
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:948
+#: option-tree/ot-loader.php:741
+msgid "Send to OptionTree"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:949
+#: option-tree/includes/ot-functions-option-types.php:252
+#: option-tree/includes/ot-functions-option-types.php:3158
+msgid "Remove Media"
+msgstr "移除媒體"
+
+#: option-tree/includes/ot-functions-admin.php:950
+#, fuzzy
+msgid "Are you sure you want to reset back to the defaults?"
+msgstr "您確定要移除：<strong>{{ data.title }} ？</strong>"
+
+#: option-tree/includes/ot-functions-admin.php:951
+msgid "You can't remove this! But you can edit the values."
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:952
+#, fuzzy
+msgid "Are you sure you want to remove this?"
+msgstr "您確定要移除：<strong>{{ data.title }} ？</strong>"
+
+#: option-tree/includes/ot-functions-admin.php:953
+msgid "Are you sure you want to activate this layout?"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:954
+msgid "Sorry, you can't have settings three levels deep."
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:955
+#: option-tree/includes/ot-functions-option-types.php:1117
+msgid "Delete Gallery"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:956
+#: option-tree/includes/ot-functions-option-types.php:1118
+msgid "Edit Gallery"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:957
+#: option-tree/includes/ot-functions-option-types.php:1125
+msgid "Create Gallery"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:958
+msgid "Are you sure you want to delete this Gallery?"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:959
+msgid "Today"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:960
+#, fuzzy
+msgid "Now"
+msgstr "否"
+
+#: option-tree/includes/ot-functions-admin.php:962
+#, fuzzy
+msgid "Featured Image"
+msgstr "精選頁面"
+
+#: option-tree/includes/ot-functions-admin.php:963
+#: option-tree/includes/ot-functions-admin.php:2493
+#: option-tree/includes/ot-functions-admin.php:2558
+msgid "Image"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1503
+#, fuzzy
+msgid "Settings updated."
+msgstr "設定"
+
+#: option-tree/includes/ot-functions-admin.php:1507
+msgid "Settings could not be saved."
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1514
+#, fuzzy
+msgid "Settings Imported."
+msgstr "設定"
+
+#: option-tree/includes/ot-functions-admin.php:1518
+msgid "Settings could not be imported."
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1525
+msgid "Data Imported."
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1529
+msgid "Data could not be imported."
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1536
+msgid "Layouts Imported."
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1540
+msgid "Layouts could not be imported."
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1547
+#, fuzzy
+msgid "Layouts Updated."
+msgstr "已更新"
+
+#: option-tree/includes/ot-functions-admin.php:1551
+msgid "Layouts could not be updated."
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1555
+#, fuzzy
+msgid "Layouts have been deleted."
+msgstr "所有安裝皆已完成。"
+
+#: option-tree/includes/ot-functions-admin.php:1560
+msgid "Layout activated."
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1597
+#, fuzzy
+msgid "Background"
+msgstr "內文背景"
+
+#: option-tree/includes/ot-functions-admin.php:1598
+msgid "Border"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1599
+msgid "Box Shadow"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1600
+#, fuzzy
+msgid "Category Checkbox"
+msgstr "分類："
+
+#: option-tree/includes/ot-functions-admin.php:1601
+#, fuzzy
+msgid "Category Select"
+msgstr "分類："
+
+#: option-tree/includes/ot-functions-admin.php:1602
+msgid "Checkbox"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1603
+#, fuzzy
+msgid "Colorpicker"
+msgstr "色彩"
+
+#: option-tree/includes/ot-functions-admin.php:1604
+msgid "Colorpicker Opacity"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1605
+msgid "CSS"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1606
+msgid "Custom Post Type Checkbox"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1607
+msgid "Custom Post Type Select"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1608
+msgid "Date Picker"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1609
+msgid "Date Time Picker"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1610
+#, fuzzy
+msgid "Dimension"
+msgstr "版本"
+
+#: option-tree/includes/ot-functions-admin.php:1611
+#: option-tree/includes/ot-functions-admin.php:4307
+msgid "Gallery"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1613
+msgid "JavaScript"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1614
+#, fuzzy
+msgid "Link Color"
+msgstr "色彩"
+
+#: option-tree/includes/ot-functions-admin.php:1615
+msgid "List Item"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1616
+msgid "Measurement"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1617
+msgid "Numeric Slider"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1618
+msgid "On/Off"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1619
+msgid "Page Checkbox"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1620
+#, fuzzy
+msgid "Page Select"
+msgstr "未選擇影像"
+
+#: option-tree/includes/ot-functions-admin.php:1621
+msgid "Post Checkbox"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1622
+msgid "Post Select"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1623
+msgid "Radio"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1624
+#, fuzzy
+msgid "Radio Image"
+msgstr "標頭圖片"
+
+#: option-tree/includes/ot-functions-admin.php:1626
+#, fuzzy
+msgid "Sidebar Select"
+msgstr "側邊欄寬度"
+
+#: option-tree/includes/ot-functions-admin.php:1627
+#, fuzzy
+msgid "Slider"
+msgstr "幻燈片標題"
+
+#: option-tree/includes/ot-functions-admin.php:1628
+#, fuzzy
+msgid "Social Links"
+msgstr "社群連結"
+
+#: option-tree/includes/ot-functions-admin.php:1629
+msgid "Spacing"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1630
+msgid "Tab"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1631
+msgid "Tag Checkbox"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1632
+msgid "Tag Select"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1633
+msgid "Taxonomy Checkbox"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1634
+msgid "Taxonomy Select"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1635
+msgid "Text"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1636
+msgid "Textarea"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1637
+msgid "Textarea Simple"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1638
+msgid "Textblock"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1639
+msgid "Textblock Titled"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:1640
+msgid "Typography"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:2443
+msgid "Full Width (no sidebar)"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:2448
+#, fuzzy
+msgid "Dual Sidebar"
+msgstr "無側邊欄"
+
+#: option-tree/includes/ot-functions-admin.php:2453
+#, fuzzy
+msgid "Left Dual Sidebar"
+msgstr "左邊欄"
+
+#: option-tree/includes/ot-functions-admin.php:2458
+#, fuzzy
+msgid "Right Dual Sidebar"
+msgstr "右邊欄"
+
+#: option-tree/includes/ot-functions-admin.php:2504
+#: option-tree/includes/ot-functions-admin.php:2564
+#: option-tree/includes/ot-functions-admin.php:4355
+msgid "Link"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:2515
+#: option-tree/includes/ot-functions-admin.php:2570
+#: option-tree/includes/ot-functions-admin.php:2984
+msgid "Description"
+msgstr ""
+
+#. translators: %s: the http protocol
+#: option-tree/includes/ot-functions-admin.php:2627
+msgid ""
+"Enter a link to the profile or page on the social website. Remember to add "
+"the %s part to the front of the link."
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:2634
+msgid "Enter the name of the social website."
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:2642
+msgid "Enter the text shown in the title attribute of the link."
+msgstr ""
+
+#. translators: %s: Section Title emphasized
+#: option-tree/includes/ot-functions-admin.php:2829
+msgid "%s: Displayed as a menu item on the Theme Options page."
+msgstr ""
+
+#. translators: %s: Section ID emphasized
+#. translators: %s: ID emphasized
+#. translators: %s: ID emphasized
+#: option-tree/includes/ot-functions-admin.php:2832
+#: option-tree/includes/ot-functions-admin.php:2906
+#: option-tree/includes/ot-functions-admin.php:3175
+msgid "%s: A unique lower case alphanumeric string, underscores allowed."
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:2838
+msgid "edit"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:2841
+#: option-tree/includes/ot-functions-admin.php:2842
+#: option-tree/includes/ot-functions-admin.php:2951
+#: option-tree/includes/ot-functions-admin.php:2952
+#: option-tree/includes/ot-functions-admin.php:3111
+#: option-tree/includes/ot-functions-admin.php:3112
+#: option-tree/includes/ot-functions-admin.php:3187
+#: option-tree/includes/ot-functions-admin.php:3188
+#: option-tree/includes/ot-functions-admin.php:3245
+#: option-tree/includes/ot-functions-admin.php:3246
+#: option-tree/includes/ot-functions-admin.php:3310
+#: option-tree/includes/ot-functions-admin.php:3311
+#: option-tree/includes/ot-functions-admin.php:3453
+#: option-tree/includes/ot-functions-admin.php:3454
+msgid "Delete"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:2848
+msgid "Section Title"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:2856
+msgid "Section ID"
+msgstr ""
+
+#. translators: %s: Label emphasized
+#: option-tree/includes/ot-functions-admin.php:2903
+msgid "%s: Displayed as the label of a form element on the Theme Options page."
+msgstr ""
+
+#. translators: %s: Type emphasized
+#: option-tree/includes/ot-functions-admin.php:2909
+msgid "%s: Choose one of the available option types from the dropdown."
+msgstr ""
+
+#. translators: %s: Description emphasized
+#: option-tree/includes/ot-functions-admin.php:2912
+msgid ""
+"%s: Enter a detailed description for the users to read on the Theme Options "
+"page, HTML is allowed. This is also where you enter content for both the "
+"Textblock & Textblock Titled option types."
+msgstr ""
+
+#. translators: %s: Choices emphasized
+#: option-tree/includes/ot-functions-admin.php:2915
+msgid ""
+"%s: This will only affect the following option types: Checkbox, Radio, "
+"Select & Select Image."
+msgstr ""
+
+#. translators: %s: Settings emphasized
+#: option-tree/includes/ot-functions-admin.php:2918
+msgid "%s: This will only affect the List Item option type."
+msgstr ""
+
+#. translators: %1$s: Standard emphasized, %2$s: visual path to documentation
+#: option-tree/includes/ot-functions-admin.php:2921
+msgid ""
+"%1$s: Setting the standard value for your option only works for some option "
+"types. Read the %2$s for more information on which ones."
+msgstr ""
+
+#. translators: %s: Rows emphasized
+#: option-tree/includes/ot-functions-admin.php:2924
+msgid ""
+"%s: Enter a numeric value for the number of rows in your textarea. This will "
+"only affect the following option types: CSS, Textarea, & Textarea Simple."
+msgstr ""
+
+#. translators: %s: Post Type emphasized
+#: option-tree/includes/ot-functions-admin.php:2927
+msgid ""
+"%s: Add a comma separated list of post type like 'post,page'. This will only "
+"affect the following option types: Custom Post Type Checkbox, & Custom Post "
+"Type Select."
+msgstr ""
+
+#. translators: %s: Taxonomy emphasized
+#: option-tree/includes/ot-functions-admin.php:2930
+msgid ""
+"%s: Add a comma separated list of any registered taxonomy like 'category,"
+"post_tag'. This will only affect the following option types: Taxonomy "
+"Checkbox, & Taxonomy Select."
+msgstr ""
+
+#. translators: %1$s: Min, Max, & Step emphasized, %2$s: format, %3$s: range,
+#. %4$s: minimum interval
+#: option-tree/includes/ot-functions-admin.php:2933
+msgid ""
+"%1$s: Add a comma separated list of options in the following format %2$s "
+"(slide from %3$s in intervals of %4$s). The three values represent the "
+"minimum, maximum, and step options and will only affect the Numeric Slider "
+"option type."
+msgstr ""
+
+#. translators: %s: CSS Class emphasized
+#: option-tree/includes/ot-functions-admin.php:2936
+msgid "%s: Add and optional class to this option type."
+msgstr ""
+
+#. translators: %1$s: Condition emphasized, %2$s: example value, %3$s: list of
+#. valid conditions
+#: option-tree/includes/ot-functions-admin.php:2939
+msgid ""
+"%1$s: Add a comma separated list (no spaces) of conditions in which the "
+"field will be visible, leave this setting empty to always show the field. In "
+"these examples, %2$s is a placeholder for your condition, which can be in "
+"the form of %3$s."
+msgstr ""
+
+#. translators: %s: Operator emphasized
+#: option-tree/includes/ot-functions-admin.php:2942
+msgid ""
+"%s: Choose the logical operator to compute the result of the conditions."
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:2958
+#: option-tree/includes/ot-functions-admin.php:3118
+msgid "Label"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:2966
+#: option-tree/includes/ot-functions-admin.php:3202
+msgid "ID"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:2974
+msgid "Type"
+msgstr "類型"
+
+#: option-tree/includes/ot-functions-admin.php:2992
+msgid "Choices"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:2997
+#, fuzzy
+msgid "Add Choice"
+msgstr "增加"
+
+#: option-tree/includes/ot-functions-admin.php:3008
+#, fuzzy
+msgid "Add Setting"
+msgstr "設定"
+
+#: option-tree/includes/ot-functions-admin.php:3014
+msgid "Standard"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:3014
+msgid "OptionTree->Documentation"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:3022
+msgid "Rows"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:3030
+#, fuzzy
+msgid "Post Type"
+msgstr "類型"
+
+#: option-tree/includes/ot-functions-admin.php:3038
+msgid "Taxonomy"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:3046
+msgid "Min, Max, & Step"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:3054
+msgid "CSS Class"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:3062
+msgid "Condition"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:3070
+msgid "Operator"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:3074
+#, fuzzy
+msgid "or"
+msgstr "更多"
+
+#: option-tree/includes/ot-functions-admin.php:3128
+#, fuzzy
+msgid "Value"
+msgstr "十六進位值"
+
+#: option-tree/includes/ot-functions-admin.php:3138
+msgid "Image Source (Radio Image only)"
+msgstr ""
+
+#. translators: %s: Title emphasized
+#: option-tree/includes/ot-functions-admin.php:3172
+msgid "%s: Displayed as a contextual help menu item on the Theme Options page."
+msgstr ""
+
+#. translators: %s: Content emphasized
+#: option-tree/includes/ot-functions-admin.php:3178
+msgid ""
+"%s: Enter the HTML content about this contextual help item displayed on the "
+"Theme Option page for end users to read."
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:3210
+#, fuzzy
+msgid "Content"
+msgstr "內容"
+
+#: option-tree/includes/ot-functions-admin.php:3240
+#, fuzzy
+msgid "Layout"
+msgstr "方塊化版外觀"
+
+#: option-tree/includes/ot-functions-admin.php:3242
+#: option-tree/includes/ot-functions-admin.php:3243
+msgid "Activate"
+msgstr "啟用"
+
+#: option-tree/includes/ot-functions-admin.php:3597
+#, fuzzy
+msgid "New Layout"
+msgstr "方塊化版外觀"
+
+#: option-tree/includes/ot-functions-admin.php:4364
+msgid "Link URL"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:4371
+#, fuzzy
+msgid "Link Title"
+msgstr "連結目標"
+
+#: option-tree/includes/ot-functions-admin.php:4409
+msgid "Quote"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:4418
+msgid "Source Name (ex. author, singer, actor)"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:4425
+#, fuzzy
+msgid "Source URL"
+msgstr "來源"
+
+#: option-tree/includes/ot-functions-admin.php:4432
+msgid "Source Title (ex. book, song, movie)"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:4439
+#, fuzzy
+msgid "Source Date"
+msgstr "來源"
+
+#. translators: %1$s: link to WorPress Codex, %2$s: video shortcode
+#: option-tree/includes/ot-functions-admin.php:4475
+msgid ""
+"Embed video from services like Youtube, Vimeo, or Hulu. You can find a list "
+"of supported oEmbed sites in the %1$s. Alternatively, you could use the "
+"built-in %2$s shortcode."
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:4481
+msgid "Video"
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:4490
+#: option-tree/includes/ot-functions-admin.php:4540
+#, fuzzy
+msgid "WordPress Codex"
+msgstr "WordPress 存放庫"
+
+#. translators: %1$s: link to WorPress Codex, %2$s: audio shortcode
+#: option-tree/includes/ot-functions-admin.php:4525
+msgid ""
+"Embed audio from services like SoundCloud and Radio. You can find a list of "
+"supported oEmbed sites in the %1$s. Alternatively, you could use the built-"
+"in %2$s shortcode."
+msgstr ""
+
+#: option-tree/includes/ot-functions-admin.php:4531
+msgid "Audio"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:52
+msgid "Sorry, this function does not exist"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:137
+#, fuzzy
+msgid "background-repeat"
+msgstr "背景大小"
+
+#: option-tree/includes/ot-functions-option-types.php:153
+#, fuzzy
+msgid "background-attachment"
+msgstr "背景附件"
+
+#: option-tree/includes/ot-functions-option-types.php:170
+#, fuzzy
+msgid "background-position"
+msgstr "背景位置"
+
+#: option-tree/includes/ot-functions-option-types.php:219
+#, fuzzy
+msgid "background-size"
+msgstr "背景大小"
+
+#: option-tree/includes/ot-functions-option-types.php:231
+#, fuzzy
+msgid "background-image"
+msgstr "背景影像"
+
+#: option-tree/includes/ot-functions-option-types.php:234
+#: option-tree/includes/ot-functions-option-types.php:3140
+msgid "Add Media"
+msgstr "新增媒體"
+
+#: option-tree/includes/ot-functions-option-types.php:310
+#: option-tree/includes/ot-functions-option-types.php:1015
+msgid "width"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:320
+#: option-tree/includes/ot-functions-option-types.php:1032
+#: option-tree/includes/ot-functions-option-types.php:1502
+#: option-tree/includes/ot-functions-option-types.php:2472
+msgid "unit"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:338
+msgid "style"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:426
+msgid "offset-x"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:434
+msgid "offset-y"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:442
+msgid "blur-radius"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:450
+msgid "spread-radius"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:514
+#: option-tree/includes/ot-functions-option-types.php:565
+#, fuzzy
+msgid "No Categories Found"
+msgstr "類別"
+
+#: option-tree/includes/ot-functions-option-types.php:560
+#: option-tree/includes/ot-functions-option-types.php:846
+#: option-tree/includes/ot-functions-option-types.php:1785
+#: option-tree/includes/ot-functions-option-types.php:1914
+#: option-tree/includes/ot-functions-option-types.php:2591
+#: option-tree/includes/ot-functions-option-types.php:2718
+#, fuzzy
+msgid "Choose One"
+msgstr "請選擇"
+
+#: option-tree/includes/ot-functions-option-types.php:785
+#: option-tree/includes/ot-functions-option-types.php:852
+#: option-tree/includes/ot-functions-option-types.php:1856
+#: option-tree/includes/ot-functions-option-types.php:1920
+msgid "No Posts Found"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:1022
+msgid "height"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:1193
+#: option-tree/includes/ot-functions-option-types.php:1235
+msgid "Remove Google Font"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:1195
+#: option-tree/includes/ot-functions-option-types.php:1237
+#, fuzzy
+msgid "-- Choose One --"
+msgstr "請選擇"
+
+#: option-tree/includes/ot-functions-option-types.php:1260
+msgid "Add Google Font"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:1455
+#: option-tree/includes/ot-functions-option-types.php:2218
+#: option-tree/includes/ot-functions-option-types.php:2383
+msgid "You can re-order with drag & drop, the order will update after saving."
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:1617
+msgid "On"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:1639
+msgid "Off"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:1727
+#: option-tree/includes/ot-functions-option-types.php:1791
+#, fuzzy
+msgid "No Pages Found"
+msgstr "找不到頁面！"
+
+#: option-tree/includes/ot-functions-option-types.php:2250
+msgid "Facebook"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:2255
+msgid "Twitter"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:2260
+msgid "Google+"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:2265
+msgid "LinkedIn"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:2270
+msgid "Pinterest"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:2275
+msgid "Youtube"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:2280
+msgid "Dribbble"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:2285
+msgid "Github"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:2290
+msgid "Forrst"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:2295
+msgid "Digg"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:2300
+msgid "Delicious"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:2305
+msgid "Tumblr"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:2310
+msgid "Skype"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:2315
+msgid "SoundCloud"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:2320
+msgid "Vimeo"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:2325
+msgid "Flickr"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:2330
+msgid "VK.com"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:2438
+msgid "top"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:2454
+msgid "bottom"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:2545
+#: option-tree/includes/ot-functions-option-types.php:2596
+msgid "No Tags Found"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:2660
+#: option-tree/includes/ot-functions-option-types.php:2723
+msgid "No Taxonomies Found"
+msgstr ""
+
+#: page-templates/child-menu.php:28 tmpl/page-tmpl.php:15
+#: tmpl/single-tmpl.php:43
+msgid "Pages:"
+msgstr "頁數："
+
+#: parts/header-nav-mobile.php:72
+msgid ""
+"No menu has been assigned for mobile devices yet. You can set it from the "
+"live customizer"
+msgstr "行動裝置版未指定功能表清單。您從即時自訂中設定"
+
+#: parts/header-nav-topbar.php:22
+msgid "Expand menu"
+msgstr "展開功能表清單"
+
+#: parts/header-nav-topbar.php:23
+msgid "Collapse menu"
+msgstr "折疊功能表清單"
+
+#: parts/post-list-author-date.php:12 parts/post-list-author-date.php:14
+#: parts/post-list-author-date.php:20 parts/single-author-date.php:16
+msgid "by"
+msgstr "由"
+
+#: parts/post-nav.php:3
+msgid "Next story"
+msgstr "下一則"
+
+#: parts/post-nav.php:4
+msgid "Previous story"
+msgstr "上一則"
+
+#: parts/single-author-date.php:31
+msgid "Published"
+msgstr "已發表"
+
+#: parts/single-author-date.php:32
+msgid "Updated"
+msgstr "已更新"
+
+#: sidebar-2.php:3 sidebar.php:6
+msgid "Expand Sidebar"
+msgstr "延伸側邊欄位"
+
+#: tmpl/404-tmpl.php:6
+msgid ""
+"The page you are trying to reach does not exist, or has been moved. Please "
+"use the menus or the search box to find what you are looking for."
+msgstr "您嘗試瀏覽的頁面不存在或者已被移除。請使用選單或搜尋功能尋找。"
+
+#: tmpl/search-tmpl.php:2
+msgid "For the term"
+msgstr "依關鍵字"
+
+#: tmpl/search-tmpl.php:4
+msgid "Please try another search:"
+msgstr "請嘗試搜尋其他關鍵字："
+
+#: tmpl/single-tmpl.php:61
+msgid "Tags:"
+msgstr "標籤："
+
+#. Theme URI of the plugin/theme
+#, fuzzy
+msgid "http://presscustomizr.com/hueman-pro/"
+msgstr "https://presscustomizr.com/hueman/"
+
+#. Description of the plugin/theme
+msgid "The premium version of the popular Hueman WordPress theme."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "nikeo"
+msgstr "nikeo"
+
+#. Author URI of the plugin/theme
+#, fuzzy
+msgid "http://presscustomizr.com"
+msgstr "https://presscustomizr.com"
+
+#. Template Name of the plugin/theme
+msgid "Child Menu"
+msgstr "簡易選單"
+
+#: option-tree/includes/ot-functions-option-types.php:1342
+msgctxt "color picker"
+msgid "Standard"
+msgstr ""
+
+#: option-tree/includes/ot-functions-option-types.php:1343
+#, fuzzy
+msgctxt "color picker"
+msgid "Hover"
+msgstr "探索"
+
+#: option-tree/includes/ot-functions-option-types.php:1344
+#, fuzzy
+msgctxt "color picker"
+msgid "Active"
+msgstr "啟動"
+
+#: option-tree/includes/ot-functions-option-types.php:1345
+#, fuzzy
+msgctxt "color picker"
+msgid "Visited"
+msgstr "全站台"
+
+#: option-tree/includes/ot-functions-option-types.php:1346
+msgctxt "color picker"
+msgid "Focus"
+msgstr ""
+
+#~ msgid ""
+#~ "The Hueman theme helps you increase your traffic and engage your "
+#~ "visitors. It loads fast and is 100% mobile-friendly according to Google. "
+#~ "Best rated theme for blogs and magazines on WordPress.org. Powering 70K+ "
+#~ "websites around the world."
+#~ msgstr ""
+#~ "Hueman 主題協助您增加您的流量並吸引您的瀏覽者。它可以快速載入且根據 "
+#~ "Google 數據表示為百分只百的友善行動裝置主題。在 WordPress.org 中視為最佳評"
+#~ "比的部落格與雜誌類型主題。約有7萬以上的站台選擇使用。"
+
+#~ msgid "Hueman"
+#~ msgstr "Hueman"
+
+#~ msgid "default"
+#~ msgstr "預設值"
+
+#~ msgid "HIGHLIGHTS"
+#~ msgstr "醒目提示"
+
+#~ msgid "RECENT COMMENTS"
+#~ msgstr "最近的迴響"
+
+#~ msgid "RECENT POSTS"
+#~ msgstr "最近的文章"
+
+#~ msgid "Update"
+#~ msgstr "更新"
+
+#~ msgid "Activate %2$s"
+#~ msgstr "啟動 %2$s"
+
+#~ msgid "Update %2$s"
+#~ msgstr "更新 %2$s"
+
+#~ msgid "Install %2$s"
+#~ msgstr "安裝 %2$s"
+
+#~ msgid "No plugins to install, update or activate."
+#~ msgstr "沒有可安裝、更新或啟動的外掛。"
+
+#~ msgctxt "Install/Update Status"
+#~ msgid "%1$s, %2$s"
+#~ msgstr "%1$s, %2$s"
+
+#~ msgid "TGMPA v%s"
+#~ msgstr "TGMPA %s 版"
+
+#~ msgid ""
+#~ "There are one or more required or recommended plugins to install, update "
+#~ "or activate."
+#~ msgstr "尚未有必要或建議安裝、更新或啟動的外掛。"
+
+#~ msgid "Updating Plugin: %s"
+#~ msgstr "正在更新外掛： %s"
+
+#~ msgid "All plugins installed and activated successfully. %1$s"
+#~ msgstr "所有外掛已安裝並已成功啟用。 %1$s"
+
+#~ msgid "Hueman Addons"
+#~ msgstr "Hueman 附加元件"
+
+#~ msgid "useful shortcodes"
+#~ msgstr "有用的短代碼"
+
+#~ msgid "social share bar"
+#~ msgstr "社群分享列"
+
+#~ msgid "Activate Hueman Addons"
+#~ msgid_plural "Activate installed plugins"
+#~ msgstr[0] "啟動附加元件或外掛"
+
+#~ msgid "The Hueman Addons plugin is currently inactive: %1$s."
+#~ msgid_plural ""
+#~ "The following recommended plugins are currently inactive: %1$s."
+#~ msgstr[0] "下列 Hueman 附加元件或外掛目前尚未啟用：%1$s 。"
+
+#~ msgid "Smooth Scroll"
+#~ msgstr "平滑捲動"
+
+#~ msgid "This option enables a smoother page scroll."
+#~ msgstr "這個選項啟用更滑順的滾動頁面。"
+
+#~ msgid "Enter the full url of your social profile (must be a valid url)."
+#~ msgstr "輸入您的完整社交檔案連結（必須是有效網址）。"
+
+#~ msgid "Need help with the Hueman theme ? Click here!"
+#~ msgstr "需要更多 Hueman 主題的協助？點這裡！"
+
+#~ msgid "Id"
+#~ msgstr "識別碼"
+
+#~ msgid "Pick the contexts where this widget area will be displayed."
+#~ msgstr "選取小工具區域將會在哪裡顯示內容。"
+
+#~ msgid "I already know what's new thanks !"
+#~ msgstr "我已經瞭解新功能，謝謝！"
+
+#~ msgid "Updating Plugin %1$s (%2$d/%3$d)"
+#~ msgstr "正在更新外掛 %1$s (%2$d/%3$d)"
+
+#~ msgid "No plugins are available to be activated at this time."
+#~ msgstr "目前沒有可用外掛需要啟用。"
+
+#~ msgid "No plugins were selected to be activated. No action taken."
+#~ msgstr "沒有選擇要啟用的項目。尚未執行動作。"
+
+#~ msgid "No plugins are available to be updated at this time."
+#~ msgstr "目前沒有可用外掛需要更新。"
+
+#~ msgid "No plugins are available to be installed at this time."
+#~ msgstr "目前沒有可用外掛需要安裝。"
+
+#~ msgid "No plugins were selected to be updated. No action taken."
+#~ msgstr "沒有選擇要更新的項目。尚未執行動作。"
+
+#~ msgid "No plugins were selected to be installed. No action taken."
+#~ msgstr "沒有選擇要安裝的項目。尚未執行動作。"
+
+#~ msgid "Upgrade message from the plugin author:"
+#~ msgstr "由外掛作者發出的更新訊息："
+
+#~ msgid "Available version:"
+#~ msgstr "可用的版本："
+
+#~ msgid "Minimum required version:"
+#~ msgstr "最低需求的版本："
+
+#~ msgid "Installed version:"
+#~ msgstr "已安裝的版本："
+
+#~ msgctxt "as in: \"version nr unknown\""
+#~ msgid "unknown"
+#~ msgstr "未知"
+
+#~ msgid "To Activate <span class=\"count\">(%s)</span>"
+#~ msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+#~ msgstr[0] "啟動 <span class=\"count\">(%s)</span>"
+
+#~ msgid "Update Available <span class=\"count\">(%s)</span>"
+#~ msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+#~ msgstr[0] "可用的更新 <span class=\"count\">(%s)</span>"
+
+#~ msgid "To Install <span class=\"count\">(%s)</span>"
+#~ msgid_plural "To Install <span class=\"count\">(%s)</span>"
+#~ msgstr[0] "安裝 <span class=\"count\">(%s)</span>"
+
+#~ msgctxt "plugins"
+#~ msgid "All <span class=\"count\">(%s)</span>"
+#~ msgid_plural "All <span class=\"count\">(%s)</span>"
+#~ msgstr[0] "全部<span class=\"count\">(%s)</span>"
+
+#~ msgid "Update recommended"
+#~ msgstr "建議更新"
+
+#~ msgid "Requires Update"
+#~ msgstr "需要更新"
+
+#~ msgid "Required Update not Available"
+#~ msgstr "沒有可用的必要更新"
+
+#~ msgid "External Source"
+#~ msgstr "外部來源"
+
+#~ msgctxt "plugin A *and* plugin B"
+#~ msgid "and"
+#~ msgstr "與"
+
+#~ msgid ""
+#~ "The remote plugin package consists of more than one file, but the files "
+#~ "are not packaged in a folder."
+#~ msgstr "遠端外掛套件由一個以上的檔案組成，但套件中的檔案不是由資料夾組成。"
+
+#~ msgid ""
+#~ "Please contact the plugin provider and ask them to package their plugin "
+#~ "according to the WordPress guidelines."
+#~ msgstr "請連絡外掛供應者並詢問他們如何依照 WordPress 方針解安裝套件。"
+
+#~ msgid ""
+#~ "The remote plugin package does not contain a folder with the desired slug "
+#~ "and renaming did not work."
+#~ msgstr "遠端外掛套件尚未包含必要的動態資料夾，且重新命名也不會有效。"
+
+#~ msgid "Update Required"
+#~ msgstr "需要更新"
+
+#~ msgid "This plugin needs to be updated to be compatible with your theme."
+#~ msgstr "這個外掛需要更新才能與主題相容。"
+
+#~ msgid "Please contact the administrator of this site for help."
+#~ msgstr "請連該網站的管理員以獲得協助。"
+
+#~ msgid ""
+#~ "Plugin not activated. A higher version of %s is needed for this theme. "
+#~ "Please update the plugin."
+#~ msgstr "外掛尚未啟用。這個主題需要 %s 更新的版本。請更新外掛。"
+
+#~ msgid "No action taken. Plugin %1$s was already active."
+#~ msgstr "尚未執行動作。 %1$s 外掛已啟用。"
+
+#~ msgid "Begin updating plugin"
+#~ msgid_plural "Begin updating plugins"
+#~ msgstr[0] "開始更新外掛"
+
+#~ msgid "Something went wrong with the plugin API."
+#~ msgstr "API 外掛發生錯誤。"
+
+#~ msgid "To search type and hit enter"
+#~ msgstr "輸入關鍵字後搜尋"
+
+#~ msgid "Installing Plugin %1$s (%2$d/%3$d)"
+#~ msgstr "正在安裝外掛 %1$s (%2$d/%3$d)"
+
+#~ msgid "%1$s installed successfully."
+#~ msgstr "%1$s 已成功安裝。"
+
+#~ msgid "The installation of %1$s failed."
+#~ msgstr "%1$s 安裝過程失敗。"
+
+#~ msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+#~ msgstr "安裝 %1$s 時發生錯誤：<strong>%2$s</strong> 。"
+
+#~ msgid ""
+#~ "The installation process is starting. This process may take a while on "
+#~ "some hosts, so please be patient."
+#~ msgstr "正在開始安程序。這可能需要主機一些時間，請耐心等候。"
+
+#~ msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+#~ msgstr "正在安裝與啟動外掛 %1$s (%2$d/%3$d)"
+
+#~ msgid "All installations and activations have been completed."
+#~ msgstr "所有安裝與啟動皆已完成。"
+
+#~ msgid "Hide Details"
+#~ msgstr "隱藏詳細資料"
+
+#~ msgid "Show Details"
+#~ msgstr "顯示詳細資料"
+
+#~ msgid "%1$s installed and activated successfully."
+#~ msgstr "%1$s 已成功的安裝並啟用。"
+
+#~ msgid ""
+#~ "The installation and activation process is starting. This process may "
+#~ "take a while on some hosts, so please be patient."
+#~ msgstr "正在開始安裝與啟用程序。這可能需要主機一些時間，請耐心等候。"
+
+#~ msgid "Status"
+#~ msgstr "狀態"
+
+#~ msgid "Plugin"
+#~ msgstr "外掛"
+
+#~ msgid "Install"
+#~ msgstr "安裝"
+
+#~ msgid "Installed But Not Activated"
+#~ msgstr "已安裝未啟用"
+
+#~ msgid "Not Installed"
+#~ msgstr "未安裝"
+
+#~ msgid "Recommended"
+#~ msgstr "建議"
+
+#~ msgid "Required"
+#~ msgstr "必要"
+
+#~ msgid "Pre-Packaged"
+#~ msgstr "先行套件"
+
+#~ msgid "Return to the Dashboard"
+#~ msgstr "回到控制台"
+
+#~ msgid "Dismiss this notice"
+#~ msgstr "關閉通知"
+
+#~ msgid "All plugins installed and activated successfully. %s"
+#~ msgstr "所有外掛皆已安裝並已成功啟用。 %s"
+
+#~ msgid "The following plugin was activated successfully:"
+#~ msgstr "下列外掛已成功啟用："
+
+#~ msgid "Plugin activated successfully."
+#~ msgstr "外掛已成功啟用。"
+
+#~ msgid "Return to Required Plugins Installer"
+#~ msgstr "回到必要的外掛安裝程式"
+
+#~ msgid "Begin activating plugin"
+#~ msgid_plural "Begin activating plugins"
+#~ msgstr[0] "開始啟用的外掛"
+
+#~ msgid "Begin installing plugin"
+#~ msgid_plural "Begin installing plugins"
+#~ msgstr[0] "開始安裝的外掛"
+
+#~ msgid ""
+#~ "Sorry, but you do not have the correct permissions to update the %s "
+#~ "plugin. Contact the administrator of this site for help on getting the "
+#~ "plugin updated."
+#~ msgid_plural ""
+#~ "Sorry, but you do not have the correct permissions to update the %s "
+#~ "plugins. Contact the administrator of this site for help on getting the "
+#~ "plugins updated."
+#~ msgstr[0] ""
+#~ "抱歉，但您沒有正確的權限更新 %s 外掛。請聯絡該站的管理員以獲得更新外掛的協"
+#~ "助。"
+
+#~ msgid ""
+#~ "The Hueman Addons plugin needs to be updated to its latest version to "
+#~ "ensure maximum compatibility with the Hueman theme: %1$s."
+#~ msgid_plural ""
+#~ "The following plugins need to be updated to their latest version to "
+#~ "ensure maximum compatibility with this theme: %1$s."
+#~ msgstr[0] ""
+#~ "Hueman 附加元件與外掛需要更新至最新版本才能確保與 Hueman 主題的最大相容"
+#~ "性： %1$s 。"
+
+#~ msgid ""
+#~ "Sorry, but you do not have the correct permissions to activate the %s "
+#~ "plugin. Contact the administrator of this site for help on getting the "
+#~ "plugin activated."
+#~ msgid_plural ""
+#~ "Sorry, but you do not have the correct permissions to activate the %s "
+#~ "plugins. Contact the administrator of this site for help on getting the "
+#~ "plugins activated."
+#~ msgstr[0] ""
+#~ "抱歉，但您沒有正確的權限啟用 %s 外掛。請聯絡該站的管理員以獲得啟用外掛的協"
+#~ "助。"
+
+#~ msgid "The Hueman Addons required plugin is currently inactive: %1$s."
+#~ msgid_plural "The following required plugins are currently inactive: %1$s."
+#~ msgstr[0] "Hueman 附加元件需要的外掛目前尚未啟用： %1$s 。"
+
+#~ msgid ""
+#~ "Sorry, but you do not have the correct permissions to install the %s "
+#~ "plugin. Contact the administrator of this site for help on getting the "
+#~ "plugin installed."
+#~ msgid_plural ""
+#~ "Sorry, but you do not have the correct permissions to install the %s "
+#~ "plugins. Contact the administrator of this site for help on getting the "
+#~ "plugins installed."
+#~ msgstr[0] ""
+#~ "抱歉，但您沒有正確的權限安裝 %s 外掛。請聯絡該站的管理員以獲得安裝外掛的協"
+#~ "助。"
+
+#~ msgid "The Hueman theme requires the following plugin: %1$s."
+#~ msgid_plural "This theme requires the following plugins: %1$s."
+#~ msgstr[0] "Hueman 主題需要下列外掛： %1$s 。"
+
+#~ msgid "Installing Plugin: %s"
+#~ msgstr "正在安裝的外掛： %s"
+
+#~ msgid "Install Plugins"
+#~ msgstr "安裝外掛"
+
+#~ msgid "Install Required Plugins"
+#~ msgstr "安裝需要的外掛"
