@@ -157,16 +157,19 @@ final class Plugin {
 				$assets = new Core\Assets\Assets( $this->context );
 				$assets->register();
 
+				$screens = new Core\Admin\Screens( $this->context, $assets, $modules );
+				$screens->register();
+
 				( new Core\Util\Reset( $this->context ) )->register();
 				( new Core\Util\Developer_Plugin_Installer( $this->context ) )->register();
-				( new Core\Util\Tracking( $this->context, $user_options ) )->register();
+				( new Core\Util\Tracking( $this->context, $user_options, $screens ) )->register();
 				( new Core\REST_API\REST_Routes( $this->context, $authentication, $modules ) )->register();
 				( new Core\Admin_Bar\Admin_Bar( $this->context, $assets, $modules ) )->register();
-				( new Core\Admin\Screens( $this->context, $assets, $modules ) )->register();
 				( new Core\Admin\Notices() )->register();
 				( new Core\Admin\Dashboard( $this->context, $assets, $modules ) )->register();
 				( new Core\Notifications\Notifications( $this->context, $options, $authentication ) )->register();
 				( new Core\Util\Debug_Data( $this->context, $options, $user_options, $authentication, $modules ) )->register();
+				( new Core\Util\Health_Checks( $authentication ) )->register();
 				( new Core\Admin\Standalone( $this->context ) )->register();
 				( new Core\Util\Activation_Notice( $this->context, $activation_flag, $assets ) )->register();
 				( new Core\Util\Migration_1_3_0( $this->context, $options, $user_options ) )->register();
@@ -200,6 +203,11 @@ final class Plugin {
 				return $args;
 			}
 		);
+
+		// WP CLI Commands.
+		if ( defined( 'WP_CLI' ) && WP_CLI ) {
+			( new \Google\Site_Kit\Core\CLI\CLI_Commands( $this->context ) )->register();
+		}
 	}
 
 	/**

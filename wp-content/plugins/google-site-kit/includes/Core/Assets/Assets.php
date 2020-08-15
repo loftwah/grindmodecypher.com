@@ -352,6 +352,7 @@ final class Assets {
 			'googlesitekit-datastore-forms',
 			'googlesitekit-datastore-site',
 			'googlesitekit-datastore-user',
+			'googlesitekit-widgets',
 		);
 
 		// Register plugin scripts.
@@ -752,12 +753,6 @@ final class Assets {
 			'currentAdminPage' => ( is_admin() && $page ) ? sanitize_key( $page ) : null,
 			'resetSession'     => $input->filter( INPUT_GET, 'googlesitekit_reset_session', FILTER_VALIDATE_BOOLEAN ),
 			'reAuth'           => $input->filter( INPUT_GET, 'reAuth', FILTER_VALIDATE_BOOLEAN ),
-			'userData'         => array(
-				'id'      => $current_user->ID,
-				'email'   => $current_user->user_email,
-				'name'    => $current_user->display_name,
-				'picture' => get_avatar_url( $current_user->user_email ),
-			),
 			'ampEnabled'       => (bool) $this->context->get_amp_mode(),
 			'ampMode'          => $this->context->get_amp_mode(),
 			'homeURL'          => home_url(),
@@ -812,7 +807,7 @@ final class Assets {
 			 * @param array $data Notification Data.
 			 */
 			'notifications'      => apply_filters( 'googlesitekit_notification_data', array() ),
-			'permaLink'          => esc_url_raw( $permalink ),
+			'permaLink'          => $permalink ? esc_url_raw( $permalink ) : false,
 			'pageTitle'          => $page_title,
 			'postID'             => get_the_ID(),
 			'postType'           => get_post_type(),

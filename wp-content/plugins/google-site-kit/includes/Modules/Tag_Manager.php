@@ -11,8 +11,12 @@
 namespace Google\Site_Kit\Modules;
 
 use Google\Site_Kit\Context;
+use Google\Site_Kit\Core\Assets\Asset;
+use Google\Site_Kit\Core\Assets\Script;
 use Google\Site_Kit\Core\Modules\Module;
 use Google\Site_Kit\Core\Modules\Module_Settings;
+use Google\Site_Kit\Core\Modules\Module_With_Assets;
+use Google\Site_Kit\Core\Modules\Module_With_Assets_Trait;
 use Google\Site_Kit\Core\Modules\Module_With_Debug_Fields;
 use Google\Site_Kit\Core\Modules\Module_With_Scopes;
 use Google\Site_Kit\Core\Modules\Module_With_Scopes_Trait;
@@ -28,6 +32,8 @@ use Google\Site_Kit_Dependencies\Google_Service_TagManager_Account;
 use Google\Site_Kit_Dependencies\Google_Service_TagManager_Container;
 use Google\Site_Kit_Dependencies\Google_Service_TagManager_ListAccountsResponse;
 use Google\Site_Kit_Dependencies\Google_Service_TagManager_ListContainersResponse;
+use Google\Site_Kit_Dependencies\Google_Service_TagManager_ListTagsResponse;
+use Google\Site_Kit_Dependencies\Google_Service_TagManager_ListWorkspacesResponse;
 use Google\Site_Kit_Dependencies\Psr\Http\Message\RequestInterface;
 use WP_Error;
 use Exception;
@@ -39,8 +45,9 @@ use Exception;
  * @access private
  * @ignore
  */
-final class Tag_Manager extends Module implements Module_With_Scopes, Module_With_Settings, Module_With_Debug_Fields {
-	use Module_With_Scopes_Trait, Module_With_Settings_Trait;
+final class Tag_Manager extends Module
+	implements Module_With_Scopes, Module_With_Settings, Module_With_Assets, Module_With_Debug_Fields {
+	use Module_With_Scopes_Trait, Module_With_Settings_Trait, Module_With_Assets_Trait;
 
 	/**
 	 * Container usage context for web.
@@ -68,7 +75,15 @@ final class Tag_Manager extends Module implements Module_With_Scopes, Module_Wit
 	 * @since 1.7.1
 	 * @var bool
 	 */
-	private $did_gtm_no_js;
+	private $did_gtm_no_js = false;
+
+	/**
+	 * Internal flag set after print_amp_gtm is invoked for the first time.
+	 *
+	 * @since 1.14.0
+	 * @var bool
+	 */
+	private $did_amp_gtm = false;
 
 	/**
 	 * Registers functionality through WordPress hooks.
@@ -78,45 +93,90 @@ final class Tag_Manager extends Module implements Module_With_Scopes, Module_Wit
 	public function register() {
 		$this->register_scopes_hook();
 
-		add_action( // For non-AMP.
-			'wp_head',
+		// Tag Manager tag placement logic.
+		add_action(
+			'template_redirect',
 			function() {
-				$this->print_gtm_js();
-			}
-		);
+				// Bail early if we are checking for the tag presence from the back end.
+				if ( $this->context->input()->filter( INPUT_GET, 'tagverify', FILTER_VALIDATE_BOOLEAN ) ) {
+					return;
+				}
 
-		$print_gtm_no_js = function () {
-			$this->print_gtm_no_js();
-		};
+				if ( ! $this->get_settings()->get()['useSnippet'] ) {
+					return;
+				}
 
-		// For non-AMP. WP >=5.2.
-		add_action( 'wp_body_open', $print_gtm_no_js, -9999 );
-		// For non-AMP.
-		add_action( 'wp_footer', $print_gtm_no_js );
+				// Container needs to be checked based on whether AMP or non-AMP.
+				$container_id = $this->get_data(
+					'container-id',
+					array(
+						'usageContext' => $this->context->is_amp() ? self::USAGE_CONTEXT_AMP : self::USAGE_CONTEXT_WEB,
+					)
+				);
+				if ( is_wp_error( $container_id ) || ! $container_id ) {
+					return;
+				}
 
-		$print_amp_gtm = function() {
-			// This hook is only available in AMP plugin version >=1.3, so if it
-			// has already completed, do nothing.
-			if ( ! doing_action( 'amp_print_analytics' ) && did_action( 'amp_print_analytics' ) ) {
-				return;
-			}
+				// At this point, we know the tag should be rendered, so let's take care of it
+				// for AMP and non-AMP.
+				if ( $this->context->is_amp() ) {
+					$print_amp_gtm = function() use ( $container_id ) {
+						$this->print_amp_gtm( $container_id );
+					};
+					// Which actions are run depends on the version of the AMP Plugin
+					// (https://amp-wp.org/) available. Version >=1.3 exposes a
+					// new, `amp_print_analytics` action.
+					// For all AMP modes, AMP plugin version >=1.3.
+					add_action( 'amp_print_analytics', $print_amp_gtm );
+					// For AMP Standard and Transitional, AMP plugin version <1.3.
+					add_action( 'wp_footer', $print_amp_gtm, 20 );
+					// For AMP Reader, AMP plugin version <1.3.
+					add_action( 'amp_post_template_footer', $print_amp_gtm, 20 );
 
-			$this->print_amp_gtm();
-		};
-		// Which actions are run depends on the version of the AMP Plugin
-		// (https://amp-wp.org/) available. Version >=1.3 exposes a
-		// new, `amp_print_analytics` action.
-		// For all AMP modes, AMP plugin version >=1.3.
-		add_action( 'amp_print_analytics', $print_amp_gtm );
-		// For AMP Standard and Transitional, AMP plugin version <1.3.
-		add_action( 'wp_footer', $print_amp_gtm, 20 );
-		// For AMP Reader, AMP plugin version <1.3.
-		add_action( 'amp_post_template_footer', $print_amp_gtm, 20 );
+					add_filter( // Load amp-analytics component for AMP Reader.
+						'amp_post_template_data',
+						function( $data ) {
+							return $this->amp_data_load_analytics_component( $data );
+						}
+					);
 
-		add_filter( // Load amp-analytics component for AMP Reader.
-			'amp_post_template_data',
-			function( $data ) {
-				return $this->amp_data_load_analytics_component( $data );
+					/**
+					 * Fires when the Tag Manager tag for AMP has been initialized.
+					 *
+					 * This means that the tag will be rendered in the current request.
+					 *
+					 * @since 1.14.0
+					 *
+					 * @param string $container_id Tag Manager container ID used in the tag.
+					 */
+					do_action( 'googlesitekit_tagmanager_init_tag_amp', $container_id );
+				} else {
+					add_action( // For non-AMP.
+						'wp_head',
+						function() use ( $container_id ) {
+							$this->print_gtm_js( $container_id );
+						}
+					);
+
+					$print_gtm_no_js = function () use ( $container_id ) {
+						$this->print_gtm_no_js( $container_id );
+					};
+					// For non-AMP (if `wp_body_open` supported).
+					add_action( 'wp_body_open', $print_gtm_no_js, -9999 );
+					// For non-AMP (as fallback).
+					add_action( 'wp_footer', $print_gtm_no_js );
+
+					/**
+					 * Fires when the Tag Manager tag has been initialized.
+					 *
+					 * This means that the tag will be rendered in the current request.
+					 *
+					 * @since 1.14.0
+					 *
+					 * @param string $container_id Tag Manager container ID used in the tag.
+					 */
+					do_action( 'googlesitekit_tagmanager_init_tag', $container_id );
+				}
 			}
 		);
 	}
@@ -131,8 +191,6 @@ final class Tag_Manager extends Module implements Module_With_Scopes, Module_Wit
 	public function get_scopes() {
 		return array(
 			'https://www.googleapis.com/auth/tagmanager.readonly',
-			'https://www.googleapis.com/auth/tagmanager.edit.containers',
-			'https://www.googleapis.com/auth/tagmanager.manage.accounts',
 		);
 	}
 
@@ -163,9 +221,32 @@ final class Tag_Manager extends Module implements Module_With_Scopes, Module_Wit
 	 * @return bool True if module is connected, false otherwise.
 	 */
 	public function is_connected() {
-		$container_id = $this->get_data( 'container-id', array( 'usageContext' => $this->get_usage_context() ) );
+		$amp_mode = $this->context->get_amp_mode();
+		switch ( $amp_mode ) {
+			case Context::AMP_MODE_PRIMARY:
+				$container_ids = array(
+					$this->get_data( 'container-id', array( 'usageContext' => self::USAGE_CONTEXT_AMP ) ),
+				);
+				break;
+			case Context::AMP_MODE_SECONDARY:
+				$container_ids = array(
+					$this->get_data( 'container-id', array( 'usageContext' => self::USAGE_CONTEXT_WEB ) ),
+					$this->get_data( 'container-id', array( 'usageContext' => self::USAGE_CONTEXT_AMP ) ),
+				);
+				break;
+			default:
+				$container_ids = array(
+					$this->get_data( 'container-id', array( 'usageContext' => self::USAGE_CONTEXT_WEB ) ),
+				);
+		}
 
-		if ( is_wp_error( $container_id ) || ! $container_id ) {
+		$container_id_errors = array_filter(
+			$container_ids,
+			function( $container_id ) {
+				return is_wp_error( $container_id ) || ! $container_id;
+			}
+		);
+		if ( ! empty( $container_id_errors ) ) {
 			return false;
 		}
 
@@ -219,23 +300,11 @@ final class Tag_Manager extends Module implements Module_With_Scopes, Module_Wit
 	 * Outputs Tag Manager script.
 	 *
 	 * @since 1.0.0
+	 * @since 1.14.0 The `$container_id` parameter was added.
+	 *
+	 * @param string $container_id Tag Manager container ID to use in the snippet.
 	 */
-	protected function print_gtm_js() {
-		if ( ! $this->should_output_snippet() ) {
-			return;
-		}
-
-		// On AMP, do not print the script tag, falling back to 'amp_analytics_entries' below.
-		if ( $this->context->is_amp() ) {
-			return;
-		}
-
-		$container_id = $this->get_data( 'container-id', array( 'usageContext' => self::USAGE_CONTEXT_WEB ) );
-
-		if ( is_wp_error( $container_id ) || ! $container_id ) {
-			return;
-		}
-
+	protected function print_gtm_js( $container_id ) {
 		?>
 		<!-- Google Tag Manager added by Site Kit -->
 		<script>( function( w, d, s, l, i ) {
@@ -256,23 +325,11 @@ final class Tag_Manager extends Module implements Module_With_Scopes, Module_Wit
 	 * Outputs Tag Manager iframe for when the browser has JavaScript disabled.
 	 *
 	 * @since 1.0.0
+	 * @since 1.14.0 The `$container_id` parameter was added.
+	 *
+	 * @param string $container_id Tag Manager container ID to use in the snippet.
 	 */
-	protected function print_gtm_no_js() {
-		if ( ! $this->should_output_snippet() ) {
-			return;
-		}
-
-		// On AMP, do not print the script tag.
-		if ( $this->context->is_amp() ) {
-			return;
-		}
-
-		$container_id = $this->get_data( 'container-id', array( 'usageContext' => self::USAGE_CONTEXT_WEB ) );
-
-		if ( is_wp_error( $container_id ) || ! $container_id ) {
-			return;
-		}
-
+	protected function print_gtm_no_js( $container_id ) {
 		// Bail if this has already been run.
 		if ( $this->did_gtm_no_js ) {
 			return;
@@ -293,21 +350,16 @@ final class Tag_Manager extends Module implements Module_With_Scopes, Module_Wit
 	 * Outputs Tag Manager <amp-analytics> tag.
 	 *
 	 * @since 1.0.0
+	 * @since 1.14.0 The `$container_id` parameter was added.
+	 *
+	 * @param string $container_id Tag Manager container ID to use in the snippet.
 	 */
-	protected function print_amp_gtm() {
-		if ( ! $this->should_output_snippet() ) {
+	protected function print_amp_gtm( $container_id ) {
+		if ( $this->did_amp_gtm ) {
 			return;
 		}
 
-		if ( ! $this->context->is_amp() ) {
-			return;
-		}
-
-		$container_id = $this->get_data( 'container-id', array( 'usageContext' => self::USAGE_CONTEXT_AMP ) );
-
-		if ( is_wp_error( $container_id ) || ! $container_id ) {
-			return;
-		}
+		$this->did_amp_gtm = true;
 
 		// Add the optoutElementId for compatibility with our Analytics opt-out mechanism.
 		// This configuration object will be merged with the configuration object returned
@@ -328,22 +380,6 @@ final class Tag_Manager extends Module implements Module_With_Scopes, Module_Wit
 	}
 
 	/**
-	 * Checks whether or not the code snippet should be output.
-	 *
-	 * @since 1.2.0
-	 *
-	 * @return bool
-	 */
-	protected function should_output_snippet() {
-		// Don't output snippets for Site Kit existing tag checks.
-		if ( $this->context->input()->filter( INPUT_GET, 'tagverify', FILTER_VALIDATE_BOOLEAN ) ) {
-			return false;
-		}
-
-		return $this->get_settings()->get()['useSnippet'];
-	}
-
-	/**
 	 * Loads AMP analytics script if opted in.
 	 *
 	 * This only affects AMP Reader mode, the others are automatically covered.
@@ -358,25 +394,8 @@ final class Tag_Manager extends Module implements Module_With_Scopes, Module_Wit
 			return $data;
 		}
 
-		$container_id = $this->get_data( 'container-id', array( 'usageContext' => self::USAGE_CONTEXT_AMP ) );
-
-		if ( is_wp_error( $container_id ) || ! $container_id ) {
-			return $data;
-		}
-
 		$data['amp_component_scripts']['amp-analytics'] = 'https://cdn.ampproject.org/v0/amp-analytics-0.1.js';
 		return $data;
-	}
-
-	/**
-	 * Gets the current container usage context based on the current AMP mode (defaults to 'web').
-	 *
-	 * @return string
-	 */
-	protected function get_usage_context() {
-		return Context::AMP_MODE_PRIMARY === $this->context->get_amp_mode()
-			? self::USAGE_CONTEXT_AMP
-			: self::USAGE_CONTEXT_WEB;
 	}
 
 	/**
@@ -406,29 +425,6 @@ final class Tag_Manager extends Module implements Module_With_Scopes, Module_Wit
 	}
 
 	/**
-	 * Returns the mapping between available datapoints and their services.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return array Associative array of $datapoint => $service_identifier pairs.
-	 */
-	protected function get_datapoint_services() {
-		return array(
-			// GET / POST.
-			'connection'          => '',
-			'account-id'          => '',
-			'container-id'        => '',
-			// GET.
-			'accounts'            => 'tagmanager',
-			'accounts-containers' => 'tagmanager',
-			'containers'          => 'tagmanager',
-			'tag-permission'      => 'tagmanager',
-			// POST.
-			'settings'            => '',
-		);
-	}
-
-	/**
 	 * Gets map of datapoint to definition data for each.
 	 *
 	 * @since 1.9.0
@@ -436,20 +432,24 @@ final class Tag_Manager extends Module implements Module_With_Scopes, Module_Wit
 	 * @return array Map of datapoints to their definitions.
 	 */
 	protected function get_datapoint_definitions() {
-		$map = parent::get_datapoint_definitions();
-
-		// TODO: remove this once datapoint exists.
-		if ( isset( $map['POST:create-container'] ) ) {
-			$map['POST:create-container'] = array_merge(
-				$map['POST:create-container'],
-				array(
-					'scopes'                 => array( 'https://www.googleapis.com/auth/tagmanager.edit.containers' ),
-					'request_scopes_message' => __( 'Additional permissions are required to create a new Tag Manager container.', 'google-site-kit' ),
-				)
-			);
-		}
-
-		return $map;
+		return array(
+			'GET:account-id'             => array( 'service' => '' ),
+			'POST:account-id'            => array( 'service' => '' ),
+			'GET:accounts'               => array( 'service' => 'tagmanager' ),
+			'GET:accounts-containers'    => array( 'service' => 'tagmanager' ),
+			'GET:connection'             => array( 'service' => '' ),
+			'POST:connection'            => array( 'service' => '' ),
+			'GET:container-id'           => array( 'service' => '' ),
+			'POST:container-id'          => array( 'service' => '' ),
+			'GET:containers'             => array( 'service' => 'tagmanager' ),
+			'POST:create-container'      => array(
+				'service'                => 'tagmanager',
+				'scopes'                 => array( 'https://www.googleapis.com/auth/tagmanager.edit.containers' ),
+				'request_scopes_message' => __( 'Additional permissions are required to create a new Tag Manager container on your behalf.', 'google-site-kit' ),
+			),
+			'GET:live-container-version' => array( 'service' => 'tagmanager' ),
+			'GET:tag-permission'         => array( 'service' => 'tagmanager' ),
+		);
 	}
 
 	/**
@@ -571,34 +571,80 @@ final class Tag_Manager extends Module implements Module_With_Scopes, Module_Wit
 					return new WP_Error( 'missing_required_param', sprintf( __( 'Request parameter is empty: %s.', 'google-site-kit' ), 'accountID' ), array( 'status' => 400 ) );
 				}
 				return $this->get_tagmanager_service()->accounts_containers->listAccountsContainers( "accounts/{$data['accountID']}" );
-			case 'POST:settings':
-				return function() use ( $data ) {
-					$option = $data->data;
+			case 'POST:create-container':
+				if ( ! isset( $data['accountID'] ) ) {
+					return new WP_Error(
+						'missing_required_param',
+						/* translators: %s: Missing parameter name */
+						sprintf( __( 'Request parameter is empty: %s.', 'google-site-kit' ), 'accountID' ),
+						array( 'status' => 400 )
+					);
+				}
 
-					if ( isset( $option['accountID'] ) ) {
-						try {
-							if ( isset( $option['containerID'] ) && 'container_create' === $option['containerID'] ) {
-								$option['containerID'] = $this->create_container( $option['accountID'], self::USAGE_CONTEXT_WEB );
-							}
-							if ( isset( $option['ampContainerID'] ) && 'container_create' === $option['ampContainerID'] ) {
-								$option['ampContainerID'] = $this->create_container( $option['accountID'], self::USAGE_CONTEXT_AMP );
-							}
-						} catch ( Exception $e ) {
-							return $this->exception_to_error( $e, $data->datapoint );
-						}
+				$usage_context = $data['usageContext'] ?: self::USAGE_CONTEXT_WEB;
+
+				if ( empty( $this->context_map[ $usage_context ] ) ) {
+					return new WP_Error(
+						'invalid_param',
+						sprintf(
+						/* translators: 1: Invalid parameter name, 2: list of valid values */
+							__( 'Request parameter %1$s is not one of %2$s', 'google-site-kit' ),
+							'usageContext',
+							implode( ', ', array_keys( $this->context_map ) )
+						),
+						array( 'status' => 400 )
+					);
+				}
+
+				$account_id = $data['accountID'];
+
+				if ( $data['name'] ) {
+					$container_name = $data['name'];
+				} else {
+					// Use site name for container, fallback to domain of reference URL.
+					$container_name = get_bloginfo( 'name' ) ?: wp_parse_url( $this->context->get_reference_site_url(), PHP_URL_HOST );
+					// Prevent naming conflict (Tag Manager does not allow more than one with same name).
+					if ( self::USAGE_CONTEXT_AMP === $usage_context ) {
+						$container_name .= ' AMP';
 					}
+				}
 
-					$this->get_settings()->merge( $option );
+				$container = new Google_Service_TagManager_Container();
+				$container->setName( self::sanitize_container_name( $container_name ) );
+				$container->setUsageContext( (array) $usage_context );
 
-					return $this->get_settings()->get();
-				};
+				return $this->get_tagmanager_service()->accounts_containers->create( "accounts/{$account_id}", $container );
+			case 'GET:live-container-version':
+				if ( ! isset( $data['accountID'] ) ) {
+					return new WP_Error(
+						'missing_required_param',
+						/* translators: %s: Missing parameter name */
+						sprintf( __( 'Request parameter is empty: %s.', 'google-site-kit' ), 'accountID' ),
+						array( 'status' => 400 )
+					);
+				}
+				if ( ! isset( $data['internalContainerID'] ) ) {
+					return new WP_Error(
+						'missing_required_param',
+						/* translators: %s: Missing parameter name */
+						sprintf( __( 'Request parameter is empty: %s.', 'google-site-kit' ), 'internalContainerID' ),
+						array( 'status' => 400 )
+					);
+				}
+
+				return $this->get_tagmanager_service()->accounts_containers_versions->live(
+					"accounts/{$data['accountID']}/containers/{$data['internalContainerID']}"
+				);
 			case 'GET:tag-permission':
 				return function () use ( $data ) {
-					if ( ! isset( $data['tag'] ) ) {
+					// TODO: Remove 'tag' fallback once legacy components are refactored.
+					$container_id = $data['containerID'] ?: $data['tag'];
+
+					if ( ! $container_id ) {
 						return new WP_Error(
 							'missing_required_param',
 							/* translators: %s: Missing parameter name */
-							sprintf( __( 'Request parameter is empty: %s.', 'google-site-kit' ), 'tag' ),
+							sprintf( __( 'Request parameter is empty: %s.', 'google-site-kit' ), 'containerID' ),
 							array( 'status' => 400 )
 						);
 					}
@@ -609,18 +655,24 @@ final class Tag_Manager extends Module implements Module_With_Scopes, Module_Wit
 						return $accounts;
 					}
 
+					$response = array(
+						'accountID'   => '',
+						'containerID' => $container_id,
+						'permission'  => false,
+					);
+
 					try {
-						return $this->get_account_for_container( $data['tag'], $accounts );
+						$account_container      = $this->get_account_for_container( $container_id, $accounts );
+						$response['accountID']  = $account_container['account']['accountId'];
+						$response['permission'] = true;
+
+						// Return full `account` and `container` for backwards compat with legacy setup component.
+						// TODO: Remove $account_container from response.
+						return array_merge( $response, $account_container );
 					} catch ( Exception $exception ) {
-						return new WP_Error(
-							'tag_manager_existing_tag_permission',
-							/* translators: %s: Container ID */
-							sprintf( __( 'We’ve detected there’s already an existing Tag Manager tag on your site (%s), but your account doesn’t seem to have the necessary access to this container. You can either remove the existing tag and connect to a different account, or request access to this container from your team.', 'google-site-kit' ), $data['tag'] ),
-							array( 'status' => 403 )
-						);
+						return $response;
 					}
 				};
-
 		}
 
 		throw new Invalid_Datapoint_Exception();
@@ -828,5 +880,32 @@ final class Tag_Manager extends Module implements Module_With_Scopes, Module_Wit
 	 */
 	protected function setup_settings() {
 		return new Settings( $this->options );
+	}
+
+	/**
+	 * Sets up the module's assets to register.
+	 *
+	 * @since 1.11.0
+	 *
+	 * @return Asset[] List of Asset objects.
+	 */
+	protected function setup_assets() {
+		$base_url = $this->context->url( 'dist/assets/' );
+
+		return array(
+			new Script(
+				'googlesitekit-modules-tagmanager',
+				array(
+					'src'          => $base_url . 'js/googlesitekit-modules-tagmanager.js',
+					'dependencies' => array(
+						'googlesitekit-vendor',
+						'googlesitekit-api',
+						'googlesitekit-data',
+						'googlesitekit-modules',
+						'googlesitekit-datastore-site',
+					),
+				)
+			),
+		);
 	}
 }
