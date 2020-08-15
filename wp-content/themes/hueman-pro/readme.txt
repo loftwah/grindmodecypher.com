@@ -1,4 +1,4 @@
-# Hueman Pro v1.2.13
+# Hueman Pro v1.3.1
 ![Hueman - Pro](/screenshot.png)
 
 > The premium version of the popular Hueman WordPress theme.
@@ -18,6 +18,16 @@ The **Hueman Pro WordPress theme** theme is licensed under GPLv3. See headers of
 See headers of files for further details.
 
 ## Changelog
+= 1.3.1 August 12, 2020 =
+* fixed : [featured posts slider][CSS] featured post slider broken on some browsers due to wrong CSS rule.
+* Hueman has been successfully tested with WordPress 5.5
+
+= 1.3.0 July 21st, 2020 =
+* Hueman Pro has been successfully tested with WordPress 5.5
+* fixed : [forms] padding in select input breaks text readability
+* fixed : [Gutenberg] CSS rules for table alignment not specific enough
+* fixed : [compatibility with WP5.5] adapt customizer color-picker script with latest version of WP 5.5
+
 = 1.2.13 June 18th, 2020 =
 * fixed : [performance] Defer loading Font Awesome icons is disabled by default to prevent issues ( with broken javascript and/or third party plugins )
 

@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Themes - Hueman-Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: * Hueman-Pro v1.2.13\n"
+"Project-Id-Version: * Hueman-Pro v1.3.0\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2020-06-18 14:16:44+00:00\n"
+"POT-Creation-Date: 2020-07-21 15:09:11+00:00\n"
 "PO-Revision-Date: 2017-10-22 08:22:17+0000\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
@@ -396,7 +396,7 @@ msgstr ""
 #: addons/czr/ha-czr.php:215
 #: addons/pro/header/czr_slide_module/czr_slide_module.php:78
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1667
-#: functions/czr-base-fmk/czr-base-fmk.php:1667
+#: functions/czr-base-fmk/czr-base-fmk.php:1685
 #: inc/czr-base-fmk/czr-base-fmk.php:1667
 msgid "Set a custom url"
 msgstr ""
@@ -1390,7 +1390,7 @@ msgstr ""
 #: addons/pro/wfc/back/classes/class_admin_font_customizer.php:516
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:552
 #: contextualizer/ccat-contextualizer.php:1442
-#: functions/czr-base-fmk/czr-base-fmk.php:552
+#: functions/czr-base-fmk/czr-base-fmk.php:570
 #: inc/czr-base-fmk/czr-base-fmk.php:552
 msgid "Yes"
 msgstr "Ja"
@@ -1398,7 +1398,7 @@ msgstr "Ja"
 #: addons/pro/wfc/back/classes/class_admin_font_customizer.php:517
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:552
 #: contextualizer/ccat-contextualizer.php:1443
-#: functions/czr-base-fmk/czr-base-fmk.php:552
+#: functions/czr-base-fmk/czr-base-fmk.php:570
 #: inc/czr-base-fmk/czr-base-fmk.php:552
 msgid "No"
 msgstr "Nej"
@@ -1469,7 +1469,7 @@ msgstr "Välj bild"
 #: addons/pro/wfc/back/classes/class_admin_font_customizer.php:587
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:248
 #: functions/czr/czr-resources.php:186
-#: functions/czr-base-fmk/czr-base-fmk.php:248
+#: functions/czr-base-fmk/czr-base-fmk.php:266
 #: inc/czr-base-fmk/czr-base-fmk.php:248
 #: option-tree/includes/ot-functions-admin.php:125
 #: option-tree/includes/ot-functions-admin.php:126
@@ -1492,8 +1492,8 @@ msgstr ""
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:242
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:543
 #: functions/czr/czr-resources.php:163
-#: functions/czr-base-fmk/czr-base-fmk.php:242
-#: functions/czr-base-fmk/czr-base-fmk.php:543
+#: functions/czr-base-fmk/czr-base-fmk.php:260
+#: functions/czr-base-fmk/czr-base-fmk.php:561
 #: functions/czr-modules/widget-zones/widget_zones_module.php:227
 #: inc/czr-base-fmk/czr-base-fmk.php:242 inc/czr-base-fmk/czr-base-fmk.php:543
 #: option-tree/includes/ot-functions-admin.php:2839
@@ -1512,7 +1512,7 @@ msgstr "Redigera"
 
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:243
 #: functions/czr/czr-resources.php:164
-#: functions/czr-base-fmk/czr-base-fmk.php:243
+#: functions/czr-base-fmk/czr-base-fmk.php:261
 #: inc/czr-base-fmk/czr-base-fmk.php:243
 #: option-tree/includes/ot-functions-admin.php:961
 msgid "Close"
@@ -1520,7 +1520,7 @@ msgstr "Stäng"
 
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:244
 #: functions/czr/czr-resources.php:168
-#: functions/czr-base-fmk/czr-base-fmk.php:244
+#: functions/czr-base-fmk/czr-base-fmk.php:262
 #: functions/czr-modules/widget-zones/widget_zones_module.php:88
 #: inc/czr-base-fmk/czr-base-fmk.php:244
 msgid "Not set"
@@ -1528,7 +1528,7 @@ msgstr "Inte angivet"
 
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:245
 #: functions/czr/czr-resources.php:172
-#: functions/czr-base-fmk/czr-base-fmk.php:245
+#: functions/czr-base-fmk/czr-base-fmk.php:263
 #: functions/czr-modules/social-links/social_links_module.php:80
 #: inc/czr-base-fmk/czr-base-fmk.php:245
 #: inc/czr-modules/social-links/social_links_module.php:80
@@ -1537,28 +1537,28 @@ msgstr "Klart !"
 
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:247
 #: functions/czr/czr-resources.php:185
-#: functions/czr-base-fmk/czr-base-fmk.php:247
+#: functions/czr-base-fmk/czr-base-fmk.php:265
 #: inc/czr-base-fmk/czr-base-fmk.php:247
 msgid "Learn more about this in the documentation"
 msgstr "Ta reda på mer om det här i dokumentationen"
 
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:249
 #: functions/czr/czr-resources.php:187
-#: functions/czr-base-fmk/czr-base-fmk.php:249
+#: functions/czr-base-fmk/czr-base-fmk.php:267
 #: inc/czr-base-fmk/czr-base-fmk.php:249 inc/czr-skope/index.php:392
 msgid "Options for"
 msgstr "Alternativ för"
 
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:252
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:257
-#: functions/czr-base-fmk/czr-base-fmk.php:252
-#: functions/czr-base-fmk/czr-base-fmk.php:257
+#: functions/czr-base-fmk/czr-base-fmk.php:270
+#: functions/czr-base-fmk/czr-base-fmk.php:275
 #: inc/czr-base-fmk/czr-base-fmk.php:252 inc/czr-base-fmk/czr-base-fmk.php:257
 msgid "Select Image"
 msgstr "Välj bild"
 
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:253
-#: functions/czr-base-fmk/czr-base-fmk.php:253
+#: functions/czr-base-fmk/czr-base-fmk.php:271
 #: inc/czr-base-fmk/czr-base-fmk.php:253
 msgid "Change Image"
 msgstr "Byt bild"
@@ -1566,46 +1566,47 @@ msgstr "Byt bild"
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:254
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:543
 #: functions/czr/controls/class-upload-control.php:68
-#: functions/czr-base-fmk/czr-base-fmk.php:254
-#: functions/czr-base-fmk/czr-base-fmk.php:543
+#: functions/czr-base-fmk/czr-base-fmk.php:272
+#: functions/czr-base-fmk/czr-base-fmk.php:561
 #: inc/czr-base-fmk/czr-base-fmk.php:254 inc/czr-base-fmk/czr-base-fmk.php:543
 msgid "Remove"
 msgstr "Ta bort"
 
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:255
 #: functions/czr/controls/class-color-alpha-control.php:26
-#: functions/czr-base-fmk/czr-base-fmk.php:255
+#: functions/czr-base-fmk/czr-base-fmk.php:211
+#: functions/czr-base-fmk/czr-base-fmk.php:273
 #: inc/czr-base-fmk/czr-base-fmk.php:255
 msgid "Default"
 msgstr "Standard"
 
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:256
-#: functions/czr-base-fmk/czr-base-fmk.php:256
+#: functions/czr-base-fmk/czr-base-fmk.php:274
 #: inc/czr-base-fmk/czr-base-fmk.php:256
 msgid "No image selected"
 msgstr "Ingen bild vald"
 
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:258
-#: functions/czr-base-fmk/czr-base-fmk.php:258
+#: functions/czr-base-fmk/czr-base-fmk.php:276
 #: inc/czr-base-fmk/czr-base-fmk.php:258
 msgid "Choose Image"
 msgstr "Välj bild"
 
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:260
-#: functions/czr-base-fmk/czr-base-fmk.php:260
+#: functions/czr-base-fmk/czr-base-fmk.php:278
 #: inc/czr-base-fmk/czr-base-fmk.php:260
 #, fuzzy
 msgid "Customizing"
 msgstr "Anpassa nu"
 
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:453
-#: functions/czr-base-fmk/czr-base-fmk.php:453
+#: functions/czr-base-fmk/czr-base-fmk.php:471
 #: inc/czr-base-fmk/czr-base-fmk.php:453
 msgid "ac_set_ajax_czr_tmpl => Security check failed."
 msgstr ""
 
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:525
-#: functions/czr-base-fmk/czr-base-fmk.php:525
+#: functions/czr-base-fmk/czr-base-fmk.php:543
 #: inc/czr-base-fmk/czr-base-fmk.php:525
 #: option-tree/includes/ot-functions-option-types.php:1452
 #: option-tree/includes/ot-functions-option-types.php:2215
@@ -1614,19 +1615,19 @@ msgid "Add New"
 msgstr "Lägg till ny"
 
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:530
-#: functions/czr-base-fmk/czr-base-fmk.php:530
+#: functions/czr-base-fmk/czr-base-fmk.php:548
 #: inc/czr-base-fmk/czr-base-fmk.php:530
 msgid "Cancel"
 msgstr "Avbryt"
 
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:530
-#: functions/czr-base-fmk/czr-base-fmk.php:530
+#: functions/czr-base-fmk/czr-base-fmk.php:548
 #: inc/czr-base-fmk/czr-base-fmk.php:530
 msgid "Add it"
 msgstr "Lägg till"
 
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:551
-#: functions/czr-base-fmk/czr-base-fmk.php:551
+#: functions/czr-base-fmk/czr-base-fmk.php:569
 #: inc/czr-base-fmk/czr-base-fmk.php:551
 msgid "Are you sure you want to remove : <strong>{{ data.title }} ?</strong>"
 msgstr ""
@@ -1634,8 +1635,8 @@ msgstr ""
 
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1701
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1901
-#: functions/czr-base-fmk/czr-base-fmk.php:1701
-#: functions/czr-base-fmk/czr-base-fmk.php:1901
+#: functions/czr-base-fmk/czr-base-fmk.php:1719
+#: functions/czr-base-fmk/czr-base-fmk.php:1919
 #: inc/czr-base-fmk/czr-base-fmk.php:1701
 #: inc/czr-base-fmk/czr-base-fmk.php:1901
 msgid "ajax_load_available_items => Security check failed."
@@ -1644,15 +1645,15 @@ msgstr ""
 #. translators: %d: ID of a post
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1822
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:2031
-#: functions/czr-base-fmk/czr-base-fmk.php:1822
-#: functions/czr-base-fmk/czr-base-fmk.php:2031
+#: functions/czr-base-fmk/czr-base-fmk.php:1840
+#: functions/czr-base-fmk/czr-base-fmk.php:2049
 #: inc/czr-base-fmk/czr-base-fmk.php:1822
 #: inc/czr-base-fmk/czr-base-fmk.php:2031
 msgid "#%d (no title)"
 msgstr ""
 
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1965
-#: functions/czr-base-fmk/czr-base-fmk.php:1965
+#: functions/czr-base-fmk/czr-base-fmk.php:1983
 #: inc/czr-base-fmk/czr-base-fmk.php:1965
 msgid "No results found."
 msgstr ""
@@ -4176,6 +4177,30 @@ msgstr "Tryck enter för att öppna denna panel"
 msgid "Press return or enter to open this section"
 msgstr "Tryck enter för att öppna denna sektion"
 
+#: functions/czr-base-fmk/czr-base-fmk.php:209
+msgid "Clear"
+msgstr ""
+
+#: functions/czr-base-fmk/czr-base-fmk.php:210
+#, fuzzy
+msgid "Clear color"
+msgstr "Textfärg"
+
+#: functions/czr-base-fmk/czr-base-fmk.php:212
+#, fuzzy
+msgid "Select default color"
+msgstr "Välj en ikon"
+
+#: functions/czr-base-fmk/czr-base-fmk.php:213
+#, fuzzy
+msgid "Select Color"
+msgstr "Sekundär färg"
+
+#: functions/czr-base-fmk/czr-base-fmk.php:214
+#, fuzzy
+msgid "Color value"
+msgstr "Textfärg"
+
 #: functions/czr-modules/body-background/body_bg_module.php:75
 msgid "No Repeat"
 msgstr "Upprepa inte"
@@ -5940,7 +5965,7 @@ msgid "Collapse menu"
 msgstr "Minimera meny"
 
 #: parts/post-list-author-date.php:12 parts/post-list-author-date.php:14
-#: parts/post-list-author-date.php:20 parts/single-author-date.php:16
+#: parts/post-list-author-date.php:20 parts/single-author-date.php:14
 msgid "by"
 msgstr "av"
 
@@ -5952,11 +5977,11 @@ msgstr "Nästa artikel"
 msgid "Previous story"
 msgstr "Föregående artikel"
 
-#: parts/single-author-date.php:31
+#: parts/single-author-date.php:29
 msgid "Published"
 msgstr "Publicerat"
 
-#: parts/single-author-date.php:32
+#: parts/single-author-date.php:30
 msgid "Updated"
 msgstr "Uppdaterat"
 
