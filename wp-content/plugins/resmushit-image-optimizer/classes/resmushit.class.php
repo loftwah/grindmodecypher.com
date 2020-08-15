@@ -199,7 +199,7 @@ Class reSmushit {
 		$output = array();
 		$extraSQL = null;
 		if($attachment_id)
-			$extraSQL = "where $wpdb->postmeta.post_id = ". $attachment_id;
+			$extraSQL = "where $wpdb->postmeta.post_id = ". (int)($attachment_id);
 
 		$query = $wpdb->prepare( 
 			"select
@@ -335,8 +335,8 @@ Class reSmushit {
 		foreach($all_images as $image){
 			$tmp = array();
 			$tmp['ID'] = $image->ID;
-			$tmp['attachment_metadata'] = unserialize($image->file_meta);
-
+			$tmp['attachment_metadata'] = isset($image->file_meta) ? unserialize($image->file_meta) : array();
+			
 			if( !file_exists(get_attached_file( $image->ID )) ) {
 				$files_not_found[] = $tmp;
 				continue;
