@@ -5,8 +5,8 @@ Plugin URI: https://wordpress.org/plugins/nimble-builder/
 Tags: page builder, visual editor, customizer, drag and drop, header, footer, landing page, contact form, grid, post grid
 Requires at least: 4.7
 Requires PHP: 5.4
-Tested up to: 5.4
-Stable tag: 2.1.2
+Tested up to: 5.5
+Stable tag: 2.1.5
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8FMNQPU36U27J&source=url
@@ -120,10 +120,21 @@ We have also published a detailed [troubleshooting guide for Nimble Builder](htt
 If you can't troubleshoot your issue, please open a new thread in [Nimble Builder support forum](https://wordpress.org/support/plugin/nimble-builder/).
 
 == Upgrade Notice ==
-2.1.2 : [performance][css] don't generate CSS for inactive locations on a page
-. [menu module] submenu items won't inherit user defined text styles. [menu module][mobile menu] make sure users can scroll down mobile menu items if menu wrapper is higher than vh. [lazy load][performances] fixed : image parsing can break srcset and sizes attributes. [UI][Content Picker] Fix all content type displayed in some cases + make sure the content picker is set to "section" when user creates a new section
+2.1.5 : Implements patches for a better compatibility with upcoming WP 5.5. Limits the number of transients created by Nimble Builder.
 
 == Changelog ==
+= 2.1.5 July 20th 2020 =
+* fixed : [compatibility with WP 5.5] wp_make_content_images_responsive is deprecated, replaced by wp_filter_content_tags
+* fixed : [compatibility with WP 5.5] adapt customizer color-picker script with latest version of WP 5.5
+* improved : [performance] limit the number of transients created by Nimble Builder + clean old unused transients.
+* improved : [icon module] added a default line-height of 1em to the icon wrapper
+
+= 2.1.4 July 18th 2020 =
+* fixed : [Customizer UI][device switcher] limit scenarii when preview is automatically set back to desktop, while user customizes mobile or tablet preview.
+
+= 2.1.3 July 17th 2020 =
+* fixed : [CSS generation][performances] empty stylesheets not always removed from upload sek_css folder. Introduction of a new folder 'nb_css' in /upload to store Nimble dynamic stylesheets.
+
 = 2.1.2 July 7th 2020 =
 * fixed : [performance][css] don't generate CSS for inactive locations on a page
 * fixed : [menu module] submenu items won't inherit user defined text styles
