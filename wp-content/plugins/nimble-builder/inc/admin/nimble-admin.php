@@ -212,6 +212,23 @@ function sek_render_welcome_notice() {
       return;
     if ( isset($_GET['page']) && NIMBLE_OPTIONS_PAGE === $_GET['page'] )
       return;
+    $current_screen = get_current_screen();
+    if( in_array( $current_screen->base, array(
+        'site-health',
+        'tools',
+        'import',
+        'export',
+        'export-personal-data',
+        'erase-personal-data',
+        'options-general',
+        'options-writing',
+        'options-reading',
+        'options-discussion',
+        'options-media',
+        'options-permalinks',
+        'options-privacy',
+      ) ) )
+      return;
     if ( sek_site_has_nimble_sections_created() && !( defined('NIMBLE_DEV') && NIMBLE_DEV ) ) {
         $dismissed = get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true );
         $dismissed_array = array_filter( explode( ',', (string) $dismissed ) );
