@@ -1,4 +1,4 @@
-# Hueman Pro v1.3.1
+# Hueman Pro v1.3.2
 ![Hueman - Pro](/screenshot.png)
 
 > The premium version of the popular Hueman WordPress theme.
@@ -18,6 +18,9 @@ The **Hueman Pro WordPress theme** theme is licensed under GPLv3. See headers of
 See headers of files for further details.
 
 ## Changelog
+= 1.3.2 August 15, 2020 =
+* fixed : [customizer] javascript problem leading to broken features like social links, background color
+
 = 1.3.1 August 12, 2020 =
 * fixed : [featured posts slider][CSS] featured post slider broken on some browsers due to wrong CSS rule.
 * Hueman has been successfully tested with WordPress 5.5

@@ -198,6 +198,24 @@ if ( !class_exists( 'CZR_Fmk_Base_Load_Resources' ) ) :
             wp_enqueue_script( 'wp-color-picker' );
             wp_enqueue_style( 'wp-color-picker' );
 
+            // July 2020 : compatibility with WP5.5 => wpColorPickerL10n are not loaded by WP core anymore, but we need them for the custom czr-alpha-colorpicker.js
+            // see https://github.com/presscustomizr/nimble-builder/issues/729
+            global $wp_version;
+            if ( version_compare( $wp_version, '5.4.2' , '>=' ) ) {
+                wp_localize_script(
+                  'wp-color-picker',
+                  'wpColorPickerL10n',
+                  array(
+                    'clear'            => __( 'Clear', 'hueman-pro' ),
+                    'clearAriaLabel'   => __( 'Clear color', 'hueman-pro' ),
+                    'defaultString'    => __( 'Default', 'hueman-pro' ),
+                    'defaultAriaLabel' => __( 'Select default color', 'hueman-pro' ),
+                    'pick'             => __( 'Select Color', 'hueman-pro' ),
+                    'defaultLabel'     => __( 'Color value', 'hueman-pro' )
+                  )
+                );
+            }
+
             //'czr-customizer-fmk' will be enqueued as a dependency of 'font-customizer-control' only in plugin mode
             wp_enqueue_script(
                 'czr-customizer-fmk',
@@ -1369,11 +1387,11 @@ if ( !class_exists( 'CZR_Fmk_Dyn_Module_Registration' ) ) :
             // error_log( '</czr_pre_register_dynamic_module>' );
 
             if ( !is_array( $module_params ) || empty( $module_params ) ) {
-                error_log( 'czr_pre_register_dynamic_module => empty $module_params submitted' );
+                sek_error_log( 'czr_pre_register_dynamic_module => empty $module_params submitted' );
                 return;
             }
             if ( !array_key_exists( 'module_type', $module_params ) || empty( $module_params['module_type'] ) ) {
-                error_log( 'czr_pre_register_dynamic_module => missing module_type' );
+                sek_error_log( 'czr_pre_register_dynamic_module => missing module_type' );
                 return;
             }
 
@@ -1386,7 +1404,7 @@ if ( !class_exists( 'CZR_Fmk_Dyn_Module_Registration' ) ) :
             // A module type can be registered only once.
             // Already registered ?
             if ( array_key_exists( $module_type_candidate, $registered ) ) {
-                error_log( 'czr_pre_register_dynamic_module => module type already registered => ' . $module_type_candidate );
+                sek_error_log( 'czr_pre_register_dynamic_module => module type already registered => ' . $module_type_candidate );
                 return;
             }
             $registered[ $module_type_candidate ] = $module_params;
