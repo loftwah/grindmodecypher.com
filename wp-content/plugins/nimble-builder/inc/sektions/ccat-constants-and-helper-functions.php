@@ -839,6 +839,14 @@ function sek_get_module_collection() {
         ),
         array(
           'content-type' => 'module',
+          'content-id' => 'czr_special_img_module',
+          'title' => __( 'Nimble Image', 'nimble-builder' ),
+          'icon' => 'Nimble_img_icon.svg',
+          'is_pro' => !sek_is_pro(),
+          'active' => sek_is_pro()
+        ),
+        array(
+          'content-type' => 'module',
           'content-id' => 'czr_button_module',
           'title' => __( 'Button', 'nimble-builder' ),
           'icon' => 'Nimble_button_icon.svg'
@@ -1240,7 +1248,7 @@ function sek_get_registered_module_input_list( $module_type = '' ) {
     } else {
         $registered_modules = CZR_Fmk_Base()->registered_modules;
         // sek_error_log( __FUNCTION__ . ' => registered_modules', $registered_modules );
-        if ( !array( $registered_modules ) || !array_key_exists( $module_type, $registered_modules ) ) {
+        if ( sek_is_dev_mode() && !array( $registered_modules ) || !array_key_exists( $module_type, $registered_modules ) ) {
             sek_error_log( __FUNCTION__ . ' => ' . $module_type . ' is not registered in the $CZR_Fmk_Base_fn()->registered_modules;' );
             return $input_list;
         }
@@ -2540,7 +2548,7 @@ function sek_are_beta_features_enabled() {
  *  PRO
 /* ------------------------------------------------------------------------- */
 function sek_is_pro() {
-    return sek_is_dev_mode();
+    return defined('NIMBLE_PRO_VERSION');
 }
 
 
@@ -2944,7 +2952,6 @@ function sek_refresh_nimble_api_data() {
 
 /////////////////////////////////////////////////////////////
 // REGISTRATION PARAMS FOR PRESET SECTIONS
-// Store the params in an option, refreshed every 30 days, on plugin update, on theme switch
 // @return array()
 function sek_get_sections_registration_params( $force_update = false ) {
 
@@ -2963,16 +2970,16 @@ function sek_get_sections_registration_params( $force_update = false ) {
     // $registration_params = get_transient( $section_params_transient_name );
     // // Refresh every 30 days, unless force_update set to true
     // if ( $force_update || false === $registration_params ) {
-    //     $registration_params = sek_get_raw_registration_params();
+    //     $registration_params = sek_get_raw_section_registration_params();
     //     set_transient( $section_params_transient_name, $registration_params, 30 * DAY_IN_SECONDS );
     // }
 
-    $registration_params = sek_get_raw_registration_params();
+    $registration_params = sek_get_raw_section_registration_params();
     return $registration_params;
 }
 
-function sek_get_raw_registration_params() {
-    return [
+function sek_get_raw_section_registration_params() {
+    return apply_filters( 'sek_get_raw_section_registration_params', [
         'sek_intro_sec_picker_module' => [
             'module_title' => __('Sections for an introduction', 'nimble-builder'),
             'section_collection' => array(
@@ -2990,6 +2997,13 @@ function sek_get_raw_registration_params() {
                     'content-id' => 'intro_two',
                     'title' => __('2 columns, call to action, full-width background', 'nimble-builder' ),
                     'thumb' => 'intro_two.jpg'
+                ),
+                array(
+                    'content-id' => 'pro_intro_one',
+                    'title' => __('3 call to action boxes, full-width background', 'nimble-builder' ),
+                    'thumb' => 'intro_two.jpg',
+                    'active' => sek_is_pro(),
+                    'is_pro' => !sek_is_pro()
                 )
             )
         ],
@@ -3089,7 +3103,7 @@ function sek_get_raw_registration_params() {
                 )
             )
         ]
-    ];
+    ]);
 }
 
 /////////////////////////////////////////////////////////////

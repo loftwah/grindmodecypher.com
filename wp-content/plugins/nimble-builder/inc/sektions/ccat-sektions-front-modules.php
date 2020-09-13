@@ -2592,8 +2592,14 @@ function sek_get_module_params_for_czr_simple_form_fields_child() {
                     'default'     => true,
                     'title_width' => 'width-80',
                     'input_width' => 'width-20',
+                    'html_after' => '<hr/>'
                 ),
-
+                'email_field_label' => array(
+                    'input_type'  => 'text',
+                    'width-100'         => true,
+                    'title'       => __('Email field label', 'nimble-builder'),
+                    'default'     => __('Email', 'nimble-builder')
+                ),
                 'show_subject_field' => array(
                     'input_type'  => 'nimblecheck',
                     'title'       => __('Display subject field', 'nimble-builder'),
@@ -2613,6 +2619,7 @@ function sek_get_module_params_for_czr_simple_form_fields_child() {
                     'default'     => true,
                     'title_width' => 'width-80',
                     'input_width' => 'width-20',
+                    'html_after' => '<hr/>'
                 ),
 
                 'show_message_field' => array(
@@ -2634,13 +2641,31 @@ function sek_get_module_params_for_czr_simple_form_fields_child() {
                     'default'     => true,
                     'title_width' => 'width-80',
                     'input_width' => 'width-20',
+                    'html_after' => '<hr/>'
                 ),
 
-                'email_field_label' => array(
-                    'input_type'  => 'text',
+                'show_privacy_field' => array(
+                    'input_type'  => 'nimblecheck',
+                    'title'       => __('Display a checkbox for privacy policy consent', 'nimble-builder'),
+                    'default'     => false,
+                    'title_width' => 'width-80',
+                    'input_width' => 'width-20',
+                ),
+                'privacy_field_label' => array(
+                    'input_type'        => 'nimble_tinymce_editor',
+                    'title'       => __( 'Consent message' , 'nimble-builder' ),
+                    'default'     => __( 'I have read and agree to the privacy policy.', 'nimble-builder' ),
                     'width-100'         => true,
-                    'title'       => __('Email field label', 'nimble-builder'),
-                    'default'     => __('Email', 'nimble-builder')
+                    'refresh_markup' => '.sek-privacy-wrapper label',
+                    'notice_before' => __('Html code is allowed', 'nimble-builder')
+                ),
+                'privacy_field_required' => array(
+                    'input_type'  => 'nimblecheck',
+                    'title'       => __('Privacy policy consent is required', 'nimble-builder'),
+                    'default'     => true,
+                    'title_width' => 'width-80',
+                    'input_width' => 'width-20',
+                    'html_after' => '<hr/>'
                 ),
 
                 'button_text' => array(
@@ -2899,7 +2924,7 @@ function sek_get_module_params_for_czr_simple_form_button_child() {
  *  FONTS
 /* ------------------------------------------------------------------------- */
 function sek_get_module_params_for_czr_simple_form_fonts_child() {
-    $fl_font_selectors = array( 'form label', '.sek-form-message' ); //<= .sek-form-message is the wrapper of the form status message : Thanks, etc...
+    $fl_font_selectors = array( '.sek-simple-form-wrapper form label', '.sek-form-message' ); //<= .sek-form-message is the wrapper of the form status message : Thanks, etc...
     $ft_font_selectors = array( 'form input[type="text"]', 'form input[type="text"]:focus', 'form textarea', 'form textarea:focus' );
     $btn_font_selectors = array( 'form input[type="submit"]' );
     return array(
@@ -4620,6 +4645,10 @@ function sek_get_module_params_for_czr_menu_module() {
  *  MENU CONTENT
 /* ------------------------------------------------------------------------- */
 function sek_get_module_params_for_czr_menu_content_child() {
+    $pro_text = '';
+    if ( !sek_is_pro() ) {
+        $pro_text = '';//sek_get_pro_notice_for_czr_input( __('search icon and WooCommerce cart in menu, sticky header, hamburger color, ...', 'text-doma') );
+    }
     return array(
         'dynamic_registration' => true,
         'module_type' => 'czr_menu_content_child',
@@ -4661,6 +4690,7 @@ function sek_get_module_params_for_czr_menu_content_child() {
                     'css_selectors' => array( '.sek-nav-wrap' ),
                     'title_width' => 'width-100',
                     'width-100'   => true,
+                    'html_after' => $pro_text
                 ),
             ),
         ),
