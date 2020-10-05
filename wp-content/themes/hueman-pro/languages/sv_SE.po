@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Themes - Hueman-Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: * Hueman-Pro v1.3.0\n"
+"Project-Id-Version: * Hueman-Pro v1.3.3\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2020-07-21 15:09:11+00:00\n"
+"POT-Creation-Date: 2020-09-09 13:05:37+00:00\n"
 "PO-Revision-Date: 2017-10-22 08:22:17+0000\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
@@ -179,7 +179,7 @@ msgid "OK got it. Remind me later."
 msgstr "Påminn mig senare"
 
 #: addons/activation-key/activation/class_activation_key.php:200
-#: functions/admin/class-admin-update-notification.php:120
+#: functions/admin/class-admin-update-notification.php:117
 msgid "close"
 msgstr "stäng"
 
@@ -395,9 +395,9 @@ msgstr ""
 
 #: addons/czr/ha-czr.php:215
 #: addons/pro/header/czr_slide_module/czr_slide_module.php:78
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1667
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1685
 #: functions/czr-base-fmk/czr-base-fmk.php:1685
-#: inc/czr-base-fmk/czr-base-fmk.php:1667
+#: inc/czr-base-fmk/czr-base-fmk.php:1685
 msgid "Set a custom url"
 msgstr ""
 
@@ -1388,18 +1388,18 @@ msgid "Are you sure you want to reset all your font settings to default?"
 msgstr ""
 
 #: addons/pro/wfc/back/classes/class_admin_font_customizer.php:516
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:552
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:570
 #: contextualizer/ccat-contextualizer.php:1442
 #: functions/czr-base-fmk/czr-base-fmk.php:570
-#: inc/czr-base-fmk/czr-base-fmk.php:552
+#: inc/czr-base-fmk/czr-base-fmk.php:570
 msgid "Yes"
 msgstr "Ja"
 
 #: addons/pro/wfc/back/classes/class_admin_font_customizer.php:517
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:552
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:570
 #: contextualizer/ccat-contextualizer.php:1443
 #: functions/czr-base-fmk/czr-base-fmk.php:570
-#: inc/czr-base-fmk/czr-base-fmk.php:552
+#: inc/czr-base-fmk/czr-base-fmk.php:570
 msgid "No"
 msgstr "Nej"
 
@@ -1467,10 +1467,10 @@ msgid "Select"
 msgstr "Välj bild"
 
 #: addons/pro/wfc/back/classes/class_admin_font_customizer.php:587
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:248
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:266
 #: functions/czr/czr-resources.php:186
 #: functions/czr-base-fmk/czr-base-fmk.php:266
-#: inc/czr-base-fmk/czr-base-fmk.php:248
+#: inc/czr-base-fmk/czr-base-fmk.php:266
 #: option-tree/includes/ot-functions-admin.php:125
 #: option-tree/includes/ot-functions-admin.php:126
 #: option-tree/includes/ot-functions-admin.php:162
@@ -1489,13 +1489,56 @@ msgid ""
 "theme) different than Customizr with a version less than v3.1.0."
 msgstr ""
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:242
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:543
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:209
+#: functions/czr-base-fmk/czr-base-fmk.php:209
+#: inc/czr-base-fmk/czr-base-fmk.php:209
+msgid "Clear"
+msgstr ""
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:210
+#: functions/czr-base-fmk/czr-base-fmk.php:210
+#: inc/czr-base-fmk/czr-base-fmk.php:210
+#, fuzzy
+msgid "Clear color"
+msgstr "Textfärg"
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:211
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:273
+#: functions/czr/controls/class-color-alpha-control.php:26
+#: functions/czr-base-fmk/czr-base-fmk.php:211
+#: functions/czr-base-fmk/czr-base-fmk.php:273
+#: inc/czr-base-fmk/czr-base-fmk.php:211 inc/czr-base-fmk/czr-base-fmk.php:273
+msgid "Default"
+msgstr "Standard"
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:212
+#: functions/czr-base-fmk/czr-base-fmk.php:212
+#: inc/czr-base-fmk/czr-base-fmk.php:212
+#, fuzzy
+msgid "Select default color"
+msgstr "Välj en ikon"
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:213
+#: functions/czr-base-fmk/czr-base-fmk.php:213
+#: inc/czr-base-fmk/czr-base-fmk.php:213
+#, fuzzy
+msgid "Select Color"
+msgstr "Sekundär färg"
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:214
+#: functions/czr-base-fmk/czr-base-fmk.php:214
+#: inc/czr-base-fmk/czr-base-fmk.php:214
+#, fuzzy
+msgid "Color value"
+msgstr "Textfärg"
+
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:260
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:561
 #: functions/czr/czr-resources.php:163
 #: functions/czr-base-fmk/czr-base-fmk.php:260
 #: functions/czr-base-fmk/czr-base-fmk.php:561
 #: functions/czr-modules/widget-zones/widget_zones_module.php:227
-#: inc/czr-base-fmk/czr-base-fmk.php:242 inc/czr-base-fmk/czr-base-fmk.php:543
+#: inc/czr-base-fmk/czr-base-fmk.php:260 inc/czr-base-fmk/czr-base-fmk.php:561
 #: option-tree/includes/ot-functions-admin.php:2839
 #: option-tree/includes/ot-functions-admin.php:2948
 #: option-tree/includes/ot-functions-admin.php:2949
@@ -1510,151 +1553,143 @@ msgstr ""
 msgid "Edit"
 msgstr "Redigera"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:243
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:261
 #: functions/czr/czr-resources.php:164
 #: functions/czr-base-fmk/czr-base-fmk.php:261
-#: inc/czr-base-fmk/czr-base-fmk.php:243
+#: inc/czr-base-fmk/czr-base-fmk.php:261
 #: option-tree/includes/ot-functions-admin.php:961
 msgid "Close"
 msgstr "Stäng"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:244
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:262
 #: functions/czr/czr-resources.php:168
 #: functions/czr-base-fmk/czr-base-fmk.php:262
 #: functions/czr-modules/widget-zones/widget_zones_module.php:88
-#: inc/czr-base-fmk/czr-base-fmk.php:244
+#: inc/czr-base-fmk/czr-base-fmk.php:262
 msgid "Not set"
 msgstr "Inte angivet"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:245
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:263
 #: functions/czr/czr-resources.php:172
 #: functions/czr-base-fmk/czr-base-fmk.php:263
 #: functions/czr-modules/social-links/social_links_module.php:80
-#: inc/czr-base-fmk/czr-base-fmk.php:245
+#: inc/czr-base-fmk/czr-base-fmk.php:263
 #: inc/czr-modules/social-links/social_links_module.php:80
 msgid "Done !"
 msgstr "Klart !"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:247
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:265
 #: functions/czr/czr-resources.php:185
 #: functions/czr-base-fmk/czr-base-fmk.php:265
-#: inc/czr-base-fmk/czr-base-fmk.php:247
+#: inc/czr-base-fmk/czr-base-fmk.php:265
 msgid "Learn more about this in the documentation"
 msgstr "Ta reda på mer om det här i dokumentationen"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:249
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:267
 #: functions/czr/czr-resources.php:187
 #: functions/czr-base-fmk/czr-base-fmk.php:267
-#: inc/czr-base-fmk/czr-base-fmk.php:249 inc/czr-skope/index.php:392
+#: inc/czr-base-fmk/czr-base-fmk.php:267 inc/czr-skope/index.php:398
 msgid "Options for"
 msgstr "Alternativ för"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:252
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:257
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:270
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:275
 #: functions/czr-base-fmk/czr-base-fmk.php:270
 #: functions/czr-base-fmk/czr-base-fmk.php:275
-#: inc/czr-base-fmk/czr-base-fmk.php:252 inc/czr-base-fmk/czr-base-fmk.php:257
+#: inc/czr-base-fmk/czr-base-fmk.php:270 inc/czr-base-fmk/czr-base-fmk.php:275
 msgid "Select Image"
 msgstr "Välj bild"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:253
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:271
 #: functions/czr-base-fmk/czr-base-fmk.php:271
-#: inc/czr-base-fmk/czr-base-fmk.php:253
+#: inc/czr-base-fmk/czr-base-fmk.php:271
 msgid "Change Image"
 msgstr "Byt bild"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:254
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:543
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:272
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:561
 #: functions/czr/controls/class-upload-control.php:68
 #: functions/czr-base-fmk/czr-base-fmk.php:272
 #: functions/czr-base-fmk/czr-base-fmk.php:561
-#: inc/czr-base-fmk/czr-base-fmk.php:254 inc/czr-base-fmk/czr-base-fmk.php:543
+#: inc/czr-base-fmk/czr-base-fmk.php:272 inc/czr-base-fmk/czr-base-fmk.php:561
 msgid "Remove"
 msgstr "Ta bort"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:255
-#: functions/czr/controls/class-color-alpha-control.php:26
-#: functions/czr-base-fmk/czr-base-fmk.php:211
-#: functions/czr-base-fmk/czr-base-fmk.php:273
-#: inc/czr-base-fmk/czr-base-fmk.php:255
-msgid "Default"
-msgstr "Standard"
-
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:256
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:274
 #: functions/czr-base-fmk/czr-base-fmk.php:274
-#: inc/czr-base-fmk/czr-base-fmk.php:256
+#: inc/czr-base-fmk/czr-base-fmk.php:274
 msgid "No image selected"
 msgstr "Ingen bild vald"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:258
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:276
 #: functions/czr-base-fmk/czr-base-fmk.php:276
-#: inc/czr-base-fmk/czr-base-fmk.php:258
+#: inc/czr-base-fmk/czr-base-fmk.php:276
 msgid "Choose Image"
 msgstr "Välj bild"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:260
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:278
 #: functions/czr-base-fmk/czr-base-fmk.php:278
-#: inc/czr-base-fmk/czr-base-fmk.php:260
+#: inc/czr-base-fmk/czr-base-fmk.php:278
 #, fuzzy
 msgid "Customizing"
 msgstr "Anpassa nu"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:453
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:471
 #: functions/czr-base-fmk/czr-base-fmk.php:471
-#: inc/czr-base-fmk/czr-base-fmk.php:453
+#: inc/czr-base-fmk/czr-base-fmk.php:471
 msgid "ac_set_ajax_czr_tmpl => Security check failed."
 msgstr ""
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:525
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:543
 #: functions/czr-base-fmk/czr-base-fmk.php:543
-#: inc/czr-base-fmk/czr-base-fmk.php:525
+#: inc/czr-base-fmk/czr-base-fmk.php:543
 #: option-tree/includes/ot-functions-option-types.php:1452
 #: option-tree/includes/ot-functions-option-types.php:2215
 #: option-tree/includes/ot-functions-option-types.php:2380
 msgid "Add New"
 msgstr "Lägg till ny"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:530
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:548
 #: functions/czr-base-fmk/czr-base-fmk.php:548
-#: inc/czr-base-fmk/czr-base-fmk.php:530
+#: inc/czr-base-fmk/czr-base-fmk.php:548
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:530
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:548
 #: functions/czr-base-fmk/czr-base-fmk.php:548
-#: inc/czr-base-fmk/czr-base-fmk.php:530
+#: inc/czr-base-fmk/czr-base-fmk.php:548
 msgid "Add it"
 msgstr "Lägg till"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:551
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:569
 #: functions/czr-base-fmk/czr-base-fmk.php:569
-#: inc/czr-base-fmk/czr-base-fmk.php:551
+#: inc/czr-base-fmk/czr-base-fmk.php:569
 msgid "Are you sure you want to remove : <strong>{{ data.title }} ?</strong>"
 msgstr ""
 "Är du säker på att du vill ta bort: <strong>{{ data.title }} ?</strong>"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1701
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1901
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1719
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1919
 #: functions/czr-base-fmk/czr-base-fmk.php:1719
 #: functions/czr-base-fmk/czr-base-fmk.php:1919
-#: inc/czr-base-fmk/czr-base-fmk.php:1701
-#: inc/czr-base-fmk/czr-base-fmk.php:1901
+#: inc/czr-base-fmk/czr-base-fmk.php:1719
+#: inc/czr-base-fmk/czr-base-fmk.php:1919
 msgid "ajax_load_available_items => Security check failed."
 msgstr ""
 
 #. translators: %d: ID of a post
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1822
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:2031
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1840
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:2049
 #: functions/czr-base-fmk/czr-base-fmk.php:1840
 #: functions/czr-base-fmk/czr-base-fmk.php:2049
-#: inc/czr-base-fmk/czr-base-fmk.php:1822
-#: inc/czr-base-fmk/czr-base-fmk.php:2031
+#: inc/czr-base-fmk/czr-base-fmk.php:1840
+#: inc/czr-base-fmk/czr-base-fmk.php:2049
 msgid "#%d (no title)"
 msgstr ""
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1965
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1983
 #: functions/czr-base-fmk/czr-base-fmk.php:1983
-#: inc/czr-base-fmk/czr-base-fmk.php:1965
+#: inc/czr-base-fmk/czr-base-fmk.php:1983
 msgid "No results found."
 msgstr ""
 
@@ -2260,7 +2295,7 @@ msgid "read the latest release notes"
 msgstr "läs senaste utgivningsnoteringarna"
 
 #: functions/admin/class-admin-page.php:148
-#: functions/admin/class-admin-page.php:277
+#: functions/admin/class-admin-page.php:258
 msgid "Changelog"
 msgstr "Ändringslogg"
 
@@ -2300,51 +2335,25 @@ msgstr ""
 msgid "Follow us"
 msgstr "Följ oss"
 
-#: functions/admin/class-admin-page.php:204
-msgid "Go Hueman Pro"
-msgstr "Gå över till Hueman Pro"
-
-#: functions/admin/class-admin-page.php:211
-msgid "Easily take your web design one step further"
-msgstr "Gör enkelt din webbdesign ett snäpp bättre"
-
-#: functions/admin/class-admin-page.php:213
-msgid ""
-"The Hueman Pro WordPress theme allows anyone to create a beautiful, "
-"professional and mobile friendly website in a few minutes. In the Pro "
-"version, you'll get all features included in the free version plus many "
-"conversion oriented ones, to help you attract and retain more visitors on "
-"your websites."
-msgstr ""
-"Med WordPress-temat Hueman Pro kan vem som helst skapa en vacker, proffsig "
-"och mobilvänlig webbplats på bara några minuter. I Pro-versionen får du alla "
-"funktioner som finns i gratisversionen plus många funktioner som är "
-"inriktade på konvertering av besökare, för att hjälpa dig locka och hålla "
-"kvar fler besökare på dina webbplatser,"
-
-#: functions/admin/class-admin-page.php:216
-msgid "Discover Hueman Pro"
-msgstr "Upptäck Hueman Pro"
-
-#: functions/admin/class-admin-page.php:227
+#: functions/admin/class-admin-page.php:208
 msgid "Go to Dashboard &rarr; Home"
 msgstr "Gå till Adminpanel &rarr; Hem"
 
-#: functions/admin/class-admin-page.php:227
+#: functions/admin/class-admin-page.php:208
 msgid "Go to Dashboard"
 msgstr "Gå till adminpanelen"
 
-#: functions/admin/class-admin-page.php:302
+#: functions/admin/class-admin-page.php:283
 #, fuzzy
 msgid "System Information"
 msgstr "Systeminformation"
 
-#: functions/admin/class-admin-page.php:303
+#: functions/admin/class-admin-page.php:284
 #, fuzzy
 msgid "Please include the following information when posting support requests"
 msgstr "Inkludera följande information när du skickar supportärenden"
 
-#: functions/admin/class-admin-page.php:304
+#: functions/admin/class-admin-page.php:285
 msgid ""
 "To copy the system infos, click below then press Ctrl + C (PC) or Cmd + C "
 "(Mac)."
@@ -2368,11 +2377,6 @@ msgstr "Vi vill gärna introducera de nya funktionerna vi har arbetat med."
 #: functions/admin/class-admin-update-notification.php:110
 msgid "Read the latest release notes"
 msgstr "Läs de senaste utgivningsnoteringarna"
-
-#: functions/admin/class-admin-update-notification.php:113
-#: functions/class-utils-settings-map.php:1981
-msgid "Upgrade to Hueman Pro"
-msgstr "Uppgradera till Hueman Pro"
 
 #: functions/admin/class-plugin-rec.php:28
 msgid "Activate Nimble Builder Now"
@@ -3735,6 +3739,10 @@ msgstr "Prestanda och SEO"
 msgid "Hueman Admin Settings"
 msgstr "Admininställningar för Hueman"
 
+#: functions/class-utils-settings-map.php:1981
+msgid "Upgrade to Hueman Pro"
+msgstr "Uppgradera till Hueman Pro"
+
 #: functions/class-utils-settings-map.php:1982
 msgid "Go Pro"
 msgstr "Skaffa pro"
@@ -4176,30 +4184,6 @@ msgstr "Tryck enter för att öppna denna panel"
 #: functions/czr/sections/class-widgets-section.php:36
 msgid "Press return or enter to open this section"
 msgstr "Tryck enter för att öppna denna sektion"
-
-#: functions/czr-base-fmk/czr-base-fmk.php:209
-msgid "Clear"
-msgstr ""
-
-#: functions/czr-base-fmk/czr-base-fmk.php:210
-#, fuzzy
-msgid "Clear color"
-msgstr "Textfärg"
-
-#: functions/czr-base-fmk/czr-base-fmk.php:212
-#, fuzzy
-msgid "Select default color"
-msgstr "Välj en ikon"
-
-#: functions/czr-base-fmk/czr-base-fmk.php:213
-#, fuzzy
-msgid "Select Color"
-msgstr "Sekundär färg"
-
-#: functions/czr-base-fmk/czr-base-fmk.php:214
-#, fuzzy
-msgid "Color value"
-msgstr "Textfärg"
 
 #: functions/czr-modules/body-background/body_bg_module.php:75
 msgid "No Repeat"
@@ -4876,32 +4860,32 @@ msgstr ""
 msgid "Skip to content"
 msgstr "Under innehåll"
 
-#: inc/czr-skope/index.php:409
+#: inc/czr-skope/index.php:415
 msgid "user"
 msgstr ""
 
-#: inc/czr-skope/index.php:415
+#: inc/czr-skope/index.php:421
 msgid "%1$s archive page"
 msgstr ""
 
-#: inc/czr-skope/index.php:420
+#: inc/czr-skope/index.php:426
 msgid "Undefined"
 msgstr ""
 
-#: inc/czr-skope/index.php:424
+#: inc/czr-skope/index.php:430
 #, fuzzy
 msgid "Options for all"
 msgstr "Alternativ för"
 
-#: inc/czr-skope/index.php:424
+#: inc/czr-skope/index.php:430
 msgid "All"
 msgstr ""
 
-#: inc/czr-skope/index.php:437
+#: inc/czr-skope/index.php:443
 msgid "users"
 msgstr ""
 
-#: inc/czr-skope/index.php:442
+#: inc/czr-skope/index.php:448
 #, fuzzy
 msgid "Sitewide options"
 msgstr "Avancerade inst&auml;llningar"
@@ -6085,6 +6069,25 @@ msgstr ""
 #~ msgstr ""
 #~ "”The Hueman Addons” är ett gratis tillägg som ger ett förbättrat "
 #~ "anpassningsgränssnitt för temat Hueman."
+
+#~ msgid "Discover Hueman Pro"
+#~ msgstr "Upptäck Hueman Pro"
+
+#~ msgid ""
+#~ "The Hueman Pro WordPress theme allows anyone to create a beautiful, "
+#~ "professional and mobile friendly website in a few minutes. In the Pro "
+#~ "version, you'll get all features included in the free version plus many "
+#~ "conversion oriented ones, to help you attract and retain more visitors on "
+#~ "your websites."
+#~ msgstr ""
+#~ "Med WordPress-temat Hueman Pro kan vem som helst skapa en vacker, "
+#~ "proffsig och mobilvänlig webbplats på bara några minuter. I Pro-versionen "
+#~ "får du alla funktioner som finns i gratisversionen plus många funktioner "
+#~ "som är inriktade på konvertering av besökare, för att hjälpa dig locka "
+#~ "och hålla kvar fler besökare på dina webbplatser,"
+
+#~ msgid "Easily take your web design one step further"
+#~ msgstr "Gör enkelt din webbdesign ett snäpp bättre"
 
 #~ msgid "default"
 #~ msgstr "standard"

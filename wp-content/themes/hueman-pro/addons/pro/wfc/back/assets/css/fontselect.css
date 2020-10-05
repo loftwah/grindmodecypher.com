@@ -683,10 +683,11 @@ li[id*="accordion-section-tc_font_"] > .accordion-section-content {
   font-size: 13px;
   padding: 2px 0px;
 }
-.wp-picker-container {
+/* September 2020 => commented to fix https://github.com/presscustomizr/hueman-pro-addons/issues/214
+/*.wp-picker-container {
   float: right;
   margin-bottom: 7px;
-}
+}*/
 .wp-color-result {
   margin: 0 0px 6px 0;
 }

@@ -3,7 +3,7 @@
  * Plugin Name: WordPress Font Customizer
  * Plugin URI: https://presscustomizr.com/extension/wordpress-font-customizer
  * Description: Make beautiful Google font combinations and apply awesome CSS3 effects to any text of your website. Preview everything right from the WordPress customizer before publishing live. Cross browser compatible, fast and easy, the WordPress Font Customizer is the ultimate tool for typography lovers.
- * Version: 3.1.1
+ * Version: 3.1.2
  * Author: Press Customizr
  * Author URI: https://presscustomizr.com
  * License: GPL2+
@@ -48,7 +48,7 @@ class TC_wfc {
         $this -> plug_id      = 15219;
         $this -> plug_file    = __FILE__; //main plugin root file.
         $this -> plug_prefix  = 'font_customizer';
-            $this -> plug_version = '3.1.1';
+            $this -> plug_version = '3.1.2';
 
         self::$_is_plugin     = ! did_action('plugins_loaded');
 

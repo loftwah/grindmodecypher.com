@@ -101,7 +101,11 @@ require_once( HA_BASE_PATH . 'addons/pro/czr_resources/3_modules-resources-for-p
 add_action( 'wp_enqueue_scripts', 'ha_enqueue_pro_front_assets');
 //hook : 'wp_enqueue_scripts'
 /* Enqueue Plugin resources */
+// September 2020, introduced a new boolean filter for https://github.com/presscustomizr/hueman/issues/912
 function ha_enqueue_pro_front_assets() {
+    if ( !apply_filters( 'ha_enqueue_pro_front_assets', true ) )
+      return;
+
     wp_enqueue_style(
         'hph-front-style' ,
         //sprintf('%1$s/front/assets/css/hph-front%2$s.css' , HU_PRO_HEADER_BASE_URL, ( defined('WP_DEBUG') && true === WP_DEBUG ) ? '' : '.min'),

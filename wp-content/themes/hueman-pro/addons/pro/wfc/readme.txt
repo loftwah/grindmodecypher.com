@@ -3,7 +3,7 @@ Author URI: https://presscustomizr.com/
 Plugin URI: https://presscustomizr.com/
 Requires at least: 4.7
 Requires PHP: 5.4
-Tested up to: 5.4
+Tested up to: 5.5
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -24,6 +24,9 @@ SUPPORT : https://presscustomizr.com/support/
 
 
 == Changelog 
+= 3.1.2 September 2, 2020 =
+* fixed : Color picker CSS broken https://github.com/presscustomizr/hueman-pro-addons/issues/214
+
 = 3.1.1 May 14th 2020 =
 * added : [performance] add an option to disable totally Font Customizer if needed
 * added : [performance] added display=swap parameter to Google fonts to ensure text remains visible during webfont load
