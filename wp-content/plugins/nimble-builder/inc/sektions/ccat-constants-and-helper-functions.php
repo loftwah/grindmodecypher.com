@@ -124,7 +124,7 @@ function sek_get_registered_location_property( $location_id, $property_name = ''
     }
 
     $location_params = wp_parse_args( $all_locations[$location_id], Nimble_Manager()->default_registered_location_model );
-    return !empty( $location_params[$property_name] ) ? $location_params[$property_name] : $default_property_val;
+    return array_key_exists($property_name, $location_params) ? $location_params[$property_name] : $default_property_val;
 }
 
 // @return bool
@@ -2548,7 +2548,7 @@ function sek_are_beta_features_enabled() {
  *  PRO
 /* ------------------------------------------------------------------------- */
 function sek_is_pro() {
-    return defined('NIMBLE_PRO_VERSION');
+    return defined('NB_PRO_VERSION');
 }
 
 
@@ -2724,7 +2724,7 @@ function sek_strip_script_tags( $html = '' ) {
 // @return bool
 // Introduced May 2020
 function sek_current_user_can_access_nb_ui() {
-    return apply_filters('nimble-user-have-access', true );
+    return apply_filters('nb_user_has_access', true );
 }
 
 
@@ -2770,6 +2770,63 @@ function sek_clean_transients_like( $transient_string ) {
         }
     }
 }
+
+
+// July 2020 : introduced for https://github.com/presscustomizr/nimble-builder/issues/720
+// @param $features (string) list of features
+function sek_get_pro_notice_for_czr_input( $features = '' ) {
+  if ( !defined('NIMBLE_PRO_UPSELL_ON') || !NIMBLE_PRO_UPSELL_ON )
+    return '';
+  return sprintf( '<hr/><p class="sek-pro-notice"><img class="sek-pro-icon" src="%1$s"/><span class="sek-pro-notice-icon-bef-text"><img src="%2$s"/></span><span class="sek-pro-notice-text">%3$s : %4$s<br/><br/>%5$s</span><p>',
+      NIMBLE_BASE_URL.'/assets/czr/sek/img/pro_white.svg?ver='.NIMBLE_VERSION,
+      NIMBLE_BASE_URL.'/assets/img/nimble/nimble_icon.svg?ver='.NIMBLE_VERSION,
+      __('Unlock more features with Nimble Builder Pro', 'nimble-builder'),
+      $features,
+      sprintf('<a href="%1$s" rel="noopener noreferrer" title="%2$s" target="_blank">%2$s <i class="fas fa-external-link-alt"></i></a>',
+          'https://presscustomizr.com/nimble-builder-pro/',
+          __('Go Pro', 'nimble-builder')
+      )
+  );
+}
+
+
+// September 2020 : filter the collection of modules
+// Removes pro upsell modules if NIMBLE_PRO_UPSELL_ON is false
+// filter declared in inc/sektions/_front_dev_php/_constants_and_helper_functions/0_0_5_modules_helpers.php
+add_filter('sek_get_module_collection', function( $collection ) {
+    if ( defined('NIMBLE_PRO_UPSELL_ON') && NIMBLE_PRO_UPSELL_ON )
+      return $collection;
+
+    $filtered = [];
+    foreach ($collection as $mod => $mod_data) {
+        if ( array_key_exists('is_pro', $mod_data) && $mod_data['is_pro'] )
+          continue;
+        $filtered[] = $mod_data;
+    }
+    return $filtered;
+});
+
+// September 2020 : filter the collection of pre-built sections
+// Removes pro upsell modules if NIMBLE_PRO_UPSELL_ON is false
+// filter declared in _front_dev_php/_constants_and_helper_functions/0_5_2_sektions_local_sektion_data.php
+add_filter('sek_get_raw_section_registration_params', function( $collection ) {
+    if ( sek_is_pro() )
+      return $collection;
+    if ( defined('NIMBLE_PRO_UPSELL_ON') && NIMBLE_PRO_UPSELL_ON )
+      return $collection;
+
+    $filtered = [];
+    foreach ($collection as $section_group_name => $group_data) {
+        $filtered[$section_group_name] = $group_data;
+        foreach ( $group_data['section_collection'] as $sec_key => $sec_data) {
+            if ( array_key_exists('is_pro', $sec_data) && $sec_data['is_pro'] ) {
+                unset($filtered[$section_group_name]['section_collection'][$sec_key]);
+            }
+        }
+    }
+    return $filtered;
+});
+
 ?><?php
 // /* ------------------------------------------------------------------------- *
 // *  NIMBLE API
@@ -2981,79 +3038,115 @@ function sek_get_sections_registration_params( $force_update = false ) {
 function sek_get_raw_section_registration_params() {
     return apply_filters( 'sek_get_raw_section_registration_params', [
         'sek_intro_sec_picker_module' => [
-            'module_title' => __('Sections for an introduction', 'nimble-builder'),
+            'name' => __('Sections for an introduction', 'nimble-builder'),
             'section_collection' => array(
                 array(
                     'content-id' => 'intro_three',
                     'title' => __('1 columns, call to action, full-width background', 'nimble-builder' ),
-                    'thumb' => 'intro_three.jpg'
+                    'thumb' => 'intro_three.jpg',
+                    'demo_url' => '#intro-one'
                 ),
                 array(
                     'content-id' => 'intro_one',
                     'title' => __('1 column, full-width background', 'nimble-builder' ),
-                    'thumb' => 'intro_one.jpg'
+                    'thumb' => 'intro_one.jpg',
+                    'demo_url' => '#intro-two'
                 ),
                 array(
                     'content-id' => 'intro_two',
                     'title' => __('2 columns, call to action, full-width background', 'nimble-builder' ),
-                    'thumb' => 'intro_two.jpg'
+                    'thumb' => 'intro_two.jpg',
+                    'demo_url' => '#intro-three'
                 ),
                 array(
                     'content-id' => 'pro_intro_one',
-                    'title' => __('3 call to action boxes, full-width background', 'nimble-builder' ),
-                    'thumb' => 'intro_two.jpg',
+                    'title' => __('2 columns, call to actions, image carousel', 'nimble-builder' ),
+                    'thumb' => 'pro_intro_one.jpg',
                     'active' => sek_is_pro(),
-                    'is_pro' => !sek_is_pro()
+                    'is_pro' => true,
+                    'demo_url' => '#intro-four'
                 )
             )
         ],
         'sek_features_sec_picker_module' => [
-            'module_title' => __('Sections for services and features', 'nimble-builder'),
+            'name' => __('Sections for services and features', 'nimble-builder'),
             'section_collection' => array(
                 array(
                     'content-id' => 'features_one',
                     'title' => __('3 columns with icon and call to action', 'nimble-builder' ),
                     'thumb' => 'features_one.jpg',
+                    'demo_url' => '#service-one'
                     //'height' => '188px'
                 ),
                 array(
                     'content-id' => 'features_two',
                     'title' => __('3 columns with icon', 'nimble-builder' ),
                     'thumb' => 'features_two.jpg',
+                    'demo_url' => '#service-two'
                     //'height' => '188px'
                 )
             )
         ],
         'sek_about_sec_picker_module' => [
-            'module_title' => __('Contact-us sections', 'nimble-builder'),
+            'name' => __('About us sections', 'nimble-builder'),
             'section_collection' => array(
                 array(
                     'content-id' => 'about_one',
                     'title' => __('A simple about us section with 2 columns', 'nimble-builder' ),
                     'thumb' => 'about_one.jpg',
+                    'demo_url' => '#about-one'
                     //'height' => '188px'
                 )
             )
         ],
         'sek_contact_sec_picker_module' => [
-            'module_title' => __('Contact-us sections', 'nimble-builder'),
+            'name' => __('Contact-us sections', 'nimble-builder'),
             'section_collection' => array(
                 array(
                     'content-id' => 'contact_one',
                     'title' => __('A contact form and a Google map', 'nimble-builder' ),
                     'thumb' => 'contact_one.jpg',
+                    'demo_url' => '#contact-one'
                     //'height' => '188px'
                 ),
                 array(
                     'content-id' => 'contact_two',
                     'title' => __('A contact form with an image background', 'nimble-builder' ),
                     'thumb' => 'contact_two.jpg',
+                    'demo_url' => '#contact-two'
                     //'height' => '188px'
                 )
             )
         ],
+        'sek_team_sec_picker_module' => [
+            'name' => __('Sections for teams', 'nimble-builder'),
+            'section_collection' => array(
+                array(
+                    'content-id' => 'team_one',
+                    'title' => __('4 column', 'nimble-builder' ),
+                    'thumb' => 'team_one.jpg',
+                    'demo_url' => '#team-one'
+                ),
+                array(
+                    'content-id' => 'team_two',
+                    'title' => __('3 columns', 'nimble-builder' ),
+                    'thumb' => 'team_two.jpg',
+                    'height' => '180px',
+                    'demo_url' => '#team-two'
+                ),
+                array(
+                    'content-id' => 'pro_team_one',
+                    'title' => __('3 columns, call to action', 'nimble-builder' ),
+                    'thumb' => 'pro_team_one.jpg',
+                    'active' => sek_is_pro(),
+                    'height' => '180px',
+                    'is_pro' => true,
+                    'demo_url' => '#team-three'
+                )
+            )
+        ],
         'sek_column_layouts_sec_picker_module' => [
-            'module_title' => __('Empty sections with columns layout', 'nimble-builder'),
+            'name' => __('Empty sections with columns layout', 'nimble-builder'),
             'section_collection' => array(
                 array(
                     'content-id' => 'two_columns',
@@ -3074,7 +3167,7 @@ function sek_get_raw_section_registration_params() {
         ],
         // pre-built sections for header and footer
         'sek_header_sec_picker_module' => [
-            'module_title' => __('Header sections', 'nimble-builder'),
+            'name' => __('Header sections', 'nimble-builder'),
             'section_collection' => array(
                 array(
                     'content-id' => 'header_one',
@@ -3093,7 +3186,7 @@ function sek_get_raw_section_registration_params() {
             )
         ],
         'sek_footer_sec_picker_module' => [
-            'module_title' => __('Footer sections', 'nimble-builder'),
+            'name' => __('Footer sections', 'nimble-builder'),
             'section_collection' => array(
                 array(
                     'content-id' => 'footer_one',
@@ -3108,6 +3201,8 @@ function sek_get_raw_section_registration_params() {
 
 /////////////////////////////////////////////////////////////
 // JSON FOR PRESET SECTIONS
+// update is forced every 24 hours, see transient : 'nimble_preset_sections_refreshed'
+// update is forced on 'upgrader_process_complete', on 'after_theme_switch'
 function sek_get_preset_section_collection_from_json( $force_update = false ) {
     // JULY 2020 => not stored in a transient anymore. For https://github.com/presscustomizr/nimble-builder/issues/730
     // + clean previously created transients
@@ -3134,7 +3229,8 @@ function sek_get_preset_section_collection_from_json( $force_update = false ) {
         // Save now as option for faster access next time
         update_option( NIMBLE_OPT_NAME_FOR_SECTION_JSON, $json_collection );
     }
-    return $json_collection;
+    // Filter used by NB Pro to add pro sections
+    return apply_filters( 'nimble_preset_sections_collection', $json_collection, $force_update );
 }
 
 
@@ -3142,7 +3238,7 @@ function sek_get_preset_section_collection_from_json( $force_update = false ) {
 // - theme switch
 // - nimble upgrade
 // - nimble is loaded ( only when is_admin() ) <= This makes the loading of the customizer faster on the first load, because the transient is ready.
-add_action( 'nimble_front_classes_ready', '\Nimble\sek_refresh_preset_sections_data');
+//add_action( 'nimble_front_classes_ready', '\Nimble\sek_refresh_preset_sections_data');
 add_action( 'after_switch_theme', '\Nimble\sek_refresh_preset_sections_data');
 add_action( 'upgrader_process_complete', '\Nimble\sek_refresh_preset_sections_data');
 function sek_refresh_preset_sections_data() {
@@ -3198,7 +3294,7 @@ function sek_add_customize_link() {
           NIMBLE_BASE_URL.'/assets/img/nimble/nimble_icon.svg?ver='.NIMBLE_VERSION,
           __('Nimble Builder','nimble-builder'),
           __('Add sections in live preview with Nimble Builder', 'nimble-builder'),
-          __( 'Build with Nimble Builder', 'nimble-builder' )
+          apply_filters( 'nb_admin_bar_title', __( 'Build with Nimble Builder', 'nimble-builder' ) )
       ),
       'href'   => $customize_url,
       'meta'   => array(

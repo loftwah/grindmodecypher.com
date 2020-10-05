@@ -1075,7 +1075,7 @@ function sek_register_modules_when_not_customizing_and_not_ajaxing( $skope_id = 
 
     $modules = array_merge(
         $contextually_actives_candidates,
-        SEK_Front_Construct::$ui_level_modules,
+        apply_filters( 'nb_level_module_collection', SEK_Front_Construct::$ui_level_modules ),
         SEK_Front_Construct::$ui_local_global_options_modules
     );
     sek_do_register_module_collection( $modules );
@@ -1186,14 +1186,14 @@ function sek_register_prebuilt_section_modules() {
 
     foreach ( $registration_params as $module_type => $module_params ) {
         $module_params = wp_parse_args( $module_params, array(
-            'module_title' => '',
+            'name' => '',
             'section_collection' => array()
         ));
 
         // normalize the module params
         $normalized_params = $default_module_params;
         $normalized_params['module_type'] = $module_type;
-        $normalized_params['name'] = $module_params['module_title'];
+        $normalized_params['name'] = $module_params['name'];
         $normalized_params['tmpl']['item-inputs']['sections']['section_collection'] = $module_params['section_collection'];
         CZR_Fmk_Base()->czr_pre_register_dynamic_module( $normalized_params );
     }
@@ -1207,7 +1207,7 @@ function sek_register_user_sections_module() {
     $normalized_params = array(
         'dynamic_registration' => true,
         'module_type' => 'sek_my_sections_sec_picker_module',
-        'name' => __('Your saved sections', 'nimble-builder'),
+        'name' => __('My sections', 'nimble-builder'),
         'tmpl' => array(
             'item-inputs' => array(
                 'sections' => array(
@@ -1408,7 +1408,7 @@ function sek_get_module_params_for_sek_content_type_switcher_module() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_content_type_switcher_module',
-        'name' => __('Content type', 'nimble-builder'),
+        'name' => __('Select a content type', 'nimble-builder'),
         // 'sanitize_callback' => 'function_prefix_to_be_replaced_sanitize_callback__czr_social_module',
         // 'validate_callback' => 'function_prefix_to_be_replaced_validate_callback__czr_social_module',
         'tmpl' => array(
@@ -1444,7 +1444,7 @@ function sek_get_module_params_for_sek_module_picker_module() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_module_picker_module',
-        'name' => __('Content Picker', 'nimble-builder'),
+        'name' => __('Pick a module', 'nimble-builder'),
         // 'sanitize_callback' => 'function_prefix_to_be_replaced_sanitize_callback__czr_social_module',
         // 'validate_callback' => 'function_prefix_to_be_replaced_validate_callback__czr_social_module',
         'tmpl' => array(
@@ -1491,7 +1491,7 @@ function sek_get_module_params_for_sek_mod_option_switcher_module() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_mod_option_switcher_module',
-        'name' => __('Option switcher', 'nimble-builder'),
+        //'name' => __('Option switcher', 'text_doma'),
         // 'sanitize_callback' => 'function_prefix_to_be_replaced_sanitize_callback__czr_social_module',
         // 'validate_callback' => 'function_prefix_to_be_replaced_validate_callback__czr_social_module',
         'tmpl' => array(
@@ -1513,7 +1513,7 @@ function sek_get_module_params_for_sek_level_bg_module() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_level_bg_module',
-        'name' => __('Background', 'nimble-builder'),
+        //'name' => __('Background', 'text_doma'),
         // 'starting_value' => array(
         //     'bg-color-overlay'  => '#000000',
         //     'bg-opacity-overlay' => '40'
@@ -1868,7 +1868,7 @@ function sek_get_module_params_for_sek_level_text_module() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_level_text_module',
-        'name' => __('Text', 'nimble-builder'),
+        //'name' => __('Text', 'text_doma'),
         // 'starting_value' => array(
         //     'bg-color-overlay'  => '#000000',
         //     'bg-opacity-overlay' => '40'
@@ -2032,7 +2032,7 @@ function sek_get_module_params_for_sek_level_border_module() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_level_border_module',
-        'name' => __('Borders', 'nimble-builder'),
+        //'name' => __('Borders', 'text_doma'),
         'starting_value' => array(
             'borders' => array(
                 '_all_' => array( 'wght' => '1px', 'col' => '#000000' )
@@ -2077,7 +2077,8 @@ function sek_get_module_params_for_sek_level_border_module() {
                     'title'       => __('Apply a shadow', 'nimble-builder'),
                     'title_width' => 'width-80',
                     'input_width' => 'width-20',
-                    'default' => 0
+                    'default' => 0,
+                    'refresh_markup' => true
                 )
             )//item-inputs
         )//tmpl
@@ -2090,9 +2091,6 @@ function sek_get_module_params_for_sek_level_border_module() {
  *  SCHEDULE CSS RULES FILTERING
 /* ------------------------------------------------------------------------- */
 add_filter( 'sek_add_css_rules_for_level_options', '\Nimble\sek_add_css_rules_for_border', 10, 3 );
-add_filter( 'sek_add_css_rules_for_level_options', '\Nimble\sek_add_css_rules_for_boxshadow', 10, 3 );
-
-
 function sek_add_css_rules_for_border( $rules, $level ) {
     $options = empty( $level[ 'options' ] ) ? array() : $level['options'];
     // $default_value_model = Array
@@ -2151,55 +2149,13 @@ function sek_add_css_rules_for_border( $rules, $level ) {
 
     return $rules;
 }
-
-
-
-function sek_add_css_rules_for_boxshadow( $rules, $level ) {
-    $options = empty( $level[ 'options' ] ) ? array() : $level['options'];
-    // $default_value_model = Array
-    // (
-    //     [bg-color] =>
-    //     [bg-image] =>
-    //     [bg-position] => center
-    //     [bg-attachment] => 0
-    //     [bg-scale] => default
-    //     [bg-apply-overlay] => 0
-    //     [bg-color-overlay] =>
-    //     [bg-opacity-overlay] => 50
-    //     [border-width] => 1
-    //     [border-type] => none
-    //     [border-color] =>
-    //     [shadow] => 0
-    // )
-    $default_value_model  = sek_get_default_module_model( 'sek_level_border_module' );
-    $normalized_border_options = ( !empty( $options[ 'border' ] ) && is_array( $options[ 'border' ] ) ) ? $options[ 'border' ] : array();
-    $normalized_border_options = wp_parse_args( $normalized_border_options , is_array( $default_value_model ) ? $default_value_model : array() );
-
-    if ( empty( $normalized_border_options) )
-      return $rules;
-
-    if ( !empty( $normalized_border_options[ 'shadow' ] ) &&  sek_is_checked( $normalized_border_options[ 'shadow'] ) ) {
-        // when customizing set to !important, to override the sek-highlight-active-ui effect
-        $rules[]     = array(
-                'selector' => '.customizer-preview [data-sek-id="'.$level['id'].'"]',
-                'css_rules' => '-webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 3px 11px 0px!important;-moz-box-shadow: rgba(0, 0, 0, 0.25) 0px 3px 11px 0px!important;box-shadow: rgba(0, 0, 0, 0.25) 0px 3px 11px 0px!important;',
-                'mq' =>null
-        );
-        $rules[]     = array(
-                'selector' => '[data-sek-id="'.$level['id'].'"]',
-                'css_rules' => '-webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 3px 11px 0px;-moz-box-shadow: rgba(0, 0, 0, 0.25) 0px 3px 11px 0px;box-shadow: rgba(0, 0, 0, 0.25) 0px 3px 11px 0px;',
-                'mq' =>null
-        );
-    }
-    return $rules;
-}
 ?><?php
 //Fired in add_action( 'after_setup_theme', 'sek_register_modules', 50 );
 function sek_get_module_params_for_sek_level_height_module() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_level_height_module',
-        'name' => __('Height options', 'nimble-builder'),
+        //'name' => __('Height options', 'text_doma'),
         'starting_value' => array(
             'custom-height'  => array( 'desktop' => '50%' ),
         ),
@@ -2349,7 +2305,7 @@ function sek_get_module_params_for_sek_level_spacing_module() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_level_spacing_module',
-        'name' => __('Spacing options', 'nimble-builder'),
+        //'name' => __('Spacing options', 'text_doma'),
         // 'sanitize_callback' => 'function_prefix_to_be_replaced_sanitize_callback__czr_social_module',
         // 'validate_callback' => 'function_prefix_to_be_replaced_validate_callback__czr_social_module',
 
@@ -2620,7 +2576,7 @@ function sek_get_module_params_for_sek_level_width_module() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_level_width_module',
-        'name' => __('Width options', 'nimble-builder'),
+        //'name' => __('Width options', 'text_doma'),
         // 'sanitize_callback' => 'function_prefix_to_be_replaced_sanitize_callback__czr_social_module',
         // 'validate_callback' => 'function_prefix_to_be_replaced_validate_callback__czr_social_module',
         'tmpl' => array(
@@ -2649,6 +2605,7 @@ function sek_get_module_params_for_sek_level_width_module() {
                     'css_identifier' => 'h_alignment',
                     'title_width' => 'width-100',
                     'width-100'   => true,
+                    'notice_after' => __('Horizontal alignment can only be applied with a custom module width < to the parent column\'s width', 'nimble-builder'),
                 )
             )
         )//tmpl
@@ -2744,7 +2701,7 @@ function sek_get_module_params_for_sek_level_width_column() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_level_width_column',
-        'name' => __('Column width', 'nimble-builder'),
+        //'name' => __('Column width', 'text_doma'),
         // 'sanitize_callback' => 'function_prefix_to_be_replaced_sanitize_callback__czr_social_module',
         // 'validate_callback' => 'function_prefix_to_be_replaced_validate_callback__czr_social_module',
         'tmpl' => array(
@@ -2863,7 +2820,7 @@ function sek_get_module_params_for_sek_level_width_section() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_level_width_section',
-        'name' => __('Width options', 'nimble-builder'),
+        //'name' => __('Width options', 'text_doma'),
         // 'sanitize_callback' => 'function_prefix_to_be_replaced_sanitize_callback__czr_social_module',
         // 'validate_callback' => 'function_prefix_to_be_replaced_validate_callback__czr_social_module',
         // 'starting_value' => array(
@@ -3033,7 +2990,7 @@ function sek_get_module_params_for_sek_level_anchor_module() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_level_anchor_module',
-        'name' => __('Set a custom anchor', 'nimble-builder'),
+        //'name' => __('Set a custom anchor', 'text_doma'),
         // 'sanitize_callback' => 'function_prefix_to_be_replaced_sanitize_callback__czr_social_module',
         // 'validate_callback' => 'function_prefix_to_be_replaced_validate_callback__czr_social_module',
         'tmpl' => array(
@@ -3063,7 +3020,7 @@ function sek_get_module_params_for_sek_level_visibility_module() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_level_visibility_module',
-        'name' => __('Set visibility on devices', 'nimble-builder'),
+        //'name' => __('Set visibility on devices', 'text_doma'),
         // 'sanitize_callback' => 'function_prefix_to_be_replaced_sanitize_callback__czr_social_module',
         // 'validate_callback' => 'function_prefix_to_be_replaced_validate_callback__czr_social_module',
         'tmpl' => array(
@@ -3190,7 +3147,7 @@ function sek_get_module_params_for_sek_level_breakpoint_module() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_level_breakpoint_module',
-        'name' => __('Set a custom breakpoint', 'nimble-builder'),
+        //'name' => __('Set a custom breakpoint', 'text_doma'),
         // 'sanitize_callback' => 'function_prefix_to_be_replaced_sanitize_callback__czr_social_module',
         // 'validate_callback' => 'function_prefix_to_be_replaced_validate_callback__czr_social_module',
         'tmpl' => array(
@@ -3308,11 +3265,42 @@ function sek_add_css_rules_for_sections_breakpoint( $rules, $section ) {
 
 ?><?php
 //Fired in add_action( 'after_setup_theme', 'sek_register_modules', 50 );
+function sek_get_module_params_for_sek_level_cust_css_section() {
+    $pro_text = '';
+    if ( !sek_is_pro() ) {
+        $pro_text = sek_get_pro_notice_for_czr_input( __('custom CSS on a per section basis.', 'nimble-builder') );
+    }
+    return array(
+        'dynamic_registration' => true,
+        'module_type' => 'sek_level_cust_css_section',
+        //'name' => __('Width options', 'text_doma'),
+        // 'sanitize_callback' => 'function_prefix_to_be_replaced_sanitize_callback__czr_social_module',
+        // 'validate_callback' => 'function_prefix_to_be_replaced_validate_callback__czr_social_module',
+        // 'starting_value' => array(
+        //     'outer-section-width' => '100%',
+        //     'inner-section-width' => '100%'
+        // ),
+        'tmpl' => array(
+            'item-inputs' => array(
+                'custom_css' => array(
+                    'input_type'  => 'inactive',
+                    'default'     => '',
+                    'refresh_markup' => false,
+                    'refresh_stylesheet' => false,
+                    'html_before' => $pro_text . '<hr/>'
+                )
+            )
+        )//tmpl
+    );
+}
+
+?><?php
+//Fired in add_action( 'after_setup_theme', 'sek_register_modules', 50 );
 function sek_get_module_params_for_sek_local_template() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_local_template',
-        'name' => __('Template for the current page', 'nimble-builder'),
+        //'name' => __('Template for the current page', 'text_doma'),
         'starting_value' => array(),
         // 'sanitize_callback' => 'function_prefix_to_be_replaced_sanitize_callback__czr_social_module',
         // 'validate_callback' => 'function_prefix_to_be_replaced_validate_callback__czr_social_module',
@@ -3341,7 +3329,7 @@ function sek_get_module_params_for_sek_local_widths() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_local_widths',
-        'name' => __('Width settings of the sections in the current page', 'nimble-builder'),
+        //'name' => __('Width settings of the sections in the current page', 'text_doma'),
         // 'starting_value' => array(
         //     'outer-section-width' => '100%',
         //     'inner-section-width' => '100%'
@@ -3533,7 +3521,7 @@ function sek_get_module_params_for_sek_local_custom_css() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_local_custom_css',
-        'name' => __('Custom CSS for the sections of the current page', 'nimble-builder'),
+        //'name' => __('Custom CSS for the sections of the current page', 'text_doma'),
         // 'starting_value' => array(
         //     'local_custom_css' => sprintf( '/* %1$s */', __('Add your own CSS code here', 'text_doma' ) )
         // ),
@@ -3582,7 +3570,7 @@ function sek_get_module_params_for_sek_local_reset() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_local_reset',
-        'name' => __('Reset the sections of the current page', 'nimble-builder'),
+        //'name' => __('Reset the sections of the current page', 'text_doma'),
         'tmpl' => array(
             'item-inputs' => array(
                 'reset_local' => array(
@@ -3603,7 +3591,7 @@ function sek_get_module_params_for_sek_local_performances() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_local_performances',
-        'name' => __('Performance optimizations', 'nimble-builder'),
+        //'name' => __('Performance optimizations', 'text_doma'),
         // 'starting_value' => array(
         //     'local_custom_css' => sprintf( '/* %1$s */', __('Add your own CSS code here', 'text_doma' ) )
         // ),
@@ -3637,12 +3625,12 @@ function sek_get_module_params_for_sek_local_performances() {
 function sek_get_module_params_for_sek_local_header_footer() {
     $pro_text = '';
     if ( !sek_is_pro() ) {
-        $pro_text = '';//sek_get_pro_notice_for_czr_input( __('sticky header, header over content, sticky footer, search icon, WooCommerce Cart, hamburger color, ...', 'text-doma') );
+        $pro_text = sek_get_pro_notice_for_czr_input( __('sticky header, header over content, sticky footer, search icon, hamburger color, ...', 'nimble-builder') );
     }
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_local_header_footer',
-        'name' => __('Page header', 'nimble-builder'),
+        //'name' => __('Page header', 'text_doma'),
         // 'starting_value' => array(
         //     'local_custom_css' => sprintf( '/* %1$s */', __('Add your own CSS code here', 'text_doma' ) )
         // ),
@@ -3681,7 +3669,7 @@ function sek_get_module_params_for_sek_local_revisions() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_local_revisions',
-        'name' => __('Revision history', 'nimble-builder'),
+        //'name' => __('Revision history', 'text_doma'),
         // 'starting_value' => array(
         //     'local_custom_css' => sprintf( '/* %1$s */', __('Add your own CSS code here', 'text_doma' ) )
         // ),
@@ -3709,7 +3697,7 @@ function sek_get_module_params_for_sek_local_imp_exp() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_local_imp_exp',
-        'name' => __('Export / Import', 'nimble-builder'),
+        //'name' => __('Export / Import', 'text_doma'),
         // 'starting_value' => array(
         //     'local_custom_css' => sprintf( '/* %1$s */', __('Add your own CSS code here', 'text_doma' ) )
         // ),
@@ -3761,7 +3749,7 @@ function sek_get_module_params_for_sek_global_text() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_global_text',
-        'name' => __('Global text', 'nimble-builder'),
+        //'name' => __('Global text', 'text_doma'),
         // 'starting_value' => array(
         //     'global_custom_css' => sprintf( '/* %1$s */', __('Add your own CSS code here', 'text_doma' ) )
         // ),
@@ -4064,7 +4052,7 @@ function sek_get_module_params_for_sek_global_breakpoint() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_global_breakpoint',
-        'name' => __('Site wide breakpoint options', 'nimble-builder'),
+        //'name' => __('Site wide breakpoint options', 'text_doma'),
         // 'starting_value' => array(
 
         // ),
@@ -4126,7 +4114,7 @@ function sek_get_module_params_for_sek_global_widths() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_global_widths',
-        'name' => __('Site wide width options', 'nimble-builder'),
+        //'name' => __('Site wide width options', 'text_doma'),
         // 'starting_value' => array(
 
         // ),
@@ -4305,7 +4293,7 @@ function sek_get_module_params_for_sek_global_reset() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_global_reset',
-        'name' => __('Reset global scope sections', 'nimble-builder'),
+        //'name' => __('Reset global scope sections', 'text_doma'),
         'tmpl' => array(
             'item-inputs' => array(
                 'reset_global' => array(
@@ -4327,7 +4315,7 @@ function sek_get_module_params_for_sek_global_performances() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_global_performances',
-        'name' => __('Site wide performance options', 'nimble-builder'),
+        //'name' => __('Site wide performance options', 'text_doma'),
         // 'starting_value' => array(
 
         // ),
@@ -4442,12 +4430,12 @@ function sek_get_module_params_for_sek_global_performances() {
 function sek_get_module_params_for_sek_global_header_footer() {
     $pro_text = '';
     if ( !sek_is_pro() ) {
-        $pro_text = '';//sek_get_pro_notice_for_czr_input( __('sticky header, header over content, sticky footer, search icon, WooCommerce Cart, hamburger color, ...', 'text-doma') );
+        $pro_text = sek_get_pro_notice_for_czr_input( __('sticky header, header over content, sticky footer, search icon, hamburger color, ...', 'nimble-builder') );
     }
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_global_header_footer',
-        'name' => __('Site wide header', 'nimble-builder'),
+        //'name' => __('Site wide header', 'text_doma'),
         // 'starting_value' => array(
 
         // ),
@@ -4485,7 +4473,7 @@ function sek_get_module_params_for_sek_global_recaptcha() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_global_recaptcha',
-        'name' => __('Protect your contact forms with Google reCAPTCHA', 'nimble-builder'),
+        //'name' => __('Protect your contact forms with Google reCAPTCHA', 'text_doma'),
         // 'starting_value' => array(
 
         // ),
@@ -4567,7 +4555,7 @@ function sek_get_module_params_for_sek_global_imp_exp() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_global_imp_exp',
-        'name' => __('Export / Import global sections', 'nimble-builder'),
+        //'name' => __('Export / Import global sections', 'text_doma'),
         // 'starting_value' => array(
         //     'local_custom_css' => sprintf( '/* %1$s */', __('Add your own CSS code here', 'text_doma' ) )
         // ),
@@ -4620,7 +4608,7 @@ function sek_get_module_params_for_sek_global_revisions() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_global_revisions',
-        'name' => __('Revision history', 'nimble-builder'),
+        //'name' => __('Revision history', 'text_doma'),
         // 'starting_value' => array(
         //     'global_custom_css' => sprintf( '/* %1$s */', __('Add your own CSS code here', 'text_doma' ) )
         // ),
@@ -4649,7 +4637,7 @@ function sek_get_module_params_for_sek_global_beta_features() {
     return array(
         'dynamic_registration' => true,
         'module_type' => 'sek_global_beta_features',
-        'name' => __('Beta features', 'nimble-builder'),
+        //'name' => __('Beta features', 'text_doma'),
         // 'starting_value' => array(
 
         // ),

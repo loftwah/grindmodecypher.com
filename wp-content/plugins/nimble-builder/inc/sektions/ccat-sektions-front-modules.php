@@ -296,6 +296,10 @@ function sek_get_module_params_for_czr_image_module() {
  *  MAIN SETTINGS
 /* ------------------------------------------------------------------------- */
 function sek_get_module_params_for_czr_image_main_settings_child() {
+    $pro_text = '';
+    if ( !sek_is_pro() ) {
+        $pro_text = sek_get_pro_notice_for_czr_input( __('set a specific header logo on mobiles, shrink header logo when scrolling down the page, ...', 'nimble-builder') );
+    }
     return array(
         'dynamic_registration' => true,
         'module_type' => 'czr_image_main_settings_child',
@@ -389,7 +393,8 @@ function sek_get_module_params_for_czr_image_main_settings_child() {
                     'input_type'  => 'nimblecheck',
                     'title'       => __( 'Custom image width', 'nimble-builder' ),
                     'default'     => 0,
-                    'refresh_stylesheet' => true
+                    'refresh_stylesheet' => true,
+                    'html_before' => '<hr/>'
                 ),
                 'custom_width' => array(
                     'input_type'  => 'range_with_unit_picker_device_switcher',
@@ -404,16 +409,37 @@ function sek_get_module_params_for_czr_image_main_settings_child() {
                     'refresh_markup' => false,
                     'refresh_stylesheet' => true
                 ),
+                'use_custom_height' => array(
+                    'input_type'  => 'nimblecheck',
+                    'title'       => __( 'Custom image height', 'nimble-builder' ),
+                    'default'     => 0,
+                    'refresh_stylesheet' => true
+                ),
+                'custom_height' => array(
+                    'input_type'  => 'range_with_unit_picker_device_switcher',
+                    'title'       => __('Height', 'nimble-builder'),
+                    'min' => 1,
+                    'max' => 100,
+                    //'unit' => '%',
+                    'default'     => array( 'desktop' => '100%' ),
+                    'max'     => 500,
+                    'width-100'   => true,
+                    'title_width' => 'width-100',
+                    'refresh_markup' => false,
+                    'refresh_stylesheet' => true
+                ),
                 'use_box_shadow' => array(
                     'input_type'  => 'nimblecheck',
                     'title'       => __( 'Apply a shadow', 'nimble-builder' ),
                     'default'     => 0,
+                    'html_before' => '<hr/>'
                 ),
                 'img_hover_effect' => array(
                     'input_type'  => 'simpleselect',
                     'title'       => __('Mouse over effect', 'nimble-builder'),
                     'default'     => 'none',
-                    'choices'     => sek_get_select_options_for_input_id( 'img_hover_effect' )
+                    'choices'     => sek_get_select_options_for_input_id( 'img_hover_effect' ),
+                    'html_after' => $pro_text
                 )
             )
         ),
@@ -564,7 +590,62 @@ function sek_add_css_rules_for_czr_image_module( $rules, $complete_modul_model )
                 'mq' =>null
             );
         }
-    }
+    }// Width
+
+
+    // HEIGHT
+    if ( sek_booleanize_checkbox_val( $main_settings['use_custom_height'] ) ) {
+        $height = $main_settings[ 'custom_height' ];
+        $css_rules = '';
+        if ( isset( $height ) && FALSE !== $height ) {
+            $numeric = sek_extract_numeric_value( $height );
+            if ( !empty( $numeric ) ) {
+                $unit = sek_extract_unit( $height );
+                $css_rules .= 'max-height:' . $numeric . $unit . ';';
+            }
+            // same treatment as in sek_add_css_rules_for_css_sniffed_input_id() => 'width'
+            if ( is_string( $height ) ) {
+                  $numeric = sek_extract_numeric_value($height);
+                  if ( !empty( $numeric ) ) {
+                      $unit = sek_extract_unit( $height );
+                      $css_rules .= 'max-height:' . $numeric . $unit . ';';
+                  }
+            } else if ( is_array( $height ) ) {
+                  $height = wp_parse_args( $height, array(
+                      'desktop' => '100%',
+                      'tablet' => '',
+                      'mobile' => ''
+                  ));
+                  // replace % by vh when needed
+                  $ready_value = $height;
+                  foreach ($height as $device => $num_unit ) {
+                      $numeric = sek_extract_numeric_value( $num_unit );
+                      if ( !empty( $numeric ) ) {
+                          $unit = sek_extract_unit( $num_unit );
+                          $ready_value[$device] = $numeric . $unit;
+                      }
+                  }
+
+                  $rules = sek_set_mq_css_rules(array(
+                      'value' => $ready_value,
+                      'css_property' => 'max-height',
+                      'selector' => '[data-sek-id="'.$complete_modul_model['id'].'"] .sek-module-inner figure',
+                      'is_important' => false,
+                      'level_id' => $complete_modul_model['id']
+                  ), $rules );
+            }
+        }//if
+
+
+        if ( !empty( $css_rules ) ) {
+            $rules[] = array(
+                'selector' => '[data-sek-id="'.$complete_modul_model['id'].'"] .sek-module-inner img',
+                'css_rules' => $css_rules,
+                'mq' =>null
+            );
+        }
+    }// height
+
 
     // BORDERS
     $border_settings = $borders_corners_settings[ 'borders' ];
@@ -4647,7 +4728,7 @@ function sek_get_module_params_for_czr_menu_module() {
 function sek_get_module_params_for_czr_menu_content_child() {
     $pro_text = '';
     if ( !sek_is_pro() ) {
-        $pro_text = '';//sek_get_pro_notice_for_czr_input( __('search icon and WooCommerce cart in menu, sticky header, hamburger color, ...', 'text-doma') );
+        $pro_text = sek_get_pro_notice_for_czr_input( __('search icon next to the menu, sticky header, hamburger color, ...', 'nimble-builder') );
     }
     return array(
         'dynamic_registration' => true,
@@ -5188,6 +5269,7 @@ function sek_get_module_params_for_czr_img_slider_opts_child() {
                                 'default'     => 'width-100',
                                 'choices'     => array(
                                     'nimble-wizard' => __('Nimble wizard', 'nimble-builder' ),
+                                    'cover' => __('Images fill space and are centered without being stretched', 'nimble-builder'),
                                     'width-100' => __('Adapt images to carousel\'s width', 'nimble-builder' ),
                                     'height-100' => __('Adapt images to carousel\'s height', 'nimble-builder' ),
                                 ),

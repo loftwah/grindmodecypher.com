@@ -177,7 +177,7 @@ function sek_is_forbidden_post_type_for_nimble_edit_button( $post_type = '' ) {
 }
 add_action( 'edit_form_after_title', '\Nimble\sek_print_edit_with_nimble_btn_for_classic_editor' );
 function sek_print_edit_with_nimble_btn_for_classic_editor( $post ) {
-  if ( !sek_current_user_can_access_nb_ui() )
+  if ( !sek_current_user_can_access_nb_ui() || !apply_filters('nb_post_edit_btn_enabled', true ) )
     return;
   if ( is_object($post) && sek_is_forbidden_post_type_for_nimble_edit_button( $post->post_type ) )
     return;
@@ -194,7 +194,7 @@ function sek_print_edit_with_nimble_btn_for_classic_editor( $post ) {
 }
 add_action( 'enqueue_block_editor_assets', '\Nimble\sek_enqueue_js_asset_for_gutenberg_edit_button');
 function sek_enqueue_js_asset_for_gutenberg_edit_button() {
-    if ( !sek_current_user_can_access_nb_ui() )
+    if ( !sek_current_user_can_access_nb_ui() || !apply_filters('nb_post_edit_btn_enabled', true ) )
       return;
     $current_screen = get_current_screen();
     if ( 'post' !== $current_screen->base )
@@ -217,7 +217,7 @@ function sek_enqueue_js_asset_for_gutenberg_edit_button() {
 }
 add_action( 'admin_footer', '\Nimble\sek_print_js_for_nimble_edit_btn' );
 function sek_print_js_for_nimble_edit_btn() {
-  if ( !sek_current_user_can_access_nb_ui() )
+  if ( !sek_current_user_can_access_nb_ui() || !apply_filters('nb_post_edit_btn_enabled', true ) )
     return;
   $current_screen = get_current_screen();
   if ( 'post' !== $current_screen->base )
@@ -267,7 +267,7 @@ function sek_print_js_for_nimble_edit_btn() {
   <?php
 }
 function sek_print_nb_btn_edit_with_nimble( $editor_type ) {
-    if ( !sek_current_user_can_access_nb_ui() )
+    if ( !sek_current_user_can_access_nb_ui() || !apply_filters('nb_post_edit_btn_enabled', true ) )
       return;
     $post = get_post();
     $manually_built_skope_id = strtolower( NIMBLE_SKOPE_ID_PREFIX . 'post_' . $post->post_type . '_' . $post->ID );
@@ -284,7 +284,7 @@ function sek_print_nb_btn_edit_with_nimble( $editor_type ) {
       <?php //_e( 'Edit with Nimble Builder', 'text_doma' ); ?>
       <?php printf( '<span class="sek-spinner"></span><span class="sek-nimble-icon" title="%3$s"><img src="%1$s" alt="%2$s"/><span class="sek-nimble-admin-bar-title">%2$s</span><span class="sek-nimble-mobile-admin-bar-title">%3$s</span></span>',
           NIMBLE_BASE_URL.'/assets/img/nimble/nimble_icon.svg?ver='.NIMBLE_VERSION,
-          sek_local_skope_has_nimble_sections( $manually_built_skope_id ) ? __('Continue building with Nimble','nimble-builder') : __('Build with Nimble Builder','nimble-builder'),
+          apply_filters( 'nb_admin_nb_button_edit_title', sek_local_skope_has_nimble_sections( $manually_built_skope_id ) ? __('Continue building with Nimble','nimble-builder') : __('Build with Nimble Builder','nimble-builder'), $manually_built_skope_id ),
           __('Build','nimble-builder'),
           __('Build sections in live preview with Nimble Builder', 'nimble-builder')
       ); ?>
@@ -547,6 +547,8 @@ function sek_welcome_notice_is_dismissed() {
 
 add_action( 'admin_notices', '\Nimble\sek_render_welcome_notice' );
 function sek_render_welcome_notice() {
+    if ( sek_is_pro() )
+      return;
     if ( !current_user_can( 'customize' ) )
       return;
     if ( !sek_current_user_can_access_nb_ui() )

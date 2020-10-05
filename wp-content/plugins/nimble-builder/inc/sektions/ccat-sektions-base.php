@@ -56,8 +56,6 @@ class Sek_Dyn_CSS_Builder {
         // filter fired in sek_css_rules_sniffer_walker()
         add_filter( 'sek_add_css_rules_for_level_options', array( $this, 'sek_add_rules_for_column_width' ), 10, 2 );
 
-        //sek_error_log('FIRING THE CSS BUILDER');
-
         $this->sek_css_rules_sniffer_walker();
     }
 
@@ -251,8 +249,12 @@ class Sek_Dyn_CSS_Builder {
                 if ( !empty( $entry[ 'level' ] ) && 'location' != $entry[ 'level' ] ) {
                     $level_type = $entry[ 'level' ];
                     $rules = apply_filters( "sek_add_css_rules_for__{$level_type}__options", $rules, $entry );
+
                     // build rules for level options => section / column / module
-                    $rules = apply_filters( 'sek_add_css_rules_for_level_options', $rules, $entry );
+                    // param is_global_stylesheet says that we're building the global stylesheet
+                    // introduced for the custom CSS, to know if we're building CSS for a local or a global section
+                    // @see https://github.com/presscustomizr/nimble-builder-pro/issues/67
+                    $rules = apply_filters( 'sek_add_css_rules_for_level_options', $rules, $entry, $this->is_global_stylesheet );
                 }
 
                 // populate rules for modules values
@@ -905,7 +907,7 @@ class Sek_Dyn_CSS_Handler {
         // 3) front, user logged in + 'customize' capabilities :
         //    the css file is re-written on each page load + enqueued. If writing a css file is not possible, we fallback on inline printing.
         // 4) front, user not logged in :
-        //    the normal behaviour is that the css file is enqueued.
+        //    the default behavior is that the css file is enqueued.
         //    It should have been written when saving in the customizer. If no file available, we try to write it. If writing a css file is not possible, we fallback on inline printing.
         if ( is_customize_preview() || !$this->_sek_dyn_css_file_exists_is_readable_and_has_content() || $this->force_rewrite || $this->customizer_save ) {
             $this->sek_model = sek_get_skoped_seks( $this->skope_id );
@@ -1048,7 +1050,6 @@ class Sek_Dyn_CSS_Handler {
      * @return void()
      */
     public function sek_dyn_css_enqueue_or_print_and_google_fonts_print() {
-        //sek_error_log( __CLASS__ . ' | ' . __FUNCTION__ . ' => ' . $this->id );
         // CSS FILE
         //case enqueue file : front end + user with customize caps not logged in
         if ( self::MODE_FILE == $this->mode ) {
@@ -1081,6 +1082,7 @@ class Sek_Dyn_CSS_Handler {
                 $this->enqueued_or_printed = true;
             }
         }// if ( self::MODE_FILE )
+
         // case when sek_inline_dynamic_stylesheets_on_front()
         // introduced for https://github.com/presscustomizr/nimble-builder/issues/612
         else if ( !is_customize_preview() && self::MODE_INLINE == $this->mode ) {
@@ -2165,6 +2167,11 @@ if ( !class_exists( 'SEK_Front_Construct' ) ) :
         public $current_location_is_header = false;
         public $current_location_is_footer = false;
 
+        // September 2020 for https://github.com/presscustomizr/nimble-builder-pro/issues/67
+        public $local_sections_custom_css = '';
+        public $global_sections_custom_css = '';
+
+
         /////////////////////////////////////////////////////////////////
         // <CONSTRUCTOR>
         function __construct( $params = array() ) {
@@ -2189,6 +2196,14 @@ if ( !class_exists( 'SEK_Front_Construct' ) ) :
             // REGISTER NIMBLE WIDGET ZONES
             add_action( 'widgets_init', array( $this, 'sek_nimble_widgets_init' ) );
             do_action('nimble_manager_ready');
+
+            // MAYBE REGISTER PRO UPSELL MODUMES
+            add_filter('nb_level_module_collection', function( $module_collection ) {
+                if ( is_array($module_collection) && ( sek_is_pro() || defined('NIMBLE_PRO_UPSELL_ON') && NIMBLE_PRO_UPSELL_ON ) ) {
+                    array_push($module_collection, 'sek_level_cust_css_section' );
+                }
+                return $module_collection;
+            });
         }//__construct
 
         // @fired @hook 'widgets_init'
@@ -3144,7 +3159,7 @@ if ( !class_exists( 'SEK_Front_Assets' ) ) :
                 $l10n[ $key ] = html_entity_decode( (string) $value, ENT_QUOTES, 'UTF-8' );
             }
 
-            printf('<script>%1$s</script>', "var sekFrontLocalized = " . wp_json_encode( $l10n ) . ';' );
+            printf('<script id="nb-front-localized">%1$s</script>', "var sekFrontLocalized = " . wp_json_encode( $l10n ) . ';' );
         }
 
 
@@ -3160,7 +3175,7 @@ if ( !class_exists( 'SEK_Front_Assets' ) ) :
             if ( !sek_local_skope_has_nimble_sections( skp_get_skope_id() ) && !sek_has_global_sections() )
               return;
             ?>
-            <script id="nimble-app-init">window.nb_={},function(e,n){if(window.nb_={isArray:function(e){return Array.isArray(e)||"[object Array]"===toString.call(e)},inArray:function(e,n){return!(!nb_.isArray(e)||nb_.isUndefined(n))&&e.indexOf(n)>-1},isUndefined:function(e){return void 0===e},isObject:function(e){var n=typeof e;return"function"===n||"object"===n&&!!e},errorLog:function(){nb_.isUndefined(console)||"function"!=typeof window.console.log||console.log.apply(console,arguments)},hasPreloadSupport:function(e){var n=document.createElement("link").relList;return!(!n||!n.supports)&&n.supports("preload")},listenTo:function(e,n){var t={"nb-jquery-loaded":function(){return"undefined"!=typeof jQuery},"nb-app-ready":function(){return void 0!==window.nb_&&nb_.wasListenedTo("nb-jquery-loaded")},"nb-jmp-parsed":function(){return"undefined"!=typeof jQuery&&void 0!==jQuery.fn.magnificPopup},"nb-main-swiper-parsed":function(){return void 0!==window.Swiper}},i=function(i){nb_.isUndefined(t[e])||!1!==t[e]()?(n(),nb_.eventsListenedTo.push(e)):nb_.errorLog("Nimble error => an event callback could not be fired because conditions not met => ",e,nb_.eventsListenedTo)};"function"==typeof n?nb_.wasEmitted(e)?i():document.addEventListener(e,i):nb_.errorLog("Nimble error => listenTo func param is not a function for event => ",e)},eventsEmitted:[],eventsListenedTo:[],emit:function(e,n){if(!(nb_.isUndefined(n)||n.fire_once)||!nb_.wasEmitted(e)){var t=document.createEvent("Event");t.initEvent(e,!0,!0),document.dispatchEvent(t),nb_.eventsEmitted.push(e)}},wasListenedTo:function(e){return"string"==typeof e&&nb_.inArray(nb_.eventsListenedTo,e)},wasEmitted:function(e){return"string"==typeof e&&nb_.inArray(nb_.eventsEmitted,e)},isInScreen:function(e){if(!nb_.isObject(e))return!1;var n=e.getBoundingClientRect(),t=Math.max(document.documentElement.clientHeight,window.innerHeight);return!(n.bottom<0||n.top-t>=0)},isCustomizing:function(){return!1},isLazyLoadEnabled:function(){return!nb_.isCustomizing()&&!1},preloadAsset:function(e){if(e=e||{},nb_.preloadedAssets=nb_.preloadedAssets||[],!nb_.inArray(nb_.preloadedAssets,e.id)){var n=document.getElementsByTagName("head")[0],t=document.createElement("link"),i=(e.as,function(){if("style"===e.as)this.setAttribute("rel","stylesheet");else{var t=document.createElement("script");t.setAttribute("src",e.href),t.setAttribute("id",e.id),nb_.hasPreloadSupport()||"script"!==e.as||t.setAttribute("defer","defer"),n.appendChild(t),this&&this.parentNode&&this.parentNode.removeChild(this)}});nb_.hasPreloadSupport()||"script"!==e.as?(t.setAttribute("href",e.href),t.setAttribute("rel",nb_.hasPreloadSupport()?"preload":"stylesheet"),t.setAttribute("id",e.id),t.setAttribute("as",e.as),t.onload=function(){this.onload=null,e.onEvent?nb_.listenTo(e.onEvent,function(){i.call(t)}):i.call(t)},t.onerror=function(n){nb_.errorLog("Nimble preloadAsset error",n,e)}):e.onEvent?nb_.listenTo(e.onEvent,function(){i.call(t)}):i.call(t),n.appendChild(t),nb_.preloadedAssets.push(e.id),e.scriptEl&&e.scriptEl.parentNode&&e.scriptEl.parentNode.removeChild(e.scriptEl)}},mayBeRevealBG:function(){this.getAttribute("data-sek-src")&&(this.setAttribute("style",'background-image:url("'+this.getAttribute("data-sek-src")+'")'),this.className+=" sek-lazy-loaded",this.querySelectorAll(".sek-css-loader").forEach(function(e){nb_.isObject(e)&&e.parentNode.removeChild(e)}))}},window.NodeList&&!NodeList.prototype.forEach&&(NodeList.prototype.forEach=function(e,n){n=n||window;for(var t=0;t<this.length;t++)e.call(n,this[t],t,this)}),nb_.listenTo("nb-docready",function(){var e=document.querySelectorAll("div.sek-has-bg");!nb_.isObject(e)||e.length<1||e.forEach(function(e){nb_.isObject(e)&&nb_.isInScreen(e)&&nb_.mayBeRevealBG.call(e)})}),"complete"===document.readyState||"loading"!==document.readyState&&!document.documentElement.doScroll)nb_.emit("nb-docready");else{var t=function(){nb_.wasEmitted("nb-docready")||nb_.emit("nb-docready")};document.addEventListener("DOMContentLoaded",t),window.addEventListener("load",t)}}(window,document);</script>
+            <script id="nimble-app-init">window.nb_={},function(e,n){if(window.nb_={isArray:function(e){return Array.isArray(e)||"[object Array]"===toString.call(e)},inArray:function(e,n){return!(!nb_.isArray(e)||nb_.isUndefined(n))&&e.indexOf(n)>-1},isUndefined:function(e){return void 0===e},isObject:function(e){var n=typeof e;return"function"===n||"object"===n&&!!e},errorLog:function(){nb_.isUndefined(console)||"function"!=typeof window.console.log||console.log.apply(console,arguments)},hasPreloadSupport:function(e){var n=document.createElement("link").relList;return!(!n||!n.supports)&&n.supports("preload")},listenTo:function(e,n){var t={"nb-jquery-loaded":function(){return"undefined"!=typeof jQuery},"nb-app-ready":function(){return void 0!==window.nb_&&nb_.wasListenedTo("nb-jquery-loaded")},"nb-jmp-parsed":function(){return"undefined"!=typeof jQuery&&void 0!==jQuery.fn.magnificPopup},"nb-main-swiper-parsed":function(){return void 0!==window.Swiper}},o=function(o){nb_.isUndefined(t[e])||!1!==t[e]()?(n(),nb_.eventsListenedTo.push(e)):nb_.errorLog("Nimble error => an event callback could not be fired because conditions not met => ",e,nb_.eventsListenedTo)};"function"==typeof n?nb_.wasEmitted(e)?o():document.addEventListener(e,o):nb_.errorLog("Nimble error => listenTo func param is not a function for event => ",e)},eventsEmitted:[],eventsListenedTo:[],emit:function(e,n){if(!(nb_.isUndefined(n)||n.fire_once)||!nb_.wasEmitted(e)){var t=document.createEvent("Event");t.initEvent(e,!0,!0),document.dispatchEvent(t),nb_.eventsEmitted.push(e)}},wasListenedTo:function(e){return"string"==typeof e&&nb_.inArray(nb_.eventsListenedTo,e)},wasEmitted:function(e){return"string"==typeof e&&nb_.inArray(nb_.eventsEmitted,e)},isInScreen:function(e){if(!nb_.isObject(e))return!1;var n=e.getBoundingClientRect(),t=Math.max(document.documentElement.clientHeight,window.innerHeight);return!(n.bottom<0||n.top-t>=0)},isCustomizing:function(){return!1},isLazyLoadEnabled:function(){return!nb_.isCustomizing()&&!1},preloadAsset:function(e){if(e=e||{},nb_.preloadedAssets=nb_.preloadedAssets||[],!nb_.inArray(nb_.preloadedAssets,e.id)){var n=document.getElementsByTagName("head")[0],t=document.createElement("link"),o=(e.as,function(){if("style"===e.as)this.setAttribute("rel","stylesheet");else{var t=document.createElement("script");t.setAttribute("src",e.href),t.setAttribute("id",e.id),nb_.hasPreloadSupport()||"script"!==e.as||t.setAttribute("defer","defer"),n.appendChild(t),this&&this.parentNode&&this.parentNode.removeChild(this)}});nb_.hasPreloadSupport()||"script"!==e.as?(t.setAttribute("href",e.href),t.setAttribute("rel",nb_.hasPreloadSupport()?"preload":"stylesheet"),t.setAttribute("id",e.id),t.setAttribute("as",e.as),t.onload=function(){this.onload=null,e.onEvent?nb_.listenTo(e.onEvent,function(){o.call(t)}):o.call(t)},t.onerror=function(n){nb_.errorLog("Nimble preloadAsset error",n,e)}):e.onEvent?nb_.listenTo(e.onEvent,function(){o.call(t)}):o.call(t),n.appendChild(t),nb_.preloadedAssets.push(e.id),e.scriptEl&&e.scriptEl.parentNode&&e.scriptEl.parentNode.removeChild(e.scriptEl)}},mayBeRevealBG:function(){this.getAttribute("data-sek-src")&&(this.setAttribute("style",'background-image:url("'+this.getAttribute("data-sek-src")+'")'),this.className+=" sek-lazy-loaded",this.querySelectorAll(".sek-css-loader").forEach(function(e){nb_.isObject(e)&&e.parentNode.removeChild(e)}))}},window.NodeList&&!NodeList.prototype.forEach&&(NodeList.prototype.forEach=function(e,n){n=n||window;for(var t=0;t<this.length;t++)e.call(n,this[t],t,this)}),nb_.listenTo("nb-docready",function(){var e=document.querySelectorAll("div.sek-has-bg");!nb_.isObject(e)||e.length<1||e.forEach(function(e){nb_.isObject(e)&&(window.sekFrontLocalized&&window.sekFrontLocalized.lazyload_enabled?nb_.isInScreen(e)&&nb_.mayBeRevealBG.call(e):nb_.mayBeRevealBG.call(e))})}),"complete"===document.readyState||"loading"!==document.readyState&&!document.documentElement.doScroll)nb_.emit("nb-docready");else{var t=function(){nb_.wasEmitted("nb-docready")||nb_.emit("nb-docready")};document.addEventListener("DOMContentLoaded",t),window.addEventListener("load",t)}}(window,document);</script>
             <?php
         }
 
@@ -4052,13 +4067,20 @@ if ( !class_exists( 'SEK_Front_Render' ) ) :
                     $custom_anchor = esc_attr( $model[ 'options' ][ 'anchor' ]['custom_anchor'] );
                 }
             }
-            $custom_css_classes = null;
+            $level_css_classes = '';
             if ( !empty( $model[ 'options' ] ) && !empty( $model[ 'options' ][ 'anchor' ] ) && !empty( $model[ 'options' ][ 'anchor' ]['custom_css_classes'] ) ) {
                 if ( is_string( $model[ 'options' ][ 'anchor' ]['custom_css_classes'] ) ) {
-                    $custom_css_classes = esc_attr( $model[ 'options' ][ 'anchor' ]['custom_css_classes'] );
+                    $level_css_classes = esc_attr( $model[ 'options' ][ 'anchor' ]['custom_css_classes'] );
                     //clean commas
-                    $custom_css_classes = preg_replace("/(?<!\d)(\,|\.)(?!\d)/", "", $custom_css_classes);
-                    //$custom_css_classes = preg_replace("/[^0-9a-zA-Z]/","", $custom_css_classes);
+                    $level_css_classes = preg_replace("/(?<!\d)(\,|\.)(?!\d)/", "", $level_css_classes);
+                    //$level_css_classes = preg_replace("/[^0-9a-zA-Z]/","", $level_css_classes);
+                }
+            }
+
+            // sept 2020 => Box shadow CSS class
+            if ( !empty( $model[ 'options' ] ) && !empty( $model[ 'options' ][ 'border' ] ) && !empty( $model[ 'options' ][ 'border' ]['shadow'] ) ) {
+                if ( sek_is_checked( $model[ 'options' ][ 'border' ]['shadow'] ) ) {
+                    $level_css_classes .= 'sek-level-has-shadow';
                 }
             }
 
@@ -4165,7 +4187,7 @@ if ( !class_exists( 'SEK_Front_Render' ) ) :
 
                     // June 2020 : introduced for https://github.com/presscustomizr/nimble-builder-pro/issues/6
                     $section_classes = apply_filters( 'nimble_section_level_css_classes', array(), $model );
-                    array_push( $section_classes, $custom_css_classes );
+                    array_push( $section_classes, $level_css_classes );
 
                     printf('<div data-sek-level="section" data-sek-id="%1$s" %2$s class="sek-section %3$s %4$s %5$s %6$s" %7$s %8$s %9$s>%10$s',
                         $id,
@@ -4259,7 +4281,7 @@ if ( !class_exists( 'SEK_Front_Render' ) ) :
                         $grid_column_class,
                         $this->get_level_visibility_css_class( $model ),
                         $has_bg_img ? 'sek-has-bg' : '',
-                        is_null( $custom_css_classes ) ? '' : $custom_css_classes,
+                        $level_css_classes,
 
                         empty( $collection ) ? 'data-sek-no-modules="true"' : '',
                         // add smartload + parallax attributes
@@ -4393,7 +4415,7 @@ if ( !class_exists( 'SEK_Front_Render' ) ) :
                         $module_type,
                         $this->get_level_visibility_css_class( $model ),
                         $has_bg_img ? 'sek-has-bg' : '',
-                        is_null( $custom_css_classes ) ? '' : $custom_css_classes,
+                        $level_css_classes,
 
                         $title_attribute,
                         // add smartload + parallax attributes
@@ -4820,7 +4842,7 @@ if ( !class_exists( 'SEK_Front_Render' ) ) :
             add_filter( 'the_nimble_tinymce_module_content', array( $this, 'sek_run_shortcode' ), 8 );
 
             // @see filters in wp-includes/class-wp-embed.php
-            add_filter( 'the_nimble_tinymce_module_content', array( $this, 'sek_parse_content_for_video_embed') , 8 );
+            add_filter( 'the_nimble_tinymce_module_content', array( $this, 'sek_parse_content_for_video_embed'), 8 );
         }
 
         // fired @filter the_nimble_tinymce_module_content

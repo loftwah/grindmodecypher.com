@@ -122,6 +122,8 @@ function sek_enqueue_controls_js_css() {
                 'nimbleVersion' => NIMBLE_VERSION,
                 'isDevMode' => sek_is_dev_mode(),
                 'isDebugMode' => sek_is_debug_mode(),
+                'isPro' => sek_is_pro(),
+                'isUpsellEnabled' => defined('NIMBLE_PRO_UPSELL_ON') && NIMBLE_PRO_UPSELL_ON,
                 'baseUrl' => NIMBLE_BASE_URL,
                 //ajaxURL is not mandatory because is normally available in the customizer window.ajaxurl
                 'ajaxUrl' => admin_url( 'admin-ajax.php' ),
@@ -501,22 +503,12 @@ function nimble_add_i18n_localized_control_params( $params ) {
 
             // Generated UI
             'Content Picker' => __('Content Picker', 'nimble-builder'),
-            'Pick a module' => __('Pick a module', 'nimble-builder'),
             'Pick a pre-designed section' => __('Pick a pre-designed section', 'nimble-builder'),
-            'Select a content type' => __('Select a content type', 'nimble-builder'),
 
             'Header location only accepts modules and pre-built header sections' => __('Header location only accepts modules and pre-built header sections', 'nimble-builder'),
             'Footer location only accepts modules and pre-built footer sections' => __('Footer location only accepts modules and pre-built footer sections', 'nimble-builder'),
             'You can\'t drop a header section in the footer location' => __('You can\'t drop a header section in the footer location', 'nimble-builder'),
             'You can\'t drop a footer section in the header location' => __('You can\'t drop a footer section in the header location', 'nimble-builder'),
-
-            'Sections for an introduction' => __('Sections for an introduction', 'nimble-builder'),
-            'Sections for services and features' => __('Sections for services and features', 'nimble-builder'),
-            'About us sections' => __('About us sections', 'nimble-builder'),
-            'Contact-us sections' => __('Contact-us sections', 'nimble-builder'),
-            'Empty sections with columns layout' => __('Empty sections with columns layout', 'nimble-builder'),
-            'Header sections' => __('Header sections', 'nimble-builder'),
-            'Footer sections' => __('Footer sections', 'nimble-builder'),
 
             'Module' => __('Module', 'nimble-builder'),
             'Content for' => __('Content for', 'nimble-builder'),
@@ -529,6 +521,7 @@ function nimble_add_i18n_localized_control_params( $params ) {
             'Padding and margin settings for the' => __('Padding and margin settings for the', 'nimble-builder'),
             'Height and vertical alignment for the' => __('Height and vertical alignment for the', 'nimble-builder'),
             'Width settings for the' => __('Width settings for the', 'nimble-builder'),
+            'Width and horizontal alignment for the' => __('Width and horizontal alignment for the', 'nimble-builder'),
             'Custom anchor ( CSS ID ) and CSS classes for the' => __('Custom anchor ( CSS ID ) and CSS classes for the', 'nimble-builder'),
             'Device visibility settings for the' => __('Device visibility settings for the', 'nimble-builder'),
             'Responsive settings : breakpoint, column direction' => __('Responsive settings : breakpoint, column direction', 'nimble-builder'),
@@ -657,7 +650,7 @@ function nimble_add_i18n_localized_control_params( $params ) {
             'Last modified' => __('Last modified', 'nimble-builder'),
 
             // Section Save
-            'My sections' => __('My sections', 'nimble-builder')
+            //'My sections' => __('My sections', 'text_dom')
             //'Remove this element' => __('Remove this element', 'text_dom'),
             //'Remove this element' => __('Remove this element', 'text_dom'),
             //'Remove this element' => __('Remove this element', 'text_dom'),
@@ -725,6 +718,8 @@ function add_sektion_values_to_skope_export( $skopes ) {
 add_action( 'customize_controls_print_footer_scripts', '\Nimble\sek_print_nimble_czr_control_js', 100 );
 //add_action( 'customize_controls_print_scripts', '\Nimble\sek_print_nimble_czr_control_js', 100 );
 function sek_print_nimble_czr_control_js() {
+    if ( !sek_current_user_can_access_nb_ui() )
+      return;
     $script_url = sprintf(
         '%1$s/assets/czr/sek/js/%2$s?ver=%3$s' ,
         NIMBLE_BASE_URL,
@@ -1131,60 +1126,6 @@ function sek_is_plugin_active_for_network( $plugin ) {
 
   return false;
 }
-
-// July 2020 : introduced for https://github.com/presscustomizr/nimble-builder/issues/720
-// @param $features (string) list of features
-function sek_get_pro_notice_for_czr_input( $features = '' ) {
-  if ( !defined('NIMBLE_PRO_UPSELL_ON') || !NIMBLE_PRO_UPSELL_ON )
-    return '';
-  return sprintf( '<hr/><p class="sek-pro-notice"><img class="sek-pro-icon" src="%1$s"/><span class="sek-pro-notice-icon-bef-text"><img src="%2$s"/></span><span class="sek-pro-notice-text">%3$s : %4$s<br/><br/>%5$s</span><p>',
-      NIMBLE_BASE_URL.'/assets/czr/sek/img/pro_white.svg?ver='.NIMBLE_VERSION,
-      NIMBLE_BASE_URL.'/assets/img/nimble/nimble_icon.svg?ver='.NIMBLE_VERSION,
-      __('Unlock more features with Nimble Builder Pro', 'nimble-builder'),
-      $features,
-      sprintf('<a href="%1$s" rel="noopener noreferrer" title="%2$s" target="_blank">%2$s <i class="fas fa-external-link-alt"></i></a>',
-          'https://presscustomizr.com/nimble-builder-pro/',
-          __('Go Pro', 'nimble-builder')
-      )
-  );
-}
-
-
-// September 2020 : filter the collection of modules
-// Removes pro upsell modules if NIMBLE_PRO_UPSELL_ON is false
-// filter declared in inc/sektions/_front_dev_php/_constants_and_helper_functions/0_0_5_modules_helpers.php
-add_filter('sek_get_module_collection', function( $collection ) {
-    if ( defined('NIMBLE_PRO_UPSELL_ON') && NIMBLE_PRO_UPSELL_ON )
-      return $collection;
-
-    $filtered = [];
-    foreach ($collection as $mod => $mod_data) {
-        if ( array_key_exists('is_pro', $mod_data) && $mod_data['is_pro'] )
-          continue;
-        $filtered[] = $mod_data;
-    }
-    return $filtered;
-});
-
-// September 2020 : filter the collection of pre-built sections
-// Removes pro upsell modules if NIMBLE_PRO_UPSELL_ON is false
-// filter declared in _front_dev_php/_constants_and_helper_functions/0_5_2_sektions_local_sektion_data.php
-add_filter('sek_get_raw_section_registration_params', function( $collection ) {
-    if ( defined('NIMBLE_PRO_UPSELL_ON') && NIMBLE_PRO_UPSELL_ON )
-      return $collection;
-
-    $filtered = [];
-    foreach ($collection as $section_group_name => $group_data) {
-        $filtered[$section_group_name] = $group_data;
-        foreach ( $group_data['section_collection'] as $sec_key => $sec_data) {
-            if ( array_key_exists('is_pro', $sec_data) && $sec_data['is_pro'] ) {
-                unset($filtered[$section_group_name]['section_collection'][$sec_key]);
-            }
-        }
-    }
-    return $filtered;
-});
-
 ?><?php
 add_action( 'customize_controls_print_footer_scripts', '\Nimble\sek_print_nimble_input_templates' );
 function sek_print_nimble_input_templates() {
@@ -1764,7 +1705,7 @@ function sek_print_nimble_input_templates() {
                 <div draggable="{{is_draggable}}" data-sek-eligible-for-module-dropzones="true" data-sek-content-type="{{modData['content-type']}}" data-sek-content-id="{{modData['content-id']}}" title="{{title_attr}}"><div class="sek-module-icon {{font_icon_class}}"><# print(icon_img_html); #></div><div class="sek-module-title"><div class="sek-centered-module-title">{{modData['title']}}</div></div>
                   <#
                   if ( modData['is_pro'] ) {
-                    var pro_img_html = '<div class="sek-is-pro"><img src="' + sektionsLocalizedData.czrAssetsPath + 'sek/img/pro_white.svg" alt="Pro feature"/></div>';
+                    var pro_img_html = '<div class="sek-is-pro"><img src="' + sektionsLocalizedData.czrAssetsPath + 'sek/img/pro_orange.svg" alt="Pro feature"/></div>';
                     print(pro_img_html);
                   }
                   #>
@@ -1795,6 +1736,7 @@ function sek_print_nimble_input_templates() {
             //     return;
             // }
 
+            var img_version = sektionsLocalizedData.isDevMode ? Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1) : sektionsLocalizedData.nimbleVersion;
             // FOR PREBUILT SECTIONS ONLY, user sections are rendered in javascript @see _dev_control/modules/ui/_10_0_0_UI_module_and_section_pickers.js
             _.each( section_collection, function( rawSecParams ) {
                 //normalizes the params
@@ -1807,17 +1749,18 @@ function sek_print_nimble_input_templates() {
                   'section_type' : '',
                   'height': '',
                   'active' : true,
-                  'is_pro' : false
+                  'is_pro' : false,
+                  'demo_url' : false
                 },
-                modData = jQuery.extend( defaultParams, secParams );
+                secParams = jQuery.extend( defaultParams, secParams );
 
                 if ( !_.isEmpty( secParams['section_type'] ) ) {
                     section_type = secParams['section_type'];
                 }
 
-                var thumbUrl = [ sektionsLocalizedData.baseUrl , '/assets/img/section_assets/thumbs/', secParams['thumb'] ,  '?ver=' , sektionsLocalizedData.nimbleVersion ].join(''),
+                var thumbUrl = [ sektionsLocalizedData.baseUrl , '/assets/img/section_assets/thumbs/', secParams['thumb'] ,  '?ver=' , img_version ].join(''),
                     styleAttr = 'background: url(' + thumbUrl  + ') 50% 50% / cover no-repeat;';
-                    is_draggable = true !== modData['active'] ? 'false' : 'true';
+                    is_draggable = true !== secParams['active'] ? 'false' : 'true';
 
                 if ( !_.isEmpty(secParams['height']) ) {
                     styleAttr = styleAttr + 'height:' + secParams['height'] + ';';
@@ -1826,11 +1769,14 @@ function sek_print_nimble_input_templates() {
                 #>
                 <div draggable="{{is_draggable}}" data-sek-content-type="preset_section" data-sek-content-id="{{secParams['content-id']}}" style="<# print(styleAttr); #>" title="{{secParams['title']}}" data-sek-section-type="{{section_type}}"><div class="sek-overlay"></div>
                   <#
-                  if ( modData['is_pro'] ) {
-                    var pro_img_html = '<div class="sek-is-pro"><img src="' + sektionsLocalizedData.czrAssetsPath + 'sek/img/pro_white.svg" alt="Pro feature"/></div>';
+                  if ( secParams['is_pro'] ) {
+                    var pro_img_html = '<div class="sek-is-pro"><img src="' + sektionsLocalizedData.czrAssetsPath + 'sek/img/pro_orange.svg" alt="Pro feature"/></div>';
                     print(pro_img_html);
                   }
-                  #>
+                  var demo_title = "<?php _e('View in live demo', 'nimble-builder'); ?>";
+                  if ( secParams['demo_url'] ) { #>
+                    <div class="sek-demo-link"><a href="https://nimblebuilder.com/nimble-builder-sections?utm_source=usersite&amp;utm_medium=link&amp;utm_campaign=section_demos{{secParams['demo_url']}}" target="_blank" rel="noopener noreferrer">{{demo_title}} <i class="fas fa-external-link-alt"></i></a></div>
+                  <# } #>
                 </div>
                 <#
             });//_.each
@@ -2069,6 +2015,19 @@ function sek_print_nimble_input_templates() {
 
         </div>
         <input data-czrtype="{{data.input_id}}" type="hidden" value="{{data.value}}"/>
+      </script>
+      <?php
+
+      /* ------------------------------------------------------------------------- *
+       *  INACTIVE
+       * Sept 2020 introduced an "inactive" input type in order to display pro info for Nimble
+       * this input should be "hidden" type, and should not trigger an API change.
+       * when working on https://github.com/presscustomizr/nimble-builder-pro/issues/67
+
+      /* ------------------------------------------------------------------------- */
+      ?>
+      <script type="text/html" id="tmpl-nimble-input___inactive">
+        <input data-czrtype="{{data.input_id}}" type="hidden"/>
       </script>
       <?php
 }//sek_print_nimble_input_templates() @hook 'customize_controls_print_footer_scripts'
@@ -4214,6 +4173,7 @@ function sek_get_font_list_tmpl( $html, $requested_tmpl = '', $posted_params = a
 function sek_get_cfonts() {
     $cfonts = array();
     $raw_cfonts = array(
+        '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue, Arial, sans-serif',
         'Arial Black,Arial Black,Gadget,sans-serif',
         'Century Gothic',
         'Comic Sans MS,Comic Sans MS,cursive',
@@ -4322,7 +4282,16 @@ function sek_get_preset_sektions() {
     // May 21st => back to the local data
     // after problem was reported when fetching data remotely : https://github.com/presscustomizr/nimble-builder/issues/445
     //$preset_sections = sek_get_preset_sections_api_data();
-    $preset_sections = sek_get_preset_section_collection_from_json();
+
+    // September 2020 => force update every 24 hours so users won't miss a new pre-build section
+    // Note that the refresh should have take place on 'upgrader_process_complete'
+    // always force refresh when developing
+    $force_update = false;
+    if ( false == get_transient('nimble_preset_sections_refreshed') || sek_is_dev_mode() ) {
+        $force_update = true;
+        set_transient( 'nimble_preset_sections_refreshed', 'yes', 2 * DAY_IN_SECONDS );
+    }
+    $preset_sections = sek_get_preset_section_collection_from_json( $force_update );
     if ( empty( $preset_sections ) ) {
         wp_send_json_error( __CLASS__ . '::' . __FUNCTION__ . ' => no preset_sections when running sek_get_preset_sections_api_data()' );
     }

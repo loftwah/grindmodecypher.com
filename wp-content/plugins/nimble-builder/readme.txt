@@ -6,12 +6,12 @@ Tags: page builder, visual editor, customizer, drag and drop, header, footer, la
 Requires at least: 4.7
 Requires PHP: 5.4
 Tested up to: 5.5
-Stable tag: 2.1.9
+Stable tag: 2.1.13
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8FMNQPU36U27J&source=url
 
-Powerful drag and drop page builder using the native WordPress customizer.
+Simple and smart companion that allows you to insert sections into any existing page, create landing pages or entire websites including header and footer.
 
 == Description ==
 = What is Nimble Page Builder ? =
@@ -120,9 +120,40 @@ We have also published a detailed [troubleshooting guide for Nimble Builder](htt
 If you can't troubleshoot your issue, please open a new thread in [Nimble Builder support forum](https://wordpress.org/support/plugin/nimble-builder/).
 
 == Upgrade Notice ==
-2.1.8 : [contact form module] introduction of a privacy checkbox for a better GDPR compliancy
+2.1.13 : [module settings] horizontal alignment should be customizable without setting a custom width. [prebuilt sections] link to live demo when hovering thumbnail
 
 == Changelog ==
+= 2.1.13 September 30, 2020 =
+* fixed : [module settings] horizontal alignment should be customizable without setting a custom width
+* added : [prebuilt sections] link to live demo when hovering thumbnail
+* improved : [i18n] clean unused translation strings
+
+= 2.1.12 September 28, 2020 =
+* fixed : [lazy load] background images off screen are not loaded when lazy load is disabled
+* fixed : [image module] an image with an invalid url should not be rendered
+* fixed : [shadow on levels] not refreshed when customizing
+* fixed : [scroll to anchor] when lazy loading is on, the scroll might not land to the right anchor
+* fixed : [carousel module] first image not displayed when customizing with global lazyload disabled BUT slider lazyload enabled
+* fixed : [carousel module] adapt image to carousel height broken
+* added : [carousel module] new image layout option so that images fill space and are centered without being stretched
+* improved : [scroll to anchor] implement scrollIntoView
+
+= 2.1.11 September 26, 2020 =
+* fixed : [dynamic css] css value may not be taken into account when typed fast, for example when setting an height in pixels
+* fixed : [slider module] horizontal centering broken when slider fills 100% of height
+* fixed : [slider module] improved slider image style when chosen option is to adapt image on height
+* fixed : [prebuilt sections][performances] removed the get sections action at 'nimble_front_classes_ready'
+* fixed : [img module] make sure the html has a minimum height when no image was found
+* improved : [dynamic stylesheet] always animate to level when stylesheet is generated
+* improved : [dynamic stylesheet][performance] improved the CSS rule generation for level box shadow
+* added : [fonts] new web safe font
+* added : [image module] introduction of a custom height option
+* added: [prebuilt sections] new group of sections "Team" with 2 new prebuilt sections included
+
+= 2.1.10 September 17, 2020 =
+* improved : [admin] settings links should point to "Options" tab
+* fixed : [accordion module] striping script tags should be moved before parsing video embed, leading to tiktok videos embeds not working
+
 = 2.1.9 September 11th 2020 =
 * fixed : php fatal error on front end
 

@@ -477,6 +477,9 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                                     });
                               });
                         });
+
+                        // Send the previewed device to the preview
+                        //api.previewer.send( 'sek-preview-device-changed', { device : device });
                   });
 
                   // Schedule a reset
@@ -680,7 +683,21 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                         _mainPanel_.deferred.embedded.done( function() {
                               var $sidePanelTitleEl = _mainPanel_.container.find('h3.accordion-section-title'),
                                   $topPanelTitleEl = _mainPanel_.container.find('.panel-meta .accordion-section-title'),
-                                  logoHtml = [ '<img class="sek-nimble-logo" alt="'+ _mainPanel_.params.title +'" src="', sektionsLocalizedData.baseUrl, '/assets/img/nimble/nimble_horizontal.svg?ver=' + sektionsLocalizedData.nimbleVersion , '"/>' ].join('');
+                                  logoHtml = [
+                                      '<img class="sek-nimble-logo" alt="'+ _mainPanel_.params.title +'" src="',
+                                      sektionsLocalizedData.baseUrl,
+                                      '/assets/img/nimble/nimble_horizontal.svg?ver=' + sektionsLocalizedData.nimbleVersion,
+                                      '"/>',
+                                  ].join('');
+                              // Add Pro
+                              if ( sektionsLocalizedData.isPro ) {
+                                  logoHtml += [
+                                      '<img class="sek-nimble-logo" src="',
+                                      sektionsLocalizedData.baseUrl,
+                                      '/assets/czr/sek/img/pro_white.svg?ver=' + sektionsLocalizedData.nimbleVersion,
+                                      '"/>',
+                                  ].join('');
+                              }
 
                               if ( 0 < $sidePanelTitleEl.length ) {
                                     // The default title looks like this : Nimble Builder <span class="screen-reader-text">Press return or enter to open this section</span>
@@ -5008,21 +5025,22 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                   // Prepare the module map to register
                   var registrationParams = {};
 
+
                   $.extend( registrationParams, {
                         // The content type switcher has a priority lower than the other so it's printed on top
                         // it's loaded last, because it needs to know the existence of all other
-                        content_type_switcher : {
+                        sek_content_type_switcher_module : {
                               settingControlId : sektionsLocalizedData.optPrefixForSektionsNotSaved + '_sek_content_type_switcher_ui',
                               module_type : 'sek_content_type_switcher_module',
-                              controlLabel :  sektionsLocalizedData.i18n['Select a content type'],
+                              controlLabel :  self.getRegisteredModuleProperty( 'sek_content_type_switcher_module', 'name' ),//sektionsLocalizedData.i18n['Select a content type'],
                               priority : 10,
                               settingValue : { content_type : params.content_type }
                               //icon : '<i class="material-icons sek-level-option-icon">center_focus_weak</i>'
                         },
-                        module_picker : {
+                        sek_module_picker_module : {
                               settingControlId : sektionsLocalizedData.optPrefixForSektionsNotSaved + '_sek_draggable_modules_ui',
                               module_type : 'sek_module_picker_module',
-                              controlLabel : sektionsLocalizedData.i18n['Pick a module'],
+                              controlLabel : self.getRegisteredModuleProperty( 'sek_module_picker_module', 'name' ),//sektionsLocalizedData.i18n['Pick a module'],
                               content_type : 'module',
                               priority : 20,
                               icon : '<i class="fas fa-grip-vertical sek-level-option-icon"></i>'
@@ -5033,82 +5051,43 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                         sek_my_sections_sec_picker_module : {
                               settingControlId : sektionsLocalizedData.optPrefixForSektionsNotSaved + self.guid() + '_sek_draggable_sections_ui',
                               module_type : 'sek_my_sections_sec_picker_module',
-                              controlLabel :  sektionsLocalizedData.i18n['My sections'],
+                              controlLabel :  self.getRegisteredModuleProperty( 'sek_my_sections_sec_picker_module', 'name' ),//sektionsLocalizedData.i18n['My sections'],
                               content_type : 'section',
                               expandAndFocusOnInit : false,
                               priority : 10,
                               icon : '<i class="fas fa-grip-vertical sek-level-option-icon"></i>',
                               is_new : true
                         },
+                  });//
 
-                        // Preset sections
-                        // to understand how those sections are registered server side, see @see https://github.com/presscustomizr/nimble-builder/issues/713
-                        sek_intro_sec_picker_module : {
-                              settingControlId : sektionsLocalizedData.optPrefixForSektionsNotSaved + self.guid() + '_sek_draggable_sections_ui',
-                              module_type : 'sek_intro_sec_picker_module',
-                              controlLabel :  sektionsLocalizedData.i18n['Sections for an introduction'],
-                              content_type : 'section',
-                              expandAndFocusOnInit : true,
-                              priority : 30,
-                              icon : '<i class="fas fa-grip-vertical sek-level-option-icon"></i>'
-                        },
-                        sek_features_sec_picker_module : {
-                              settingControlId : sektionsLocalizedData.optPrefixForSektionsNotSaved + self.guid() + '_sek_draggable_sections_ui',
-                              module_type : 'sek_features_sec_picker_module',
-                              controlLabel :  sektionsLocalizedData.i18n['Sections for services and features'],
-                              content_type : 'section',
-                              expandAndFocusOnInit : false,
-                              priority : 30,
-                              icon : '<i class="fas fa-grip-vertical sek-level-option-icon"></i>'
-                        },
-                        sek_about_sec_picker_module : {
-                              settingControlId : sektionsLocalizedData.optPrefixForSektionsNotSaved + self.guid() + '_sek_draggable_sections_ui',
-                              module_type : 'sek_about_sec_picker_module',
-                              controlLabel :  sektionsLocalizedData.i18n['About us sections'],
-                              content_type : 'section',
-                              expandAndFocusOnInit : false,
-                              priority : 30,
-                              icon : '<i class="fas fa-grip-vertical sek-level-option-icon"></i>'
-                        },
-                        sek_contact_sec_picker_module : {
-                              settingControlId : sektionsLocalizedData.optPrefixForSektionsNotSaved + self.guid() + '_sek_draggable_sections_ui',
-                              module_type : 'sek_contact_sec_picker_module',
-                              controlLabel :  sektionsLocalizedData.i18n['Contact-us sections'],
-                              content_type : 'section',
-                              expandAndFocusOnInit : false,
-                              priority : 30,
-                              icon : '<i class="fas fa-grip-vertical sek-level-option-icon"></i>'
-                        },
-                        sek_column_layouts_sec_picker_module : {
-                              settingControlId : sektionsLocalizedData.optPrefixForSektionsNotSaved + self.guid() + '_sek_draggable_sections_ui',
-                              module_type : 'sek_column_layouts_sec_picker_module',
-                              controlLabel :  sektionsLocalizedData.i18n['Empty sections with columns layout'],
-                              content_type : 'section',
-                              expandAndFocusOnInit : false,
-                              priority : 30,
-                              icon : '<i class="fas fa-grip-vertical sek-level-option-icon"></i>'
-                        },
 
-                        // Header/footer have been beta tested during 5 months and released in June 2019, in version 1.8.0
-                        sek_header_sec_picker_module : {
+
+                  // Register prebuild sections modules
+                  // declared server side in inc/sektions/_front_dev_php/_constants_and_helper_functions/0_5_2_sektions_local_sektion_data.php
+                  // to understand how those sections are registered server side, see @see https://github.com/presscustomizr/nimble-builder/issues/713
+                  _.each([
+                        'sek_intro_sec_picker_module',
+                        'sek_features_sec_picker_module',
+                        'sek_about_sec_picker_module',
+                        'sek_contact_sec_picker_module',
+                        'sek_team_sec_picker_module',
+                        'sek_column_layouts_sec_picker_module',
+                        'sek_header_sec_picker_module',
+                        'sek_footer_sec_picker_module'
+                  ], function( mod_type, key ) {
+                        registrationParams[mod_type] = {
                               settingControlId : sektionsLocalizedData.optPrefixForSektionsNotSaved + self.guid() + '_sek_draggable_sections_ui',
-                              module_type : 'sek_header_sec_picker_module',
-                              controlLabel : sektionsLocalizedData.i18n['Header sections'],// sektionsLocalizedData.i18n['Header sections'],
+                              module_type : mod_type,
+                              controlLabel :  self.getRegisteredModuleProperty( mod_type, 'name' ),
                               content_type : 'section',
-                              expandAndFocusOnInit : false,
+                              expandAndFocusOnInit : 0 === key,//<= first section group is expanded on start
                               priority : 30,
                               icon : '<i class="fas fa-grip-vertical sek-level-option-icon"></i>'
-                        },
-                        sek_footer_sec_picker_module : {
-                              settingControlId : sektionsLocalizedData.optPrefixForSektionsNotSaved + self.guid() + '_sek_draggable_sections_ui',
-                              module_type : 'sek_footer_sec_picker_module',
-                              controlLabel : sektionsLocalizedData.i18n['Footer sections'],// sektionsLocalizedData.i18n['Header sections'],
-                              content_type : 'section',
-                              expandAndFocusOnInit : false,
-                              priority : 30,
-                              icon : '<i class="fas fa-grip-vertical sek-level-option-icon"></i>'
-                        }
-                  });//$.extend( registrationParams, { });
+                        };
+                  });
+
+
+                  //$.extend( registrationParams, { });
 
                   // Beta features to merge here ?
                   // if ( sektionsLocalizedData.areBetaFeaturesEnabled ) {
@@ -5642,6 +5621,7 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                         //             icon : '<i class="material-icons sek-level-option-icon">crop_din</i>'
                         //       }
                         // });
+                        // Pro icon
                         $.extend( modulesRegistrationParams, {
                               breakpoint : {
                                     settingControlId : params.id + '__breakpoint_options',
@@ -5650,6 +5630,17 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                                     icon : '<i class="material-icons sek-level-option-icon">devices</i>'
                               }
                         });
+                        if ( sektionsLocalizedData.isUpsellEnabled || sektionsLocalizedData.isPro ) {
+                              $.extend( modulesRegistrationParams, {
+                                    sec_custom_css : {
+                                          settingControlId : params.id + '__sec_custom_css',
+                                          module_type : 'sek_level_cust_css_section',
+                                          controlLabel : sektionsLocalizedData.i18n['Custom CSS'],
+                                          icon : '<i class="material-icons sek-level-option-icon">code</i>',
+                                          isPro : true
+                                    }
+                              });
+                        }
                   }
                   if ( 'column' === params.level ) {
                         $.extend( modulesRegistrationParams, {
@@ -5666,7 +5657,7 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                               width : {
                                     settingControlId : params.id + '__width_options',
                                     module_type : 'sek_level_width_module',
-                                    controlLabel : sektionsLocalizedData.i18n['Width settings for the'] + ' ' + sektionsLocalizedData.i18n[params.level],
+                                    controlLabel : sektionsLocalizedData.i18n['Width and horizontal alignment for the'] + ' ' + sektionsLocalizedData.i18n[params.level],
                                     icon : '<i class="fas fa-ruler-horizontal sek-level-option-icon"></i>'
                               }
                         });
@@ -5784,12 +5775,24 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                                         _titleContent = $title.html();
                                     // We wrap the original text content in this span.sek-ctrl-accordion-title in order to style it (underlined) independently ( without styling the icons next to it )
                                     $title.html( ['<span class="sek-ctrl-accordion-title">', _titleContent, '</span>' ].join('') );
+
                                     // if this level has an icon, let's prepend it to the title
-                                    if ( ! _.isUndefined( optionData.icon ) ) {
+                                    if ( !_.isUndefined( optionData.icon ) ) {
                                           $title.addClass('sek-flex-vertical-center').prepend( optionData.icon );
                                     }
                                     // prepend the animated arrow
                                     $title.prepend('<span class="sek-animated-arrow" data-name="icon-chevron-down"><span class="fa fa-chevron-down"></span></span>');
+
+                                    // if this section is pro, and we're not running NB PRo => add the icon
+                                    if ( optionData.isPro && !sektionsLocalizedData.isPro ) {
+                                        $title.append( [
+                                            '<img class="sek-pro-icon-next-title" src="',
+                                            sektionsLocalizedData.baseUrl,
+                                            '/assets/czr/sek/img/pro_orange.svg?ver=' + sektionsLocalizedData.nimbleVersion,
+                                            '"/>',
+                                        ].join('') );
+                                    }
+
                                     // setup the initial state + initial click
                                     _control_.container.attr('data-sek-expanded', "false" );
                                     if ( true === optionData.expandAndFocusOnInit && "false" == _control_.container.attr('data-sek-expanded' ) ) {
@@ -15605,9 +15608,9 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                                           api.czr_sektions.scheduleVisibilityOfInputId.call( input, 'custom-width', function() {
                                                 return 'custom' === input();
                                           });
-                                          api.czr_sektions.scheduleVisibilityOfInputId.call( input, 'h_alignment', function() {
-                                                return 'custom' === input();
-                                          });
+                                          // api.czr_sektions.scheduleVisibilityOfInputId.call( input, 'h_alignment', function() {
+                                          //       return 'custom' === input();
+                                          // });
                                     break;
                               }
                         });
@@ -15996,6 +15999,32 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
       });
 })( wp.customize , jQuery, _ );
 //global sektionsLocalizedData, serverControlParams
+//extends api.CZRDynModule
+( function ( api, $, _ ) {
+
+      //provides a description of each module
+      //=> will determine :
+      //1) how to initialize the module model. If not crud, then the initial item(s) model shall be provided
+      //2) which js template(s) to use : if crud, the module template shall include the add new and pre-item elements.
+      //   , if crud, the item shall be removable
+      //3) how to render : if multi item, the item content is rendered when user click on edit button.
+      //    If not multi item, the single item content is rendered as soon as the item wrapper is rendered.
+      //4) some DOM behaviour. For example, a multi item shall be sortable.
+      api.czrModuleMap = api.czrModuleMap || {};
+      $.extend( api.czrModuleMap, {
+            sek_level_cust_css_section : {
+                  //mthds : Constructor,
+                  crud : false,
+                  name : api.czr_sektions.getRegisteredModuleProperty( 'sek_level_cust_css_section', 'name' ),
+                  has_mod_opt : false,
+                  ready_on_section_expanded : true,
+                  defaultItemModel : _.extend(
+                        { id : '', title : '' },
+                        api.czr_sektions.getDefaultItemModelFromRegisteredModuleData( 'sek_level_cust_css_section' )
+                  )
+            },
+      });
+})( wp.customize , jQuery, _ );//global sektionsLocalizedData, serverControlParams
 //extends api.CZRDynModule
 ( function ( api, $, _ ) {
       //provides a description of each module
@@ -16844,6 +16873,15 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                                                 }
                                           });
                                     break;
+                                    case 'use_custom_height' :
+                                          _.each( [ 'custom_height' ] , function( _inputId_ ) {
+                                                try { api.czr_sektions.scheduleVisibilityOfInputId.call( input, _inputId_, function() {
+                                                      return input();
+                                                }); } catch( er ) {
+                                                      api.errare( 'Image module => error in setInputVisibilityDeps', er );
+                                                }
+                                          });
+                                    break;
                                     case 'use_custom_title_attr' :
                                           _.each( [ 'heading_title' ] , function( _inputId_ ) {
                                                 try { api.czr_sektions.scheduleVisibilityOfInputId.call( input, _inputId_, function() {
@@ -16854,6 +16892,12 @@ var CZRSeksPrototype = CZRSeksPrototype || {};
                                           });
                                     break;
                               }
+                        });
+
+                        // Sept 2020 for https://github.com/presscustomizr/nimble-builder-pro/issues/23
+                        api.trigger('nb_setup_visibility_deps_for_img_module', {
+                              item : item,
+                              module : module
                         });
                   }
             },//CZRItemConstructor

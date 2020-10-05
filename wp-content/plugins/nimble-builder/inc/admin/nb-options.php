@@ -16,8 +16,8 @@ function nb_register_options_page() {
   if ( !sek_current_user_can_access_nb_ui() )
     return;
   add_options_page(
-    __('Nimble Builder', 'nimble-builder'),
-    __('Nimble Builder', 'nimble-builder'),
+    apply_filters( 'nb_admin_settings_title', __('Nimble Builder', 'nimble-builder') ),
+    apply_filters( 'nb_admin_settings_title', __('Nimble Builder', 'nimble-builder') ),
     'manage_options',
     NIMBLE_OPTIONS_PAGE,
     '\Nimble\nb_options_page'
@@ -36,7 +36,15 @@ function nb_options_page() {
   ?>
 
   <div id="nimble-options" class="wrap">
-      <h1 class="nb-option-page-title"><span class="sek-nimble-title-icon"><img src="<?php echo NIMBLE_BASE_URL.'/assets/img/nimble/nimble_icon.svg?ver='.NIMBLE_VERSION; ?>" alt="Build with Nimble Builder"></span><?php echo apply_filters( 'nimble_parse_admin_text', $page_title ); ?></h1>
+      <h1 class="nb-option-page-title">
+        <?php
+        printf('<span class="sek-nimble-title-icon"><img src="%1$s" alt="Build with Nimble Builder">%2$s</span>',
+            NIMBLE_BASE_URL.'/assets/img/nimble/nimble_icon.svg?ver='.NIMBLE_VERSION,
+            apply_filters( 'nimble_option_title_icon_after', '' )
+        );
+        echo apply_filters( 'nimble_parse_admin_text', $page_title );
+        ?>
+      </h1>
       <div class="nav-tab-wrapper">
           <?php
             foreach ($option_tabs as $tab_id => $tab_data ) {
@@ -89,11 +97,14 @@ function nb_options_page() {
 *  ADD SETTINGS LINKS
 /* ------------------------------------------------------------------------- */
 function nb_settings_link($links) {
-  $doc_link = sprintf('<a href="%1$s" target="_blank" rel="noopener noreferrer">%2$s</a>', 'https://docs.presscustomizr.com/article/337-getting-started-with-the-nimble-builder-plugin', __('Docs', 'nimble-builder') );
-  array_unshift($links, $doc_link );
-  $settings_link = sprintf('<a href="%1$s">%2$s</a>', admin_url( NIMBLE_OPTIONS_PAGE_URL ), __('Settings', 'nimble-builder') );
-  array_unshift($links, $settings_link );
-  return $links;
+    $doc_link = sprintf('<a href="%1$s" target="_blank" rel="noopener noreferrer">%2$s</a>', 'https://docs.presscustomizr.com/article/337-getting-started-with-the-nimble-builder-plugin', __('Docs', 'nimble-builder') );
+    array_unshift($links, $doc_link );
+    $settings_link = sprintf('<a href="%1$s">%2$s</a>',
+        add_query_arg( array( 'tab' => 'options' ), admin_url( NIMBLE_OPTIONS_PAGE_URL ) ),
+        __('Settings', 'nimble-builder')
+    );
+    array_unshift($links, $settings_link );
+    return $links;
 }
 add_filter("plugin_action_links_".plugin_basename(NIMBLE_PLUGIN_FILE), '\Nimble\nb_settings_link' );
 
@@ -225,10 +236,10 @@ function print_options_page() {
             </fieldset>
           </td>
         </tr>
-
       </tbody>
     </table>
     <?php
+      do_action('nb_admin_options_tab_after_content');
       wp_nonce_field( 'nb-base-options', 'nb-base-options-nonce' );
       submit_button();
     ?>
@@ -244,7 +255,6 @@ function nb_save_base_options() {
 
     // Shortcode parsing when customizing
     nb_maybe_update_checkbox_option( 'nb_shortcodes_parsed_in_czr', 'off' );
-
     // Debug mode
     nb_maybe_update_checkbox_option( 'nb_debug_mode_active', 'off' );
 }
@@ -266,6 +276,58 @@ function nb_maybe_update_checkbox_option( $opt_name, $unchecked_value ) {
 }
 
 do_action('nb_base_admin_options_registered');
+
+
+
+/* ------------------------------------------------------------------------- *
+*  RESTRICT USERS
+/* ------------------------------------------------------------------------- */
+//register option tab and print the form
+if ( sek_is_pro() || ( defined( 'NIMBLE_PRO_UPSELL_ON') && NIMBLE_PRO_UPSELL_ON ) ) {
+    $restrict_users_title = __('Restrict users', 'nimble-builder');
+    if ( !sek_is_pro() ) {
+        $restrict_users_title = sprintf( '<span class="sek-pro-icon"><img src="%1$s" alt="Pro feature"></span><span class="sek-title-after-icon">%2$s</span>',
+            NIMBLE_BASE_URL.'/assets/czr/sek/img/pro_orange.svg?ver='.NIMBLE_VERSION,
+            __('Restrict users', 'nimble-builder' )
+        );
+    }
+    nb_register_option_tab([
+        'id' => 'restrict_users',
+        'title' => $restrict_users_title,
+        'page_title' => __('Restrict users', 'nimble-builder' ),
+        'content' => '\Nimble\print_restrict_users_options_content',
+    ]);
+
+    function print_restrict_users_options_content() {
+        if ( !sek_is_pro() ) {
+          ?>
+            <h4><?php _e('Nimble Builder can be used by default by all users with an administrator role. With Nimble Builder Pro you can decide which administrators are allowed to use the plugin.', 'nimble-builder'); ?></h4>
+            <h4><?php _e('Unauthorized users will not see any reference to Nimble Builder when editing a page, in the customizer and in the WordPress admin screens.', 'nimble-builder') ?></h4>
+            <a class="sek-pro-link" href="https://presscustomizr.com/nimble-builder-pro/" rel="noopener noreferrer" title="Go Pro" target="_blank"><?php _e('Go Pro', 'nimble-builder'); ?> <span class="dashicons dashicons-external"></span></a>
+          <?php
+        }
+        do_action( 'nb_restrict_user_content' );
+    }
+}
+
+
+/* ------------------------------------------------------------------------- *
+*  SYSTEM INFO
+/* ------------------------------------------------------------------------- */
+nb_register_option_tab([
+    'id' => 'system-info',
+    'title' => __('System info', 'nimble-builder'),
+    'page_title' => __('System info', 'nimble-builder' ),
+    'content' => '\Nimble\print_system_info',
+]);
+function print_system_info() {
+    require_once( NIMBLE_BASE_PATH . '/inc/admin/system-info.php' );
+    ?>
+     <h3><?php _e( 'System Informations', 'nimble-builder' ); ?></h3>
+      <h4><?php _e( 'Please include your system informations when posting support requests.' , 'nimble-builder' ) ?></h4>
+      <textarea readonly="readonly" onclick="this.focus();this.select()" id="system-info-textarea" name="tc-sysinfo" title="<?php _e( 'To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'nimble-builder' ); ?>" style="width: 800px;min-height: 800px;font-family: Menlo,Monaco,monospace;background: 0 0;white-space: pre;overflow: auto;display:block;"><?php echo sek_config_infos(); ?></textarea>
+    <?php
+}
 
 /* ------------------------------------------------------------------------- *
 *  DOCUMENTATION
@@ -303,24 +365,5 @@ function print_doc_page() {
 
     <?php
 }
-
-/* ------------------------------------------------------------------------- *
-*  SYSTEM INFO
-/* ------------------------------------------------------------------------- */
-nb_register_option_tab([
-    'id' => 'system-info',
-    'title' => __('System info', 'nimble-builder'),
-    'page_title' => __('System info', 'nimble-builder' ),
-    'content' => '\Nimble\print_system_info',
-]);
-function print_system_info() {
-    require_once( NIMBLE_BASE_PATH . '/inc/admin/system-info.php' );
-    ?>
-     <h3><?php _e( 'System Informations', 'nimble-builder' ); ?></h3>
-      <h4><?php _e( 'Please include your system informations when posting support requests.' , 'nimble-builder' ) ?></h4>
-      <textarea readonly="readonly" onclick="this.focus();this.select()" id="system-info-textarea" name="tc-sysinfo" title="<?php _e( 'To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'nimble-builder' ); ?>" style="width: 800px;min-height: 800px;font-family: Menlo,Monaco,monospace;background: 0 0;white-space: pre;overflow: auto;display:block;"><?php echo sek_config_infos(); ?></textarea>
-    <?php
-}
-
 
 ?>
