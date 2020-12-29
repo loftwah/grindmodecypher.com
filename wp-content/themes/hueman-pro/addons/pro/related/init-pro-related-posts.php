@@ -110,7 +110,12 @@ final class PC_HAPRELPOSTS {
 
     //filter : hu_is_related_posts_enabled, declared in single-tmpl.php
     function ha_maybe_enable_related_posts( $is_enabled_in_free ) {
-        $db_opts = hu_get_option( HU_AD() -> pro_related_posts -> pro_related_posts_short_opt_name );
+        if ( !is_singular() )
+          return false;
+        global $post;
+        if ( is_object($post) && 'post' != $post->post_type )
+          return false;
+        $db_opts = hu_get_option( HU_AD()->pro_related_posts->pro_related_posts_short_opt_name );
 
         //Are we well formed ?
         $db_opts = ( ! is_array( $db_opts ) || ! array_key_exists('id', $db_opts ) ) ? array() : $db_opts;

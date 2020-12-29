@@ -69,7 +69,7 @@ class PC_HAPMAS_front {
                                     czrapp.errorLog('Masonry container does not exist in the DOM.');
                                     return;
                               }
-                              $grid_container.bind( 'masonry-init.hueman', function() {
+                              $grid_container.on( 'masonry-init.hueman', function() {
                                     masonryReady.resolve();
                               });
 

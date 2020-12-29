@@ -103,6 +103,15 @@ a img {
 -moz-transition: opacity 0.2s ease;
 -o-transition: opacity 0.2s ease;
 transition: opacity 0.2s ease; }
+
+/* Nov 2020 for https://github.com/presscustomizr/hueman/issues/936 */
+article .entry a, .comment-body a, .widget_text a {
+  text-decoration:underline;
+}
+.hu-links-not-underlined article .entry a, .hu-links-not-underlined .comment-body a, .hu-links-not-underlined .widget_text a {
+  text-decoration:none;
+}
+
 address,cite,em { font-style: italic; }
 strong { font-weight: 600; }
 .left,.alignleft { float: left; }
@@ -120,60 +129,6 @@ strong { font-weight: 600; }
 /* ------------------------------------ */
 .far, .fab, .fas { width: 1em; text-align: center; }
 
-/*  base : fonts
-/* ------------------------------------ */
-body { font-family: "Titillium", Arial, sans-serif; }
-
-@font-face {
-  font-family: 'Titillium';
-  src: url('../fonts/titillium-light-webfont.eot');
-  src: url('../fonts/titillium-light-webfont.svg#titillium-light-webfont') format('svg'),
-     url('../fonts/titillium-light-webfont.eot?#iefix') format('embedded-opentype'),
-     url('../fonts/titillium-light-webfont.woff') format('woff'),
-     url('../fonts/titillium-light-webfont.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Titillium';
-  src: url('../fonts/titillium-lightitalic-webfont.eot');
-  src: url('../fonts/titillium-lightitalic-webfont.svg#titillium-lightitalic-webfont') format('svg'),
-     url('../fonts/titillium-lightitalic-webfont.eot?#iefix') format('embedded-opentype'),
-     url('../fonts/titillium-lightitalic-webfont.woff') format('woff'),
-     url('../fonts/titillium-lightitalic-webfont.ttf') format('truetype');
-  font-weight: 300;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'Titillium';
-  src: url('../fonts/titillium-regular-webfont.eot');
-  src: url('../fonts/titillium-regular-webfont.svg#titillium-regular-webfont') format('svg'),
-     url('../fonts/titillium-regular-webfont.eot?#iefix') format('embedded-opentype'),
-     url('../fonts/titillium-regular-webfont.woff') format('woff'),
-     url('../fonts/titillium-regular-webfont.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Titillium';
-  src: url('../fonts/titillium-regularitalic-webfont.eot');
-  src: url('../fonts/titillium-regularitalic-webfont.svg#titillium-regular-webfont') format('svg'),
-     url('../fonts/titillium-regularitalic-webfont.eot?#iefix') format('embedded-opentype'),
-     url('../fonts/titillium-regularitalic-webfont.woff') format('woff'),
-     url('../fonts/titillium-regularitalic-webfont.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-}
-@font-face {
-    font-family: 'Titillium';
-    src: url('../fonts/titillium-semibold-webfont.eot');
-    src: url('../fonts/titillium-semibold-webfont.svg#titillium-semibold-webfont') format('svg'),
-         url('../fonts/titillium-semibold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/titillium-semibold-webfont.woff') format('woff'),
-         url('../fonts/titillium-semibold-webfont.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-}
 
 /*  base : forms
 /* ------------------------------------ */
@@ -333,9 +288,12 @@ input[type="submit"]:hover,
 .hu-fa-not-loaded .comment blockquote:before, .hu-fa-not-loaded .entry blockquote:before { content:"\00a0";}
 
 .comment blockquote.twitter-tweet:before, .entry blockquote.twitter-tweet:before { content: "\f099"; }
-.comment code, .entry code, .entry pre { font-family: Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace; font-size: 0.6875em; }
-.comment pre, .entry pre { background: url(../img/pre.png) repeat top; padding: 18px 20px; margin: 30px 0; border: 1px solid #ddd; line-height: 19px; white-space: pre-wrap; word-wrap: break-word; overflow-x: auto; overflow-y: hidden; }
-.comment code, .entry code { background: #eee; padding: 0 3px; }
+.comment code, .entry code, .entry pre:not(.wp-block-code) {
+  font-family: Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
+  font-size: 0.875em;
+}
+.comment pre:not(.wp-block-code), .entry pre:not(.wp-block-code) { background: url(../img/pre.png) repeat top; padding: 18px 20px; margin: 30px 0; border: 1px solid #ddd; line-height: 19px; white-space: pre-wrap; word-wrap: break-word; overflow-x: auto; overflow-y: hidden; }
+.comment code:not([lang]), .entry code:not([lang]) { background: #eee; padding: 0 3px; }
 .entry ins { background: #fff486; }
 .entry sub,
 .entry sup { font-size: 62.5%; }

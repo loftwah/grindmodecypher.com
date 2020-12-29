@@ -48,7 +48,7 @@
 
         _font_size = Math.max( _font_size * settings.fontRatio, parseFloat( settings.minFontSize ) );
 
-        $this.css('font-size', _font_size  );
+        $this.css('font-size', _font_size + 'px' );
         $this.css('line-height', ( _font_size  * 1.45 ) + 'px');
       };
 

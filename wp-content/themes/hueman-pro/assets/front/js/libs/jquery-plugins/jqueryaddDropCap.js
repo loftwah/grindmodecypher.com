@@ -139,13 +139,13 @@
   */
   Plugin.prototype._is_sel_type_allowed = function( $_el, sel_typ ) {
     //check if option is well formed
-    if ( ! this.options.skipSelectors[sel_typ] || ! $.isArray( this.options.skipSelectors[sel_typ] ) )
+    if ( !this.options.skipSelectors[sel_typ] || !Array.isArray( this.options.skipSelectors[sel_typ] ) )
       return true;
 
     var _attr = 'ids' == sel_typ ? 'id' : 'class';
 
     //check if option is well formed
-    if ( 'object' != typeof(this.options.skipSelectors) || ! this.options.skipSelectors[sel_typ] || ! $.isArray( this.options.skipSelectors[sel_typ] )  )
+    if ( 'object' != typeof(this.options.skipSelectors) || ! this.options.skipSelectors[sel_typ] || !Array.isArray( this.options.skipSelectors[sel_typ] ) )
       return true;
 
     var _elSels       = ! $_el.attr( _attr ) ? [] : $_el.attr( _attr ).split(' '),

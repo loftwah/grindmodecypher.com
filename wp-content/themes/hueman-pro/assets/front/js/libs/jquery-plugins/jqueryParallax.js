@@ -51,7 +51,7 @@
         //@return void
         //map custom events if any
         Plugin.prototype._bind_evt = function() {
-            //var _customEvt = $.isArray(this.options.oncustom) ? this.options.oncustom : this.options.oncustom.split(' ');
+            //var _customEvt = _.isArray(this.options.oncustom) ? this.options.oncustom : this.options.oncustom.split(' ');
 
             _.bindAll( this, 'maybeParallaxMe', 'parallaxMe' );
               /* TODO: custom events? */

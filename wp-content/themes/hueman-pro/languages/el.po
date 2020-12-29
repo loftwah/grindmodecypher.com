@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Themes - Hueman-Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: * Hueman-Pro v1.3.3\n"
+"Project-Id-Version: * Hueman-Pro v1.4.0\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2020-09-09 13:05:37+00:00\n"
+"POT-Creation-Date: 2020-12-14 11:05:33+00:00\n"
 "PO-Revision-Date: 2017-07-13 13:21:09+0000\n"
 "Language: el_GR\n"
 "MIME-Version: 1.0\n"
@@ -395,9 +395,9 @@ msgstr ""
 
 #: addons/czr/ha-czr.php:215
 #: addons/pro/header/czr_slide_module/czr_slide_module.php:78
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1685
-#: functions/czr-base-fmk/czr-base-fmk.php:1685
-#: inc/czr-base-fmk/czr-base-fmk.php:1685
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1694
+#: functions/czr-base-fmk/czr-base-fmk.php:1694
+#: inc/czr-base-fmk/czr-base-fmk.php:1694
 msgid "Set a custom url"
 msgstr ""
 
@@ -433,9 +433,9 @@ msgstr ""
 msgid "Enable"
 msgstr "Απενεργοποίηση"
 
-#: addons/ha-init.php:96 functions/class-utils-settings-map.php:1369
-#: functions/class-utils-settings-map.php:1385
-#: functions/class-utils-settings-map.php:2074
+#: addons/ha-init.php:96 functions/class-utils-settings-map.php:1384
+#: functions/class-utils-settings-map.php:1400
+#: functions/class-utils-settings-map.php:2089
 msgid "Disable"
 msgstr "Απενεργοποίηση"
 
@@ -533,7 +533,7 @@ msgstr "Σχεδιασμός υποσέλιδου"
 
 #: addons/pro/czr_tmpl/mods/__DEPRECATED_related-posts-module-tmpl.php:14
 #: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:152
-#: functions/class-utils-settings-map.php:1363
+#: functions/class-utils-settings-map.php:1378
 msgid "Related posts"
 msgstr "Σχετικές δημοσιεύσεις"
 
@@ -861,7 +861,7 @@ msgstr ""
 
 #: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:162
 #: addons/pro/header/czr_slide_module/czr_slide_module.php:284
-#: functions/class-utils-settings-map.php:1300
+#: functions/class-utils-settings-map.php:1315
 #, fuzzy
 msgid "Display categories"
 msgstr "Σχετιζόμενο με τις κατηγορίες"
@@ -1110,19 +1110,19 @@ msgstr ""
 msgid "Load more"
 msgstr "Μάθετε περισσότερα"
 
-#: addons/pro/infinite/infinite-scroll/class_infinite.php:801
+#: addons/pro/infinite/infinite-scroll/class_infinite.php:800
 msgid "Older %s"
 msgstr ""
 
-#: addons/pro/infinite/infinite-scroll/class_infinite.php:826
+#: addons/pro/infinite/infinite-scroll/class_infinite.php:825
 msgid "Scroll back to top"
 msgstr ""
 
-#: addons/pro/infinite/infinite-scroll/class_infinite.php:1588
+#: addons/pro/infinite/infinite-scroll/class_infinite.php:1589
 msgid "Proudly powered by WordPress"
 msgstr ""
 
-#: addons/pro/infinite/infinite-scroll/class_infinite.php:1591
+#: addons/pro/infinite/infinite-scroll/class_infinite.php:1592
 msgid "Theme: %1$s."
 msgstr ""
 
@@ -1389,18 +1389,18 @@ msgid "Are you sure you want to reset all your font settings to default?"
 msgstr ""
 
 #: addons/pro/wfc/back/classes/class_admin_font_customizer.php:516
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:570
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:579
 #: contextualizer/ccat-contextualizer.php:1442
-#: functions/czr-base-fmk/czr-base-fmk.php:570
-#: inc/czr-base-fmk/czr-base-fmk.php:570
+#: functions/czr-base-fmk/czr-base-fmk.php:579
+#: inc/czr-base-fmk/czr-base-fmk.php:579
 msgid "Yes"
 msgstr "Ναί"
 
 #: addons/pro/wfc/back/classes/class_admin_font_customizer.php:517
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:570
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:579
 #: contextualizer/ccat-contextualizer.php:1443
-#: functions/czr-base-fmk/czr-base-fmk.php:570
-#: inc/czr-base-fmk/czr-base-fmk.php:570
+#: functions/czr-base-fmk/czr-base-fmk.php:579
+#: inc/czr-base-fmk/czr-base-fmk.php:579
 msgid "No"
 msgstr "Όχι"
 
@@ -1469,10 +1469,10 @@ msgid "Select"
 msgstr "Επιλογή εικόνας"
 
 #: addons/pro/wfc/back/classes/class_admin_font_customizer.php:587
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:266
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:274
 #: functions/czr/czr-resources.php:186
-#: functions/czr-base-fmk/czr-base-fmk.php:266
-#: inc/czr-base-fmk/czr-base-fmk.php:266
+#: functions/czr-base-fmk/czr-base-fmk.php:274
+#: inc/czr-base-fmk/czr-base-fmk.php:274
 #: option-tree/includes/ot-functions-admin.php:125
 #: option-tree/includes/ot-functions-admin.php:126
 #: option-tree/includes/ot-functions-admin.php:162
@@ -1505,11 +1505,11 @@ msgid "Clear color"
 msgstr "Χρώμα"
 
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:211
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:273
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:281
 #: functions/czr/controls/class-color-alpha-control.php:26
 #: functions/czr-base-fmk/czr-base-fmk.php:211
-#: functions/czr-base-fmk/czr-base-fmk.php:273
-#: inc/czr-base-fmk/czr-base-fmk.php:211 inc/czr-base-fmk/czr-base-fmk.php:273
+#: functions/czr-base-fmk/czr-base-fmk.php:281
+#: inc/czr-base-fmk/czr-base-fmk.php:211 inc/czr-base-fmk/czr-base-fmk.php:281
 msgid "Default"
 msgstr "Προεπιλογή"
 
@@ -1534,13 +1534,13 @@ msgstr "Δευτερεύον χρώμα"
 msgid "Color value"
 msgstr "Χρώμα"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:260
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:561
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:268
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:570
 #: functions/czr/czr-resources.php:163
-#: functions/czr-base-fmk/czr-base-fmk.php:260
-#: functions/czr-base-fmk/czr-base-fmk.php:561
+#: functions/czr-base-fmk/czr-base-fmk.php:268
+#: functions/czr-base-fmk/czr-base-fmk.php:570
 #: functions/czr-modules/widget-zones/widget_zones_module.php:227
-#: inc/czr-base-fmk/czr-base-fmk.php:260 inc/czr-base-fmk/czr-base-fmk.php:561
+#: inc/czr-base-fmk/czr-base-fmk.php:268 inc/czr-base-fmk/czr-base-fmk.php:570
 #: option-tree/includes/ot-functions-admin.php:2839
 #: option-tree/includes/ot-functions-admin.php:2948
 #: option-tree/includes/ot-functions-admin.php:2949
@@ -1555,143 +1555,143 @@ msgstr "Χρώμα"
 msgid "Edit"
 msgstr "Επεξεργασία"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:261
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:269
 #: functions/czr/czr-resources.php:164
-#: functions/czr-base-fmk/czr-base-fmk.php:261
-#: inc/czr-base-fmk/czr-base-fmk.php:261
+#: functions/czr-base-fmk/czr-base-fmk.php:269
+#: inc/czr-base-fmk/czr-base-fmk.php:269
 #: option-tree/includes/ot-functions-admin.php:961
 msgid "Close"
 msgstr "Κλείσιμο"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:262
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:270
 #: functions/czr/czr-resources.php:168
-#: functions/czr-base-fmk/czr-base-fmk.php:262
+#: functions/czr-base-fmk/czr-base-fmk.php:270
 #: functions/czr-modules/widget-zones/widget_zones_module.php:88
-#: inc/czr-base-fmk/czr-base-fmk.php:262
+#: inc/czr-base-fmk/czr-base-fmk.php:270
 msgid "Not set"
 msgstr "Μη ρυθμισμένο"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:263
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:271
 #: functions/czr/czr-resources.php:172
-#: functions/czr-base-fmk/czr-base-fmk.php:263
+#: functions/czr-base-fmk/czr-base-fmk.php:271
 #: functions/czr-modules/social-links/social_links_module.php:80
-#: inc/czr-base-fmk/czr-base-fmk.php:263
+#: inc/czr-base-fmk/czr-base-fmk.php:271
 #: inc/czr-modules/social-links/social_links_module.php:80
 msgid "Done !"
 msgstr "Έγινε !"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:265
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:273
 #: functions/czr/czr-resources.php:185
-#: functions/czr-base-fmk/czr-base-fmk.php:265
-#: inc/czr-base-fmk/czr-base-fmk.php:265
+#: functions/czr-base-fmk/czr-base-fmk.php:273
+#: inc/czr-base-fmk/czr-base-fmk.php:273
 msgid "Learn more about this in the documentation"
 msgstr "Μάθετε περισσότερα σχετικά με αυτό στην τεκμηρίωση"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:267
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:275
 #: functions/czr/czr-resources.php:187
-#: functions/czr-base-fmk/czr-base-fmk.php:267
-#: inc/czr-base-fmk/czr-base-fmk.php:267 inc/czr-skope/index.php:398
+#: functions/czr-base-fmk/czr-base-fmk.php:275
+#: inc/czr-base-fmk/czr-base-fmk.php:275 inc/czr-skope/index.php:398
 msgid "Options for"
 msgstr "Επιλογές για"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:270
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:275
-#: functions/czr-base-fmk/czr-base-fmk.php:270
-#: functions/czr-base-fmk/czr-base-fmk.php:275
-#: inc/czr-base-fmk/czr-base-fmk.php:270 inc/czr-base-fmk/czr-base-fmk.php:275
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:278
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:283
+#: functions/czr-base-fmk/czr-base-fmk.php:278
+#: functions/czr-base-fmk/czr-base-fmk.php:283
+#: inc/czr-base-fmk/czr-base-fmk.php:278 inc/czr-base-fmk/czr-base-fmk.php:283
 msgid "Select Image"
 msgstr "Επιλογή εικόνας"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:271
-#: functions/czr-base-fmk/czr-base-fmk.php:271
-#: inc/czr-base-fmk/czr-base-fmk.php:271
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:279
+#: functions/czr-base-fmk/czr-base-fmk.php:279
+#: inc/czr-base-fmk/czr-base-fmk.php:279
 msgid "Change Image"
 msgstr "Αλλαγή εικόνας"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:272
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:561
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:280
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:570
 #: functions/czr/controls/class-upload-control.php:68
-#: functions/czr-base-fmk/czr-base-fmk.php:272
-#: functions/czr-base-fmk/czr-base-fmk.php:561
-#: inc/czr-base-fmk/czr-base-fmk.php:272 inc/czr-base-fmk/czr-base-fmk.php:561
+#: functions/czr-base-fmk/czr-base-fmk.php:280
+#: functions/czr-base-fmk/czr-base-fmk.php:570
+#: inc/czr-base-fmk/czr-base-fmk.php:280 inc/czr-base-fmk/czr-base-fmk.php:570
 msgid "Remove"
 msgstr "Αφαίρεση"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:274
-#: functions/czr-base-fmk/czr-base-fmk.php:274
-#: inc/czr-base-fmk/czr-base-fmk.php:274
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:282
+#: functions/czr-base-fmk/czr-base-fmk.php:282
+#: inc/czr-base-fmk/czr-base-fmk.php:282
 msgid "No image selected"
 msgstr "Δεν επιλέχθηκε εικόνα"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:276
-#: functions/czr-base-fmk/czr-base-fmk.php:276
-#: inc/czr-base-fmk/czr-base-fmk.php:276
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:284
+#: functions/czr-base-fmk/czr-base-fmk.php:284
+#: inc/czr-base-fmk/czr-base-fmk.php:284
 msgid "Choose Image"
 msgstr "Επιλογή εικόνας"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:278
-#: functions/czr-base-fmk/czr-base-fmk.php:278
-#: inc/czr-base-fmk/czr-base-fmk.php:278
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:286
+#: functions/czr-base-fmk/czr-base-fmk.php:286
+#: inc/czr-base-fmk/czr-base-fmk.php:286
 #, fuzzy
 msgid "Customizing"
 msgstr "Προσαρμόστε τώρα"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:471
-#: functions/czr-base-fmk/czr-base-fmk.php:471
-#: inc/czr-base-fmk/czr-base-fmk.php:471
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:480
+#: functions/czr-base-fmk/czr-base-fmk.php:480
+#: inc/czr-base-fmk/czr-base-fmk.php:480
 msgid "ac_set_ajax_czr_tmpl => Security check failed."
 msgstr ""
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:543
-#: functions/czr-base-fmk/czr-base-fmk.php:543
-#: inc/czr-base-fmk/czr-base-fmk.php:543
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:552
+#: functions/czr-base-fmk/czr-base-fmk.php:552
+#: inc/czr-base-fmk/czr-base-fmk.php:552
 #: option-tree/includes/ot-functions-option-types.php:1452
 #: option-tree/includes/ot-functions-option-types.php:2215
 #: option-tree/includes/ot-functions-option-types.php:2380
 msgid "Add New"
 msgstr "Προσθήκη νέου"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:548
-#: functions/czr-base-fmk/czr-base-fmk.php:548
-#: inc/czr-base-fmk/czr-base-fmk.php:548
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:557
+#: functions/czr-base-fmk/czr-base-fmk.php:557
+#: inc/czr-base-fmk/czr-base-fmk.php:557
 msgid "Cancel"
 msgstr "Ακύρωση"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:548
-#: functions/czr-base-fmk/czr-base-fmk.php:548
-#: inc/czr-base-fmk/czr-base-fmk.php:548
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:557
+#: functions/czr-base-fmk/czr-base-fmk.php:557
+#: inc/czr-base-fmk/czr-base-fmk.php:557
 msgid "Add it"
 msgstr "Προσθέστε το"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:569
-#: functions/czr-base-fmk/czr-base-fmk.php:569
-#: inc/czr-base-fmk/czr-base-fmk.php:569
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:578
+#: functions/czr-base-fmk/czr-base-fmk.php:578
+#: inc/czr-base-fmk/czr-base-fmk.php:578
 msgid "Are you sure you want to remove : <strong>{{ data.title }} ?</strong>"
 msgstr ""
 "Είστε βέβαιοι ότι θέλετε να αφαιρέσετε : <strong>{{ data.title }} ;</strong>"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1719
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1919
-#: functions/czr-base-fmk/czr-base-fmk.php:1719
-#: functions/czr-base-fmk/czr-base-fmk.php:1919
-#: inc/czr-base-fmk/czr-base-fmk.php:1719
-#: inc/czr-base-fmk/czr-base-fmk.php:1919
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1728
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1928
+#: functions/czr-base-fmk/czr-base-fmk.php:1728
+#: functions/czr-base-fmk/czr-base-fmk.php:1928
+#: inc/czr-base-fmk/czr-base-fmk.php:1728
+#: inc/czr-base-fmk/czr-base-fmk.php:1928
 msgid "ajax_load_available_items => Security check failed."
 msgstr ""
 
 #. translators: %d: ID of a post
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1840
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:2049
-#: functions/czr-base-fmk/czr-base-fmk.php:1840
-#: functions/czr-base-fmk/czr-base-fmk.php:2049
-#: inc/czr-base-fmk/czr-base-fmk.php:1840
-#: inc/czr-base-fmk/czr-base-fmk.php:2049
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1849
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:2058
+#: functions/czr-base-fmk/czr-base-fmk.php:1849
+#: functions/czr-base-fmk/czr-base-fmk.php:2058
+#: inc/czr-base-fmk/czr-base-fmk.php:1849
+#: inc/czr-base-fmk/czr-base-fmk.php:2058
 msgid "#%d (no title)"
 msgstr ""
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1983
-#: functions/czr-base-fmk/czr-base-fmk.php:1983
-#: inc/czr-base-fmk/czr-base-fmk.php:1983
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1992
+#: functions/czr-base-fmk/czr-base-fmk.php:1992
+#: inc/czr-base-fmk/czr-base-fmk.php:1992
 msgid "No results found."
 msgstr ""
 
@@ -2001,34 +2001,34 @@ msgid ""
 "this theme."
 msgstr ""
 
-#: addons/sharrre/ha-sharrre.php:95
+#: addons/sharrre/ha-sharrre.php:94
 msgid "Display social sharing buttons in your single posts"
 msgstr ""
 
-#: addons/sharrre/ha-sharrre.php:96
+#: addons/sharrre/ha-sharrre.php:95
 msgid "Social Sharring Bar Settings"
 msgstr ""
 
-#: addons/sharrre/ha-sharrre.php:97
+#: addons/sharrre/ha-sharrre.php:96
 #, fuzzy
 msgid "Display social sharing buttons in each single articles."
 msgstr "Εμφάνιση κουμπιού Βοήθειας στην μπάρα Διαχείρισης"
 
-#: addons/sharrre/ha-sharrre.php:105
+#: addons/sharrre/ha-sharrre.php:104
 msgid "Make the Share Bar \"sticky\""
 msgstr ""
 
-#: addons/sharrre/ha-sharrre.php:106
+#: addons/sharrre/ha-sharrre.php:105
 msgid ""
 "Make the social share bar stick to the browser window when scrolling down a "
 "post."
 msgstr ""
 
-#: addons/sharrre/ha-sharrre.php:114
+#: addons/sharrre/ha-sharrre.php:113
 msgid "Enable Twitter Button"
 msgstr ""
 
-#: addons/sharrre/ha-sharrre.php:117
+#: addons/sharrre/ha-sharrre.php:116
 msgid ""
 "Since Nov. 2015, Twitter disabled the share counts from its API. If you want "
 "to get the display count anyway, you can create an account for free (as of "
@@ -2036,25 +2036,25 @@ msgid ""
 "configured to use opensharecount."
 msgstr ""
 
-#: addons/sharrre/ha-sharrre.php:123
+#: addons/sharrre/ha-sharrre.php:122
 msgid "Twitter Username (without \"@\")"
 msgstr ""
 
-#: addons/sharrre/ha-sharrre.php:124
+#: addons/sharrre/ha-sharrre.php:123
 msgid ""
 "Simply enter your username without the \"@\" prefix. Your username will be "
 "added to share-tweets of your posts (optional)."
 msgstr ""
 
-#: addons/sharrre/ha-sharrre.php:133
+#: addons/sharrre/ha-sharrre.php:132
 msgid "Enable Facebook Button"
 msgstr ""
 
-#: addons/sharrre/ha-sharrre.php:141
+#: addons/sharrre/ha-sharrre.php:140
 msgid "Enable Pinterest Button"
 msgstr ""
 
-#: addons/sharrre/ha-sharrre.php:149
+#: addons/sharrre/ha-sharrre.php:148
 msgid "Enable LinkedIn Button"
 msgstr ""
 
@@ -2091,7 +2091,7 @@ msgstr "1 Απάντηση"
 msgid "% Responses"
 msgstr "% Απαντήσεις"
 
-#: comments.php:10 functions/class-utils-settings-map.php:1927
+#: comments.php:10 functions/class-utils-settings-map.php:1942
 msgid "Comments"
 msgstr "Σχόλια"
 
@@ -2476,7 +2476,7 @@ msgid "Display a logo in the header"
 msgstr "Εμφάνιση ενός λογότυπου στην κεφαλίδα"
 
 #: functions/class-utils-settings-map.php:194
-#: functions/class-utils-settings-map.php:721
+#: functions/class-utils-settings-map.php:736
 #: functions/czr-modules/body-background/body_bg_module.php:136
 msgid "here"
 msgstr "εδώ"
@@ -2494,7 +2494,7 @@ msgid "Logo for mobiles"
 msgstr "Λογότυπο για κινητά"
 
 #: functions/class-utils-settings-map.php:217
-#: functions/class-utils-settings-map.php:1656
+#: functions/class-utils-settings-map.php:1671
 #: functions/czr/class-czr-init.php:111
 msgid ""
 "Upload your custom logo image. Supported formats : .jpg, .png, .gif, svg, "
@@ -2504,10 +2504,10 @@ msgstr ""
 "μορφές: .jpg, .png, .gif, svg, svgz"
 
 #: functions/class-utils-settings-map.php:224
-#: functions/class-utils-settings-map.php:798
-#: functions/class-utils-settings-map.php:799
-#: functions/class-utils-settings-map.php:816
-#: functions/class-utils-settings-map.php:1539
+#: functions/class-utils-settings-map.php:813
+#: functions/class-utils-settings-map.php:814
+#: functions/class-utils-settings-map.php:831
+#: functions/class-utils-settings-map.php:1554
 msgid "Desktop devices"
 msgstr "Επιτραπέζιες συσκευές"
 
@@ -2610,47 +2610,51 @@ msgid "Give your thumbnails and layout images rounded corners"
 msgstr "Δώστε στις μικρογραφίες και τις εικόνες σας, στρογγυλεμένες γωνίες"
 
 #: functions/class-utils-settings-map.php:363
+msgid "Links underlined within content"
+msgstr ""
+
+#: functions/class-utils-settings-map.php:370
 msgid "Display an icon next to external links"
 msgstr "Εμφάνιση ενός εικονιδίου δίπλα σε εξωτερικούς συνδέσμους"
 
-#: functions/class-utils-settings-map.php:366
-#: functions/class-utils-settings-map.php:376
+#: functions/class-utils-settings-map.php:373
+#: functions/class-utils-settings-map.php:383
 msgid ""
 "This will be applied to the links included in post or page content only."
 msgstr ""
 "Αυτό θα εφαρμοστεί στους συνδέσμους που περιλαμβάνονται μόνο στο περιεχόμενο "
 "της ανάρτησης ή της σελίδας."
 
-#: functions/class-utils-settings-map.php:373
+#: functions/class-utils-settings-map.php:380
 msgid "Open external links in a new tab"
 msgstr "Άνοιγμα εξωτερικών συνδέσμων σε νέα καρτέλα"
 
-#: functions/class-utils-settings-map.php:402
+#: functions/class-utils-settings-map.php:409
 #: functions/init-after-setup-theme.php:173
 msgid "Create and organize your social links"
 msgstr "Δημιουργήστε και οργανώστε τους κοινωνικούς σας συνδέσμους"
 
-#: functions/class-utils-settings-map.php:421
+#: functions/class-utils-settings-map.php:428
 msgid "Posts Comments"
 msgstr "Σχόλια δημοσιεύσεων"
 
-#: functions/class-utils-settings-map.php:424
+#: functions/class-utils-settings-map.php:431
 msgid "Comments on posts"
 msgstr "Σχόλια στις δημοσιεύσεις"
 
-#: functions/class-utils-settings-map.php:430
+#: functions/class-utils-settings-map.php:437
 msgid "Pages Comments"
 msgstr "Σχόλια σελίδων"
 
-#: functions/class-utils-settings-map.php:433
+#: functions/class-utils-settings-map.php:440
 msgid "Comments on pages"
 msgstr "Σχόλια στις σελίδες"
 
-#: functions/class-utils-settings-map.php:466
+#: functions/class-utils-settings-map.php:473
 msgid "Enable the Mobile Friendly (or Responsive) layout"
 msgstr "Ενεργοποιήστε τη φιλική προς κινητά διάταξη (ή ανταποκρινόμενη)"
 
-#: functions/class-utils-settings-map.php:469
+#: functions/class-utils-settings-map.php:476
 msgid ""
 "Hueman is a mobile friendly WordPress theme out of the box. This means that "
 "it will adapt and render nicely on any devices : desktops, laptops, tablets, "
@@ -2665,7 +2669,7 @@ msgstr ""
 "ανταποκρινόμενη) δεν θα λειτουργεί πια. Στις περισσότερες περιπτώσεις, δεν "
 "θα χρειαστεί να απενεργοποιήσετε αυτήν την επιλογή και δεν συνιστάται."
 
-#: functions/class-utils-settings-map.php:474
+#: functions/class-utils-settings-map.php:481
 msgid ""
 "Make font sizes flexible. Enable this option to achieve scalable headlines "
 "that fill the width of a parent element."
@@ -2674,7 +2678,7 @@ msgstr ""
 "για να επιτύχετε κλιμακωτούς τίτλους που γεμίζουν το πλάτος ενός γονικού "
 "στοιχείου."
 
-#: functions/class-utils-settings-map.php:477
+#: functions/class-utils-settings-map.php:484
 msgid ""
 "This option is good if you want to display a perfect font-size for your "
 "headings on any mobile devices. Note : it might override the css rules "
@@ -2685,15 +2689,15 @@ msgstr ""
 "Σημείωση: ενδέχεται να αντικαταστήσει τους κανόνες css που είχαν οριστεί στο "
 "προσαρμοσμένο στυλ."
 
-#: functions/class-utils-settings-map.php:490
+#: functions/class-utils-settings-map.php:497
 msgid "Include images in search results"
 msgstr "Συμπεριλάβετε εικόνες στα αποτελέσματα αναζήτησης"
 
-#: functions/class-utils-settings-map.php:505
+#: functions/class-utils-settings-map.php:512
 msgid "Use a minified stylesheet"
 msgstr "Χρησιμοποιήστε ένα μίνιμαλ στυλ"
 
-#: functions/class-utils-settings-map.php:508
+#: functions/class-utils-settings-map.php:515
 msgid ""
 "Unchecking this option is not recommended. Minifying css stylesheets "
 "improves performance for your website overall by decreasing the load time."
@@ -2702,11 +2706,11 @@ msgstr ""
 "βελτιώνουν τη συνολική απόδοση του ιστότοπού σας μειώνοντας το χρόνο "
 "φόρτωσης."
 
-#: functions/class-utils-settings-map.php:513
+#: functions/class-utils-settings-map.php:520
 msgid "Use Structured Data Markup for your posts"
 msgstr "Χρησιμοποιήστε τη σήμανση δομημένων δεδομένων για τις δημοσιεύσεις σας"
 
-#: functions/class-utils-settings-map.php:516
+#: functions/class-utils-settings-map.php:523
 msgid ""
 "\"Structured data markup\" is a standard way to annotate your content so "
 "machines can understand it. Implementing it will help your website rank "
@@ -2717,11 +2721,11 @@ msgstr ""
 "βοηθήσει την ιστοσελίδα σας να κατατάσσεται υψηλότερα στις μηχανές "
 "αναζήτησης."
 
-#: functions/class-utils-settings-map.php:521
+#: functions/class-utils-settings-map.php:528
 msgid "Load images on scroll"
 msgstr "Φόρτωση εικόνων κατά τη κύλιση"
 
-#: functions/class-utils-settings-map.php:524
+#: functions/class-utils-settings-map.php:531
 msgid ""
 "Check this option to delay the loading of non visible images. Images below "
 "the viewport will be loaded dynamically on scroll. This can really boost "
@@ -2733,33 +2737,33 @@ msgstr ""
 "τη κύλιση. Αυτό μπορεί πραγματικά να αυξήσει τις επιδόσεις ταχύτητας "
 "μειώνοντας το βάρος των μεγάλων σελίδων που περιλαμβάνουν πολλές εικόνες."
 
-#: functions/class-utils-settings-map.php:529
+#: functions/class-utils-settings-map.php:536
 #, fuzzy
 msgid "Mobile device detection"
 msgstr "Κινητές συσκευές"
 
-#: functions/class-utils-settings-map.php:532
+#: functions/class-utils-settings-map.php:539
 msgid ""
 "When checked, this option loads a small javascript file ( 30 kb ) to detect "
 "if your site is being displayed by a mobile device like a phone or a tablet. "
 "It is recommended to check this option if you are using a cache plugin."
 msgstr ""
 
-#: functions/class-utils-settings-map.php:539
+#: functions/class-utils-settings-map.php:546
 msgid "Defer loading javascript files to avoid render blocking issues"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:554
+#: functions/class-utils-settings-map.php:561
 msgid "Defer loading Font Awesome icons"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:571
+#: functions/class-utils-settings-map.php:578
 msgid "Display the \"About Hueman\" page in the \"Appearance\" admin menu"
 msgstr ""
 "Εμφανίστε τη σελίδα \"Σχετικά με τον Hueman\" στο μενού διαχείρισης "
 "\"Εμφάνιση\""
 
-#: functions/class-utils-settings-map.php:574
+#: functions/class-utils-settings-map.php:581
 #, fuzzy
 msgid ""
 "This page is intended to provide information about the Hueman theme : "
@@ -2771,60 +2775,60 @@ msgstr ""
 "πληροφορίες σχετικά με την τρέχουσα εγκατάσταση, οι οποίες μπορεί να σας "
 "βοηθήσουν να αναφέρετε ένα πρόβλημα."
 
-#: functions/class-utils-settings-map.php:579
+#: functions/class-utils-settings-map.php:586
 msgid "Display a Help button in the admin bar"
 msgstr "Εμφάνιση κουμπιού Βοήθειας στην μπάρα Διαχείρισης"
 
-#: functions/class-utils-settings-map.php:582
+#: functions/class-utils-settings-map.php:589
 msgid "This button links to the \"About Hueman\" page."
 msgstr "Αυτό το κουμπί συνδέεται με τη σελίδα \"About Hueman\"."
 
-#: functions/class-utils-settings-map.php:602
+#: functions/class-utils-settings-map.php:609
 msgid "Display your site's description (tagline)"
 msgstr "Εμφάνιση της περιγραφής του ιστοτόπου σας (tagline)"
 
-#: functions/class-utils-settings-map.php:605
+#: functions/class-utils-settings-map.php:612
 msgid "The description that appears next to your logo"
 msgstr "Η περιγραφή που εμφανίζεται δίπλα στο λογότυπό σας"
 
-#: functions/class-utils-settings-map.php:614
+#: functions/class-utils-settings-map.php:621
 msgid ""
 "Apply your custom background colors in priority for the topbar and the "
 "mobile menu"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:618
+#: functions/class-utils-settings-map.php:625
 msgid ""
 "This can be used to ensure your background colors are applied when designing "
 "a header with a background image in %1$s"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:627
+#: functions/class-utils-settings-map.php:634
 msgid "Topbar Background"
 msgstr "Φόντο άνω μπάρας"
 
-#: functions/class-utils-settings-map.php:637
+#: functions/class-utils-settings-map.php:644
 msgid "Header Background"
 msgstr "Φόντο κεφαλίδας"
 
-#: functions/class-utils-settings-map.php:647
+#: functions/class-utils-settings-map.php:654
 msgid "Header Menu Background"
 msgstr "Φόντο μενού κεφαλίδας"
 
-#: functions/class-utils-settings-map.php:657
+#: functions/class-utils-settings-map.php:664
 msgid "Mobile Menu Background"
 msgstr "Φόντο μενού κινητού"
 
-#: functions/class-utils-settings-map.php:667
+#: functions/class-utils-settings-map.php:674
 msgid "Apply a semi-transparent filter to the topbar and mobile menu on scroll"
 msgstr ""
 "Εφαρμόστε ένα ημιδιαφανές φίλτρο στο μενού κορυφής και στο κινητό μενού"
 
-#: functions/class-utils-settings-map.php:682
+#: functions/class-utils-settings-map.php:689
 msgid "Use a header banner image"
 msgstr "Χρησιμοποιήστε μια εικόνα για το banner κεφαλίδας"
 
-#: functions/class-utils-settings-map.php:685
+#: functions/class-utils-settings-map.php:692
 msgid ""
 "Upload a header image (supported formats : .jpg, .png, .gif, svg, svgz). "
 "This will disable header title/logo, site description, header ads widget"
@@ -2833,29 +2837,33 @@ msgstr ""
 "svg, svgz). Αυτό θα απενεργοποιήσει τον τίτλο/λογότυπο κεφαλίδας, την "
 "περιγραφή του ιστότοπου, τη μικροεφαρμογή διαφημίσεων κεφαλίδας"
 
-#: functions/class-utils-settings-map.php:692
+#: functions/class-utils-settings-map.php:699
 msgid "Image fills 100% of the width"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:699
+#: functions/class-utils-settings-map.php:706
 msgid "Use the original image height"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:716
+#: functions/class-utils-settings-map.php:714
+msgid "Link the banner image to your home page"
+msgstr ""
+
+#: functions/class-utils-settings-map.php:731
 msgid "Display your logo or site title, and tagline on top of the header image"
 msgstr ""
 "Εμφανίστε το λογότυπο ή τον τίτλο ιστότοπού σας και τη περιγραφή, επάνω από "
 "την εικόνα κεφαλίδας"
 
-#: functions/class-utils-settings-map.php:722
+#: functions/class-utils-settings-map.php:737
 msgid "Set your logo, title and tagline"
 msgstr "Ορίστε το λογότυπο, τίτλο και περιγραφή"
 
-#: functions/class-utils-settings-map.php:736
+#: functions/class-utils-settings-map.php:751
 msgid "Display a widget in your header"
 msgstr "Εμφανίστε μια μικροεφαρμογή στη κεφαλίδα"
 
-#: functions/class-utils-settings-map.php:739
+#: functions/class-utils-settings-map.php:754
 msgid ""
 "Header widget area, perfect to insert advertisements. Note : this feature is "
 "not available when a header image is being displayed."
@@ -2864,11 +2872,11 @@ msgstr ""
 "Σημείωση: Αυτή η λειτουργία δεν είναι διαθέσιμη όταν προβάλλεται μια εικόνα "
 "κεφαλίδας."
 
-#: functions/class-utils-settings-map.php:744
+#: functions/class-utils-settings-map.php:759
 msgid "Display the header widget zone on desktop devices"
 msgstr "Εμφάνιση της ζώνης μικροεφαρμογών κεφαλίδας σε επιτραπέζιες συσκευές."
 
-#: functions/class-utils-settings-map.php:747
+#: functions/class-utils-settings-map.php:762
 msgid ""
 "This will display your widget zone on devices with a width greater than 720 "
 "pixels : laptops and desktops."
@@ -2877,11 +2885,11 @@ msgstr ""
 "μεγαλύτερο από 720 pixels: φορητούς υπολογιστές και επιτραπέζιους "
 "υπολογιστές."
 
-#: functions/class-utils-settings-map.php:752
+#: functions/class-utils-settings-map.php:767
 msgid "Display the header widget zone on mobile devices"
 msgstr "Εμφάνιση της ζώνης μικροεφαρμογών κεφαλίδας σε κινητές συσκευές."
 
-#: functions/class-utils-settings-map.php:755
+#: functions/class-utils-settings-map.php:770
 msgid ""
 "This will display your widget zone on devices with a width smaller than 720 "
 "pixels : tablets, smartphones."
@@ -2889,108 +2897,108 @@ msgstr ""
 "Αυτό θα εμφανίσει τη ζώνη μικροεφαρμογών σας σε συσκευές με πλάτος μικρότερο "
 "από 720 pixels: tablet, κινητά."
 
-#: functions/class-utils-settings-map.php:766
-#: functions/class-utils-settings-map.php:1600
+#: functions/class-utils-settings-map.php:781
+#: functions/class-utils-settings-map.php:1615
 msgid "You can create menus and set their locations %s."
 msgstr "Μπορείτε να δημιουργήσετε μενού και να ορίσετε τις θέσεις τους %s."
 
-#: functions/class-utils-settings-map.php:776
-#: functions/class-utils-settings-map.php:1610
+#: functions/class-utils-settings-map.php:791
+#: functions/class-utils-settings-map.php:1625
 msgid "in the menu panel"
 msgstr "στο μενού πάνελ"
 
-#: functions/class-utils-settings-map.php:777
-#: functions/class-utils-settings-map.php:1611
+#: functions/class-utils-settings-map.php:792
+#: functions/class-utils-settings-map.php:1626
 msgid "create/edit menus"
 msgstr "δημιουργήστε/επεξεργαστείτε μενού"
 
-#: functions/class-utils-settings-map.php:781
+#: functions/class-utils-settings-map.php:796
 msgid "The Hueman theme supports up to two menu locations in your header."
 msgstr "Το θέμα Hueman υποστηρίζει έως και δύο θέσεις μενού στην κεφαλίδα σας"
 
-#: functions/class-utils-settings-map.php:786
+#: functions/class-utils-settings-map.php:801
 msgid "Topbar menu"
 msgstr "Μενού άνω μπάρας"
 
-#: functions/class-utils-settings-map.php:786
-#: functions/class-utils-settings-map.php:1626
+#: functions/class-utils-settings-map.php:801
+#: functions/class-utils-settings-map.php:1641
 msgid "Use a default page menu if no menu has been assigned."
 msgstr ""
 "Χρησιμοποιήστε ένα προεπιλεγμένο μενού σελίδας εάν δεν έχει αντιστοιχιστεί "
 "κανένα μενού."
 
-#: functions/class-utils-settings-map.php:798
-#: functions/class-utils-settings-map.php:832
+#: functions/class-utils-settings-map.php:813
+#: functions/class-utils-settings-map.php:847
 msgid "Menus settings for"
 msgstr "Ρυθμίσεις μενού για"
 
-#: functions/class-utils-settings-map.php:799
-#: functions/class-utils-settings-map.php:855
+#: functions/class-utils-settings-map.php:814
+#: functions/class-utils-settings-map.php:870
 msgid "top menu visibility on scroll"
 msgstr "εμφάνιση άνω μενού κατά τη κύλιση"
 
-#: functions/class-utils-settings-map.php:803
-#: functions/class-utils-settings-map.php:859
+#: functions/class-utils-settings-map.php:818
+#: functions/class-utils-settings-map.php:874
 msgid "Not visible when scrolling the page"
 msgstr "Μη εμφανές κατά τη κύλιση της σελίδας"
 
-#: functions/class-utils-settings-map.php:804
-#: functions/class-utils-settings-map.php:860
+#: functions/class-utils-settings-map.php:819
+#: functions/class-utils-settings-map.php:875
 msgid "Reveal on scroll up"
 msgstr "Αποκάλυψη κατά την άνω κύλιση"
 
-#: functions/class-utils-settings-map.php:805
-#: functions/class-utils-settings-map.php:861
+#: functions/class-utils-settings-map.php:820
+#: functions/class-utils-settings-map.php:876
 msgid "Always visible"
 msgstr "Πάντα εμφανές"
 
-#: functions/class-utils-settings-map.php:816
-#: functions/class-utils-settings-map.php:897
+#: functions/class-utils-settings-map.php:831
+#: functions/class-utils-settings-map.php:912
 msgid "display a search field"
 msgstr "εμφάνιση πεδίου αναζήτησης"
 
-#: functions/class-utils-settings-map.php:820
+#: functions/class-utils-settings-map.php:835
 msgid "No search field"
 msgstr "Κανένα πεδίο αναζήτησης"
 
-#: functions/class-utils-settings-map.php:821
+#: functions/class-utils-settings-map.php:836
 msgid "Display a search field in the top menu"
 msgstr "Εμφανίστε ένα πεδίο αναζήτησης στο επάνω μενού"
 
-#: functions/class-utils-settings-map.php:822
+#: functions/class-utils-settings-map.php:837
 msgid "Display a search field in the header menu"
 msgstr "Εμφανίστε ένα πεδίο αναζήτησης στο μενού κεφαλίδας"
 
-#: functions/class-utils-settings-map.php:832
-#: functions/class-utils-settings-map.php:855
-#: functions/class-utils-settings-map.php:886
-#: functions/class-utils-settings-map.php:897
-#: functions/class-utils-settings-map.php:1547
+#: functions/class-utils-settings-map.php:847
+#: functions/class-utils-settings-map.php:870
+#: functions/class-utils-settings-map.php:901
+#: functions/class-utils-settings-map.php:912
+#: functions/class-utils-settings-map.php:1562
 msgid "Mobile devices"
 msgstr "Κινητές συσκευές"
 
-#: functions/class-utils-settings-map.php:833
+#: functions/class-utils-settings-map.php:848
 msgid "Select the menu(s) to use for mobile devices"
 msgstr ""
 "Επιλέξτε το/τα μενού που θέλετε να χρησιμοποιήσετε για κινητές συσκευές"
 
-#: functions/class-utils-settings-map.php:837
+#: functions/class-utils-settings-map.php:852
 msgid "Header Menu"
 msgstr "Μενού κεφαλίδας"
 
-#: functions/class-utils-settings-map.php:838
+#: functions/class-utils-settings-map.php:853
 msgid "Topbar Menu"
 msgstr "Μενού άνω μπάρας"
 
-#: functions/class-utils-settings-map.php:839
+#: functions/class-utils-settings-map.php:854
 msgid "Specific Mobile Menu"
 msgstr "Συγκεκριμένο μενού για κινητά"
 
-#: functions/class-utils-settings-map.php:840
+#: functions/class-utils-settings-map.php:855
 msgid "Topbar and header menus, logo centered"
 msgstr "Κεντραρισμένο λογότυπο για μενού άνω μπάρας και κεφαλίδας"
 
-#: functions/class-utils-settings-map.php:843
+#: functions/class-utils-settings-map.php:858
 msgid ""
 "When your visitors are using a smartphone or a tablet, the header becomes a "
 "thin bar on top, where the menu is revealed when clicking on the hamburger "
@@ -3001,7 +3009,7 @@ msgstr ""
 "κλικ στο κουμπί χάμπουργκερ. Αυτή η επιλογή σας επιτρέπει να επιλέξετε ποιο "
 "μενού θα εμφανίζεται."
 
-#: functions/class-utils-settings-map.php:844
+#: functions/class-utils-settings-map.php:859
 msgid ""
 "If the selected menu location has no menu assigned, the theme will try to "
 "assign another menu in this order : topbar, mobile, header."
@@ -3010,61 +3018,61 @@ msgstr ""
 "προσπαθήσει να αντιστοιχίσει ένα άλλο μενού σε αυτή τη σειρά: άνω μπάρα, "
 "κινητό, κεφαλίδα."
 
-#: functions/class-utils-settings-map.php:871
+#: functions/class-utils-settings-map.php:886
 msgid "Style of the mobile menu button"
 msgstr "Στυλ του κουμπιού μενού για κινητά"
 
-#: functions/class-utils-settings-map.php:875
+#: functions/class-utils-settings-map.php:890
 msgid "Animated"
 msgstr "Με κίνηση"
 
-#: functions/class-utils-settings-map.php:876
+#: functions/class-utils-settings-map.php:891
 msgid "Simple"
 msgstr "Απλό"
 
-#: functions/class-utils-settings-map.php:886
+#: functions/class-utils-settings-map.php:901
 #, fuzzy
 msgid "Expand submenus on click"
 msgstr "Ανάπτυξη μενού"
 
-#: functions/class-utils-settings-map.php:936
+#: functions/class-utils-settings-map.php:951
 msgid "Columns layout for"
 msgstr "Διαμόρφωση στηλών για"
 
-#: functions/class-utils-settings-map.php:941
+#: functions/class-utils-settings-map.php:956
 msgid "Global Layout"
 msgstr "Καθολική διαμόρφωση"
 
-#: functions/class-utils-settings-map.php:945
+#: functions/class-utils-settings-map.php:960
 msgid "Other layouts will override this option if they are set"
 msgstr "Άλλες διατάξεις θα αντικαταστήσουν αυτήν την επιλογή εάν έχουν οριστεί"
 
-#: functions/class-utils-settings-map.php:950
+#: functions/class-utils-settings-map.php:965
 #, fuzzy
 msgid "Force the global layout"
 msgstr "Κληρονόμησε τη καθολική διάταξη"
 
-#: functions/class-utils-settings-map.php:953
+#: functions/class-utils-settings-map.php:968
 msgid ""
 "The global layout will be applied on every pages, even when a specific "
 "layout is set."
 msgstr ""
 
-#: functions/class-utils-settings-map.php:958 functions/init-front.php:1680
+#: functions/class-utils-settings-map.php:973 functions/init-front.php:1784
 #: functions/init-sidebars-widgets.php:132
 msgid "Home"
 msgstr "Αρχική"
 
-#: functions/class-utils-settings-map.php:962
+#: functions/class-utils-settings-map.php:977
 msgid "[ <strong>is_home</strong> ] Posts homepage layout"
 msgstr ""
 "[ <strong>is_home</strong> ] Διαμόρφωση αρχικής σελίδας για δημοσιεύσεις"
 
-#: functions/class-utils-settings-map.php:971
+#: functions/class-utils-settings-map.php:986
 msgid "Single"
 msgstr "Μονό"
 
-#: functions/class-utils-settings-map.php:975
+#: functions/class-utils-settings-map.php:990
 msgid ""
 "[ <strong>is_single</strong> ] Single post layout - If a post has a set "
 "layout, it will override this."
@@ -3072,46 +3080,46 @@ msgstr ""
 "[ <strong>is_single</strong> ] Διαμόρφωση μοναδικής ανάρτησης - Εάν μια "
 "ανάρτηση έχει καθορισμένη διάταξη, θα αντικαταστήσει αυτήν."
 
-#: functions/class-utils-settings-map.php:984
+#: functions/class-utils-settings-map.php:999
 msgid "Archive"
 msgstr "Αρχείο"
 
-#: functions/class-utils-settings-map.php:988
+#: functions/class-utils-settings-map.php:1003
 msgid ""
 "[ <strong>is_archive</strong> ] Category, date, tag and author archive layout"
 msgstr ""
 "[ <strong>is_archive</strong> ] Διάταξη αρχείου κατηγορίας, ημερομηνίας και "
 "ετικέτας."
 
-#: functions/class-utils-settings-map.php:993
+#: functions/class-utils-settings-map.php:1008
 msgid "Archive - Category"
 msgstr "Αρχείο - Κατηγορία"
 
-#: functions/class-utils-settings-map.php:997
+#: functions/class-utils-settings-map.php:1012
 msgid "[ <strong>is_category</strong> ] Category archive layout"
 msgstr "[ <strong>is_category</strong> ] Διάταξη αρχείου κατηγορίας"
 
-#: functions/class-utils-settings-map.php:1002
+#: functions/class-utils-settings-map.php:1017
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: functions/class-utils-settings-map.php:1006
+#: functions/class-utils-settings-map.php:1021
 msgid "[ <strong>is_search</strong> ] Search page layout"
 msgstr "[ <strong>is_search</strong> ] Διάταξη σελίδας αναζήτησης"
 
-#: functions/class-utils-settings-map.php:1011
+#: functions/class-utils-settings-map.php:1026
 msgid "Error 404"
 msgstr "Σφάλμα 404"
 
-#: functions/class-utils-settings-map.php:1015
+#: functions/class-utils-settings-map.php:1030
 msgid "[ <strong>is_404</strong> ] Error 404 page layout"
 msgstr "[ <strong>is_404</strong> ] Διάταξη σελίδας σφάλματος 404"
 
-#: functions/class-utils-settings-map.php:1020
+#: functions/class-utils-settings-map.php:1035
 msgid "Default Page"
 msgstr "Προεπιλεγμένη σελίδα"
 
-#: functions/class-utils-settings-map.php:1024
+#: functions/class-utils-settings-map.php:1039
 msgid ""
 "[ <strong>is_page</strong> ] Default page layout - If a page has a set "
 "layout, it will override this."
@@ -3119,16 +3127,16 @@ msgstr ""
 "[ <strong>is_page</strong> ] Προεπιλεγμένη διαμόρφωση σελίδας - Αν σε μια "
 "σελίδα έχει οριστεί διαμόρφωση, αυτό θα παρακαμφθεί."
 
-#: functions/class-utils-settings-map.php:1038
-#: functions/class-utils-settings-map.php:1052
+#: functions/class-utils-settings-map.php:1053
+#: functions/class-utils-settings-map.php:1067
 msgid "Blog Heading"
 msgstr "Κεφαλίδα ιστολογίου"
 
-#: functions/class-utils-settings-map.php:1039
+#: functions/class-utils-settings-map.php:1054
 msgid "Display a custom heading for your blog."
 msgstr "Εμφανίζει μια προσαρμοσμένη κεφαλίδα για το ιστολόγιό σας."
 
-#: functions/class-utils-settings-map.php:1055
+#: functions/class-utils-settings-map.php:1070
 msgid ""
 "Your blog heading. Html is allowed. Note : write a blank space to hide the "
 "default content."
@@ -3136,15 +3144,15 @@ msgstr ""
 "Η κεφαλίδα του ιστολογίου σας. Το HTML επιτρέπεται. Σημείωση: αφήστε ένα "
 "κενό διάστημα για να κρύψετε το προεπιλεγμένο περιεχόμενο."
 
-#: functions/class-utils-settings-map.php:1065 functions/init-front.php:660
+#: functions/class-utils-settings-map.php:1080 functions/init-front.php:663
 msgid "Blog"
 msgstr "Ιστολόγιο"
 
-#: functions/class-utils-settings-map.php:1067
+#: functions/class-utils-settings-map.php:1082
 msgid "Blog Sub-Heading"
 msgstr "Υποκεφαλίδα ιστολογίου"
 
-#: functions/class-utils-settings-map.php:1070
+#: functions/class-utils-settings-map.php:1085
 msgid ""
 "Your blog sub-heading. Html is allowed. Note : write a blank space to hide "
 "the default content."
@@ -3152,40 +3160,40 @@ msgstr ""
 "Η υποκεφαλίδα του ιστολογίου σας. Το HTML επιτρέπεται. Σημείωση: αφήστε ένα "
 "κενό διάστημα για να κρύψετε το προεπιλεγμένο περιεχόμενο."
 
-#: functions/class-utils-settings-map.php:1082
+#: functions/class-utils-settings-map.php:1097
 msgid "Apply a category filter to your home / blog posts"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1087
+#: functions/class-utils-settings-map.php:1102
 msgid ""
 "Click inside the above field and pick post categories you want to display. "
 "No filter will be applied when empty."
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1089
+#: functions/class-utils-settings-map.php:1104
 msgid "Learn more about post categories in WordPress"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1091
+#: functions/class-utils-settings-map.php:1106
 msgid "Note for Pro users:"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1092
+#: functions/class-utils-settings-map.php:1107
 msgid ""
 "The category filter will not be applied when using the <strong>Classic grid</"
 "strong> post list design if the <strong>infinite scroll</strong> option is "
 "active."
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1103
+#: functions/class-utils-settings-map.php:1118
 msgid "Post List Design"
 msgstr "Σχεδιασμός λίστας αναρτήσεων"
 
-#: functions/class-utils-settings-map.php:1104
+#: functions/class-utils-settings-map.php:1119
 msgid "Display your blog posts as a standard list."
 msgstr "Εμφανίστε τις δημοσιεύσεις του ιστολογίου σας ως μια τυπική λίστα."
 
-#: functions/class-utils-settings-map.php:1107
+#: functions/class-utils-settings-map.php:1122
 msgid ""
 "While the default blog design is a grid of posts, you can check this option "
 "and display one post per row, whith the thumbnail beside the text."
@@ -3194,37 +3202,37 @@ msgstr ""
 "μπορείτε να ελέγξετε αυτήν την επιλογή και να εμφανίσετε μια δημοσίευση ανά "
 "σειρά, με τη μικρογραφία δίπλα στο κείμενο."
 
-#: functions/class-utils-settings-map.php:1119
+#: functions/class-utils-settings-map.php:1134
 #, fuzzy
 msgid "Display your blog posts in full content"
 msgstr "Εμφανίστε τις δημοσιεύσεις του ιστολογίου σας ως μια τυπική λίστα."
 
-#: functions/class-utils-settings-map.php:1132
+#: functions/class-utils-settings-map.php:1147
 #, fuzzy
 msgid "Display the post thumbnail"
 msgstr "Εμφανίζει αριθμό σχολίων στις μικρογραφίες"
 
-#: functions/class-utils-settings-map.php:1146
+#: functions/class-utils-settings-map.php:1161
 #, fuzzy
 msgid "Display featured images in their original dimensions in post lists"
 msgstr "Εμφανίζει τις προβεβλημένες δημοσιεύσεις και στη λίστα των αναρτήσεων"
 
-#: functions/class-utils-settings-map.php:1149
+#: functions/class-utils-settings-map.php:1164
 msgid ""
 "When checked, the post featured image are displayed in their original size, "
 "instead of the optimized image sizes of the theme. Make sure your original "
 "images are not too large, it could slow down your website."
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1160
+#: functions/class-utils-settings-map.php:1175
 msgid "Post Summary"
 msgstr "Σύνολο αναρτήσεων"
 
-#: functions/class-utils-settings-map.php:1162
+#: functions/class-utils-settings-map.php:1177
 msgid "Excerpt Length"
 msgstr "Μήκος αποσπάσματος"
 
-#: functions/class-utils-settings-map.php:1168
+#: functions/class-utils-settings-map.php:1183
 msgid ""
 "The WordPress Excerpt is the summary or description of a post. By default, "
 "it will be the first words of a post, but you can write a %s if you want. "
@@ -3235,30 +3243,30 @@ msgstr ""
 "γράψετε ένα %s αν θέλετε. Μπορείτε να ορίσετε τον αριθμό των λέξεων που "
 "θέλετε να εμφανίζονται με αυτήν την επιλογή."
 
-#: functions/class-utils-settings-map.php:1169
+#: functions/class-utils-settings-map.php:1184
 msgid "custom excerpt"
 msgstr "προσαρμοσμένο απόσμασμα"
 
-#: functions/class-utils-settings-map.php:1181
+#: functions/class-utils-settings-map.php:1196
 #, fuzzy
 msgid "Display the archive type and an icon next to the archive headings"
 msgstr "Εμφάνιση ενός εικονιδίου δίπλα σε εξωτερικούς συνδέσμους"
 
-#: functions/class-utils-settings-map.php:1184
+#: functions/class-utils-settings-map.php:1199
 msgid ""
 "In WordPress, archives are the pages listing posts by category, tag, author "
 "and date."
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1190
+#: functions/class-utils-settings-map.php:1205
 msgid "Featured posts"
 msgstr "Προβαλλόμενες δημοσιεύσεις"
 
-#: functions/class-utils-settings-map.php:1192
+#: functions/class-utils-settings-map.php:1207
 msgid "Feature posts on top of your blog"
 msgstr "Προβαλλόμενες δημοσιεύσεις στη κορυφή του ιστολογίου σας."
 
-#: functions/class-utils-settings-map.php:1195
+#: functions/class-utils-settings-map.php:1210
 msgid ""
 "Check this box to display a selection of posts with a slideshow, on top of "
 "your blog."
@@ -3266,11 +3274,11 @@ msgstr ""
 "Επιλέξτε αυτό το πλαίσιο για να εμφανίσετε μια επιλογή από δημοσιεύσεις με "
 "μια παρουσίαση διαφανειών, πάνω από το ιστολόγιό σας."
 
-#: functions/class-utils-settings-map.php:1206
+#: functions/class-utils-settings-map.php:1221
 msgid "Select a category to feature"
 msgstr "Επιλέξτε μια κατηγορία ως προβεβλημένη"
 
-#: functions/class-utils-settings-map.php:1210
+#: functions/class-utils-settings-map.php:1225
 msgid ""
 "If no specific category is selected, the featured posts block will display "
 "your latest post(s) from all categories."
@@ -3279,11 +3287,11 @@ msgstr ""
 "δημοσιεύσεων θα εμφανίζει τις τελευταίες δημοσιεύσεις σας από όλες τις "
 "κατηγορίες."
 
-#: functions/class-utils-settings-map.php:1222
+#: functions/class-utils-settings-map.php:1237
 msgid "Featured Post Count"
 msgstr "Απαρίθμηση προβεβλημένων αναρτήσεων"
 
-#: functions/class-utils-settings-map.php:1228
+#: functions/class-utils-settings-map.php:1243
 msgid ""
 "Max number of featured posts to display. <br /><i>Set to 1 and it will show "
 "it without any slider script</i><br /><i>Set it to 0 to disable</i>"
@@ -3292,11 +3300,11 @@ msgstr ""
 "Ρυθμίστε σε 1 και θα το δείξει χωρίς κανένα script κύλισης </i><br /><i> "
 "Ρυθμίστε το σε 0 για να το απενεργοποιήσετε </i>"
 
-#: functions/class-utils-settings-map.php:1239
+#: functions/class-utils-settings-map.php:1254
 msgid "Display the full post content"
 msgstr "Εμφάνιση του συνολικού περιεχομένου της ανάρτησης"
 
-#: functions/class-utils-settings-map.php:1242
+#: functions/class-utils-settings-map.php:1257
 msgid ""
 "By default, your featured posts display the first words of their content "
 "( the \"excerpt\"). Check this box to display the full content."
@@ -3305,30 +3313,30 @@ msgstr ""
 "λέξεις του περιεχομένου τους (το \"απόσπασμα\"). Επιλέξτε αυτό το πλαίσιο "
 "για να εμφανιστεί το πλήρες περιεχόμενο."
 
-#: functions/class-utils-settings-map.php:1253
+#: functions/class-utils-settings-map.php:1268
 msgid "Animate your featured posts with a slideshow"
 msgstr ""
 "Ζωντανέψτε τις προβεβλημένες δημοσιεύσεις σας με μια παρουσίαση διαφανειών"
 
-#: functions/class-utils-settings-map.php:1256
+#: functions/class-utils-settings-map.php:1271
 msgid "Enables the automatic animation of the featured posts carousel."
 msgstr ""
 "Ενεργοποιεί την αυτόματη κίνηση περιστρεφόμενου καρουσέλ των προβεβλημένων "
 "δημοσιεύσεων."
 
-#: functions/class-utils-settings-map.php:1268
+#: functions/class-utils-settings-map.php:1283
 msgid "Featured Slideshow Speed"
 msgstr "Ταχύτητα προβεβλημένων διαφανειών"
 
-#: functions/class-utils-settings-map.php:1274
+#: functions/class-utils-settings-map.php:1289
 msgid "Speed of the automatic slideshow animation"
 msgstr "Ταχύτητα της κίνησης των αυτόματων διαφανειών"
 
-#: functions/class-utils-settings-map.php:1285
+#: functions/class-utils-settings-map.php:1300
 msgid "Display the featured posts also in the list of posts"
 msgstr "Εμφανίζει τις προβεβλημένες δημοσιεύσεις και στη λίστα των αναρτήσεων"
 
-#: functions/class-utils-settings-map.php:1288
+#: functions/class-utils-settings-map.php:1303
 msgid ""
 "If this box is checked, your featured posts will be displayed both in the "
 "featured slider and in the post list below. Usually not recommended because "
@@ -3339,193 +3347,193 @@ msgstr ""
 "κάτω. Συνήθως δεν συνιστάται επειδή μια συγκεκριμένη ανάρτηση μπορεί να "
 "εμφανιστεί δύο φορές στην ίδια σελίδα."
 
-#: functions/class-utils-settings-map.php:1299
-#: functions/class-utils-settings-map.php:1410
+#: functions/class-utils-settings-map.php:1314
+#: functions/class-utils-settings-map.php:1425
 #, fuzzy
 msgid "Post Metas"
 msgstr "Σχόλια δημοσιεύσεων"
 
-#: functions/class-utils-settings-map.php:1308
+#: functions/class-utils-settings-map.php:1323
 #, fuzzy
 msgid "Display post date"
 msgstr "Εμφάνιση αναρτήσεων από μια κατηγορία"
 
-#: functions/class-utils-settings-map.php:1316
+#: functions/class-utils-settings-map.php:1331
 #, fuzzy
 msgid "Display author"
 msgstr "Εμφάνιση και των δύο πλευρικών στηλών."
 
-#: functions/class-utils-settings-map.php:1334
+#: functions/class-utils-settings-map.php:1349
 msgid "Single - Author Bio"
 msgstr "Μονό - Βιογραφία συντάκτη"
 
-#: functions/class-utils-settings-map.php:1338
+#: functions/class-utils-settings-map.php:1353
 msgid "Display post author description, if it exists"
 msgstr "Εμφανίζει, αν υπάρχει, τη περιγραφή του συντάκτη της ανάρτησης"
 
-#: functions/class-utils-settings-map.php:1344
-#: functions/class-utils-settings-map.php:1439
+#: functions/class-utils-settings-map.php:1359
+#: functions/class-utils-settings-map.php:1454
 #, fuzzy
 msgid "Featured image"
 msgstr "Προβεβλημένες σελίδες"
 
-#: functions/class-utils-settings-map.php:1348
+#: functions/class-utils-settings-map.php:1363
 msgid ""
 "Display the post's featured image when it is set. Note that audio and image "
 "post formats automatically display the featured image."
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1354
+#: functions/class-utils-settings-map.php:1369
 msgid "Used cropped image ( max 1320x500 on desktops)"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1364
+#: functions/class-utils-settings-map.php:1379
 msgid "Single - Related Posts"
 msgstr "Μονές - Σχετικές δημοσιεύσεις"
 
-#: functions/class-utils-settings-map.php:1370
+#: functions/class-utils-settings-map.php:1385
 msgid "Related by categories"
 msgstr "Σχετιζόμενο με τις κατηγορίες"
 
-#: functions/class-utils-settings-map.php:1371
+#: functions/class-utils-settings-map.php:1386
 msgid "Related by tags"
 msgstr "Σχετιζόμενο με τις ετικέτες"
 
-#: functions/class-utils-settings-map.php:1373
+#: functions/class-utils-settings-map.php:1388
 msgid "Display randomized related articles below the post"
 msgstr "Εμφανίζει τυχαίες σχετικές αναρτήσεις κάτω από το άρθρο"
 
-#: functions/class-utils-settings-map.php:1379
+#: functions/class-utils-settings-map.php:1394
 msgid "Post navigation"
 msgstr "Πλοήγηση δημοσιεύσεων"
 
-#: functions/class-utils-settings-map.php:1380
+#: functions/class-utils-settings-map.php:1395
 msgid "Post navigation in single posts"
 msgstr "Πλοήγηση δημοσιεύσεων σε μονές δημοσιεύσεις"
 
-#: functions/class-utils-settings-map.php:1386
+#: functions/class-utils-settings-map.php:1401
 #: option-tree/includes/ot-functions-admin.php:2433
 msgid "Left Sidebar"
 msgstr "Αριστερή πλευρική στήλη"
 
-#: functions/class-utils-settings-map.php:1387
+#: functions/class-utils-settings-map.php:1402
 #: option-tree/includes/ot-functions-admin.php:2438
 msgid "Right Sidebar"
 msgstr "Δεξιά πλευρική στήλη"
 
-#: functions/class-utils-settings-map.php:1388
+#: functions/class-utils-settings-map.php:1403
 msgid "Below content"
 msgstr "Κάτω από το περιεχόμενο"
 
-#: functions/class-utils-settings-map.php:1390
+#: functions/class-utils-settings-map.php:1405
 msgid "Display links to the next and previous article"
 msgstr "Εμφανίζει συνδέσμους για το προηγούμενο και επόμενο άρθρο"
 
-#: functions/class-utils-settings-map.php:1400
+#: functions/class-utils-settings-map.php:1415
 #, fuzzy
 msgid "Post Tags"
 msgstr "Ετικέτες μοναδικής ανάρτησης"
 
-#: functions/class-utils-settings-map.php:1401
+#: functions/class-utils-settings-map.php:1416
 #, fuzzy
 msgid "Post tags"
 msgstr "Ετικέτες μοναδικής ανάρτησης"
 
-#: functions/class-utils-settings-map.php:1404
+#: functions/class-utils-settings-map.php:1419
 #, fuzzy
 msgid "Display the post tags after the post content."
 msgstr "Εμφάνιση του συνολικού περιεχομένου της ανάρτησης"
 
-#: functions/class-utils-settings-map.php:1411
+#: functions/class-utils-settings-map.php:1426
 #, fuzzy
 msgid "Post author name"
 msgstr "Μεταδεδομένα κατηγορίας λίστας αναρτήσεων"
 
-#: functions/class-utils-settings-map.php:1414
+#: functions/class-utils-settings-map.php:1429
 #, fuzzy
 msgid "Display the author name below the post title."
 msgstr "Εμφανίζει τυχαίες σχετικές αναρτήσεις κάτω από το άρθρο"
 
-#: functions/class-utils-settings-map.php:1420
+#: functions/class-utils-settings-map.php:1435
 msgid "Post date"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1423
+#: functions/class-utils-settings-map.php:1438
 #, fuzzy
 msgid "Display the date below the post title."
 msgstr "Εμφανίζει τυχαίες σχετικές αναρτήσεις κάτω από το άρθρο"
 
-#: functions/class-utils-settings-map.php:1442
+#: functions/class-utils-settings-map.php:1457
 #, fuzzy
 msgid "Display the page's featured image when it is set"
 msgstr ""
 "Εμφανίζει αντικαταστάτες για την προβεβλημένη εικόνα, αν δεν έχει οριστεί μια"
 
-#: functions/class-utils-settings-map.php:1447
+#: functions/class-utils-settings-map.php:1462
 msgid "Used cropped image (max 1320x500 on desktops)"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1464
+#: functions/class-utils-settings-map.php:1479
 msgid "Thumbnail Placeholder"
 msgstr "Αντικαταστάτης μικρογραφίας"
 
-#: functions/class-utils-settings-map.php:1467
+#: functions/class-utils-settings-map.php:1482
 msgid "Display featured image placeholders if no featured image is set"
 msgstr ""
 "Εμφανίζει αντικαταστάτες για την προβεβλημένη εικόνα, αν δεν έχει οριστεί μια"
 
-#: functions/class-utils-settings-map.php:1472
+#: functions/class-utils-settings-map.php:1487
 msgid "Thumbnail Comment Count"
 msgstr "Μετρητής σχολίων στη μικρογραφία"
 
-#: functions/class-utils-settings-map.php:1475
+#: functions/class-utils-settings-map.php:1490
 msgid "Display comment count on thumbnails"
 msgstr "Εμφανίζει αριθμό σχολίων στις μικρογραφίες"
 
-#: functions/class-utils-settings-map.php:1500
+#: functions/class-utils-settings-map.php:1515
 #: functions/init-plugins-compat.php:442
 msgid "Sidebar Top Boxes"
 msgstr "Άνω πλαίσια πλευρικής στήλης"
 
-#: functions/class-utils-settings-map.php:1503
+#: functions/class-utils-settings-map.php:1518
 msgid "Display boxes at the top of the sidebars"
 msgstr "Εμφανίζει πλαίσια στη κορυφή των πλευρικών στηλών"
 
-#: functions/class-utils-settings-map.php:1508
+#: functions/class-utils-settings-map.php:1523
 msgid "Follow:"
 msgstr "Ακολουθήστε:"
 
-#: functions/class-utils-settings-map.php:1509
+#: functions/class-utils-settings-map.php:1524
 #, fuzzy
 msgid "Primary sidebar title"
 msgstr "Απόκρυψη πρώτης πλευρικής στήλης"
 
-#: functions/class-utils-settings-map.php:1514
-#: functions/class-utils-settings-map.php:1524
+#: functions/class-utils-settings-map.php:1529
+#: functions/class-utils-settings-map.php:1539
 #, fuzzy
 msgid "Html is allowed."
 msgstr "Σημείωση: το HTML επιτρέπεται"
 
-#: functions/class-utils-settings-map.php:1518
+#: functions/class-utils-settings-map.php:1533
 msgid "More"
 msgstr "Περισσότερα"
 
-#: functions/class-utils-settings-map.php:1519
+#: functions/class-utils-settings-map.php:1534
 #, fuzzy
 msgid "Secondary sidebar title"
 msgstr "Απόκρυψη δεύτερης πλευρικής στήλης"
 
-#: functions/class-utils-settings-map.php:1529
+#: functions/class-utils-settings-map.php:1544
 #, fuzzy
 msgid "Sidebars background color"
 msgstr "Ορίστε το χρώμα φόντου της ιστοσελίδας σας"
 
-#: functions/class-utils-settings-map.php:1539
-#: functions/class-utils-settings-map.php:1547
+#: functions/class-utils-settings-map.php:1554
+#: functions/class-utils-settings-map.php:1562
 msgid "make sidebars sticky on scroll"
 msgstr "κολλάει τις πλευρικές στήλες κατά τη κύλιση"
 
-#: functions/class-utils-settings-map.php:1542
+#: functions/class-utils-settings-map.php:1557
 msgid ""
 "Glues your website's sidebars on top of the page, making them permanently "
 "visible when scrolling up and down. Useful when a sidebar is too tall or too "
@@ -3535,34 +3543,34 @@ msgstr ""
 "κάνοντάς τις μόνιμα ορατές κατά τη κύλιση. Χρήσιμο όταν μια πλευρική στήλη "
 "είναι πολύ μεγάλη ή πολύ μικρή σε σχέση με το υπόλοιπο περιεχόμενο."
 
-#: functions/class-utils-settings-map.php:1550
+#: functions/class-utils-settings-map.php:1565
 msgid ""
 "Decide if your sidebars should be sticky on tablets and smartphones devices."
 msgstr ""
 "Αποφασίστε αν οι πλευρικές στήλες θα είναι προσκολλημένες στα tablet και "
 "στις κινητές συσκευές."
 
-#: functions/class-utils-settings-map.php:1555
+#: functions/class-utils-settings-map.php:1570
 msgid "Mobile Sidebar Content"
 msgstr "Περιεχόμενο πλευρικών στηλών για κινητά."
 
-#: functions/class-utils-settings-map.php:1560
+#: functions/class-utils-settings-map.php:1575
 msgid "Display both sidebars"
 msgstr "Εμφάνιση και των δύο πλευρικών στηλών."
 
-#: functions/class-utils-settings-map.php:1561
+#: functions/class-utils-settings-map.php:1576
 msgid "Hide primary sidebar"
 msgstr "Απόκρυψη πρώτης πλευρικής στήλης"
 
-#: functions/class-utils-settings-map.php:1562
+#: functions/class-utils-settings-map.php:1577
 msgid "Hide secondary sidebar"
 msgstr "Απόκρυψη δεύτερης πλευρικής στήλης"
 
-#: functions/class-utils-settings-map.php:1563
+#: functions/class-utils-settings-map.php:1578
 msgid "Hide both sidebars"
 msgstr "Απόκρυψη και των δύο πλευρικών στηλών"
 
-#: functions/class-utils-settings-map.php:1565
+#: functions/class-utils-settings-map.php:1580
 #, fuzzy
 msgid ""
 "Control how the sidebar content is displayed on smartphone mobile devices "
@@ -3572,22 +3580,22 @@ msgstr ""
 "συσκευές (320px). Σημείωση: στα κινητά οι πλευρικές στήλες εμφανίζονται κάτω "
 "από το περιεχόμενο."
 
-#: functions/class-utils-settings-map.php:1574
+#: functions/class-utils-settings-map.php:1589
 msgid ""
 "Display the primary sidebar above the content column on smartphone mobile "
 "devices (480px)."
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1579
+#: functions/class-utils-settings-map.php:1594
 #, fuzzy
 msgid "Display social links in the primary sidebar"
 msgstr "Εμφάνιση ενός λογότυπου στην κεφαλίδα"
 
-#: functions/class-utils-settings-map.php:1618
+#: functions/class-utils-settings-map.php:1633
 msgid "Display a full width widget area in your footer"
 msgstr "Εμφανίστε μια περιοχή μικροεφαρμογών πλήρους πλάτους στο υποσέλιδό σας"
 
-#: functions/class-utils-settings-map.php:1621
+#: functions/class-utils-settings-map.php:1636
 msgid ""
 "This zone is located before the other footer widgets and takes 100% of the "
 "width. Very appropriate to display a Google Map or an advertisement banner."
@@ -3596,239 +3604,239 @@ msgstr ""
 "100% του πλάτους. Πολύ κατάλληλο για την εμφάνιση ενός Google Map ή ενός "
 "διαφημιστικού banner."
 
-#: functions/class-utils-settings-map.php:1635
+#: functions/class-utils-settings-map.php:1650
 msgid "Select columns to enable footer widgets"
 msgstr "Επιλέξτε στήλες για να ενεργοποιήσετε τις μικροεφαρμογές υποσέλιδου"
 
-#: functions/class-utils-settings-map.php:1640
+#: functions/class-utils-settings-map.php:1655
 msgid "Recommended number of columns : 3"
 msgstr "Προτεινόμενος αριθμός στηλών: 3"
 
-#: functions/class-utils-settings-map.php:1644
+#: functions/class-utils-settings-map.php:1659
 msgid "Upload your custom logo image"
 msgstr "Μεταφορτώστε την προσαρμοσμένη εικόνα λογότυπου"
 
-#: functions/class-utils-settings-map.php:1661
+#: functions/class-utils-settings-map.php:1676
 msgid "Footer Background"
 msgstr "Φόντο υποσέλιδου"
 
-#: functions/class-utils-settings-map.php:1671
+#: functions/class-utils-settings-map.php:1686
 #: functions/czr/czr-resources.php:38
 msgid "All Rights Reserved."
 msgstr "Όλα τα δικαιώματα κατοχυρωμένα."
 
-#: functions/class-utils-settings-map.php:1672
+#: functions/class-utils-settings-map.php:1687
 msgid "Replace the footer copyright text"
 msgstr "Αντικαταστήστε το κείμενο πνευματικών δικαιωμάτων υποσέλιδου"
 
-#: functions/class-utils-settings-map.php:1677
+#: functions/class-utils-settings-map.php:1692
 msgid ""
 "Note : Html is allowed. The following template tags can be used : {{year}}, "
 "{{site_title}}, {{home_url}}."
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1682
+#: functions/class-utils-settings-map.php:1697
 msgid "Footer credit text"
 msgstr "Κείμενο υποσέλιδου"
 
-#: functions/class-utils-settings-map.php:1691
+#: functions/class-utils-settings-map.php:1706
 #, fuzzy
 msgid "Display social links in the footer"
 msgstr "Εμφάνιση ενός λογότυπου στην κεφαλίδα"
 
-#: functions/class-utils-settings-map.php:1722
+#: functions/class-utils-settings-map.php:1737
 msgid "Web Page Design"
 msgstr "Σχεδιασμός ιστοσελίδας"
 
-#: functions/class-utils-settings-map.php:1723
+#: functions/class-utils-settings-map.php:1738
 msgid "Title, Logo, Fonts, Colors, Background, Socials, Links"
 msgstr "Τίτλος, λογότυπο, γραμματοσειρές, χρώματα, φόντο, κοινωνικά, σύνδεσμοι"
 
-#: functions/class-utils-settings-map.php:1724
+#: functions/class-utils-settings-map.php:1739
 msgid "General settings for the Hueman theme : design, comments, mobile, ..."
 msgstr "Γενικές ρυθμίσεις για το θέμα Hueman: σχεδιασμός, σχόλια, κινητά, ..."
 
-#: functions/class-utils-settings-map.php:1730
+#: functions/class-utils-settings-map.php:1745
 msgid "Header Design"
 msgstr "Σχεδιασμός κεφαλίδας"
 
-#: functions/class-utils-settings-map.php:1731
+#: functions/class-utils-settings-map.php:1746
 msgid "Header Image, Menu, Widget"
 msgstr "Εικόνα κεφαλίδας, μενού, μικροεφαρμογές"
 
-#: functions/class-utils-settings-map.php:1732
+#: functions/class-utils-settings-map.php:1747
 msgid "Header settings for the Hueman theme."
 msgstr "Ρυθμίσεις κεφαλίδας για το θέμα Hueman"
 
-#: functions/class-utils-settings-map.php:1738
+#: functions/class-utils-settings-map.php:1753
 msgid "Main Body Design"
 msgstr "Σχεδιασμός κορμού"
 
-#: functions/class-utils-settings-map.php:1739
+#: functions/class-utils-settings-map.php:1754
 msgid "Layout, Sidebars, Blog Posts, Thumbnails"
 msgstr "Διάταξη, πλευρικές στήλες, Δημοσιεύσεις ιστολογίου, μικρογραφίες"
 
-#: functions/class-utils-settings-map.php:1740
+#: functions/class-utils-settings-map.php:1755
 msgid "Content settings for the Hueman theme."
 msgstr "Ρυθμίσεις περιεχομένου για το θέμα Hueman."
 
-#: functions/class-utils-settings-map.php:1752
+#: functions/class-utils-settings-map.php:1767
 msgid "Footer Design"
 msgstr "Σχεδιασμός υποσέλιδου"
 
-#: functions/class-utils-settings-map.php:1753
+#: functions/class-utils-settings-map.php:1768
 msgid "Logo, Layout, Menu"
 msgstr "Λογότυπο, διάταξη, μενού"
 
-#: functions/class-utils-settings-map.php:1754
+#: functions/class-utils-settings-map.php:1769
 msgid "Footer settings for the Hueman theme."
 msgstr "Ρυθμίσεις υποσέλιδου για το θέμα Hueman"
 
-#: functions/class-utils-settings-map.php:1760
+#: functions/class-utils-settings-map.php:1775
 msgid "Advanced options"
 msgstr "Προχωρημένες επιλογές"
 
-#: functions/class-utils-settings-map.php:1761
+#: functions/class-utils-settings-map.php:1776
 msgid "Performances, SEO, CSS, Scroll"
 msgstr "Αποδόσεις, SEO, CSS, κύλιση"
 
-#: functions/class-utils-settings-map.php:1762
+#: functions/class-utils-settings-map.php:1777
 msgid "Advanced settings for the Hueman theme."
 msgstr "Προχωρημένες ρυθμίσεις για το θέμα Hueman."
 
-#: functions/class-utils-settings-map.php:1844
+#: functions/class-utils-settings-map.php:1859
 msgid "Site Identity : Logo, Title, Tagline and Site Icon"
 msgstr ""
 "Ταυτότητα ιστότοπου: Λογότυπο, τίτλος, περιγραφή και εικονίδιο ιστότοπου"
 
-#: functions/class-utils-settings-map.php:1854
+#: functions/class-utils-settings-map.php:1869
 msgid "General Design Options : Font, Colors, ..."
 msgstr "Γενικές επιλογές σχεδίασης : Γραμματοσειρά, χρώματα, ..."
 
-#: functions/class-utils-settings-map.php:1871
+#: functions/class-utils-settings-map.php:1886
 msgid "Header Design : colors and others"
 msgstr "Σχεδιασμός κεφαλίδας: χρώματα και άλλα"
 
-#: functions/class-utils-settings-map.php:1876
+#: functions/class-utils-settings-map.php:1891
 msgid "Header Image"
 msgstr "Εικόνα κεφαλίδας"
 
-#: functions/class-utils-settings-map.php:1881
+#: functions/class-utils-settings-map.php:1896
 msgid "Header Advertisement Widget"
 msgstr "Μικροεφαρμογή διαφήμισης κεφαλίδας"
 
-#: functions/class-utils-settings-map.php:1886
+#: functions/class-utils-settings-map.php:1901
 msgid "Header Menus : mobile settings, scroll behaviour, search button"
 msgstr ""
 "Μενού κεφαλίδας: ρυθμίσεις κινητών, συμπεριφορά κύλισης, κουμπί αναζήτησης"
 
-#: functions/class-utils-settings-map.php:1895
+#: functions/class-utils-settings-map.php:1910
 msgid "Column layout for the main content"
 msgstr "Διάταξη στήλης για το κύριο περιεχόμενο"
 
-#: functions/class-utils-settings-map.php:1900
+#: functions/class-utils-settings-map.php:1915
 msgid "Sidebars : Design and Mobile Settings"
 msgstr "Πλευρικές στήλες: Σχεδιασμός και ρυθμίσεις κινητών"
 
-#: functions/class-utils-settings-map.php:1905
+#: functions/class-utils-settings-map.php:1920
 msgid "Post Lists Design and Content : Blog, Archives, Search Results"
 msgstr ""
 "Δημοσιεύσεις λίστας και περιεχομένου: Ιστολόγιο, αρχεία, αποτελέσματα "
 "αναζήτησης"
 
-#: functions/class-utils-settings-map.php:1911
+#: functions/class-utils-settings-map.php:1926
 #, fuzzy
 msgid "Single Pages Settings"
 msgstr "Ρυθμίσεις μοναδικής δημοσίευσης"
 
-#: functions/class-utils-settings-map.php:1916
+#: functions/class-utils-settings-map.php:1931
 msgid "Single Posts Settings"
 msgstr "Ρυθμίσεις μοναδικής δημοσίευσης"
 
-#: functions/class-utils-settings-map.php:1922
+#: functions/class-utils-settings-map.php:1937
 msgid "Thumbnails Settings"
 msgstr "Ρυθμίσεις μικρογραφιών"
 
-#: functions/class-utils-settings-map.php:1937
+#: functions/class-utils-settings-map.php:1952
 msgid "Footer Design : Logo, layout, ..."
 msgstr "Σχεδιασμός υποσέλιδου : Λογότυπο, διάταξη, ..."
 
-#: functions/class-utils-settings-map.php:1954
+#: functions/class-utils-settings-map.php:1969
 msgid "Mobile Devices"
 msgstr "Κινητές συσκευές"
 
-#: functions/class-utils-settings-map.php:1959
+#: functions/class-utils-settings-map.php:1974
 #: functions/init-sidebars-widgets.php:138
 msgid "Search Results"
 msgstr "Αποτελέσματα αναζήτησης"
 
-#: functions/class-utils-settings-map.php:1964
+#: functions/class-utils-settings-map.php:1979
 msgid "Performances and SEO"
 msgstr "Αποδόσεις και SEO"
 
-#: functions/class-utils-settings-map.php:1969
+#: functions/class-utils-settings-map.php:1984
 msgid "Hueman Admin Settings"
 msgstr "Ρυθμίσεις διαχείρισης Hueman"
 
-#: functions/class-utils-settings-map.php:1981
+#: functions/class-utils-settings-map.php:1996
 msgid "Upgrade to Hueman Pro"
 msgstr "Αναβαθμίστε σε Hueman Pro"
 
-#: functions/class-utils-settings-map.php:1982
+#: functions/class-utils-settings-map.php:1997
 msgid "Go Pro"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:2009
+#: functions/class-utils-settings-map.php:2024
 msgid "Choose one "
 msgstr "Επιλέξτε ένα"
 
-#: functions/class-utils-settings-map.php:2028
-#: functions/class-utils-settings-map.php:2078
+#: functions/class-utils-settings-map.php:2043
+#: functions/class-utils-settings-map.php:2093
 msgid "1 Column"
 msgstr "1 Στήλη"
 
-#: functions/class-utils-settings-map.php:2032
+#: functions/class-utils-settings-map.php:2047
 msgid "2 Columns - Content Left"
 msgstr "2 Στήλες - Περιεχόμενο αριστερά"
 
-#: functions/class-utils-settings-map.php:2036
+#: functions/class-utils-settings-map.php:2051
 msgid "2 Columns - Content Right"
 msgstr "2 Στήλες - Περιεχόμενο δεξιά"
 
-#: functions/class-utils-settings-map.php:2040
+#: functions/class-utils-settings-map.php:2055
 msgid "3 Columns - Content Middle"
 msgstr "3 Στήλες - Περιεχόμενο στη μέση"
 
-#: functions/class-utils-settings-map.php:2044
+#: functions/class-utils-settings-map.php:2059
 msgid "3 Columns - Content Left"
 msgstr "3 Στήλες - Περιεχόμενο αριστερά"
 
-#: functions/class-utils-settings-map.php:2048
+#: functions/class-utils-settings-map.php:2063
 msgid "3 Columns - Content Right"
 msgstr "3 Στήλες - Περιεχόμενο δεξιά"
 
-#: functions/class-utils-settings-map.php:2056
+#: functions/class-utils-settings-map.php:2071
 msgid "Inherit Global Layout"
 msgstr "Κληρονόμησε τη καθολική διάταξη"
 
-#: functions/class-utils-settings-map.php:2082
+#: functions/class-utils-settings-map.php:2097
 msgid "2 Columns"
 msgstr "2 Στήλες"
 
-#: functions/class-utils-settings-map.php:2086
+#: functions/class-utils-settings-map.php:2101
 msgid "3 Columns"
 msgstr "3 Στήλες"
 
-#: functions/class-utils-settings-map.php:2090
+#: functions/class-utils-settings-map.php:2105
 msgid "4 Columns"
 msgstr "4 Στήλες"
 
-#: functions/class-utils-settings-map.php:2115
+#: functions/class-utils-settings-map.php:2130
 #: option-tree/includes/ot-functions-option-types.php:2147
 msgid "No Sidebars"
 msgstr "Χωρίς πλευρικές στήλες"
 
-#: functions/class-utils-settings-map.php:2120
+#: functions/class-utils-settings-map.php:2135
 #: option-tree/includes/ot-functions-option-types.php:2142
 msgid "Choose Sidebar"
 msgstr "Επιλέξτε πλευρική στήλη"
@@ -4578,100 +4586,100 @@ msgstr ""
 msgid "Add widgets to the zone :"
 msgstr "Προσθέστε μικροεφαρμογές στη ζώνη:"
 
-#: functions/init-front.php:489 functions/init-front.php:495
+#: functions/init-front.php:492 functions/init-front.php:498
 msgid "Home page"
 msgstr "Αρχική σελίδα"
 
-#: functions/init-front.php:547
+#: functions/init-front.php:550
 msgid "Search result"
 msgstr "Αποτέλεσμα αναζήτησης"
 
-#: functions/init-front.php:549
+#: functions/init-front.php:552
 msgid "Search results"
 msgstr "Αποτελέσματα αναζήτησης"
 
-#: functions/init-front.php:560
+#: functions/init-front.php:563
 msgid "Error 404."
 msgstr "Σφάλμα 404."
 
-#: functions/init-front.php:561
+#: functions/init-front.php:564
 msgid "Page not found!"
 msgstr "Η σελίδα δε βρέθηκε!"
 
-#: functions/init-front.php:576
+#: functions/init-front.php:579
 msgid "Author:"
 msgstr "Συντάκτης:"
 
-#: functions/init-front.php:594
+#: functions/init-front.php:597
 msgid "Category:"
 msgstr "Κατηγορία:"
 
-#: functions/init-front.php:603
+#: functions/init-front.php:606
 msgid "Tagged:"
 msgstr "Ετικέτα: "
 
-#: functions/init-front.php:622
+#: functions/init-front.php:625
 msgid "Daily Archive:"
 msgstr "Ημερήσιο αρχείο:"
 
-#: functions/init-front.php:632
+#: functions/init-front.php:635
 msgid "Monthly Archive:"
 msgstr "Μηνιαίο αρχείο:"
 
-#: functions/init-front.php:642
+#: functions/init-front.php:645
 msgid "Yearly Archive:"
 msgstr "Ετήσιο αρχείο:"
 
-#: functions/init-front.php:1235
+#: functions/init-front.php:1250
 #, fuzzy
 msgid "Expand"
 msgstr "Ανάπτυξη μενού"
 
-#: functions/init-front.php:1236
+#: functions/init-front.php:1251
 #, fuzzy
 msgid "Collapse"
 msgstr "Σύμπτυξη μενού"
 
-#: functions/init-front.php:1728 functions/init-sidebars-widgets.php:134
+#: functions/init-front.php:1832 functions/init-sidebars-widgets.php:134
 msgid "Pages"
 msgstr "Σελίδες"
 
-#: functions/init-front.php:2004
+#: functions/init-front.php:2108
 msgid "Welcome in the Hueman theme"
 msgstr "Καλώς ήλθατε στο θέμα Hueman"
 
-#: functions/init-front.php:2007
+#: functions/init-front.php:2111
 msgid "The theme offers a wide range"
 msgstr "Το θέμα προσφέρει ένα ευρύ φάσμα"
 
-#: functions/init-front.php:2009
+#: functions/init-front.php:2113
 msgid "of customization options"
 msgstr "επιλογών προσαρμογής"
 
-#: functions/init-front.php:2010
+#: functions/init-front.php:2114
 msgid "to let you create the best possible websites."
 msgstr ""
 "για να σας αφήσει να δημιουργήσετε τους καλύτερους δυνατούς ιστότοπους."
 
-#: functions/init-front.php:2013
+#: functions/init-front.php:2117
 msgid "If you need inspiration, you can visit our online demos"
 msgstr "Εάν χρειάζεστε έμπνευση, μπορείτε να επισκεφτείτε τα online demos μας"
 
-#: functions/init-front.php:2015
+#: functions/init-front.php:2119
 #, fuzzy
 msgid "Hueman Demo 1"
 msgstr "Hueman Βίντεο"
 
-#: functions/init-front.php:2017
+#: functions/init-front.php:2121
 #, fuzzy
 msgid "Hueman Demo 2"
 msgstr "Hueman Βίντεο"
 
-#: functions/init-front.php:2020
+#: functions/init-front.php:2124
 msgid "To help you getting started with Hueman, we have published"
 msgstr "Για να σας βοηθήσουμε να ξεκινήσετε με την Hueman, έχουμε δημοσιεύσει"
 
-#: functions/init-front.php:2022
+#: functions/init-front.php:2126
 msgid "a short guide here."
 msgstr "έναν σύντομο οδηγό εδώ."
 

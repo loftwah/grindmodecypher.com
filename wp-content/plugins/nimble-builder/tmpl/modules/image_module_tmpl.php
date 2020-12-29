@@ -19,6 +19,16 @@ $value = array_key_exists( 'value', $model ) ? $model['value'] : array();
 $main_settings = $value['main_settings'];
 //$borders_corners_settings = $value['borders_corners'];
 
+
+if ( !function_exists( 'Nimble\remove_attachment_image_style_attr' ) ) {
+    function remove_attachment_image_style_attr( $attr ) {
+        if ( is_array($attr) && isset($attr['style']) ) {
+            unset($attr['style']);
+        }
+        return $attr;
+    }
+}
+
 if ( !function_exists( 'Nimble\sek_get_img_module_img_html') ) {
     function sek_get_img_module_img_html( $value, $for_mobile = false, $img = null, $img_size = null ) {
         $img = !is_null($img) ? $img : $value['img'];
@@ -41,7 +51,10 @@ if ( !function_exists( 'Nimble\sek_get_img_module_img_html') ) {
 
         $html = '';
         if ( is_int( $img ) ) {
+            // Nov 2020 : removes any additional styles added by a theme ( Twenty Twenty one ) or a plugin to the image
+            add_filter( 'wp_get_attachment_image_attributes', '\Nimble\sek_remove_image_style_attr', 999 );
             $html = wp_get_attachment_image( $img, empty( $img_size ) ? 'large' : $img_size);
+            remove_filter( 'wp_get_attachment_image_attributes', '\Nimble\sek_remove_image_style_attr', 999 );
         } else if ( !empty( $img ) && is_string( $img ) ) {
             // the default img is excluded from the smart loading parsing @see nimble_regex_callback()
             // => this is needed because this image has no specific dimensions set. And therefore can create false javascript computations of other element's distance to top on page load.
@@ -138,7 +151,5 @@ if ( 'no-link' === $main_settings['link-to'] ) {
     );
 }
 if ( 'img-lightbox' === $main_settings['link-to'] ) {
-  ?>
-  <script>nb_.emit('nb-needs-magnific-popup');</script>
-  <?php
+    sek_emit_js_event('nb-needs-magnific-popup');
 }

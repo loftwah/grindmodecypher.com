@@ -11,6 +11,11 @@ function sek_is_debug_mode() {
 function sek_is_dev_mode() {
   return ( defined( 'NIMBLE_DEV' ) && NIMBLE_DEV ) || ( defined( 'WP_DEBUG' ) && WP_DEBUG );
 }
+// @return bool
+// Nov 2020 : helper used to display NB CPT in admin
+function sek_is_cpt_debug_mode() {
+  return isset( $_GET['nimble_cpt_debug'] ) || (defined('NIMBLE_CPT_DEBUG_MODE') && NIMBLE_CPT_DEBUG_MODE);
+}
 
 if ( !defined( 'NIMBLE_CPT' ) ) { define( 'NIMBLE_CPT' , 'nimble_post_type' ); }
 if ( !defined( 'NIMBLE_TEMPLATE_CPT' ) ) { define( 'NIMBLE_TEMPLATE_CPT' , 'nimble_template' ); }
@@ -19,14 +24,18 @@ if ( !defined( 'NIMBLE_SECTION_CPT' ) ) { define( 'NIMBLE_SECTION_CPT' , 'nimble
 if ( !defined( 'NIMBLE_PREFIX_FOR_SAVED_TMPL' ) ) { define( 'NIMBLE_PREFIX_FOR_SAVED_TMPL' , 'nb_tmpl_' ); }
 if ( !defined( 'NIMBLE_PREFIX_FOR_SAVED_SECTION' ) ) { define( 'NIMBLE_PREFIX_FOR_SAVED_SECTION' , 'nb_section_' ); }
 
-if ( !defined( 'NIMBLE_PREV_CSS_FOLDER_NAME' ) ) { define( 'NIMBLE_PREV_CSS_FOLDER_NAME' , 'sek_css' ); }
-if ( !defined( 'NIMBLE_CSS_FOLDER_NAME' ) ) { define( 'NIMBLE_CSS_FOLDER_NAME' , 'nb_css' ); }
+if ( !defined( 'NIMBLE_DEPREC_ONE_CSS_FOLDER_NAME' ) ) { define( 'NIMBLE_DEPREC_ONE_CSS_FOLDER_NAME' , 'sek_css' ); }//<= folder name deprecated in july 2020
+if ( !defined( 'NIMBLE_DEPREC_TWO_CSS_FOLDER_NAME' ) ) { define( 'NIMBLE_DEPREC_TWO_CSS_FOLDER_NAME' , 'nb_css' ); }//<= folder name deprecated in october 2020
+if ( !defined( 'NIMBLE_CSS_FOLDER_NAME' ) ) { define( 'NIMBLE_CSS_FOLDER_NAME' , 'nimble_css' ); }
+if ( !defined( 'NIMBLE_OPT_FOR_MODULE_CSS_READING_STATUS' ) ) { define( 'NIMBLE_OPT_FOR_MODULE_CSS_READING_STATUS' , 'nimble_module_css_read_status' ); }
+
 if ( !defined( 'NIMBLE_OPT_PREFIX_FOR_SEKTION_COLLECTION' ) ) { define( 'NIMBLE_OPT_PREFIX_FOR_SEKTION_COLLECTION' , 'nimble___' ); }
 if ( !defined( 'NIMBLE_GLOBAL_SKOPE_ID' ) ) { define( 'NIMBLE_GLOBAL_SKOPE_ID' , 'skp__global' ); }
 
 if ( !defined( 'NIMBLE_OPT_NAME_FOR_GLOBAL_OPTIONS' ) ) { define( 'NIMBLE_OPT_NAME_FOR_GLOBAL_OPTIONS' , '__nimble_options__' ); }
 //if ( !defined( 'NIMBLE_OPT_NAME_FOR_SAVED_SEKTIONS' ) ) { define( 'NIMBLE_OPT_NAME_FOR_SAVED_SEKTIONS' , 'nimble_saved_sektions' ); } //<= June 2020 to be removed
 if ( !defined( 'NIMBLE_OPT_NAME_FOR_MOST_USED_FONTS' ) ) { define( 'NIMBLE_OPT_NAME_FOR_MOST_USED_FONTS' , 'nimble_most_used_fonts' ); }
+if ( !defined( 'NIMBLE_OPT_FOR_GLOBAL_CSS' ) ) { define( 'NIMBLE_OPT_FOR_GLOBAL_CSS' , 'nimble_global_css' ); }
 
 if ( !defined( 'NIMBLE_OPT_NAME_FOR_SECTION_JSON' ) ) { define( 'NIMBLE_OPT_NAME_FOR_SECTION_JSON' , 'nb_prebuild_section_json' ); }
 
@@ -41,6 +50,9 @@ if ( !defined( 'NIMBLE_DETACHED_TINYMCE_TEXTAREA_ID') ) { define( 'NIMBLE_DETACH
 if ( !defined( 'NIMBLE_WELCOME_NOTICE_ID' ) ) { define ( 'NIMBLE_WELCOME_NOTICE_ID', 'nimble-welcome-notice-12-2018' ); }
 //mt_rand(0, 65535) . 'test-nimble-feedback-notice-04-2019'
 if ( !defined( 'NIMBLE_FEEDBACK_NOTICE_ID' ) ) { define ( 'NIMBLE_FEEDBACK_NOTICE_ID', 'nimble-feedback-notice-04-2019' ); }
+
+if ( !defined( 'NIMBLE_GOOGLE_FONTS_STYLESHEET_ID' ) ) { define ( 'NIMBLE_GOOGLE_FONTS_STYLESHEET_ID', 'sek-gfonts-local-and-global' ); }
+if ( !defined( 'NIMBLE_GLOBAL_OPTIONS_STYLESHEET_ID' ) ) { define ( 'NIMBLE_GLOBAL_OPTIONS_STYLESHEET_ID', 'nimble-global-inline-style' ); }
 
 if ( !defined( 'NIMBLE_JQUERY_ID' ) ) { define ( 'NIMBLE_JQUERY_ID', 'nb-jquery' ); }
 if ( !defined( 'NIMBLE_JQUERY_LATEST_CDN_URL' ) ) { define ( 'NIMBLE_JQUERY_LATEST_CDN_URL', 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js' ); }
@@ -178,127 +190,22 @@ function sek_get_default_location_model( $skope_id = null ) {
 }
 
 ?><?php
-/* ------------------------------------------------------------------------- *
- *  FRONT ASSET SNIFFERS
-/* ------------------------------------------------------------------------- */
-
-// @return bool
-// some modules uses font awesome :
-// Fired in 'wp_enqueue_scripts' to check if font awesome is needed
-function sek_front_needs_font_awesome( $bool = false, $recursive_data = null ) {
-    $contextually_active_modules = sek_get_collection_of_contextually_active_modules();
-    $font_awesome_dependant_modules = Nimble_Manager()->modules_dependant_of_font_awesome;//'czr_button_module', 'czr_icon_module', 'czr_social_icons_module'
-    foreach ( $font_awesome_dependant_modules as $module_type ) {
-      if ( array_key_exists($module_type , $contextually_active_modules) )
-        $bool = true;
-    }
-    return $bool;
-}
-
-// @return bool
-// Fired in 'wp_enqueue_scripts'
-// Recursively sniff the local and global sections to find a 'img-lightbox' string
-// @see sek_get_module_params_for_czr_image_main_settings_child
-function sek_front_needs_magnific_popup( $bool = false, $recursive_data = null ) {
-    if ( !$bool ) {
-        if ( is_null( $recursive_data ) ) {
-            $local_skope_settings = sek_get_skoped_seks( skp_get_skope_id() );
-            $local_collection = ( is_array( $local_skope_settings ) && !empty( $local_skope_settings['collection'] ) ) ? $local_skope_settings['collection'] : array();
-            $global_skope_settings = sek_get_skoped_seks( NIMBLE_GLOBAL_SKOPE_ID );
-            $global_collection = ( is_array( $global_skope_settings ) && !empty( $global_skope_settings['collection'] ) ) ? $global_skope_settings['collection'] : array();
-
-            $recursive_data = array_merge( $local_collection, $global_collection );
-        }
-
-        foreach ($recursive_data as $key => $value) {
-            // @see sek_get_module_params_for_czr_image_main_settings_child
-            if ( is_string( $value ) && 'img-lightbox' === $value ) {
-                $bool = true;
-                break;
-            }
-            if ( is_array( $value ) ) {
-                $bool = sek_front_needs_magnific_popup( $bool, $value );
-            }
-        }
-    }
-    return true === $bool;
-}
-
-// @return bool
-// Fired in 'wp_enqueue_scripts'
-function sek_front_needs_parallax_bg( $bool = false, $recursive_data = null ) {
-    if ( !$bool ) {
-        if ( is_null( $recursive_data ) ) {
-            $local_skope_settings = sek_get_skoped_seks( skp_get_skope_id() );
-            $local_collection = ( is_array( $local_skope_settings ) && !empty( $local_skope_settings['collection'] ) ) ? $local_skope_settings['collection'] : array();
-            $global_skope_settings = sek_get_skoped_seks( NIMBLE_GLOBAL_SKOPE_ID );
-            $global_collection = ( is_array( $global_skope_settings ) && !empty( $global_skope_settings['collection'] ) ) ? $global_skope_settings['collection'] : array();
-
-            $recursive_data = array_merge( $local_collection, $global_collection );
-        }
-
-        foreach ($recursive_data as $key => $value) {
-            // @see sek_get_module_params_for_czr_image_main_settings_child
-            if ( 'bg-parallax' === $key && sek_booleanize_checkbox_val($value) ) {
-                $bool = true;
-                break;
-            }
-            if ( is_array( $value ) ) {
-                $bool = sek_front_needs_parallax_bg( $bool, $value );
-            }
-        }
-    }
-    return true === $bool;
-}
-
-// @return bool
-// Fired in 'wp_enqueue_scripts'
-function sek_front_needs_video_bg( $bool = false, $recursive_data = null ) {
-    if ( !$bool ) {
-        if ( is_null( $recursive_data ) ) {
-            $local_skope_settings = sek_get_skoped_seks( skp_get_skope_id() );
-            $local_collection = ( is_array( $local_skope_settings ) && !empty( $local_skope_settings['collection'] ) ) ? $local_skope_settings['collection'] : array();
-            $global_skope_settings = sek_get_skoped_seks( NIMBLE_GLOBAL_SKOPE_ID );
-            $global_collection = ( is_array( $global_skope_settings ) && !empty( $global_skope_settings['collection'] ) ) ? $global_skope_settings['collection'] : array();
-
-            $recursive_data = array_merge( $local_collection, $global_collection );
-        }
-
-        foreach ($recursive_data as $key => $value) {
-            // @see sek_get_module_params_for_czr_image_main_settings_child
-            if ( 'bg-video' === $key && !empty($value) ) {
-                $bool = true;
-                break;
-            }
-            if ( is_array( $value ) ) {
-                $bool = sek_front_needs_video_bg( $bool, $value );
-            }
-        }
-    }
-    return true === $bool;
-}
 
 
 // @return bool
 // march 2020 introduced https://github.com/presscustomizr/nimble-builder/issues/632
+// Nov 2020, replaced global option by a PHP constant : https://github.com/presscustomizr/nimble-builder/issues/763
 function sek_is_jquery_replaced() {
     if ( skp_is_customizing() )
       return;
-    $glob_perf = sek_get_global_option_value( 'performances' );
-    if ( !is_null( $glob_perf ) && is_array( $glob_perf ) && !empty( $glob_perf['use_latest_version_jquery'] ) ) {
-        return sek_booleanize_checkbox_val( $glob_perf['use_latest_version_jquery'] );
-    }
-    return false;
+    return defined('NIMBLE_USE_LATEST_JQUERY_VERSION') && NIMBLE_USE_LATEST_JQUERY_VERSION;
 }
 
 // @return bool
 // march 2020 introduced for https://github.com/presscustomizr/nimble-builder/issues/612
+// Nov 2020, replaced global option by a PHP constant : https://github.com/presscustomizr/nimble-builder/issues/763
 function sek_load_jquery_async() {
-    $glob_perf = sek_get_global_option_value( 'performances' );
-    if ( !is_null( $glob_perf ) && is_array( $glob_perf ) && !empty( $glob_perf['load_jquery_async'] ) ) {
-        return sek_booleanize_checkbox_val( $glob_perf['load_jquery_async'] );
-    }
-    return false;
+    return defined('NIMBLE_LOAD_JQUERY_ASYNC') && NIMBLE_LOAD_JQUERY_ASYNC;
 }
 
 // @return bool
@@ -313,13 +220,13 @@ function sek_load_front_assets_on_scroll() {
 
 // @return bool
 // march 2020 introduced for https://github.com/presscustomizr/nimble-builder/issues/626
-function sek_preload_font_awesome() {
-    $glob_perf = sek_get_global_option_value( 'performances' );
-    if ( !is_null( $glob_perf ) && is_array( $glob_perf ) && !empty( $glob_perf['preload_font_awesome'] ) ) {
-        return sek_booleanize_checkbox_val( $glob_perf['preload_font_awesome'] );
-    }
-    return false;
-}
+// function sek_preload_font_awesome() {
+//     $glob_perf = sek_get_global_option_value( 'performances' );
+//     if ( !is_null( $glob_perf ) && is_array( $glob_perf ) && !empty( $glob_perf['preload_font_awesome'] ) ) {
+//         return sek_booleanize_checkbox_val( $glob_perf['preload_font_awesome'] );
+//     }
+//     return false;
+// }
 
 // @return bool
 // march 2020 introduced for https://github.com/presscustomizr/nimble-builder/issues/612
@@ -341,15 +248,6 @@ function sek_inline_dynamic_stylesheets_on_front() {
     return false;
 }
 
-// @return bool
-// march 2020 introduced for https://github.com/presscustomizr/nimble-builder/issues/612
-function sek_use_split_stylesheets_on_front() {
-    $glob_perf = sek_get_global_option_value( 'performances' );
-    if ( !is_null( $glob_perf ) && is_array( $glob_perf ) && !empty( $glob_perf['use_partial_module_stylesheets'] ) ) {
-        return sek_booleanize_checkbox_val( $glob_perf['use_partial_module_stylesheets'] );
-    }
-    return false;
-}
 
 // @return bool
 // march 2020 introduced for https://github.com/presscustomizr/nimble-builder/issues/629
@@ -379,15 +277,6 @@ function sek_load_front_assets_in_ajax() {
     return false;
 }
 
-// @return bool
-// march 2020 introduced for https://github.com/presscustomizr/nimble-builder/issues/635
-function sek_preload_some_scripts_and_styles() {
-    $glob_perf = sek_get_global_option_value( 'performances' );
-    if ( !is_null( $glob_perf ) && is_array( $glob_perf ) && !empty( $glob_perf['preload_front_scripts'] ) ) {
-        return !skp_is_customizing() && sek_booleanize_checkbox_val( $glob_perf['preload_front_scripts'] );
-    }
-    return false;
-}
 
 // Adds defer attribute to enqueued / registered scripts.
 // fired @wp_enqueue_scripts
@@ -395,6 +284,137 @@ function sek_defer_script($handle) {
     // Adds defer attribute to enqueued / registered scripts.
     wp_script_add_data( $handle, 'defer', true );
 }
+
+// oct 2020 => introduction of a normalized way to emit a js event to NB front api
+// in particular to make sure NB doesn't print a <script> twice to emit the same event
+function sek_emit_js_event( $event = '', $echo = true ) {
+    $emitted = Nimble_Manager()->emitted_js_event;
+    if ( !is_string($event) || in_array($event, $emitted) )
+      return;
+    $emitted[] = $event;
+    Nimble_Manager()->emitted_js_event = $emitted;
+    $html = sprintf('<script>(function(){if(window.nb_){nb_.emit("%1$s");}})();</script>', $event );
+    if ( $echo ) {
+        echo $html;
+    } else {
+        return $html;
+    }
+}
+
+
+// October 2020 => module stylesheets are concatenated in the dynamic stylesheet
+// @return bool
+// march 2020 introduced for https://github.com/presscustomizr/nimble-builder/issues/612
+// function sek_use_split_stylesheets_on_front() {
+//     $glob_perf = sek_get_global_option_value( 'performances' );
+//     if ( !is_null( $glob_perf ) && is_array( $glob_perf ) && !empty( $glob_perf['use_partial_module_stylesheets'] ) ) {
+//         return sek_booleanize_checkbox_val( $glob_perf['use_partial_module_stylesheets'] );
+//     }
+//     return false;
+// }
+
+
+/* ------------------------------------------------------------------------- *
+ *  FRONT ASSET SNIFFERS
+ *  Deprecated in October 2020 in favor of a js detection using events like nb-needs-video-bg
+/* ------------------------------------------------------------------------- */
+
+// // @return bool
+// // some modules uses font awesome :
+// // Fired in 'wp_enqueue_scripts' to check if font awesome is needed
+// function sek_front_needs_font_awesome( $bool = false, $recursive_data = null ) {
+//     $contextually_active_modules = sek_get_collection_of_contextually_active_modules();
+//     $font_awesome_dependant_modules = Nimble_Manager()->modules_dependant_of_font_awesome;//'czr_button_module', 'czr_icon_module', 'czr_social_icons_module'
+//     foreach ( $font_awesome_dependant_modules as $module_type ) {
+//       if ( array_key_exists($module_type , $contextually_active_modules) )
+//         $bool = true;
+//     }
+//     return $bool;
+// }
+
+// @return bool
+// Fired in 'wp_enqueue_scripts'
+// Recursively sniff the local and global sections to find a 'img-lightbox' string
+// @see sek_get_module_params_for_czr_image_main_settings_child
+// function sek_front_needs_magnific_popup( $bool = false, $recursive_data = null ) {
+//     if ( !$bool ) {
+//         if ( is_null( $recursive_data ) ) {
+//             $local_skope_settings = sek_get_skoped_seks( skp_get_skope_id() );
+//             $local_collection = ( is_array( $local_skope_settings ) && !empty( $local_skope_settings['collection'] ) ) ? $local_skope_settings['collection'] : array();
+//             $global_skope_settings = sek_get_skoped_seks( NIMBLE_GLOBAL_SKOPE_ID );
+//             $global_collection = ( is_array( $global_skope_settings ) && !empty( $global_skope_settings['collection'] ) ) ? $global_skope_settings['collection'] : array();
+
+//             $recursive_data = array_merge( $local_collection, $global_collection );
+//         }
+
+//         foreach ($recursive_data as $key => $value) {
+//             // @see sek_get_module_params_for_czr_image_main_settings_child
+//             if ( is_string( $value ) && 'img-lightbox' === $value ) {
+//                 $bool = true;
+//                 break;
+//             }
+//             if ( is_array( $value ) ) {
+//                 $bool = sek_front_needs_magnific_popup( $bool, $value );
+//             }
+//         }
+//     }
+//     return true === $bool;
+// }
+
+// @return bool
+// Fired in 'wp_enqueue_scripts'
+// function sek_front_needs_parallax_bg( $bool = false, $recursive_data = null ) {
+//     if ( !$bool ) {
+//         if ( is_null( $recursive_data ) ) {
+//             $local_skope_settings = sek_get_skoped_seks( skp_get_skope_id() );
+//             $local_collection = ( is_array( $local_skope_settings ) && !empty( $local_skope_settings['collection'] ) ) ? $local_skope_settings['collection'] : array();
+//             $global_skope_settings = sek_get_skoped_seks( NIMBLE_GLOBAL_SKOPE_ID );
+//             $global_collection = ( is_array( $global_skope_settings ) && !empty( $global_skope_settings['collection'] ) ) ? $global_skope_settings['collection'] : array();
+
+//             $recursive_data = array_merge( $local_collection, $global_collection );
+//         }
+
+//         foreach ($recursive_data as $key => $value) {
+//             // @see sek_get_module_params_for_czr_image_main_settings_child
+//             if ( 'bg-parallax' === $key && sek_booleanize_checkbox_val($value) ) {
+//                 $bool = true;
+//                 break;
+//             }
+//             if ( is_array( $value ) ) {
+//                 $bool = sek_front_needs_parallax_bg( $bool, $value );
+//             }
+//         }
+//     }
+//     return true === $bool;
+// }
+
+// @return bool
+// Fired in 'wp_enqueue_scripts'
+// function sek_front_needs_video_bg( $bool = false, $recursive_data = null ) {
+//     if ( !$bool ) {
+//         if ( is_null( $recursive_data ) ) {
+//             $local_skope_settings = sek_get_skoped_seks( skp_get_skope_id() );
+//             $local_collection = ( is_array( $local_skope_settings ) && !empty( $local_skope_settings['collection'] ) ) ? $local_skope_settings['collection'] : array();
+//             $global_skope_settings = sek_get_skoped_seks( NIMBLE_GLOBAL_SKOPE_ID );
+//             $global_collection = ( is_array( $global_skope_settings ) && !empty( $global_skope_settings['collection'] ) ) ? $global_skope_settings['collection'] : array();
+
+//             $recursive_data = array_merge( $local_collection, $global_collection );
+//         }
+
+//         foreach ($recursive_data as $key => $value) {
+//             // @see sek_get_module_params_for_czr_image_main_settings_child
+//             if ( 'bg-video' === $key && !empty($value) ) {
+//                 $bool = true;
+//                 break;
+//             }
+//             if ( is_array( $value ) ) {
+//                 $bool = sek_front_needs_video_bg( $bool, $value );
+//             }
+//         }
+//     }
+//     return true === $bool;
+// }
+
 ?><?php
 
 /* ------------------------------------------------------------------------- *
@@ -543,13 +563,22 @@ function sek_is_video_bg_lazyload_enabled() {
     return Nimble_Manager()->video_bg_lazyload_enabled;
 }
 
+/* ------------------------------------------------------------------------- *
+ *  DISABLE SUPPORT FOR BROWSER NATIVE LAZY LOADING
+/* ------------------------------------------------------------------------- */
+// Disabled when rendering NB content only
+// attribute loading="lazy" was introduced in WP 5.5, Oct 2020
+// => see why NB disable it here :https://github.com/presscustomizr/nimble-builder/issues/747
+add_filter( 'wp_lazy_loading_enabled', function($default) {
+    return Nimble_Manager()->rendering ? false : $default;
+});
 
 
 
 
-// /* ------------------------------------------------------------------------- *
-// *  IMPORT IMAGE IF NOT ALREADY IN MEDIA LIB
-// /* ------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------- *
+*  IMPORT IMAGE IF NOT ALREADY IN MEDIA LIB
+/* ------------------------------------------------------------------------- */
 // @return attachment id or WP_Error
 // this method uses download_url()
 // it first checks if the media already exists in the media library
@@ -629,6 +658,19 @@ function sek_sideload_img_and_return_attachment_id( $img_url ) {
     return $id;
 }
 
+/* ------------------------------------------------------------------------- *
+*  REMOVE IMAGE STYLE ATTRIBUTE
+*  Used in image module, slider module, special image module
+/* ------------------------------------------------------------------------- */
+// Nov 2020 : removes any additional styles added by a theme ( Twenty Twenty one ) or a plugin to the image
+// because otherwise it overrides NB builder custom width, height, and custom width when scrolling ( NB Pro )
+// hook : 'wp_get_attachment_image_attributes'
+function sek_remove_image_style_attr( $attr ) {
+    if ( is_array($attr) && isset($attr['style']) ) {
+        unset($attr['style']);
+    }
+    return $attr;
+}
 ?><?php
 /* ------------------------------------------------------------------------- *
  *  Page Menu for menu module
@@ -2262,24 +2304,27 @@ function sek_count_not_empty_sections_in_page( $seks_data, $count = 0 ) {
 // /* ------------------------------------------------------------------------- *
 // *  FEEDBACK NOTIF
 // /* ------------------------------------------------------------------------- */
-// Invoked when generating the customizer localized js params 'sektionsLocalizedData'
+// Invoked when printing the review note in the plugin table, in the 'plugin_row_meta'
+// Since this is a quite heavy check, NB stores it in a 7 days long transient
 function sek_get_feedback_notif_status() {
-    if ( sek_feedback_notice_is_dismissed() )
-      return;
-    if ( sek_feedback_notice_is_postponed() )
-      return;
+    // if ( sek_feedback_notice_is_dismissed() )
+    //   return;
+    // if ( sek_feedback_notice_is_postponed() )
+    //   return;
 
-    // Did we set the status already ?
-    if ( 'not_set' !== Nimble_Manager()->feedback_notif_status )
-      return Nimble_Manager()->feedback_notif_status;
+    // Check if we already stored the status in a transient first
 
-    // If not let's set it
+    $transient_name = 'nimble_feedback_status';
+    $transient_value = get_transient( $transient_name );
+    if ( false != $transient_value ) {
+        return 'eligible' === $transient_value;
+    }
 
+    // If transient not set or expired, let's set it and return the feedback status
     $start_version = get_option( 'nimble_started_with_version', NIMBLE_VERSION );
-    //sek_error_log('START VERSION ?' . $start_version, version_compare( $start_version, '1.6.0', '<=' ) );
 
-    // Bail if user did not start before v1.10.10, February 15th 2020 ( set on March 3rd 2020 )
-    if ( !version_compare( $start_version, '1.10.10', '<=' ) )
+    // Bail if user started after v2.1.20, October 22nd 2020 ( set on November 23th 2020 )
+    if ( !version_compare( $start_version, '2.1.20', '<=' ) )
       return;
 
     $sek_post_query_vars = array(
@@ -2316,12 +2361,16 @@ function sek_get_feedback_notif_status() {
 
     $modules_used = array_unique($modules_used);
 
+    $transient_value = 'not_eligible';
     // sek_error_log('$section_created ??', $nb_section_created );
     // sek_error_log('$modules_used ?? ' . count($modules_used), $modules_used );
     // sek_error_log('$customized_pages ??', $customized_pages );
     //version_compare( $this->wp_version, '4.1', '>=' )
-    Nimble_Manager()->feedback_notif_status = $customized_pages > 0 && $nb_section_created > 2 && count($modules_used) > 2;
-    return Nimble_Manager()->feedback_notif_status;
+    if ( $customized_pages > 2 && $nb_section_created > 4 && count($modules_used) > 3 ) {
+        $transient_value = 'eligible';
+    }
+    set_transient( $transient_name, $transient_value, 7 * DAY_IN_SECONDS );
+    return $transient_value;
 }
 
 
@@ -2344,7 +2393,7 @@ function sek_populate_list_of_modules_used( $seks_data ) {
     }
 }
 
-
+// Nov 2020 =
 function sek_feedback_notice_is_dismissed() {
     $dismissed = get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true );
     $dismissed_array = array_filter( explode( ',', (string) $dismissed ) );
@@ -3059,6 +3108,14 @@ function sek_get_raw_section_registration_params() {
                     'demo_url' => '#intro-three'
                 ),
                 array(
+                    'content-id' => 'pro_intro_two',
+                    'title' => __('3 columns, call to actions', 'nimble-builder' ),
+                    'thumb' => 'pro_intro_two.jpg',
+                    'active' => sek_is_pro(),
+                    'is_pro' => true,
+                    'demo_url' => 'https://nimblebuilder.com/special-image-demo/'
+                ),
+                array(
                     'content-id' => 'pro_intro_one',
                     'title' => __('2 columns, call to actions, image carousel', 'nimble-builder' ),
                     'thumb' => 'pro_intro_one.jpg',
@@ -3673,17 +3730,17 @@ function sek_map_compat_1_0_4_to_1_1_0_do_level_spacing_mapping( $old_user_data 
 // SEKTION POST
 register_post_type( NIMBLE_CPT , array(
     'labels' => array(
-      'name'          => __( 'Nimble sections', 'nimble-builder' ),
-      'singular_name' => __( 'Nimble sections', 'nimble-builder' ),
+      'name'          => sek_is_cpt_debug_mode() ? __( '[NB debug] skoped section', 'nimble-builder') : __( 'NB skoped section', 'nimble-builder'),
+      'singular_name' => __( 'NB skoped section', 'nimble-builder')
     ),
-    'public'           => false,
+    'public'           => sek_is_cpt_debug_mode(),
     'hierarchical'     => false,
     'rewrite'          => false,
     'query_var'        => false,
     'delete_with_user' => false,
     'can_export'       => true,
-    '_builtin'         => true, /* internal use only. don't use this when registering your own post type. */
-    'supports'         => array( 'title', 'revisions' ),
+    //'_builtin'         => true, /* internal use only. don't use this when registering your own post type. */
+    'supports'         => sek_is_cpt_debug_mode() ? array( 'editor', 'title', 'revisions' ) : array( 'title', 'revisions' ),
     'capabilities'     => array(
         'delete_posts'           => 'edit_theme_options',
         'delete_post'            => 'edit_theme_options',
@@ -3821,22 +3878,9 @@ function sek_get_skoped_seks( $skope_id = '', $location_id = '', $skope_level = 
         // [ 'collection' => [], 'local_options' => [] ];
         $default_collection = sek_get_default_location_model( $skope_id );
         $seks_data = wp_parse_args( $seks_data, $default_collection );
-
         // Maybe add missing registered locations
-        $maybe_incomplete_locations = [];
-        foreach( $seks_data['collection'] as $location_data ) {
-            if ( !empty( $location_data['id'] ) ) {
-                $maybe_incomplete_locations[] = $location_data['id'];
-            }
-        }
+        $seks_data = sek_maybe_add_incomplete_locations( $seks_data, $is_global_skope );
 
-        foreach( sek_get_locations() as $loc_id => $params ) {
-            if ( !in_array( $loc_id, $maybe_incomplete_locations ) ) {
-                if ( ( sek_is_global_location( $loc_id ) && $is_global_skope ) || ( !sek_is_global_location( $loc_id ) && !$is_global_skope  ) ) {
-                    $seks_data['collection'][] = wp_parse_args( [ 'id' => $loc_id ], Nimble_Manager()->default_location_model );
-                }
-            }
-        }
         // cache now
         if ( $is_global_skope ) {
             Nimble_Manager()->global_seks = $seks_data;
@@ -3846,17 +3890,22 @@ function sek_get_skoped_seks( $skope_id = '', $location_id = '', $skope_level = 
 
     }//end if
 
-    // when customizing, let us filter the value with the 'customized' ones
-    $seks_data = apply_filters(
-        'sek_get_skoped_seks',
-        $seks_data,
-        $skope_id,
-        $location_id
-    );
+    if ( skp_is_customizing() ) {
+        // when customizing, let us filter the value with the 'customized' ones
+        $seks_data = apply_filters(
+            'sek_get_skoped_seks',
+            $seks_data,
+            $skope_id,
+            $location_id
+        );
+        // Maybe add missing registered locations when customizing
+        // December 2020 => needed when importing an entire template
+        $seks_data = sek_maybe_add_incomplete_locations( $seks_data, $is_global_skope );
+    }
 
-    // sek_error_log( '<sek_get_skoped_seks() location => ' . $location .  array_key_exists( 'collection', $seks_data ), $seks_data );
     // if a location is specified, return specifically the sections of this location
     if ( array_key_exists( 'collection', $seks_data ) && !empty( $location_id ) ) {
+        // sek_error_log( 'sek_get_skoped_seks() location => ' . $location_id .  array_key_exists( 'collection', $seks_data ) );
         if ( !array_key_exists( $location_id, sek_get_locations() ) ) {
             error_log( __FUNCTION__ . ' Error => location ' . $location_id . ' is not registered in the available locations' );
         } else {
@@ -3865,6 +3914,26 @@ function sek_get_skoped_seks( $skope_id = '', $location_id = '', $skope_level = 
     }
 
     return 'no_match' === $seks_data ? Nimble_Manager()->default_location_model : $seks_data;
+}
+
+// make sure the locations in the skoped locations tree match the registered locations for the context
+function sek_maybe_add_incomplete_locations( $seks_data, $is_global_skope ) {
+    // Maybe add missing registered locations
+    $maybe_incomplete_locations = [];
+    foreach( $seks_data['collection'] as $location_data ) {
+        if ( !empty( $location_data['id'] ) ) {
+            $maybe_incomplete_locations[] = $location_data['id'];
+        }
+    }
+
+    foreach( sek_get_locations() as $loc_id => $params ) {
+        if ( !in_array( $loc_id, $maybe_incomplete_locations ) ) {
+            if ( ( sek_is_global_location( $loc_id ) && $is_global_skope ) || ( !sek_is_global_location( $loc_id ) && !$is_global_skope  ) ) {
+                $seks_data['collection'][] = wp_parse_args( [ 'id' => $loc_id ], Nimble_Manager()->default_location_model );
+            }
+        }
+    }
+    return $seks_data;
 }
 
 
@@ -3939,17 +4008,17 @@ function sek_update_sek_post( $seks_data, $args = array() ) {
 // CPT for section : 'nimble_section'
 register_post_type( NIMBLE_SECTION_CPT , array(
     'labels' => array(
-      'name'          => __( 'Nimble sections', 'nimble-builder' ),
-      'singular_name' => __( 'Nimble sections', 'nimble-builder' ),
+      'name'          => sek_is_cpt_debug_mode() ? __( '[NB debug] user prebuilt sections', 'nimble-builder') : __( 'NB user prebuilt sections', 'nimble-builder'),
+      'singular_name' => __( 'NB User prebuilt sections', 'nimble-builder')
     ),
-    'public'           => false,
+    'public'           => sek_is_cpt_debug_mode(),
     'hierarchical'     => false,
     'rewrite'          => false,
     'query_var'        => false,
     'delete_with_user' => false,
     'can_export'       => true,
     //'_builtin'         => true, /* internal use only. don't use this when registering your own post type. */
-    'supports'         => array( 'title', 'revisions' ),
+    'supports'         => sek_is_cpt_debug_mode() ? array( 'editor', 'title', 'revisions' ) : array( 'title', 'revisions' ),
     'capabilities'     => array(
         'delete_posts'           => 'edit_theme_options',
         'delete_post'            => 'edit_theme_options',
@@ -4192,17 +4261,17 @@ function sek_update_saved_section_post( $section_data ) {
 // CPT for template : 'nimble_template'
 register_post_type( NIMBLE_TEMPLATE_CPT , array(
     'labels' => array(
-      'name'          => __( 'Nimble templates', 'nimble-builder' ),
-      'singular_name' => __( 'Nimble templates', 'nimble-builder' ),
+      'name'          => sek_is_cpt_debug_mode() ? __( '[NB debug] user templates', 'nimble-builder') : __( 'NB user templates', 'nimble-builder'),
+      'singular_name' => __( 'NB user templates', 'nimble-builder')
     ),
-    'public'           => false,
+    'public'           => sek_is_cpt_debug_mode(),
     'hierarchical'     => false,
     'rewrite'          => false,
     'query_var'        => false,
     'delete_with_user' => false,
     'can_export'       => true,
     //'_builtin'         => true, /* internal use only. don't use this when registering your own post type. */
-    'supports'         => array( 'title', 'revisions' ),
+    'supports'         => sek_is_cpt_debug_mode() ? array( 'editor', 'title', 'revisions' ) : array( 'title', 'revisions' ),
     'capabilities'     => array(
         'delete_posts'           => 'edit_theme_options',
         'delete_post'            => 'edit_theme_options',
@@ -4314,7 +4383,8 @@ function sek_get_all_saved_templates() {
 
     foreach ( $query->posts as $post_object ) {
         $content = maybe_unserialize( $post_object->post_content );
-        //sek_error_log( __FUNCTION__ . ' POST OBJECT ?', $post_object->post_modified .  get_option('date_format') );
+        // sek_error_log( __FUNCTION__ . ' TYPE ?', gettype($post_object->post_content ) );
+        // sek_error_log( __FUNCTION__ . ' POST OBJECT ?', $post_object->post_content );
         // Structure of $content :
         // array(
         //     'data' => $_POST['tmpl_data'],//<= json stringified
@@ -4325,7 +4395,7 @@ function sek_get_all_saved_templates() {
         //         'skope_id' => $_POST['skope_id'],
         //         'version' => NIMBLE_VERSION,
         //         // is sent as a string : "__after_header,__before_main_wrapper,loop_start,__before_footer"
-        //         'active_locations' => is_string( $_POST['active_locations'] ) ? explode( ',', $_POST['active_locations'] ) : array(),
+        //         'tmpl_locations' => is_string( $_POST['tmpl_locations'] ) ? explode( ',', $_POST['tmpl_locations'] ) : array(),
         //         'date' => date("Y-m-d"),
         //         'theme' => sanitize_title_with_dashes( get_stylesheet() )
         //     )
@@ -4346,7 +4416,7 @@ function sek_get_all_saved_templates() {
             'last_modified_date' => mysql2date( 'Y-m-d H:i:s', $post_object->post_modified )
         );
     }
-
+    //sek_error_log('GET ALL SAVED TMPL', $collection );
     return $collection;
 }
 
@@ -4363,7 +4433,7 @@ function sek_get_all_saved_templates() {
   //         'skope_id' => $_POST['skope_id'],
   //         'version' => NIMBLE_VERSION,
   //         // is sent as a string : "__after_header,__before_main_wrapper,loop_start,__before_footer"
-  //         'active_locations' => is_string( $_POST['active_locations'] ) ? explode( ',', $_POST['active_locations'] ) : array(),
+  //         'tmpl_locations' => is_string( $_POST['tmpl_locations'] ) ? explode( ',', $_POST['tmpl_locations'] ) : array(),
   //         'date' => date("Y-m-d"),
   //         'theme' => sanitize_title_with_dashes( get_stylesheet() )
   //     )
@@ -4388,7 +4458,7 @@ function sek_update_saved_tmpl_post( $tmpl_data ) {
             'description' => '',
             'skope_id' => '',
             'version' => NIMBLE_VERSION,
-            'active_locations' => array(),
+            'tmpl_locations' => array(),
             'date' => '',
             'theme' => ''
         )
@@ -4445,6 +4515,100 @@ function sek_update_saved_tmpl_post( $tmpl_data ) {
     }
     return get_post( $r );
 }
+
+?><?php
+// Nov 2020
+// When sek_is_cpt_debug_mode() = isset( $_GET['nimble_cpt_debug'] ) || (defined('NIMBLE_CPT_DEBUG_MODE') && NIMBLE_CPT_DEBUG_MODE);
+// NB custom post types for skoped sections, user saved sections and templates are set to "public" in the WP admin
+// To properly vizualise and edit the CPT we need :
+// 1) to filter content before it's rendered in the CPT admin editor, so it's rendered as a JSON
+// This is done with 'content_edit_pre'
+// 2) to disable the rich editor when editing NB CPT, to prevent any html tags insertion done by rich text editor ( done at 'current_screen' )
+// 3) before db insertion, to make sur the NB CPT is turned from JSON to serialized value ( done with 'wp_insert_post_data' )
+// Disable rich editor when editing NB custom post types
+add_action( 'current_screen', function() {
+    if ( !sek_is_cpt_debug_mode() || !is_admin() || skp_is_customizing() )
+      return;
+
+    global $pagenow;
+    global $typenow;
+    if ( 'post.php' === $pagenow && in_array($typenow, [NIMBLE_CPT,NIMBLE_SECTION_CPT,NIMBLE_TEMPLATE_CPT]) ) {
+        add_filter( 'user_can_richedit' , '__return_false', 50 );
+    }
+});
+
+// Jsonify
+add_filter( 'content_edit_pre', function( $content, $post_id ) {
+    if ( !sek_is_cpt_debug_mode() )
+      return $content;
+    $post_type = get_post_type( $post_id );
+    if ( in_array($post_type, [NIMBLE_CPT,NIMBLE_SECTION_CPT,NIMBLE_TEMPLATE_CPT]) ) {
+        return wp_json_encode(maybe_unserialize($content), JSON_PRETTY_PRINT);
+    }
+    return $content;
+}, 10, 2 );
+
+
+// BEFORE INSERTION / UPDATE
+// @see wp-includes/post.php
+// Reformat edited custom post type when updating from the editor
+// We need to make sure that the reformating occurs ONLY when this is a manual update
+// - not an update when customizing => check if skp_is_customzing() and DOING_AJAX
+// - not an insertion of the revision post type => check on $data['post_type']
+// Note that the post status can be 'publish', 'draft', 'pending'
+add_filter( 'wp_insert_post_data', function( $data, $postarr, $unsanitized_postarr ) {
+    global $pagenow;
+    // error_log(' PAGE NOW ?'.$pagenow );
+    // error_log(' POST TYPE FROM DATA ?'. $data['post_type']);
+    // error_log(' POST STATUS ?'. $data['post_status'] );
+
+    // we must be in an single CPT edit screen
+    // prevent processing data when restoring a revision
+    if ( 'post.php' !== $pagenow )
+      return $data;
+
+    if ( !sek_is_cpt_debug_mode() || skp_is_customizing() || (defined('DOING_AJAX') && DOING_AJAX) )
+      return $data;
+
+    // $data should be An array of slashed, sanitized, and processed post data.
+    // @see wp-includes/post.php
+    if ( !is_array($data) )
+      return $data;
+
+    $post_type = 'not_set';
+    if ( !empty($data['post_type']) ) {
+        $post_type = $data['post_type'];
+    }
+    // make sure we only process nimble CPT post type. Not the 'revision' post types.
+    if ( !in_array( $post_type, [NIMBLE_CPT,NIMBLE_SECTION_CPT,NIMBLE_TEMPLATE_CPT] ) )
+      return $data;
+
+    // Stop here if the post is being removed
+    if ( 'trash' == $data['post_status'] )
+      return $data;
+
+    //sek_error_log('$data ??', $data);
+
+
+    $pre_content = isset($data['post_content']) ? $data['post_content'] : null;
+    //sek_error_log('is SERIALIZED ?', is_serialized( $pre_content ));
+    // Serialized if content has been jsonified in the editor
+    // Important : this check is needed in a scenario when the post has been trashed and is restored. In this case the content is already serialized.
+    if ( isset($pre_content) && !empty($pre_content) && !is_serialized( $pre_content ) ) {
+        $pre_content = json_decode( wp_unslash( $pre_content ), true );
+        // Check if content is a valid json ?
+        if ( json_last_error() == JSON_ERROR_NONE ) {
+            // if no json error, serialize
+            $data['post_content'] = maybe_serialize( $pre_content );
+            //sek_error_log('VALID JSON => new post_content ??', $data['post_content'] );
+        } else {
+            //sek_error_log('INVALID JSON', json_last_error() );
+            return new \WP_Error( 'db_insert_error', __('Could not insert NB template into the database : invalid JSON', 'nimble-builder'), json_last_error() );
+        }
+    }
+    return $data;
+}, 10 , 3);
+
 ?><?php
 /* ------------------------------------------------------------------------- *
  *  REVISION HELPERS

@@ -166,7 +166,11 @@ class HU_theme_updater{
       if ( !$value || !is_object($value) || !isset($value->response) || !is_array($value->response) ) {
         return $value;
       } else {
-        $value->response[ $this->theme_slug ] = $update_data;
+        if ( version_compare( $this->version, $update_data['new_version'], '<' ) ) {
+          $value->response[ $this->theme_slug ] = $update_data;
+        } else {
+          $value->no_update[ $this->theme_slug ] = $update_data;
+        }
       }
     }
     return $value;

@@ -357,8 +357,10 @@ function sek_get_raw_html_from_skope_id( $skope_id = '' ) {
     $html = preg_replace('/>\s*</', '><', $html);//https://stackoverflow.com/questions/466437/minifying-html
     return $html;
 }
-add_action( 'wp_ajax_sek_get_nimble_content_for_yoast', '\Nimble\sek_ajax_get_nimble_content_for_yoast' );
-function sek_ajax_get_nimble_content_for_yoast() {
+
+
+add_action( 'wp_ajax_sek_get_nimble_content_for_seo_plugins', '\Nimble\sek_ajax_get_nimble_content_for_seo_plugins' );
+function sek_ajax_get_nimble_content_for_seo_plugins() {
     if ( !is_user_logged_in() ) {
         wp_send_json_error( __FUNCTION__ . ' error => unauthenticated' );
     }
@@ -368,7 +370,6 @@ function sek_ajax_get_nimble_content_for_yoast() {
     $html = sek_get_raw_html_from_skope_id( $_POST['skope_id'] );
     wp_send_json_success($html);
 }
-
 add_action( 'admin_footer', '\Nimble\sek_print_js_for_yoast_analysis' );
 function sek_print_js_for_yoast_analysis() {
     if ( !defined( 'WPSEO_VERSION' ) )
@@ -383,7 +384,7 @@ function sek_print_js_for_yoast_analysis() {
         jQuery(function($){
             var NimblePlugin = function() {
                 YoastSEO.app.registerPlugin( 'nimblePlugin', {status: 'loading'} );
-                wp.ajax.post( 'sek_get_nimble_content_for_yoast', {
+                wp.ajax.post( 'sek_get_nimble_content_for_seo_plugins', {
                     skope_id : '<?php echo $manually_built_skope_id; ?>'
                 }).done( function( nimbleContent ) {
                     YoastSEO.app.pluginReady('nimblePlugin');
@@ -408,6 +409,41 @@ function sek_add_content_to_seopress_analyser($content, $id) {
     $manually_built_skope_id = strtolower( NIMBLE_SKOPE_ID_PREFIX . 'post_' . $post->post_type . '_' . $post->ID );
     $nb_content = sek_get_raw_html_from_skope_id( $manually_built_skope_id );
     return is_string($nb_content) ? $content.$nb_content : $content;
+}
+add_action( 'admin_init' , '\Nimble\sek_enqueue_js_for_rank_math_analyser' );
+function sek_enqueue_js_for_rank_math_analyser() {
+    if ( !defined( 'RANK_MATH_VERSION' ) )
+      return;
+    wp_enqueue_script(
+      'nb-rank-math-integration',
+      sprintf(
+            '%1$s/assets/admin/js/%2$s' ,
+            NIMBLE_BASE_URL,
+            'nimble-rank-seo-analyzer.js'
+      ),
+      [ 'wp-hooks', 'rank-math-analyzer' ],
+      NIMBLE_ASSETS_VERSION,
+      true
+    );
+}
+add_action( 'admin_footer', '\Nimble\sek_print_js_for_rank_math_analyser' );
+function sek_print_js_for_rank_math_analyser() {
+    if ( !defined( 'RANK_MATH_VERSION' ) )
+      return;
+    $current_screen = get_current_screen();
+    if ( 'post' !== $current_screen->base )
+      return;
+
+    $post = get_post();
+    $manually_built_skope_id = strtolower( NIMBLE_SKOPE_ID_PREFIX . 'post_' . $post->post_type . '_' . $post->ID );
+    ?>
+    <script id="nimble-add-content-to-rank-math-analyzer">
+        jQuery(function($){
+            window.nb_skope_id_for_rank_math_seo = '<?php echo $manually_built_skope_id; ?>';
+            $(document).trigger('nb-skope-id-ready.rank-math', { skope_id : '<?php echo $manually_built_skope_id; ?>' } );
+        });
+    </script>
+    <?php
 }
 add_action( 'admin_notices'                         , '\Nimble\sek_may_be_display_update_notice');
 add_action( 'wp_ajax_dismiss_nimble_update_notice'  ,  '\Nimble\sek_dismiss_update_notice_action' );
@@ -515,7 +551,7 @@ function sek_may_be_display_update_notice() {
               });
           };//end of fn
           $( function($) {
-            $('.nimble-dismiss-update-notice').click( function( e ) {
+            $('.nimble-dismiss-update-notice').on('click', function( e ) {
               e.preventDefault();
               _ajax_action( $(this) );
             } );
@@ -658,3 +694,38 @@ function sek_write_update_notice_after_for_pc_themes() {
     }
     return '';
 }
+
+/* ------------------------------------------------------------------------- *
+*  Review link in plugin list table
+*  Nov 2020 for https://github.com/presscustomizr/nimble-builder/issues/701
+/* ------------------------------------------------------------------------- */
+/**
+ * Filters the array of row meta for each plugin in the Plugins list table.
+ * @param string[] $plugin_meta An array of the plugin's metadata, including
+ *                              the version, author, author URI, and plugin URI.
+ * @param string   $plugin_file Path to the plugin file relative to the plugins directory.
+ * @param array    $plugin_data An array of plugin data.
+ * @param string   $status      Status filter currently applied to the plugin list. Possible
+ *                              values are: 'all', 'active', 'inactive', 'recently_activated',
+ *                              'upgrade', 'mustuse', 'dropins', 'search', 'paused',
+ *                              'auto-update-enabled', 'auto-update-disabled'.
+ */
+add_filter( 'plugin_row_meta', function($plugin_meta, $plugin_file, $plugin_data, $status) {
+    if ( false !== strpos($plugin_file, 'nimble-builder.php') && sek_get_feedback_notif_status() ) {
+        $is_pro_installed = false;
+        $pro_slug = 'nimble-builder-pro/nimble-builder-pro.php';
+        $installed_plugins = get_plugins();
+        $is_pro_installed = array_key_exists( $pro_slug, $installed_plugins ) || in_array( $pro_slug, $installed_plugins, true );
+
+        if ( sek_is_dev_mode() || !$is_pro_installed ) {
+            $plugin_meta = is_array($plugin_meta) ? $plugin_meta : [];
+            $plugin_meta[] = sprintf(
+              '<a href="%1$s" target="_blank" rel="noopener noreferrer">%2$s %3$s</a>',
+              'https://wordpress.org/support/plugin/nimble-builder/reviews/?filter=5/#new-post',
+              __( 'Enjoying Nimble Builder ? Share a review', 'nimble-builder' ),
+              '<span style="color:#ffb900;font-size: 12px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>'
+            );
+        }
+    }
+    return $plugin_meta;
+},100,4);

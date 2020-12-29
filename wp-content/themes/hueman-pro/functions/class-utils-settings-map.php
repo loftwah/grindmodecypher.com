@@ -250,7 +250,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
     function hu_general_design_sec( $get_default = null ) {
       return array(
           'font' => array(
-                'default'   => 'source-sans-pro',
+                'default'   => 'titillium-web',
                 'control'   => 'HU_controls',
                 'label'     => __('Font', 'hueman-pro'),
                 'section'   => 'general_design_sec',
@@ -356,6 +356,13 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
                 'min'           => 0,
                 //'transport'     => 'postMessage',
                 'notice'        => __('Give your thumbnails and layout images rounded corners', 'hueman-pro')
+          ),
+          'links_underlined'  =>  array(
+                'default'       => 1,
+                'control'       => 'HU_controls' ,
+                'label'         => __( "Links underlined within content" , "hueman-pro" ),
+                'section'       => 'general_design_sec' ,
+                'type'          => 'nimblecheck'
           ),
           'ext_link_style'  =>  array(
                 'default'       => 0,
@@ -700,6 +707,14 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
                 'section'   => 'header_image_sec',
                 'type'      => 'nimblecheck'
           ),
+          // nov 2020 :  https://github.com/presscustomizr/hueman/issues/931
+          'header-img-link-home' => array(
+                'default'   => 1,
+                'control'   => 'HU_controls',
+                'label'     => __( 'Link the banner image to your home page' , 'hueman-pro' ),
+                'section'   => 'header_image_sec',
+                'type'      => 'nimblecheck'
+          ),
           // 'header-img-height' => array(
           //       'default'   => 400,
           //       'control'   => 'HU_controls',
@@ -767,7 +782,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           sprintf( '%1$s<strong><a class="jump-to-menu-panel" href="#" title="%3$s">%2$s</a><strong>',
               sprintf( '<script type="text/javascript">%1$s</script>',
                   "jQuery( function($) {
-                      $('.jump-to-menu-panel').click( function() {
+                      $('.jump-to-menu-panel').on('click', function() {
                           wp.customize.section('menu_locations').expanded( false );
                           wp.customize.panel('nav_menus').focus();
                       });
@@ -1601,7 +1616,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           sprintf( '%1$s<strong><a class="jump-to-menu-panel" href="#" title="%3$s">%2$s</a><strong>',
               sprintf( '<script type="text/javascript">%1$s</script>',
                   "jQuery( function($) {
-                      $('.jump-to-menu-panel').click( function() {
+                      $('.jump-to-menu-panel').on('click', function() {
                           wp.customize.section('menu_locations').expanded( false );
                           wp.customize.panel('nav_menus').focus();
                       });

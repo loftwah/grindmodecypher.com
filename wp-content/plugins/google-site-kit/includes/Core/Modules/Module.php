@@ -43,9 +43,6 @@ use Exception;
  * @property-read int    $order        Module order within module lists.
  * @property-read string $homepage     External module homepage URL.
  * @property-read string $learn_more   External URL to learn more about the module.
- * @property-read string $group        Module group.
- * @property-read string $feature      Module feature.
- * @property-read array  $tags         List of module tags.
  * @property-read array  $depends_on   List of other module slugs the module depends on.
  * @property-read bool   $force_active Whether the module cannot be disabled.
  * @property-read bool   $internal     Whether the module is internal, thus without any UI.
@@ -187,9 +184,6 @@ abstract class Module {
 			'sort'         => $this->order,
 			'homepage'     => $this->homepage,
 			'learnMore'    => $this->learn_more,
-			'group'        => $this->group,
-			'feature'      => $this->feature,
-			'module_tags'  => $this->tags,
 			'required'     => $this->depends_on,
 			'autoActivate' => $this->force_active,
 			'internal'     => $this->internal,
@@ -442,10 +436,13 @@ abstract class Module {
 	 * @since 1.0.0
 	 *
 	 * @param Data_Request $data Data request object.
-	 *
+	 * // phpcs:ignore Squiz.Commenting.FunctionComment.InvalidNoReturn
 	 * @return RequestInterface|callable|WP_Error Request object or callable on success, or WP_Error on failure.
+	 * @throws Invalid_Datapoint_Exception Override in a sub-class.
 	 */
-	abstract protected function create_data_request( Data_Request $data );
+	protected function create_data_request( Data_Request $data ) {
+		throw new Invalid_Datapoint_Exception();
+	}
 
 	/**
 	 * Parses a response for the given datapoint.
@@ -457,7 +454,9 @@ abstract class Module {
 	 *
 	 * @return mixed Parsed response data on success, or WP_Error on failure.
 	 */
-	abstract protected function parse_data_response( Data_Request $data, $response );
+	protected function parse_data_response( Data_Request $data, $response ) {
+		return $response;
+	}
 
 	/**
 	 * Creates a request object for the given datapoint.
@@ -527,7 +526,11 @@ abstract class Module {
 
 		// If the datapoint requires specific scopes, ensure they are satisfied.
 		if ( ! $this->authentication->get_oauth_client()->has_sufficient_scopes( $datapoint['scopes'] ) ) {
-			throw new Insufficient_Scopes_Exception( $datapoint['request_scopes_message'], 0, null, $datapoint['scopes'] );
+			$request_scopes_message = ! empty( $datapoint['request_scopes_message'] )
+				? $datapoint['request_scopes_message']
+				: __( 'You’ll need to grant Site Kit permission to do this.', 'google-site-kit' );
+
+			throw new Insufficient_Scopes_Exception( $request_scopes_message, 0, null, $datapoint['scopes'] );
 		}
 	}
 
@@ -754,7 +757,9 @@ abstract class Module {
 	 * @return array Google services as $identifier => $service_instance pairs. Every $service_instance must be an
 	 *               instance of Google_Service.
 	 */
-	abstract protected function setup_services( Google_Site_Kit_Client $client );
+	protected function setup_services( Google_Site_Kit_Client $client ) {
+		return array();
+	}
 
 	/**
 	 * Sets whether or not to return raw requests and returns a callback to reset to the previous value.

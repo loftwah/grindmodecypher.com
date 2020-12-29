@@ -139,6 +139,7 @@ function sek_enqueue_controls_js_css() {
 
                 'globalOptionDBValues' => get_option( NIMBLE_OPT_NAME_FOR_GLOBAL_OPTIONS ),// '__nimble_options__'
 
+                'defaultLocationModel' => Nimble_Manager()->default_location_model,
                 'defaultLocalSektionSettingValue' => sek_get_default_location_model(),
                 'defaultGlobalSektionSettingValue' => sek_get_default_location_model( NIMBLE_GLOBAL_SKOPE_ID ),
 
@@ -193,8 +194,6 @@ function sek_enqueue_controls_js_css() {
                 // with list introduced for the accordion module https://github.com/presscustomizr/nimble-builder/issues/482
                 'basic_btns_with_lists' => array('forecolor','bold','italic','underline','strikethrough','link','unlink', 'bullist', 'numlist'),
 
-                'eligibleForFeedbackNotification' => sek_get_feedback_notif_status(),
-
                 // May 21st, v1.7.5 => back to the local data
                 // after problem was reported when fetching data remotely : https://github.com/presscustomizr/nimble-builder/issues/445
                 //'presetSectionsModules' => array_keys( sek_get_sections_registration_params_api_data() )
@@ -210,7 +209,10 @@ function sek_enqueue_controls_js_css() {
                 // ),
                 'alreadyUsedFonts' => get_option( NIMBLE_OPT_NAME_FOR_MOST_USED_FONTS ),
                 'isTemplateGalleryEnabled' => defined( 'NIMBLE_TEMPLATE_GALLERY_ENABLED' ) && NIMBLE_TEMPLATE_GALLERY_ENABLED, //<= APRIL 2020 : for https://github.com/presscustomizr/nimble-builder/issues/651
-                'isTemplateSaveEnabled' => defined( 'NIMBLE_TEMPLATE_SAVE_ENABLED' ) && NIMBLE_TEMPLATE_SAVE_ENABLED //<= APRIL 2020 : for https://github.com/presscustomizr/nimble-builder/issues/655
+                'isTemplateSaveEnabled' => defined( 'NIMBLE_TEMPLATE_SAVE_ENABLED' ) && NIMBLE_TEMPLATE_SAVE_ENABLED, //<= APRIL 2020 : for https://github.com/presscustomizr/nimble-builder/issues/655
+
+                // Dec 2020
+                'templateAPIUrl' => defined('API_TEMPLATE_CPT') ? 'http://customizr-dev.test/wp-json/nimble/v2/cravan' : 'https://api.nimblebuilder.com/wp-json/nimble/v2/cravan'
             )
         )
     );//wp_localize_script()
@@ -519,13 +521,14 @@ function nimble_add_i18n_localized_control_params( $params ) {
             'Text settings for the' => __('Text settings for the', 'nimble-builder'),
             'Borders settings for the' => __('Borders settings for the', 'nimble-builder'),
             'Padding and margin settings for the' => __('Padding and margin settings for the', 'nimble-builder'),
-            'Height and vertical alignment for the' => __('Height and vertical alignment for the', 'nimble-builder'),
+            'Height, vertical alignment, z-index for the' => __('Height, vertical alignment, z-index for the', 'nimble-builder'),
             'Width settings for the' => __('Width settings for the', 'nimble-builder'),
             'Width and horizontal alignment for the' => __('Width and horizontal alignment for the', 'nimble-builder'),
             'Custom anchor ( CSS ID ) and CSS classes for the' => __('Custom anchor ( CSS ID ) and CSS classes for the', 'nimble-builder'),
             'Device visibility settings for the' => __('Device visibility settings for the', 'nimble-builder'),
             'Responsive settings : breakpoint, column direction' => __('Responsive settings : breakpoint, column direction', 'nimble-builder'),
 
+            'Animation settings for the' => __('Animation settings for the', 'nimble-builder'),
             'Settings for the' => __('Settings for the', 'nimble-builder'),//section / column / module
 
             'The section cannot be moved higher.' => __('The section cannot be moved higher.', 'nimble-builder'),
@@ -628,6 +631,7 @@ function nimble_add_i18n_localized_control_params( $params ) {
             'The current page has no available locations to import Nimble Builder sections.' => __('The current page has no available locations to import Nimble Builder sections.', 'nimble-builder'),
             'Missing file' => __('Missing file', 'nimble-builder'),
             'File successfully imported' => __('File successfully imported', 'nimble-builder'),
+            'Template successfully imported' => __('Template successfully imported', 'nimble-builder'),
             'Import failed, invalid file content' => __('Import failed, invalid file content', 'nimble-builder'),
             'Import failed, file problem' => __('Import failed, file problem', 'nimble-builder'),
             'Some image(s) could not be imported' => __('Some image(s) could not be imported', 'nimble-builder'),
@@ -962,6 +966,20 @@ function sek_print_nimble_customizer_tmpl() {
           </div>
           <div class="sek-tmpl-gallery-inner"></div>
         </div>
+        <div class="sek-tmpl-gal-import-dialog">
+            <p>This page has NB sections already. Select an import options.</p>
+            <div class="sek-ui-button-group" role="group">
+              <button class="sek-ui-button sek-tmpl-import-replace" type="button" title="<?php _e('Replace existing sections', 'nimble-builder'); ?>" data-sek-tmpl-import-mode="replace">
+                <?php _e('Replace existing sections', 'nimble-builder'); ?><span class="spinner"></span>
+              </button>
+              <button class="sek-ui-button sek-tmpl-import-before" type="button" title="<?php _e('Insert before existing sections', 'nimble-builder'); ?>" data-sek-tmpl-import-mode="before">
+                <?php _e('Insert before existing sections', 'nimble-builder'); ?><span class="spinner"></span>
+              </button>
+              <button class="sek-ui-button sek-tmpl-import-after" type="button" title="<?php _e('Insert after existing sections', 'nimble-builder'); ?>" data-sek-tmpl-import-mode="after">
+                <?php _e('Insert after existing sections', 'nimble-builder'); ?><span class="spinner"></span>
+              </button>
+            </div>
+        </div>
       </div>
     </script>
 
@@ -976,65 +994,6 @@ function sek_print_nimble_customizer_tmpl() {
       </div>
     </script>
 
-
-    <?php // NIMBLE FEEDBACK  ?>
-    <script type="text/html" id="tmpl-nimble-feedback-ui">
-      <div id="nimble-feedback" data-sek-dismiss-pointer="<?php echo NIMBLE_FEEDBACK_NOTICE_ID; ?>">
-          <div class="sek-feedback-step-one">
-            <div class="sek-main-feedback-heading">
-              <img class="sek-feedback-nimble-icon big" src="<?php echo NIMBLE_BASE_URL.'/assets/img/nimble/nimble_icon.svg?ver='.NIMBLE_VERSION; ?>" alt="<?php _e('Nimble Builder','nimble-builder'); ?>"/>
-              <p>Congratulations, you have built some pages with Nimble Builder on your website!</p>
-            </div>
-            <p>Are you enjoying Nimble Builder ?</p>
-            <button class="button sek-feedback-btn sek-neg" data-sek-feedback-action="not_enjoying" type="button">
-              <?php _e('Not really', 'nimble-builder'); ?>
-            </button>
-            <button class="button sek-feedback-btn sek-pos" data-sek-feedback-action="enjoying" type="button">
-              <?php _e('Yes !', 'nimble-builder'); ?>
-            </button>
-          </div>
-          <div class="sek-feedback-step-two-not-enjoying">
-            <p>Sorry to hear you are not enjoying designing with Nimble Builder. Your feedback would be very useful for us to improve.</p>
-            <p>Could you take a minute and let us know what we can do better ?</p>
-            <button class="button sek-feedback-btn sek-neg" data-sek-feedback-action="maybe_later" type="button">
-              <?php _e('No thanks, maybe later', 'nimble-builder'); ?>
-            </button>
-            <button class="button sek-feedback-btn sek-pos" data-sek-feedback-action="reporting_problem" data-problem-href="https://wordpress.org/support/plugin/nimble-builder/#new-post" type="button" title="<?php _e('Report a problem', 'nimble-builder'); ?>">
-              <?php _e('Report a problem', 'nimble-builder'); ?>
-            </button>
-            <button class="button sek-feedback-btn sek-already" data-sek-feedback-action="already_did" type="button">
-              <?php _e('I already did', 'nimble-builder'); ?>
-            </button>
-          </div>
-          <div class="sek-feedback-step-two-enjoying">
-            <span class="sek-stars" data-sek-feedback-action="go_review">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-            <p>Awesome! Could you please leave a rating on WordPress.org ?<br/>
-            This would encourage other users discovering Nimble Builder. A huge thanks in advance!</p>
-            <p class="sek-signature">-Nicolas, Founder and Lead Developer of Nimble Builder</p>
-            <?php
-              // Hidden since July 2019
-              // @see https://github.com/presscustomizr/nimble-builder/issues/481
-              //<button class="button sek-feedback-btn sek-neg" data-sek-feedback-action="maybe_later" type="button">
-              //
-            ?>
-                <?php //_e('No thanks, maybe later', 'text_domain'); ?>
-              <?php //</button>
-            ?>
-            <button class="button sek-feedback-btn sek-pos" data-sek-feedback-action="go_review" type="button">
-              <?php _e('OK, you deserve it', 'nimble-builder'); ?>
-            </button>
-             <button class="button sek-feedback-btn sek-already" data-sek-feedback-action="already_did" type="button">
-              <?php _e('I already did', 'nimble-builder'); ?>
-            </button>
-          </div>
-          <div class="sek-feedback-step-three-thanks">
-            <img class="sek-feedback-nimble-icon big" src="<?php echo NIMBLE_BASE_URL.'/assets/img/nimble/nimble_icon.svg?ver='.NIMBLE_VERSION; ?>" alt="<?php _e('Nimble Builder','nimble-builder'); ?>"/>
-            <p>&middot; Thank you! &middot;</p>
-          </div>
-
-          <button class="button sek-feedback-btn sek-close-feedback-ui far fa-times-circle" data-sek-feedback-action="dismiss" title="Dismiss" type="button"></button>
-      </div>
-    </script>
 
     <?php // Detached WP Editor => added when coding https://github.com/presscustomizr/nimble-builder/issues/403 ?>
     <div id="czr-customize-content_editor-pane">
@@ -1126,6 +1085,29 @@ function sek_is_plugin_active_for_network( $plugin ) {
 
   return false;
 }
+
+// Nov 2020 => compatibility with WPML
+// When running ajax requests in the preview, WP verifies if the request is for the current site to prevent cross site injections ( XSS ) attacks
+// This is done in customize-preview.js during the $.ajax preFiltering with the method api.isLinkPreviewable()
+// see customize-preview.js, $.ajaxPrefilter( prefilterAjax );
+// WPML filters the home_url() by adding the language to it, like mysite.com/fr/
+// but the admin ajax url doesn't include the language and is mysite.com/wp-admin/admin-ajax.php, which won't pass the api.isLinkPreviewable() test
+// The following filter makes sure that the base home url is always added to the list of allowed urls
+//
+// this filter is declared in class-wp-customize-manager.php, get_allowed_urls()
+add_filter('customize_allowed_urls', function( $allowed_urls ) {
+  $allowed_urls = is_array($allowed_urls) ? $allowed_urls : [];
+  // @see https://developer.wordpress.org/reference/functions/get_home_url/
+  if ( is_multisite() ) {
+      switch_to_blog( $blog_id );
+      $url_to_add = get_option( 'home' );
+      restore_current_blog();
+  } else {
+      $url_to_add = get_option( 'home' );
+  }
+  $allowed_urls[] = $url_to_add;
+  return $allowed_urls;
+});
 ?><?php
 add_action( 'customize_controls_print_footer_scripts', '\Nimble\sek_print_nimble_input_templates' );
 function sek_print_nimble_input_templates() {
@@ -1774,8 +1756,10 @@ function sek_print_nimble_input_templates() {
                     print(pro_img_html);
                   }
                   var demo_title = "<?php _e('View in live demo', 'nimble-builder'); ?>";
-                  if ( secParams['demo_url'] ) { #>
+                  if ( secParams['demo_url'] && -1 === secParams['demo_url'].indexOf('http') ) { #>
                     <div class="sek-demo-link"><a href="https://nimblebuilder.com/nimble-builder-sections?utm_source=usersite&amp;utm_medium=link&amp;utm_campaign=section_demos{{secParams['demo_url']}}" target="_blank" rel="noopener noreferrer">{{demo_title}} <i class="fas fa-external-link-alt"></i></a></div>
+                  <# } else if ( secParams['demo_url'] ) { #>
+                    <div class="sek-demo-link"><a href="{{secParams['demo_url']}}?utm_source=usersite&amp;utm_medium=link&amp;utm_campaign=section_demos" target="_blank" rel="noopener noreferrer">{{demo_title}} <i class="fas fa-external-link-alt"></i></a></div>
                   <# } #>
                 </div>
                 <#
@@ -4091,6 +4075,7 @@ function sek_get_code_editor_params() {
 // POSTPONE FEEDBACK NOTIFICATION IN CUSTOMIZER
 // INSPIRED FROM CORE DISMISS POINTER MECHANISM
 // @see wp-admin/includes/ajax-actions.php
+// Nov 2020 => DEPRECATED https://github.com/presscustomizr/nimble-builder/issues/701
 function sek_postpone_feedback_notification() {
     sek_do_ajax_pre_checks( array( 'check_nonce' => true ) );
 
@@ -4749,7 +4734,7 @@ function sek_ajax_sek_get_user_tmpl_json() {
         //         'skope_id' => $_POST['skope_id'],
         //         'version' => NIMBLE_VERSION,
         //         // is sent as a string : "__after_header,__before_main_wrapper,loop_start,__before_footer"
-        //         'active_locations' => is_string( $_POST['active_locations'] ) ? explode( ',', $_POST['active_locations'] ) : array(),
+        //         'tmpl_locations' => is_string( $_POST['tmpl_locations'] ) ? explode( ',', $_POST['tmpl_locations'] ) : array(),
         //         'date' => date("Y-m-d"),
         //         'theme' => sanitize_title_with_dashes( get_stylesheet() )
         //     )
@@ -4793,9 +4778,13 @@ function sek_ajax_save_user_template() {
     if ( !isset( $_POST['skope_id'] ) || empty( $_POST['skope_id'] ) ) {
         wp_send_json_error( __FUNCTION__ . '_missing_skope_id' );
     }
-    if ( !isset( $_POST['active_locations'] ) || empty( $_POST['active_locations'] ) ) {
-        wp_send_json_error( __FUNCTION__ . '_missing_active_locations' );
+    if ( !isset( $_POST['tmpl_locations'] ) || empty( $_POST['tmpl_locations'] ) ) {
+        wp_send_json_error( __FUNCTION__ . '_missing_tmpl_locations' );
     }
+
+    // clean level ids and replace them with a placeholder string
+    $tmpl_data = json_decode( wp_unslash( $_POST['tmpl_data'] ), true );
+    $tmpl_data = sek_template_save_clean_id( $tmpl_data );
 
     // make sure description and title are clean before DB
     $tmpl_title = wp_strip_all_tags( $_POST['tmpl_title'] );
@@ -4805,7 +4794,7 @@ function sek_ajax_save_user_template() {
 
     // sek_error_log('json decode ?', json_decode( wp_unslash( $_POST['sek_data'] ), true ) );
     $template_to_save = array(
-        'data' => $_POST['tmpl_data'],//<= json stringified
+        'data' => $tmpl_data,//<= json stringified
         'tmpl_post_name' => ( !empty( $_POST['tmpl_post_name'] ) && is_string( $_POST['tmpl_post_name'] ) ) ? $_POST['tmpl_post_name'] : null,
         'metas' => array(
             'title' => $tmpl_title,
@@ -4813,7 +4802,9 @@ function sek_ajax_save_user_template() {
             'skope_id' => $_POST['skope_id'],
             'version' => NIMBLE_VERSION,
             // is sent as a string : "__after_header,__before_main_wrapper,loop_start,__before_footer"
-            'active_locations' => is_array( $_POST['active_locations'] ) ? $_POST['active_locations'] : array(),
+            'tmpl_locations' => is_array( $_POST['tmpl_locations'] ) ? $_POST['tmpl_locations'] : array(),
+            'tmpl_header_location' => isset( $_POST['tmpl_header_location'] ) ? $_POST['tmpl_header_location'] : '',
+            'tmpl_footer_location' => isset( $_POST['tmpl_footer_location'] ) ? $_POST['tmpl_footer_location'] : '',
             'date' => date("Y-m-d"),
             'theme' => sanitize_title_with_dashes( get_stylesheet() )
         )
@@ -4828,6 +4819,39 @@ function sek_ajax_save_user_template() {
     }
     //sek_error_log( __FUNCTION__ . '$_POST' ,  $_POST);
 }
+
+
+// SAVE FILTER
+function sek_template_save_clean_id( $tmpl_data = array() ) {
+    $new_tmpl_data = array();
+    if ( !is_array( $tmpl_data ) ) {
+        sek_error_log( __FUNCTION__ . ' error => tmpl_data should be an array');
+        return array();
+    }
+    $level = null;
+    if ( isset($tmpl_data['level'] ) ) {
+        $level = $tmpl_data['level'];
+    }
+    foreach ( $tmpl_data as $key => $value ) {
+        if ( is_array($value) ) {
+            $new_tmpl_data[$key] = sek_template_save_clean_id( $value );
+        } else {
+            switch( $key ) {
+                // we want to replace ids for all levels but locations
+                // only section, columns and modules have an id which starts by __nimble__, for ex : __nimble__2024500518bf
+                // locations id are like : loop_start
+                case 'id' :
+                    if ( 'location' !== $level && is_string( $value ) && false !== strpos( $value, '__nimble__' ) ) {
+                        $value = '__rep__me__';
+                    }
+                break;
+            }
+            $new_tmpl_data[$key] = $value;
+        }
+    }
+    return $new_tmpl_data;
+}
+
 
 ////////////////////////////////////////////////////////////////
 // TEMPLATE REMOVE
@@ -4850,10 +4874,11 @@ function sek_ajax_remove_user_template() {
     // }
     $tmpl_post_to_remove = sek_get_saved_tmpl_post( $_POST['tmpl_post_name'] );
 
-    sek_error_log( __FUNCTION__ . ' => so $tmpl_post_to_remove ' . $_POST['tmpl_post_name'], $tmpl_post_to_remove );
+    //sek_error_log( __FUNCTION__ . ' => so $tmpl_post_to_remove ' . $_POST['tmpl_post_name'], $tmpl_post_to_remove );
 
     if ( $tmpl_post_to_remove && is_object( $tmpl_post_to_remove ) ) {
-        $r = wp_delete_post( $tmpl_post_to_remove->ID, true );
+        // the CPT is moved to Trash instead of permanently deleted when using wp_delete_post()
+        $r = wp_trash_post( $tmpl_post_to_remove->ID );
         if ( is_wp_error( $r ) ) {
             wp_send_json_error( __FUNCTION__ . '_removal_error' );
         }
@@ -5020,12 +5045,6 @@ function sek_section_save_clean_id( $seks_data = array() ) {
             $new_seks_data[$key] = sek_section_save_clean_id( $value );
         } else {
             switch( $key ) {
-                // case 'bg-image' :
-                // case 'img' :
-                //     if ( is_int( $value ) && (int)$value > 0 ) {
-                //         $value = '__img_url__' . wp_get_attachment_url((int)$value);
-                //     }
-                // break;
                 case 'id' :
                     if ( is_string( $value ) && false !== strpos( $value, '__nimble__' ) ) {
                         $value = '__rep__me__';
@@ -5059,7 +5078,8 @@ function sek_ajax_remove_user_section() {
     $section_post_to_remove = sek_get_saved_section_post( $_POST['section_post_name'] );
 
     if ( $section_post_to_remove && is_object( $section_post_to_remove ) ) {
-        $r = wp_delete_post( $section_post_to_remove->ID, true );
+        // the CPT is moved to Trash instead of permanently deleted when using wp_delete_post()
+        $r = wp_trash_post( $section_post_to_remove->ID );
         if ( is_wp_error( $r ) ) {
             wp_send_json_error( __FUNCTION__ . '_removal_error' );
         }

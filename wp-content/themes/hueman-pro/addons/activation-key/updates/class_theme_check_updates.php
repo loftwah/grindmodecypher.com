@@ -24,7 +24,10 @@ class HU_theme_check_updates {
     }//end of construct
 
     function tc_theme_update_check() {
-      if ( ! current_user_can( 'manage_options' ) ) {
+      // To support auto-updates, this needs to run during the wp_version_check cron job for privileged users.
+      $doing_cron = defined( 'DOING_CRON' ) && DOING_CRON;
+
+      if ( !current_user_can( 'manage_options' ) && !$doing_cron) {
         return;
       }
 

@@ -1,3 +1,6 @@
+/*************************************
+* IMAGE SLIDER MODULE
+*************************************/
 .sek-column-inner [data-sek-module-type="czr_img_slider_module"] {
   width: calc(100% + 20px);
   max-width: calc(100% + 20px);
@@ -13,6 +16,10 @@
 }
 
 [data-sek-module-type="czr_img_slider_module"] .sek-swiper-loading .sek-carousel-img img {
+  display: none;
+}
+
+.customizer-preview .swiper-wrapper .swiper-lazy-preloader {
   display: none;
 }
 

@@ -42,7 +42,7 @@
             this.options    = $.extend( {}, defaults, options) ;
             this._defaults  = defaults;
             this._name      = pluginName;
-            this._customEvt = $.isArray(self.options.oncustom) ? self.options.oncustom : self.options.oncustom.split(' ');
+            this._customEvt = _.isArray(self.options.oncustom) ? self.options.oncustom : self.options.oncustom.split(' ');
             this.init();
       }
 
@@ -62,7 +62,7 @@
                     //GOLDEN RATIO (before image centering)
                     //creates a golden ratio fn on resize
                     if ( self.options.enableGoldenRatio ) {
-                          $(window).bind(
+                          $(window).on(
                                 'resize',
                                 {},
                                 _.debounce( function( evt ) { self._maybe_apply_golden_r( evt ); }, 200 )
@@ -84,11 +84,11 @@
             //console.log('$( self.container )', $( self.container ) );
             //bind the container element with custom events if any
             //( the images will also be bound )
-            if ( $.isArray( self._customEvt ) ) {
+            if ( _.isArray( self._customEvt ) ) {
                   self._customEvt.map( function( evt ) {
                         var $_containerToListen = ( self.options.$containerToListen instanceof $ && 1 < self.options.$containerToListen.length ) ? self.options.$containerToListen : $( self.container );
                         //console.log('container to listen',$_containerToListen, evt  );
-                        $_containerToListen.bind( evt, {} , function() {
+                        $_containerToListen.on( evt, {} , function() {
                               _do( evt );
                         });
                   } );
@@ -144,7 +144,7 @@
                   // Parse Img can be fired several times, so bind once
                   if ( self.options.onresize && ! $_img.data('resize-react-bound' ) ) {
                         $_img.data('resize-react-bound', true );
-                        $(window).resize( _.debounce( function() {
+                        $(window).on('resize', _.debounce( function() {
                               self._pre_img_cent( $_img, 'resize');
                         }, 100 ) );
                   }
@@ -270,7 +270,7 @@
               return true;
 
             //check if option is well formed
-            if ( ! this.options.skipGoldenRatioClasses || ! $.isArray( this.options.skipGoldenRatioClasses )  )
+            if ( ! this.options.skipGoldenRatioClasses || ! _.isArray( this.options.skipGoldenRatioClasses )  )
               return true;
 
             var _elSels       = $(this.container).attr( 'class' ).split(' '),

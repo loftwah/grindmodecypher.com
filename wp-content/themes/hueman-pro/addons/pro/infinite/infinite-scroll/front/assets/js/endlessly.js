@@ -764,8 +764,13 @@
             text  = infiniteScroll.settings.text;
             totop = infiniteScroll.settings.totop;
 
-            // Initialize the scroller (with the ID of the element from the theme)
-            infiniteScroll.scroller = new Scroller( infiniteScroll.settings );
+            // nov 2020 : updated for https://github.com/presscustomizr/pro-bundle/issues/169
+            if ( 'products' !== infiniteScroll.settings.postType ) {
+                // Initialize the scroller (with the ID of the element from the theme)
+                infiniteScroll.scroller = new Scroller( infiniteScroll.settings );
+            } else if ( type != 'click' ) {
+                infiniteScroll.scroller = new Scroller( infiniteScroll.settings );
+            }
 
             /**
              * Monitor user scroll activity to update URL to correspond to archive page for current set of IS posts

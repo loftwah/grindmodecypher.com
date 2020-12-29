@@ -3,7 +3,7 @@ Author URI: https://presscustomizr.com/
 Plugin URI: https://presscustomizr.com/
 Requires at least: 4.7
 Requires PHP: 5.4
-Tested up to: 5.5
+Tested up to: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -24,6 +24,12 @@ SUPPORT : https://presscustomizr.com/support/
 
 
 == Changelog 
+= 3.2.0 November 30th, 2020 =
+* improved : [performance][JS] remove webfontload library from front js
+* improved : [performance][JS] write front js inline
+* improved : [performance][CSS] write base front CSS inline + load stylesheet for effects only when needed
+* improved : [performance][CSS] loads Google effect images locally
+
 = 3.1.2 September 2, 2020 =
 * fixed : Color picker CSS broken https://github.com/presscustomizr/hueman-pro-addons/issues/214
 

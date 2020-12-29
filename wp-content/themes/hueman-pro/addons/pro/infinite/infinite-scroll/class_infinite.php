@@ -779,7 +779,7 @@ final class PC_infinite_scroll {
                   }
             }
 
-
+            $post_type_name = '';
             if ( is_string( $post_type ) && ! empty( $post_type ) ) {
 
                   $post_type = get_post_type_object( $post_type );
@@ -789,7 +789,6 @@ final class PC_infinite_scroll {
                         if ( isset( $post_type->labels->name ) ) {
 
                               $cpt_text = $post_type->labels->name;
-
                         }
                         elseif ( isset( $post_type->label ) ) {
 
@@ -797,7 +796,7 @@ final class PC_infinite_scroll {
                         }
 
                         if ( isset( $cpt_text ) ) {
-
+                              $post_type_name = strtolower( $post_type->labels->name );
                               $click_handle_text = sprintf( __( 'Older %s', 'hueman-pro' ), $cpt_text );
                               unset( $cpt_text );
                         }
@@ -822,7 +821,7 @@ final class PC_infinite_scroll {
                   'appendHandleTo'   => self::get_settings()->appendHandleTo,
                   'click_handle'     => esc_js( self::get_settings()->click_handle ),
 
-                  'text'             => esc_js( $click_handle_text ),
+                  'text'             => apply_filters( 'czr_infinite_scroll_handle_text', esc_js( $click_handle_text ) ),
                   'totop'            => esc_js( __( 'Scroll back to top', 'hueman-pro' ) ),
                   'currentday'       => $currentday,
                   'order'            => 'DESC',
@@ -844,7 +843,9 @@ final class PC_infinite_scroll {
                   //E.g. we use this info to exclude the sticky posts only in home (blog)
                   'is_home'         => is_home() ? 1 : 0,
 
-                  'minWidthForDetermineUrl'      => self::get_settings()->minWidthForDetermineUrl
+                  'minWidthForDetermineUrl'      => self::get_settings()->minWidthForDetermineUrl,
+                  // nov 2020 : added for https://github.com/presscustomizr/pro-bundle/issues/169
+                  'postType'        => $post_type_name
             );
 
             // Optional order param

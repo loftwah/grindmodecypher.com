@@ -30,6 +30,7 @@ use Google\Site_Kit\Core\REST_API\Exception\Invalid_Datapoint_Exception;
 use Google\Site_Kit\Core\Assets\Script;
 use Google\Site_Kit\Core\REST_API\Data_Request;
 use Google\Site_Kit\Core\Util\Google_URL_Matcher_Trait;
+use Google\Site_Kit\Core\Util\Google_URL_Normalizer;
 use Google\Site_Kit\Modules\Search_Console\Settings;
 use Google\Site_Kit_Dependencies\Google_Service_Exception;
 use Google\Site_Kit_Dependencies\Google_Service_Webmasters;
@@ -199,7 +200,7 @@ final class Search_Console extends Module
 					list ( $start_date, $end_date ) = $this->parse_date_range(
 						$data['dateRange'] ?: 'last-28-days',
 						$data['compareDateRanges'] ? 2 : 1,
-						3
+						2 // Offset.
 					);
 				}
 
@@ -209,7 +210,7 @@ final class Search_Console extends Module
 				);
 
 				if ( ! empty( $data['url'] ) ) {
-					$data_request['page'] = $data['url'];
+					$data_request['page'] = ( new Google_URL_Normalizer() )->normalize_url( $data['url'] );
 				}
 
 				if ( isset( $data['limit'] ) ) {
@@ -232,9 +233,13 @@ final class Search_Console extends Module
 					);
 				}
 
+				$url_normalizer = new Google_URL_Normalizer();
+
 				$site_url = $data['siteURL'];
-				if ( 0 !== strpos( $site_url, 'sc-domain:' ) ) {
-					$site_url = trailingslashit( $site_url );
+				if ( 0 === strpos( $site_url, 'sc-domain:' ) ) { // Domain property.
+					$site_url = 'sc-domain:' . $url_normalizer->normalize_url( str_replace( 'sc-domain:', '', $site_url, 1 ) );
+				} else { // URL property.
+					$site_url = $url_normalizer->normalize_url( trailingslashit( $site_url ) );
 				}
 
 				return function () use ( $site_url ) {
@@ -272,7 +277,7 @@ final class Search_Console extends Module
 				return $this->get_webmasters_service()->sites->listSites();
 		}
 
-		throw new Invalid_Datapoint_Exception();
+		return parent::create_data_request( $data );
 	}
 
 	/**
@@ -318,7 +323,7 @@ final class Search_Console extends Module
 				return $this->map_sites( (array) $response->getSiteEntry() );
 		}
 
-		return $response;
+		return parent::parse_data_response( $data, $response );
 	}
 
 	/**
@@ -397,7 +402,7 @@ final class Search_Console extends Module
 			$single_url_filter = new Google_Service_Webmasters_ApiDimensionFilter();
 			$single_url_filter->setDimension( 'page' );
 			$single_url_filter->setOperator( 'equals' );
-			$single_url_filter->setExpression( esc_url_raw( $args['page'] ) );
+			$single_url_filter->setExpression( rawurldecode( esc_url_raw( $args['page'] ) ) );
 			$filters[] = $single_url_filter;
 		}
 

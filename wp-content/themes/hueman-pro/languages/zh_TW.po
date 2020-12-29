@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Themes - Hueman-Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: * Hueman-Pro v1.3.3\n"
+"Project-Id-Version: * Hueman-Pro v1.4.0\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2020-09-09 13:05:37+00:00\n"
+"POT-Creation-Date: 2020-12-14 11:05:33+00:00\n"
 "PO-Revision-Date: 2017-10-05 12:20:16+0000\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
@@ -395,9 +395,9 @@ msgstr ""
 
 #: addons/czr/ha-czr.php:215
 #: addons/pro/header/czr_slide_module/czr_slide_module.php:78
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1685
-#: functions/czr-base-fmk/czr-base-fmk.php:1685
-#: inc/czr-base-fmk/czr-base-fmk.php:1685
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1694
+#: functions/czr-base-fmk/czr-base-fmk.php:1694
+#: inc/czr-base-fmk/czr-base-fmk.php:1694
 msgid "Set a custom url"
 msgstr ""
 
@@ -433,9 +433,9 @@ msgstr ""
 msgid "Enable"
 msgstr "停用"
 
-#: addons/ha-init.php:96 functions/class-utils-settings-map.php:1369
-#: functions/class-utils-settings-map.php:1385
-#: functions/class-utils-settings-map.php:2074
+#: addons/ha-init.php:96 functions/class-utils-settings-map.php:1384
+#: functions/class-utils-settings-map.php:1400
+#: functions/class-utils-settings-map.php:2089
 msgid "Disable"
 msgstr "停用"
 
@@ -533,7 +533,7 @@ msgstr "頁尾設計"
 
 #: addons/pro/czr_tmpl/mods/__DEPRECATED_related-posts-module-tmpl.php:14
 #: addons/pro/related/czr_related_posts_module/czr_related_posts_module.php:152
-#: functions/class-utils-settings-map.php:1363
+#: functions/class-utils-settings-map.php:1378
 msgid "Related posts"
 msgstr "相關文章"
 
@@ -861,7 +861,7 @@ msgstr ""
 
 #: addons/pro/czr_tmpl/mods/slide-module-tmpl.php:162
 #: addons/pro/header/czr_slide_module/czr_slide_module.php:284
-#: functions/class-utils-settings-map.php:1300
+#: functions/class-utils-settings-map.php:1315
 #, fuzzy
 msgid "Display categories"
 msgstr "相關類別"
@@ -1108,20 +1108,20 @@ msgstr ""
 msgid "Load more"
 msgstr "瞭解更多"
 
-#: addons/pro/infinite/infinite-scroll/class_infinite.php:801
+#: addons/pro/infinite/infinite-scroll/class_infinite.php:800
 msgid "Older %s"
 msgstr ""
 
-#: addons/pro/infinite/infinite-scroll/class_infinite.php:826
+#: addons/pro/infinite/infinite-scroll/class_infinite.php:825
 msgid "Scroll back to top"
 msgstr ""
 
-#: addons/pro/infinite/infinite-scroll/class_infinite.php:1588
+#: addons/pro/infinite/infinite-scroll/class_infinite.php:1589
 #, fuzzy
 msgid "Proudly powered by WordPress"
 msgstr "技術支援 WordPress"
 
-#: addons/pro/infinite/infinite-scroll/class_infinite.php:1591
+#: addons/pro/infinite/infinite-scroll/class_infinite.php:1592
 msgid "Theme: %1$s."
 msgstr ""
 
@@ -1388,18 +1388,18 @@ msgid "Are you sure you want to reset all your font settings to default?"
 msgstr ""
 
 #: addons/pro/wfc/back/classes/class_admin_font_customizer.php:516
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:570
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:579
 #: contextualizer/ccat-contextualizer.php:1442
-#: functions/czr-base-fmk/czr-base-fmk.php:570
-#: inc/czr-base-fmk/czr-base-fmk.php:570
+#: functions/czr-base-fmk/czr-base-fmk.php:579
+#: inc/czr-base-fmk/czr-base-fmk.php:579
 msgid "Yes"
 msgstr "是"
 
 #: addons/pro/wfc/back/classes/class_admin_font_customizer.php:517
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:570
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:579
 #: contextualizer/ccat-contextualizer.php:1443
-#: functions/czr-base-fmk/czr-base-fmk.php:570
-#: inc/czr-base-fmk/czr-base-fmk.php:570
+#: functions/czr-base-fmk/czr-base-fmk.php:579
+#: inc/czr-base-fmk/czr-base-fmk.php:579
 msgid "No"
 msgstr "否"
 
@@ -1466,10 +1466,10 @@ msgid "Select"
 msgstr "選擇影像"
 
 #: addons/pro/wfc/back/classes/class_admin_font_customizer.php:587
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:266
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:274
 #: functions/czr/czr-resources.php:186
-#: functions/czr-base-fmk/czr-base-fmk.php:266
-#: inc/czr-base-fmk/czr-base-fmk.php:266
+#: functions/czr-base-fmk/czr-base-fmk.php:274
+#: inc/czr-base-fmk/czr-base-fmk.php:274
 #: option-tree/includes/ot-functions-admin.php:125
 #: option-tree/includes/ot-functions-admin.php:126
 #: option-tree/includes/ot-functions-admin.php:162
@@ -1502,11 +1502,11 @@ msgid "Clear color"
 msgstr "色彩"
 
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:211
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:273
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:281
 #: functions/czr/controls/class-color-alpha-control.php:26
 #: functions/czr-base-fmk/czr-base-fmk.php:211
-#: functions/czr-base-fmk/czr-base-fmk.php:273
-#: inc/czr-base-fmk/czr-base-fmk.php:211 inc/czr-base-fmk/czr-base-fmk.php:273
+#: functions/czr-base-fmk/czr-base-fmk.php:281
+#: inc/czr-base-fmk/czr-base-fmk.php:211 inc/czr-base-fmk/czr-base-fmk.php:281
 msgid "Default"
 msgstr "預設"
 
@@ -1531,13 +1531,13 @@ msgstr "次要色彩"
 msgid "Color value"
 msgstr "色彩"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:260
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:561
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:268
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:570
 #: functions/czr/czr-resources.php:163
-#: functions/czr-base-fmk/czr-base-fmk.php:260
-#: functions/czr-base-fmk/czr-base-fmk.php:561
+#: functions/czr-base-fmk/czr-base-fmk.php:268
+#: functions/czr-base-fmk/czr-base-fmk.php:570
 #: functions/czr-modules/widget-zones/widget_zones_module.php:227
-#: inc/czr-base-fmk/czr-base-fmk.php:260 inc/czr-base-fmk/czr-base-fmk.php:561
+#: inc/czr-base-fmk/czr-base-fmk.php:268 inc/czr-base-fmk/czr-base-fmk.php:570
 #: option-tree/includes/ot-functions-admin.php:2839
 #: option-tree/includes/ot-functions-admin.php:2948
 #: option-tree/includes/ot-functions-admin.php:2949
@@ -1552,142 +1552,142 @@ msgstr "色彩"
 msgid "Edit"
 msgstr "編輯"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:261
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:269
 #: functions/czr/czr-resources.php:164
-#: functions/czr-base-fmk/czr-base-fmk.php:261
-#: inc/czr-base-fmk/czr-base-fmk.php:261
+#: functions/czr-base-fmk/czr-base-fmk.php:269
+#: inc/czr-base-fmk/czr-base-fmk.php:269
 #: option-tree/includes/ot-functions-admin.php:961
 msgid "Close"
 msgstr "關閉"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:262
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:270
 #: functions/czr/czr-resources.php:168
-#: functions/czr-base-fmk/czr-base-fmk.php:262
+#: functions/czr-base-fmk/czr-base-fmk.php:270
 #: functions/czr-modules/widget-zones/widget_zones_module.php:88
-#: inc/czr-base-fmk/czr-base-fmk.php:262
+#: inc/czr-base-fmk/czr-base-fmk.php:270
 msgid "Not set"
 msgstr "未設定"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:263
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:271
 #: functions/czr/czr-resources.php:172
-#: functions/czr-base-fmk/czr-base-fmk.php:263
+#: functions/czr-base-fmk/czr-base-fmk.php:271
 #: functions/czr-modules/social-links/social_links_module.php:80
-#: inc/czr-base-fmk/czr-base-fmk.php:263
+#: inc/czr-base-fmk/czr-base-fmk.php:271
 #: inc/czr-modules/social-links/social_links_module.php:80
 msgid "Done !"
 msgstr "完成！"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:265
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:273
 #: functions/czr/czr-resources.php:185
-#: functions/czr-base-fmk/czr-base-fmk.php:265
-#: inc/czr-base-fmk/czr-base-fmk.php:265
+#: functions/czr-base-fmk/czr-base-fmk.php:273
+#: inc/czr-base-fmk/czr-base-fmk.php:273
 msgid "Learn more about this in the documentation"
 msgstr "瞭解更多關於這個的文件"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:267
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:275
 #: functions/czr/czr-resources.php:187
-#: functions/czr-base-fmk/czr-base-fmk.php:267
-#: inc/czr-base-fmk/czr-base-fmk.php:267 inc/czr-skope/index.php:398
+#: functions/czr-base-fmk/czr-base-fmk.php:275
+#: inc/czr-base-fmk/czr-base-fmk.php:275 inc/czr-skope/index.php:398
 msgid "Options for"
 msgstr "設定將套用到"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:270
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:275
-#: functions/czr-base-fmk/czr-base-fmk.php:270
-#: functions/czr-base-fmk/czr-base-fmk.php:275
-#: inc/czr-base-fmk/czr-base-fmk.php:270 inc/czr-base-fmk/czr-base-fmk.php:275
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:278
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:283
+#: functions/czr-base-fmk/czr-base-fmk.php:278
+#: functions/czr-base-fmk/czr-base-fmk.php:283
+#: inc/czr-base-fmk/czr-base-fmk.php:278 inc/czr-base-fmk/czr-base-fmk.php:283
 msgid "Select Image"
 msgstr "選擇影像"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:271
-#: functions/czr-base-fmk/czr-base-fmk.php:271
-#: inc/czr-base-fmk/czr-base-fmk.php:271
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:279
+#: functions/czr-base-fmk/czr-base-fmk.php:279
+#: inc/czr-base-fmk/czr-base-fmk.php:279
 msgid "Change Image"
 msgstr "變更影像"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:272
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:561
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:280
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:570
 #: functions/czr/controls/class-upload-control.php:68
-#: functions/czr-base-fmk/czr-base-fmk.php:272
-#: functions/czr-base-fmk/czr-base-fmk.php:561
-#: inc/czr-base-fmk/czr-base-fmk.php:272 inc/czr-base-fmk/czr-base-fmk.php:561
+#: functions/czr-base-fmk/czr-base-fmk.php:280
+#: functions/czr-base-fmk/czr-base-fmk.php:570
+#: inc/czr-base-fmk/czr-base-fmk.php:280 inc/czr-base-fmk/czr-base-fmk.php:570
 msgid "Remove"
 msgstr "移除"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:274
-#: functions/czr-base-fmk/czr-base-fmk.php:274
-#: inc/czr-base-fmk/czr-base-fmk.php:274
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:282
+#: functions/czr-base-fmk/czr-base-fmk.php:282
+#: inc/czr-base-fmk/czr-base-fmk.php:282
 msgid "No image selected"
 msgstr "未選擇影像"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:276
-#: functions/czr-base-fmk/czr-base-fmk.php:276
-#: inc/czr-base-fmk/czr-base-fmk.php:276
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:284
+#: functions/czr-base-fmk/czr-base-fmk.php:284
+#: inc/czr-base-fmk/czr-base-fmk.php:284
 msgid "Choose Image"
 msgstr "選擇影像"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:278
-#: functions/czr-base-fmk/czr-base-fmk.php:278
-#: inc/czr-base-fmk/czr-base-fmk.php:278
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:286
+#: functions/czr-base-fmk/czr-base-fmk.php:286
+#: inc/czr-base-fmk/czr-base-fmk.php:286
 #, fuzzy
 msgid "Customizing"
 msgstr "立即自訂"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:471
-#: functions/czr-base-fmk/czr-base-fmk.php:471
-#: inc/czr-base-fmk/czr-base-fmk.php:471
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:480
+#: functions/czr-base-fmk/czr-base-fmk.php:480
+#: inc/czr-base-fmk/czr-base-fmk.php:480
 msgid "ac_set_ajax_czr_tmpl => Security check failed."
 msgstr ""
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:543
-#: functions/czr-base-fmk/czr-base-fmk.php:543
-#: inc/czr-base-fmk/czr-base-fmk.php:543
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:552
+#: functions/czr-base-fmk/czr-base-fmk.php:552
+#: inc/czr-base-fmk/czr-base-fmk.php:552
 #: option-tree/includes/ot-functions-option-types.php:1452
 #: option-tree/includes/ot-functions-option-types.php:2215
 #: option-tree/includes/ot-functions-option-types.php:2380
 msgid "Add New"
 msgstr "新增"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:548
-#: functions/czr-base-fmk/czr-base-fmk.php:548
-#: inc/czr-base-fmk/czr-base-fmk.php:548
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:557
+#: functions/czr-base-fmk/czr-base-fmk.php:557
+#: inc/czr-base-fmk/czr-base-fmk.php:557
 msgid "Cancel"
 msgstr "取消"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:548
-#: functions/czr-base-fmk/czr-base-fmk.php:548
-#: inc/czr-base-fmk/czr-base-fmk.php:548
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:557
+#: functions/czr-base-fmk/czr-base-fmk.php:557
+#: inc/czr-base-fmk/czr-base-fmk.php:557
 msgid "Add it"
 msgstr "增加"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:569
-#: functions/czr-base-fmk/czr-base-fmk.php:569
-#: inc/czr-base-fmk/czr-base-fmk.php:569
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:578
+#: functions/czr-base-fmk/czr-base-fmk.php:578
+#: inc/czr-base-fmk/czr-base-fmk.php:578
 msgid "Are you sure you want to remove : <strong>{{ data.title }} ?</strong>"
 msgstr "您確定要移除：<strong>{{ data.title }} ？</strong>"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1719
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1919
-#: functions/czr-base-fmk/czr-base-fmk.php:1719
-#: functions/czr-base-fmk/czr-base-fmk.php:1919
-#: inc/czr-base-fmk/czr-base-fmk.php:1719
-#: inc/czr-base-fmk/czr-base-fmk.php:1919
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1728
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1928
+#: functions/czr-base-fmk/czr-base-fmk.php:1728
+#: functions/czr-base-fmk/czr-base-fmk.php:1928
+#: inc/czr-base-fmk/czr-base-fmk.php:1728
+#: inc/czr-base-fmk/czr-base-fmk.php:1928
 msgid "ajax_load_available_items => Security check failed."
 msgstr ""
 
 #. translators: %d: ID of a post
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1840
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:2049
-#: functions/czr-base-fmk/czr-base-fmk.php:1840
-#: functions/czr-base-fmk/czr-base-fmk.php:2049
-#: inc/czr-base-fmk/czr-base-fmk.php:1840
-#: inc/czr-base-fmk/czr-base-fmk.php:2049
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1849
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:2058
+#: functions/czr-base-fmk/czr-base-fmk.php:1849
+#: functions/czr-base-fmk/czr-base-fmk.php:2058
+#: inc/czr-base-fmk/czr-base-fmk.php:1849
+#: inc/czr-base-fmk/czr-base-fmk.php:2058
 msgid "#%d (no title)"
 msgstr ""
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1983
-#: functions/czr-base-fmk/czr-base-fmk.php:1983
-#: inc/czr-base-fmk/czr-base-fmk.php:1983
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1992
+#: functions/czr-base-fmk/czr-base-fmk.php:1992
+#: inc/czr-base-fmk/czr-base-fmk.php:1992
 msgid "No results found."
 msgstr ""
 
@@ -1997,34 +1997,34 @@ msgid ""
 "this theme."
 msgstr ""
 
-#: addons/sharrre/ha-sharrre.php:95
+#: addons/sharrre/ha-sharrre.php:94
 msgid "Display social sharing buttons in your single posts"
 msgstr ""
 
-#: addons/sharrre/ha-sharrre.php:96
+#: addons/sharrre/ha-sharrre.php:95
 msgid "Social Sharring Bar Settings"
 msgstr ""
 
-#: addons/sharrre/ha-sharrre.php:97
+#: addons/sharrre/ha-sharrre.php:96
 #, fuzzy
 msgid "Display social sharing buttons in each single articles."
 msgstr "在管理列中顯示說明按鈕"
 
-#: addons/sharrre/ha-sharrre.php:105
+#: addons/sharrre/ha-sharrre.php:104
 msgid "Make the Share Bar \"sticky\""
 msgstr ""
 
-#: addons/sharrre/ha-sharrre.php:106
+#: addons/sharrre/ha-sharrre.php:105
 msgid ""
 "Make the social share bar stick to the browser window when scrolling down a "
 "post."
 msgstr ""
 
-#: addons/sharrre/ha-sharrre.php:114
+#: addons/sharrre/ha-sharrre.php:113
 msgid "Enable Twitter Button"
 msgstr ""
 
-#: addons/sharrre/ha-sharrre.php:117
+#: addons/sharrre/ha-sharrre.php:116
 msgid ""
 "Since Nov. 2015, Twitter disabled the share counts from its API. If you want "
 "to get the display count anyway, you can create an account for free (as of "
@@ -2032,25 +2032,25 @@ msgid ""
 "configured to use opensharecount."
 msgstr ""
 
-#: addons/sharrre/ha-sharrre.php:123
+#: addons/sharrre/ha-sharrre.php:122
 msgid "Twitter Username (without \"@\")"
 msgstr ""
 
-#: addons/sharrre/ha-sharrre.php:124
+#: addons/sharrre/ha-sharrre.php:123
 msgid ""
 "Simply enter your username without the \"@\" prefix. Your username will be "
 "added to share-tweets of your posts (optional)."
 msgstr ""
 
-#: addons/sharrre/ha-sharrre.php:133
+#: addons/sharrre/ha-sharrre.php:132
 msgid "Enable Facebook Button"
 msgstr ""
 
-#: addons/sharrre/ha-sharrre.php:141
+#: addons/sharrre/ha-sharrre.php:140
 msgid "Enable Pinterest Button"
 msgstr ""
 
-#: addons/sharrre/ha-sharrre.php:149
+#: addons/sharrre/ha-sharrre.php:148
 msgid "Enable LinkedIn Button"
 msgstr ""
 
@@ -2087,7 +2087,7 @@ msgstr "1 個回應"
 msgid "% Responses"
 msgstr "% 個回應"
 
-#: comments.php:10 functions/class-utils-settings-map.php:1927
+#: comments.php:10 functions/class-utils-settings-map.php:1942
 msgid "Comments"
 msgstr "迴響"
 
@@ -2454,7 +2454,7 @@ msgid "Display a logo in the header"
 msgstr "標頭中顯示標誌"
 
 #: functions/class-utils-settings-map.php:194
-#: functions/class-utils-settings-map.php:721
+#: functions/class-utils-settings-map.php:736
 #: functions/czr-modules/body-background/body_bg_module.php:136
 msgid "here"
 msgstr "這裡"
@@ -2472,7 +2472,7 @@ msgid "Logo for mobiles"
 msgstr "行動版標示"
 
 #: functions/class-utils-settings-map.php:217
-#: functions/class-utils-settings-map.php:1656
+#: functions/class-utils-settings-map.php:1671
 #: functions/czr/class-czr-init.php:111
 msgid ""
 "Upload your custom logo image. Supported formats : .jpg, .png, .gif, svg, "
@@ -2480,10 +2480,10 @@ msgid ""
 msgstr "上傳您的自訂標誌影像。已支援格式： .jpg, .png, .gif, .svg, .svgz"
 
 #: functions/class-utils-settings-map.php:224
-#: functions/class-utils-settings-map.php:798
-#: functions/class-utils-settings-map.php:799
-#: functions/class-utils-settings-map.php:816
-#: functions/class-utils-settings-map.php:1539
+#: functions/class-utils-settings-map.php:813
+#: functions/class-utils-settings-map.php:814
+#: functions/class-utils-settings-map.php:831
+#: functions/class-utils-settings-map.php:1554
 msgid "Desktop devices"
 msgstr "桌面裝置"
 
@@ -2582,45 +2582,49 @@ msgid "Give your thumbnails and layout images rounded corners"
 msgstr "將您的縮圖與圖片外觀設為圓角"
 
 #: functions/class-utils-settings-map.php:363
+msgid "Links underlined within content"
+msgstr ""
+
+#: functions/class-utils-settings-map.php:370
 msgid "Display an icon next to external links"
 msgstr "在外部連結旁顯示圖示"
 
-#: functions/class-utils-settings-map.php:366
-#: functions/class-utils-settings-map.php:376
+#: functions/class-utils-settings-map.php:373
+#: functions/class-utils-settings-map.php:383
 msgid ""
 "This will be applied to the links included in post or page content only."
 msgstr "這僅會套用至在文章或頁面內容的連結。"
 
-#: functions/class-utils-settings-map.php:373
+#: functions/class-utils-settings-map.php:380
 msgid "Open external links in a new tab"
 msgstr "以外部連結開啟新頁"
 
-#: functions/class-utils-settings-map.php:402
+#: functions/class-utils-settings-map.php:409
 #: functions/init-after-setup-theme.php:173
 msgid "Create and organize your social links"
 msgstr "建立並管理您的社群連結"
 
-#: functions/class-utils-settings-map.php:421
+#: functions/class-utils-settings-map.php:428
 msgid "Posts Comments"
 msgstr "文章迴響"
 
-#: functions/class-utils-settings-map.php:424
+#: functions/class-utils-settings-map.php:431
 msgid "Comments on posts"
 msgstr "文章的迴響"
 
-#: functions/class-utils-settings-map.php:430
+#: functions/class-utils-settings-map.php:437
 msgid "Pages Comments"
 msgstr "頁面迴響"
 
-#: functions/class-utils-settings-map.php:433
+#: functions/class-utils-settings-map.php:440
 msgid "Comments on pages"
 msgstr "頁面的迴響"
 
-#: functions/class-utils-settings-map.php:466
+#: functions/class-utils-settings-map.php:473
 msgid "Enable the Mobile Friendly (or Responsive) layout"
 msgstr "啟用友善行動裝置（或回應）外觀"
 
-#: functions/class-utils-settings-map.php:469
+#: functions/class-utils-settings-map.php:476
 msgid ""
 "Hueman is a mobile friendly WordPress theme out of the box. This means that "
 "it will adapt and render nicely on any devices : desktops, laptops, tablets, "
@@ -2633,13 +2637,13 @@ msgstr ""
 "取這個方塊，自動調整（或回應）行為將不會有任何作用。大多數的情況中，您無停用"
 "這個選項，而且也不建議這樣做。"
 
-#: functions/class-utils-settings-map.php:474
+#: functions/class-utils-settings-map.php:481
 msgid ""
 "Make font sizes flexible. Enable this option to achieve scalable headlines "
 "that fill the width of a parent element."
 msgstr "可使自行尺寸更靈活。啟用此選項可達到符合標題上層元素寬度的文字延展性。"
 
-#: functions/class-utils-settings-map.php:477
+#: functions/class-utils-settings-map.php:484
 msgid ""
 "This option is good if you want to display a perfect font-size for your "
 "headings on any mobile devices. Note : it might override the css rules "
@@ -2648,15 +2652,15 @@ msgstr ""
 "若您想要在行動裝置中完美呈現您的標題字型大小，這個選項將可協助您。附註：這也"
 "許會覆蓋您預先自訂樣式表的 CSS 規則。"
 
-#: functions/class-utils-settings-map.php:490
+#: functions/class-utils-settings-map.php:497
 msgid "Include images in search results"
 msgstr "搜尋結果包含影像"
 
-#: functions/class-utils-settings-map.php:505
+#: functions/class-utils-settings-map.php:512
 msgid "Use a minified stylesheet"
 msgstr "使用縮小化樣式表"
 
-#: functions/class-utils-settings-map.php:508
+#: functions/class-utils-settings-map.php:515
 msgid ""
 "Unchecking this option is not recommended. Minifying css stylesheets "
 "improves performance for your website overall by decreasing the load time."
@@ -2664,11 +2668,11 @@ msgstr ""
 "不建議取消選取這個選項。最小化 CSS 樣式表可提升載效能並減少載入您的所屬網站的"
 "時間。"
 
-#: functions/class-utils-settings-map.php:513
+#: functions/class-utils-settings-map.php:520
 msgid "Use Structured Data Markup for your posts"
 msgstr "使用結構化資料標記套用到您的文章"
 
-#: functions/class-utils-settings-map.php:516
+#: functions/class-utils-settings-map.php:523
 msgid ""
 "\"Structured data markup\" is a standard way to annotate your content so "
 "machines can understand it. Implementing it will help your website rank "
@@ -2677,11 +2681,11 @@ msgstr ""
 "「結構化資料標記」可以註記您的內容並讓電腦能耨瞭解的標準方式。採用此方式將會"
 "協助在搜尋引擎中獲得更高的評分。"
 
-#: functions/class-utils-settings-map.php:521
+#: functions/class-utils-settings-map.php:528
 msgid "Load images on scroll"
 msgstr "滾動時載入影像"
 
-#: functions/class-utils-settings-map.php:524
+#: functions/class-utils-settings-map.php:531
 msgid ""
 "Check this option to delay the loading of non visible images. Images below "
 "the viewport will be loaded dynamically on scroll. This can really boost "
@@ -2691,11 +2695,11 @@ msgstr ""
 "勾選此選項以延遲正在載入的影像。在影像下方的檢視區將會滾動時動態載入。可以透"
 "過降低較長且含有大量影像載入的負擔以達到提升呈現結果。"
 
-#: functions/class-utils-settings-map.php:529
+#: functions/class-utils-settings-map.php:536
 msgid "Mobile device detection"
 msgstr "偵測行動裝置"
 
-#: functions/class-utils-settings-map.php:532
+#: functions/class-utils-settings-map.php:539
 msgid ""
 "When checked, this option loads a small javascript file ( 30 kb ) to detect "
 "if your site is being displayed by a mobile device like a phone or a tablet. "
@@ -2704,19 +2708,19 @@ msgstr ""
 "勾選後，該功能會載入小量的 javascript 檔案（30 kb）以偵測是否有使用者透過手機"
 "或平板的行動裝置瀏覽您的網站。如果您有使用外掛快取，建議您勾選此選項。"
 
-#: functions/class-utils-settings-map.php:539
+#: functions/class-utils-settings-map.php:546
 msgid "Defer loading javascript files to avoid render blocking issues"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:554
+#: functions/class-utils-settings-map.php:561
 msgid "Defer loading Font Awesome icons"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:571
+#: functions/class-utils-settings-map.php:578
 msgid "Display the \"About Hueman\" page in the \"Appearance\" admin menu"
 msgstr "在管理選單的「外觀」中顯示「關於 Hueman」頁面。"
 
-#: functions/class-utils-settings-map.php:574
+#: functions/class-utils-settings-map.php:581
 #, fuzzy
 msgid ""
 "This page is intended to provide information about the Hueman theme : "
@@ -2726,59 +2730,59 @@ msgstr ""
 "這個頁面嘗試提供關於 Hueman 主題的資訊：變更紀錄、版本備註、文件連結。如果您"
 "需要回報問題，也會顯示您目前已安裝的有用資訊。"
 
-#: functions/class-utils-settings-map.php:579
+#: functions/class-utils-settings-map.php:586
 msgid "Display a Help button in the admin bar"
 msgstr "在管理列中顯示說明按鈕"
 
-#: functions/class-utils-settings-map.php:582
+#: functions/class-utils-settings-map.php:589
 msgid "This button links to the \"About Hueman\" page."
 msgstr "這個按鈕連結至「關於 Hueman」的頁面。"
 
-#: functions/class-utils-settings-map.php:602
+#: functions/class-utils-settings-map.php:609
 msgid "Display your site's description (tagline)"
 msgstr "顯示您的網站描述（標語）"
 
-#: functions/class-utils-settings-map.php:605
+#: functions/class-utils-settings-map.php:612
 msgid "The description that appears next to your logo"
 msgstr "描述會顯示在您標誌的右邊"
 
-#: functions/class-utils-settings-map.php:614
+#: functions/class-utils-settings-map.php:621
 msgid ""
 "Apply your custom background colors in priority for the topbar and the "
 "mobile menu"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:618
+#: functions/class-utils-settings-map.php:625
 msgid ""
 "This can be used to ensure your background colors are applied when designing "
 "a header with a background image in %1$s"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:627
+#: functions/class-utils-settings-map.php:634
 msgid "Topbar Background"
 msgstr "至頂列背景"
 
-#: functions/class-utils-settings-map.php:637
+#: functions/class-utils-settings-map.php:644
 msgid "Header Background"
 msgstr "標頭背景"
 
-#: functions/class-utils-settings-map.php:647
+#: functions/class-utils-settings-map.php:654
 msgid "Header Menu Background"
 msgstr "標頭選單背景"
 
-#: functions/class-utils-settings-map.php:657
+#: functions/class-utils-settings-map.php:664
 msgid "Mobile Menu Background"
 msgstr "行動功能表清單背景"
 
-#: functions/class-utils-settings-map.php:667
+#: functions/class-utils-settings-map.php:674
 msgid "Apply a semi-transparent filter to the topbar and mobile menu on scroll"
 msgstr "在滾動時套用半透明篩選器到至頂列與行動版"
 
-#: functions/class-utils-settings-map.php:682
+#: functions/class-utils-settings-map.php:689
 msgid "Use a header banner image"
 msgstr "使用標頭橫幅影像"
 
-#: functions/class-utils-settings-map.php:685
+#: functions/class-utils-settings-map.php:692
 msgid ""
 "Upload a header image (supported formats : .jpg, .png, .gif, svg, svgz). "
 "This will disable header title/logo, site description, header ads widget"
@@ -2786,152 +2790,156 @@ msgstr ""
 "上傳標頭影像（支援格式： .jpg, .png, .gif, svg, svgz）。這將會停用頁首標題與"
 "標誌、網站描述、頁首廣告小工具"
 
-#: functions/class-utils-settings-map.php:692
+#: functions/class-utils-settings-map.php:699
 msgid "Image fills 100% of the width"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:699
+#: functions/class-utils-settings-map.php:706
 msgid "Use the original image height"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:716
+#: functions/class-utils-settings-map.php:714
+msgid "Link the banner image to your home page"
+msgstr ""
+
+#: functions/class-utils-settings-map.php:731
 msgid "Display your logo or site title, and tagline on top of the header image"
 msgstr "在標頭影像的上方顯示您的標示或站台名稱與標語"
 
-#: functions/class-utils-settings-map.php:722
+#: functions/class-utils-settings-map.php:737
 msgid "Set your logo, title and tagline"
 msgstr "設定您的標示、標題與標語"
 
-#: functions/class-utils-settings-map.php:736
+#: functions/class-utils-settings-map.php:751
 msgid "Display a widget in your header"
 msgstr "在您的標頭顯示小工具"
 
-#: functions/class-utils-settings-map.php:739
+#: functions/class-utils-settings-map.php:754
 msgid ""
 "Header widget area, perfect to insert advertisements. Note : this feature is "
 "not available when a header image is being displayed."
 msgstr "標頭小工具區，建議插入廣告。附註：頁首影像顯示時，這個功能將無法使用。"
 
-#: functions/class-utils-settings-map.php:744
+#: functions/class-utils-settings-map.php:759
 msgid "Display the header widget zone on desktop devices"
 msgstr "在桌面裝置上顯示標頭小工具區"
 
-#: functions/class-utils-settings-map.php:747
+#: functions/class-utils-settings-map.php:762
 msgid ""
 "This will display your widget zone on devices with a width greater than 720 "
 "pixels : laptops and desktops."
 msgstr ""
 "將會使您的小工具區在寬度在小於 720 像素的裝置中顯示：筆記型電腦與桌上型電腦。"
 
-#: functions/class-utils-settings-map.php:752
+#: functions/class-utils-settings-map.php:767
 msgid "Display the header widget zone on mobile devices"
 msgstr "在行動裝置上顯示標頭小工具區"
 
-#: functions/class-utils-settings-map.php:755
+#: functions/class-utils-settings-map.php:770
 msgid ""
 "This will display your widget zone on devices with a width smaller than 720 "
 "pixels : tablets, smartphones."
 msgstr "將會使您的小工具區在寬度在小於 720 像素的裝置中顯示：平板、智慧手機。"
 
-#: functions/class-utils-settings-map.php:766
-#: functions/class-utils-settings-map.php:1600
+#: functions/class-utils-settings-map.php:781
+#: functions/class-utils-settings-map.php:1615
 msgid "You can create menus and set their locations %s."
 msgstr "您能建立選單與設定它們的位置 %s 。"
 
-#: functions/class-utils-settings-map.php:776
-#: functions/class-utils-settings-map.php:1610
+#: functions/class-utils-settings-map.php:791
+#: functions/class-utils-settings-map.php:1625
 msgid "in the menu panel"
 msgstr "在選單面板"
 
-#: functions/class-utils-settings-map.php:777
-#: functions/class-utils-settings-map.php:1611
+#: functions/class-utils-settings-map.php:792
+#: functions/class-utils-settings-map.php:1626
 msgid "create/edit menus"
 msgstr "建立與編輯選單"
 
-#: functions/class-utils-settings-map.php:781
+#: functions/class-utils-settings-map.php:796
 msgid "The Hueman theme supports up to two menu locations in your header."
 msgstr "Hueman 主題在您的標頭中支援至兩個功能表清單。"
 
-#: functions/class-utils-settings-map.php:786
+#: functions/class-utils-settings-map.php:801
 msgid "Topbar menu"
 msgstr "至頂列功能表清單"
 
-#: functions/class-utils-settings-map.php:786
-#: functions/class-utils-settings-map.php:1626
+#: functions/class-utils-settings-map.php:801
+#: functions/class-utils-settings-map.php:1641
 msgid "Use a default page menu if no menu has been assigned."
 msgstr "如果未指定任何選單，將使用預設頁面選單。"
 
-#: functions/class-utils-settings-map.php:798
-#: functions/class-utils-settings-map.php:832
+#: functions/class-utils-settings-map.php:813
+#: functions/class-utils-settings-map.php:847
 msgid "Menus settings for"
 msgstr "功能表清單設定適用於"
 
-#: functions/class-utils-settings-map.php:799
-#: functions/class-utils-settings-map.php:855
+#: functions/class-utils-settings-map.php:814
+#: functions/class-utils-settings-map.php:870
 msgid "top menu visibility on scroll"
 msgstr "滾動時顯示頂端功能表清單"
 
-#: functions/class-utils-settings-map.php:803
-#: functions/class-utils-settings-map.php:859
+#: functions/class-utils-settings-map.php:818
+#: functions/class-utils-settings-map.php:874
 msgid "Not visible when scrolling the page"
 msgstr "滾動頁面時不顯示"
 
-#: functions/class-utils-settings-map.php:804
-#: functions/class-utils-settings-map.php:860
+#: functions/class-utils-settings-map.php:819
+#: functions/class-utils-settings-map.php:875
 msgid "Reveal on scroll up"
 msgstr "向上滾動時顯示"
 
-#: functions/class-utils-settings-map.php:805
-#: functions/class-utils-settings-map.php:861
+#: functions/class-utils-settings-map.php:820
+#: functions/class-utils-settings-map.php:876
 msgid "Always visible"
 msgstr "永遠顯示"
 
-#: functions/class-utils-settings-map.php:816
-#: functions/class-utils-settings-map.php:897
+#: functions/class-utils-settings-map.php:831
+#: functions/class-utils-settings-map.php:912
 msgid "display a search field"
 msgstr "顯示搜尋欄"
 
-#: functions/class-utils-settings-map.php:820
+#: functions/class-utils-settings-map.php:835
 msgid "No search field"
 msgstr "無搜尋欄"
 
-#: functions/class-utils-settings-map.php:821
+#: functions/class-utils-settings-map.php:836
 msgid "Display a search field in the top menu"
 msgstr "在頂端功能表清單顯示搜尋欄"
 
-#: functions/class-utils-settings-map.php:822
+#: functions/class-utils-settings-map.php:837
 msgid "Display a search field in the header menu"
 msgstr "在標頭功能表清單中顯示搜尋欄"
 
-#: functions/class-utils-settings-map.php:832
-#: functions/class-utils-settings-map.php:855
-#: functions/class-utils-settings-map.php:886
-#: functions/class-utils-settings-map.php:897
-#: functions/class-utils-settings-map.php:1547
+#: functions/class-utils-settings-map.php:847
+#: functions/class-utils-settings-map.php:870
+#: functions/class-utils-settings-map.php:901
+#: functions/class-utils-settings-map.php:912
+#: functions/class-utils-settings-map.php:1562
 msgid "Mobile devices"
 msgstr "行動裝置"
 
-#: functions/class-utils-settings-map.php:833
+#: functions/class-utils-settings-map.php:848
 msgid "Select the menu(s) to use for mobile devices"
 msgstr "選擇要在行動裝置中要使用的功能表清單"
 
-#: functions/class-utils-settings-map.php:837
+#: functions/class-utils-settings-map.php:852
 msgid "Header Menu"
 msgstr "標頭選單"
 
-#: functions/class-utils-settings-map.php:838
+#: functions/class-utils-settings-map.php:853
 msgid "Topbar Menu"
 msgstr "至頂列功能表清單"
 
-#: functions/class-utils-settings-map.php:839
+#: functions/class-utils-settings-map.php:854
 msgid "Specific Mobile Menu"
 msgstr "特定行動裝置版功能表清單"
 
-#: functions/class-utils-settings-map.php:840
+#: functions/class-utils-settings-map.php:855
 msgid "Topbar and header menus, logo centered"
 msgstr "至頂列與標頭功能表清單、標誌至中"
 
-#: functions/class-utils-settings-map.php:843
+#: functions/class-utils-settings-map.php:858
 msgid ""
 "When your visitors are using a smartphone or a tablet, the header becomes a "
 "thin bar on top, where the menu is revealed when clicking on the hamburger "
@@ -2940,7 +2948,7 @@ msgstr ""
 "當您的瀏覽者使用智慧手機或平板時，標頭將會成為位於功能表清單的至頂列，透過點"
 "選條列式功能展開。此選項可讓您選擇想要顯示的功能表清單。"
 
-#: functions/class-utils-settings-map.php:844
+#: functions/class-utils-settings-map.php:859
 msgid ""
 "If the selected menu location has no menu assigned, the theme will try to "
 "assign another menu in this order : topbar, mobile, header."
@@ -2948,60 +2956,60 @@ msgstr ""
 "若是已選擇的功能表清單尚未指定功能表類型，主題將會嘗試以此順序指定他功能表清"
 "單：至頂列、行動版、標題列。"
 
-#: functions/class-utils-settings-map.php:871
+#: functions/class-utils-settings-map.php:886
 msgid "Style of the mobile menu button"
 msgstr "行動功能表清單按鈕的樣式"
 
-#: functions/class-utils-settings-map.php:875
+#: functions/class-utils-settings-map.php:890
 msgid "Animated"
 msgstr "動畫"
 
-#: functions/class-utils-settings-map.php:876
+#: functions/class-utils-settings-map.php:891
 msgid "Simple"
 msgstr "簡易"
 
-#: functions/class-utils-settings-map.php:886
+#: functions/class-utils-settings-map.php:901
 #, fuzzy
 msgid "Expand submenus on click"
 msgstr "展開功能表清單"
 
-#: functions/class-utils-settings-map.php:936
+#: functions/class-utils-settings-map.php:951
 msgid "Columns layout for"
 msgstr "欄位用於"
 
-#: functions/class-utils-settings-map.php:941
+#: functions/class-utils-settings-map.php:956
 msgid "Global Layout"
 msgstr "共用外觀"
 
-#: functions/class-utils-settings-map.php:945
+#: functions/class-utils-settings-map.php:960
 msgid "Other layouts will override this option if they are set"
 msgstr "如果設定這個選項，其他的外觀將會被覆蓋"
 
-#: functions/class-utils-settings-map.php:950
+#: functions/class-utils-settings-map.php:965
 #, fuzzy
 msgid "Force the global layout"
 msgstr "繼承共用外觀"
 
-#: functions/class-utils-settings-map.php:953
+#: functions/class-utils-settings-map.php:968
 msgid ""
 "The global layout will be applied on every pages, even when a specific "
 "layout is set."
 msgstr ""
 
-#: functions/class-utils-settings-map.php:958 functions/init-front.php:1680
+#: functions/class-utils-settings-map.php:973 functions/init-front.php:1784
 #: functions/init-sidebars-widgets.php:132
 msgid "Home"
 msgstr "首頁"
 
-#: functions/class-utils-settings-map.php:962
+#: functions/class-utils-settings-map.php:977
 msgid "[ <strong>is_home</strong> ] Posts homepage layout"
 msgstr "[ <strong>is_home</strong> ] 首頁文章外觀"
 
-#: functions/class-utils-settings-map.php:971
+#: functions/class-utils-settings-map.php:986
 msgid "Single"
 msgstr "單欄"
 
-#: functions/class-utils-settings-map.php:975
+#: functions/class-utils-settings-map.php:990
 msgid ""
 "[ <strong>is_single</strong> ] Single post layout - If a post has a set "
 "layout, it will override this."
@@ -3009,44 +3017,44 @@ msgstr ""
 "[ <strong>is_single</strong> ] 單邊文章外觀 - 若已設定單邊文章外觀，將會被這"
 "個設定覆蓋。"
 
-#: functions/class-utils-settings-map.php:984
+#: functions/class-utils-settings-map.php:999
 msgid "Archive"
 msgstr "彙整"
 
-#: functions/class-utils-settings-map.php:988
+#: functions/class-utils-settings-map.php:1003
 msgid ""
 "[ <strong>is_archive</strong> ] Category, date, tag and author archive layout"
 msgstr "[ <strong>is_archive</strong> ] 類別、日期、標籤與作者彙整外觀"
 
-#: functions/class-utils-settings-map.php:993
+#: functions/class-utils-settings-map.php:1008
 msgid "Archive - Category"
 msgstr "彙整 - 類別"
 
-#: functions/class-utils-settings-map.php:997
+#: functions/class-utils-settings-map.php:1012
 msgid "[ <strong>is_category</strong> ] Category archive layout"
 msgstr "[ <strong>is_category</strong> ] 類別彙整外觀"
 
-#: functions/class-utils-settings-map.php:1002
+#: functions/class-utils-settings-map.php:1017
 msgid "Search"
 msgstr "搜尋"
 
-#: functions/class-utils-settings-map.php:1006
+#: functions/class-utils-settings-map.php:1021
 msgid "[ <strong>is_search</strong> ] Search page layout"
 msgstr "[ <strong>is_search</strong> ] 搜尋頁面外觀"
 
-#: functions/class-utils-settings-map.php:1011
+#: functions/class-utils-settings-map.php:1026
 msgid "Error 404"
 msgstr "錯誤 404"
 
-#: functions/class-utils-settings-map.php:1015
+#: functions/class-utils-settings-map.php:1030
 msgid "[ <strong>is_404</strong> ] Error 404 page layout"
 msgstr "[ <strong>is_404</strong> ] 錯誤 404 頁面外觀"
 
-#: functions/class-utils-settings-map.php:1020
+#: functions/class-utils-settings-map.php:1035
 msgid "Default Page"
 msgstr "預設頁面"
 
-#: functions/class-utils-settings-map.php:1024
+#: functions/class-utils-settings-map.php:1039
 msgid ""
 "[ <strong>is_page</strong> ] Default page layout - If a page has a set "
 "layout, it will override this."
@@ -3054,69 +3062,69 @@ msgstr ""
 "[ <strong>is_page</strong> ] 預設頁面外觀 - 若已設定單欄文章外觀，將會被這個"
 "設定覆蓋。"
 
-#: functions/class-utils-settings-map.php:1038
-#: functions/class-utils-settings-map.php:1052
+#: functions/class-utils-settings-map.php:1053
+#: functions/class-utils-settings-map.php:1067
 msgid "Blog Heading"
 msgstr "部落格標題"
 
-#: functions/class-utils-settings-map.php:1039
+#: functions/class-utils-settings-map.php:1054
 msgid "Display a custom heading for your blog."
 msgstr "在您的部落格顯示自訂頁首。"
 
-#: functions/class-utils-settings-map.php:1055
+#: functions/class-utils-settings-map.php:1070
 msgid ""
 "Your blog heading. Html is allowed. Note : write a blank space to hide the "
 "default content."
 msgstr "您的部落格頁首允許使用 HTML 。附註：隱藏預設內容請輸入一個空格。"
 
-#: functions/class-utils-settings-map.php:1065 functions/init-front.php:660
+#: functions/class-utils-settings-map.php:1080 functions/init-front.php:663
 msgid "Blog"
 msgstr "部落格"
 
-#: functions/class-utils-settings-map.php:1067
+#: functions/class-utils-settings-map.php:1082
 msgid "Blog Sub-Heading"
 msgstr "部落格副標題"
 
-#: functions/class-utils-settings-map.php:1070
+#: functions/class-utils-settings-map.php:1085
 msgid ""
 "Your blog sub-heading. Html is allowed. Note : write a blank space to hide "
 "the default content."
 msgstr "您的部落格子頁首允許使用 HTML 。附註：隱藏預設內容請輸入一個空格。"
 
-#: functions/class-utils-settings-map.php:1082
+#: functions/class-utils-settings-map.php:1097
 msgid "Apply a category filter to your home / blog posts"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1087
+#: functions/class-utils-settings-map.php:1102
 msgid ""
 "Click inside the above field and pick post categories you want to display. "
 "No filter will be applied when empty."
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1089
+#: functions/class-utils-settings-map.php:1104
 msgid "Learn more about post categories in WordPress"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1091
+#: functions/class-utils-settings-map.php:1106
 msgid "Note for Pro users:"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1092
+#: functions/class-utils-settings-map.php:1107
 msgid ""
 "The category filter will not be applied when using the <strong>Classic grid</"
 "strong> post list design if the <strong>infinite scroll</strong> option is "
 "active."
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1103
+#: functions/class-utils-settings-map.php:1118
 msgid "Post List Design"
 msgstr "文章列表設計"
 
-#: functions/class-utils-settings-map.php:1104
+#: functions/class-utils-settings-map.php:1119
 msgid "Display your blog posts as a standard list."
 msgstr "以標準列表顯示您的部落格文章。"
 
-#: functions/class-utils-settings-map.php:1107
+#: functions/class-utils-settings-map.php:1122
 msgid ""
 "While the default blog design is a grid of posts, you can check this option "
 "and display one post per row, whith the thumbnail beside the text."
@@ -3124,37 +3132,37 @@ msgstr ""
 "當預設部落格設計為以格狀顯示文章，您可以逐一針對每篇顯示文章的縮圖與下方文字"
 "做設定。"
 
-#: functions/class-utils-settings-map.php:1119
+#: functions/class-utils-settings-map.php:1134
 #, fuzzy
 msgid "Display your blog posts in full content"
 msgstr "以標準列表顯示您的部落格文章。"
 
-#: functions/class-utils-settings-map.php:1132
+#: functions/class-utils-settings-map.php:1147
 #, fuzzy
 msgid "Display the post thumbnail"
 msgstr "在縮圖上顯示迴響統計"
 
-#: functions/class-utils-settings-map.php:1146
+#: functions/class-utils-settings-map.php:1161
 #, fuzzy
 msgid "Display featured images in their original dimensions in post lists"
 msgstr "將精選文章也顯示在文章清單中"
 
-#: functions/class-utils-settings-map.php:1149
+#: functions/class-utils-settings-map.php:1164
 msgid ""
 "When checked, the post featured image are displayed in their original size, "
 "instead of the optimized image sizes of the theme. Make sure your original "
 "images are not too large, it could slow down your website."
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1160
+#: functions/class-utils-settings-map.php:1175
 msgid "Post Summary"
 msgstr "文章摘要"
 
-#: functions/class-utils-settings-map.php:1162
+#: functions/class-utils-settings-map.php:1177
 msgid "Excerpt Length"
 msgstr "摘要長度"
 
-#: functions/class-utils-settings-map.php:1168
+#: functions/class-utils-settings-map.php:1183
 msgid ""
 "The WordPress Excerpt is the summary or description of a post. By default, "
 "it will be the first words of a post, but you can write a %s if you want. "
@@ -3163,51 +3171,51 @@ msgstr ""
 "WordPress 文章摘要是摘記或描敘一篇文章。預設為一篇文章的第一段文字，但如果您"
 "想要也可以寫 %s 。您可以在這個選項設定您想要顯示的字數。"
 
-#: functions/class-utils-settings-map.php:1169
+#: functions/class-utils-settings-map.php:1184
 msgid "custom excerpt"
 msgstr "自訂文章摘要"
 
-#: functions/class-utils-settings-map.php:1181
+#: functions/class-utils-settings-map.php:1196
 #, fuzzy
 msgid "Display the archive type and an icon next to the archive headings"
 msgstr "在外部連結旁顯示圖示"
 
-#: functions/class-utils-settings-map.php:1184
+#: functions/class-utils-settings-map.php:1199
 msgid ""
 "In WordPress, archives are the pages listing posts by category, tag, author "
 "and date."
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1190
+#: functions/class-utils-settings-map.php:1205
 msgid "Featured posts"
 msgstr "精選文章"
 
-#: functions/class-utils-settings-map.php:1192
+#: functions/class-utils-settings-map.php:1207
 msgid "Feature posts on top of your blog"
 msgstr "在您的部落格頂端顯示推薦文章"
 
-#: functions/class-utils-settings-map.php:1195
+#: functions/class-utils-settings-map.php:1210
 msgid ""
 "Check this box to display a selection of posts with a slideshow, on top of "
 "your blog."
 msgstr "點選這個方塊將已選擇的文章以幻燈片方式顯示並在您的部落格中頂端。"
 
-#: functions/class-utils-settings-map.php:1206
+#: functions/class-utils-settings-map.php:1221
 msgid "Select a category to feature"
 msgstr "選擇類別至推薦"
 
-#: functions/class-utils-settings-map.php:1210
+#: functions/class-utils-settings-map.php:1225
 msgid ""
 "If no specific category is selected, the featured posts block will display "
 "your latest post(s) from all categories."
 msgstr ""
 "如果沒有選擇特定的類別，精選文章區塊將會顯示您在所有類別中最後發表的文章。"
 
-#: functions/class-utils-settings-map.php:1222
+#: functions/class-utils-settings-map.php:1237
 msgid "Featured Post Count"
 msgstr "精選文章統計"
 
-#: functions/class-utils-settings-map.php:1228
+#: functions/class-utils-settings-map.php:1243
 msgid ""
 "Max number of featured posts to display. <br /><i>Set to 1 and it will show "
 "it without any slider script</i><br /><i>Set it to 0 to disable</i>"
@@ -3215,37 +3223,37 @@ msgstr ""
 "顯示精選文章的最大數。 <br /><i>設定 1 將不會有翻頁指令效果</i><br /><i>設定"
 "為 0 將會停用</i>"
 
-#: functions/class-utils-settings-map.php:1239
+#: functions/class-utils-settings-map.php:1254
 msgid "Display the full post content"
 msgstr "顯示完整文章內容"
 
-#: functions/class-utils-settings-map.php:1242
+#: functions/class-utils-settings-map.php:1257
 msgid ""
 "By default, your featured posts display the first words of their content "
 "( the \"excerpt\"). Check this box to display the full content."
 msgstr "預設顯示您的精選文章的第一個字（摘要）。點選這個方塊以顯示完整內容。"
 
-#: functions/class-utils-settings-map.php:1253
+#: functions/class-utils-settings-map.php:1268
 msgid "Animate your featured posts with a slideshow"
 msgstr "以動畫翻頁的方式呈現您的精選文章"
 
-#: functions/class-utils-settings-map.php:1256
+#: functions/class-utils-settings-map.php:1271
 msgid "Enables the automatic animation of the featured posts carousel."
 msgstr "啟用以自動轉盤的動畫方式呈現精選文章。"
 
-#: functions/class-utils-settings-map.php:1268
+#: functions/class-utils-settings-map.php:1283
 msgid "Featured Slideshow Speed"
 msgstr "精選幻燈片速度"
 
-#: functions/class-utils-settings-map.php:1274
+#: functions/class-utils-settings-map.php:1289
 msgid "Speed of the automatic slideshow animation"
 msgstr "幻燈片動畫自動翻轉速度"
 
-#: functions/class-utils-settings-map.php:1285
+#: functions/class-utils-settings-map.php:1300
 msgid "Display the featured posts also in the list of posts"
 msgstr "將精選文章也顯示在文章清單中"
 
-#: functions/class-utils-settings-map.php:1288
+#: functions/class-utils-settings-map.php:1303
 msgid ""
 "If this box is checked, your featured posts will be displayed both in the "
 "featured slider and in the post list below. Usually not recommended because "
@@ -3254,191 +3262,191 @@ msgstr ""
 "如果勾選這個方塊，您的精選文章將會同時顯示在熱門幻燈片與文章列表中。通常不建"
 "議，因為同一篇文章可能會在同一頁重複顯示兩次以上。"
 
-#: functions/class-utils-settings-map.php:1299
-#: functions/class-utils-settings-map.php:1410
+#: functions/class-utils-settings-map.php:1314
+#: functions/class-utils-settings-map.php:1425
 #, fuzzy
 msgid "Post Metas"
 msgstr "文章迴響"
 
-#: functions/class-utils-settings-map.php:1308
+#: functions/class-utils-settings-map.php:1323
 #, fuzzy
 msgid "Display post date"
 msgstr "從類別中顯示文章"
 
-#: functions/class-utils-settings-map.php:1316
+#: functions/class-utils-settings-map.php:1331
 #, fuzzy
 msgid "Display author"
 msgstr "顯示兩者側邊欄"
 
-#: functions/class-utils-settings-map.php:1334
+#: functions/class-utils-settings-map.php:1349
 msgid "Single - Author Bio"
 msgstr "單欄 - 作者簡介"
 
-#: functions/class-utils-settings-map.php:1338
+#: functions/class-utils-settings-map.php:1353
 msgid "Display post author description, if it exists"
 msgstr "顯示文章作者描述（若有填寫）"
 
-#: functions/class-utils-settings-map.php:1344
-#: functions/class-utils-settings-map.php:1439
+#: functions/class-utils-settings-map.php:1359
+#: functions/class-utils-settings-map.php:1454
 #, fuzzy
 msgid "Featured image"
 msgstr "精選頁面"
 
-#: functions/class-utils-settings-map.php:1348
+#: functions/class-utils-settings-map.php:1363
 msgid ""
 "Display the post's featured image when it is set. Note that audio and image "
 "post formats automatically display the featured image."
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1354
+#: functions/class-utils-settings-map.php:1369
 msgid "Used cropped image ( max 1320x500 on desktops)"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1364
+#: functions/class-utils-settings-map.php:1379
 msgid "Single - Related Posts"
 msgstr "單欄 - 相關文章"
 
-#: functions/class-utils-settings-map.php:1370
+#: functions/class-utils-settings-map.php:1385
 msgid "Related by categories"
 msgstr "相關類別"
 
-#: functions/class-utils-settings-map.php:1371
+#: functions/class-utils-settings-map.php:1386
 msgid "Related by tags"
 msgstr "相關標籤"
 
-#: functions/class-utils-settings-map.php:1373
+#: functions/class-utils-settings-map.php:1388
 msgid "Display randomized related articles below the post"
 msgstr "在文章下方隨機顯示相關主題"
 
-#: functions/class-utils-settings-map.php:1379
+#: functions/class-utils-settings-map.php:1394
 msgid "Post navigation"
 msgstr "文章導覽"
 
-#: functions/class-utils-settings-map.php:1380
+#: functions/class-utils-settings-map.php:1395
 msgid "Post navigation in single posts"
 msgstr "在每篇文章顯示導航"
 
-#: functions/class-utils-settings-map.php:1386
+#: functions/class-utils-settings-map.php:1401
 #: option-tree/includes/ot-functions-admin.php:2433
 msgid "Left Sidebar"
 msgstr "左邊欄"
 
-#: functions/class-utils-settings-map.php:1387
+#: functions/class-utils-settings-map.php:1402
 #: option-tree/includes/ot-functions-admin.php:2438
 msgid "Right Sidebar"
 msgstr "右邊欄"
 
-#: functions/class-utils-settings-map.php:1388
+#: functions/class-utils-settings-map.php:1403
 msgid "Below content"
 msgstr "內文下方"
 
-#: functions/class-utils-settings-map.php:1390
+#: functions/class-utils-settings-map.php:1405
 msgid "Display links to the next and previous article"
 msgstr "顯示上一篇與下一篇主題的連結"
 
-#: functions/class-utils-settings-map.php:1400
+#: functions/class-utils-settings-map.php:1415
 #, fuzzy
 msgid "Post Tags"
 msgstr "單欄文章標籤"
 
-#: functions/class-utils-settings-map.php:1401
+#: functions/class-utils-settings-map.php:1416
 #, fuzzy
 msgid "Post tags"
 msgstr "單欄文章標籤"
 
-#: functions/class-utils-settings-map.php:1404
+#: functions/class-utils-settings-map.php:1419
 #, fuzzy
 msgid "Display the post tags after the post content."
 msgstr "顯示完整文章內容"
 
-#: functions/class-utils-settings-map.php:1411
+#: functions/class-utils-settings-map.php:1426
 #, fuzzy
 msgid "Post author name"
 msgstr "發表其他類別列表"
 
-#: functions/class-utils-settings-map.php:1414
+#: functions/class-utils-settings-map.php:1429
 #, fuzzy
 msgid "Display the author name below the post title."
 msgstr "在文章下方隨機顯示相關主題"
 
-#: functions/class-utils-settings-map.php:1420
+#: functions/class-utils-settings-map.php:1435
 msgid "Post date"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1423
+#: functions/class-utils-settings-map.php:1438
 #, fuzzy
 msgid "Display the date below the post title."
 msgstr "在文章下方隨機顯示相關主題"
 
-#: functions/class-utils-settings-map.php:1442
+#: functions/class-utils-settings-map.php:1457
 #, fuzzy
 msgid "Display the page's featured image when it is set"
 msgstr "即使文章中未設定任何影響也保留精選影像的位置"
 
-#: functions/class-utils-settings-map.php:1447
+#: functions/class-utils-settings-map.php:1462
 msgid "Used cropped image (max 1320x500 on desktops)"
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1464
+#: functions/class-utils-settings-map.php:1479
 msgid "Thumbnail Placeholder"
 msgstr "預留縮圖"
 
-#: functions/class-utils-settings-map.php:1467
+#: functions/class-utils-settings-map.php:1482
 msgid "Display featured image placeholders if no featured image is set"
 msgstr "即使文章中未設定任何影響也保留精選影像的位置"
 
-#: functions/class-utils-settings-map.php:1472
+#: functions/class-utils-settings-map.php:1487
 msgid "Thumbnail Comment Count"
 msgstr "縮圖迴響統計"
 
-#: functions/class-utils-settings-map.php:1475
+#: functions/class-utils-settings-map.php:1490
 msgid "Display comment count on thumbnails"
 msgstr "在縮圖上顯示迴響統計"
 
-#: functions/class-utils-settings-map.php:1500
+#: functions/class-utils-settings-map.php:1515
 #: functions/init-plugins-compat.php:442
 msgid "Sidebar Top Boxes"
 msgstr "側邊欄頂端區域"
 
-#: functions/class-utils-settings-map.php:1503
+#: functions/class-utils-settings-map.php:1518
 msgid "Display boxes at the top of the sidebars"
 msgstr "在側邊欄上方顯示區域"
 
-#: functions/class-utils-settings-map.php:1508
+#: functions/class-utils-settings-map.php:1523
 msgid "Follow:"
 msgstr "跟隨："
 
-#: functions/class-utils-settings-map.php:1509
+#: functions/class-utils-settings-map.php:1524
 #, fuzzy
 msgid "Primary sidebar title"
 msgstr "隱藏主要側邊欄"
 
-#: functions/class-utils-settings-map.php:1514
-#: functions/class-utils-settings-map.php:1524
+#: functions/class-utils-settings-map.php:1529
+#: functions/class-utils-settings-map.php:1539
 #, fuzzy
 msgid "Html is allowed."
 msgstr "附註：允許使用 HTML 。"
 
-#: functions/class-utils-settings-map.php:1518
+#: functions/class-utils-settings-map.php:1533
 msgid "More"
 msgstr "更多"
 
-#: functions/class-utils-settings-map.php:1519
+#: functions/class-utils-settings-map.php:1534
 #, fuzzy
 msgid "Secondary sidebar title"
 msgstr "隱藏次要側邊欄"
 
-#: functions/class-utils-settings-map.php:1529
+#: functions/class-utils-settings-map.php:1544
 #, fuzzy
 msgid "Sidebars background color"
 msgstr "設定網站的背景色彩"
 
-#: functions/class-utils-settings-map.php:1539
-#: functions/class-utils-settings-map.php:1547
+#: functions/class-utils-settings-map.php:1554
+#: functions/class-utils-settings-map.php:1562
 msgid "make sidebars sticky on scroll"
 msgstr "讓側邊欄跟隨滾動"
 
-#: functions/class-utils-settings-map.php:1542
+#: functions/class-utils-settings-map.php:1557
 msgid ""
 "Glues your website's sidebars on top of the page, making them permanently "
 "visible when scrolling up and down. Useful when a sidebar is too tall or too "
@@ -3447,32 +3455,32 @@ msgstr ""
 "讓側邊欄黏在頁面頂端，使它能在上下滾動頁面時永遠可被看見。當側邊欄位太長或太"
 "短於其他內容時，則會很實用。"
 
-#: functions/class-utils-settings-map.php:1550
+#: functions/class-utils-settings-map.php:1565
 msgid ""
 "Decide if your sidebars should be sticky on tablets and smartphones devices."
 msgstr "決定是否讓您的側邊欄跟隨平板或智慧型行動裝置。"
 
-#: functions/class-utils-settings-map.php:1555
+#: functions/class-utils-settings-map.php:1570
 msgid "Mobile Sidebar Content"
 msgstr "行動裝置側邊欄位內文"
 
-#: functions/class-utils-settings-map.php:1560
+#: functions/class-utils-settings-map.php:1575
 msgid "Display both sidebars"
 msgstr "顯示兩者側邊欄"
 
-#: functions/class-utils-settings-map.php:1561
+#: functions/class-utils-settings-map.php:1576
 msgid "Hide primary sidebar"
 msgstr "隱藏主要側邊欄"
 
-#: functions/class-utils-settings-map.php:1562
+#: functions/class-utils-settings-map.php:1577
 msgid "Hide secondary sidebar"
 msgstr "隱藏次要側邊欄"
 
-#: functions/class-utils-settings-map.php:1563
+#: functions/class-utils-settings-map.php:1578
 msgid "Hide both sidebars"
 msgstr "隱藏兩者的側邊欄"
 
-#: functions/class-utils-settings-map.php:1565
+#: functions/class-utils-settings-map.php:1580
 #, fuzzy
 msgid ""
 "Control how the sidebar content is displayed on smartphone mobile devices "
@@ -3481,22 +3489,22 @@ msgstr ""
 "控制側邊欄如何在行動裝置（320px）中呈現。附註：側邊欄在行動裝置中會顯示在內容"
 "的下方。"
 
-#: functions/class-utils-settings-map.php:1574
+#: functions/class-utils-settings-map.php:1589
 msgid ""
 "Display the primary sidebar above the content column on smartphone mobile "
 "devices (480px)."
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1579
+#: functions/class-utils-settings-map.php:1594
 #, fuzzy
 msgid "Display social links in the primary sidebar"
 msgstr "標頭中顯示標誌"
 
-#: functions/class-utils-settings-map.php:1618
+#: functions/class-utils-settings-map.php:1633
 msgid "Display a full width widget area in your footer"
 msgstr "在頁尾顯示全版寬的小工具區"
 
-#: functions/class-utils-settings-map.php:1621
+#: functions/class-utils-settings-map.php:1636
 msgid ""
 "This zone is located before the other footer widgets and takes 100% of the "
 "width. Very appropriate to display a Google Map or an advertisement banner."
@@ -3504,235 +3512,235 @@ msgstr ""
 "這個區域位於頁尾小工具前並使用 100% 的寬度。非常適合作為 Google 地圖或廣告橫"
 "幅的使用。"
 
-#: functions/class-utils-settings-map.php:1635
+#: functions/class-utils-settings-map.php:1650
 msgid "Select columns to enable footer widgets"
 msgstr "設定欄位以啟用頁尾小工具"
 
-#: functions/class-utils-settings-map.php:1640
+#: functions/class-utils-settings-map.php:1655
 msgid "Recommended number of columns : 3"
 msgstr "建議欄位數：3"
 
-#: functions/class-utils-settings-map.php:1644
+#: functions/class-utils-settings-map.php:1659
 msgid "Upload your custom logo image"
 msgstr "上傳您的自訂標示影像"
 
-#: functions/class-utils-settings-map.php:1661
+#: functions/class-utils-settings-map.php:1676
 msgid "Footer Background"
 msgstr "頁尾背景"
 
-#: functions/class-utils-settings-map.php:1671
+#: functions/class-utils-settings-map.php:1686
 #: functions/czr/czr-resources.php:38
 msgid "All Rights Reserved."
 msgstr "版權所有。"
 
-#: functions/class-utils-settings-map.php:1672
+#: functions/class-utils-settings-map.php:1687
 msgid "Replace the footer copyright text"
 msgstr "取代在頁尾的版權宣告字樣"
 
-#: functions/class-utils-settings-map.php:1677
+#: functions/class-utils-settings-map.php:1692
 msgid ""
 "Note : Html is allowed. The following template tags can be used : {{year}}, "
 "{{site_title}}, {{home_url}}."
 msgstr ""
 
-#: functions/class-utils-settings-map.php:1682
+#: functions/class-utils-settings-map.php:1697
 msgid "Footer credit text"
 msgstr "頁尾參與名單字樣"
 
-#: functions/class-utils-settings-map.php:1691
+#: functions/class-utils-settings-map.php:1706
 #, fuzzy
 msgid "Display social links in the footer"
 msgstr "標頭中顯示標誌"
 
-#: functions/class-utils-settings-map.php:1722
+#: functions/class-utils-settings-map.php:1737
 msgid "Web Page Design"
 msgstr "網頁設計"
 
-#: functions/class-utils-settings-map.php:1723
+#: functions/class-utils-settings-map.php:1738
 msgid "Title, Logo, Fonts, Colors, Background, Socials, Links"
 msgstr "標題、標誌、字型、色彩、背景、社群、連結"
 
-#: functions/class-utils-settings-map.php:1724
+#: functions/class-utils-settings-map.php:1739
 msgid "General settings for the Hueman theme : design, comments, mobile, ..."
 msgstr "Hueman 主題的一般設定：設計、迴響、行動裝置、…"
 
-#: functions/class-utils-settings-map.php:1730
+#: functions/class-utils-settings-map.php:1745
 msgid "Header Design"
 msgstr "標頭設計"
 
-#: functions/class-utils-settings-map.php:1731
+#: functions/class-utils-settings-map.php:1746
 msgid "Header Image, Menu, Widget"
 msgstr "標頭影像、功能表清單、小工具"
 
-#: functions/class-utils-settings-map.php:1732
+#: functions/class-utils-settings-map.php:1747
 msgid "Header settings for the Hueman theme."
 msgstr "Hueman 主題的標頭設定。"
 
-#: functions/class-utils-settings-map.php:1738
+#: functions/class-utils-settings-map.php:1753
 msgid "Main Body Design"
 msgstr "主要主體設計"
 
-#: functions/class-utils-settings-map.php:1739
+#: functions/class-utils-settings-map.php:1754
 msgid "Layout, Sidebars, Blog Posts, Thumbnails"
 msgstr "外觀、側邊欄、部落格文章、縮圖"
 
-#: functions/class-utils-settings-map.php:1740
+#: functions/class-utils-settings-map.php:1755
 msgid "Content settings for the Hueman theme."
 msgstr "Hueman 主題的內文設定。"
 
-#: functions/class-utils-settings-map.php:1752
+#: functions/class-utils-settings-map.php:1767
 msgid "Footer Design"
 msgstr "頁尾設計"
 
-#: functions/class-utils-settings-map.php:1753
+#: functions/class-utils-settings-map.php:1768
 msgid "Logo, Layout, Menu"
 msgstr "標誌、外觀、功能表清單"
 
-#: functions/class-utils-settings-map.php:1754
+#: functions/class-utils-settings-map.php:1769
 msgid "Footer settings for the Hueman theme."
 msgstr "Hueman 主題的頁尾設定。"
 
-#: functions/class-utils-settings-map.php:1760
+#: functions/class-utils-settings-map.php:1775
 msgid "Advanced options"
 msgstr "進階選項"
 
-#: functions/class-utils-settings-map.php:1761
+#: functions/class-utils-settings-map.php:1776
 msgid "Performances, SEO, CSS, Scroll"
 msgstr "效能、搜尋引擎最佳化、CSS、捲動"
 
-#: functions/class-utils-settings-map.php:1762
+#: functions/class-utils-settings-map.php:1777
 msgid "Advanced settings for the Hueman theme."
 msgstr "Hueman 主題的進階選項。"
 
-#: functions/class-utils-settings-map.php:1844
+#: functions/class-utils-settings-map.php:1859
 msgid "Site Identity : Logo, Title, Tagline and Site Icon"
 msgstr "網站識別：標誌、標題、標語與網站圖示"
 
-#: functions/class-utils-settings-map.php:1854
+#: functions/class-utils-settings-map.php:1869
 msgid "General Design Options : Font, Colors, ..."
 msgstr "一般設定選項：字形、色彩、…"
 
-#: functions/class-utils-settings-map.php:1871
+#: functions/class-utils-settings-map.php:1886
 msgid "Header Design : colors and others"
 msgstr "標頭設計：色彩與其他設定"
 
-#: functions/class-utils-settings-map.php:1876
+#: functions/class-utils-settings-map.php:1891
 msgid "Header Image"
 msgstr "標頭圖片"
 
-#: functions/class-utils-settings-map.php:1881
+#: functions/class-utils-settings-map.php:1896
 msgid "Header Advertisement Widget"
 msgstr "標頭廣告小工具"
 
-#: functions/class-utils-settings-map.php:1886
+#: functions/class-utils-settings-map.php:1901
 msgid "Header Menus : mobile settings, scroll behaviour, search button"
 msgstr "標頭功能表清單：行動裝置設定、滾動呈現、搜尋按鍵"
 
-#: functions/class-utils-settings-map.php:1895
+#: functions/class-utils-settings-map.php:1910
 msgid "Column layout for the main content"
 msgstr "主要內容的欄位外觀"
 
-#: functions/class-utils-settings-map.php:1900
+#: functions/class-utils-settings-map.php:1915
 msgid "Sidebars : Design and Mobile Settings"
 msgstr "側邊欄：設計與行動裝置設定"
 
-#: functions/class-utils-settings-map.php:1905
+#: functions/class-utils-settings-map.php:1920
 msgid "Post Lists Design and Content : Blog, Archives, Search Results"
 msgstr "文章清單設計與內容：部落格、彙整、搜尋結果"
 
-#: functions/class-utils-settings-map.php:1911
+#: functions/class-utils-settings-map.php:1926
 #, fuzzy
 msgid "Single Pages Settings"
 msgstr "特定文章設定"
 
-#: functions/class-utils-settings-map.php:1916
+#: functions/class-utils-settings-map.php:1931
 msgid "Single Posts Settings"
 msgstr "特定文章設定"
 
-#: functions/class-utils-settings-map.php:1922
+#: functions/class-utils-settings-map.php:1937
 msgid "Thumbnails Settings"
 msgstr "縮圖設定"
 
-#: functions/class-utils-settings-map.php:1937
+#: functions/class-utils-settings-map.php:1952
 msgid "Footer Design : Logo, layout, ..."
 msgstr "頁為設計：標誌、外觀、…"
 
-#: functions/class-utils-settings-map.php:1954
+#: functions/class-utils-settings-map.php:1969
 msgid "Mobile Devices"
 msgstr "行動裝置"
 
-#: functions/class-utils-settings-map.php:1959
+#: functions/class-utils-settings-map.php:1974
 #: functions/init-sidebars-widgets.php:138
 msgid "Search Results"
 msgstr "搜尋結果"
 
-#: functions/class-utils-settings-map.php:1964
+#: functions/class-utils-settings-map.php:1979
 msgid "Performances and SEO"
 msgstr "效能與搜尋引擎最佳化"
 
-#: functions/class-utils-settings-map.php:1969
+#: functions/class-utils-settings-map.php:1984
 msgid "Hueman Admin Settings"
 msgstr "Hueman 管理設定"
 
-#: functions/class-utils-settings-map.php:1981
+#: functions/class-utils-settings-map.php:1996
 msgid "Upgrade to Hueman Pro"
 msgstr "升級至 Hueman 專業版"
 
-#: functions/class-utils-settings-map.php:1982
+#: functions/class-utils-settings-map.php:1997
 msgid "Go Pro"
 msgstr "至專業版"
 
-#: functions/class-utils-settings-map.php:2009
+#: functions/class-utils-settings-map.php:2024
 msgid "Choose one "
 msgstr "請選擇"
 
-#: functions/class-utils-settings-map.php:2028
-#: functions/class-utils-settings-map.php:2078
+#: functions/class-utils-settings-map.php:2043
+#: functions/class-utils-settings-map.php:2093
 msgid "1 Column"
 msgstr "1 欄"
 
-#: functions/class-utils-settings-map.php:2032
+#: functions/class-utils-settings-map.php:2047
 msgid "2 Columns - Content Left"
 msgstr "2 欄 - 左邊顯示內容"
 
-#: functions/class-utils-settings-map.php:2036
+#: functions/class-utils-settings-map.php:2051
 msgid "2 Columns - Content Right"
 msgstr "2 欄 - 右邊顯示內容"
 
-#: functions/class-utils-settings-map.php:2040
+#: functions/class-utils-settings-map.php:2055
 msgid "3 Columns - Content Middle"
 msgstr "3 欄 - 中間顯示內容"
 
-#: functions/class-utils-settings-map.php:2044
+#: functions/class-utils-settings-map.php:2059
 msgid "3 Columns - Content Left"
 msgstr "3 欄 - 左邊顯示內容"
 
-#: functions/class-utils-settings-map.php:2048
+#: functions/class-utils-settings-map.php:2063
 msgid "3 Columns - Content Right"
 msgstr "3 欄 - 右邊顯示內容"
 
-#: functions/class-utils-settings-map.php:2056
+#: functions/class-utils-settings-map.php:2071
 msgid "Inherit Global Layout"
 msgstr "繼承共用外觀"
 
-#: functions/class-utils-settings-map.php:2082
+#: functions/class-utils-settings-map.php:2097
 msgid "2 Columns"
 msgstr "2 欄"
 
-#: functions/class-utils-settings-map.php:2086
+#: functions/class-utils-settings-map.php:2101
 msgid "3 Columns"
 msgstr "3 欄"
 
-#: functions/class-utils-settings-map.php:2090
+#: functions/class-utils-settings-map.php:2105
 msgid "4 Columns"
 msgstr "4 欄"
 
-#: functions/class-utils-settings-map.php:2115
+#: functions/class-utils-settings-map.php:2130
 #: option-tree/includes/ot-functions-option-types.php:2147
 msgid "No Sidebars"
 msgstr "無側邊欄"
 
-#: functions/class-utils-settings-map.php:2120
+#: functions/class-utils-settings-map.php:2135
 #: option-tree/includes/ot-functions-option-types.php:2142
 msgid "Choose Sidebar"
 msgstr "選擇側邊欄"
@@ -4443,97 +4451,97 @@ msgstr "您可以透過編輯目前的文章或頁面選項變更或停用這個
 msgid "Add widgets to the zone :"
 msgstr "新增小工具至這個區域："
 
-#: functions/init-front.php:489 functions/init-front.php:495
+#: functions/init-front.php:492 functions/init-front.php:498
 msgid "Home page"
 msgstr "首頁"
 
-#: functions/init-front.php:547
+#: functions/init-front.php:550
 msgid "Search result"
 msgstr "搜尋結果"
 
-#: functions/init-front.php:549
+#: functions/init-front.php:552
 msgid "Search results"
 msgstr "搜尋結果"
 
-#: functions/init-front.php:560
+#: functions/init-front.php:563
 msgid "Error 404."
 msgstr "錯誤 404 。"
 
-#: functions/init-front.php:561
+#: functions/init-front.php:564
 msgid "Page not found!"
 msgstr "找不到頁面！"
 
-#: functions/init-front.php:576
+#: functions/init-front.php:579
 msgid "Author:"
 msgstr "作者："
 
-#: functions/init-front.php:594
+#: functions/init-front.php:597
 msgid "Category:"
 msgstr "分類："
 
-#: functions/init-front.php:603
+#: functions/init-front.php:606
 msgid "Tagged:"
 msgstr "標籤："
 
-#: functions/init-front.php:622
+#: functions/init-front.php:625
 msgid "Daily Archive:"
 msgstr "每日彙整："
 
-#: functions/init-front.php:632
+#: functions/init-front.php:635
 msgid "Monthly Archive:"
 msgstr "每月彙整："
 
-#: functions/init-front.php:642
+#: functions/init-front.php:645
 msgid "Yearly Archive:"
 msgstr "每年彙整："
 
-#: functions/init-front.php:1235
+#: functions/init-front.php:1250
 #, fuzzy
 msgid "Expand"
 msgstr "展開功能表清單"
 
-#: functions/init-front.php:1236
+#: functions/init-front.php:1251
 #, fuzzy
 msgid "Collapse"
 msgstr "折疊功能表清單"
 
-#: functions/init-front.php:1728 functions/init-sidebars-widgets.php:134
+#: functions/init-front.php:1832 functions/init-sidebars-widgets.php:134
 msgid "Pages"
 msgstr "頁面"
 
-#: functions/init-front.php:2004
+#: functions/init-front.php:2108
 msgid "Welcome in the Hueman theme"
 msgstr "歡迎使用 Hueman 主題"
 
-#: functions/init-front.php:2007
+#: functions/init-front.php:2111
 msgid "The theme offers a wide range"
 msgstr "主題提供大範圍的"
 
-#: functions/init-front.php:2009
+#: functions/init-front.php:2113
 msgid "of customization options"
 msgstr "的自訂選項"
 
-#: functions/init-front.php:2010
+#: functions/init-front.php:2114
 msgid "to let you create the best possible websites."
 msgstr "讓您建立最棒的精彩站台。"
 
-#: functions/init-front.php:2013
+#: functions/init-front.php:2117
 msgid "If you need inspiration, you can visit our online demos"
 msgstr "如果您需要靈感，您可以瀏覽我們的線上展示"
 
-#: functions/init-front.php:2015
+#: functions/init-front.php:2119
 msgid "Hueman Demo 1"
 msgstr "Hueman 展示 1"
 
-#: functions/init-front.php:2017
+#: functions/init-front.php:2121
 msgid "Hueman Demo 2"
 msgstr "Hueman 展示 2"
 
-#: functions/init-front.php:2020
+#: functions/init-front.php:2124
 msgid "To help you getting started with Hueman, we have published"
 msgstr "協助您開始使用我們已發表的 Hueman "
 
-#: functions/init-front.php:2022
+#: functions/init-front.php:2126
 msgid "a short guide here."
 msgstr "此為簡易指南。"
 

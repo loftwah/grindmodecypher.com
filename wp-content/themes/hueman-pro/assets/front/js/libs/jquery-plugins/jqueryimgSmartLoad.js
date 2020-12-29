@@ -87,9 +87,9 @@
             });
 
             //the scroll event gets throttled with the requestAnimationFrame
-            $(window).scroll( function( _evt ) { self._better_scroll_event_handler( _evt ); } );
+            $(window).on('scroll', function( _evt ) { self._better_scroll_event_handler( _evt ); } );
             //debounced resize event
-            $(window).resize( _.debounce( function( _evt ) { self._maybe_trigger_load( _evt ); }, 100 ) );
+            $(window).on('resize', _.debounce( function( _evt ) { self._maybe_trigger_load( _evt ); }, 100 ) );
 
             //on DOM ready
             this._maybe_trigger_load( 'dom-ready');
@@ -183,7 +183,7 @@
 
             $_img.parent().addClass('smart-loading');
 
-            $_img.unbind('load_img')
+            $_img.off('load_img')
                   //.hide()
                   //https://api.jquery.com/removeAttr/
                   //An attribute to remove; as of version 1.7, it can be a space-separated list of attributes.
@@ -192,7 +192,7 @@
                   .attr( 'sizes' , _sizes )
                   .attr( 'srcset' , _src_set )
                   .attr( 'src', _src )
-                  .load( function () {
+                  .on('load', function () {
                         //prevent executing this twice on an already smartloaded img
                         if ( !$_img.hasClass(skipImgClass) ) {
                               $_img.fadeIn(self.options.fadeIn_options).addClass(skipImgClass);
@@ -224,7 +224,7 @@
                   });//<= create a load() fn
             //http://stackoverflow.com/questions/1948672/how-to-tell-if-an-image-is-loaded-or-cached-in-jquery
             if ( $_img[0].complete ) {
-                  $_img.load();
+                  $_img.trigger('load');
             }
             $_img.parent().removeClass('smart-loading');
       };

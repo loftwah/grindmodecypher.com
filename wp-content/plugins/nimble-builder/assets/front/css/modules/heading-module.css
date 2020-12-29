@@ -1,0 +1,13 @@
+/*************************************
+* HEADING MODULE
+*************************************/
+.sek-module-inner .sek-heading {
+  text-align: center;
+  margin: 0.6em 0;
+  display: block;
+}
+
+.sek-module-inner .sek-heading > a {
+  color: inherit;
+  font-size: inherit;
+}

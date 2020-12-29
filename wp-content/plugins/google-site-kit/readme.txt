@@ -2,9 +2,9 @@
 
 Contributors:      google
 Requires at least: 4.7
-Tested up to:      5.5
+Tested up to:      5.6
 Requires PHP:      5.6
-Stable tag:        1.17.0
+Stable tag:        1.23.0
 License:           Apache License 2.0
 License URI:       https://www.apache.org/licenses/LICENSE-2.0
 Tags:              google, search-console, analytics, adsense, pagespeed-insights, optimize, tag-manager, site-kit
@@ -87,6 +87,169 @@ We plan to expand the plugin’s capabilities and integrations in the future; we
 If you have some ideas to improve the plugin or to solve a bug, feel free to raise an issue or submit a pull request in the [GitHub repository for the plugin](https://github.com/google/site-kit-wp). Please stick to the [contributing guidelines](https://github.com/google/site-kit-wp/blob/master/CONTRIBUTING.md). You can also contribute to the plugin by translating it. Simply visit [translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/google-site-kit) to get started.
 
 == Changelog ==
+
+= 1.23.0 =
+
+**Added**
+
+* Scaffold components for a new version of the Analytics All Traffic widget. See [#2392](https://github.com/google/site-kit-wp/issues/2392).
+* Display graph with historic AdSense data on module page, showing earnings, RPM, impressions and CTR over time. See [#1921](https://github.com/google/site-kit-wp/issues/1921).
+
+**Enhanced**
+
+* Introduce `listFormat` function to format entries in a comma-separated list. See [#2486](https://github.com/google/site-kit-wp/issues/2486).
+* Rename arguments across various datastore actions requiring a `WPComponent` type to use capitalized names to better indicate a `WPComponent` (and not a `WPElement`) is required. See [#2413](https://github.com/google/site-kit-wp/issues/2413).
+* Improve validation of user input submission states. See [#2323](https://github.com/google/site-kit-wp/issues/2323).
+* Introduce `ActivateModuleCTA` and `CompleteModuleActivationCTA` components to centrally manage UI for those scenarios. See [#2299](https://github.com/google/site-kit-wp/issues/2299).
+* Remove legacy `googlesitekit.moduleHasSetupWizard` JS filter. See [#2291](https://github.com/google/site-kit-wp/issues/2291).
+* Remove legacy splash screen and the associated components. See [#2290](https://github.com/google/site-kit-wp/issues/2290).
+* Allow registering module icon SVGs via the `core/modules` action `registerModule`. See [#2143](https://github.com/google/site-kit-wp/issues/2143).
+
+**Fixed**
+
+* Fix various low-level technical bugs due to duplicate module initialization by relying on a single reused Webpack runtime across entrypoints. See [#2444](https://github.com/google/site-kit-wp/issues/2444).
+* Remove duplicate error message UI on top of module settings panel, since error messages are now displayed within the panel's main content already. See [#2396](https://github.com/google/site-kit-wp/issues/2396).
+* Fix component-specific initialization logic of Google charts library to prevent duplicate initialization. See [#2247](https://github.com/google/site-kit-wp/issues/2247).
+
+= 1.22.0 =
+
+**Added**
+
+* Surface WordPress-specific user experience recommendations in the PageSpeed Insights widget. See [#2390](https://github.com/google/site-kit-wp/issues/2390).
+* Add support for `checkRequirements` argument to `registerModule` action of `core/modules` store, which allows to block a module from being activated until certain requirements are met. See [#2130](https://github.com/google/site-kit-wp/issues/2130).
+
+**Enhanced**
+
+* Ensure that all URIs on the authentication service are automatically refreshed as necessary when connecting as a user to an already connected site, fixing issues where sites could get stuck after updating their URLs. See [#2383](https://github.com/google/site-kit-wp/issues/2383).
+* Move the date picker into the Site Kit header bar and make it sticky so that it is always visible when scrolling. See [#2331](https://github.com/google/site-kit-wp/issues/2331).
+* Remove outdated dashboard notification warning vaguely about missing permissions, which is now covered with more specific widget CTAs. See [#2329](https://github.com/google/site-kit-wp/issues/2329).
+* Add support for feature flags in PHP and experimentally require user input completion upon setup. See [#2316](https://github.com/google/site-kit-wp/issues/2316).
+* Implement success notification displayed after completing the user input flow. See [#2283](https://github.com/google/site-kit-wp/issues/2283).
+* Add support for displaying datastore-driven global error notifications in the plugin header. See [#2261](https://github.com/google/site-kit-wp/issues/2261).
+* Improve logic to determine whether a Search Console API report response is "empty", via new `isZeroReport` function for Search Console. See [#2244](https://github.com/google/site-kit-wp/issues/2244).
+* Improve logic to determine whether an Analytics API report response is "empty", via new `isZeroReport` function for Analytics. See [#2243](https://github.com/google/site-kit-wp/issues/2243).
+* Rely on JavaScript date parsing for AdSense widgets. See [#2235](https://github.com/google/site-kit-wp/issues/2235).
+* Add `core/modules` actions and selectors for managing module settings panel state. See [#2181](https://github.com/google/site-kit-wp/issues/2181).
+* Implement Site Kit dashboard notification for when requesting user input to be completed. See [#2043](https://github.com/google/site-kit-wp/issues/2043).
+* Implement exponential backoff to retry Google service API requests a limited amount of time if they fail with temporary errors. See [#1998](https://github.com/google/site-kit-wp/issues/1998).
+
+**Fixed**
+
+* Fix Search Console latest data threshold back to 2 days ago as that is the latest data the API provides. See [#2458](https://github.com/google/site-kit-wp/issues/2458).
+* Make e2e tests pass for WordPress 5.6. See [#2455](https://github.com/google/site-kit-wp/issues/2455).
+* Fix race condition where widgets could run into an error when their necessary datastore selector had not started resolving yet. See [#2436](https://github.com/google/site-kit-wp/issues/2436).
+* Fix various spelling errors throughout the UI of the plugin. See [#2401](https://github.com/google/site-kit-wp/issues/2401).
+* Flush browser session storage on plugin updates to prevent stale data from being served against new logic. See [#2334](https://github.com/google/site-kit-wp/issues/2334).
+* Ensure that REST API preloaded data is not computed and included outside of Site Kit admin screens. See [#2315](https://github.com/google/site-kit-wp/issues/2315).
+* Fix failing PHPUnit tests for compatibility with upcoming WordPress 5.6. See [#2264](https://github.com/google/site-kit-wp/issues/2264).
+* Fix broken Analytics frontend deep links on AdSense module page. See [#2228](https://github.com/google/site-kit-wp/issues/2228).
+
+= 1.21.0 =
+
+**Enhanced**
+
+* Include current user's Site Kit capabilities in Site Health report. See [#2314](https://github.com/google/site-kit-wp/issues/2314).
+* Mark user input state as completed once user has submitted their information. See [#2310](https://github.com/google/site-kit-wp/issues/2310).
+* Finalize copy for new `googlesitekit-user-input` screen. See [#2302](https://github.com/google/site-kit-wp/issues/2302).
+* Display informational warning before setup about limited support for WordPress versions before 5.0. See [#2289](https://github.com/google/site-kit-wp/issues/2289).
+* Modify Search Console API queries so that they include results up until one day ago. See [#2284](https://github.com/google/site-kit-wp/issues/2284).
+* Add support for widgets to have multiple (fallback) widths via `googlesitekit.widgets.registerWidget`, laying out widget grid with as few gaps as possible. See [#2251](https://github.com/google/site-kit-wp/issues/2251).
+* Modify widgets registered with `quarter` width to render for half the screen width on mobile viewports. See [#2250](https://github.com/google/site-kit-wp/issues/2250).
+* Introduce `ReportError` and `ReportZero` components which should be returned by widgets that are in error state or have no data to display. See [#2246](https://github.com/google/site-kit-wp/issues/2246).
+* Add JS utility functions `sumObjectListValue`, `averageObjectListValue`, and enhance capabilities of `extractForSparkline` function. See [#2245](https://github.com/google/site-kit-wp/issues/2245).
+* Improve logic to determine whether an AdSense API report response is "empty", via new `isZeroReport` function for AdSense. See [#2242](https://github.com/google/site-kit-wp/issues/2242).
+* Simplify adding strings only visible to screen reader users by implementing a `VisuallyHidden` component. See [#2165](https://github.com/google/site-kit-wp/issues/2165).
+* Reduce complexity of implementing and registering `settingsEdit` components for a module by centrally handling setting submission. See [#2137](https://github.com/google/site-kit-wp/issues/2137).
+* Modify the `createModuleStore` JavaScript function so that every module store has a `canSubmitChanges` selector and a `submitChanges` action. See [#2136](https://github.com/google/site-kit-wp/issues/2136).
+* Implement UI design for `googlesitekit-user-input` screen. See [#2040](https://github.com/google/site-kit-wp/issues/2040).
+* Simplify module class infrastructure and implement (internal) module registry. See [#1939](https://github.com/google/site-kit-wp/issues/1939).
+
+**Fixed**
+
+* Fix bug where Analytics widgets would fire their API requests even when the module wasn't completely set up, resulting in unnecessary error responses. See [#2358](https://github.com/google/site-kit-wp/issues/2358).
+* Fix JavaScript translations that were not appearing to work correctly, given the site uses WordPress >= 5.0, which is required for support of JavaScript translations. See [#2171](https://github.com/google/site-kit-wp/issues/2171).
+* Fix bug where a previous error from an action would not be cleared when trying the same action again. See [#2156](https://github.com/google/site-kit-wp/issues/2156).
+* Fix a few translation strings that were concatenating date ranges, making them correctly translatable. See [#2146](https://github.com/google/site-kit-wp/issues/2146).
+* Fix compatibility issue where `amp-auto-ads` element would not be present in AMP singular content when also using the Yoast SEO plugin. See [#2111](https://github.com/google/site-kit-wp/issues/2111).
+
+= 1.20.0 =
+
+**Added**
+
+* Implement post search widget using the new Widget API. See [#2023](https://github.com/google/site-kit-wp/issues/2023).
+* Allow registering a `settingsViewComponent` and `settingsEditComponent` when calling the `registerModule` action on the `core/modules` store. See [#1623](https://github.com/google/site-kit-wp/issues/1623).
+
+**Enhanced**
+
+* Unregister the site from the authentication service when the plugin is deleted. See [#2311](https://github.com/google/site-kit-wp/issues/2311).
+* Add selectors `canSubmitChanges` and `isDoingSubmitChanges` and action `submitChanges` to `core/modules` datastore. See [#2182](https://github.com/google/site-kit-wp/issues/2182).
+* Add selectors `getModuleDependencyNames` and `getModuleDependantNames` to `core/modules` store. See [#2180](https://github.com/google/site-kit-wp/issues/2180).
+* Allow registering a `setupComponent` when calling the `registerModule` action on the `core/modules` store. See [#2074](https://github.com/google/site-kit-wp/issues/2074).
+* Implement UI for new splash screen based on authentication service improvements. See [#2046](https://github.com/google/site-kit-wp/issues/2046).
+* Detect and store whether each user has already answered the user input questions to customize the plugin behavior. See [#2042](https://github.com/google/site-kit-wp/issues/2042).
+* Implement UI components to use in `googlesitekit-user-input` screen. See [#2039](https://github.com/google/site-kit-wp/issues/2039).
+* Add Analytics tracking events for API request errors. See [#1999](https://github.com/google/site-kit-wp/issues/1999).
+
+**Fixed**
+
+* Fix bug where errors would be inconsistently keyed and not cleared as expected in certain cases. See [#2210](https://github.com/google/site-kit-wp/issues/2210).
+* Fix Search Console deep links to point to correct locations in case of a domain property as well. See [#2110](https://github.com/google/site-kit-wp/issues/2110).
+* Fix accessibility issue with links opening in a new tab by annotating them with screen reader text informing about it. See [#2093](https://github.com/google/site-kit-wp/issues/2093).
+* Fix several UI loading state issues across module setup flows. See [#1995](https://github.com/google/site-kit-wp/issues/1995).
+* Display text field to specify name when creating a new Tag Manager container, and prevent duplicate names which could have resulted in an error before. See [#1817](https://github.com/google/site-kit-wp/issues/1817).
+* Remove usage of JavaScript chunk files to fix potential issues with certain server configurations. See [#1391](https://github.com/google/site-kit-wp/issues/1391).
+
+= 1.19.0 =
+
+**Added**
+
+* Introduce `getUserInputSettings` selector and `setUserInputSettings` and `saveUserInputSettings` actions on `core/user` store. See [#2037](https://github.com/google/site-kit-wp/issues/2037).
+* Introduce `core/user/data/user-input-settings` REST datapoint. See [#2036](https://github.com/google/site-kit-wp/issues/2036).
+
+**Enhanced**
+
+* Display notice about new Analytics and link to relevant support resource. See [#2219](https://github.com/google/site-kit-wp/issues/2219).
+* Make `canSubmitChanges` selectors throughout different module datastores more testable and consistent. See [#2108](https://github.com/google/site-kit-wp/issues/2108).
+* Enhance new widget API so that only widget areas that have active widgets are rendered. See [#2021](https://github.com/google/site-kit-wp/issues/2021).
+* Provide accurate deep links for all Search Console and Analytics widgets, pointing to the corresponding location in the Google service frontend. See [#1923](https://github.com/google/site-kit-wp/issues/1923).
+* Use direct SVG imports instead of an SVG sprite which can cause accessibility and testing issues. See [#1878](https://github.com/google/site-kit-wp/issues/1878).
+* Make AdSense module page UI more consistent with other modules, allowing to filter information by date instead of showing at-a-glance information for different date periods. See [#317](https://github.com/google/site-kit-wp/issues/317).
+
+**Fixed**
+
+* Fix bug where some data stores would be registered multiple times in JS. See [#2145](https://github.com/google/site-kit-wp/issues/2145).
+* Fix issue where admin bar would not show for URLs with unicode paths. Props kabirbd89. See [#1968](https://github.com/google/site-kit-wp/issues/1968).
+* Improve error handling during module setup and editing module settings so that any API errors are displayed. See [#1859](https://github.com/google/site-kit-wp/issues/1859).
+* Fix menu positioning bug that would move menu item for WP Engine and Bluehost hosting providers. See [#1541](https://github.com/google/site-kit-wp/issues/1541).
+
+= 1.18.0 =
+
+**Added**
+
+* Introduce several filters to allow blocking rendering or execution of Google service scripts in the frontend, allowing integration with e.g. 3P cookie consent plugins. See [#2087](https://github.com/google/site-kit-wp/issues/2087).
+* Introduce API layer for advanced Analytics event tracking configurations from other plugins. See [#1728](https://github.com/google/site-kit-wp/issues/1728).
+
+**Enhanced**
+
+* Introduce `googlesitekit_canonical_home_url` filter, allowing (e.g. multilingual) plugins that contextually alter the home URL to fix potential issues with Site Kit. See [#2131](https://github.com/google/site-kit-wp/issues/2131).
+* Remove unused properties in module PHP classes. See [#2050](https://github.com/google/site-kit-wp/issues/2050).
+* Scaffold new `googlesitekit-user-input` screen. See [#2038](https://github.com/google/site-kit-wp/issues/2038).
+* Expand `Widget` component to correctly align vertically and support optional header and footer component props. See [#2022](https://github.com/google/site-kit-wp/issues/2022).
+* Improve authentication service permissions link to check Site Kit permissions first while not exposing the actual URL on the client. See [#1985](https://github.com/google/site-kit-wp/issues/1985).
+* Introduce `User_Transients` PHP class for storing user-specific transients. See [#1964](https://github.com/google/site-kit-wp/issues/1964).
+* Introduce `getDateRangeDates()` selector to `core/user` datastore to retrieve actual date strings based on the current date range. See [#1925](https://github.com/google/site-kit-wp/issues/1925).
+* Display error notification when refreshing an access token failed due to missing Site Kit authentication service requirements. See [#1848](https://github.com/google/site-kit-wp/issues/1848).
+* Update the Reset Site Kit dialog message to be more clear. See [#1825](https://github.com/google/site-kit-wp/issues/1825).
+* Provide guidance in Analytics setup flow when Tag Manager is already active and its container is configured to use Analytics. See [#1382](https://github.com/google/site-kit-wp/issues/1382).
+* Provide guidance in Tag Manager setup flow when container is configured to use Analytics, including checks to ensure an eventual AMP container behaves correctly as well. See [#1381](https://github.com/google/site-kit-wp/issues/1381).
+* Remove Analytics module as requirement for Tag Manager module, decoupling them to be individual. See [#1380](https://github.com/google/site-kit-wp/issues/1380).
+
+**Fixed**
+
+* Fix new AdSense Top Earning Pages widget displaying error instead of CTA to link AdSense and Analytics. See [#2098](https://github.com/google/site-kit-wp/issues/2098).
+* Fix inconsistent loading state in Search Console Popular Keywords widget, which previously caused content shifting. See [#2013](https://github.com/google/site-kit-wp/issues/2013).
+* Show an error message if the URL for the single URL detail view cannot be identified as part of the site. See [#2001](https://github.com/google/site-kit-wp/issues/2001).
+* Improve support for URLs containing unicode, mixed case, and bidirectional control characters when requesting and sending data to Search Console. See [#1567](https://github.com/google/site-kit-wp/issues/1567).
 
 = 1.17.0 =
 

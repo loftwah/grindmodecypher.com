@@ -1,3 +1,6 @@
+/*************************************
+* MENU MODULE
+*************************************/
 .sek-nav-wrap {
   position: relative;
   display: -ms-flexbox;
@@ -56,8 +59,11 @@
   padding: 0 0 0 .9rem;
 }
 
-.sek-nav li a {
+.sek-nav li {
   font-size: 16px;
+}
+
+.sek-nav li a {
   line-height: 1.5em;
   padding: .6em .8em;
   display: -ms-flexbox;
@@ -159,7 +165,7 @@
   -ms-transform: rotate(-180deg) !important;
 }
 
-.sek-module-inner .sek-nav-toggler {
+.nb-loc .sek-module-inner .sek-nav-toggler {
   -webkit-appearance: none !important;
   cursor: pointer;
   height: 40px;
@@ -168,7 +174,7 @@
   vertical-align: middle;
 }
 
-.sek-module-inner .sek-nav-toggler, .sek-module-inner .sek-nav-toggler:hover, .sek-module-inner .sek-nav-toggler:focus {
+.nb-loc .sek-module-inner .sek-nav-toggler, .nb-loc .sek-module-inner .sek-nav-toggler:hover, .nb-loc .sek-module-inner .sek-nav-toggler:focus {
   background: 0 0;
   background-color: rgba(0, 0, 0, 0);
   color: black;

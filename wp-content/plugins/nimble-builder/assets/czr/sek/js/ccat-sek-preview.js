@@ -100,11 +100,13 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
                                 // remove target="_blank" if enabled by user
                                 // @fixes issue https://github.com/presscustomizr/nimble-builder/issues/542
                                 $(this).removeAttr('target');
-                                $(this).hover( function() {
+                                $(this).on('mouseenter', function() {
                                         $(this).attr( 'title', sekPreviewLocalized.i18n['Shift-click to visit the link']);
-                                }, function() {
+                                });
+                                $(this).on('mouseleave', function() {
                                       $(this).removeAttr( 'title' );
                                 });
+
                                 $(this).on('click', function(evt) {
                                       if ( ! evt.shiftKey ) {
                                         return;
@@ -115,9 +117,9 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
                           } else {
                                 $(this).addClass('nimble-unclickable');
                                 $(this).data('sek-unlinked', "yes").attr('data-nimble-href', $(this).attr('href') ).attr('href', 'javascript:void(0)');
-                                $(this).hover( function() {
+                                $(this).on('mouseenter', function() {
                                       $(this).attr( 'title', isJavascriptProtocol ? sekPreviewLocalized.i18n['Link deactivated while previewing'] : sekPreviewLocalized.i18n['External links are disabled when customizing']);
-                                }, function() {
+                                }).on('mouseleave', function() {
                                       $(this).removeAttr( 'title' );
                                 });
                                 $(this).on('click', function(evt) {
@@ -2558,7 +2560,8 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
 
             appendDynStyleSheet : function( location_skope_id, styleMarkup ) {
                 var _stylesheet_id_ = '#sek-' + location_skope_id,//@see php Sek_Dyn_CSS_Handler
-                    _gfonts_id_ = '#sek-gfonts-local-and-global';//@see php Sek_Dyn_CSS_Handler
+                    _gfonts_id_ = '#' + sekPreviewLocalized.googleFontsStyleId,//@see php Sek_Dyn_CSS_Handler
+                    _global_option_inline_style_id_ = '#' + sekPreviewLocalized.globalOptionsStyleId;
 
                 // Remove a dynamic inline stylesheet if already printed
                 if ( 0 < $('head').find( _stylesheet_id_ ).length ) {
@@ -2567,12 +2570,15 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
                 if ( 0 < $('head').find( _gfonts_id_ ).length ) {
                       $('head').find( _gfonts_id_ ).remove();
                 }
+                if ( 0 < $('head').find( _global_option_inline_style_id_ ).length ) {
+                      $('head').find( _global_option_inline_style_id_ ).remove();
+                }
                 if ( !_.isEmpty( styleMarkup ) ) {
                       $('head').append( styleMarkup );
                 }
                 // Has it be printed ?
                 // if we have something to print ( styleMarkup not empty ), there should be a dom element
-                if ( ! _.isEmpty( styleMarkup ) &&  1 > $('head').find( _stylesheet_id_ ).length && 1 > $('head').find( _gfonts_id_ ).length  ) {
+                if ( !_.isEmpty( styleMarkup ) &&  1 > $('head').find( _stylesheet_id_ ).length && 1 > $('head').find( _gfonts_id_ ).length && 1 > $('head').find( _global_option_inline_style_id_ ).length ) {
                       this.errare( 'sek-preview => problem when printing the dynamic inline style for : '+ _stylesheet_id_, styleMarkup );
                 } else {
                       $('head').find( _stylesheet_id_ ).attr('sek-data-origin', 'customizer' );
@@ -2668,6 +2674,12 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
 
             //encapsulates a WordPress ajax request in a normalize method
             //@param queryParams = {}
+            //
+            //Important : we MUST use $.ajax() because when previewing, the ajax requests params are amended with a preFilter ( see customize-preview.js, $.ajaxPrefilter( prefilterAjax ) )in order to include params
+            //in particular the 'customized' dirty values, that NB absolutely needs to dynamically register settings that have not yet been instantiated by WP_Customize_Manager
+            // see WP Core => class WP_Customize_Manager, add_action( 'customize_register', array( $this, 'register_dynamic_settings' ), 11 );
+            // see NB => class SEK_CZR_Dyn_Register
+            // see NB => Nimble_Customizer_Setting::filter_previewed_sek_get_skoped_seks => this is how we can get the sektions collection while customizing, see sek_get_skoped_seks()
             doAjax : function( queryParams ) {
                   var self = this;
                   //do we have a queryParams ?
@@ -2682,6 +2694,16 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
                             },
                             queryParams
                       );
+
+                  // Check if the ajax url passes WP core customize-preview test
+                  // Nov 2020 : added when fixing WPML compat https://github.com/presscustomizr/nimble-builder/issues/753
+                  var urlParser = document.createElement( 'a' );
+                      urlParser.href = ajaxUrl;
+                  // Abort if the request is not for this site.
+                  if ( ! api.isLinkPreviewable( urlParser, { allowAdminAjax: true } ) ) {
+                      self.errare( 'self.doAjax => error => !api.isLinkPreviewable for action ' + _query_.action, urlParser );
+                      return dfd.resolve().promise();
+                  }
 
                   // HTTP ajaxurl when site is HTTPS causes Access-Control-Allow-Origin failure in Desktop and iOS Safari
                   if ( "https:" == document.location.protocol ) {
@@ -2714,6 +2736,7 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
                   // That's why those static query params are written in the preview frame, and used as ajax params that we can access server side via php $_POST.
                   _query_.czr_query_params = JSON.stringify( _.isObject( _wpCustomizeSettings.czr_query_params ) ? _wpCustomizeSettings.czr_query_params : [] );
 
+                  // note that the $_POST['customized'] param is set by core WP customizer-preview.js with $.ajaxPrefilter
                   $.post( ajaxUrl, _query_ )
                         .done( function( _r ) {
                               // Check if the user is logged out.

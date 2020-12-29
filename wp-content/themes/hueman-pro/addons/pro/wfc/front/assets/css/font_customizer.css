@@ -1,8 +1,3 @@
-/* Menu items first letter fix for the customizr theme*/
-.wfc-reset-menu-item-first-letter .navbar .nav>li>a:first-letter {
-  font-size: inherit;
-}
-
 /* FONT EFFECTS */
 .font-effect-3d-one {
   text-shadow: 0px 1px 0px #c7c8ca, 0px 2px 0px #b1b3b6, 0px 3px 0px #9d9fa2, 0px 4px 0px #8a8c8e, 0px 5px 0px #77787b, 0px 6px 0px #636466, 0px 7px 0px #4d4d4f, 0px 8px 7px #001135!important;
@@ -19,31 +14,31 @@ text-shadow: 0 1px 0 #ccc,0 2px 0 #c9c9c9,0 3px 0 #bbb,0 4px 0 #b9b9b9,0 5px 0 #
   text-shadow: -0.06em 0 #F00, 0.06em 0 #0FF!important;
 }
 .font-effect-brick-sign {
-  -webkit-mask-image: url(//themes.googleusercontent.com/static/patterns/brick-sign.png);
+  -webkit-mask-image: url(../img/brick-sign.png);
   color: #600;
 }
 .font-effect-canvas-print {
-  -webkit-mask-image: url(//themes.googleusercontent.com/static/patterns/canvas-print.png);
+  -webkit-mask-image: url(../img/canvas-print.png);
   color: #7A5C3E;
 }
 .font-effect-crackle {
-  -webkit-mask-image: url(//themes.googleusercontent.com/static/patterns/crackle.png);
+  -webkit-mask-image: url(../img/crackle.png);
   color: #963;
 }
 .font-effect-decaying {
-  -webkit-mask-image: url(//themes.googleusercontent.com/static/patterns/decaying.png);
+  -webkit-mask-image: url(../img/decaying.png);
   color: #958e75;
 }
 .font-effect-destruction {
-  -webkit-mask-image: url(//themes.googleusercontent.com/static/patterns/destruction.png);
+  -webkit-mask-image: url(../img/destruction.png);
   color: red;
 }
 .font-effect-distressed {
-  -webkit-mask-image: url(//themes.googleusercontent.com/static/patterns/distress-light.png);
+  -webkit-mask-image: url(../img/distress-light.png);
   color: #306;
 }
 .font-effect-distressed-wood {
-  -webkit-mask-image: url(//themes.googleusercontent.com/static/patterns/distressed-wood.png);
+  -webkit-mask-image: url(../img/distressed-wood.png);
   color: #4d2e0d;
 }
 .font-effect-emboss {
@@ -81,19 +76,19 @@ text-shadow: 0 1px 0 #ccc,0 2px 0 #c9c9c9,0 3px 0 #bbb,0 4px 0 #b9b9b9,0 5px 0 #
   color: #ffe;
 }
 .font-effect-fragile {
-  -webkit-mask-image: url(//themes.googleusercontent.com/static/patterns/fragile.png);
+  -webkit-mask-image: url(../img/fragile.png);
   color: #663;
 }
 .font-effect-grass {
-  -webkit-mask-image: url(//themes.googleusercontent.com/static/patterns/grass.png);
+  -webkit-mask-image: url(../img/grass.png);
   color: #390;
 }
 .font-effect-ice {
-  -webkit-mask-image: url(//themes.googleusercontent.com/static/patterns/ice.png);
+  -webkit-mask-image: url(../img/ice.png);
   color: #0cf;
 }
 .font-effect-mitosis {
-  -webkit-mask-image: url(//themes.googleusercontent.com/static/patterns/mitosis.png);
+  -webkit-mask-image: url(../img/mitosis.png);
   color: #600;
 }
 .font-effect-neon-blue {
@@ -133,11 +128,11 @@ text-shadow: 0 1px 0 #ccc,0 2px 0 #c9c9c9,0 3px 0 #bbb,0 4px 0 #b9b9b9,0 5px 0 #
   color: #fff;
 }
 .font-effect-putting-green {
-  -webkit-mask-image: url(//themes.googleusercontent.com/static/patterns/putting-green.png);
+  -webkit-mask-image: url(../img/putting-green.png);
   color: #390;
 }
 .font-effect-scuffed-steel {
-  -webkit-mask-image: url(//themes.googleusercontent.com/static/patterns/scuffed-steel.png);
+  -webkit-mask-image: url(../img/scuffed-steel.png);
   color: #acacac;
 }
 .font-effect-shadow-soft {
@@ -164,28 +159,35 @@ text-shadow: 0 1px 0 #ccc,0 2px 0 #c9c9c9,0 3px 0 #bbb,0 4px 0 #b9b9b9,0 5px 0 #
   text-shadow: 3px 3px 0px #eee, 5px 5px 0px #707070;
 }
 .font-effect-splintered {
-  -webkit-mask-image: url(//themes.googleusercontent.com/static/patterns/splintered.png);
+  -webkit-mask-image: url(../img/splintered.png);
   color: #5a3723;
 }
 .font-effect-static {
-  -webkit-mask-image: url(//themes.googleusercontent.com/static/patterns/static.png);
+  -webkit-mask-image: url(../img/static.png);
   text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 8px #999999, 0 0 10px #000000!important;
   color: #343956;
 }
 .font-effect-stonewash {
-  -webkit-mask-image: url(//themes.googleusercontent.com/static/patterns/stonewash.png);
+  -webkit-mask-image: url(../img/stonewash.png);
   color: #343956;
 }
 .font-effect-vintage {
-  -webkit-mask-image: url(//themes.googleusercontent.com/static/patterns/distress-medium.png);
+  -webkit-mask-image: url(../img/distress-medium.png);
   color: #db8;
 }
 .font-effect-wallpaper {
-  -webkit-mask-image: url(//themes.googleusercontent.com/static/patterns/wallpaper.png);
+  -webkit-mask-image: url(../img/wallpaper.png);
   color: #9c7;
 }
 
-/* ICONS HIDING */
+/* NOV 2020 => The rules below are now written inline */
+/*
+//Menu items first letter fix for the customizr theme
+.wfc-reset-menu-item-first-letter .navbar .nav>li>a:first-letter {
+  font-size: inherit;
+}
+
+//ICONS HIDING
 .format-icon:before {
   color: #5A5A5A;
 }
@@ -208,8 +210,7 @@ h2#tc-comment-title.tc-hide-icon:before {
   display: none !important;
 }
 
-/* CUSTOMIZR STYLE */
-
+//CUSTOMIZR STYLE
 .carousel-control {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -223,3 +224,4 @@ footer#footer .colophon .social-block a {
 .social-block.widget_social a {
   font-size: 14px;
 }
+*/

@@ -1,4 +1,4 @@
-# Hueman Pro v1.3.3
+# Hueman Pro v1.4.0
 ![Hueman - Pro](/screenshot.png)
 
 > The premium version of the popular Hueman WordPress theme.
@@ -18,6 +18,44 @@ The **Hueman Pro WordPress theme** theme is licensed under GPLv3. See headers of
 See headers of files for further details.
 
 ## Changelog
+= 1.4.0 December 14th, 2020 =
+* fixed : [PHP 8] Fix deprecation notices for optional function parameters declared before required parameter
+
+= 1.3.10 November 30th, 2020 =
+* fixed : [performance][Sharrre buttons] include js assets only when relevant, on single 'post' type
+* fixed : [WP5.6][WP5.7] remove jquery-migrate dependencies
+* fixed : [performance][related posts] load javascript assets only when relevant
+* improved : [Font customizer][performance][JS] remove webfontload library from front js
+* improved : [Font customizer][performance][JS] write front js inline
+* improved : [Font customizer][performance][CSS] write base front CSS inline + load stylesheet for effects only when needed
+* improved : [Font customizer][performance][CSS] loads Google effect images locally
+
+= 1.3.9 November 19th, 2020 =
+* added : [CSS][links] added a new option to opt-out underline on links. Option located in customizer > web page design > General design options
+
+= 1.3.8 November 17th 2020 =
+* fixed : [TRT requirement][accessibility] Links within content must be underlined
+* improved : [WP 5.6][jQuery] adapt to WP jQuery updated version. Prepare removal of jQuery Migrate in future WP 5.7
+* fixed : [Nimble Builder compatibility] lazy loading broken for post thumbnails in post lists when using NB header
+
+= 1.3.7 November 3rd, 2020 =
+* tested : [WordPress] Hueman Pro v1.3.7 is 100% compatible with WP 5.5.3
+* fixed : [Header banner] Added a new option to disable header image linking to home when no site title/description
+* fixed : [Infinite scrool] WooCommerce, if infinite scroll is not supported,remove the "load more products" button
+* added : [Infinite scroll] implement a new filters 'czr_infinite_scroll_handle_text' allowing developers to replace the text "Load more..." by a custom one
+
+= 1.3.6 October 9th, 2020 =
+* improved : [performance] implement preload for Font Awesome icons
+* improved : [performance] preload Titillium self hosted font when used
+* improved : [performance] set Titillium self hosted font as default font
+
+= 1.3.5 October 7th, 2020 =
+* fixed : [CSS][plugin compatibility] Code Syntax Block style broken
+* added : [CSS] add current theme version as CSS class to body tag
+
+= 1.3.4 September 18, 2020 =
+* fixed : [admin] potential vulnerability issue 
+
 = 1.3.3 September 9, 2020 =
 * fixed : [customizer] Color picker CSS broken
 * Successfully tested with WP 5.5.1

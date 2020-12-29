@@ -636,18 +636,35 @@ if ( !class_exists( 'Flat_Export_Skope_Data_And_Send_To_Panel' ) ) :
                               _export.czr_query_params  = <?php echo wp_json_encode($_czr_query_data); ?>;
                       })( _wpCustomizeSettings );
 
-                      ( function( api, $, _ ) {
-                          $( function() {
-                                api.preview.bind( 'sync', function( events ) {
-                                      api.preview.send( 'czr-new-skopes-synced', {
-                                            czr_new_skopes : _wpCustomizeSettings.czr_new_skopes || [],
-                                            czr_stylesheet : _wpCustomizeSettings.czr_stylesheet || '',
-                                            isChangesetDirty : _wpCustomizeSettings.isChangesetDirty || false,
-                                            skopeGlobalDBOpt : _wpCustomizeSettings.skopeGlobalDBOpt || [],
-                                      } );
-                                });
-                          });
-                      } )( wp.customize, jQuery, _ );
+                      // December 2020 : it may happen that the 'sync' event was already sent and that we missed it
+                      // Typically when the site is slow.
+                      // So we need to check if the "sync" event has fired already ( see customize-base.js, ::bind method )
+                      // For more security, let's introduce a marker and attempt to re-sent after a moment if needed
+                      window.czr_skopes_sent = false;
+                      var _send = function() {
+                            wp.customize.preview.send( 'czr-new-skopes-synced', {
+                                czr_new_skopes : _wpCustomizeSettings.czr_new_skopes || [],
+                                czr_stylesheet : _wpCustomizeSettings.czr_stylesheet || '',
+                                isChangesetDirty : _wpCustomizeSettings.isChangesetDirty || false,
+                                skopeGlobalDBOpt : _wpCustomizeSettings.skopeGlobalDBOpt || [],
+                            } );
+                            window.czr_skopes_sent = true;
+                      };
+
+                      jQuery( function() {
+                          if ( wp.customize.preview.topics && wp.customize.preview.topics.sync && wp.customize.preview.topics.sync.fired() ) {
+                              _send();
+                          } else {
+                              wp.customize.preview.bind( 'sync', function( events ) {
+                                  _send();
+                              });
+                          }
+                          setTimeout( function() {
+                                if ( !window.czr_skopes_sent ) {
+                                    _send();
+                                }
+                          }, 2500 );
+                      });
                   </script>
               <?php
           }
