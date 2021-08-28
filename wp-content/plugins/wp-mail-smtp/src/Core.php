@@ -3,8 +3,13 @@
 namespace WPMailSMTP;
 
 use WPMailSMTP\Admin\AdminBarMenu;
+use WPMailSMTP\Admin\DashboardWidget;
+use WPMailSMTP\Admin\DebugEvents\DebugEvents;
 use WPMailSMTP\Admin\Notifications;
+use WPMailSMTP\Tasks\Meta;
 use WPMailSMTP\UsageTracking\UsageTracking;
+use WPMailSMTP\Compatibility\Compatibility;
+use WPMailSMTP\Reports\Reports;
 
 /**
  * Class Core to handle all plugin initialization.
@@ -103,14 +108,6 @@ class Core {
 	 */
 	public function hooks() {
 
-		// Force from_email_force to always return true if current mailer is Gmail.
-		if ( ( new Options() )->get( 'mail', 'mailer' ) === 'gmail' ) {
-			add_filter( 'wp_mail_smtp_options_get', [ $this, 'gmail_mailer_get_from_email_force' ], 1, 3 );
-		}
-
-		// Action Scheduler requires a special early loading procedure.
-		add_action( 'plugins_loaded', [ $this, 'load_action_scheduler' ], - 10 );
-
 		// Activation hook.
 		register_activation_hook( WPMS_PLUGIN_FILE, [ $this, 'activate' ] );
 
@@ -126,10 +123,17 @@ class Core {
 		// Initialize Action Scheduler tasks.
 		add_action( 'init', [ $this, 'get_tasks' ], 5 );
 
+		// Initialize DB migrations.
+		add_action( 'admin_init', [ $this, 'init_migrations' ] );
+
 		add_action( 'plugins_loaded', [ $this, 'get_pro' ] );
 		add_action( 'plugins_loaded', [ $this, 'get_usage_tracking' ] );
 		add_action( 'plugins_loaded', [ $this, 'get_admin_bar_menu' ] );
 		add_action( 'plugins_loaded', [ $this, 'get_notifications' ] );
+		add_action( 'plugins_loaded', [ $this, 'get_connect' ], 15 );
+		add_action( 'plugins_loaded', [ $this, 'get_compatibility' ], 0 );
+		add_action( 'plugins_loaded', [ $this, 'get_dashboard_widget' ], 20 );
+		add_action( 'plugins_loaded', [ $this, 'get_reports' ] );
 	}
 
 	/**
@@ -149,7 +153,6 @@ class Core {
 		 * We should not fire this in AJAX requests.
 		 */
 		if ( WP::in_wp_admin() ) {
-			$this->get_migration();
 			$this->get_upgrade();
 			$this->detect_conflicts();
 		}
@@ -158,6 +161,9 @@ class Core {
 		if ( is_admin() ) {
 			$this->get_admin();
 			$this->get_site_health()->init();
+
+			// Register Debug Event hooks.
+			( new DebugEvents() )->hooks();
 		}
 
 		// Plugin admin area notices. Display to "admins" only.
@@ -244,6 +250,10 @@ class Core {
 	 */
 	protected function init_early() {
 
+		// Action Scheduler requires a special early loading procedure.
+		$this->load_action_scheduler();
+
+		// Load Pro specific files early.
 		$pro_files = $this->is_pro_allowed() ? \WPMailSMTP\Pro\Pro::PLUGGABLE_FILES : array();
 
 		$files = (array) apply_filters( 'wp_mail_smtp_core_init_early_include_files', $pro_files );
@@ -319,11 +329,15 @@ class Core {
 	/**
 	 * Load the plugin option migrator.
 	 *
+	 * @deprecated 3.0.0
+	 *
 	 * @since 1.0.0
 	 *
 	 * @return Migration
 	 */
 	public function get_migration() {
+
+		_deprecated_function( __METHOD__, '3.0.0' );
 
 		static $migration;
 
@@ -332,6 +346,39 @@ class Core {
 		}
 
 		return $migration;
+	}
+
+	/**
+	 * Initialize DB migrations.
+	 *
+	 * @since 3.0.0
+	 */
+	public function init_migrations() {
+
+		if ( WP::is_doing_ajax() || wp_doing_cron() ) {
+			return;
+		}
+
+		$migrations = [
+			Migration::class,
+			\WPMailSMTP\Admin\DebugEvents\Migration::class,
+		];
+
+		/**
+		 * Filters DB migrations.
+		 *
+		 * @since 3.0.0
+		 *
+		 * @param array $migrations Migrations classes.
+		 */
+		$migrations = apply_filters( 'wp_mail_smtp_core_init_migrations', $migrations );
+
+		foreach ( $migrations as $migration ) {
+			if ( is_subclass_of( $migration, '\WPMailSMTP\MigrationAbstract' ) && $migration::is_enabled() ) {
+				$new_migration = new $migration();
+				$new_migration->init();
+			}
+		}
 	}
 
 	/**
@@ -403,7 +450,7 @@ class Core {
 				) .
 				'<br><br><em>' .
 				wp_kses(
-					__( '<strong>Please Note:</strong> Support for PHP 5.5 will be discontinued in 2020. After this, if no further action is taken, WP Mail SMTP functionality will be disabled.', 'wp-mail-smtp' ),
+					__( '<strong>Please Note:</strong> Support for PHP 5.5 will be discontinued in 2021. After this, if no further action is taken, WP Mail SMTP functionality will be disabled.', 'wp-mail-smtp' ),
 					array(
 						'strong' => array(),
 						'em'     => array(),
@@ -501,14 +548,11 @@ class Core {
 				<div class="notice <?php echo esc_attr( WP::ADMIN_NOTICE_ERROR ); ?>">
 					<p>
 						<?php
-						printf(
-							wp_kses( /* translators: %s - plugin name and its version. */
-								__( '<strong>EMAIL DELIVERY ERROR:</strong> the plugin %s logged this error during the last time it tried to send an email:', 'wp-mail-smtp' ),
-								array(
-									'strong' => array(),
-								)
-							),
-							esc_html( 'WP Mail SMTP v' . WPMS_PLUGIN_VER )
+						echo wp_kses(
+							__( '<strong>Heads up!</strong> The last email your site attempted to send was unsuccessful.', 'wp-mail-smtp' ),
+							[
+								'strong' => [],
+							]
 						);
 						?>
 					</p>
@@ -533,9 +577,37 @@ class Core {
 							);
 						}
 
-						esc_html_e( 'Consider running an email test after fixing it.', 'wp-mail-smtp' );
+						printf(
+							wp_kses( /* translators: %s - URL to the debug events page. */
+								__( 'For more details please try running an Email Test or reading the latest <a href="%s">error event</a>.' ),
+								[
+									'a' => [
+										'href' => [],
+									],
+								]
+							),
+							esc_url( DebugEvents::get_page_url() )
+						);
 						?>
 					</p>
+
+					<?php
+						echo wp_kses(
+							apply_filters(
+								'wp_mail_smtp_core_display_general_notices_email_delivery_error_notice_footer',
+								''
+							),
+							[
+								'p' => [],
+								'a' => [
+									'href'   => [],
+									'target' => [],
+									'class'  => [],
+									'rel'    => [],
+								],
+							]
+						);
+					?>
 				</div>
 
 				<?php
@@ -655,6 +727,9 @@ class Core {
 			$activated[ $license_type ] = time();
 			update_option( 'wp_mail_smtp_activated', $activated );
 		}
+
+		// Add transient to trigger redirect to the Setup Wizard.
+		set_transient( 'wp_mail_smtp_activation_redirect', true, 30 );
 	}
 
 	/**
@@ -797,7 +872,8 @@ class Core {
 	public function get_custom_db_tables() {
 
 		$tables = [
-			\WPMailSMTP\Tasks\Meta::get_table_name(),
+			Meta::get_table_name(),
+			DebugEvents::get_table_name(),
 		];
 
 		return apply_filters( 'wp_mail_smtp_core_get_custom_db_tables', $tables );
@@ -865,6 +941,8 @@ class Core {
 	 *
 	 * The gmail mailer check is performed when this filter is added.
 	 *
+	 * @deprecated 2.7.0
+	 *
 	 * @since 2.2.0
 	 *
 	 * @param mixed  $value The value of the plugin option that is being retrieved via Options::get method.
@@ -874,6 +952,8 @@ class Core {
 	 * @return mixed
 	 */
 	public function gmail_mailer_get_from_email_force( $value, $group, $key ) {
+
+		_deprecated_function( __METHOD__, '2.7.0' );
 
 		if ( $group === 'mail' && $key === 'from_email_force' ) {
 			$value = true;
@@ -976,6 +1056,116 @@ class Core {
 			$size = 'md';
 		}
 
-		return '<img src="' . esc_url( $this->plugin_url . '/assets/images/loaders/' . $svg_name . '.svg' ) . '" alt="' . esc_html__( 'Loading', 'wp-mail-smtp' ) . '" class="wp-mail-smtp-loading wp-mail-smtp-loading-' . $size . '">';
+		return '<img src="' . esc_url( $this->plugin_url . '/assets/images/loaders/' . $svg_name . '.svg' ) . '" alt="' . esc_attr__( 'Loading', 'wp-mail-smtp' ) . '" class="wp-mail-smtp-loading wp-mail-smtp-loading-' . $size . '">';
+	}
+
+	/**
+	 * Initialize the Connect functionality.
+	 * This has to execute after pro was loaded, since we need check for plugin license type (if pro or not).
+	 * That's why it's hooked to the same WP hook (`plugins_loaded`) as `get_pro` with lower priority.
+	 *
+	 * @since 2.6.0
+	 */
+	public function get_connect() {
+
+		static $connect;
+
+		if ( ! isset( $connect ) && ! $this->is_pro() ) {
+			$connect = apply_filters( 'wp_mail_smtp_core_get_connect', new Connect() );
+
+			if ( method_exists( $connect, 'hooks' ) ) {
+				$connect->hooks();
+			}
+		}
+
+		return $connect;
+	}
+
+	/**
+	 * Load the plugin compatibility functionality and initializes it.
+	 *
+	 * @since 2.8.0
+	 *
+	 * @return Compatibility
+	 */
+	public function get_compatibility() {
+
+		static $compatibility;
+
+		if ( ! isset( $compatibility ) ) {
+
+			/**
+			 * Filters compatibility instance.
+			 *
+			 * @since 2.8.0
+			 *
+			 * @param \WPMailSMTP\Compatibility\Compatibility  $compatibility Compatibility instance.
+			 */
+			$compatibility = apply_filters( 'wp_mail_smtp_core_get_compatibility', new Compatibility() );
+
+			if ( method_exists( $compatibility, 'init' ) ) {
+				$compatibility->init();
+			}
+		}
+
+		return $compatibility;
+	}
+
+	/**
+	 * Get the Dashboard Widget object (lite or pro version).
+	 *
+	 * @since 2.9.0
+	 *
+	 * @return DashboardWidget
+	 */
+	public function get_dashboard_widget() {
+
+		static $dashboard_widget;
+
+		if ( ! isset( $dashboard_widget ) ) {
+
+			/**
+			 * Filter the dashboard widget class name.
+			 *
+			 * @since 2.9.0
+			 *
+			 * @param DashboardWidget $class_name The dashboard widget class name to be instantiated.
+			 */
+			$class_name       = apply_filters( 'wp_mail_smtp_core_get_dashboard_widget', DashboardWidget::class );
+			$dashboard_widget = new $class_name();
+		}
+
+		return $dashboard_widget;
+	}
+
+	/**
+	 * Get the reports object (lite or pro version).
+	 *
+	 * @since 3.0.0
+	 *
+	 * @return Reports
+	 */
+	public function get_reports() {
+
+		static $reports;
+
+		if ( ! isset( $reports ) ) {
+
+			/**
+			 * Filter the reports class name.
+			 *
+			 * @since 3.0.0
+			 *
+			 * @param Reports $class_name The reports class name to be instantiated.
+			 */
+			$class_name = apply_filters( 'wp_mail_smtp_core_get_reports', Reports::class );
+			$reports    = new $class_name();
+
+			if ( method_exists( $reports, 'init' ) ) {
+				$reports->init();
+			}
+		}
+
+		return $reports;
 	}
 }

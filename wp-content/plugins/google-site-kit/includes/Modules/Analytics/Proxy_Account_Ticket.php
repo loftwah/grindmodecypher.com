@@ -3,14 +3,14 @@
  * Class Google\Site_Kit\Modules\Analytics\Proxy_AccountTicket
  *
  * @package   Google\Site_Kit\Modules\Analytics
- * @copyright 2020 Google LLC
+ * @copyright 2021 Google LLC
  * @license   https://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://sitekit.withgoogle.com
  */
 
 namespace Google\Site_Kit\Modules\Analytics;
 
-use Google\Site_Kit_Dependencies\Google_Service_Analytics_AccountTicket;
+use Google\Site_Kit_Dependencies\Google\Service\Analytics\AccountTicket as Google_Service_Analytics_AccountTicket;
 
 /**
  * Class for the Analytics provisioning Account Ticket object.

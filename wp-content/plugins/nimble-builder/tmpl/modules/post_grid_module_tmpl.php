@@ -10,14 +10,13 @@ $main_settings = $value['grid_main'];
 $metas_settings = $value['grid_metas'];
 $thumb_settings = $value['grid_thumb'];
 
-
 // filter for 'get_pagenum_link' and 'paginate_links'
 // for https://github.com/presscustomizr/nimble-builder/issues/672
 // June 2020 updated for https://github.com/presscustomizr/nimble-builder/issues/716
 if ( !function_exists( 'Nimble\sek_filter_pagination_nav_url') ) {
     function sek_filter_pagination_nav_url( $result ) {
           $url = add_query_arg(
-            array('go_to' => Nimble_Manager()->model['id'] ),
+            array('nb_grid_module_go_to' => Nimble_Manager()->model['id'] ),
             $result
           );
           return $url;
@@ -28,7 +27,7 @@ if ( !function_exists( 'Nimble\sek_filter_pagination_nav_url') ) {
  * The template for displaying the pagination links
  */
 if ( !function_exists( 'Nimble\sek_render_post_navigation') ) {
-  function sek_render_post_navigation( $post_collection ) {
+  function sek_render_post_navigation( $post_query ) {
     $next_dir          = is_rtl() ? 'right' : 'left';
     $prev_dir          = is_rtl() ? 'left' : 'right';
     $tnext_align_class = "sek-text-{$next_dir}";
@@ -41,12 +40,12 @@ if ( !function_exists( 'Nimble\sek_render_post_navigation') ) {
     /* Generate links */
     $prev_link = get_next_posts_link(
       '<span class="sek-meta-nav"><span class="sek-meta-nav-title">' . $_older_label . '</span></span>', //label
-      $post_collection->max_num_pages //max pages
+      $post_query->max_num_pages //max pages
     );
 
     $next_link  = get_previous_posts_link(
       '<span class="sek-meta-nav"><span class="sek-meta-nav-title">' . $_newer_label . '</span></span>', //label
-        $post_collection->max_num_pages //max pages
+        $post_query->max_num_pages //max pages
     );
     remove_filter('get_pagenum_link', 'Nimble\sek_filter_pagination_nav_url' );
 
@@ -73,6 +72,15 @@ if ( !function_exists( 'Nimble\sek_render_post_navigation') ) {
               $pagination_query_var = Nimble_Manager()->is_viewing_static_front_page ? 'page' :'paged';
               $paged = get_query_var($pagination_query_var);
               $paged = $paged ? $paged : 1;
+              $model = Nimble_Manager()->model;
+              $is_nimble_pagination = isset($_GET['nb_grid_module_go_to']);
+              $is_current_grid_paginated = $is_nimble_pagination && $model['id'] === $_GET['nb_grid_module_go_to'];
+              // When user clicked on a pagination link, NB adds query params to the url ( removed via js once the page is loaded )
+              // in this case, if there are several grids printed on the page we want to paginate only the paginated one
+              // otherwise, if the pagination is accessed directly, or if the page is refreshed, all grids should be paginated according to the get_query_var($pagination_query_var) param
+              if ( $is_nimble_pagination ) {
+                $paged = $is_current_grid_paginated ? $paged : 1;
+              }
 
               // filter to add nimble module id ( ex : #__nimble__b4b942df40e5 ) at the end of the url so we focus on grid when navigating pagination
               add_filter('paginate_links', 'Nimble\sek_filter_pagination_nav_url' );
@@ -81,7 +89,7 @@ if ( !function_exists( 'Nimble\sek_render_post_navigation') ) {
                   'mid_size'  => 1,
                   'type'      => 'array',
                   'current'    => max( 1, $paged ),
-                  'total'      => $post_collection->max_num_pages
+                  'total'      => $post_query->max_num_pages
               ));
               remove_filter('paginate_links', 'Nimble\sek_filter_pagination_nav_url' );
 
@@ -130,9 +138,11 @@ if ( !function_exists( 'Nimble\sek_render_post') ) {
     }
     $has_post_thumbnail = has_post_thumbnail();
     $use_post_thumb_placeholder = true === sek_booleanize_checkbox_val( $thumb_settings['use_post_thumb_placeholder'] );
-    $has_post_thumb_class = ( $show_thumb && ( $has_post_thumbnail || $use_post_thumb_placeholder ) ) ? 'sek-has-thumb' : '';
+    $post_thumb_class = ( $show_thumb && ( $has_post_thumbnail || $use_post_thumb_placeholder ) ) ? 'sek-has-thumb' : '';
+    $post_classes = array( $post_thumb_class );// get_post_class( $post_thumb_class, $post_id );
+    // note : not using WP generated post classes to avoid collision with theme styles often using those CSS classes to style posts
     ?>
-      <article id="sek-pg-<?php the_ID(); ?>" class="<?php echo $has_post_thumb_class; ?>">
+      <article id="sek-pg-<?php the_ID(); ?>" class="<?php echo esc_attr( implode( ' ', $post_classes ) ); ?>">
         <?php if ( $show_thumb && ( $has_post_thumbnail || $use_post_thumb_placeholder ) ) : ?>
           <figure class="sek-pg-thumbnail">
             <?php // when title is not displayed, print it as an attribute of the image ?>
@@ -157,7 +167,7 @@ if ( !function_exists( 'Nimble\sek_render_post') ) {
                       }
                       echo $img_html;
                   } else if ( $use_post_thumb_placeholder ) {
-                      printf( '<img alt="default img" data-skip-lazyload="true" src="%1$s"/>', NIMBLE_BASE_URL . '/assets/img/default-img.png'  );
+                      echo apply_filters( 'nimble_post_grid_module_default_featured_image', sprintf( '<img alt="default img" data-skip-lazyload="true" src="%1$s"/>', NIMBLE_BASE_URL . '/assets/img/default-img.png' ) );
                   }
               ?>
             </a>
@@ -287,7 +297,7 @@ $query_params = $default_query_params = [
   'update_post_meta_cache' => false,
   'update_post_term_cache' => false,
   'ignore_sticky_posts'    => 1,
-  'post_status'            => 'publish',// fixes https://github.com/presscustomizr/nimble-builder/issues/466
+  'post_status'            => 'publish',// because otherwise 'draft' posts are showing up. (wp bug) fixes https://github.com/presscustomizr/nimble-builder/issues/466
   'posts_per_page'         => $post_nb,
   //@see https://codex.wordpress.org/Class_Reference/WP_Query#Category_Parameters
   'category_name'          => $category_names,
@@ -300,11 +310,87 @@ $query_params = $default_query_params = [
 ];
 
 
-$post_collection = null;
+if ( !function_exists( 'Nimble\sek_maybe_add_sticky_posts_to_query') ) {
+  // inspired from WP core way to add sticky posts. @see class WP_Query
+  function sek_maybe_add_sticky_posts_to_query( $query, $query_params, $paged ) {
+    // Put sticky posts at the top of the posts array.
+    $sticky_posts = get_option( 'sticky_posts' );
+    if ( $paged <= 1 && is_array( $sticky_posts ) && ! empty( $sticky_posts ) && ! $query_params['ignore_sticky_posts'] ) {
+      $num_posts     = count( $query->posts );
+      $sticky_offset = 0;
+      // Loop over posts and relocate stickies to the front.
+      for ( $i = 0; $i < $num_posts; $i++ ) {
+        if ( in_array( $query->posts[ $i ], $sticky_posts, true ) ) {
+          $sticky_post = $query->posts[ $i ];
+          // Remove sticky from current position.
+          array_splice( $query->posts, $i, 1 );
+          // Move to front, after other stickies.
+          array_splice( $query->posts, $sticky_offset, 0, array( $sticky_post ) );
+          // Increment the sticky offset. The next sticky will be placed at this offset.
+          $sticky_offset++;
+          // Remove post from sticky posts array.
+          $offset = array_search( $sticky_post, $sticky_posts, true );
+          unset( $sticky_posts[ $offset ] );
+        }
+      }
+
+      // If any posts have been excluded specifically, Ignore those that are sticky.
+      if ( ! empty( $sticky_posts ) && ! empty( $query_params['post__not_in'] ) ) {
+        $sticky_posts = array_diff( $sticky_posts, $query_params['post__not_in'] );
+      }
+
+      $post_type = ( array_key_exists('post_type', $query_params ) && !empty($query_params['post_type'] ) ) ? $query_params['post_type'] : 'post';
+      // Fetch sticky posts that weren't in the query results.
+      if ( ! empty( $sticky_posts ) ) {
+        $stickies = get_posts(
+          array(
+            'post__in'    => $sticky_posts,
+            'post_type'   => $post_type,
+            'post_status' => 'publish',
+            'nopaging'    => true,
+          )
+        );
+
+        foreach ( $stickies as $sticky_post ) {
+          array_splice( $query->posts, $sticky_offset, 0, array( $sticky_post ) );
+          $sticky_offset++;
+        }
+      }
+    }
+    return $query;
+  }
+}
+
+$use_current_query = array_key_exists('use_current_query', $main_settings ) && sek_booleanize_checkbox_val($main_settings['use_current_query']);
+$replace_current_query = true;// when user checks use_current_query, $replace_current_query is set to false
+
+// Shall NB use current WP query ?
+if ( $use_current_query ) {
+  if ( skp_is_customizing() && defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+      $query_params = sek_get_posted_query_param_when_customizing('query_vars');
+      $query_params['post_status'] = 'publish';// because otherwise 'draft' posts are showing up. (wp bug) fixes https://github.com/presscustomizr/nimble-builder/issues/466
+  } else {
+      global $wp_query;
+      $query_params = $wp_query->query_vars;
+  }
+  // make sure we didn't lose the query params at this point.
+  $query_params = is_array($query_params) ? $query_params : $default_query_params;
+
+  // When using the current query, NB uses normally only WP query vars. Unless user checks 'replace_query' option.
+  $replace_current_query = array_key_exists('replace_query', $main_settings ) && sek_booleanize_checkbox_val($main_settings['replace_query']);
+  if ( $replace_current_query ) {
+    $query_params['posts_per_page'] = $post_nb;
+    $query_params['orderby'] = $orderby;
+    $query_params['order'] = $order;
+  }
+}
+
+$paged = 1;
+$is_current_grid_paginated = isset($_GET['nb_grid_module_go_to']) && $model['id'] === $_GET['nb_grid_module_go_to'];
 // may 2020 => is_front_page() was wrong to check if home was a static front page.
 // fixes https://github.com/presscustomizr/nimble-builder/issues/664
 Nimble_Manager()->is_viewing_static_front_page = is_front_page() && 'page' == get_option( 'show_on_front' );
-if ( true === sek_booleanize_checkbox_val($main_settings['display_pagination']) ) {
+if ( !$use_current_query && $replace_current_query && true === sek_booleanize_checkbox_val($main_settings['display_pagination']) ) {
   $posts_per_page = (int)$main_settings['posts_per_page'];
   $posts_per_page = $posts_per_page <= 0 ? 1 : $posts_per_page;
   // April 2020 : fixes pagination not working on a static page used as front page
@@ -312,26 +398,51 @@ if ( true === sek_booleanize_checkbox_val($main_settings['display_pagination']) 
   // https://developer.wordpress.org/reference/classes/wp_query/#pagination-parameters
   $pagination_query_var = Nimble_Manager()->is_viewing_static_front_page ? 'page' :'paged';
   $paged = get_query_var($pagination_query_var);
-  $paged = $paged ? $paged : 1;
-  $query_params = wp_parse_args( [
-    'paged' => $paged,
-    'posts_per_page' => $posts_per_page,
-  ], $default_query_params );
+  $query_params['paged'] = ( $paged && $is_current_grid_paginated ) ? $paged : 1;
+  $query_params['posts_per_page'] = $posts_per_page;
 }
 
 
-
-if ( $post_nb > 0 ) {
-  $query_params = apply_filters( 'nimble_post_grid_module_query_params', $query_params , Nimble_Manager()->model );
-
-  if ( is_array( $query_params ) ) {
-    //add_filter( 'found_posts', '\Nimble\sek_filter_found_posts', 10, 2 );
-    // Query featured entries
-    $post_collection = new \WP_Query($query_params);
-    //remove_filter( 'found_posts', '\Nimble\sek_filter_found_posts', 10, 2 );
-  } else {
-    sek_error_log('post_grid_module_tmpl => query params is invalid');
-  }
+$post_query = null;
+if ( $replace_current_query && $post_nb > 0 ) {
+    $cache_key = 'nb_post_q_' . $model['id'] . '_paged_' . $paged;
+    $cache_group = 'nb_post_queries';
+    // Use cached data when not customizing
+    $cached = false;
+    if ( !skp_is_customizing() ) {
+      $cached = wp_cache_get( $cache_key, $cache_group );
+    }
+    if ( false !== $cached ) {
+        $post_query = $cached;
+    } else {
+        // Sticky posts
+        $include_sticky = array_key_exists('include_sticky', $main_settings ) && sek_booleanize_checkbox_val($main_settings['include_sticky']);
+        if ( $include_sticky ) {
+          $query_params['ignore_sticky_posts'] = 0;
+        }
+        $query_params = apply_filters( 'nimble_post_grid_module_query_params', $query_params , Nimble_Manager()->model );
+        if ( is_array( $query_params ) ) {
+          //add_filter( 'found_posts', '\Nimble\sek_filter_found_posts', 10, 2 );
+          // Query featured entries
+          $post_query = new \WP_Query($query_params);
+          if ( $include_sticky ) {
+            $post_query = sek_maybe_add_sticky_posts_to_query( $post_query, $query_params, $paged );
+          }
+          //remove_filter( 'found_posts', '\Nimble\sek_filter_found_posts', 10, 2 );
+        } else {
+          sek_error_log('post_grid_module_tmpl => query params is invalid');
+        }
+        if ( !skp_is_customizing() ) {
+          wp_cache_add( $cache_key, $post_query, $cache_group );
+        }
+    }
+} else if ( !$replace_current_query ) {
+    if ( defined( 'DOING_AJAX' ) && DOING_AJAX && skp_is_customizing() ) {
+        $post_query = new \WP_Query($query_params);
+    } else {
+        global $wp_query;
+        $post_query = $wp_query;
+    }
 }
 
 
@@ -383,7 +494,7 @@ if ( !function_exists( 'Nimble\sek_pg_the_nimble_post') ) {
 }
 
 
-if ( is_object( $post_collection ) && $post_collection->have_posts() ) {
+if ( is_object( $post_query ) && $post_query->have_posts() ) {
   $columns_by_device = $main_settings['columns'];
   $columns_by_device = is_array( $columns_by_device ) ? $columns_by_device : array();
   $columns_by_device = wp_parse_args( $columns_by_device, array(
@@ -407,12 +518,14 @@ if ( is_object( $post_collection ) && $post_collection->have_posts() ) {
 
   $shadow_class = true === sek_booleanize_checkbox_val( $main_settings['apply_shadow_on_hover'] ) ? 'sek-shadow-on-hover' : '';
 
-  $has_thumb_custom_height = true === sek_booleanize_checkbox_val( $thumb_settings['img_has_custom_height'] ) ? 'sek-thumb-custom-height' : '';
+  $has_thumb_custom_height = true === sek_booleanize_checkbox_val( $thumb_settings['img_has_custom_height'] ) ? 'sek-thumb-custom-height' : 'sek-thumb-no-custom-height';
 
   $tablet_breakpoint_class = true === sek_booleanize_checkbox_val( $main_settings['has_tablet_breakpoint'] ) ? 'sek-has-tablet-breakpoint' : '';
   $mobile_breakpoint_class = true === sek_booleanize_checkbox_val( $main_settings['has_mobile_breakpoint'] ) ? 'sek-has-mobile-breakpoint' : '';
 
-  $grid_wrapper_classes = implode(' ', [ $tablet_breakpoint_class, $mobile_breakpoint_class ] );
+  $grid_wrapper_classes = [ $tablet_breakpoint_class, $mobile_breakpoint_class ];
+  $grid_wrapper_classes = apply_filters('nb_grid_wrapper_classes', $grid_wrapper_classes, $value );
+  $grid_wrapper_classes = implode(' ', $grid_wrapper_classes );
 
   $grid_items_classes = [ $layout_class, $has_thumb_custom_height, $shadow_class ];
 
@@ -428,14 +541,14 @@ if ( is_object( $post_collection ) && $post_collection->have_posts() ) {
   }
 
   $grid_items_classes = implode(' ', $grid_items_classes );
-
+  do_action( 'nb_before_post_grid_wrapper' );
   ?>
   <div class="sek-post-grid-wrapper <?php echo $grid_wrapper_classes; ?>" id="<?php echo $model['id']; ?>">
     <div class="sek-grid-items <?php echo $grid_items_classes; ?>">
       <?php
-        // $post_collection->have_posts() fires 'loop_end', which we don't want
-        while ( sek_pg_the_nimble_have_post( $post_collection ) ) {
-            sek_pg_the_nimble_post( $post_collection );// implemented to fix https://github.com/presscustomizr/nimble-builder/issues/467 because when using core $post_collection->the_post(), the action 'loop_start' is fired
+        // $post_query->have_posts() fires 'loop_end', which we don't want
+        while ( sek_pg_the_nimble_have_post( $post_query ) ) {
+            sek_pg_the_nimble_post( $post_query );// implemented to fix https://github.com/presscustomizr/nimble-builder/issues/467 because when using core $post_query->the_post(), the action 'loop_start' is fired
             sek_render_post( $main_settings, $metas_settings, $thumb_settings );
         }//while
       ?>
@@ -443,7 +556,7 @@ if ( is_object( $post_collection ) && $post_collection->have_posts() ) {
 
     <?php
     if ( true === sek_booleanize_checkbox_val($main_settings['display_pagination']) ) {
-      sek_render_post_navigation( $post_collection );
+      sek_render_post_navigation( $post_query );
     }
     ?>
     <?php
@@ -455,7 +568,7 @@ if ( is_object( $post_collection ) && $post_collection->have_posts() ) {
     ?>
   </div><?php //.sek-post-grid-wrapper ?>
   <?php
-}//if ( $post_collection->have_posts() )
+}//if ( $post_query->have_posts() )
 
 else if ( skp_is_customizing() ) {
   ?>

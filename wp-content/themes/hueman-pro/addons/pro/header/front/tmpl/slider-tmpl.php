@@ -88,7 +88,7 @@ function _limit_number_of_cats_in_caption( $cats ) {
 //  'cta' =>
 //  'link' =>
 //)
-function _print_slider_caption( $slide_data = array(), $slider_opts ) {
+function _print_slider_caption( $slider_opts, $slide_data = array() ) {
     //Normalizes
     $slide_data = ! is_array( $slide_data ) ? array() : $slide_data;
     $defaults  = array(
@@ -412,7 +412,7 @@ function _print_script( $args ) {
     <div id="<?php echo $module_id; ?>" class="<?php echo $slider_wrapper_classes; ?>">
         <div class="czr-css-loader czr-mr-loader"><div></div><div></div><div></div></div>
         <div class="<?php echo $carousel_inner_classes; ?>" data-parallax-ratio="0.55">
-          <?php if ( $is_fixed_caption ) { _print_slider_caption( $slide_caption_data, $slider_opts ); } ?>
+          <?php if ( $is_fixed_caption ) { _print_slider_caption( $slider_opts, $slide_caption_data ); } ?>
 
           <?php if ( empty( $model['slides'] ) && $has_default_bg_img ) : ?>
 
@@ -458,7 +458,7 @@ function _print_script( $args ) {
                               }
                             ?>
                       </div> <!-- .carousel-image -->
-                  <?php if ( ! $is_fixed_caption ) { _print_slider_caption( $slide_caption_data, $slider_opts ); } ?>
+                  <?php if ( ! $is_fixed_caption ) { _print_slider_caption( $slider_opts, $slide_caption_data ); } ?>
               </div><!-- /.item -->
           <?php endforeach; ?>
         </div>

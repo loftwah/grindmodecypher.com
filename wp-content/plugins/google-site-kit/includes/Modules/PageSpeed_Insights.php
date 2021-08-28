@@ -3,7 +3,7 @@
  * Class Google\Site_Kit\Modules\PageSpeed_Insights
  *
  * @package   Google\Site_Kit
- * @copyright 2019 Google LLC
+ * @copyright 2021 Google LLC
  * @license   https://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://sitekit.withgoogle.com
  */
@@ -14,12 +14,13 @@ use Google\Site_Kit\Core\Assets\Script;
 use Google\Site_Kit\Core\Modules\Module;
 use Google\Site_Kit\Core\Modules\Module_With_Assets;
 use Google\Site_Kit\Core\Modules\Module_With_Assets_Trait;
+use Google\Site_Kit\Core\Modules\Module_With_Deactivation;
 use Google\Site_Kit\Core\Modules\Module_With_Scopes;
 use Google\Site_Kit\Core\Modules\Module_With_Scopes_Trait;
 use Google\Site_Kit\Core\REST_API\Exception\Invalid_Datapoint_Exception;
 use Google\Site_Kit\Core\Authentication\Clients\Google_Site_Kit_Client;
 use Google\Site_Kit\Core\REST_API\Data_Request;
-use Google\Site_Kit_Dependencies\Google_Service_Pagespeedonline;
+use Google\Site_Kit_Dependencies\Google\Service\PagespeedInsights as Google_Service_PagespeedInsights;
 use Google\Site_Kit_Dependencies\Psr\Http\Message\RequestInterface;
 use WP_Error;
 
@@ -31,7 +32,7 @@ use WP_Error;
  * @ignore
  */
 final class PageSpeed_Insights extends Module
-	implements Module_With_Scopes, Module_With_Assets {
+	implements Module_With_Scopes, Module_With_Assets, Module_With_Deactivation {
 	use Module_With_Scopes_Trait, Module_With_Assets_Trait;
 
 	/**
@@ -115,7 +116,7 @@ final class PageSpeed_Insights extends Module
 				return $service->pagespeedapi->runpagespeed(
 					$page_url,
 					array(
-						'locale'   => substr( get_locale(), 0, 2 ),
+						'locale'   => $this->context->get_locale( 'site', 'language-code' ),
 						'strategy' => $data['strategy'],
 					)
 				);
@@ -163,11 +164,9 @@ final class PageSpeed_Insights extends Module
 		return array(
 			'slug'        => 'pagespeed-insights',
 			'name'        => _x( 'PageSpeed Insights', 'Service name', 'google-site-kit' ),
-			'description' => __( 'Google PageSpeed Insights gives you metrics about performance, accessibility, SEO and PWA.', 'google-site-kit' ),
-			'cta'         => __( 'Learn more about your website’s performance.', 'google-site-kit' ),
+			'description' => __( 'Google PageSpeed Insights gives you metrics about performance, accessibility, SEO and PWA', 'google-site-kit' ),
 			'order'       => 4,
 			'homepage'    => __( 'https://developers.google.com/speed/pagespeed/insights/', 'google-site-kit' ),
-			'learn_more'  => __( 'https://developers.google.com/speed/docs/insights/v5/about', 'google-site-kit' ),
 		);
 	}
 
@@ -186,25 +185,8 @@ final class PageSpeed_Insights extends Module
 	 */
 	protected function setup_services( Google_Site_Kit_Client $client ) {
 		return array(
-			'pagespeedonline' => new Google_Service_Pagespeedonline( $client ),
+			'pagespeedonline' => new Google_Service_PagespeedInsights( $client ),
 		);
-	}
-
-	/**
-	 * Returns all module information data for passing it to JavaScript.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return array Module information data.
-	 */
-	public function prepare_info_for_js() {
-		$info = parent::prepare_info_for_js();
-
-		$info['provides'] = array(
-			__( 'Website performance reports for mobile and desktop', 'google-site-kit' ),
-		);
-
-		return $info;
 	}
 
 	/**

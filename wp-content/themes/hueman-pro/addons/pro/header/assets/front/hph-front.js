@@ -208,8 +208,10 @@
                               // set srcset attribute from temporary attribute
                               // implemented for
                               $img = $(self.img);
-                              $img.attr('srcset', $img.attr('data-flickity-srcset') ).attr('sizes', $img.attr('data-flickity-imgsizes') );
-                              $img.removeAttr('data-flickity-srcset').removeAttr('data-flickity-imgsizes');
+                              // Feb 2021 => Removed srcset and imgsizes attributes server side to prevent poor image quality on mobiles when using on chrome ( and potentially other browsers )
+                              // see https://github.com/presscustomizr/hueman-pro-addons/issues/217
+                              //$img.attr('srcset', $img.attr('data-flickity-srcset') ).attr('sizes', $img.attr('data-flickity-imgsizes') );
+                              //$img.removeAttr('data-flickity-srcset').removeAttr('data-flickity-imgsizes');
                               originalLazyLoad.apply( this, arguments );
                         };
 

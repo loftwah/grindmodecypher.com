@@ -189,6 +189,8 @@ class PC_HAP_front {
         //sets specific attributes if lazy load is enabled
         if ( false != $_m['options']['lazyload'] ) {
             add_filter( 'wp_get_attachment_image_attributes', array( $this, 'hu_set_lazy_load_attributes'), 999 );
+        } else {
+            add_filter( 'wp_get_attachment_image_attributes', array( $this, 'hu_remove_srcset_attribute'), 999 );
         }
 
         foreach ( $_pre_slides as $_k => $s ) {
@@ -198,6 +200,8 @@ class PC_HAP_front {
         }
         if ( false != $_m['options']['lazyload'] ) {
             remove_filter( 'wp_get_attachment_image_attributes', array( $this, 'hu_set_lazy_load_attributes'), 999 );
+        } else {
+            remove_filter( 'wp_get_attachment_image_attributes', array( $this, 'hu_remove_srcset_attribute'), 999 );
         }
 
         $_m['slides'] = $_slides;
@@ -305,15 +309,32 @@ class PC_HAP_front {
 
         // the "img", sizes" and "srcset" attributes will be added back with js
         // @see =>  addons/pro/header/assets/front/hph-front.js
-        $attr['data-flickity-srcset'] = $attr['srcset'];
-        $attr['data-flickity-imgsizes'] = $attr['sizes'];
+        // Feb 2021 => Removed srcset and imgsizes attributes server side to prevent poor image quality on mobiles when using on chrome ( and potentially other browsers )
+        // see https://github.com/presscustomizr/hueman-pro-addons/issues/217
+        //$attr['data-flickity-srcset'] = $attr['srcset'];
+        //$attr['data-flickity-imgsizes'] = $attr['sizes'];
 
         unset($attr['srcset']);
         unset($attr['sizes']);
         return $attr;
     }
 
-
+    /* ------------------------------------------------------------------------- *
+     *  IMG FILTER TO REMOVE SRCSET AND IMGSIZES ATTRIBUTES
+     * Feb 2021 => Removed srcset and imgsizes attributes server side to prevent poor image quality on mobiles when using on chrome ( and potentially other browsers )
+     * see https://github.com/presscustomizr/hueman-pro-addons/issues/217
+    /* ------------------------------------------------------------------------- */
+    function hu_remove_srcset_attribute( $attr ) {
+        $attr = is_array( $attr ) ? $attr : array();
+        $attr = wp_parse_args( $attr, array(
+            'src' => '',
+            'srcset' => '',
+            'sizes' => '',
+        ));
+        unset($attr['srcset']);
+        unset($attr['sizes']);
+        return $attr;
+    }
 
 
 

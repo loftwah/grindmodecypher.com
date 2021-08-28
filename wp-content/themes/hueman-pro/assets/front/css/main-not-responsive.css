@@ -108,6 +108,11 @@ transition: opacity 0.2s ease; }
 article .entry a, .comment-body a, .widget_text a {
   text-decoration:underline;
 }
+/* Gutenberg compat */
+article .entry a.wp-block-button__link {
+  text-decoration: none;
+}
+
 .hu-links-not-underlined article .entry a, .hu-links-not-underlined .comment-body a, .hu-links-not-underlined .widget_text a {
   text-decoration:none;
 }
@@ -268,6 +273,14 @@ input[type="submit"]:hover,
 .entry li { margin: 0; }
 .entry ul li,
 .entry ol ul li { list-style: square; }
+/* Gutenberg compatibility, see: https://github.com/presscustomizr/hueman/issues/969 */
+body .wp-block-post-template, body .wp-block-query-loop {
+  margin: 0;
+}
+body .wp-block-post-template li, body .wp-block-query-loop li {
+  list-style: none;
+}
+
 /* woocommerce */
 .woocommerce .entry #reviews #comments ol.commentlist li,
 .entry .woocommerce ul li { list-style: none; }
@@ -1027,6 +1040,11 @@ box-shadow: 0 0 2px rgba(255,255,255,0.4);
   .nav ul ul { position: absolute; top: -10px; left: 180px; }
 
 }
+
+
+
+
+
 @media only screen and (max-width: 719px) {
   #header .nav-container .nav, #footer .nav-container .nav {display: none;}
   #footer .nav-container .nav.expanded, #header .nav-container .nav.expanded {display: block;}
@@ -1073,6 +1091,14 @@ box-shadow: 0 0 2px rgba(255,255,255,0.4);
 
   .nav ul li { font-size: 0.85rem; font-weight: 300; }
   .nav ul li a { padding-top: 6px; padding-bottom: 6px; }
+
+
+
+
+
+
+
+
 
   /*
   * Mobile dropdown on click
@@ -1157,7 +1183,7 @@ box-shadow: 0 0 2px rgba(255,255,255,0.4);
     transform: rotate(-180deg);
   }
   /* \test */
-}/* ------------------------------------------------------------------------- *
+}/*@media only screen and (max-width: 719px)*//* ------------------------------------------------------------------------- *
  *  Section: Header
 /* ------------------------------------------------------------------------- */
 #header { background: #454e5c; position: relative; padding-bottom: 60px;}
@@ -1478,17 +1504,14 @@ border: none;
     overflow: hidden;
   }
   .nav ul.sub-menu {
-    opacity: 0.5;
     display: none;
-    -webkit-transition: opacity 0.3s ease-in-out;
-    -moz-transition: opacity 0.3s ease-in-out;
-    -o-transition: opacity 0.3s ease-in-out;
-    transition: opacity 0.3s ease-in-out;
+    
   }
 
   /* HEADER WIDGET ZONE*/
   .header-ads-desktop #header-widgets { float: right; display: block; }
 }
+
 
 /* TOP NAV */
 @media only screen and (max-width: 719px) {
@@ -1813,7 +1836,7 @@ z-index:2;
 .post-title a { color: #444; }
 .post-title a:hover { color: #16cfc1; }
 
-.entry.excerpt { font-size: 1em; color: #aaa; }
+.entry.excerpt { font-size: 1em; color: #767676; }
 .entry.excerpt p { margin-bottom: 0; }
 
 /*  post : standard loop
@@ -1928,10 +1951,18 @@ z-index:2;
 
 /*  single : post-nav
 /* ------------------------------------ */
-.post-nav li { width: 100%; display: inline; float: left; text-align: center; }
-.post-nav li a { position: relative; min-height: 4.56em; display: block; padding: 1em 40px 1.5em; }
+.post-nav li { width: 100%; display: inline; float: left; text-align: center;min-height: 4.56em;}
+.post-nav li a { position: relative; display: block; padding:0.3em 40px 0.3em; }
 .post-nav li i { color: #ccc; font-size: 1.125em; position: absolute; top: 50%; margin-top: -10px; }
-.post-nav li a strong { display: block; font-size: 0.75em; color: #aaa; letter-spacing: 0.5px; font-weight: normal; text-transform: uppercase; }
+.post-nav li > strong { 
+    display: block;
+    font-size: .75em;
+    color: #aaa;
+    letter-spacing: .5px;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding-top: 1em;
+}
 .post-nav li a span { font-size: 0.9375em; color: #666; }
 .post-nav li a:hover span { color: #444; }
 .post-nav li.previous i { left: 10px; }
@@ -2043,8 +2074,8 @@ but posts created with the former cover-image block will still use the wp-block-
 /* only reset the .hu-pad container horizontal padding*/
 .themeform .alignfull[class*=wp-block-],
 .themeform .alignwide[class*=wp-block-] {
-    margin-right: -30px;
-    margin-left: -30px;
+    margin-right: -15px;
+    margin-left: -15px;
     clear: both;
     width: auto;
     max-width: 100vw;
@@ -2195,16 +2226,19 @@ box-shadow: inset 0 1px 0 rgba(255,255,255,0.25); }
 /* ------------------------------------ */
 .widget > ul li:before,
 .widget > ul li a:before,
-.widget > div > ul li a:before,
+.widget div > ul li a:before,
 .widget_calendar caption:before {font-family: 'Font Awesome 5 Free'; font-weight: 900; -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased; font-style: normal;	font-variant: normal; text-rendering: auto;	font-size: 12px; margin-right: 6px;	color: #ccc; display: inline-block!important; width: 1em; text-align: center;}
+
 .widget > ul li a:hover:before { color: #999; }
+
 .widget_calendar caption:before,
-.widget_archive > ul > li a:before { content: "\f073"; position:relative; top:-.1em; }
-.widget_categories > ul > li a:before { content: "\f07c"; }
-.widget_links > ul > li a:before { content: "\f35d"; }
-.widget_meta > ul > li a:before { content: "\f0da"; }
-.widget_recent_comments > ul > li:before { content: "\f075"; }
-.widget_recent_entries > ul > li a:before { content: "\f017"; }
+.widget_archive ul > li a:before { content: "\f073"; position:relative; top:-.1em; }
+.widget_categories ul > li a:before { content: "\f07c"; }
+.widget_links ul > li a:before { content: "\f35d"; }
+.widget_meta ul > li a:before { content: "\f0da"; }
+.widget_recent_comments ul > li:before { content: "\f075"; }
+.widget_recent_entries ul > li a:before { content: "\f017"; }
+
 .widget_pages ul li a:before,
 .widget_nav_menu ul li a:before { content: "\f068"; }
 
@@ -2260,6 +2294,15 @@ box-shadow: inset 0 1px 0 rgba(255,255,255,0.25); }
 .widget_recent_comments ul li,
 .widget_recent_entries ul li { color: #999; }
 .widget_recent_entries .post-date { display: block; }
+
+/*  widget : categories
+/* ------------------------------------ */
+.widget_categories ul.children { padding-left: 15px; }
+.rtl .widget_categories ul.children { padding-right: 15px; }
+
+.widget_categories ul.children > li {
+  border-bottom: none;
+}
 
 /*  widget : pages / custom menu
 /* ------------------------------------ */
@@ -2662,6 +2705,7 @@ list-style: none;
 /* ------------------------------------ */
 .flexslider { margin: 0; padding: 0; }
 /* August 2020 : remove display:none for https://github.com/presscustomizr/hueman/issues/916 */
+.rtl .flexslider .slides > li { display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
 .flexslider .slides > li { -webkit-backface-visibility: hidden;}
 /* Hide the slides before the JS is loaded. Avoids image jumping */
 

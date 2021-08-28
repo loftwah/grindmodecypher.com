@@ -23,7 +23,13 @@ DOCUMENTATION : https://docs.presscustomizr.com
 SUPPORT : https://presscustomizr.com/support/
 
 
-== Changelog 
+== Changelog
+= 3.2.2 February 9th, 2021 =
+* fixed : [javascript] don't print front scripts when WFC is deactivated
+
+= 3.2.1 January 21st, 2021 =
+* fixed : [effect] effect not applied on all expected selectors due to an error in the inline javascript code
+
 = 3.2.0 November 30th, 2020 =
 * improved : [performance][JS] remove webfontload library from front js
 * improved : [performance][JS] write front js inline

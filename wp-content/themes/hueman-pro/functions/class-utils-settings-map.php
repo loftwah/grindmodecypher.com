@@ -230,9 +230,9 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           ),
           // added january 2020 for https://github.com/presscustomizr/hueman/issues/844
           'wrap_in_h_one' => array(
-                'default'   => 0,
+                'default'   => 1,
                 'control'   => 'HU_controls',
-                'label'     => __('Wrap the site title or logo in an H1 tag', 'hueman-pro'),
+                'label'     => __('On home page wrap the site title or logo in an H1 tag', 'hueman-pro'),
                 'section'   => 'title_tagline',
                 'type'      => 'nimblecheck',
                 'notice'    => __( 'For best SEO results, make sure your pages always include at least one H1 tag.' , 'hueman-pro' ),
@@ -896,7 +896,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
                 )
           ),
           'mobile-submenu-click' => array(
-                'default'   => hu_user_started_before_version( '3.4.3', '1.1.4' ) ? false : true,
+                'default'   => 1,
                 'control'   => 'HU_controls',
                 'label'     => sprintf( '%1$s : %2$s', __('Mobile devices', 'hueman-pro' ) , __( 'Expand submenus on click', 'hueman-pro') ),
                 'section'   => 'header_menus_sec',

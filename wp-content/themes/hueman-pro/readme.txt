@@ -1,4 +1,4 @@
-# Hueman Pro v1.4.0
+# Hueman Pro v1.4.15
 ![Hueman - Pro](/screenshot.png)
 
 > The premium version of the popular Hueman WordPress theme.
@@ -18,6 +18,69 @@ The **Hueman Pro WordPress theme** theme is licensed under GPLv3. See headers of
 See headers of files for further details.
 
 ## Changelog
+= 1.4.15 August 25th 2021 =
+* fixed : [PHP] wrong usage of ob_end_clean() could break the html page structure
+
+= 1.4.14 July 28th 2021 =
+* fixed : [PHP8] theme updater possible error with PHP8
+
+= 1.4.13 July 24th 2021 =
+* fixed : [block editor] query loop block style broken.
+
+= 1.4.12 July 21st 2021 =
+* 100% compatible with WordPress 5.8
+* fixed : [WP 5.8] removed call to deprecated filter 'block_editor_preload_paths'
+
+= 1.4.11 July 1st, 2021 =
+* fixed : option for external links (icon + open in new tab) not working for links inside lists
+
+= 1.4.10 June 21st, 2021 =
+* fixed : [HTML5] remove W3C deprecated attributes for script and style tags
+* fixed : PHP Notice: Trying to access array offset on value of type bool
+
+= 1.4.9 April 24th, 2021 =
+* fixed : [post slider][rtl] regression introduced in #916 : featured posts slider hidden on rtl websites
+* fixed : [Gutenberg] buttons block in line style broken
+* fixed : [widget][category] when displaying category hierarchy, children categories the categories should have an horizontal padding
+* fixed : [gutenberg] CSS bug on mobile view when image added with gutenberg and set to full width
+* fixed : [gutenberg] editor style for alignfull alignwide
+
+= 1.4.8 March 17th, 2021 =
+* fixed : [menu] dropdown Menus not staying down when selected in mobile landscape mode
+
+= 1.4.7 March 3rd, 2021 =
+* fixed : [customizer] scope params not properly passed when registering contextualized modules, leading to wrong setting titles.
+
+= 1.4.6 March 2nd, 2021 =
+* successfully tested with WP 5.7 scheduled for March 9th
+* fixed : [Post Nav] "Next story" printed in the post title on Google news tab
+* fixed : [PHP 8.0] Required parameter $xxx follows optional parameter $yyy
+* fixed : [Font Customizer][javascript] don't print front scripts when WFC is deactivated
+
+= 1.4.5 February 2nd, 2021 =
+* fixed : [header slider] prevent poor image quality on mobiles when using Chrome ( and potentially other browsers )
+* updated : Font Awesome icons to latest version (v5.15.2)
+* added : [social links] added Tiktok icon
+
+= 1.4.4 January 22nd, 2021 =
+* fixed : [font color] excerpt font color not accessible => too low constrast ratio
+* fixed : [WP editor] buttons link should not be underlined
+* fixed : [font customizer] effect not applied on all expected selectors due to an error in the inline javascript code
+
+= 1.4.3 January 18th, 2021 =
+* fixed : [admin] removed unused option-tree code
+* fixed : [audio post format] Audio player does not work in audio article format
+* added : [social icons] mastodon icon
+* improved : [SEO] allow site title to be wrapped in a H1 tag when home is a static page
+
+= 1.4.2 January 6th, 2021 =
+* fixed : [WP nav menu widget] menu items icon not displayed if menu encapsulated in custom wrapper
+* fixed : [SEO] For best SEO results, ensure that home page includes only one H1 tag
+
+= 1.4.1 January 4th, 2021 =
+* fixed : [customizer][contextualizer] a control could be registered multiple times
+* fixed : [customizer][contextualizer] pro header slider control not registered in some cases due to wrong params
+
 = 1.4.0 December 14th, 2020 =
 * fixed : [PHP 8] Fix deprecation notices for optional function parameters declared before required parameter
 

@@ -33,12 +33,12 @@ if ( !function_exists( 'hu_get_content') ) {
         </section><!--/.content-->
       <?php do_action( '__after_content_section', $tmpl ); ?>
     <?php
-    $html = ob_get_contents();
-    if ($html) ob_end_clean();
-    if ( $print )
+    $html = ob_get_clean();
+    if ( $print ) {
       echo $html;
-    else
+    } else {
       return $html;
+    }
   }
 }
 
@@ -453,7 +453,9 @@ if ( !function_exists( 'hu_print_logo_or_title' ) ) {
     function hu_print_logo_or_title( $echo = true, $is_mobile_menu = false ) {
         // June 2020 => never write the mobile site-title in a h1 heading to avoid multiple h1 detected by SEO analyzers
         // @see https://github.com/presscustomizr/hueman/issues/906
-        $wrap_in_h_one = !$is_mobile_menu && hu_booleanize_checkbox_val( hu_get_option('wrap_in_h_one') );
+        // option "wrap_in_h_one" should applyg when home is a static page or the blog page
+        // When home is a static page, the blog page heading should be set to H1 ( see parts\page-title.php )
+        $wrap_in_h_one = hu_is_real_home() && !$is_mobile_menu && hu_booleanize_checkbox_val( hu_get_option('wrap_in_h_one') );
         $logo_or_title = hu_get_logo_title( $is_mobile_menu );
         // => If no logo is set and  !hu_is_checked( 'display-header-title' ), the logo title is empty.
         ob_start();
@@ -467,8 +469,7 @@ if ( !function_exists( 'hu_print_logo_or_title' ) ) {
                 echo $wrap_in_h_one ? '</h1>' : '</p>';
             }
             do_action( '__after_logo_or_site_title', $logo_or_title );
-        $html = ob_get_contents();
-        if ($html) ob_end_clean();
+        $html = ob_get_clean();
         if ( $echo )
           echo apply_filters('hu_logo_title', $html );
         else
@@ -1374,16 +1375,16 @@ add_action( 'wp_enqueue_scripts', 'hu_styles' );
 // see here https://stackoverflow.com/questions/49268352/preload-font-awesome
 // FA fonts can be preloaded. The crossorigin param has to be added
 // => this removes Google Speed tests message "preload key requests"
-// important => the url of the font must be exactly the same as in font awesome stylesheet, including the query param at the end fa-brands-400.woff2?v=5.12.1
+// important => the url of the font must be exactly the same as in font awesome stylesheet, including the query param at the end fa-brands-400.woff2?v=5.15.2
 // note that we could preload all other types available ( eot, woff, ttf, svg )
 // but we focus on preloading woff2 which is the type used by most recent browsers
 // see https://css-tricks.com/snippets/css/using-font-face/
 add_action( 'wp_head', 'hu_preload_fa_fonts');
 function hu_preload_fa_fonts() {
   ?>
-    <link rel="preload" as="font" type="font/woff2" href="<?php echo HU_BASE_URL .'assets/front/webfonts/fa-brands-400.woff2?v=5.12.1'; ?>" crossorigin="anonymous"/>
-    <link rel="preload" as="font" type="font/woff2" href="<?php echo HU_BASE_URL .'assets/front/webfonts/fa-regular-400.woff2?v=5.12.1'; ?>" crossorigin="anonymous"/>
-    <link rel="preload" as="font" type="font/woff2" href="<?php echo HU_BASE_URL .'assets/front/webfonts/fa-solid-900.woff2?v=5.12.1'; ?>" crossorigin="anonymous"/>
+    <link rel="preload" as="font" type="font/woff2" href="<?php echo HU_BASE_URL .'assets/front/webfonts/fa-brands-400.woff2?v=5.15.2'; ?>" crossorigin="anonymous"/>
+    <link rel="preload" as="font" type="font/woff2" href="<?php echo HU_BASE_URL .'assets/front/webfonts/fa-regular-400.woff2?v=5.15.2'; ?>" crossorigin="anonymous"/>
+    <link rel="preload" as="font" type="font/woff2" href="<?php echo HU_BASE_URL .'assets/front/webfonts/fa-solid-900.woff2?v=5.15.2'; ?>" crossorigin="anonymous"/>
   <?php
 }
 
@@ -2130,8 +2131,7 @@ function hu_get_welcome_note_content() {
           </div>
         </div>
       <?php
-    $html = ob_get_contents();
-    if ($html) ob_end_clean();
+    $html = ob_get_clean();
     return apply_filters('hu_front_welcome_note_html', $html );
 }
 

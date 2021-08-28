@@ -3,14 +3,14 @@
  * Class Google\Site_Kit\Core\Storage\Cache
  *
  * @package   Google\Site_Kit
- * @copyright 2019 Google LLC
+ * @copyright 2021 Google LLC
  * @license   https://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://sitekit.withgoogle.com
  */
 
 namespace Google\Site_Kit\Core\Storage;
 
-use Google\Site_Kit_Dependencies\Google_Service_Exception;
+use Google\Site_Kit_Dependencies\Google\Service\Exception as Google_Service_Exception;
 
 /**
  * Class providing a server side caching framework.

@@ -3,7 +3,7 @@
  * Class Google\Site_Kit\Core\REST_API\REST_Routes
  *
  * @package   Google\Site_Kit
- * @copyright 2019 Google LLC
+ * @copyright 2021 Google LLC
  * @license   https://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://sitekit.withgoogle.com
  */
@@ -129,117 +129,6 @@ final class REST_Routes {
 			10,
 			2
 		);
-
-		// @TODO: Remove this hook when /settings/ endpoint is implemented on the Google Proxy side.
-		add_filter(
-			'pre_http_request',
-			function( $pre, $args, $url ) {
-				$user_input_settings_url = $this->authentication->get_google_proxy()->url( Google_Proxy::USER_INPUT_SETTINGS_URI );
-				if ( $url !== $user_input_settings_url ) {
-					return $pre;
-				}
-
-				$user_id  = get_current_user_id();
-				$defaults = array(
-					'role'          => array(
-						'values'     => array(),
-						'scope'      => 'user',
-						'answeredBy' => 0,
-					),
-					'postFrequency' => array(
-						'values'     => array(),
-						'scope'      => 'user',
-						'answeredBy' => 0,
-					),
-					'goals'         => array(
-						'values'     => array(),
-						'scope'      => 'site',
-						'answeredBy' => 0,
-					),
-					'helpNeeded'    => array(
-						'values'     => array(),
-						'scope'      => 'site',
-						'answeredBy' => 0,
-					),
-					'searchTerms'   => array(
-						'values'     => array(),
-						'scope'      => 'site',
-						'answeredBy' => 0,
-					),
-				);
-
-				if ( ! empty( $args['body'] ) ) {
-					$body = json_decode( $args['body'], true );
-					if ( ! empty( $body ) ) {
-						$original_site_settings = get_option( 'googlesitekit_temp_userinput_sitewide', array() );
-						$user_settings          = array();
-						$site_settings          = array();
-
-						foreach ( $defaults as $key => $values ) {
-							if ( 'site' === $values['scope'] ) {
-								$new_values = ! empty( $body[ $key ] ) && is_array( $body[ $key ] )
-									? $body[ $key ]
-									: array();
-
-								$original_values = ! empty( $original_site_settings[ $key ]['values'] ) && is_array( $original_site_settings[ $key ]['values'] )
-									? $original_site_settings[ $key ]['values']
-									: array();
-
-								$answered_by = ! empty( $original_site_settings[ $key ]['answeredBy'] )
-									? $original_site_settings[ $key ]['answeredBy']
-									: null;
-
-								if ( count( $new_values ) !== count( $original_values ) ) {
-									$answered_by = $user_id;
-								} else {
-									$intersection = array_intersect( $new_values, $original_values );
-									if ( count( $intersection ) !== count( $new_values ) ) {
-										$answered_by = $user_id;
-									}
-								}
-
-								$site_settings[ $key ] = array(
-									'values'     => $new_values,
-									'scope'      => $values['scope'],
-									'answeredBy' => $answered_by,
-								);
-							} else {
-								$user_settings[ $key ] = array(
-									'values'     => ! empty( $body[ $key ] ) ? $body[ $key ] : array(),
-									'scope'      => $values['scope'],
-									'answeredBy' => $user_id,
-								);
-							}
-						}
-
-						update_option( 'googlesitekit_temp_userinput_sitewide', $site_settings, 'no' );
-						update_option( 'googlesitekit_temp_userinput_' . $user_id, $user_settings, 'no' );
-					}
-				}
-
-				$user_input    = array();
-				$user_settings = get_option( 'googlesitekit_temp_userinput_' . $user_id, array() );
-				$site_settings = get_option( 'googlesitekit_temp_userinput_sitewide', array() );
-
-				foreach ( $defaults as $key => $values ) {
-					if ( isset( $user_settings[ $key ] ) ) {
-						$user_input[ $key ] = $user_settings[ $key ];
-					} elseif ( isset( $site_settings[ $key ] ) ) {
-						$user_input[ $key ] = $site_settings[ $key ];
-					} else {
-						$user_input[ $key ] = $values;
-					}
-				}
-
-				return array(
-					'headers'  => array(),
-					'body'     => wp_json_encode( $user_input ),
-					'response' => array( 'code' => 200 ),
-				);
-			},
-			10,
-			3
-		);
 	}
 
 	/**
@@ -278,69 +167,6 @@ final class REST_Routes {
 		};
 
 		$routes = array(
-			// TODO: This route is super-complex to use and needs to be simplified.
-			new REST_Route(
-				'data',
-				array(
-					array(
-						'methods'             => WP_REST_Server::CREATABLE,
-						'callback'            => function( WP_REST_Request $request ) {
-							if ( ! $request['request'] ) {
-								return new WP_Error( 'no_data_requested', __( 'Missing request data.', 'google-site-kit' ), array( 'status' => 400 ) );
-							}
-
-							// Datasets are expected to be objects but the REST API parses the JSON into an array.
-							$datasets = array_map(
-								function ( $dataset_array ) {
-									return (object) $dataset_array;
-								},
-								$request['request']
-							);
-
-							$modules = $this->modules->get_active_modules();
-
-							$responses = array();
-							foreach ( $modules as $module ) {
-								$filtered_datasets = array_filter(
-									$datasets,
-									function( $dataset ) use ( $module ) {
-										return 'modules' === $dataset->type && $module->slug === $dataset->identifier; // phpcs:ignore WordPress.NamingConventions.ValidVariableName
-									}
-								);
-								if ( empty( $filtered_datasets ) ) {
-									continue;
-								}
-								$additional_responses = $module->get_batch_data( $filtered_datasets );
-								if ( is_array( $additional_responses ) ) {
-									$responses = array_merge( $responses, $additional_responses );
-								}
-							}
-							$responses = array_map(
-								function ( $response ) {
-									if ( is_wp_error( $response ) ) {
-										return $this->error_to_response( $response );
-									}
-									return $response;
-								},
-								$responses
-							);
-
-							return new WP_REST_Response( $responses );
-						},
-						'permission_callback' => $can_view_insights,
-						'args'                => array(
-							'request' => array(
-								'type'        => 'array',
-								'description' => __( 'List of request objects.', 'google-site-kit' ),
-								'required'    => true,
-								'items'       => array(
-									'type' => 'object',
-								),
-							),
-						),
-					),
-				)
-			),
 			// TODO: Remove this and replace usage with calls to wp/v1/posts.
 			new REST_Route(
 				'core/search/data/post-search',
@@ -428,30 +254,33 @@ final class REST_Routes {
 						'permission_callback' => $can_authenticate,
 						'args'                => array(
 							'data' => array(
-								'type'     => 'object',
-								'required' => true,
-								'settings' => array(
-									'type'       => 'object',
-									'properties' => array(
-										'role'          => array(
-											'type'  => 'array',
-											'items' => array( 'type' => 'string' ),
-										),
-										'postFrequency' => array(
-											'type'  => 'array',
-											'items' => array( 'type' => 'string' ),
-										),
-										'goals'         => array(
-											'type'  => 'array',
-											'items' => array( 'type' => 'string' ),
-										),
-										'helpNeeded'    => array(
-											'type'  => 'array',
-											'items' => array( 'type' => 'string' ),
-										),
-										'searchTerms'   => array(
-											'type'  => 'array',
-											'items' => array( 'type' => 'string' ),
+								'type'       => 'object',
+								'required'   => true,
+								'properties' => array(
+									'settings' => array(
+										'type'       => 'object',
+										'required'   => true,
+										'properties' => array(
+											'role'        => array(
+												'type'  => 'array',
+												'items' => array( 'type' => 'string' ),
+											),
+											'postFrequency' => array(
+												'type'  => 'array',
+												'items' => array( 'type' => 'string' ),
+											),
+											'goals'       => array(
+												'type'  => 'array',
+												'items' => array( 'type' => 'string' ),
+											),
+											'helpNeeded'  => array(
+												'type'  => 'array',
+												'items' => array( 'type' => 'string' ),
+											),
+											'searchTerms' => array(
+												'type'  => 'array',
+												'items' => array( 'type' => 'string' ),
+											),
 										),
 									),
 								),
@@ -470,39 +299,5 @@ final class REST_Routes {
 		 * @param array $routes List of REST_Route objects.
 		 */
 		return apply_filters( 'googlesitekit_rest_routes', $routes );
-	}
-
-	/**
-	 * Converts a WP_Error to its response representation.
-	 *
-	 * Adapted from \WP_REST_Server::error_to_response
-	 *
-	 * @since 1.2.0
-	 *
-	 * @param WP_Error $error Error to transform.
-	 *
-	 * @return array
-	 */
-	protected function error_to_response( WP_Error $error ) {
-		$errors = array();
-
-		foreach ( (array) $error->errors as $code => $messages ) {
-			foreach ( (array) $messages as $message ) {
-				$errors[] = array(
-					'code'    => $code,
-					'message' => $message,
-					'data'    => $error->get_error_data( $code ),
-				);
-			}
-		}
-
-		$data = $errors[0];
-		if ( count( $errors ) > 1 ) {
-			// Remove the primary error.
-			array_shift( $errors );
-			$data['additional_errors'] = $errors;
-		}
-
-		return $data;
 	}
 }

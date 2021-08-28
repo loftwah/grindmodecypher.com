@@ -273,7 +273,7 @@ class HU_activation_key {
                 </li>
               </ol>
               <hr>
-                <h3 style="text-align: center;">It is important to always save first, and then click on activate. This also applies if you need to replace one licence key by another.</h3>
+                <h3 style="text-align: center;">It is important to always save first, and then click on activate. This also applies if you need to replace one license key by another.</h3>
             </div>
             <hr>
             <h3><span class="dashicons-before dashicons-info" style="color:#0085ba">&nbsp;</span><?php _e('Helpful links', 'hueman-pro'); ?></h3>
@@ -426,7 +426,7 @@ class HU_activation_key {
             if ( ! empty( $message ) ) {
               $base_url = admin_url( 'themes.php?page=tc-licenses' );
               $redirect = add_query_arg( array( 'sl_theme_activation' => 'false', 'message' => urlencode( $message ) ), $base_url );
-              //always delete the licence message transient
+              //always delete the license message transient
               delete_transient( $transients['license-message'] );
               wp_redirect( $redirect );
               exit();
@@ -444,7 +444,7 @@ class HU_activation_key {
       if ( isset( $license_data ) && isset( $license_data->license ) ) {
         update_option( 'tc_' . $this->theme_prefix . '_license_status', $license_data->license );
 
-        //always delete the licence message transient
+        //always delete the license message transient
         delete_transient( $transients['license-message'] );
 
         if ( 'valid' == $license_data->license )

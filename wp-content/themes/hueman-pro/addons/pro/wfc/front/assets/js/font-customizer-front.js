@@ -46,7 +46,7 @@
     if (i > 0)
       continue;
       CurrentBrowserName = browserkey;
-     i++;
+      i++;
   }
   var body_el = document.querySelectorAll('body');
   if ( body_el && body_el[0] ) {
@@ -55,26 +55,35 @@
 
 
   //Applies effect css classes if any
-  //
   //What do we need to do ?
   //Static effect : If a static effect has been set by user, we add a class font-effect- + effect suffix to the selector
-  //
   // The localized data looks like :
   // if static effect set : array( 'static_effect' => $data['static-effect'] , 'static_effect_selector' => $data['selector'] );
   // can have both arrays
-  for ( var key in effectsAndIconsSelectorCandidates ){
+  var _doEffects = function() {
+      for ( var key in effectsAndIconsSelectorCandidates ){
 
-      var selectorData = effectsAndIconsSelectorCandidates[ key ];
-      //do we have a static effect for this selector ?
-      if ( selectorData.static_effect ) {
-          //inset effect can not be applied to Mozilla. @todo Check next versions
-          if ( 'inset' == selectorData.static_effect && true === CurrentBrowser.mozilla )
-            continue;
+          var selectorData = effectsAndIconsSelectorCandidates[ key ];
+          //do we have a static effect for this selector ?
+          if ( selectorData.static_effect ) {
+              //inset effect can not be applied to Mozilla. @todo Check next versions
+              if ( 'inset' == selectorData.static_effect && true === CurrentBrowser.mozilla )
+                  continue;
 
-          var effect_el = document.querySelectorAll( selectorData.static_effect_selector );
-          if ( effect_el && effect_el[0] ) {
-            effect_el[0].classList.add( 'font-effect-' + selectorData.static_effect );
+              var effect_els = document.querySelectorAll( selectorData.static_effect_selector );
+              if ( effect_els ) {
+                  effect_els.forEach(function (item, index) {
+                      item.classList.add( 'font-effect-' + selectorData.static_effect );
+                  });
+              }
           }
+      }
+  }
+  try {
+      _doEffects();
+  } catch (error) {
+      if ( window.console && console.log ) {
+          console.log('Font customizer error => could not apply effects', error );
       }
   }
 })();

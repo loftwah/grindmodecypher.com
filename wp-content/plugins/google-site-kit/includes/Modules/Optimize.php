@@ -3,16 +3,18 @@
  * Class Google\Site_Kit\Modules\Optimize
  *
  * @package   Google\Site_Kit
- * @copyright 2019 Google LLC
+ * @copyright 2021 Google LLC
  * @license   https://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://sitekit.withgoogle.com
  */
 
 namespace Google\Site_Kit\Modules;
 
+use Google\Site_Kit\Core\Assets\Asset;
 use Google\Site_Kit\Core\Assets\Script;
 use Google\Site_Kit\Core\Modules\Module;
 use Google\Site_Kit\Core\Modules\Module_Settings;
+use Google\Site_Kit\Core\Modules\Module_With_Deactivation;
 use Google\Site_Kit\Core\Modules\Module_With_Debug_Fields;
 use Google\Site_Kit\Core\Modules\Module_With_Settings;
 use Google\Site_Kit\Core\Modules\Module_With_Settings_Trait;
@@ -20,13 +22,12 @@ use Google\Site_Kit\Core\Modules\Module_With_Assets;
 use Google\Site_Kit\Core\Modules\Module_With_Assets_Trait;
 use Google\Site_Kit\Core\Modules\Module_With_Owner;
 use Google\Site_Kit\Core\Modules\Module_With_Owner_Trait;
-use Google\Site_Kit\Core\REST_API\Exception\Invalid_Datapoint_Exception;
 use Google\Site_Kit\Core\Authentication\Clients\Google_Site_Kit_Client;
-use Google\Site_Kit\Core\REST_API\Data_Request;
 use Google\Site_Kit\Core\Util\Debug_Data;
+use Google\Site_Kit\Core\Util\Method_Proxy_Trait;
 use Google\Site_Kit\Modules\Optimize\Settings;
-use Google\Site_Kit_Dependencies\Psr\Http\Message\RequestInterface;
-use WP_Error;
+use Google\Site_Kit\Modules\Optimize\Web_Tag;
+use Google\Site_Kit\Modules\Optimize\Tag_Guard;
 
 /**
  * Class representing the Optimize module.
@@ -36,8 +37,13 @@ use WP_Error;
  * @ignore
  */
 final class Optimize extends Module
-	implements Module_With_Settings, Module_With_Debug_Fields, Module_With_Assets, Module_With_Owner {
-	use Module_With_Settings_Trait, Module_With_Assets_Trait, Module_With_Owner_Trait;
+	implements Module_With_Settings, Module_With_Debug_Fields, Module_With_Assets, Module_With_Owner, Module_With_Deactivation {
+	use Module_With_Settings_Trait, Module_With_Assets_Trait, Module_With_Owner_Trait, Method_Proxy_Trait;
+
+	/**
+	 * Module slug name.
+	 */
+	const MODULE_SLUG = 'optimize';
 
 	/**
 	 * Registers functionality through WordPress hooks.
@@ -64,25 +70,9 @@ final class Optimize extends Module
 				return $this->amp_data_load_experiment_component( $data );
 			}
 		);
-	}
 
-	/**
-	 * Returns all module information data for passing it to JavaScript.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return array Module information data.
-	 */
-	public function prepare_info_for_js() {
-		$info = parent::prepare_info_for_js();
-
-		$info['provides'] = array(
-			__( 'A/B or multivariate testing', 'google-site-kit' ),
-			__( 'Improvement tracking', 'google-site-kit' ),
-			__( 'Probability and confidence calculations', 'google-site-kit' ),
-		);
-
-		return $info;
+		// Optimize tag placement logic.
+		add_action( 'template_redirect', $this->get_method_proxy( 'register_tag' ) );
 	}
 
 	/**
@@ -95,8 +85,9 @@ final class Optimize extends Module
 	 * @return bool True if module is connected, false otherwise.
 	 */
 	public function is_connected() {
-		$optimize_id = $this->get_data( 'optimize-id' );
-		if ( is_wp_error( $optimize_id ) ) {
+		$settings = $this->get_settings()->get();
+
+		if ( ! $settings['optimizeID'] ) {
 			return false;
 		}
 
@@ -121,12 +112,11 @@ final class Optimize extends Module
 	 * @return array Filtered $gtag_config.
 	 */
 	protected function gtag_config_add_optimize_id( $gtag_config ) {
-		$optimize_id = $this->get_data( 'optimize-id' );
-		if ( is_wp_error( $optimize_id ) || empty( $optimize_id ) ) {
-			return $gtag_config;
-		}
+		$settings = $this->get_settings()->get();
 
-		$gtag_config['optimize_id'] = $optimize_id;
+		if ( $settings['optimizeID'] ) {
+			$gtag_config['optimize_id'] = $settings['optimizeID'];
+		}
 
 		return $gtag_config;
 	}
@@ -141,15 +131,16 @@ final class Optimize extends Module
 			return;
 		}
 
-		$amp_experiment_json = $this->get_data( 'amp-experiment-json' );
-		if ( is_wp_error( $amp_experiment_json ) || ! $amp_experiment_json ) {
+		$settings = $this->get_settings()->get();
+
+		if ( ! $settings['ampExperimentJSON'] ) {
 			return;
 		}
 
 		?>
 		<amp-experiment>
 			<script type="application/json">
-				<?php echo $amp_experiment_json; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				<?php echo $settings['ampExperimentJSON']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</script>
 		</amp-experiment>
 		<?php
@@ -183,86 +174,13 @@ final class Optimize extends Module
 	 * @return array Filtered $data.
 	 */
 	protected function amp_data_load_experiment_component( $data ) {
-		$amp_experiment_json = $this->get_data( 'amp-experiment-json' );
-		if ( is_wp_error( $amp_experiment_json ) || ! $amp_experiment_json ) {
-			return $data;
+		$settings = $this->get_settings()->get();
+
+		if ( $settings['ampExperimentJSON'] ) {
+			$data['amp_component_scripts']['amp-experiment'] = 'https://cdn.ampproject.org/v0/amp-experiment-0.1.js';
 		}
 
-		$data['amp_component_scripts']['amp-experiment'] = 'https://cdn.ampproject.org/v0/amp-experiment-0.1.js';
 		return $data;
-	}
-
-	/**
-	 * Gets map of datapoint to definition data for each.
-	 *
-	 * @since 1.12.0
-	 *
-	 * @return array Map of datapoints to their definitions.
-	 */
-	protected function get_datapoint_definitions() {
-		return array(
-			'GET:amp-experiment-json'  => array( 'service' => '' ),
-			'POST:amp-experiment-json' => array( 'service' => '' ),
-			'GET:optimize-id'          => array( 'service' => '' ),
-			'POST:optimize-id'         => array( 'service' => '' ),
-			'POST:settings'            => array( 'service' => '' ),
-		);
-	}
-
-	/**
-	 * Creates a request object for the given datapoint.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @param Data_Request $data Data request object.
-	 * @return RequestInterface|callable|WP_Error Request object or callable on success, or WP_Error on failure.
-	 *
-	 * @throws Invalid_Datapoint_Exception Thrown if the datapoint does not exist.
-	 */
-	protected function create_data_request( Data_Request $data ) {
-		switch ( "{$data->method}:{$data->datapoint}" ) {
-			case 'GET:amp-experiment-json':
-				return function() {
-					$option = $this->get_settings()->get();
-
-					if ( empty( $option['ampExperimentJSON'] ) ) {
-						return new WP_Error( 'amp_experiment_json_not_set', __( 'AMP experiment JSON not set.', 'google-site-kit' ), array( 'status' => 404 ) );
-					}
-
-					return $option['ampExperimentJSON'];
-				};
-			case 'POST:amp-experiment-json':
-				if ( ! isset( $data['ampExperimentJSON'] ) ) {
-					/* translators: %s: Missing parameter name */
-					return new WP_Error( 'missing_required_param', sprintf( __( 'Request parameter is empty: %s.', 'google-site-kit' ), 'ampExperimentJSON' ), array( 'status' => 400 ) );
-				}
-				return function() use ( $data ) {
-					$json = $data['ampExperimentJSON'];
-					$this->get_settings()->merge( array( 'ampExperimentJSON' => $json ) );
-					return true;
-				};
-			case 'GET:optimize-id':
-				return function() {
-					$option = $this->get_settings()->get();
-
-					if ( empty( $option['optimizeID'] ) ) {
-						return new WP_Error( 'optimize_id_not_set', __( 'Optimize ID not set.', 'google-site-kit' ), array( 'status' => 404 ) );
-					}
-
-					return $option['optimizeID'];
-				};
-			case 'POST:optimize-id':
-				if ( ! isset( $data['optimizeID'] ) ) {
-					/* translators: %s: Missing parameter name */
-					return new WP_Error( 'missing_required_param', sprintf( __( 'Request parameter is empty: %s.', 'google-site-kit' ), 'optimizeID' ), array( 'status' => 400 ) );
-				}
-				return function() use ( $data ) {
-					$this->get_settings()->merge( array( 'optimizeID' => $data['optimizeID'] ) );
-					return true;
-				};
-		}
-
-		return parent::create_data_request( $data );
 	}
 
 	/**
@@ -276,11 +194,9 @@ final class Optimize extends Module
 		return array(
 			'slug'        => 'optimize',
 			'name'        => _x( 'Optimize', 'Service name', 'google-site-kit' ),
-			'description' => __( 'Create free A/B tests that help you drive metric-based design solutions to your site.', 'google-site-kit' ),
-			'cta'         => __( 'Increase your CTR.', 'google-site-kit' ),
+			'description' => __( 'Create free A/B tests that help you drive metric-based design solutions to your site', 'google-site-kit' ),
 			'order'       => 5,
 			'homepage'    => __( 'https://optimize.google.com/optimize/home/', 'google-site-kit' ),
-			'learn_more'  => __( 'https://marketingplatform.google.com/about/optimize/', 'google-site-kit' ),
 			'depends_on'  => array( 'analytics' ),
 		);
 	}
@@ -339,5 +255,30 @@ final class Optimize extends Module
 				)
 			),
 		);
+	}
+
+	/**
+	 * Registers the Optimize tag.
+	 *
+	 * @since 1.39.0
+	 */
+	private function register_tag() {
+		$is_amp          = $this->context->is_amp();
+		$module_settings = $this->get_settings();
+		$settings        = $module_settings->get();
+
+		if ( $is_amp ) {
+			return false;
+		}
+
+		$tag = new Web_Tag( $settings['optimizeID'], self::MODULE_SLUG );
+
+		if ( ! $tag->is_tag_blocked() ) {
+			$tag->use_guard( new Tag_Guard( $module_settings ) );
+
+			if ( $tag->can_register() ) {
+				$tag->register();
+			}
+		}
 	}
 }

@@ -3,7 +3,7 @@
  * Plugin config.
  *
  * @package   Google\Site_Kit
- * @copyright 2019 Google LLC
+ * @copyright 2021 Google LLC
  * @license   https://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://sitekit.withgoogle.com
  */
@@ -30,10 +30,8 @@ function autoload_classes() {
 
 	spl_autoload_register(
 		function ( $class ) use ( $class_map ) {
-			if ( isset( $class_map[ $class ] ) ) {
+			if ( isset( $class_map[ $class ] ) && 'Google\\Site_Kit' === substr( $class, 0, 15 ) ) {
 				require_once $class_map[ $class ];
-
-				return true;
 			}
 		},
 		true,

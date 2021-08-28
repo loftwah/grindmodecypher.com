@@ -3,7 +3,7 @@
  * Class Google\Site_Kit\Core\Admin_Bar\Admin_Bar
  *
  * @package   Google\Site_Kit
- * @copyright 2019 Google LLC
+ * @copyright 2021 Google LLC
  * @license   https://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://sitekit.withgoogle.com
  */
@@ -11,11 +11,15 @@
 namespace Google\Site_Kit\Core\Admin_Bar;
 
 use Google\Site_Kit\Context;
-use Google\Site_Kit\Core\Modules\Module_With_Admin_Bar;
 use Google\Site_Kit\Core\Modules\Modules;
 use Google\Site_Kit\Core\Permissions\Permissions;
 use Google\Site_Kit\Core\Assets\Assets;
+use Google\Site_Kit\Core\REST_API\REST_Route;
+use Google\Site_Kit\Core\Storage\Options;
+use Google\Site_Kit\Core\Util\Method_Proxy_Trait;
 use Google\Site_Kit\Core\Util\Requires_Javascript_Trait;
+use WP_REST_Server;
+use WP_REST_Request;
 
 /**
  * Class handling the plugin's admin bar menu.
@@ -25,7 +29,8 @@ use Google\Site_Kit\Core\Util\Requires_Javascript_Trait;
  * @ignore
  */
 final class Admin_Bar {
-	use Requires_Javascript_Trait;
+
+	use Requires_Javascript_Trait, Method_Proxy_Trait;
 
 	/**
 	 * Plugin context.
@@ -52,6 +57,14 @@ final class Admin_Bar {
 	private $modules;
 
 	/**
+	 * Admin_Bar_Enabled instance.
+	 *
+	 * @since 1.39.0
+	 * @var Admin_Bar_Enabled
+	 */
+	private $admin_bar_enabled;
+
+	/**
 	 * Constructor.
 	 *
 	 * @since 1.0.0
@@ -68,6 +81,9 @@ final class Admin_Bar {
 		$this->context = $context;
 		$this->assets  = $assets ?: new Assets( $this->context );
 		$this->modules = $modules ?: new Modules( $this->context );
+
+		$options                 = new Options( $this->context );
+		$this->admin_bar_enabled = new Admin_Bar_Enabled( $options );
 	}
 
 	/**
@@ -76,39 +92,20 @@ final class Admin_Bar {
 	 * @since 1.0.0
 	 */
 	public function register() {
-		add_action(
-			'admin_bar_menu',
-			function( $wp_admin_bar ) {
-				$this->add_menu_button( $wp_admin_bar );
-			},
-			99
-		);
+		add_action( 'admin_bar_menu', $this->get_method_proxy( 'add_menu_button' ), 99 );
+		add_action( 'admin_enqueue_scripts', $this->get_method_proxy( 'enqueue_assets' ), 40 );
+		add_action( 'wp_enqueue_scripts', $this->get_method_proxy( 'enqueue_assets' ), 40 );
 
 		// TODO: This can be removed at some point, see https://github.com/ampproject/amp-wp/pull/4001.
 		add_filter( 'amp_dev_mode_element_xpaths', array( $this, 'add_amp_dev_mode' ) );
-
-		$admin_bar_callback = function() {
-			if ( ! $this->is_active() ) {
-				return;
+		add_filter(
+			'googlesitekit_rest_routes',
+			function( $routes ) {
+				return array_merge( $routes, $this->get_rest_routes() );
 			}
+		);
 
-			// Enqueue fonts.
-			$this->assets->enqueue_fonts();
-
-			// Enqueue styles.
-			$this->assets->enqueue_asset( 'googlesitekit-adminbar-css' );
-
-			if ( $this->context->is_amp() && ! $this->is_amp_dev_mode() ) {
-				// AMP Dev Mode support was added in v1.4, and if it is not enabled then short-circuit since scripts will be invalid.
-				return;
-			}
-
-			// Enqueue scripts.
-			$this->assets->enqueue_asset( 'googlesitekit-adminbar' );
-			$this->modules->enqueue_assets();
-		};
-		add_action( 'admin_enqueue_scripts', $admin_bar_callback, 40 );
-		add_action( 'wp_enqueue_scripts', $admin_bar_callback, 40 );
+		$this->admin_bar_enabled->register();
 	}
 
 	/**
@@ -167,7 +164,6 @@ final class Admin_Bar {
 	 * @return bool True if Admin bar should display, False when it's not.
 	 */
 	public function is_active() {
-
 		// Only active if the admin bar is showing.
 		if ( ! is_admin_bar_showing() ) {
 			return false;
@@ -178,22 +174,24 @@ final class Admin_Bar {
 			return false;
 		}
 
-		$entity = $this->context->get_reference_entity();
+		$enabled = $this->admin_bar_enabled->get();
+		if ( ! $enabled ) {
+			return false;
+		}
 
 		// No entity was identified - don't display the admin bar menu.
+		$entity = $this->context->get_reference_entity();
 		if ( ! $entity ) {
 			return false;
 		}
 
 		// Check permissions for viewing post data.
 		if ( in_array( $entity->get_type(), array( 'post', 'blog' ), true ) && $entity->get_id() ) {
-
 			// If a post entity, check permissions for that post.
 			if ( ! current_user_can( Permissions::VIEW_POST_INSIGHTS, $entity->get_id() ) ) {
 				return false;
 			}
 		} else {
-
 			// Otherwise use more general permission check (typically admin-only).
 			if ( ! current_user_can( Permissions::VIEW_DASHBOARD ) ) {
 				return false;
@@ -201,14 +199,6 @@ final class Admin_Bar {
 		}
 
 		$current_url = $entity->get_url();
-
-		$display = false;
-		foreach ( $this->modules->get_active_modules() as $module ) {
-			if ( $module instanceof Module_With_Admin_Bar && $module->is_active_in_admin_bar( $current_url ) ) {
-				$display = true;
-				break;
-			}
-		}
 
 		/**
 		 * Filters whether the Site Kit admin bar menu should be displayed.
@@ -222,7 +212,7 @@ final class Admin_Bar {
 		 * @param bool   $display     Whether to display the admin bar menu.
 		 * @param string $current_url The URL of the current request.
 		 */
-		return apply_filters( 'googlesitekit_show_admin_bar_menu', $display, $current_url );
+		return apply_filters( 'googlesitekit_show_admin_bar_menu', true, $current_url );
 	}
 
 	/**
@@ -307,4 +297,88 @@ final class Admin_Bar {
 
 		return $markup;
 	}
+
+	/**
+	 * Enqueues assets.
+	 *
+	 * @since 1.39.0
+	 */
+	private function enqueue_assets() {
+		if ( ! $this->is_active() ) {
+			return;
+		}
+
+		// Enqueue fonts.
+		$this->assets->enqueue_fonts();
+
+		// Enqueue styles.
+		$this->assets->enqueue_asset( 'googlesitekit-adminbar-css' );
+
+		if ( $this->context->is_amp() && ! $this->is_amp_dev_mode() ) {
+			// AMP Dev Mode support was added in v1.4, and if it is not enabled then short-circuit since scripts will be invalid.
+			return;
+		}
+
+		// Enqueue scripts.
+		$this->assets->enqueue_asset( 'googlesitekit-adminbar' );
+		$this->modules->enqueue_assets();
+	}
+
+	/**
+	 * Gets related REST routes.
+	 *
+	 * @since 1.39.0
+	 *
+	 * @return array List of REST_Route objects.
+	 */
+	private function get_rest_routes() {
+		$can_authenticate = function() {
+			return current_user_can( Permissions::AUTHENTICATE );
+		};
+
+		$settings_callback = function() {
+			return array(
+				'enabled' => $this->admin_bar_enabled->get(),
+			);
+		};
+
+		return array(
+			new REST_Route(
+				'core/site/data/admin-bar-settings',
+				array(
+					array(
+						'methods'             => WP_REST_Server::READABLE,
+						'callback'            => $settings_callback,
+						'permission_callback' => $can_authenticate,
+					),
+					array(
+						'methods'             => WP_REST_Server::CREATABLE,
+						'callback'            => function( WP_REST_Request $request ) use ( $settings_callback ) {
+							$data    = $request->get_param( 'data' );
+
+							if ( isset( $data['enabled'] ) ) {
+								$this->admin_bar_enabled->set( ! empty( $data['enabled'] ) );
+							}
+
+							return $settings_callback( $request );
+						},
+						'permission_callback' => $can_authenticate,
+						'args'                => array(
+							'data' => array(
+								'type'       => 'object',
+								'required'   => true,
+								'properties' => array(
+									'enabled' => array(
+										'type'     => 'boolean',
+										'required' => false,
+									),
+								),
+							),
+						),
+					),
+				)
+			),
+		);
+	}
+
 }

@@ -3,7 +3,7 @@
  * Class Google\Site_Kit\Core\Assets\Manifest
  *
  * @package   GoogleSite_Kit
- * @copyright 2020 Google LLC
+ * @copyright 2021 Google LLC
  * @license   https://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://sitekit.withgoogle.com
  */
@@ -20,32 +20,37 @@ namespace Google\Site_Kit\Core\Assets;
 class Manifest {
 
 	public static $assets = array(
-		"googlesitekit-vendor"                     => "googlesitekit-vendor.fe08eacbe1cbf68ebead.js",
+		"googlesitekit-vendor"                     => "googlesitekit-vendor.aa2af9ce176b678f1bbe.js",
 		"runtime"                                  => "runtime.11204cf5d95ff56353f0.js",
-		"googlesitekit-activation"                 => "googlesitekit-activation.697ed47a813408286704.js",
-		"googlesitekit-adminbar"                   => "googlesitekit-adminbar.0fe0da7e5793386be244.js",
-		"googlesitekit-api"                        => "googlesitekit-api.84e73869829a1d860e4b.js",
-		"googlesitekit-base"                       => "googlesitekit-base.a8fbd8da1ba062106e1c.js",
-		"googlesitekit-dashboard"                  => "googlesitekit-dashboard.44a522d9e3ec22914437.js",
-		"googlesitekit-dashboard-details"          => "googlesitekit-dashboard-details.deb6c9a283fd7a6a9888.js",
-		"googlesitekit-dashboard-splash"           => "googlesitekit-dashboard-splash.2250b6dbdeda1f133b23.js",
-		"googlesitekit-data"                       => "googlesitekit-data.eba68ba48f2ad9aef326.js",
-		"googlesitekit-datastore-forms"            => "googlesitekit-datastore-forms.f102c25c14d2a948f2ea.js",
-		"googlesitekit-datastore-site"             => "googlesitekit-datastore-site.dc9f1acc871dbf0c2b6a.js",
-		"googlesitekit-datastore-user"             => "googlesitekit-datastore-user.2ec7ad1a15056afb5759.js",
-		"googlesitekit-module"                     => "googlesitekit-module.ca5191ed305cdb3a4b41.js",
-		"googlesitekit-modules"                    => "googlesitekit-modules.36f88a3ba46f69e37c9a.js",
-		"googlesitekit-modules-adsense"            => "googlesitekit-modules-adsense.5fa8400879a0568eeb08.js",
-		"googlesitekit-modules-analytics"          => "googlesitekit-modules-analytics.19af34818af0e8ff5af6.js",
-		"googlesitekit-modules-optimize"           => "googlesitekit-modules-optimize.57a53bdee2e9f683c19e.js",
-		"googlesitekit-modules-pagespeed-insights" => "googlesitekit-modules-pagespeed-insights.8adc60d607aa42ad57a3.js",
-		"googlesitekit-modules-search-console"     => "googlesitekit-modules-search-console.948bfe7b780d48ebfb86.js",
-		"googlesitekit-modules-tagmanager"         => "googlesitekit-modules-tagmanager.1a3b0d0ca9ef967f7c59.js",
-		"googlesitekit-settings"                   => "googlesitekit-settings.89ef64bd2e9b9c5ab283.js",
-		"googlesitekit-user-input"                 => "googlesitekit-user-input.b04b387d052f735bf0b8.js",
-		"googlesitekit-widgets"                    => "googlesitekit-widgets.7133ace0bbb350be566d.js",
-		"googlesitekit-wp-dashboard"               => "googlesitekit-wp-dashboard.a5416a9b325950369252.js",
-		"pagead2.ads"                              => "pagead2.ads.a89d9ab7b15a82d7d4af.js",
+		"googlesitekit-activation"                 => "googlesitekit-activation.b6ec8c063d00b51841a1.js",
+		"googlesitekit-adminbar"                   => "googlesitekit-adminbar.bac2eae0a7ef5269e0c7.js",
+		"googlesitekit-api"                        => "googlesitekit-api.52ee2058ec2c7a3ddf03.js",
+		"googlesitekit-base"                       => "googlesitekit-base.94301a816e74b956b6ba.js",
+		"googlesitekit-dashboard"                  => "googlesitekit-dashboard.4c88001598292bbc04ad.js",
+		"googlesitekit-dashboard-details"          => "googlesitekit-dashboard-details.04209a37c3897e9a9d6a.js",
+		"googlesitekit-dashboard-splash"           => "googlesitekit-dashboard-splash.fe264494d5b0435af585.js",
+		"googlesitekit-data"                       => "googlesitekit-data.7f6a4c39d4b05c6c32fc.js",
+		"googlesitekit-datastore-forms"            => "googlesitekit-datastore-forms.8a088d8bd8f3f022e415.js",
+		"googlesitekit-datastore-location"         => "googlesitekit-datastore-location.5ccefc15c8953192b5a5.js",
+		"googlesitekit-datastore-site"             => "googlesitekit-datastore-site.22f9766d360a88e19cc9.js",
+		"googlesitekit-datastore-ui"               => "googlesitekit-datastore-ui.177b25efc6fdb01dcb7b.js",
+		"googlesitekit-datastore-user"             => "googlesitekit-datastore-user.f09e6b5261ec113aa6fc.js",
+		"googlesitekit-idea-hub-notice"            => "googlesitekit-idea-hub-notice.80cc8cab89cf9049dad9.js",
+		"googlesitekit-idea-hub-post-list-notice"  => "googlesitekit-idea-hub-post-list-notice.1460580b9bdcc1bf05c2.js",
+		"googlesitekit-module"                     => "googlesitekit-module.469436c44025eef5d7cd.js",
+		"googlesitekit-modules"                    => "googlesitekit-modules.331de4d39955751bdd75.js",
+		"googlesitekit-modules-adsense"            => "googlesitekit-modules-adsense.b6b04de9e74cccb1d9cb.js",
+		"googlesitekit-modules-analytics"          => "googlesitekit-modules-analytics.3e6a1cd04f19c1dc3734.js",
+		"googlesitekit-modules-analytics-4"        => "googlesitekit-modules-analytics-4.5ab84f0eda6fdaa9b604.js",
+		"googlesitekit-modules-idea-hub"           => "googlesitekit-modules-idea-hub.36c813ff072c6ce61908.js",
+		"googlesitekit-modules-optimize"           => "googlesitekit-modules-optimize.3072c61979269d90868f.js",
+		"googlesitekit-modules-pagespeed-insights" => "googlesitekit-modules-pagespeed-insights.ff5421393a100c74ed30.js",
+		"googlesitekit-modules-search-console"     => "googlesitekit-modules-search-console.11e3d8b2507b7a7676af.js",
+		"googlesitekit-modules-tagmanager"         => "googlesitekit-modules-tagmanager.ba59f2d43ec18809c8b8.js",
+		"googlesitekit-settings"                   => "googlesitekit-settings.d8d4b1152fcd9484c310.js",
+		"googlesitekit-user-input"                 => "googlesitekit-user-input.cf2120c0a25a2f43ba51.js",
+		"googlesitekit-widgets"                    => "googlesitekit-widgets.53258348ed8a08293f11.js",
+		"googlesitekit-wp-dashboard"               => "googlesitekit-wp-dashboard.5885656611ecaaa0b5d3.js",
 	);
 
 }

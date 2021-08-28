@@ -181,7 +181,7 @@ class Task {
 	 *
 	 * @return null|string Action ID.
 	 */
-	public function register() {
+	public function register() { // phpcs:ignore Generic.Metrics.CyclomaticComplexity.TooHigh
 
 		$action_id = null;
 
@@ -191,7 +191,13 @@ class Task {
 		}
 
 		// Save data to tasks meta table.
-		$task_meta     = new Meta();
+		$task_meta = new Meta();
+
+		// No processing if meta table was not created on multisite subsite.
+		if ( is_multisite() && ! $task_meta->table_exists() ) {
+			return $action_id;
+		}
+
 		$this->meta_id = $task_meta->add(
 			[
 				'action' => $this->action,
@@ -240,7 +246,7 @@ class Task {
 
 		return as_enqueue_async_action(
 			$this->action,
-			[ 'tasks_meta_id' => $this->meta_id ],
+			[ $this->meta_id ],
 			Tasks::GROUP
 		);
 	}
@@ -262,7 +268,7 @@ class Task {
 			$this->timestamp,
 			$this->interval,
 			$this->action,
-			[ 'tasks_meta_id' => $this->meta_id ],
+			[ $this->meta_id ],
 			Tasks::GROUP
 		);
 	}
@@ -283,7 +289,7 @@ class Task {
 		return as_schedule_single_action(
 			$this->timestamp,
 			$this->action,
-			[ 'tasks_meta_id' => $this->meta_id ],
+			[ $this->meta_id ],
 			Tasks::GROUP
 		);
 	}

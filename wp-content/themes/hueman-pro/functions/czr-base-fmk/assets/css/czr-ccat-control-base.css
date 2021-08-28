@@ -228,9 +228,10 @@ li#customize-control-custom_css textarea {
 	color: #00a0d2;
 }
 .customize-control-title {
-	line-height: 19px;
+	line-height: 1.5em;
+  /* font-size: 13px; */
   font-family: Roboto;
-    font-weight: normal;
+  font-weight: normal;
 }
 .customize-control span.customize-control-title:first-child {
   position: relative;
@@ -431,6 +432,7 @@ span.czr-notice {
 	clear: both;
 	display: block;
 	line-height: 18px;
+  padding: 5px 0;
 }
 
 .czr-html-before hr, .czr-html-after hr {
@@ -2584,9 +2586,16 @@ input[type="range"]:focus + .rangeslider .rangeslider__handle {
   display: inline-block;
   float: right;
 }
+.nimblecheck-wrap .nimblecheck-input:focus + label {
+  box-shadow: 0 0 0 1px #33b3db;
+}
 /* Hide the checkbox input (only needed for `:checked` property) */
 .nimblecheck-wrap .nimblecheck-input {
-  display: none;
+  /* display: none; <= May 2021 : display none breaks accessibility*/
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 /* Switch */
 .nimblecheck-wrap .nimblecheck-label {

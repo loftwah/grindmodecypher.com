@@ -98,6 +98,7 @@ function skp_get_skope( $_requesting_wot = null, $_return_string = true, $reques
     // the id : post id, term id, user id
 
     // if $parts are provided, use them.
+    // Note that the value of skp_get_query_skope() is cached when get the first time for better performance
     $parts    = ( is_array( $requested_parts ) && !empty( $requested_parts ) ) ? $requested_parts : skp_get_query_skope();
 
     // error_log( '<SKOPE PARTS>' );
@@ -301,7 +302,7 @@ function skp_get_query_skope() {
 function skp_get_skope_id( $level = 'local' ) {
     // CACHE THE SKOPE WHEN 'wp' DONE
     // the skope id is used when filtering the options, called hundreds of times.
-    // We'll get hight performances with a cached value instead of using the skp_get_skope_id() function on each call.
+    // We get higher performances with a cached value instead of using the skp_get_skope_id() function on each call.
     $new_skope_ids = array( 'local' => '_skope_not_set_', 'group' => '_skope_not_set_' );
     if ( did_action( 'wp' ) ) {
         if ( empty( Flat_Skop_Base()->current_skope_ids ) ) {
@@ -321,9 +322,30 @@ function skp_get_skope_id( $level = 'local' ) {
     } else {
         $skope_id_to_return = array_key_exists( $level, $new_skope_ids ) ? $new_skope_ids[ $level ] : '_skope_not_set_';
     }
+    // if ( !(bool)did_action( 'wp' ) ) {
+    //     sek_error_log('ACTION WP NOT FIRED', did_action('wp'));
+    // }
+    // Jan 2021, while working on https://github.com/presscustomizr/nimble-builder-pro/issues/81
+    // when customizing and firing this function during ajax calls, the check for did_action('wp') will return 0.
+    // => which will lead to skope_id set to '_skope_not_set_'
+    // in order to prevent this, let's get the skope_id value from the customizer posted value when available.
+    if ( skp_is_customizing() && '_skope_not_set_' === $skope_id_to_return && 'local' === $level && !empty($_POST['local_skope_id']) ) {
+        $skope_id_to_return = $_POST['local_skope_id'];
+    }
+    // Feb 2021 => added for https://github.com/presscustomizr/nimble-builder/issues/478
+    if ( skp_is_customizing() && '_skope_not_set_' === $skope_id_to_return && 'group' === $level && !empty($_POST['group_skope_id']) ) {
+        $skope_id_to_return = $_POST['group_skope_id'];
+    }
+
+    $skope_id_to_return = apply_filters( 'skp_get_skope_id', $skope_id_to_return, $level );
+
+    // At this point, the skope_id should be set
+    if ( '_skope_not_set_' === $skope_id_to_return ) {
+        //error_log( __FUNCTION__ . ' error => skope_id not set for level ' . $level );
+    }
     // error_log('$skope_id_to_return => ' . $level . ' ' . $skope_id_to_return );
     // error_log( print_r( Flat_Skop_Base()->current_skope_ids , true ) );
-    return apply_filters( 'skp_get_skope_id', $skope_id_to_return, $level );
+    return $skope_id_to_return;
 }
 
 //@param args = array(
@@ -673,9 +695,25 @@ if ( !class_exists( 'Flat_Export_Skope_Data_And_Send_To_Panel' ) ) :
           // introduced in october 2019 for https://github.com/presscustomizr/nimble-builder/issues/401
           private function _skp_get_json_export_ready_query_data() {
               global $wp_query;
+              global $authordata;
+              add_filter('get_the_archive_title_prefix', '__return_false');
+              $archive_title = get_the_archive_title();
+              remove_filter('get_the_archive_title_prefix', '__return_false');
               return [
                 'is_singular' => $wp_query->is_singular,
-                'post_id' => get_the_ID()
+                'is_archive' => $wp_query->is_archive,
+                'is_search' => $wp_query->is_search,
+                'is_attachment' => $wp_query->is_attachment,
+                'is_front_page' => is_front_page(),
+                'the_archive_title' => $archive_title,
+                'the_archive_description' => get_the_archive_description(),
+                'the_previous_post_link' => is_singular() ? get_previous_post_link( $format = '%link' ) : '',
+                'the_next_post_link' => is_singular() ? get_next_post_link( $format = '%link' ) : '',
+                'the_search_query' => get_search_query(),
+                'the_search_results_nb' => (int) $wp_query->found_posts,
+                'the_author_id' => isset( $authordata->ID ) ? $authordata->ID : 0,
+                'post_id' => get_the_ID(),
+                'query_vars' => $wp_query->query_vars
               ];
           }
 

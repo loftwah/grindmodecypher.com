@@ -3,7 +3,7 @@
  * Interface Google\Site_Kit\Core\Modules\Module_With_Assets
  *
  * @package   Google\Site_Kit
- * @copyright 2020 Google LLC
+ * @copyright 2021 Google LLC
  * @license   https://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://sitekit.withgoogle.com
  */
@@ -34,6 +34,9 @@ interface Module_With_Assets {
 	 * Enqueues all assets necessary for the module.
 	 *
 	 * @since 1.7.0
+	 * @since 1.37.0 Added the $asset_context argument.
+	 *
+	 * @param string $asset_context Context for page, see `Asset::CONTEXT_*` constants.
 	 */
-	public function enqueue_assets();
+	public function enqueue_assets( $asset_context = Asset::CONTEXT_ADMIN_SITEKIT );
 }

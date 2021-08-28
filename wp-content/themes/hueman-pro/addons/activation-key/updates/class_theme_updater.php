@@ -159,6 +159,9 @@ class HU_theme_updater{
 
     $update_data = $this->check_for_update();
     if ( $update_data ) {
+      if ( ! is_object( $value ) ) {
+        $value = new stdClass;
+      }
       // Make sure the theme property is set. See issue 1463 on Github in the Software Licensing Repo.
       $update_data['theme'] = $this->theme_slug;
       // make sure we have a properly set value.

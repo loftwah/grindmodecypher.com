@@ -33,9 +33,10 @@ class Options extends OptionsAbstract {
 				'title'       => esc_html__( 'Gmail', 'wp-mail-smtp' ),
 				'description' => sprintf(
 					wp_kses( /* translators: %s - URL to our Gmail doc. */
-						__( 'Send emails using your Gmail or G Suite (formerly Google Apps) account, all while keeping your login credentials safe. Other Google SMTP methods require enabling less secure apps in your account and entering your password. However, this integration uses the Google API to improve email delivery issues while keeping your site secure.<br><br>Read our <a href="%s" target="_blank" rel="noopener noreferrer">Gmail documentation</a> to learn how to configure Gmail or G Suite.', 'wp-mail-smtp' ),
+						__( 'Send emails using your <b>Gmail</b> or <b>G Suite</b> (formerly Google Apps) account, all while keeping your login credentials safe. Other Google SMTP methods require enabling less secure apps in your account and entering your password. However, this integration uses the Google API to improve email delivery issues while keeping your site secure.<br><br>Read our <a href="%s" target="_blank" rel="noopener noreferrer">Gmail documentation</a> to learn how to configure Gmail or G Suite.', 'wp-mail-smtp' ),
 						[
 							'br' => [],
+							'b'  => [],
 							'a'  => [
 								'href'   => [],
 								'rel'    => [],
@@ -46,9 +47,14 @@ class Options extends OptionsAbstract {
 					'https://wpmailsmtp.com/docs/how-to-set-up-the-gmail-mailer-in-wp-mail-smtp/'
 				),
 				'notices'     => [
-					'educational' => esc_html__( 'The Gmail mailer works well for sites that send low numbers of emails. However, Gmail\'s API has rate limitations and a number of additional restrictions that can lead to challenges during setup. If you expect to send a high volume of emails, or if you find that your web host is not compatible with the Gmail API restrictions, then we recommend considering a different mailer option.', 'wp-mail-smtp' ),
+					'educational' => wp_kses(
+						__( 'The Gmail mailer works well for sites that send low numbers of emails. However, Gmail\'s API has rate limitations and a number of additional restrictions that can lead to challenges during setup.<br><br>If you expect to send a high volume of emails, or if you find that your web host is not compatible with the Gmail API restrictions, then we recommend considering a different mailer option.', 'wp-mail-smtp' ),
+						[
+							'br' => [],
+						]
+					),
 				],
-				'php'         => '5.5',
+				'php'         => '5.6',
 				'supports'    => [
 					'from_email'       => true,
 					'from_name'        => true,
@@ -201,9 +207,12 @@ class Options extends OptionsAbstract {
 								],
 							]
 						),
-						'https://support.google.com/a/answer/33327'
+						'https://wpmailsmtp.com/gmail-send-from-alias-wp-mail-smtp/'
 					);
 					?>
+				</p>
+				<p class="desc">
+					<?php esc_html_e( 'You can also send emails with different From Email addresses, by disabling the Force From Email setting and using registered aliases throughout your WordPress site as the From Email addresses.', 'wp-mail-smtp' ); ?>
 				</p>
 				<p class="desc">
 					<?php esc_html_e( 'Removing the connection will give you an ability to redo the connection or link to another Google account.', 'wp-mail-smtp' ); ?>
@@ -228,7 +237,7 @@ class Options extends OptionsAbstract {
 	 */
 	public function process_provider_remove() {
 
-		if ( ! is_super_admin() ) {
+		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
 

@@ -69,7 +69,7 @@
                   // Throttle to check for such case every 300ms
 
                   // On event the case becomes a fact
-                  this.window.bind( 'scroll.infinity', function() {
+                  this.window.on( 'scroll.infinity', function() {
                         this.throttle = true;
                   });
 
@@ -90,7 +90,7 @@
 
                   // Ensure that enough posts are loaded to fill the initial viewport, to compensate for short posts and large displays.
                   self.ensureFilledViewport();
-                  this.body.bind( 'post-load', { self: self }, self.checkViewportOnLoad );
+                  this.body.on( 'post-load', { self: self }, self.checkViewportOnLoad );
             } else if ( type == 'click' ) {
                   if ( this.click_handle ) {
                         this.appendHandleTo.append( this.handle );
@@ -108,7 +108,7 @@
             }
 
             // Initialize any Core audio or video players loaded via IS
-            this.body.bind( 'post-load', { self: self }, self.initializeMejs );
+            this.body.on( 'post-load', { self: self }, self.initializeMejs );
       };
 
       /**
@@ -168,7 +168,7 @@
             blog.attr( 'title', totop );
 
             // Scroll to top on blog title
-            blog.bind( 'click', function( e ) {
+            blog.on( 'click', function( e ) {
                   $( 'html, body' ).animate( { scrollTop: 0 }, 'fast' );
                   e.preventDefault();
             });
@@ -183,7 +183,7 @@
                   width;
 
             // Check if we have an id for the page wrapper
-            if ( $.type( this.footer.wrap ) === "string" ) {
+            if ( "string" === typeof this.footer.wrap ) {
                   width = $( 'body #' + this.footer.wrap ).outerWidth( false );
 
                   // Make the footer match the width of the page
@@ -300,7 +300,7 @@
 
                                     // If MediaElement.js is loaded in by this set of posts, don't initialize the players a second time as it breaks them all
                                     if ( 'wp-mediaelement' === this.handle ) {
-                                          self.body.unbind( 'post-load', self.initializeMejs );
+                                          self.body.off( 'post-load', self.initializeMejs );
                                     }
 
                                     if ( 'wp-mediaelement' === this.handle && 'undefined' === typeof mejs ) {
@@ -461,7 +461,7 @@
                   this.wpMediaelement = null;
 
                   // Ensure any subsequent IS loads initialize the players
-                  this.body.bind( 'post-load', { self: this }, this.initializeMejs );
+                  this.body.on( 'post-load', { self: this }, this.initializeMejs );
             }
       };
 
@@ -519,7 +519,7 @@
                   } );
 
                   if ( postsHeight === 0 ) {
-                        self.body.unbind( 'post-load', self.checkViewportOnLoad );
+                        self.body.off( 'post-load', self.checkViewportOnLoad );
                         return;
                   }
             }
@@ -541,7 +541,7 @@
                   self.refresh();
             }
             else {
-                  self.body.unbind( 'post-load', self.checkViewportOnLoad );
+                  self.body.off( 'post-load', self.checkViewportOnLoad );
             }
       };
 
@@ -777,7 +777,7 @@
              */
             if( type == 'click' ) {
                 var timer = null;
-                $( window ).bind( 'scroll', function() {
+                $( window ).on( 'scroll', function() {
                     // run the real scroll handler once every 250 ms.
                     if ( timer ) { return; }
                     timer = setTimeout( function() {

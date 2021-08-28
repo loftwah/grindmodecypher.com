@@ -3,7 +3,7 @@
  * Class Google\Site_Kit\Modules\AdSense\Settings
  *
  * @package   Google\Site_Kit\Modules\AdSense
- * @copyright 2019 Google LLC
+ * @copyright 2021 Google LLC
  * @license   https://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://sitekit.withgoogle.com
  */
@@ -152,12 +152,14 @@ class Settings extends Module_Settings implements Setting_With_Owned_Keys_Interf
 		return array(
 			'ownerID'              => 0,
 			'accountID'            => '',
+			'autoAdsDisabled'      => array(),
 			'clientID'             => '',
 			'accountStatus'        => '',
 			'siteStatus'           => '',
 			'accountSetupComplete' => false,
 			'siteSetupComplete'    => false,
 			'useSnippet'           => true,
+			'webStoriesAdUnit'     => '',
 		);
 	}
 
@@ -179,6 +181,9 @@ class Settings extends Module_Settings implements Setting_With_Owned_Keys_Interf
 				}
 				if ( isset( $option['useSnippet'] ) ) {
 					$option['useSnippet'] = (bool) $option['useSnippet'];
+				}
+				if ( isset( $option['autoAdsDisabled'] ) ) {
+					$option['autoAdsDisabled'] = (array) $option['autoAdsDisabled'];
 				}
 			}
 			return $option;

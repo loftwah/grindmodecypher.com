@@ -99,6 +99,10 @@ class TC_front_font_customizer {
     // @wp_footer
     // replaces wp_localize because we don't need to indicate a dependency to any scripts for local data
     function tc_print_local_scripts() {
+         // May 2020 for https://github.com/presscustomizr/wordpress-font-customizer/issues/115
+        if ( (bool)get_option( TC_wfc::$opt_name . '_deactivated' ) )
+            return;
+            
         $wfc_params = array(
             'effectsAndIconsSelectorCandidates' => $this -> get_effect_user_settings_localized_data_js(),
             'wfcOptions' => $this -> get_debug_options()
@@ -112,8 +116,9 @@ class TC_front_font_customizer {
         }
 
         printf('<script id="wfc-front-localized">%1$s</script>', "var wfcFrontParams = " . wp_json_encode( $wfc_params ) . ';' );
+        // The following script source is located in front\assets\js\font-customizer-front.js
         ?>
-          <script id="wfc-front-script">!function(){function a(){var a,b,c,d={};return a=navigator.userAgent.toLowerCase(),b=/(chrome)[ /]([\w.]+)/.exec(a)||/(webkit)[ /]([\w.]+)/.exec(a)||/(opera)(?:.*version|)[ /]([\w.]+)/.exec(a)||/(msie) ([\w.]+)/.exec(a)||a.indexOf("compatible")<0&&/(mozilla)(?:.*? rv:([\w.]+)|)/.exec(a)||[],c={browser:b[1]||"",version:b[2]||"0"},c.browser&&(d[c.browser]=!0,d.version=c.version),d.chrome?d.webkit=!0:d.webkit&&(d.safari=!0),d}var b=wfcFrontParams.effectsAndIconsSelectorCandidates,c=a(),d="",e=0;for(var f in c)e>0||(d=f,e++);var g=document.querySelectorAll("body");g&&g[0]&&g[0].classList.add(d||"");for(var h in b){var i=b[h];if(i.static_effect){if("inset"==i.static_effect&&!0===c.mozilla)continue;var j=document.querySelectorAll(i.static_effect_selector);j&&j[0]&&j[0].classList.add("font-effect-"+i.static_effect)}}}();</script>
+          <script id="wfc-front-script">!function(){var e=wfcFrontParams.effectsAndIconsSelectorCandidates;var o,t,c,r,i=(r={},o=navigator.userAgent.toLowerCase(),(c={browser:(t=/(chrome)[ /]([\w.]+)/.exec(o)||/(webkit)[ /]([\w.]+)/.exec(o)||/(opera)(?:.*version|)[ /]([\w.]+)/.exec(o)||/(msie) ([\w.]+)/.exec(o)||o.indexOf("compatible")<0&&/(mozilla)(?:.*? rv:([\w.]+)|)/.exec(o)||[])[1]||"",version:t[2]||"0"}).browser&&(r[c.browser]=!0,r.version=c.version),r.chrome?r.webkit=!0:r.webkit&&(r.safari=!0),r),s="",a=0;for(var n in i)a>0||(s=n,a++);var f=document.querySelectorAll("body");f&&f[0]&&f[0].classList.add(s||"");try{!function(){for(var o in e){var t=e[o];if(t.static_effect){if("inset"==t.static_effect&&!0===i.mozilla)continue;var c=document.querySelectorAll(t.static_effect_selector);c&&c.forEach(function(e,o){e.classList.add("font-effect-"+t.static_effect)})}}}()}catch(e){window.console&&console.log&&console.log("Font customizer error => could not apply effects",e)}}();</script>
         <?php
     }
 

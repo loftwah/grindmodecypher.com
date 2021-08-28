@@ -835,6 +835,7 @@ window.nb_.getQueryVariable = function(variable) {
                 return;
 
             var $linkCandidates = $('[data-sek-module-type="czr_image_module"]').find('.sek-link-to-img-lightbox');
+            $linkCandidates = $linkCandidates.add($('[data-sek-level="module"]').find('.sek-gallery-lightbox'));
             // Abort if no link candidate, or if the link href looks like :javascript:void(0) <= this can occur with the default image for example.
             if ( $linkCandidates.length < 1 )
               return;
@@ -992,10 +993,11 @@ window.nb_.getQueryVariable = function(variable) {
             // when the plugin is loaded => it emits "nb-needs-fa" listened to by nb_.listenTo()
             var doLoad = function() {
                   //Load the style
-                  if ( $('head').find( '#czr-font-awesome' ).length < 1 ) {
+                  if ( $('head').find( '#nb-font-awesome' ).length < 1 ) {
                         var link = document.createElement('link');
                         link.setAttribute('href', sekFrontLocalized.frontAssetsPath + 'fonts/css/fontawesome-all.min.css?'+sekFrontLocalized.assetVersion );
-                        link.setAttribute('id', 'czr-font-awesome');
+                        link.setAttribute('id', 'nb-font-awesome');
+                        link.setAttribute('data-sek-injected-dynamically', 'yes');
                         link.setAttribute('rel', nb_.hasPreloadSupport() ? 'preload' : 'stylesheet' );
                         link.setAttribute('as', 'style');
                         link.onload = function() {
@@ -1003,7 +1005,6 @@ window.nb_.getQueryVariable = function(variable) {
                             if ( nb_.hasPreloadSupport() ) {
                                 this.rel='stylesheet';
                             }
-
                         };
                         document.getElementsByTagName('head')[0].appendChild(link);
                   }
@@ -1030,38 +1031,65 @@ window.nb_.getQueryVariable = function(variable) {
 (function(w, d){
     nb_.listenTo('nb-jmp-parsed', function() {
         jQuery(function($){
-            var $linkCandidates = $('[data-sek-module-type="czr_image_module"]').find('.sek-link-to-img-lightbox');
-            // Abort if no link candidate
-            if ( $linkCandidates.length < 1 )
-              return;
-
-            $linkCandidates.each( function() {
-                $linkCandidate = $(this);
-                // Abort if no link candidate, or if the link href looks like :javascript:void(0) <= this can occur with the default image for example.
-                if ( $linkCandidate.length < 1 || 'string' !== typeof( $linkCandidate[0].protocol ) || -1 !== $linkCandidate[0].protocol.indexOf('javascript') )
-                  return;
-                // Abort if candidate already setup
-                if ( $linkCandidate.data('nimble-mfp-done') )
+            if ( nb_.isCustomizing() )
                   return;
 
-                try { $linkCandidate.magnificPopup({
-                    type: 'image',
-                    closeOnContentClick: true,
-                    closeBtnInside: true,
-                    fixedContentPos: true,
-                    mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
-                    image: {
-                      verticalFit: true
-                    },
-                    zoom: {
-                      enabled: true,
-                      duration: 300 // don't foget to change the duration also in CSS
-                    }
-                }); } catch( er ) {
-                      nb_.errorLog( 'error in callback of nimble-magnific-popup-loaded => ', er );
-                }
-                $linkCandidate.data('nimble-mfp-done', true );
+            var $linkCandidates = [
+                  $('[data-sek-level="module"]').find('.sek-link-to-img-lightbox'),// image module
+                  $('[data-sek-level="module"]').find('.sek-gallery-lightbox')// gallery module
+            ];
+
+            var _params = {
+                  type: 'image',
+                  closeOnContentClick: true,
+                  closeBtnInside: true,
+                  fixedContentPos: true,
+                  mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
+                  image: {
+                        verticalFit: true
+                        // titleSrc: function(item) {
+                        //       return item.el.attr('title');
+                        // }
+                  },
+                  zoom: {
+                        enabled: true,
+                        duration: 300 // don't foget to change the duration also in CSS
+                  }
+            };
+            //var $linkCand;
+            $.each( $linkCandidates, function(_k, $linkCand) {
+                  // Abort if no link candidate
+                  if ( $linkCand.length < 1 )
+                        return;
+                  //$linkCand = $(this);
+                  if ( $linkCand.hasClass('sek-gallery-lightbox') ) {
+                        _params.delegate = 'figure .sek-gal-img-has-link';
+                        _params.gallery = {
+                              enabled: true,
+                              navigateByImgClick: true
+                              //preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+                        };
+                        _params.image = {
+                              verticalFit: true,
+                              titleSrc: function(item) {
+                                    return item.el.attr('title');
+                              }
+                        };
+                  }
+                  // Abort if candidate already setup
+                  if ( $linkCand.data('nimble-mfp-done') )
+                        return;
+                  try { $linkCand.magnificPopup( _params ); } catch( er ) {
+                        nb_.errorLog( 'error in callback of nimble-magnific-popup-loaded => ', er );
+                  }
+                  $linkCand.data('nimble-mfp-done', true );
             });
+
+            // July 2021, prevent gallery images to be clicked when no link is specified
+            $('.sek-gallery-lightbox').on('click', '.sek-no-img-link', function(evt) {
+                  evt.preventDefault();
+            });
+
         });//jQuery(function($){})
     });
 }(window, document));
@@ -1179,11 +1207,23 @@ window.nb_.getQueryVariable = function(variable) {
 /* ------------------------------------------------------------------------- */
 // June 2020 : added for https://github.com/presscustomizr/nimble-builder/issues/716
 nb_.listenTo('nb-docready', function() {
-    if ( window.nb_ && window.nb_.getQueryVariable ) {
-        var anchorId = window.nb_.getQueryVariable('go_to'),
-            el = document.getElementById(anchorId);
-        if( anchorId && el ) {
-              setTimeout( function() { el.scrollIntoView();}, 200 );
-        }
-    }
+      if ( window.nb_ && window.nb_.getQueryVariable ) {
+            var anchorId = window.nb_.getQueryVariable('nb_grid_module_go_to'),
+                  el = document.getElementById(anchorId);
+            // Then clean the url
+            var _cleanUrl = function() {
+                  var currPathName = window.location.pathname; //get current address
+                  //1- get the part before '?go_to'
+                  var beforeQueryString = currPathName.split("?go_to")[0];
+                  window.history.replaceState({}, document.title,  beforeQueryString );
+            };
+            if( anchorId && el ) {
+                  setTimeout( function() { el.scrollIntoView();}, 200 );
+                  try{ _cleanUrl(); } catch(er) {
+                        if( window.console && window.console.log ) {
+                              console.log( 'NB => error when cleaning url "go_to" param');
+                        }
+                  }
+            }
+      }
 });

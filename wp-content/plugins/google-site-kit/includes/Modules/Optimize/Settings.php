@@ -3,7 +3,7 @@
  * Class Google\Site_Kit\Modules\Optimize\Settings
  *
  * @package   Google\Site_Kit\Modules\Optimize
- * @copyright 2019 Google LLC
+ * @copyright 2021 Google LLC
  * @license   https://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://sitekit.withgoogle.com
  */
@@ -85,9 +85,28 @@ class Settings extends Module_Settings implements Setting_With_Owned_Keys_Interf
 	 */
 	protected function get_default() {
 		return array(
-			'ownerID'           => 0,
-			'ampExperimentJSON' => '',
-			'optimizeID'        => '',
+			'ownerID'                 => 0,
+			'ampExperimentJSON'       => '',
+			'optimizeID'              => '',
+			'placeAntiFlickerSnippet' => false,
 		);
+	}
+
+	/**
+	 * Gets the callback for sanitizing the setting's value before saving.
+	 *
+	 * @since 1.39.0
+	 *
+	 * @return callable|null
+	 */
+	protected function get_sanitize_callback() {
+		return function( $option ) {
+			if ( is_array( $option ) ) {
+				if ( isset( $option['placeAntiFlickerSnippet'] ) ) {
+					$option['placeAntiFlickerSnippet'] = (bool) $option['placeAntiFlickerSnippet'];
+				}
+			}
+			return $option;
+		};
 	}
 }

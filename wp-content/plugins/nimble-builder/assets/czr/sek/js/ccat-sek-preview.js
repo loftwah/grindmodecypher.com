@@ -1368,20 +1368,20 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
             scheduleUiClickReactions : function() {
                   var self = this;
 
-                  self.cachedElements.$body.on('click', function( evt ) {
+                  var _reactOnClick = function( evt ) {
                         // First clean any currently highlighted target drop zone
                         // implemented for double-click insertion https://github.com/presscustomizr/nimble-builder/issues/317
                         api.preview.send( 'sek-clean-target-drop-zone' );
 
                         var clickedOn = 'inactiveZone',
-                            $el = $(evt.target),
-                            $hookLocation = $el.closest('[data-sek-level="location"][data-sek-preview-level-guid="' + sekPreviewLocalized.previewLevelGuid +'"]'),
-                            $closestLevelWrapper = $el.closest('[data-sek-preview-level-guid="' + sekPreviewLocalized.previewLevelGuid +'"]'),
-                            $closestActionIcon = $el.closest('[data-sek-click-on]'),
-                            _action,
-                            _location_id = $hookLocation.data('sek-id'),
-                            _level = $closestLevelWrapper.data('sek-level'),
-                            _id = $closestLevelWrapper.data('sek-id');
+                              $el = $(evt.target),
+                              $hookLocation = $el.closest('[data-sek-level="location"][data-sek-preview-level-guid="' + sekPreviewLocalized.previewLevelGuid +'"]'),
+                              $closestLevelWrapper = $el.closest('[data-sek-preview-level-guid="' + sekPreviewLocalized.previewLevelGuid +'"]'),
+                              $closestActionIcon = $el.closest('[data-sek-click-on]'),
+                              _action,
+                              _location_id = $hookLocation.data('sek-id'),
+                              _level = $closestLevelWrapper.data('sek-level'),
+                              _id = $closestLevelWrapper.data('sek-id');
 
                         if ( 'add-content' == $el.data('sek-click-on') || ( $el.closest('[data-sek-click-on]').length > 0 && 'add-content' == $el.closest('[data-sek-click-on]').data('sek-click-on') ) ) {
                               clickedOn = 'addContentButton';
@@ -1407,11 +1407,11 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
                               clickedOn = 'inactiveZone';
                         }
 
-                        if ( _.isEmpty( _location_id ) ) {
-                            self.errare( '::scheduleUiClickReactions => error location id can not be empty' );
+                        if ( $hookLocation.length > 0 && _.isEmpty( _location_id ) ) {
+                              self.errare( '::scheduleUiClickReactions => error location id can not be empty' );
                         }
 
-                        //console.log('ALORS CLICKED ?', clickedOn );
+                        //console.log('ALORS CLICKED ?', clickedOn, $el );
 
                         switch( clickedOn ) {
                               case 'addContentButton' :
@@ -1428,15 +1428,15 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
                               break;
                               case 'UIIcon' :
                                     if ( 1 > $closestLevelWrapper.length ) {
-                                        throw new Error( 'ERROR => sek-front-preview => No valid level dom element found' );
+                                          throw new Error( 'ERROR => sek-front-preview => No valid level dom element found' );
                                     }
                                     _action = $el.closest('[data-sek-click-on]').data('sek-click-on');
 
                                     if ( _.isEmpty( _action ) ) {
-                                        throw new Error( 'Invalid action' );
+                                          throw new Error( 'Invalid action' );
                                     }
                                     if ( _.isEmpty( _level ) || _.isEmpty( _id ) ) {
-                                        throw new Error( 'ERROR => sek-front-preview => No valid level id found' );
+                                          throw new Error( 'ERROR => sek-front-preview => No valid level id found' );
                                     }
                                     self._send_( $el, {
                                           action : _action,
@@ -1449,7 +1449,7 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
                               case 'moduleWrapper' :
                                     // stop here if the ui icons block was clicked
                                     if ( $el.parent('.sek-dyn-ui-icons').length > 0 )
-                                      return;
+                                          return;
 
                                     self._send_( $el, {
                                           action : 'edit-module',
@@ -1460,17 +1460,23 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
                               case 'noModulesColumn' :
                                     // stop here if the ui icons block was clicked
                                     if ( $el.parent('.sek-dyn-ui-icons').length > 0 )
-                                      return;
+                                          return;
 
-                                    self._send_( $el, { action : 'pick-content', content_type : 'module', level : _level , id : _id } );
+                                    self._send_( $el, {
+                                          action : 'edit-options',
+                                          location : _location_id,
+                                          level : _level,
+                                          id : _id
+                                    });
+                                    //self._send_( $el, { action : 'pick-content', content_type : 'module', level : _level , id : _id } );
                               break;
                               case 'columnOutsideModules' :
                               case 'sectionOutsideColumns' :
                                     self._send_( $el, {
-                                        action : 'edit-options',
-                                        location : _location_id,
-                                        level : _level,
-                                        id : _id
+                                          action : 'edit-options',
+                                          location : _location_id,
+                                          level : _level,
+                                          id : _id
                                     });
                               break;
                               case 'addSektion' :
@@ -1502,8 +1508,9 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
                                     //self._send_( $el, { action : 'pick-content' } );
                               break;
                         }
+                  };//_reactOnClick()
 
-                  });//$('body').on('click', function( evt ) {}
+                  self.cachedElements.$body.on('click',_reactOnClick );//$('body').on('click', function( evt ) {}
 
             },//scheduleUserReactions()
 
@@ -1665,13 +1672,14 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
                             'sek-add-content-in-new-nested-sektion' : 'ajaxAddSektion',
                             'sek-add-column' : 'ajaxRefreshColumns',
                             'sek-add-module' : 'ajaxRefreshModulesAndNestedSections',
+                            'sek-refresh-stylesheet-in-the-background-for-custom-css' : 'ajaxRefreshStylesheet',
                             'sek-refresh-stylesheet' : 'ajaxRefreshStylesheet',
 
                             'sek-resize-columns' : 'ajaxResizeColumns',
 
                             'sek-maybe-print-loader' : function( params ) {
                                   try { self.mayBePrintLoader( params ); } catch( er ) {
-                                        api.errare( 'sek-clean-loader => error', er );
+                                        api.errare( 'sek-print-loader => error', er );
                                   }
                             },
                             'sek-clean-loader' : function( params ) {
@@ -1791,8 +1799,9 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
                                         } else {
                                               $placeHolder.after( html_content );
                                         }
-
-                                        $placeHolder.remove();
+                                        if ( $placeHolder.length > 0 ) {
+                                          $placeHolder.remove();
+                                        }
 
                                         //=> 'sek-level-refreshed' is listened to ( for example ) clean the loader overlay in time
                                         $( '[data-sek-id="' + params.apiParams.id + '"]' ).trigger( 'sek-level-refreshed', { level : params.apiParams.level, id : params.apiParams.id } );
@@ -2055,13 +2064,21 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
                             // Sent from the panel when duplicating a section level for example
                             // focus on a level
                             'sek-animate-to-level' : function( params ) {
-                                  var $elToFocusOn = $('[data-sek-id="' + params.id + '"]' );
-                                  if ( $elToFocusOn.length > 0 ) {
-                                        //$elToFocusOn[0].scrollIntoView();
-                                        $('html, body').animate({
-                                              scrollTop : $elToFocusOn.offset().top - 100
-                                        }, 200 );
-                                  }
+                                    var $elToFocusOn = $('[data-sek-id="' + params.id + '"]' );
+                                    if ( 0 < $elToFocusOn.length && !nb_.isInScreen( $elToFocusOn[0]) ) {
+                                          $elToFocusOn[0].scrollIntoView({
+                                                behavior: 'auto',
+                                                block: 'center',
+                                                inline: 'center'
+                                          });
+                                    }
+                                    // if ( $elToFocusOn.length > 0 ) {
+                                    //       console.log( 'EL IN WINDOW ?', nb_.elOrFirstVisibleParentIsInWindow( $elToFocusOn ), $elToFocusOn );
+                                    //       $elToFocusOn[0].scrollIntoView();
+                                    //       $('html, body').animate({
+                                    //             scrollTop : $elToFocusOn.offset().top - 100
+                                    //       }, 200 );
+                                    // }
                             },
 
 
@@ -2110,7 +2127,12 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
 
                                   // for multi-item modules, the changed item id is passed
                                   if ( !_.isEmpty( params.changed_item_id ) ) {
-                                        $target_el = $( '[data-sek-item-id="' + params.changed_item_id + '"] ' + params.selector, $level_el);
+                                        // if a selector is provided in param 'refresh_markup'
+                                        if ( params.selector ) {
+                                          $target_el = $( '[data-sek-item-id="' + params.changed_item_id + '"] ' + params.selector, $level_el);
+                                        } else {
+                                                $target_el = $( '[data-sek-item-id="' + params.changed_item_id + '"]', $level_el);
+                                          }
                                   } else {
                                         $target_el = $(params.selector, $level_el);
                                   }
@@ -2121,8 +2143,93 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
                                         self.errare( 'reactToPanelMsg => sek-update-html-in-selector => missing level or target dom element', params );
                                   }
                             },
-                            // march 2020 : print confettis when displaying the review request
-                            'sek-print-confettis' : function( params ) {
+                             // introduced for CUSTOM CSS see https://github.com/presscustomizr/nimble-builder-pro/issues/201
+                            // fired when refresh_css_via_post_message = true in input registration params
+                            'sek-update-css-with-postmessage' : function( params ) {
+                                    //console.log('ALORS PARAMS ?', params );
+                                    if ( _.isUndefined(params.css_content) || !_.isString(params.css_content) ) {
+                                          self.errare( 'error => sek-update-css-with-postmessage => css content is not a string' );
+                                          return;
+                                    }
+
+                                    // Comments removal
+                                    // see https://stackoverflow.com/questions/5989315/regex-for-match-replacing-javascript-comments-both-multiline-and-inline
+                                    params.css_content = params.css_content.replace(/\/\*.+?\*\/|\/\/.*(?=[\n\r])/g, '');
+
+                                    var custom_css_sel,
+                                          $custom_css_el,
+                                          _level_selector;
+
+                                    if ( params.is_current_page_custom_css ) {
+                                          custom_css_sel = 'nb-custom-css-for-local-page';
+                                          _level_selector = '';
+                                    } else {
+                                          custom_css_sel = 'nb-custom-css-for-level' + params.id;
+                                          _level_selector = 'body .sektion-wrapper [data-sek-id="' + params.id +'"]';
+                                    }
+                                    $custom_css_el = $('#'  + custom_css_sel );
+
+                                    if ( $custom_css_el.length < 1 ) {
+                                          $('head').append( $('<style/>' , {
+                                                id : custom_css_sel,
+                                          }) );
+                                          $custom_css_el = $('#'  + custom_css_sel );
+                                    }
+
+                                    // Apply the same treatment made server side in sek_add_css_rules_for_level_custom_css()
+                                    var _exploded_rules,
+                                          _rules_with_level_specificity = [],
+                                          _specific_rules = '',
+                                          _rule_selectors,
+                                          _rule_selectors_without_space,
+                                          _comma_exploded_selectors;
+
+                                    // 1) FIRST => Explode by } and add level specificity
+                                    _exploded_rules = params.css_content.split('}');
+
+                                    _.each( _exploded_rules, function( _rule ){
+                                          // remove all line breaks
+                                          _rule = _rule.replace(/\n|\r/g, "" );
+                                          if ( _.isEmpty(_rule) || -1 === _rule.indexOf('{') )
+                                                return;
+                                          _rule = _rule.replace(/.nimble-level/g, '' );
+                                          _rule_selectors = _rule.substr(0, _rule.indexOf('{'));
+                                          _rule_selectors_without_space = _rule_selectors.replace(/ /g,'');
+
+                                          _rule = _rule.replace(_rule_selectors, '' );
+                                          // If no selectors specified, simply use the level selector
+                                          if ( _.isEmpty( _rule_selectors_without_space ) ) {
+                                                _rules_with_level_specificity.push(_level_selector + _rule + '}css_delimiter');
+                                          } else {
+                                                // => handle selectors separated by commas, in this case, the previous treatment has only added specificity to the first selector of the list
+                                                _comma_exploded_selectors = _rule_selectors.split(',');
+                                                _.each( _comma_exploded_selectors, function( _sel ){
+                                                      if ( _.isEmpty(_sel) )
+                                                            return;
+                                                      _rules_with_level_specificity.push(_level_selector + ' ' + _sel + _rule + '}css_delimiter');
+                                                });
+                                          }
+                                    });
+
+                                    if ( !_.isEmpty(_rules_with_level_specificity) ) {
+                                          _specific_rules = _rules_with_level_specificity.join('css_delimiter');
+                                          _specific_rules = _specific_rules.replace(/css_delimiter/g, '' );
+                                    }
+
+                                    // If there are no rules to write, refresh the stylesheet ajaxily ( because it might contain previous CSS rules that should be cleaned up )
+                                    // + remove the custom CSS style element
+                                    if ( !_.isEmpty( _specific_rules.replace(/ /g, '' ) ) ) {
+                                          $custom_css_el.html( _specific_rules );
+                                    } else {
+                                          $custom_css_el.remove();
+                                    }
+                                    params = $.extend({}, true, params );
+                                    params.dont_print_loader = true;
+                                    // Let's refresh the stylesheet ajaxily in the background to make sure that previously saved rules do not override new ones
+                                    api.preview.trigger('sek-refresh-stylesheet-in-the-background-for-custom-css', params);
+                              },
+                              // march 2020 : print confettis when displaying the review request
+                              'sek-print-confettis' : function( params ) {
                                   if (!window.confetti || !window.requestAnimationFrame)
                                     return;
                                   params = params || {};
@@ -2161,7 +2268,8 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
 
 
 
-                  var $_activeElement;// <= will be used to cache self.activeLevelEl()
+                  var $_activeElement; // <= will be used to cache self.activeLevelEl()
+
                   var _apiPreviewCallback = function( params, callbackFn, msgId ) {
                         params = _.extend( {
                             location_skope_id : '',
@@ -2213,25 +2321,25 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
                                     })
                                     .then( function() {
                                           api.preview.trigger( 'control-panel-requested-action-done', { action : msgId, args : params } );
+                                          // Focus on the edited level
+                                          self.mayBeAnimateToEditedLevel( params );
                                     });
                         } catch( _er_ ) {
                               self.errare( 'reactToPanelMsg => Error when firing the callback of ' + msgId , _er_  );
                               self.cachedElements.$body.removeClass( msgId );
                         }
 
-                        // MAY 2020 : focus on the edited element
-                        if ( params.apiParams.id ) {
+                        // set the activeElement if needed/possible
+                        if ( _.isObject( params ) && params.apiParams && params.apiParams.id ) {
                               $_activeElement = self.activeLevelEl();
-                              // set the activeElement if needed
+
                               if ( !$_activeElement || !_.isObject($_activeElement) || $_activeElement.length < 1 || self.activeLevelUI() !== params.apiParams.id ) {
                                     self.activeLevelEl( $('[data-sek-id="' + params.apiParams.id + '"]' ) );
                                     $_activeElement = self.activeLevelEl();
                               }
-                              // if user scrolled while editing an element, let's focus again
-                              if ( 0 < $_activeElement.length && !nb_.isInScreen( $_activeElement[0]) ) {
-                                    $_activeElement[0].scrollIntoView();
-                              }
                         }
+                        // Focus on the edited level
+                        self.mayBeAnimateToEditedLevel( params );
                   };//_apiPreviewCallback
 
 
@@ -2250,6 +2358,13 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
                                           api.preview.trigger('sek-animate-to-level', { id : params.apiParams.id });
                                     }
                               }, 1000 ));// api.preview.bind( msgId, function( params ) {
+                        } else if ( 'sek-refresh-stylesheet-in-the-background-for-custom-css' === msgId ) {
+                              api.preview.bind( msgId, _.debounce( function( params ) {
+                                    _apiPreviewCallback( params, callbackFn, msgId );
+                                    if ( params && params.apiParams && params.apiParams.id ) {
+                                          api.preview.trigger('sek-animate-to-level', { id : params.apiParams.id });
+                                    }
+                              }, 500 ));// api.preview.bind( msgId, function( params ) {
                         } else {
                               api.preview.bind( msgId, function( params ) {
                                     _apiPreviewCallback( params, callbackFn, msgId );
@@ -2257,7 +2372,23 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
                         }
 
                   });
-            }//schedulePanelMsgReactions()
+            },//schedulePanelMsgReactions()
+
+            mayBeAnimateToEditedLevel : function( params ) {
+                  var self = this;
+                  // MAY 2020 : focus on the edited element
+                  if ( _.isObject( params ) && params.apiParams && params.apiParams.id ) {
+                        $elToFocusOn = $('[data-sek-id="' + params.apiParams.id + '"]' );
+                        // if user scrolled while editing an element, let's focus again
+                        if ( 0 < $elToFocusOn.length && !nb_.isInScreen( $elToFocusOn[0]) ) {
+                              $elToFocusOn[0].scrollIntoView({
+                                    behavior: 'auto',
+                                    block: 'center',
+                                    inline: 'center'
+                              });
+                        }
+                  }
+            }
       });//$.extend()
 })( wp.customize, jQuery, _ );
 //global sekPreviewLocalized
@@ -2285,8 +2416,8 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
 
                         // The following params have been introduced when implementing support for multi-section pre-build sections
                         // @see https://github.com/presscustomizr/nimble-builder/issues/489
-                        content_type : ( params.all_params && params.all_params.content_type ) ? params.all_params.content_type : null,
-                        collection_of_preset_section_id : ( params.all_params && params.all_params.collection_of_preset_section_id ) ? params.all_params.collection_of_preset_section_id : []
+                        content_type : ( params.apiParams && params.apiParams.content_type ) ? params.apiParams.content_type : null,
+                        collection_of_preset_section_id : ( params.apiParams && params.apiParams.collection_of_preset_section_id ) ? params.apiParams.collection_of_preset_section_id : []
                   }).done( function( _r_ ) {
                         var html_content = '';
                         //@see php SEK_Front_Ajax::sek_get_level_content_for_injection
@@ -2533,9 +2664,11 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
             ajaxRefreshStylesheet : function( params ) {
                   var self = this;
                   // will be cleaned on 'sek-module-refreshed'
-                  self.mayBePrintLoader({
-                        loader_located_in_level_id : params.apiParams.id
-                  });
+                  if ( true !== params.dont_print_loader ) {
+                        self.mayBePrintLoader({
+                              loader_located_in_level_id : params.apiParams.id
+                        });
+                  }
                   return self.doAjax( {
                         action : 'sek_get_content',
                         location_skope_id : params.location_skope_id,
@@ -2679,7 +2812,7 @@ var SekPreviewPrototype = SekPreviewPrototype || {};
             //in particular the 'customized' dirty values, that NB absolutely needs to dynamically register settings that have not yet been instantiated by WP_Customize_Manager
             // see WP Core => class WP_Customize_Manager, add_action( 'customize_register', array( $this, 'register_dynamic_settings' ), 11 );
             // see NB => class SEK_CZR_Dyn_Register
-            // see NB => Nimble_Customizer_Setting::filter_previewed_sek_get_skoped_seks => this is how we can get the sektions collection while customizing, see sek_get_skoped_seks()
+            // see NB => Nimble_Collection_Setting::filter_previewed_sek_get_skoped_seks => this is how we can get the sektions collection while customizing, see sek_get_skoped_seks()
             doAjax : function( queryParams ) {
                   var self = this;
                   //do we have a queryParams ?

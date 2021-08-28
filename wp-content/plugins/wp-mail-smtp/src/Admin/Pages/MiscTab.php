@@ -2,9 +2,12 @@
 
 namespace WPMailSMTP\Admin\Pages;
 
+use WPMailSMTP\Admin\Area;
 use WPMailSMTP\Admin\PageAbstract;
 use WPMailSMTP\Options;
 use WPMailSMTP\UsageTracking\UsageTracking;
+use WPMailSMTP\Reports\Emails\Summary as SummaryReportEmail;
+use WPMailSMTP\Tasks\Reports\SummaryEmailTask as SummaryReportEmailTask;
 use WPMailSMTP\WP;
 
 /**
@@ -13,27 +16,42 @@ use WPMailSMTP\WP;
  * @since 1.0.0
  */
 class MiscTab extends PageAbstract {
+
 	/**
-	 * @var string Slug of a tab.
+	 * Slug of a tab.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var string
 	 */
 	protected $slug = 'misc';
 
 	/**
-	 * @inheritdoc
+	 * Link label of a tab.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return string
 	 */
 	public function get_label() {
 		return esc_html__( 'Misc', 'wp-mail-smtp' );
 	}
 
 	/**
-	 * @inheritdoc
+	 * Title of a tab.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return string
 	 */
 	public function get_title() {
 		return $this->get_label();
 	}
 
 	/**
-	 * @inheritdoc
+	 * Output HTML of the misc settings.
+	 *
+	 * @since 1.0.0
 	 */
 	public function display() {
 
@@ -46,7 +64,7 @@ class MiscTab extends PageAbstract {
 			<!-- Section Title -->
 			<div class="wp-mail-smtp-setting-row wp-mail-smtp-setting-row-content wp-mail-smtp-clear section-heading no-desc" id="wp-mail-smtp-setting-row-email-heading">
 				<div class="wp-mail-smtp-setting-field">
-					<h2><?php echo $this->get_title(); ?></h2>
+					<h2><?php echo $this->get_title(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 				</div>
 			</div>
 
@@ -83,11 +101,7 @@ class MiscTab extends PageAbstract {
 						<br>
 						<?php
 						if ( $options->is_const_defined( 'general', 'do_not_send' ) ) {
-							printf( /* translators: %1$s - constant that was used; %2$s - file where it was used. */
-								esc_html__( 'The value of this field was set using a constant %1$s most likely inside %2$s of your WordPress installation.', 'wp-mail-smtp' ),
-								'<code>WPMS_DO_NOT_SEND</code>',
-								'<code>wp-config.php</code>'
-							);
+							echo $options->get_const_set_message( 'WPMS_DO_NOT_SEND' ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						} else {
 							printf(
 								wp_kses( /* translators: %s - The URL to the constants support article. */
@@ -164,13 +178,31 @@ class MiscTab extends PageAbstract {
 							<?php
 							echo wp_kses(
 								__( '<strong>This is not recommended</strong> and should only be done for staging or development sites.', 'wp-mail-smtp' ),
-								array(
-									'strong' => true,
-								)
+								[
+									'strong' => [],
+								]
 							);
 							?>
 						</p>
 					<?php endif; ?>
+				</div>
+			</div>
+
+			<!-- Hide Dashboard Widget -->
+			<div id="wp-mail-smtp-setting-row-dashboard_widget_hidden" class="wp-mail-smtp-setting-row wp-mail-smtp-setting-row-checkbox wp-mail-smtp-clear">
+				<div class="wp-mail-smtp-setting-label">
+					<label for="wp-mail-smtp-setting-dashboard_widget_hidden">
+						<?php esc_html_e( 'Hide Dashboard Widget', 'wp-mail-smtp' ); ?>
+					</label>
+				</div>
+				<div class="wp-mail-smtp-setting-field">
+					<input name="wp-mail-smtp[general][dashboard_widget_hidden]" type="checkbox"
+						   value="true" <?php checked( true, $options->get( 'general', 'dashboard_widget_hidden' ) ); ?>
+						   id="wp-mail-smtp-setting-dashboard_widget_hidden"
+					>
+					<label for="wp-mail-smtp-setting-dashboard_widget_hidden">
+						<?php esc_html_e( 'Check this if you would like to hide the WP Mail SMTP Dashboard Widget.', 'wp-mail-smtp' ); ?>
+					</label>
 				</div>
 			</div>
 
@@ -210,6 +242,50 @@ class MiscTab extends PageAbstract {
 				</div>
 			<?php endif; ?>
 
+			<!-- Summary Report Email -->
+			<div id="wp-mail-smtp-setting-row-summary-report-email" class="wp-mail-smtp-setting-row wp-mail-smtp-setting-row-checkbox wp-mail-smtp-clear">
+				<div class="wp-mail-smtp-setting-label">
+					<label for="wp-mail-smtp-setting-summary-report-email">
+						<?php esc_html_e( 'Disable Email Summaries', 'wp-mail-smtp' ); ?>
+					</label>
+				</div>
+				<div class="wp-mail-smtp-setting-field">
+					<input name="wp-mail-smtp[general][<?php echo esc_attr( SummaryReportEmail::SETTINGS_SLUG ); ?>]" type="checkbox" id="wp-mail-smtp-setting-summary-report-email"
+						   value="true" <?php checked( true, SummaryReportEmail::is_disabled() ); ?>
+						<?php disabled( $options->is_const_defined( 'general', SummaryReportEmail::SETTINGS_SLUG ) || ( wp_mail_smtp()->is_pro() && empty( Options::init()->get( 'logs', 'enabled' ) ) ) ); ?>>
+					<label for="wp-mail-smtp-setting-summary-report-email">
+						<?php esc_html_e( 'Disable Email Summaries weekly delivery.', 'wp-mail-smtp' ); ?>
+					</label>
+					<p class="desc">
+						<?php
+						if ( wp_mail_smtp()->is_pro() && empty( Options::init()->get( 'logs', 'enabled' ) ) ) {
+							echo wp_kses(
+								sprintf( /* translators: %s - Email Log settings url. */
+									__( 'Please enable <a href="%s">Email Logging</a> first, before this setting can be configured.', 'wp-mail-smtp' ),
+									esc_url( wp_mail_smtp()->get_admin()->get_admin_page_url( Area::SLUG . '&tab=logs' ) )
+								),
+								[
+									'a' => [
+										'href' => [],
+									],
+								]
+							);
+						} else {
+							printf(
+								'<a href="%1$s" target="_blank">%2$s</a>',
+								esc_url( SummaryReportEmail::get_preview_link() ),
+								esc_html__( 'View Email Summary Example', 'wp-mail-smtp' )
+							);
+						}
+
+						if ( $options->is_const_defined( 'general', SummaryReportEmail::SETTINGS_SLUG ) ) {
+							echo '<br>' . $options->get_const_set_message( 'WPMS_SUMMARY_REPORT_EMAIL_DISABLED' ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						}
+						?>
+					</p>
+				</div>
+			</div>
+
 			<?php $this->display_save_btn(); ?>
 
 		</form>
@@ -225,7 +301,7 @@ class MiscTab extends PageAbstract {
 	 *
 	 * @param array $data Tab data specific for the plugin ($_POST).
 	 */
-	public function process_post( $data ) {
+	public function process_post( $data ) { // phpcs:ignore Generic.Metrics.CyclomaticComplexity.TooHigh
 
 		$this->check_admin_referer();
 
@@ -241,11 +317,28 @@ class MiscTab extends PageAbstract {
 		if ( empty( $data['general']['email_delivery_errors_hidden'] ) ) {
 			$data['general']['email_delivery_errors_hidden'] = false;
 		}
+		if ( empty( $data['general']['dashboard_widget_hidden'] ) ) {
+			$data['general']['dashboard_widget_hidden'] = false;
+		}
 		if ( empty( $data['general']['uninstall'] ) ) {
 			$data['general']['uninstall'] = false;
 		}
 		if ( empty( $data['general'][ UsageTracking::SETTINGS_SLUG ] ) ) {
 			$data['general'][ UsageTracking::SETTINGS_SLUG ] = false;
+		}
+		if ( empty( $data['general'][ SummaryReportEmail::SETTINGS_SLUG ] ) ) {
+			$data['general'][ SummaryReportEmail::SETTINGS_SLUG ] = false;
+		}
+
+		$is_summary_report_email_opt_changed = $options->is_option_changed(
+			$options->parse_boolean( $data['general'][ SummaryReportEmail::SETTINGS_SLUG ] ),
+			'general',
+			SummaryReportEmail::SETTINGS_SLUG
+		);
+
+		// If this option was changed, cancel summary report email task.
+		if ( $is_summary_report_email_opt_changed ) {
+			( new SummaryReportEmailTask() )->cancel();
 		}
 
 		// All the sanitization is done there.

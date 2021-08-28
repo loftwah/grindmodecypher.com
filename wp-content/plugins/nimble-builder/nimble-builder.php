@@ -3,7 +3,7 @@
 * Plugin Name: Nimble Page Builder
 * Plugin URI: https://nimblebuilder.com
 * Description: Simple and smart companion that allows you to insert sections into any existing page, create landing pages or entire websites including header and footer.
-* Version: 2.1.31
+* Version: 3.1.21
 * Text Domain: nimble-builder
 * Author: Press Customizr
 * Author URI: https://nimblebuilder.com/?utm_source=wp-plugins&utm_medium=wp-dashboard&utm_campaign=author-uri
@@ -16,7 +16,7 @@ if ( !defined( 'ABSPATH' ) ) {
 /* ------------------------------------------------------------------------- *
  *  CONSTANTS
 /* ------------------------------------------------------------------------- */
-$current_version = "2.1.31";
+$current_version = "3.1.21";
 
 if ( !defined( "NIMBLE_VERSION" ) ) { define( "NIMBLE_VERSION", $current_version ); }
 if ( !defined( 'NIMBLE_DIR_NAME' ) ) { define( 'NIMBLE_DIR_NAME' , basename( dirname( __FILE__ ) ) ); }
@@ -142,28 +142,23 @@ if ( nimble_passes_requirements() ) {
         load_plugin_textdomain( 'nimble-builder' );
     }
 
-    // @return void()
-    function nimble_register_location( $location, $params = array() ) {
-        if ( empty( $location ) || !is_string( $location ) )
-          return;
-        \Nimble\register_location( $location, $params );
-    }
-
-    //@param $locations. mixed type
-    //@param $options (array)$options = wp_parse_args( $options, array(
-    //     'fallback_location' => null, // Typically set as 'loop_start' in the nimble templates
-    // ));
-    function render_nimble_locations( $locations, $options = array() ) {
-        \Nimble\render_nimble_locations( $locations, $options );
-    }
+    require_once( NIMBLE_BASE_PATH . '/inc/functions.php' );
 
     // Fire the retro compatibility functions
     // Note : if fired @plugins_loaded, invoking wp_update_post() generates php notices
     //add_action( 'wp_loaded', '\Nimble\sek_maybe_do_version_mapping' );
+    // introduced for https://github.com/presscustomizr/nimble-builder/issues/799
+    add_action( 'wp_loaded', '\Nimble\sek_maybe_optimize_options' );
 
     // Load admin
     if ( is_admin() ) {
         require_once( NIMBLE_BASE_PATH . '/inc/admin/nimble-admin.php' );
         do_action('nimble_admin_loaded');
+    }
+
+    // Load nimblizer
+    if ( is_admin() && defined('NIMBLIZER_ENABLED') && NIMBLIZER_ENABLED ) {
+        require_once( NIMBLE_BASE_PATH . '/inc/nimblizer/nimblizer-functions.php' );
+        do_action('nimblizer_loaded');
     }
 }//if ( nimble_passes_requirements() )

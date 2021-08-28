@@ -3,7 +3,7 @@
  * Class Google\Site_Kit\Core\Util\Reset
  *
  * @package   Google\Site_Kit
- * @copyright 2019 Google LLC
+ * @copyright 2021 Google LLC
  * @license   https://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://sitekit.withgoogle.com
  */
@@ -25,12 +25,22 @@ use WP_REST_Response;
  * @access private
  * @ignore
  */
-final class Reset {
+class Reset {
 
 	/**
 	 * MySQL key pattern for all Site Kit keys.
 	 */
 	const KEY_PATTERN = 'googlesitekit\_%';
+
+	/**
+	 * REST API endpoint.
+	 */
+	const REST_ROUTE = 'core/site/data/reset';
+
+	/**
+	 * Action for triggering a reset.
+	 */
+	const ACTION = 'googlesitekit_reset';
 
 	/**
 	 * Plugin context.
@@ -39,6 +49,23 @@ final class Reset {
 	 * @var Context
 	 */
 	private $context;
+
+	/**
+	 * Gets the URL to handle a reset action.
+	 *
+	 * @since 1.30.0
+	 *
+	 * @return string
+	 */
+	public static function url() {
+		return add_query_arg(
+			array(
+				'action' => static::ACTION,
+				'nonce'  => wp_create_nonce( static::ACTION ),
+			),
+			admin_url( 'index.php' )
+		);
+	}
 
 	/**
 	 * Constructor.
@@ -64,6 +91,15 @@ final class Reset {
 				return array_merge( $routes, $this->get_rest_routes() );
 			}
 		);
+
+		add_action(
+			'admin_action_' . static::ACTION,
+			function () {
+				$this->handle_reset_action(
+					$this->context->input()->filter( INPUT_GET, 'nonce' )
+				);
+			}
+		);
 	}
 
 	/**
@@ -74,10 +110,12 @@ final class Reset {
 	public function all() {
 		$this->delete_options( 'site' );
 		$this->delete_user_options( 'site' );
+		$this->delete_post_meta( 'site' );
 
 		if ( $this->context->is_network_mode() ) {
 			$this->delete_options( 'network' );
 			$this->delete_user_options( 'network' );
+			$this->delete_post_meta( 'network' );
 		}
 
 		wp_cache_flush();
@@ -112,9 +150,9 @@ final class Reset {
 				    OR {$column_name} LIKE %s
 				    OR {$column_name} = %s
 				", /* phpcs:enable WordPress.DB.PreparedSQL.InterpolatedNotPrepared */
-				self::KEY_PATTERN,
-				$transient_prefix . self::KEY_PATTERN,
-				$transient_prefix . 'timeout_' . self::KEY_PATTERN,
+				static::KEY_PATTERN,
+				$transient_prefix . static::KEY_PATTERN,
+				$transient_prefix . 'timeout_' . static::KEY_PATTERN,
 				'googlesitekit-active-modules'
 			)
 		);
@@ -140,9 +178,44 @@ final class Reset {
 		$wpdb->query(
 			$wpdb->prepare(
 				"DELETE FROM {$wpdb->usermeta} WHERE meta_key LIKE %s",
-				$meta_prefix . self::KEY_PATTERN
+				$meta_prefix . static::KEY_PATTERN
 			)
 		);
+	}
+
+	/**
+	 * Deletes all Site Kit post meta settings.
+	 *
+	 * @since 1.33.0
+	 *
+	 * @param string $scope Scope of the deletion ('site' or 'network').
+	 */
+	private function delete_post_meta( $scope ) {
+		global $wpdb;
+
+		$sites = array();
+		if ( 'network' === $scope ) {
+			$sites = get_sites(
+				array(
+					'fields' => 'ids',
+					'number' => 9999999,
+				)
+			);
+		} else {
+			$sites[] = get_current_blog_id();
+		}
+
+		foreach ( $sites as $site_id ) {
+			$prefix = $wpdb->get_blog_prefix( $site_id );
+
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery
+			$wpdb->query(
+				$wpdb->prepare(
+					"DELETE FROM {$prefix}postmeta WHERE `meta_key` LIKE %s", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+					static::KEY_PATTERN
+				)
+			);
+		}
 	}
 
 	/**
@@ -159,7 +232,7 @@ final class Reset {
 
 		return array(
 			new REST_Route(
-				'core/site/data/reset',
+				static::REST_ROUTE,
 				array(
 					array(
 						'methods'             => WP_REST_Server::EDITABLE,
@@ -172,5 +245,36 @@ final class Reset {
 				)
 			),
 		);
+	}
+
+	/**
+	 * Handles the reset admin action.
+	 *
+	 * @since 1.30.0
+	 *
+	 * @param string $nonce WP nonce for action.
+	 */
+	private function handle_reset_action( $nonce ) {
+		if ( ! wp_verify_nonce( $nonce, static::ACTION ) ) {
+			wp_die( esc_html__( 'Invalid nonce.', 'google-site-kit' ), 400 );
+		}
+		if ( ! current_user_can( Permissions::SETUP ) ) {
+			wp_die( esc_html__( 'You don\'t have permissions to set up Site Kit.', 'google-site-kit' ), 403 );
+		}
+
+		$this->all();
+
+		wp_safe_redirect(
+			$this->context->admin_url(
+				'splash',
+				array(
+					// Trigger client-side storage reset.
+					'googlesitekit_reset_session' => 1,
+					// Show reset-success notification.
+					'notification'                => 'reset_success',
+				)
+			)
+		);
+		exit;
 	}
 }

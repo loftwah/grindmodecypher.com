@@ -3,7 +3,7 @@
  * Class Google\Site_Kit\Context
  *
  * @package   Google\Site_Kit
- * @copyright 2019 Google LLC
+ * @copyright 2021 Google LLC
  * @license   https://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://sitekit.withgoogle.com
  */
@@ -28,7 +28,11 @@ class Context {
 	/**
 	 * Primary "standard" AMP website mode.
 	 *
-	 * @since 1.0.0
+	 * This mode is currently unused due to Tag Manager setup not showing the Web Container dropdown
+	 * when AMP is in standard mode and some urls have AMP disabled.
+	 *
+	 * @since 1.0.0 Originally introduced.
+	 * @since 1.36.0 Marked as unused, see description.
 	 * @var string
 	 */
 	const AMP_MODE_PRIMARY = 'primary';
@@ -319,6 +323,12 @@ class Context {
 	 *                     false if AMP not active, or unknown mode
 	 */
 	public function get_amp_mode() {
+		// If the Web Stories plugin is enabled, consider the site to be running
+		// in Secondary AMP mode.
+		if ( defined( 'WEBSTORIES_VERSION' ) ) {
+			return self::AMP_MODE_SECONDARY;
+		}
+
 		if ( ! class_exists( 'AMP_Theme_Support' ) ) {
 			return false;
 		}
@@ -356,19 +366,20 @@ class Context {
 				$mode = AMP_Theme_Support::get_support_mode();
 			}
 
-			if ( AMP_Theme_Support::STANDARD_MODE_SLUG === $mode ) {
-				return self::AMP_MODE_PRIMARY;
-			}
-
-			if ( in_array( $mode, array( AMP_Theme_Support::TRANSITIONAL_MODE_SLUG, AMP_Theme_Support::READER_MODE_SLUG ), true ) ) {
+			if (
+				in_array(
+					$mode,
+					array(
+						AMP_Theme_Support::STANDARD_MODE_SLUG,
+						AMP_Theme_Support::TRANSITIONAL_MODE_SLUG,
+						AMP_Theme_Support::READER_MODE_SLUG,
+					),
+					true
+				)
+			) {
 				return self::AMP_MODE_SECONDARY;
 			}
 		} elseif ( function_exists( 'amp_is_canonical' ) ) {
-			// On older versions, if it is not primary AMP, it is definitely secondary AMP (transitional or reader mode).
-			if ( amp_is_canonical() ) {
-				return self::AMP_MODE_PRIMARY;
-			}
-
 			return self::AMP_MODE_SECONDARY;
 		}
 
@@ -466,5 +477,37 @@ class Context {
 		}
 
 		return $url;
+	}
+
+	/**
+	 * Calls the WordPress core functions to get the locale and return it in the required format.
+	 *
+	 * @since 1.32.0
+	 *
+	 * @param string $context Optional. Defines which WordPress core locale function to call.
+	 * @param string $format Optional. Defines the format the locale is returned in.
+	 * @return string Locale in the required format.
+	 */
+	public function get_locale( $context = 'site', $format = 'default' ) {
+
+		// Get the site or user locale.
+		if ( 'user' === $context ) {
+			$wp_locale = get_user_locale();
+		} else {
+			$wp_locale = get_locale();
+		}
+
+		// Return locale in the required format.
+		if ( 'language-code' === $format ) {
+			$code_array = explode( '_', $wp_locale );
+			return $code_array[0];
+
+		} elseif ( 'language-variant' === $format ) {
+			$variant_array  = explode( '_', $wp_locale );
+			$variant_string = implode( '_', array_slice( $variant_array, 0, 2 ) );
+			return $variant_string;
+		}
+
+		return $wp_locale;
 	}
 }
