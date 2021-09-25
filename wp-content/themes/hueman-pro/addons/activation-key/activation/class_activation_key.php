@@ -69,6 +69,15 @@ class HU_activation_key {
         'item_id'        => ''//added april 2020, not used
       );
 
+      /**
+     * Fires after the theme $config is setup.
+     *
+     * @since x.x.x
+     *
+     * @param array $config Array of EDD SL theme data.
+     */
+     do_action( 'post_edd_sl_theme_updater_setup', $config );
+
       // Set config arguments
       $this->remote_api_url = $config['remote_api_url'];
       $this->item_name = $config['item_name'];
@@ -79,6 +88,12 @@ class HU_activation_key {
       $this->renew_url = $config['renew_url'];
       $this->beta = $config['beta'];//added april 2020, not used
       $this->item_id = $config['item_id'];//added april 2020, not us
+
+      // Populate version fallback
+      if ( '' === $config['version'] ) {
+        $theme         = wp_get_theme( $this->theme_slug );
+        $this->version = $theme->get( 'Version' );
+      }
 
       //Defines all api transients
       $this -> transients = array(
@@ -117,7 +132,7 @@ class HU_activation_key {
     /**
     * hook : admin_init
     */
-    function tc_licenses_menu() {
+    public function tc_licenses_menu() {
         add_theme_page(
           sprintf( __('%1$s Key', 'hueman-pro') , $this -> theme_name ),
           sprintf( __('%1$s Key', 'hueman-pro') , $this -> theme_name ),
@@ -132,7 +147,7 @@ class HU_activation_key {
     /**
     * callback of 'add_theme_page'
     */
-    function tc_theme_license_page() {
+    public function tc_theme_license_page() {
       $license    = get_option( 'tc_' . $this->theme_prefix . '_license_key' );
       $status     = get_option( 'tc_' . $this->theme_prefix . '_license_status' );
       $strings    = $this -> strings;
@@ -174,11 +189,11 @@ class HU_activation_key {
     /**
     * helper fired from tc_theme_license_page()
     */
-    function _create_no_key_message() {
+    public function _create_no_key_message() {
       ob_start();
         ?>
-          <div class="update-nag" style="position:relative;width: calc( 100% - 56px );">
-            <h3><?php _e("You did not activate the Customizr Pro theme key yet.", 'hueman-pro') ?></h3>
+          <div class="update-nag notice notice-info" style="position:relative;width: calc( 100% - 56px );">
+            <h3><?php _e("You did not activate Hueman Pro theme key yet.", 'hueman-pro') ?></h3>
             <p>
               <?php printf('%1$s ( %2$s ) <br/><br/><strong><a class="button-primary" href="%3$s" title="%4$s">%4$s</a></strong>',
                     __("It is <span style='text-decoration: underline;'>important to activate your key</span> in order to receive the new versions of the theme in your dashboard. This way you'll make sure that <span style='text-decoration: underline;'>your website is always compatible with the latest version of WordPress</span>, and that you'll have all the latest features and bug fixes for the theme.", 'hueman-pro' ),
@@ -212,7 +227,7 @@ class HU_activation_key {
     /**
      * Fired in tc_theme_license_page()
      */
-    function _theme_license_page_content($license, $status, $message) {
+    public function _theme_license_page_content($license, $status, $message) {
 
         $strings    = $this->strings;
         ?>
@@ -301,7 +316,7 @@ class HU_activation_key {
     * @param array $api_params to be used for wp_remote_get.
     * @return array $response decoded JSON response.
     */
-    function get_api_response( $api_params ) {
+    public function get_api_response( $api_params ) {
       $transients = $this -> transients;
       $_html = false;
       // Call the custom API.
@@ -328,7 +343,7 @@ class HU_activation_key {
 
     //helper for the get_api_response() function
     //returns html message when no api answer
-    function _create_api_warning_transient($_html) {
+    public function _create_api_warning_transient($_html) {
       ob_start();
         ?>
           <div class="update-nag">
@@ -371,7 +386,7 @@ class HU_activation_key {
      *
      * @since 1.0.0
      */
-    function license_action() {
+    public function license_action() {
 
       if ( isset( $_POST['tc_' . $this->theme_prefix . '_license_activate'] ) ) {
         if ( check_admin_referer( 'tc_theme_licenses_nonce', 'tc_theme_licenses_nonce' ) ) {
@@ -391,7 +406,7 @@ class HU_activation_key {
     /**
      * Fired from license_action')
      */
-    function _theme_activate_license() {
+    public function _theme_activate_license() {
       // retrieve the license from the database
       $license = trim( get_option( 'tc_' . $this->theme_prefix . '_license_key' ) );
 
@@ -460,7 +475,7 @@ class HU_activation_key {
 
     //@param $license_data = object
     //@return string message
-    function tc_get_license_error_message( $license_data ) {
+    public function tc_get_license_error_message( $license_data ) {
         if ( is_object( $license_data ) && isset( $license_data->error ) ) {
           $_error = $license_data->error;
         } else {
@@ -514,7 +529,7 @@ class HU_activation_key {
     //If user has reached the limit of possible activated website
     //=> write a transient option
     //=> else delete the transient
-    function _update_upgrade_transient($license_data) {
+    public function _update_upgrade_transient($license_data) {
       $_html = false;
       $transients = $this -> transients;
 
@@ -547,7 +562,7 @@ class HU_activation_key {
     /**
      * Fired from license_action()
      */
-    function _theme_desactivate_license() {
+    public function _theme_desactivate_license() {
       $transients = $this -> transients;
       // retrieve the license from the database
       $license = trim( get_option( 'tc_' . $this->theme_prefix . '_license_key' ) );
@@ -610,7 +625,7 @@ class HU_activation_key {
     *******************************************************/
     //hook : tc_before_key_form
     //Displays an upgrade message if needed
-    function tc_display_key_infos() {
+    public function tc_display_key_infos() {
       $transients = $this -> transients;
       if ( ! get_transient( $transients['upgrade-package'] ) )
         return;
@@ -621,7 +636,7 @@ class HU_activation_key {
 
     //hook : tc_before_key_form
     //Displays an API error message if no answer from API within 15ms
-    function tc_display_api_warning_message() {
+    public function tc_display_api_warning_message() {
       $transients = $this -> transients;
       if ( ! get_transient( $transients['no-api-answer'] ) )
         return;
@@ -631,7 +646,7 @@ class HU_activation_key {
 
 
     //hook : tc_before_key_form
-    function tc_display_active_key_admin_notice() {
+    public function tc_display_active_key_admin_notice() {
       $transients = $this -> transients;
 
       //delete_transient( $transients['dismiss-key-notice'] );
@@ -653,7 +668,7 @@ class HU_activation_key {
      *
      * @since 1.0.0
      */
-    function get_renewal_link() {
+    public function get_renewal_link() {
 
       // If a renewal link was passed in the config, use that
       if ( '' != $this->renew_url ) {
@@ -664,7 +679,7 @@ class HU_activation_key {
       $license_key = trim( get_option( 'tc_' . $this->theme_prefix . '_license_key' , false ) );
       if ( '' != $this->download_id && $license_key ) {
         $url = esc_url( $this->remote_api_url );
-        $url .= '/checkout/?edd_license_key=' . $license_key . '&download_id=' . $this->download_id;
+        $url .= '/checkout/?edd_license_key=' . urlencode(  $license_key ) . '&download_id=' . urlencode(  $this->download_id );
         return $url;
       }
 
@@ -682,7 +697,7 @@ class HU_activation_key {
    *
    * @return string $message License status message.
    */
-  function tc_check_license() {
+  public function tc_check_license() {
     $license    = trim( get_option( 'tc_' . $this->theme_prefix . '_license_key' ) );
     //will store the boolean action we must process with the current website status.
     //Typically, if the current database status is valid and the license is expired.
@@ -807,7 +822,7 @@ class HU_activation_key {
   * hook : admin_init
   *
   */
-  function tc_ajax_dismiss_action() {
+  public function tc_ajax_dismiss_action() {
     $transients = $this->transients;
     //always add the ajax action
     add_action( 'wp_ajax_dismiss_key_notice'      , array( $this , 'tc_dismiss_key_notice_action' ) );
@@ -832,7 +847,7 @@ class HU_activation_key {
   /**
   * hook : wp_ajax_dismiss_key_notice
   */
-  function tc_dismiss_key_notice_action() {
+  public function tc_dismiss_key_notice_action() {
     check_ajax_referer( 'dismiss-key-update-nonce', 'dismissKeyNonce' );
     $transients = $this->transients;
     //hide notice for 10 days
@@ -844,7 +859,7 @@ class HU_activation_key {
   /**
   * hook : admin_footer
   */
-  function _write_ajax_dismis_script() {
+  public function _write_ajax_dismis_script() {
     ?>
     <script type="text/javascript" id="tc-dismiss-key-notice">
       ( function($){
@@ -897,7 +912,7 @@ class HU_activation_key {
   /**
   * hook : admin_init
   */
-  function tc_theme_register_option() {
+  public function tc_theme_register_option() {
     // creates our settings in the options table
     register_setting('tc_' . $this->theme_prefix . '_license', 'tc_' . $this->theme_prefix . '_license_key', array( $this , 'tc_sanitize_license' ) );
    }
@@ -907,7 +922,7 @@ class HU_activation_key {
   /**
    * Sanitize callback fired in tc_theme_register_option()
    */
-  function tc_sanitize_license( $new ) {
+  public function tc_sanitize_license( $new ) {
       $old = get_option( 'tc_' . $this->theme_prefix . '_license_key' );
       $transients = $this -> transients;
 
@@ -925,7 +940,7 @@ class HU_activation_key {
    *
    * @since 1.0.0
    */
-  function tc_disable_wporg_request( $r, $url ) {
+  public function tc_disable_wporg_request( $r, $url ) {
 
     // If it's not a theme update request, bail.
     if ( 0 !== strpos( $url, 'https://api.wordpress.org/themes/update-check/1.1/' ) ) {

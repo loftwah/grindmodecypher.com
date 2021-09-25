@@ -329,9 +329,12 @@ function skp_get_skope_id( $level = 'local' ) {
     // when customizing and firing this function during ajax calls, the check for did_action('wp') will return 0.
     // => which will lead to skope_id set to '_skope_not_set_'
     // in order to prevent this, let's get the skope_id value from the customizer posted value when available.
-    // for the moment only the local skope_is is provided by the customizer post value, in the future it might be useful to also add the group skope_id ( all_pages, all_posts, all_categories, ... )
     if ( skp_is_customizing() && '_skope_not_set_' === $skope_id_to_return && 'local' === $level && !empty($_POST['local_skope_id']) ) {
         $skope_id_to_return = $_POST['local_skope_id'];
+    }
+    // Feb 2021 => added for https://github.com/presscustomizr/nimble-builder/issues/478
+    if ( skp_is_customizing() && '_skope_not_set_' === $skope_id_to_return && 'group' === $level && !empty($_POST['group_skope_id']) ) {
+        $skope_id_to_return = $_POST['group_skope_id'];
     }
 
     $skope_id_to_return = apply_filters( 'skp_get_skope_id', $skope_id_to_return, $level );
@@ -692,9 +695,25 @@ if ( !class_exists( 'Flat_Export_Skope_Data_And_Send_To_Panel' ) ) :
           // introduced in october 2019 for https://github.com/presscustomizr/nimble-builder/issues/401
           private function _skp_get_json_export_ready_query_data() {
               global $wp_query;
+              global $authordata;
+              add_filter('get_the_archive_title_prefix', '__return_false');
+              $archive_title = get_the_archive_title();
+              remove_filter('get_the_archive_title_prefix', '__return_false');
               return [
                 'is_singular' => $wp_query->is_singular,
-                'post_id' => get_the_ID()
+                'is_archive' => $wp_query->is_archive,
+                'is_search' => $wp_query->is_search,
+                'is_attachment' => $wp_query->is_attachment,
+                'is_front_page' => is_front_page(),
+                'the_archive_title' => $archive_title,
+                'the_archive_description' => get_the_archive_description(),
+                'the_previous_post_link' => is_singular() ? get_previous_post_link( $format = '%link' ) : '',
+                'the_next_post_link' => is_singular() ? get_next_post_link( $format = '%link' ) : '',
+                'the_search_query' => get_search_query(),
+                'the_search_results_nb' => (int) $wp_query->found_posts,
+                'the_author_id' => isset( $authordata->ID ) ? $authordata->ID : 0,
+                'post_id' => get_the_ID(),
+                'query_vars' => $wp_query->query_vars
               ];
           }
 

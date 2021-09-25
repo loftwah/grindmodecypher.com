@@ -1,15 +1,18 @@
 <?php
 class HU_theme_updater{
-  private $remote_api_url;
-  private $request_data;
-  private $response_key;
-  private $theme_slug;
-  private $license_key;
-  private $version;
-  private $author;
+  protected $remote_api_url;
+  protected $request_data;
+  protected $response_key;
+  protected $theme_slug;
+  protected $license_key;
+  protected $version;
+  protected $author;
   protected $strings = null;
+  protected $item_name  = '';
+	protected $beta       = false;
+	protected $item_id    = null;
 
-  function __construct( $args = array() ) {
+  public function __construct( $args = array() ) {
     $args = wp_parse_args( $args, array(
         'remote_api_url' => 'https://presscustomizr.com',
         'request_data'   => array(),
@@ -18,19 +21,12 @@ class HU_theme_updater{
         'license'        => '',
         'version'        => '',
         'author'         => '',
+        'download_id'    => '',
+				'renew_url'      => '',
         'beta'           => false,//added april 2020, not used
         'item_id'        => ''//added april 2020, not used
     ) );
     extract( $args );
-
-    /**
-     * Fires after the theme $config is setup.
-     *
-     * @since x.x.x
-     *
-     * @param array $config Array of EDD SL theme data.
-     */
-    do_action( 'post_edd_sl_theme_updater_setup', $args );
 
     $theme                = wp_get_theme( sanitize_key( $theme_slug ) );
     $this->license        = $license;
@@ -47,12 +43,11 @@ class HU_theme_updater{
     //api not accessible transient name
     $this->api_not_accessible_transient = $this->theme_slug . '_api_not_accessible';
 
-    add_action( 'load-themes.php'                       , array( &$this, 'load_themes_screen' ) );
-
-    add_filter( 'site_transient_update_themes'          , array( &$this, 'theme_update_transient' ) );
+    add_filter( 'pre_set_site_transient_update_themes'          , array( &$this, 'theme_update_transient' ) );
     add_filter( 'delete_site_transient_update_themes'   , array( &$this, 'delete_theme_update_transient' ) );
     add_action( 'load-update-core.php'                  , array( &$this, 'delete_theme_update_transient' ) );
     add_action( 'load-themes.php'                       , array( &$this, 'delete_theme_update_transient' ) );
+    add_action( 'load-themes.php'                       , array( &$this, 'load_themes_screen' ) );
 
 
     //change the url for the changelog
@@ -66,7 +61,7 @@ class HU_theme_updater{
   /*
   * hook : load-themes.php
   */
-  function load_themes_screen() {
+  public function load_themes_screen() {
     add_thickbox();
     //UPGRADE MESSAGE : print the box on top of the theme's list in the the theme page
     add_action( 'admin_notices', array( $this, 'update_nag' ) );
@@ -80,7 +75,7 @@ class HU_theme_updater{
   * hook : admin_notices
   * fired in load_themes_screen
   */
-  function update_nag() {
+  public function update_nag() {
     $strings = $this->strings;
 
     $theme = wp_get_theme( $this->theme_slug );
@@ -106,7 +101,7 @@ class HU_theme_updater{
         $update_onclick
       );
       echo '</div>';
-      echo '<div id="' . $this->theme_slug . '_' . 'changelog" style="display:none;">';
+      echo '<div id="' . esc_attr($this->theme_slug . '_changelog') . '" style="display:none;">';
       echo wpautop( $api_response->sections['changelog'] );
       echo '</div>';
     }
@@ -120,7 +115,7 @@ class HU_theme_updater{
   * Maybe display a notice in the theme screen if attemps to access the update API have failes
   * @uses transient : api_not_accessible
   */
-  function _api_not_accessible() {
+  public function _api_not_accessible() {
     //check if transient api not accessible exists
     $api_response = get_transient( $this->response_key );
 
@@ -152,7 +147,7 @@ class HU_theme_updater{
   * hook : site_transient_update_themes
   * fired in all admin pages
   */
-  function theme_update_transient( $value ) {
+  public function theme_update_transient( $value ) {
     //) if api has not been accessible in the last 6 hours, do nothing
     if ( get_transient($this->api_not_accessible_transient) )
       return $value;
@@ -185,7 +180,7 @@ class HU_theme_updater{
   * hook : load-update-core.php
   * hook : load-themes.php
   */
-  function delete_theme_update_transient() {
+  public function delete_theme_update_transient() {
     delete_transient( $this->response_key );
   }
 
@@ -194,7 +189,7 @@ class HU_theme_updater{
   * fired in theme_update_transient() <= in all admin pages
   * Maybe set a transient if API not accessible $this->api_not_accessible_transient
   */
-  function check_for_update() {
+  private function check_for_update() {
     $theme = wp_get_theme( $this->theme_slug );
 
     $update_data = get_transient( $this->response_key );
@@ -217,10 +212,19 @@ class HU_theme_updater{
           'author'    => $this->author,
           'url'           => home_url(),
           'beta'       => $this->beta,//added april 2020, not used
-          'item_id'    => $this->item_id//added april 2020, not used
+          'item_id'    => $this->item_id,//added april 2020, not used
+          'php_version' => phpversion(),
+				  'wp_version'  => get_bloginfo( 'version' )
       );
 
-      $response = wp_remote_post( $this->remote_api_url, array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params , 'decompress' => false) );
+      //$response = wp_remote_post( $this->remote_api_url, array( 'timeout' => 15, 'sslverify' => false, 'body' => $api_params , 'decompress' => false) );
+      $response = wp_remote_post(
+				$this->remote_api_url,
+				array(
+					'timeout' => 15,
+					'body'    => $api_params,
+				)
+			);
 
       // make sure the response was successful
       if ( is_wp_error( $response ) || 200 != wp_remote_retrieve_response_code( $response ) ) {
@@ -272,7 +276,7 @@ class HU_theme_updater{
   * Change the url for the changelog to get the local changelod (instead of the one on presscustomizr.com)
   * hook : wp_prepare_themes_for_js
   */
-  function tc_set_correct_changelog_url( $prepared_themes ) {
+  public function tc_set_correct_changelog_url( $prepared_themes ) {
     if ( ! isset($prepared_themes[$this->theme_slug]) || ! $prepared_themes[$this->theme_slug]['hasUpdate'] || ! isset($prepared_themes[$this->theme_slug]['update']) )
       return $prepared_themes;
 

@@ -3,7 +3,7 @@ Author URI: https://presscustomizr.com/
 Plugin URI: https://presscustomizr.com/
 Requires at least: 4.7
 Requires PHP: 5.4
-Tested up to: 5.6
+Tested up to: 5.7
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -24,6 +24,9 @@ SUPPORT : https://presscustomizr.com/support/
 
 
 == Changelog
+= 3.2.3 June 1st, 2021 =
+* fixed : [accessibility] broken accessibility for checkboxes in the customizer
+
 = 3.2.2 February 9th, 2021 =
 * fixed : [javascript] don't print front scripts when WFC is deactivated
 

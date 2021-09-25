@@ -147,7 +147,7 @@ $.extend( CZRSkopeBaseMths, {
                 api.errorLog( "getSkopeProperty => local skope missing, returning not_set" );
             }
             return "_skope_not_set_";//for example when trying to get a group skope_id in a context where there can't be a group skope like home or search.
-        } else if ( _.isEmpty( _skope_data[ what ] ) ) {
+        } else if ( !_.has( _skope_data, what ) ) {
             api.errorLog( "getSkopeProperty => " + what + " property does not exist" );
             return "_skope_not_set_";
         } else {

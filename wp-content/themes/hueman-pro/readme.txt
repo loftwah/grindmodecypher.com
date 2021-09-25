@@ -1,4 +1,4 @@
-# Hueman Pro v1.4.15
+# Hueman Pro v1.4.17
 ![Hueman - Pro](/screenshot.png)
 
 > The premium version of the popular Hueman WordPress theme.
@@ -18,6 +18,14 @@ The **Hueman Pro WordPress theme** theme is licensed under GPLv3. See headers of
 See headers of files for further details.
 
 ## Changelog
+= 1.4.17 September 20th 2021 =
+* fixed : [PHP] improved compatibility with PHP 8.0
+
+= 1.4.16 September 10th 2021 =
+* improved : update notice now includes a link to changelog
+* added : sms and map icon in social list
+* improved : design of the theme's admin page
+
 = 1.4.15 August 25th 2021 =
 * fixed : [PHP] wrong usage of ob_end_clean() could break the html page structure
 

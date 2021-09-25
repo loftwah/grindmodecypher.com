@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Themes - Hueman-Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: * Hueman-Pro v1.4.15\n"
+"Project-Id-Version: * Hueman-Pro v1.4.16\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2021-08-25 20:35:39+00:00\n"
+"POT-Creation-Date: 2021-09-10 18:39:32+00:00\n"
 "PO-Revision-Date: 2017-10-05 12:20:16+0000\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
@@ -137,17 +137,17 @@ msgid ""
 "a>."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:122
-#: addons/activation-key/activation/class_activation_key.php:123
-#: addons/activation-key/activation/class_activation_key.php:224
+#: addons/activation-key/activation/class_activation_key.php:137
+#: addons/activation-key/activation/class_activation_key.php:138
+#: addons/activation-key/activation/class_activation_key.php:239
 msgid "%1$s Key"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:181
-msgid "You did not activate the Customizr Pro theme key yet."
+#: addons/activation-key/activation/class_activation_key.php:196
+msgid "You did not activate Hueman Pro theme key yet."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:184
+#: addons/activation-key/activation/class_activation_key.php:199
 msgid ""
 "It is <span style='text-decoration: underline;'>important to activate your "
 "key</span> in order to receive the new versions of the theme in your "
@@ -157,123 +157,123 @@ msgid ""
 "for the theme."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:185
+#: addons/activation-key/activation/class_activation_key.php:200
 msgid "Why should you keep your Wordpress theme up to date ?"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:187
+#: addons/activation-key/activation/class_activation_key.php:202
 msgid "Enter your activation key now"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:191
+#: addons/activation-key/activation/class_activation_key.php:206
 msgid "You'll find your key in your purchase receipt email or in your"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:193
+#: addons/activation-key/activation/class_activation_key.php:208
 msgid "account"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:199
+#: addons/activation-key/activation/class_activation_key.php:214
 #, fuzzy
 msgid "OK got it. Remind me later."
 msgstr "稍後提醒我"
 
-#: addons/activation-key/activation/class_activation_key.php:200
-#: functions/admin/class-admin-update-notification.php:117
+#: addons/activation-key/activation/class_activation_key.php:215
+#: functions/admin/class-admin-update-notification.php:108
 msgid "close"
 msgstr "關閉"
 
-#: addons/activation-key/activation/class_activation_key.php:246
+#: addons/activation-key/activation/class_activation_key.php:261
 #, fuzzy
 msgid "active"
 msgstr "啟動"
 
-#: addons/activation-key/activation/class_activation_key.php:279
+#: addons/activation-key/activation/class_activation_key.php:294
 msgid "Helpful links"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:335
+#: addons/activation-key/activation/class_activation_key.php:350
 msgid ""
 "We couldn't reach our remote server to get the latest version of the theme."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:336
+#: addons/activation-key/activation/class_activation_key.php:351
 msgid ""
 "This can happen sometimes when your host server filters requests to remote "
 "servers."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:337
+#: addons/activation-key/activation/class_activation_key.php:352
 msgid ""
 "If the problem persists after several tries, please follow those simple "
 "steps to update your theme : "
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:340
+#: addons/activation-key/activation/class_activation_key.php:355
 msgid "Connect to"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:342
+#: addons/activation-key/activation/class_activation_key.php:357
 msgid "your account"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:345
+#: addons/activation-key/activation/class_activation_key.php:360
 msgid "Download the latest version of the theme"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:348
+#: addons/activation-key/activation/class_activation_key.php:363
 msgid "Install the theme ( check "
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:350
+#: addons/activation-key/activation/class_activation_key.php:365
 msgid "this guide"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:351
+#: addons/activation-key/activation/class_activation_key.php:366
 msgid "if you're not sure how to install a theme )"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:414
+#: addons/activation-key/activation/class_activation_key.php:429
 msgid ""
 "Error when trying to activate, this is usually due to a connection problem "
 "or a server firewall issue."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:474
+#: addons/activation-key/activation/class_activation_key.php:489
 #, fuzzy
 msgid "Your activation key expired on %s."
 msgstr "您的自訂選項已重設"
 
-#: addons/activation-key/activation/class_activation_key.php:481
+#: addons/activation-key/activation/class_activation_key.php:496
 #, fuzzy
 msgid "Your activation key has been disabled."
 msgstr "您的自訂選項已重設"
 
-#: addons/activation-key/activation/class_activation_key.php:486
+#: addons/activation-key/activation/class_activation_key.php:501
 #, fuzzy
 msgid "Invalid activation key."
 msgstr "外掛啟用失敗。"
 
-#: addons/activation-key/activation/class_activation_key.php:492
+#: addons/activation-key/activation/class_activation_key.php:507
 msgid "Your activation key is not active for this URL."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:496
-#: addons/activation-key/activation/class_activation_key.php:791
+#: addons/activation-key/activation/class_activation_key.php:511
+#: addons/activation-key/activation/class_activation_key.php:806
 msgid "This appears to be an invalid activation key for %s."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:496
-#: addons/activation-key/activation/class_activation_key.php:791
+#: addons/activation-key/activation/class_activation_key.php:511
+#: addons/activation-key/activation/class_activation_key.php:806
 msgid "your product"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:501
-#: addons/activation-key/activation/class_activation_key.php:746
+#: addons/activation-key/activation/class_activation_key.php:516
+#: addons/activation-key/activation/class_activation_key.php:761
 msgid "Your key has reached its activation limit."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:505
+#: addons/activation-key/activation/class_activation_key.php:520
 msgid ""
 "<u>An error occurred, please try again.</u> In most of the cases, it's due "
 "to a wrong key, like for example a missing character. Make sure you copy the "
@@ -281,68 +281,68 @@ msgid ""
 "beginning or at the end."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:506
+#: addons/activation-key/activation/class_activation_key.php:521
 msgid "Where can you find your activation key ?"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:525
+#: addons/activation-key/activation/class_activation_key.php:540
 msgid "You've reached the limit of activated websites for your current plan."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:528
+#: addons/activation-key/activation/class_activation_key.php:543
 msgid "Connect to your account on presscustomizr.com"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:530
+#: addons/activation-key/activation/class_activation_key.php:545
 msgid "and upgrade your plan."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:573
+#: addons/activation-key/activation/class_activation_key.php:588
 msgid "An error occurred, please try again."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:746
+#: addons/activation-key/activation/class_activation_key.php:761
 msgid "Upgrade to unlock new activations."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:757
+#: addons/activation-key/activation/class_activation_key.php:772
 msgid ""
 "Key is not activated for this website yet. Enter your key and press "
 "\"Activate Key\"."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:759
+#: addons/activation-key/activation/class_activation_key.php:774
 msgid "Key is activated for this website."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:792
+#: addons/activation-key/activation/class_activation_key.php:807
 msgid ""
 "This can for example happen if you try to use a Bundle key instead of the "
 "product key."
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:793
+#: addons/activation-key/activation/class_activation_key.php:808
 msgid ""
 "<a href=\"https://docs.presscustomizr.com/article/11-how-to-activate-your-"
 "product-key\" target=\"_blank\">%1$s</a>"
 msgstr ""
 
-#: addons/activation-key/activation/class_activation_key.php:793
+#: addons/activation-key/activation/class_activation_key.php:808
 msgid "How to activate your product key ?"
 msgstr ""
 
-#: addons/activation-key/updates/class_theme_updater.php:135
+#: addons/activation-key/updates/class_theme_updater.php:130
 msgid "We couldn't check the updates for "
 msgstr ""
 
-#: addons/activation-key/updates/class_theme_updater.php:137
+#: addons/activation-key/updates/class_theme_updater.php:132
 msgid ""
 "You might need to check for updates on <a href=\"https://presscustomizr.com/"
 "hueman-pro\" title=\"Press Customizr\" target=\"_blank\">presscustomizr.com</"
 "a> and "
 msgstr ""
 
-#: addons/activation-key/updates/class_theme_updater.php:139
+#: addons/activation-key/updates/class_theme_updater.php:134
 msgid "upload the theme manually"
 msgstr ""
 
@@ -395,9 +395,9 @@ msgstr ""
 
 #: addons/czr/ha-czr.php:215
 #: addons/pro/header/czr_slide_module/czr_slide_module.php:78
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1694
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1691
 #: functions/czr-base-fmk/czr-base-fmk.php:1691
-#: inc/czr-base-fmk/czr-base-fmk.php:1694
+#: inc/czr-base-fmk/czr-base-fmk.php:1691
 msgid "Set a custom url"
 msgstr ""
 
@@ -1386,18 +1386,18 @@ msgid "Are you sure you want to reset all your font settings to default?"
 msgstr ""
 
 #: addons/pro/wfc/back/classes/class_admin_font_customizer.php:516
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:579
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:576
 #: contextualizer/ccat-contextualizer.php:1442
 #: functions/czr-base-fmk/czr-base-fmk.php:576
-#: inc/czr-base-fmk/czr-base-fmk.php:579
+#: inc/czr-base-fmk/czr-base-fmk.php:576
 msgid "Yes"
 msgstr "是"
 
 #: addons/pro/wfc/back/classes/class_admin_font_customizer.php:517
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:579
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:576
 #: contextualizer/ccat-contextualizer.php:1443
 #: functions/czr-base-fmk/czr-base-fmk.php:576
-#: inc/czr-base-fmk/czr-base-fmk.php:579
+#: inc/czr-base-fmk/czr-base-fmk.php:576
 msgid "No"
 msgstr "否"
 
@@ -1530,12 +1530,12 @@ msgid "Color value"
 msgstr "色彩"
 
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:268
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:570
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:567
 #: functions/czr/czr-resources.php:163
 #: functions/czr-base-fmk/czr-base-fmk.php:268
 #: functions/czr-base-fmk/czr-base-fmk.php:567
 #: functions/czr-modules/widget-zones/widget_zones_module.php:227
-#: inc/czr-base-fmk/czr-base-fmk.php:268 inc/czr-base-fmk/czr-base-fmk.php:570
+#: inc/czr-base-fmk/czr-base-fmk.php:268 inc/czr-base-fmk/czr-base-fmk.php:567
 #: option-tree/includes/ot-functions-admin.php:2695
 #: option-tree/includes/ot-functions-admin.php:2804
 #: option-tree/includes/ot-functions-admin.php:2805
@@ -1581,7 +1581,7 @@ msgstr "瞭解更多關於這個的文件"
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:275
 #: functions/czr/czr-resources.php:187
 #: functions/czr-base-fmk/czr-base-fmk.php:275
-#: inc/czr-base-fmk/czr-base-fmk.php:275 inc/czr-skope/index.php:417
+#: inc/czr-base-fmk/czr-base-fmk.php:275 inc/czr-skope/index.php:420
 msgid "Options for"
 msgstr "設定將套用到"
 
@@ -1600,11 +1600,11 @@ msgid "Change Image"
 msgstr "變更影像"
 
 #: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:280
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:570
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:567
 #: functions/czr/controls/class-upload-control.php:68
 #: functions/czr-base-fmk/czr-base-fmk.php:280
 #: functions/czr-base-fmk/czr-base-fmk.php:567
-#: inc/czr-base-fmk/czr-base-fmk.php:280 inc/czr-base-fmk/czr-base-fmk.php:570
+#: inc/czr-base-fmk/czr-base-fmk.php:280 inc/czr-base-fmk/czr-base-fmk.php:567
 msgid "Remove"
 msgstr "移除"
 
@@ -1627,58 +1627,58 @@ msgstr "選擇影像"
 msgid "Customizing"
 msgstr "立即自訂"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:480
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:477
 #: functions/czr-base-fmk/czr-base-fmk.php:477
-#: inc/czr-base-fmk/czr-base-fmk.php:480
+#: inc/czr-base-fmk/czr-base-fmk.php:477
 msgid "ac_set_ajax_czr_tmpl => Security check failed."
 msgstr ""
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:552
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:549
 #: functions/czr-base-fmk/czr-base-fmk.php:549
-#: inc/czr-base-fmk/czr-base-fmk.php:552
+#: inc/czr-base-fmk/czr-base-fmk.php:549
 msgid "Add New"
 msgstr "新增"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:557
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:554
 #: functions/czr-base-fmk/czr-base-fmk.php:554
-#: inc/czr-base-fmk/czr-base-fmk.php:557
+#: inc/czr-base-fmk/czr-base-fmk.php:554
 msgid "Cancel"
 msgstr "取消"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:557
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:554
 #: functions/czr-base-fmk/czr-base-fmk.php:554
-#: inc/czr-base-fmk/czr-base-fmk.php:557
+#: inc/czr-base-fmk/czr-base-fmk.php:554
 msgid "Add it"
 msgstr "增加"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:578
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:575
 #: functions/czr-base-fmk/czr-base-fmk.php:575
-#: inc/czr-base-fmk/czr-base-fmk.php:578
+#: inc/czr-base-fmk/czr-base-fmk.php:575
 msgid "Are you sure you want to remove : <strong>{{ data.title }} ?</strong>"
 msgstr "您確定要移除：<strong>{{ data.title }} ？</strong>"
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1728
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1928
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1725
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1925
 #: functions/czr-base-fmk/czr-base-fmk.php:1725
 #: functions/czr-base-fmk/czr-base-fmk.php:1925
-#: inc/czr-base-fmk/czr-base-fmk.php:1728
-#: inc/czr-base-fmk/czr-base-fmk.php:1928
+#: inc/czr-base-fmk/czr-base-fmk.php:1725
+#: inc/czr-base-fmk/czr-base-fmk.php:1925
 msgid "ajax_load_available_items => Security check failed."
 msgstr ""
 
 #. translators: %d: ID of a post
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1849
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:2058
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1846
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:2055
 #: functions/czr-base-fmk/czr-base-fmk.php:1846
 #: functions/czr-base-fmk/czr-base-fmk.php:2055
-#: inc/czr-base-fmk/czr-base-fmk.php:1849
-#: inc/czr-base-fmk/czr-base-fmk.php:2058
+#: inc/czr-base-fmk/czr-base-fmk.php:1846
+#: inc/czr-base-fmk/czr-base-fmk.php:2055
 msgid "#%d (no title)"
 msgstr ""
 
-#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1992
+#: addons/pro/wfc/back/czr-base-fmk/czr-base-fmk.php:1989
 #: functions/czr-base-fmk/czr-base-fmk.php:1989
-#: inc/czr-base-fmk/czr-base-fmk.php:1992
+#: inc/czr-base-fmk/czr-base-fmk.php:1989
 msgid "No results found."
 msgstr ""
 
@@ -2207,154 +2207,89 @@ msgstr "您可以透過即時自訂在這裡設定您的社交連結"
 msgid "Customize now"
 msgstr "立即自訂"
 
-#: functions/admin/class-admin-page.php:37
-msgid ""
-"<h2>As per the WordPress themes guidelines (%1$s), all the Hueman theme "
-"options have been moved to the %2$s.</h2>"
-msgstr ""
-"<h2>就像每個 WordPress 主題設定相同 (%1$s)，全部 Hueman 主題的選項已經移動至 "
-"%2$s 。</h2>"
-
-#: functions/admin/class-admin-page.php:38
-#, fuzzy
-msgid "more information here"
-msgstr "點選這裡瞭解詳細資訊"
-
-#: functions/admin/class-admin-page.php:39
-msgid "customizer"
-msgstr "自訂"
-
-#: functions/admin/class-admin-page.php:42
-msgid ""
-"All your previous options have been kept and are available in the customizer "
-"options panel."
-msgstr "所有您先前的選項已被保留並且可用的自訂設定儀表板。"
-
-#: functions/admin/class-admin-page.php:55
+#: functions/admin/class-admin-page.php:29
 msgid "About Hueman"
 msgstr "關於 Hueman"
 
-#: functions/admin/class-admin-page.php:83
-msgid "Thank you for using %s %s :)"
+#: functions/admin/class-admin-page.php:55
+msgid "Thank you for using"
 msgstr ""
 
-#: functions/admin/class-admin-page.php:99
-msgid "The best way to start is to read the %s."
-msgstr "已最佳的方式開始使用就是閱讀 %s 。"
+#: functions/admin/class-admin-page.php:65
+msgid ""
+"If you enjoy using the Hueman theme for your website, please consider %s. "
+"Your support allows us to keep the theme at the highest level. Thank you!"
+msgstr ""
 
-#: functions/admin/class-admin-page.php:100
-msgid "knowledge base"
+#: functions/admin/class-admin-page.php:66
+msgid "upgrading to the pro version"
+msgstr ""
+
+#: functions/admin/class-admin-page.php:77
+#, fuzzy
+msgid "Knowledge base"
 msgstr "知識庫"
 
-#: functions/admin/class-admin-page.php:121
-msgid "Read the documentation"
+#: functions/admin/class-admin-page.php:78
+msgid "We have prepared a complete online documentation of the theme."
+msgstr ""
+
+#: functions/admin/class-admin-page.php:79
+#, fuzzy
+msgid "Hueman Documentation"
 msgstr "閱讀文件"
 
-#: functions/admin/class-admin-page.php:126
-msgid "Get help in the free support forum"
-msgstr "在支援討論中獲取協助"
-
-#: functions/admin/class-admin-page.php:142
-msgid "Thank you for using the %s theme for your website."
+#: functions/admin/class-admin-page.php:84
+msgid "Share your feedback"
 msgstr ""
 
-#: functions/admin/class-admin-page.php:143
-msgid ""
-"%s %s has more features, is safer and more stable than ever to help you "
-"designing an awesome webdesign."
-msgstr ""
-
-#: functions/admin/class-admin-page.php:144
-#, fuzzy
-msgid ""
-"For more information about this new version of the theme, %s or check the "
-"changelog below"
-msgstr "瞭解有關這個新版主題的更多訊息， %s 或在下方點選變更紀錄"
-
-#: functions/admin/class-admin-page.php:145
-msgid "read the latest release notes"
-msgstr "閱讀最新的版本資訊"
-
-#: functions/admin/class-admin-page.php:147
-#: functions/admin/class-admin-page.php:257
-msgid "Changelog"
-msgstr "變更紀錄"
-
-#: functions/admin/class-admin-page.php:151
-msgid "The best way to start with %s is to read the %s and visit the %s."
-msgstr "已最佳的方式開始使用 %s 就是閱讀 %s 並瀏覽 %s 。"
-
-#: functions/admin/class-admin-page.php:153
-msgid "getting started guide"
-msgstr "使用者入門導覽"
-
-#: functions/admin/class-admin-page.php:154
-msgid "demo website"
-msgstr "展示網站"
-
-#: functions/admin/class-admin-page.php:168
-msgid ""
-"You are using a child theme of Hueman %1$s : always check the %2$s after "
-"upgrading to see if a function or a template has been deprecated."
-msgstr ""
-"您正在使用 Hueman 的精簡主題 %1$s ：如果在升級後發現功能已被取代，請檢視 "
-"%2$s 。"
-
-#: functions/admin/class-admin-page.php:187
-msgid "Happy user of Hueman?"
-msgstr "Hueman 的滿意使用者？"
-
-#: functions/admin/class-admin-page.php:188
+#: functions/admin/class-admin-page.php:85
 msgid ""
 "If you are happy with the theme, say it on wordpress.org and give Hueman a "
 "nice review!"
 msgstr "如果您滿意這個主題，請在 wordpress.org 分享並給予 Hueman 不錯的評價！"
 
-#: functions/admin/class-admin-page.php:193
-msgid "Follow us"
-msgstr "關注我們"
+#: functions/admin/class-admin-page.php:86
+msgid "Share a review"
+msgstr ""
 
-#: functions/admin/class-admin-page.php:207
-msgid "Go to Dashboard &rarr; Home"
-msgstr "前往控制台 &rarr; 首頁"
+#: functions/admin/class-admin-page.php:135
+msgid "Changelog"
+msgstr "變更紀錄"
 
-#: functions/admin/class-admin-page.php:207
-msgid "Go to Dashboard"
-msgstr "移至控制台"
+#: functions/admin/class-admin-page.php:139
+msgid "Read the latest release notes"
+msgstr "閱讀最新的版本資訊"
 
-#: functions/admin/class-admin-page.php:282
+#: functions/admin/class-admin-page.php:165
 #, fuzzy
 msgid "System Information"
 msgstr "系統資訊"
 
-#: functions/admin/class-admin-page.php:283
+#: functions/admin/class-admin-page.php:166
 #, fuzzy
 msgid "Please include the following information when posting support requests"
 msgstr "請在發表支援需求時包含下列資訊"
 
-#: functions/admin/class-admin-page.php:284
+#: functions/admin/class-admin-page.php:167
 msgid ""
 "To copy the system infos, click below then press Ctrl + C (PC) or Cmd + C "
 "(Mac)."
 msgstr ""
 "複製系統資訊，請點選下方並按 Ctrl + C （個人電腦） or Cmd + C （蘋果）。"
 
-#: functions/admin/class-admin-update-notification.php:97
-#, fuzzy
-msgid "Good, you've recently upgraded to"
-msgstr "很棒，您剛才已升級至"
+#: functions/admin/class-admin-update-notification.php:96
+msgid "✅ You have recently updated to"
+msgstr ""
 
-#: functions/admin/class-admin-update-notification.php:99
+#: functions/admin/class-admin-update-notification.php:98
 msgid "version"
 msgstr "版本"
 
-#: functions/admin/class-admin-update-notification.php:108
-msgid "We'd like to introduce the new features we've been working on."
-msgstr "介紹我們正在一直在努力中的新功能。"
-
-#: functions/admin/class-admin-update-notification.php:110
-msgid "Read the latest release notes"
-msgstr "閱讀最新的版本資訊"
+#: functions/admin/class-admin-update-notification.php:101
+#, fuzzy
+msgid "Changelog here"
+msgstr "變更紀錄"
 
 #: functions/admin/class-plugin-rec.php:28
 msgid "Activate Nimble Builder Now"
@@ -2987,7 +2922,7 @@ msgid ""
 "layout is set."
 msgstr ""
 
-#: functions/class-utils-settings-map.php:973 functions/init-front.php:1785
+#: functions/class-utils-settings-map.php:973 functions/init-front.php:1787
 #: functions/init-sidebars-widgets.php:132
 msgid "Home"
 msgstr "首頁"
@@ -3068,7 +3003,7 @@ msgid ""
 "default content."
 msgstr "您的部落格頁首允許使用 HTML 。附註：隱藏預設內容請輸入一個空格。"
 
-#: functions/class-utils-settings-map.php:1080 functions/init-front.php:664
+#: functions/class-utils-settings-map.php:1080 functions/init-front.php:666
 msgid "Blog"
 msgstr "部落格"
 
@@ -4442,97 +4377,97 @@ msgstr "您可以透過編輯目前的文章或頁面選項變更或停用這個
 msgid "Add widgets to the zone :"
 msgstr "新增小工具至這個區域："
 
-#: functions/init-front.php:493 functions/init-front.php:499
+#: functions/init-front.php:495 functions/init-front.php:501
 msgid "Home page"
 msgstr "首頁"
 
-#: functions/init-front.php:551
+#: functions/init-front.php:553
 msgid "Search result"
 msgstr "搜尋結果"
 
-#: functions/init-front.php:553
+#: functions/init-front.php:555
 msgid "Search results"
 msgstr "搜尋結果"
 
-#: functions/init-front.php:564
+#: functions/init-front.php:566
 msgid "Error 404."
 msgstr "錯誤 404 。"
 
-#: functions/init-front.php:565
+#: functions/init-front.php:567
 msgid "Page not found!"
 msgstr "找不到頁面！"
 
-#: functions/init-front.php:580
+#: functions/init-front.php:582
 msgid "Author:"
 msgstr "作者："
 
-#: functions/init-front.php:598
+#: functions/init-front.php:600
 msgid "Category:"
 msgstr "分類："
 
-#: functions/init-front.php:607
+#: functions/init-front.php:609
 msgid "Tagged:"
 msgstr "標籤："
 
-#: functions/init-front.php:626
+#: functions/init-front.php:628
 msgid "Daily Archive:"
 msgstr "每日彙整："
 
-#: functions/init-front.php:636
+#: functions/init-front.php:638
 msgid "Monthly Archive:"
 msgstr "每月彙整："
 
-#: functions/init-front.php:646
+#: functions/init-front.php:648
 msgid "Yearly Archive:"
 msgstr "每年彙整："
 
-#: functions/init-front.php:1251
+#: functions/init-front.php:1253
 #, fuzzy
 msgid "Expand"
 msgstr "展開功能表清單"
 
-#: functions/init-front.php:1252
+#: functions/init-front.php:1254
 #, fuzzy
 msgid "Collapse"
 msgstr "折疊功能表清單"
 
-#: functions/init-front.php:1833 functions/init-sidebars-widgets.php:134
+#: functions/init-front.php:1835 functions/init-sidebars-widgets.php:134
 msgid "Pages"
 msgstr "頁面"
 
-#: functions/init-front.php:2109
+#: functions/init-front.php:2111
 msgid "Welcome in the Hueman theme"
 msgstr "歡迎使用 Hueman 主題"
 
-#: functions/init-front.php:2112
+#: functions/init-front.php:2114
 msgid "The theme offers a wide range"
 msgstr "主題提供大範圍的"
 
-#: functions/init-front.php:2114
+#: functions/init-front.php:2116
 msgid "of customization options"
 msgstr "的自訂選項"
 
-#: functions/init-front.php:2115
+#: functions/init-front.php:2117
 msgid "to let you create the best possible websites."
 msgstr "讓您建立最棒的精彩站台。"
 
-#: functions/init-front.php:2118
+#: functions/init-front.php:2120
 msgid "If you need inspiration, you can visit our online demos"
 msgstr "如果您需要靈感，您可以瀏覽我們的線上展示"
 
-#: functions/init-front.php:2120
+#: functions/init-front.php:2122
 msgid "Hueman Demo 1"
 msgstr "Hueman 展示 1"
 
-#: functions/init-front.php:2122
+#: functions/init-front.php:2124
 msgid "Hueman Demo 2"
 msgstr "Hueman 展示 2"
 
-#: functions/init-front.php:2125
+#: functions/init-front.php:2127
 msgid "To help you getting started with Hueman, we have published"
 msgstr "協助您開始使用我們已發表的 Hueman "
 
-#: functions/init-front.php:2127
+#: functions/init-front.php:2129
 msgid "a short guide here."
 msgstr "此為簡易指南。"
 
@@ -4766,32 +4701,32 @@ msgstr ""
 msgid "Skip to content"
 msgstr "內文下方"
 
-#: inc/czr-skope/index.php:434
+#: inc/czr-skope/index.php:437
 msgid "user"
 msgstr ""
 
-#: inc/czr-skope/index.php:440
+#: inc/czr-skope/index.php:443
 msgid "%1$s archive page"
 msgstr ""
 
-#: inc/czr-skope/index.php:445
+#: inc/czr-skope/index.php:448
 msgid "Undefined"
 msgstr ""
 
-#: inc/czr-skope/index.php:449
+#: inc/czr-skope/index.php:452
 #, fuzzy
 msgid "Options for all"
 msgstr "設定將套用到"
 
-#: inc/czr-skope/index.php:449
+#: inc/czr-skope/index.php:452
 msgid "All"
 msgstr ""
 
-#: inc/czr-skope/index.php:462
+#: inc/czr-skope/index.php:465
 msgid "users"
 msgstr ""
 
-#: inc/czr-skope/index.php:467
+#: inc/czr-skope/index.php:470
 #, fuzzy
 msgid "Sitewide options"
 msgstr "進階選項"
@@ -5895,6 +5830,12 @@ msgstr ""
 #~ msgid "Easily take your web design one step further"
 #~ msgstr "輕鬆地將您的網頁更提升一階"
 
+#~ msgid "Follow us"
+#~ msgstr "關注我們"
+
+#~ msgid "Happy user of Hueman?"
+#~ msgstr "Hueman 的滿意使用者？"
+
 #~ msgid "default"
 #~ msgstr "預設值"
 
@@ -5978,6 +5919,63 @@ msgstr ""
 
 #~ msgid "I already know what's new thanks !"
 #~ msgstr "我已經瞭解新功能，謝謝！"
+
+#~ msgid "We'd like to introduce the new features we've been working on."
+#~ msgstr "介紹我們正在一直在努力中的新功能。"
+
+#~ msgid "Good, you've just upgraded to"
+#~ msgstr "很棒，您剛才已升級至"
+
+#~ msgid "Get help in the free support forum"
+#~ msgstr "在支援討論中獲取協助"
+
+#~ msgid "The best way to start is to read the %s."
+#~ msgstr "已最佳的方式開始使用就是閱讀 %s 。"
+
+#~ msgid "Go to Dashboard"
+#~ msgstr "移至控制台"
+
+#~ msgid "Go to Dashboard &rarr; Home"
+#~ msgstr "前往控制台 &rarr; 首頁"
+
+#~ msgid ""
+#~ "You are using a child theme of Hueman %1$s : always check the %2$s after "
+#~ "upgrading to see if a function or a template has been deprecated."
+#~ msgstr ""
+#~ "您正在使用 Hueman 的精簡主題 %1$s ：如果在升級後發現功能已被取代，請檢視 "
+#~ "%2$s 。"
+
+#~ msgid "demo website"
+#~ msgstr "展示網站"
+
+#~ msgid "getting started guide"
+#~ msgstr "使用者入門導覽"
+
+#~ msgid "The best way to start with %s is to read the %s and visit the %s."
+#~ msgstr "已最佳的方式開始使用 %s 就是閱讀 %s 並瀏覽 %s 。"
+
+#~ msgid "read the latest release notes"
+#~ msgstr "閱讀最新的版本資訊"
+
+#~ msgid ""
+#~ "For more informations about this new version of the theme, %s or check "
+#~ "the changelog below"
+#~ msgstr "瞭解有關這個新版主題的更多訊息， %s 或在下方點選變更紀錄"
+
+#~ msgid ""
+#~ "All your previous options have been kept and are available in the "
+#~ "customizer options panel."
+#~ msgstr "所有您先前的選項已被保留並且可用的自訂設定儀表板。"
+
+#~ msgid "more informations here"
+#~ msgstr "點選這裡瞭解詳細資訊"
+
+#~ msgid ""
+#~ "<h2>As per the WordPress themes guidelines (%1$s), all the Hueman theme "
+#~ "options have been moved to the %2$s.</h2>"
+#~ msgstr ""
+#~ "<h2>就像每個 WordPress 主題設定相同 (%1$s)，全部 Hueman 主題的選項已經移動"
+#~ "至 %2$s 。</h2>"
 
 #~ msgid "Updating Plugin %1$s (%2$d/%3$d)"
 #~ msgstr "正在更新外掛 %1$s (%2$d/%3$d)"
