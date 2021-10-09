@@ -626,6 +626,60 @@ foreach ( array( 'wptexturize', 'convert_smilies') as $callback ) {
   if ( function_exists( $callback ) )
       add_filter( 'sek_feedback_notice', $callback );
 }
+add_action( 'admin_footer', function() {
+  if ( !( defined('NIMBLE_DEV') && NIMBLE_DEV ) && sek_is_pro() )
+    return;
+  if ( 'eligible' !== sek_get_feedback_notif_status() )
+    return;
+  if ( !current_user_can( 'customize' ) )
+    return;
+  if ( !sek_current_user_can_access_nb_ui() )
+    return;
+  if ( sek_feedback_notice_is_dismissed() )
+    return;
+  ?>
+  <script>
+    jQuery( function( $ ) {
+      var $optionGenMenu = $('#adminmenu').find('#menu-settings');
+      if ( $optionGenMenu.length < 1 )
+        return;
+      var $settingsTitle = $optionGenMenu.find('a[href="options-general.php"]').first(),
+          $nbTitle = $optionGenMenu.find('a[href="options-general.php?page=nb-options"]').first(),
+          noticeHtml = ' <span class="nb-wp-menu-notif"><span class="update-count">1</span></span>';
+      if ( $settingsTitle.length > 0 ) {
+        $settingsTitle.find('.wp-menu-name').append(noticeHtml);
+      }
+      if ( $nbTitle.length > 0 ) {
+        $nbTitle.append(noticeHtml);
+      }
+    } );
+  </script>
+
+  <?php
+  $current_screen = get_current_screen();
+  if( 'settings_page_nb-options' !== $current_screen->base )
+    return;
+  
+  $notice_id = NIMBLE_FEEDBACK_NOTICE_ID;
+  ?>
+  <script>
+    jQuery( function( $ ) {
+      $( <?php echo wp_json_encode( "#$notice_id" ); ?> ).on( 'click', '.notice-dismiss', function() {
+        $(this).closest('.is-dismissible').slideUp('fast');//<= this line is not mandatory since WP has its own way to remove the is-dismissible block
+        $.post( ajaxurl, {
+          pointer: <?php echo wp_json_encode( $notice_id ); ?>,
+          action: 'dismiss-wp-pointer'
+        } );
+        var $optionGenMenu = $('#adminmenu').find('#menu-settings');
+        if ( $optionGenMenu.length > 0 ) {
+          $optionGenMenu.find('.nb-wp-menu-notif').hide();
+        }
+      } );
+    } );
+  </script>
+  <?php
+});
+
 
 
 /**
@@ -643,25 +697,29 @@ function sek_maybe_display_feedback_notice() {
   if ( sek_feedback_notice_is_dismissed() )
     return;
   $current_screen = get_current_screen();
-  if( 'dashboard' !== $current_screen->base )
+  if( 'settings_page_nb-options' !== $current_screen->base )
     return;
 
     $notice_id = NIMBLE_FEEDBACK_NOTICE_ID;
     ob_start();
     ?>
-    <div class="notice notice-info is-dismissible" id="<?php echo esc_attr( $notice_id ); ?>">
+    <div class="notice notice-success is-dismissible" id="<?php echo esc_attr( $notice_id ); ?>">
+      <h3><span class="nb-wp-menu-notif"><span class="update-count">1</span></span> <?php _e('Hi👋 ! A quick note on Nimble Builder Pro', 'nimble-builder'); ?> </h3>
       <div class="nimble-logo-feedback-notice">
-        <div class="nimble-logo"><div class="sek-nimble-icon" title="<?php _e('Add sections in live preview with Nimble Builder', 'nimble-builder' );?>"><img src="<?php echo NIMBLE_BASE_URL.'/assets/img/nimble/nimble_icon.svg?ver='.NIMBLE_VERSION; ?>" alt="Nimble Builder"></div></div>
+        <div class="nimble-logo"><div class="sek-nimble-icon"><img src="<?php echo NIMBLE_BASE_URL.'/assets/img/nimble/nimble_icon.svg?ver='.NIMBLE_VERSION; ?>" alt="Nimble Builder"></div></div>
         <div class="nimble-feedback">
+          
           <p><?php
-            printf( __('👋 Hi, this is Nimble Builder ! I don\'t ask very often, but if you like designing your pages with me, please share the ❤️ with %1$s. Thanks, you\'re awesome 🙏 !', 'nimble-builder' ),
-              sprintf( '<a href="https://wordpress.org/support/plugin/nimble-builder/reviews/?filter=5/#new-post" target="_blank" rel="noopener noreferrer">%1$s</a>', __( 'a review on my wordpress.org page', 'nimble-builder' ) )
+            printf( __('If you enjoy using Nimble Builder for your website, you are going to love %1$s. The pro version has a friendly price and includes %2$s, with no impact on performance. <br/>Additionally, our premium support will be there to help you resolve any issues you may have with the plugin. ', 'nimble-builder' ),
+              sprintf( '<a href="https://presscustomizr.com/nimble-builder-pro/" target="_blank" rel="noopener noreferrer">%1$s</a>', __( 'Nimble Builder Pro', 'nimble-builder' ) ),
+              sprintf( '<a href="https://presscustomizr.com/nimble-builder-pro/#features" target="_blank" rel="noopener noreferrer">%1$s</a>', __( 'many additional features', 'nimble-builder' ) )
             );
           ?>
           </p>
+          
         </div>
       </div>
-
+      <p style="font-size:14px;font-weight:600"><?php _e('Thank you 🙏 ! Nimble Builder needs your sponsorship to keep improving and helping you design your website in the best possible way.', 'nimble-builder' ); ?></p>
       <button type="button" class="notice-dismiss" title="<?php _e('Dismiss this notice.', 'nimble-builder'); ?>">
         <span class="screen-reader-text"><?php _e('Dismiss this notice.', 'nimble-builder'); ?></span>
       </button>
@@ -670,17 +728,6 @@ function sek_maybe_display_feedback_notice() {
       $_html = ob_get_clean();
       echo apply_filters( 'sek_feedback_notice', $_html );
     ?>
-    <script>
-      jQuery( function( $ ) {
-        $( <?php echo wp_json_encode( "#$notice_id" ); ?> ).on( 'click', '.notice-dismiss', function() {
-          $(this).closest('.is-dismissible').slideUp('fast');//<= this line is not mandatory since WP has its own way to remove the is-dismissible block
-          $.post( ajaxurl, {
-            pointer: <?php echo wp_json_encode( $notice_id ); ?>,
-            action: 'dismiss-wp-pointer'
-          } );
-        } );
-      } );
-    </script>
     <?php
 }
 function sek_welcome_notice_is_dismissed() {
