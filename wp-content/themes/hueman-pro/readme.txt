@@ -1,4 +1,4 @@
-# Hueman Pro v1.4.17
+# Hueman Pro v1.4.18
 ![Hueman - Pro](/screenshot.png)
 
 > The premium version of the popular Hueman WordPress theme.
@@ -18,6 +18,11 @@ The **Hueman Pro WordPress theme** theme is licensed under GPLv3. See headers of
 See headers of files for further details.
 
 ## Changelog
+= 1.4.18 October 6th 2021 =
+* improved : [HTML][PHP] removed superfluous title attributes "Permalink To" post-title hovering
+* improved : [HTML] better HTML5 semantic
+* fixed : [admin] update notice improvements
+
 = 1.4.17 September 20th 2021 =
 * fixed : [PHP] improved compatibility with PHP 8.0
 

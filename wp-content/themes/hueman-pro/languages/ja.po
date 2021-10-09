@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Themes - Hueman-Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: * Hueman-Pro v1.4.16\n"
+"Project-Id-Version: * Hueman-Pro v1.4.18\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2021-09-10 18:39:32+00:00\n"
+"POT-Creation-Date: 2021-10-06 19:44:19+00:00\n"
 "PO-Revision-Date: 2017-11-14 19:22:25+0000\n"
 "Language: ja_JP\n"
 "MIME-Version: 1.0\n"
@@ -179,7 +179,7 @@ msgid "OK got it. Remind me later."
 msgstr "後で通知する"
 
 #: addons/activation-key/activation/class_activation_key.php:215
-#: functions/admin/class-admin-update-notification.php:108
+#: functions/admin/class-admin-update-notification.php:111
 msgid "close"
 msgstr "閉じる"
 
@@ -1042,10 +1042,6 @@ msgstr ""
 
 #: addons/pro/grids/masonry/front/tmpl/masonry-article.php:77
 #: addons/pro/related/front/tmpl/related-posts-content.php:354
-#: content-featured.php:42 content-standard.php:47 content.php:67
-#: functions/widgets/alx-posts.php:106 functions/widgets/alx-tabs.php:165
-#: functions/widgets/alx-tabs.php:210 functions/widgets/alx-tabs.php:221
-#: parts/related-posts.php:51
 msgid "Permalink to "
 msgstr ""
 
@@ -2220,34 +2216,44 @@ msgid "Thank you for using"
 msgstr "%s %s をお使いいただきありがとうございます。"
 
 #: functions/admin/class-admin-page.php:65
-msgid ""
-"If you enjoy using the Hueman theme for your website, please consider %s. "
-"Your support allows us to keep the theme at the highest level. Thank you!"
-msgstr ""
-
-#: functions/admin/class-admin-page.php:66
-msgid "upgrading to the pro version"
-msgstr ""
-
-#: functions/admin/class-admin-page.php:77
 #, fuzzy
-msgid "Knowledge base"
-msgstr "知識ベース"
+msgid "If you enjoy using the Hueman theme for your website, you will love %s"
+msgstr "%s テーマをご選択頂きありがとうございます。"
 
-#: functions/admin/class-admin-page.php:78
-msgid "We have prepared a complete online documentation of the theme."
+#: functions/admin/class-admin-page.php:68
+msgid ""
+"With Hueman Pro, you get premium features like infinite scrolling, footer "
+"and header customization, font customizer and many more. In addition, our "
+"premium support will be there to help you resolve any issue you may have "
+"with the theme. When installing Hueman Pro, all your previous options used "
+"in Hueman free are kept."
+msgstr ""
+
+#: functions/admin/class-admin-page.php:69
+msgid ""
+"And of course your support allows us to keep the theme at the highest level "
+"for your website. Thank you!"
 msgstr ""
 
 #: functions/admin/class-admin-page.php:79
 #, fuzzy
+msgid "Knowledge base"
+msgstr "知識ベース"
+
+#: functions/admin/class-admin-page.php:80
+msgid "We have prepared a complete online documentation of the theme."
+msgstr ""
+
+#: functions/admin/class-admin-page.php:81
+#, fuzzy
 msgid "Hueman Documentation"
 msgstr "ドキュメントを読む"
 
-#: functions/admin/class-admin-page.php:84
+#: functions/admin/class-admin-page.php:86
 msgid "Share your feedback"
 msgstr ""
 
-#: functions/admin/class-admin-page.php:85
+#: functions/admin/class-admin-page.php:87
 msgid ""
 "If you are happy with the theme, say it on wordpress.org and give Hueman a "
 "nice review!"
@@ -2255,29 +2261,29 @@ msgstr ""
 "もしこのテーマが好きなら、WordPress.org 上でテーマを評価し、いいレビューを頂"
 "けると嬉しいです。"
 
-#: functions/admin/class-admin-page.php:86
+#: functions/admin/class-admin-page.php:88
 msgid "Share a review"
 msgstr ""
 
-#: functions/admin/class-admin-page.php:135
+#: functions/admin/class-admin-page.php:137
 msgid "Changelog"
 msgstr "更新履歴"
 
-#: functions/admin/class-admin-page.php:139
+#: functions/admin/class-admin-page.php:141
 msgid "Read the latest release notes"
 msgstr "最新のリリースノートを読む"
 
-#: functions/admin/class-admin-page.php:165
+#: functions/admin/class-admin-page.php:167
 #, fuzzy
 msgid "System Information"
 msgstr "システム情報"
 
-#: functions/admin/class-admin-page.php:166
+#: functions/admin/class-admin-page.php:168
 #, fuzzy
 msgid "Please include the following information when posting support requests"
 msgstr "サポートリクエストを投稿する場合は次の情報を記載してください．"
 
-#: functions/admin/class-admin-page.php:167
+#: functions/admin/class-admin-page.php:169
 msgid ""
 "To copy the system infos, click below then press Ctrl + C (PC) or Cmd + C "
 "(Mac)."
@@ -2285,18 +2291,17 @@ msgstr ""
 "システム情報をコピーするときは下記をクリックして Ctrl + C (PC) もしくは Cmd "
 "+ C (Mac) を入力します。"
 
-#: functions/admin/class-admin-update-notification.php:96
-msgid "✅ You have recently updated to"
+#: functions/admin/class-admin-update-notification.php:99
+msgid "You have recently updated to"
 msgstr ""
 
-#: functions/admin/class-admin-update-notification.php:98
+#: functions/admin/class-admin-update-notification.php:101
 msgid "version"
 msgstr "バージョン"
 
-#: functions/admin/class-admin-update-notification.php:101
-#, fuzzy
-msgid "Changelog here"
-msgstr "更新履歴"
+#: functions/admin/class-admin-update-notification.php:104
+msgid "Make sure to read the changelog"
+msgstr ""
 
 #: functions/admin/class-plugin-rec.php:28
 msgid "Activate Nimble Builder Now"
@@ -5889,9 +5894,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Hueman Addons は無料のプラグインで、Hueman テーマのカスタマイザーのイン"
 #~ "ターフェイスを拡張します。"
-
-#~ msgid "Thank you for using the %s theme for your website."
-#~ msgstr "%s テーマをご選択頂きありがとうございます。"
 
 #~ msgid "Discover Hueman Pro"
 #~ msgstr "Hueman Pro を見る"
