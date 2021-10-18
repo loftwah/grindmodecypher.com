@@ -406,7 +406,11 @@ final class Authentication {
 			add_action( 'googlesitekit_reauthorize_user', $set_initial_version );
 		}
 
-		$maybe_refresh_token = function() {
+		$maybe_refresh_token_for_screen = function( $screen_id ) {
+			if ( 'dashboard' !== $screen_id && 'toplevel_page_googlesitekit-dashboard' !== $screen_id ) {
+				return;
+			}
+
 			if ( ! current_user_can( Permissions::AUTHENTICATE ) || ! $this->credentials()->has() ) {
 				return;
 			}
@@ -426,8 +430,19 @@ final class Authentication {
 			$this->get_oauth_client()->refresh_token();
 		};
 
-		add_action( 'admin_init', $maybe_refresh_token );
-		add_action( 'heartbeat_tick', $maybe_refresh_token );
+		add_action(
+			'current_screen',
+			function( $current_screen ) use ( $maybe_refresh_token_for_screen ) {
+				$maybe_refresh_token_for_screen( $current_screen->id );
+			}
+		);
+
+		add_action(
+			'heartbeat_tick',
+			function() use ( $maybe_refresh_token_for_screen ) {
+				$maybe_refresh_token_for_screen( $this->context->input()->filter( INPUT_POST, 'screen_id' ) );
+			}
+		);
 	}
 
 	/**
@@ -1026,6 +1041,9 @@ final class Authentication {
 				},
 				'type'            => Notice::TYPE_SUCCESS,
 				'active_callback' => function() {
+					if ( ! empty( $this->user_options->get( OAuth_Client::OPTION_ERROR_CODE ) ) ) {
+						return false;
+					}
 					return $this->get_oauth_client()->needs_reauthentication();
 				},
 			)
@@ -1061,11 +1079,11 @@ final class Authentication {
 
 					$message     = $auth_client->get_error_message( $error_code );
 					$access_code = $this->user_options->get( OAuth_Client::OPTION_PROXY_ACCESS_CODE );
-					if ( $this->credentials->using_proxy() && $access_code ) {
+					if ( $this->credentials->using_proxy() ) {
 						$message .= ' ' . sprintf(
 							/* translators: %s: URL to re-authenticate */
 							__( 'To fix this, <a href="%s">redo the plugin setup</a>.', 'google-site-kit' ),
-							esc_url( $auth_client->get_proxy_setup_url( $access_code, $error_code ) )
+							esc_url( $auth_client->get_proxy_setup_url( $access_code ) )
 						);
 						$this->user_options->delete( OAuth_Client::OPTION_PROXY_ACCESS_CODE );
 					} else {
