@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitf81beb65482daf5d0d5d871c94ad6a3f
+class ComposerStaticInit46863a8018653aef5c5cf841d5e5600e
 {
     public static $files = array (
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
@@ -168,6 +168,7 @@ class ComposerStaticInitf81beb65482daf5d0d5d871c94ad6a3f
         'Firebase\\JWT\\ExpiredException' => __DIR__ . '/..' . '/firebase/php-jwt/src/ExpiredException.php',
         'Firebase\\JWT\\JWK' => __DIR__ . '/..' . '/firebase/php-jwt/src/JWK.php',
         'Firebase\\JWT\\JWT' => __DIR__ . '/..' . '/firebase/php-jwt/src/JWT.php',
+        'Firebase\\JWT\\Key' => __DIR__ . '/..' . '/firebase/php-jwt/src/Key.php',
         'Firebase\\JWT\\SignatureInvalidException' => __DIR__ . '/..' . '/firebase/php-jwt/src/SignatureInvalidException.php',
         'InstituteWeb\\ComposerScripts\\ImprovedScriptExecution' => __DIR__ . '/..' . '/instituteweb/composer-scripts/src/ImprovedScriptExecution.php',
         'WPMailSMTP\\Admin\\AdminBarMenu' => __DIR__ . '/../..' . '/src/Admin/AdminBarMenu.php',
@@ -328,6 +329,8 @@ class ComposerStaticInitf81beb65482daf5d0d5d871c94ad6a3f
         'WPMailSMTP\\Providers\\Sendinblue\\Api' => __DIR__ . '/../..' . '/src/Providers/Sendinblue/Api.php',
         'WPMailSMTP\\Providers\\Sendinblue\\Mailer' => __DIR__ . '/../..' . '/src/Providers/Sendinblue/Mailer.php',
         'WPMailSMTP\\Providers\\Sendinblue\\Options' => __DIR__ . '/../..' . '/src/Providers/Sendinblue/Options.php',
+        'WPMailSMTP\\Providers\\SparkPost\\Mailer' => __DIR__ . '/../..' . '/src/Providers/SparkPost/Mailer.php',
+        'WPMailSMTP\\Providers\\SparkPost\\Options' => __DIR__ . '/../..' . '/src/Providers/SparkPost/Options.php',
         'WPMailSMTP\\Providers\\Zoho\\Options' => __DIR__ . '/../..' . '/src/Providers/Zoho/Options.php',
         'WPMailSMTP\\Reports\\Emails\\Summary' => __DIR__ . '/../..' . '/src/Reports/Emails/Summary.php',
         'WPMailSMTP\\Reports\\Reports' => __DIR__ . '/../..' . '/src/Reports/Reports.php',
@@ -1230,9 +1233,9 @@ class ComposerStaticInitf81beb65482daf5d0d5d871c94ad6a3f
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitf81beb65482daf5d0d5d871c94ad6a3f::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitf81beb65482daf5d0d5d871c94ad6a3f::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitf81beb65482daf5d0d5d871c94ad6a3f::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit46863a8018653aef5c5cf841d5e5600e::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit46863a8018653aef5c5cf841d5e5600e::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit46863a8018653aef5c5cf841d5e5600e::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -3,7 +3,7 @@ Author URI: https://presscustomizr.com/
 Plugin URI: https://presscustomizr.com/
 Requires at least: 4.7
 Requires PHP: 5.4
-Tested up to: 5.7
+Tested up to: 5.8
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -24,6 +24,12 @@ SUPPORT : https://presscustomizr.com/support/
 
 
 == Changelog
+= 3.2.5 November 12th, 2021 =
+* fixed : update hueman-pro.json with new selectors
+
+= 3.2.4 September 13th 2021 =
+* updated : license key checker to latest version
+
 = 3.2.3 June 1st, 2021 =
 * fixed : [accessibility] broken accessibility for checkboxes in the customizer
 

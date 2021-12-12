@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Themes - Hueman-Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: * Hueman-Pro v1.4.18\n"
+"Project-Id-Version: * Hueman-Pro v1.4.21\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2021-10-06 19:44:19+00:00\n"
+"POT-Creation-Date: 2021-12-02 17:45:16+00:00\n"
 "PO-Revision-Date: 2018-02-01 03:53:45+0000\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
@@ -2233,25 +2233,25 @@ msgid ""
 "for your website. Thank you!"
 msgstr ""
 
-#: functions/admin/class-admin-page.php:79
+#: functions/admin/class-admin-page.php:80
 #, fuzzy
 msgid "Knowledge base"
 msgstr "راهنمای استفاده از قالب"
 
-#: functions/admin/class-admin-page.php:80
+#: functions/admin/class-admin-page.php:81
 msgid "We have prepared a complete online documentation of the theme."
 msgstr ""
 
-#: functions/admin/class-admin-page.php:81
+#: functions/admin/class-admin-page.php:82
 #, fuzzy
 msgid "Hueman Documentation"
 msgstr "خواندن مستندات"
 
-#: functions/admin/class-admin-page.php:86
+#: functions/admin/class-admin-page.php:87
 msgid "Share your feedback"
 msgstr ""
 
-#: functions/admin/class-admin-page.php:87
+#: functions/admin/class-admin-page.php:88
 msgid ""
 "If you are happy with the theme, say it on wordpress.org and give Hueman a "
 "nice review!"
@@ -2259,29 +2259,29 @@ msgstr ""
 "اگر از این قالب راضی هستید، لطفا این را در سایت wordpress.org بیان کنید و با "
 "یک امتیاز پنج ستاره به ما برای ادامه کار انگیزه دهید."
 
-#: functions/admin/class-admin-page.php:88
+#: functions/admin/class-admin-page.php:89
 msgid "Share a review"
 msgstr ""
 
-#: functions/admin/class-admin-page.php:137
+#: functions/admin/class-admin-page.php:138
 msgid "Changelog"
 msgstr "تغییرات"
 
-#: functions/admin/class-admin-page.php:141
+#: functions/admin/class-admin-page.php:142
 msgid "Read the latest release notes"
 msgstr "خواندن نکات انتشار یافته اخیر"
 
-#: functions/admin/class-admin-page.php:167
+#: functions/admin/class-admin-page.php:168
 #, fuzzy
 msgid "System Information"
 msgstr "اطلاعات سیستم"
 
-#: functions/admin/class-admin-page.php:168
+#: functions/admin/class-admin-page.php:169
 #, fuzzy
 msgid "Please include the following information when posting support requests"
 msgstr "لطفا از اطلاعات زیر پیروی کنید وقتی میخواهید درخواست پشتیبانی دهید"
 
-#: functions/admin/class-admin-page.php:169
+#: functions/admin/class-admin-page.php:170
 msgid ""
 "To copy the system infos, click below then press Ctrl + C (PC) or Cmd + C "
 "(Mac)."

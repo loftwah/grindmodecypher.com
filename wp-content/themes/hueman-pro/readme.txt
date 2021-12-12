@@ -1,4 +1,4 @@
-# Hueman Pro v1.4.18
+# Hueman Pro v1.4.21
 ![Hueman - Pro](/screenshot.png)
 
 > The premium version of the popular Hueman WordPress theme.
@@ -18,6 +18,19 @@ The **Hueman Pro WordPress theme** theme is licensed under GPLv3. See headers of
 See headers of files for further details.
 
 ## Changelog
+= 1.4.21 December 2nd 2021 =
+* checked : [WP 5.9] preliminary successfull tests with upcoming version of WordPress.
+* fixed : [PHP] possible php notice in rare cases when getting img source.
+
+= 1.4.20 November 12th 2021 =
+* fixed : [javascript] print a notice ( using console.log) when an issue is detected with JQuery
+
+= 1.4.19 October 27th 2021 =
+* fixed : [HTML] removed type attribute for script elements
+* fixed : [HTML] removed type attribute for style elements
+* fixed : [CSS] The first argument to the linear-gradient function should be "to top", not "top" as per w3 specification
+* fixed : [CSS] value hidden doesn't exist for property webkit-backface-visibility
+
 = 1.4.18 October 6th 2021 =
 * improved : [HTML][PHP] removed superfluous title attributes "Permalink To" post-title hovering
 * improved : [HTML] better HTML5 semantic

@@ -1214,7 +1214,7 @@ class Sek_Dyn_CSS_Handler {
                     /*
                     * TODO: make sure all the deps are enqueued
                     */
-                    printf( '<link rel="stylesheet" id="sek-dyn-%1$s-css" href="%2$s" type="text/css" media="all" />',
+                    printf( '<link rel="stylesheet" id="sek-dyn-%1$s-css" href="%2$s" media="all" />',
                         $this->id,
                         //this resource version is built upon the file last modification time
                         add_query_arg( array( 'ver' => filemtime($this->uri) ), $this->url )
@@ -1253,7 +1253,7 @@ class Sek_Dyn_CSS_Handler {
             $dep =  array_pop( $this->dep );
 
             if ( !$dep || wp_style_is( $dep, 'done' ) || !wp_style_is( $dep, 'done' ) && ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
-                printf( '<style id="sek-%1$s" type="text/css" media="all">%2$s</style>', $this->id, $this->css_string_to_enqueue_or_print );
+                printf( '<style id="sek-%1$s" media="all">%2$s</style>', $this->id, $this->css_string_to_enqueue_or_print );
             } else {
                 //not sure
                 wp_add_inline_style( $dep , $this->css_string_to_enqueue_or_print );
@@ -2430,6 +2430,11 @@ if ( !class_exists( 'SEK_Front_Construct' ) ) :
         // @fired @hook 'widgets_init'
         // Creates 10 widget zones
         public function sek_nimble_widgets_init() {
+            if ( sek_is_widget_module_disabled() )
+              return;
+
+            $number_of_widgets = apply_filters( 'nimble_number_of_wp_widgets', 10 );
+
             // Header/footer, widgets module, menu module have been beta tested during 5 months and released in June 2019, in version 1.8.0
             $defaults = array(
                 'name'          => '',
@@ -2441,7 +2446,7 @@ if ( !class_exists( 'SEK_Front_Construct' ) ) :
                 'before_title'  => '<h2 class="widget-title">',
                 'after_title'   => '</h2>',
             );
-            for ( $i=1; $i < 11; $i++ ) {
+            for ( $i=1; $i < ( intval( $number_of_widgets) + 1 ); $i++ ) {
                 $args['id'] = NIMBLE_WIDGET_PREFIX . $i;//'nimble-widget-area-'
                 $args['name'] = sprintf( __('Nimble widget area #%1$s', 'nimble-builder' ), $i );
                 $args['description'] = $args['name'];
@@ -2452,7 +2457,7 @@ if ( !class_exists( 'SEK_Front_Construct' ) ) :
 
         // Invoked @'after_setup_theme'
         static function sek_get_front_module_collection() {
-            return apply_filters( 'sek_get_front_module_collection', [
+            $front_module_collection = [
               // FRONT MODULES
               'czr_simple_html_module',
 
@@ -2529,8 +2534,6 @@ if ( !class_exists( 'SEK_Front_Construct' ) ) :
               ),
               //'czr_menu_design_child',
 
-              'czr_widget_area_module',
-
               'czr_social_icons_module' => array(
                 'czr_social_icons_module',
                 'czr_social_icons_settings_child',
@@ -2556,7 +2559,13 @@ if ( !class_exists( 'SEK_Front_Construct' ) ) :
               ),
 
               'czr_shortcode_module',
-            ]);
+            ];
+
+            if ( !sek_is_widget_module_disabled() ) {
+              $front_module_collection[] = 'czr_widget_area_module';
+            }
+
+            return apply_filters( 'sek_get_front_module_collection', $front_module_collection );
         }
 
     }//class
@@ -5891,7 +5900,7 @@ if ( !class_exists( 'SEK_Front_Render_Css' ) ) :
                 $global_css = get_option(NIMBLE_OPT_FOR_GLOBAL_CSS);
             }
             if ( is_string( $global_css ) && !empty( $global_css ) ) {
-                printf('<style type="text/css" id="%1$s">%2$s</style>', NIMBLE_GLOBAL_OPTIONS_STYLESHEET_ID, $global_css );
+                printf('<style id="%1$s">%2$s</style>', NIMBLE_GLOBAL_OPTIONS_STYLESHEET_ID, $global_css );
             }
         }
 

@@ -39,6 +39,7 @@ if ( !defined( 'NIMBLE_OPT_NAME_FOR_SECTION_JSON' ) ) { define( 'NIMBLE_OPT_NAME
 
 if ( !defined( 'NIMBLE_OPT_NAME_FOR_BACKWARD_FIXES' ) ) { define( 'NIMBLE_OPT_NAME_FOR_BACKWARD_FIXES' , 'nb_backward_fixes' ); }
 if ( !defined( 'NIMBLE_OPT_NAME_FOR_SHORTCODE_PARSING' ) ) { define( 'NIMBLE_OPT_NAME_FOR_SHORTCODE_PARSING' , 'nb_shortcodes_parsed_in_czr' ); }
+if ( !defined( 'NIMBLE_OPT_NAME_FOR_DISABLING_WIDGET_MODULE' ) ) { define( 'NIMBLE_OPT_NAME_FOR_DISABLING_WIDGET_MODULE' , 'nb_widgets_disabled_in_czr' ); }
 if ( !defined( 'NIMBLE_OPT_NAME_FOR_DEBUG_MODE' ) ) { define( 'NIMBLE_OPT_NAME_FOR_DEBUG_MODE' , 'nb_debug_mode_active' ); }
 
 
@@ -51,7 +52,7 @@ if ( !defined( 'NIMBLE_DETACHED_TINYMCE_TEXTAREA_ID') ) { define( 'NIMBLE_DETACH
 // TRANSIENTS ID
 if ( !defined( 'NIMBLE_WELCOME_NOTICE_ID' ) ) { define ( 'NIMBLE_WELCOME_NOTICE_ID', 'nimble-welcome-notice-12-2018' ); }
 //mt_rand(0, 65535) . 'test-nimble-feedback-notice-04-2019'
-if ( !defined( 'NIMBLE_FEEDBACK_NOTICE_ID' ) ) { define ( 'NIMBLE_FEEDBACK_NOTICE_ID', 'nimble-feedback-notice-10-2021' ); }
+if ( !defined( 'NIMBLE_FEEDBACK_NOTICE_ID' ) ) { define ( 'NIMBLE_FEEDBACK_NOTICE_ID', 'nimble-feedback-notice-12-2021' ); }
 if ( !defined( 'NIMBLE_FAWESOME_TRANSIENT_ID' ) ) { define ( 'NIMBLE_FAWESOME_TRANSIENT_ID', 'sek_font_awesome_october_2021' ); }
 if ( !defined( 'NIMBLE_GFONTS_TRANSIENT_ID' ) ) { define ( 'NIMBLE_GFONTS_TRANSIENT_ID', 'sek_gfonts_march_2020' ); }
 if ( !defined( 'NIMBLE_FEEDBACK_STATUS_TRANSIENT_ID' ) ) { define ( 'NIMBLE_FEEDBACK_STATUS_TRANSIENT_ID', 'nimble_feedback_status' ); }
@@ -1046,8 +1047,8 @@ function sek_get_module_collection() {
           'content-type' => 'module',
           'content-id' => 'czr_widget_area_module',
           'title' => __( 'WordPress widget area', 'nimble-builder' ),
-          'font_icon' => '<i class="fab fa-wordpress-simple"></i>'
-          //'active' => sek_are_beta_features_enabled()
+          'font_icon' => '<i class="fab fa-wordpress-simple"></i>',
+          'active' => !sek_is_widget_module_disabled()
         ),
         array(
           'content-type' => 'module',
@@ -3102,7 +3103,11 @@ function sek_is_nimble_widget_id( $id ) {
     return NIMBLE_WIDGET_PREFIX === substr( $id, 0, strlen( NIMBLE_WIDGET_PREFIX ) );
 }
 
-
+// @return bool
+// introduced for #883
+function sek_is_widget_module_disabled() {
+    return sek_booleanize_checkbox_val( get_option( NIMBLE_OPT_NAME_FOR_DISABLING_WIDGET_MODULE ) );
+}
 
 
 
@@ -4707,26 +4712,26 @@ function sek_get_seks_post( $skope_id = '', $skope_level = 'local' ) {
     // If no results or post has been trashed, NB will try to get it with a query by name + update the index of skoped post ids
     $post_id = sek_get_nb_post_id_from_index( $skope_id );
 
-    //sek_error_log( __FUNCTION__ . ' post id => ' . $post_id . ' | skope id =>' . $skope_id);
-
     if ( !is_int( $post_id ) ) {
         error_log( 'sek_get_seks_post => post_id !is_int() for options => ' . NIMBLE_OPT_PREFIX_FOR_SEKTION_COLLECTION . $skope_id );
     }
     // if the options has not been set yet, it will return (int) 0
     // id #1 is already taken by the 'Hello World' post.
-    if ( 1 > $post_id ) {
+    // skip this check when in NIMBLE_CPT_DEBUG_MODE
+    if ( 1 > $post_id && !( defined( "NIMBLE_CPT_DEBUG_MODE" ) && NIMBLE_CPT_DEBUG_MODE ) ) {
         //error_log( 'sek_get_seks_post => post_id is not valid for options => ' . NIMBLE_OPT_PREFIX_FOR_SEKTION_COLLECTION . $skope_id );
         return;
     }
-    
+
     if ( is_int( $post_id ) && $post_id > 0 ) {
         $post = get_post( $post_id );
     }
 
-    $no_post_found = !$post && -1 !== $post_id;
+    $no_post_found = !$post || -1 !== $post_id;
     $post_trashed = !empty($post) && is_object($post) && 'trash' === $post->post_status;
 
     // `-1` indicates no post exists; no query necessary.
+    // always query post when in NIMBLE_CPT_DEBUG_MODE
     if ( $no_post_found || $post_trashed ) {
         $query = new \WP_Query( $sek_post_query_vars );
         $post = $query->post;
@@ -4737,6 +4742,7 @@ function sek_get_seks_post( $skope_id = '', $skope_level = 'local' ) {
          */
         sek_set_nb_post_id_in_index( $skope_id, (int)$post_id );
     }
+    
     if ( !skp_is_customizing() ) {
         $cached_seks_posts[$skope_id] = $post;
         Nimble_Manager()->seks_posts = $cached_seks_posts;
@@ -4801,7 +4807,7 @@ function sek_get_skoped_seks( $skope_id = '', $location_id = '', $skope_level = 
         //     //sek_error_log('alors local skope id for fetching local sections ?', $skope_id );
         // }
         $seks_data = sek_get_seks_without_group_inheritance( $skope_id );
-
+        
         // March 2021 : added for site templates #478
         // Use site template if
         // - ! global skope

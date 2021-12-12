@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: * Hueman-Pro v1.1.28\n"
 "Report-Msgid-Bugs-To: https://presscustomizr.com/contact/\n"
-"POT-Creation-Date: 2021-10-06 19:44:19+00:00\n"
+"POT-Creation-Date: 2021-12-02 17:45:16+00:00\n"
 "PO-Revision-Date: 2019-10-05 13:40+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2153,25 +2153,25 @@ msgid ""
 "for your website. Thank you!"
 msgstr ""
 
-#: functions/admin/class-admin-page.php:79
+#: functions/admin/class-admin-page.php:80
 #, fuzzy
 msgid "Knowledge base"
 msgstr "base de conocimiento"
 
-#: functions/admin/class-admin-page.php:80
+#: functions/admin/class-admin-page.php:81
 msgid "We have prepared a complete online documentation of the theme."
 msgstr ""
 
-#: functions/admin/class-admin-page.php:81
+#: functions/admin/class-admin-page.php:82
 #, fuzzy
 msgid "Hueman Documentation"
 msgstr "Documentación"
 
-#: functions/admin/class-admin-page.php:86
+#: functions/admin/class-admin-page.php:87
 msgid "Share your feedback"
 msgstr ""
 
-#: functions/admin/class-admin-page.php:87
+#: functions/admin/class-admin-page.php:88
 msgid ""
 "If you are happy with the theme, say it on wordpress.org and give Hueman a "
 "nice review!"
@@ -2179,30 +2179,30 @@ msgstr ""
 "Si estás contento con el tema, ¡escríbelo en WordPress.org y dale una buena "
 "reseña a Hueman!"
 
-#: functions/admin/class-admin-page.php:88
+#: functions/admin/class-admin-page.php:89
 msgid "Share a review"
 msgstr ""
 
-#: functions/admin/class-admin-page.php:137
+#: functions/admin/class-admin-page.php:138
 msgid "Changelog"
 msgstr "Registro de cambios"
 
-#: functions/admin/class-admin-page.php:141
+#: functions/admin/class-admin-page.php:142
 msgid "Read the latest release notes"
 msgstr "Leer la última nota de lanzamiento"
 
-#: functions/admin/class-admin-page.php:167
+#: functions/admin/class-admin-page.php:168
 #, fuzzy
 msgid "System Information"
 msgstr "Informaciones del sistema"
 
-#: functions/admin/class-admin-page.php:168
+#: functions/admin/class-admin-page.php:169
 #, fuzzy
 msgid "Please include the following information when posting support requests"
 msgstr ""
 "Incluye por favor las informaciones siguientes cuando solicites soporte"
 
-#: functions/admin/class-admin-page.php:169
+#: functions/admin/class-admin-page.php:170
 msgid ""
 "To copy the system infos, click below then press Ctrl + C (PC) or Cmd + C "
 "(Mac)."
