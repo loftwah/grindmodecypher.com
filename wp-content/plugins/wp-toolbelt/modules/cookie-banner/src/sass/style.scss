@@ -1,0 +1,58 @@
+.toolbelt_cookie_wrapper {
+
+	display: none;
+
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	justify-content: center;
+
+	padding: calc( var( --toolbelt-spacing ) / 2 );
+	z-index: 999;
+
+	font-size: 1rem;
+
+	button,
+	strong {
+
+		padding: calc( var( --toolbelt-spacing ) / 2 ) var( --toolbelt-spacing );
+		line-height: 1rem;
+		font-size: inherit;
+		margin: 0;
+
+	}
+
+	strong {
+
+		background: var( --toolbelt-color-light );
+		color: var( --toolbelt-color-dark );
+
+	}
+
+	a {
+
+		color: #0077CC;
+
+	}
+
+	button {
+
+		background: var( --toolbelt-color-dark );
+		color: var( --toolbelt-color-light );
+
+		&:hover {
+
+			text-decoration: none;
+
+		}
+
+	}
+
+	.toolbelt_cookie_close {
+
+		font-size: 1.5rem;
+
+	}
+
+}

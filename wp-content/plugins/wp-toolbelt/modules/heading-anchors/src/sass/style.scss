@@ -1,0 +1,37 @@
+.toolbelt-anchor {
+
+	scroll-margin-top: var( --toolbelt-scroll-margin-top );
+
+	.toolbelt-link {
+
+		display: inline;
+		text-decoration: none;
+		padding: 0.5em;
+		position: absolute;
+		// Shift the link so to offset the padding.
+		transform: translate( -0.25em, -0.5em );
+		// Don't select when highlighting.
+		user-select: none;
+
+		.device-click & {
+
+			display: none;
+
+		}
+
+	}
+
+	&:hover,
+	&:focus {
+
+		.toolbelt-link {
+
+			display: inline;
+
+		}
+
+	}
+
+}
+
+

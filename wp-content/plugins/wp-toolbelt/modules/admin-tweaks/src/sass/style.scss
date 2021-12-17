@@ -1,0 +1,66 @@
+/**
+ * Increase the size of checkboxes for easier selection.
+ *
+ * For big screens only since they are already made larger on small screens.
+ */
+@media screen and (min-width: 783px) {
+
+	.widefat {
+
+		input[type=radio],
+		input[type=checkbox] {
+
+			width: 20px;
+			height: 20px;
+			margin-bottom: 8px;
+
+			&:checked:before {
+
+				width: 25px;
+
+			}
+
+		}
+
+	}
+
+}
+
+
+/**
+ * Highlight table rows when you hover over them to make it easier to see which
+ * one you are looking at.
+ */
+.widefat {
+
+	tbody {
+
+		tr {
+
+			&:hover {
+
+				background: #eef;
+
+			}
+
+		}
+
+	}
+
+}
+
+
+/**
+ * Make the buttons look more like buttons.
+ */
+.wp-core-ui .button,
+.wp-core-ui .button-primary,
+.wp-core-ui .button-secondary,
+.wrap .add-new-h2,
+.wrap .page-title-action,
+.components-button.is-default,
+.components-button.is-primary {
+
+	box-shadow: inset 0 -0.15em rgba(0, 0, 0, 0.2) !important;
+
+}

@@ -1,0 +1,52 @@
+button.toolbelt-embed-shield {
+
+	background: var( --toolbelt-color-dark );
+	color: var( --toolbelt-color-light );
+	box-shadow: none;
+	border: none;
+
+	.wp-block-embed & {
+
+		height: 100%;
+		min-height: 10rem;
+		width: 100%;
+
+	}
+
+	.wp-block-embed.wp-has-aspect-ratio & {
+
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+
+	}
+
+	&:hover {
+
+		color: var( --toolbelt-color-light );
+
+	}
+
+	strong,
+	small {
+
+		display: block;
+		pointer-events: none;
+
+	}
+
+	strong {
+
+		font-size: 1.5rem;
+
+	}
+
+	small {
+
+		color: var( --toolbelt-color-mid );
+
+	}
+
+}

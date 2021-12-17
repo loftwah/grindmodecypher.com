@@ -1,0 +1,81 @@
+.toolbelt-social-share {
+
+	clear: both;
+	font-size: 1rem;
+	display: grid;
+	gap: calc( var( --toolbelt-spacing ) / 4 );
+	grid-template-columns: repeat( auto-fit, minmax( 11rem, 1fr ) );
+	margin-bottom: calc( var( --toolbelt-spacing ) * 2 );
+	margin-top: calc( var( --toolbelt-spacing ) * 2 );
+
+	.toolbelt_share-api {
+
+		display: none;
+
+	}
+
+	a {
+
+		padding: calc( var( --toolbelt-spacing ) / 4 ) var( --toolbelt-spacing );
+		color: var( --toolbelt-color-light );
+		align-items: center;
+		display: flex;
+		text-decoration: none;
+
+		&:hover {
+
+			color: var( --toolbelt-color-light );
+
+			span {
+
+				text-decoration: underline;
+
+			}
+
+		}
+
+	}
+
+	.toolbelt-social-share-api-enabled & {
+
+		.toolbelt_share-api {
+
+			display: inline;
+
+		}
+
+		a {
+
+			display: none;
+
+		}
+
+	}
+
+	svg {
+
+		margin-inline-end: calc( var( --toolbelt-spacing ) / 2 );
+		height: 1.5rem;
+		width: 1.5rem;
+		vertical-align: middle;
+
+		* {
+
+			stroke: none;
+			fill: currentColor;
+
+		}
+
+	}
+
+	.toolbelt_whatsapp {
+
+		@media (min-width: 500px) {
+
+			display: none;
+
+		}
+
+	}
+
+}
