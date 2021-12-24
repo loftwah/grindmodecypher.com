@@ -720,7 +720,7 @@ function sek_maybe_display_feedback_notice() {
         </div>
       </div>
       <p style="font-size:14px;font-weight:600"><?php _e('Thank you 🙏 ! Nimble Builder needs your sponsorship to keep improving and helping you design your website in the best possible way.', 'nimble-builder' ); ?></p>
-      <p style="font-size:14px;font-weight:bold"><?php _e('Limited offer : get 25% off with code EOY2021 at checkout.', 'nimble-builder' ); ?> <a class="sek-pro-link-in-dashboard" href="https://presscustomizr.com/nimble-builder-pro/" rel="noopener noreferrer" title="Go Pro" target="_blank">Go Pro</a> <span style="color: #f07829;" class="dashicons dashicons-external"></span></p>
+      <p style="font-size:14px;font-weight:bold"><?php _e('Limited offer : get 25% off with code HELLO2022 at checkout.', 'nimble-builder' ); ?> <a class="sek-pro-link-in-dashboard" href="https://presscustomizr.com/nimble-builder-pro/" rel="noopener noreferrer" title="Go Pro" target="_blank">Go Pro</a> <span style="color: #f07829;" class="dashicons dashicons-external"></span></p>
       <button type="button" class="notice-dismiss" title="<?php _e('Dismiss this notice.', 'nimble-builder'); ?>">
         <span class="screen-reader-text"><?php _e('Dismiss this notice.', 'nimble-builder'); ?></span>
       </button>
