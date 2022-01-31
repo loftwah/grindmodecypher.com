@@ -3,7 +3,7 @@
  * Plugin Name: WP Toolbelt
  * Description: More features, with a focus on privacy and speed.
  * Author: Ben Gillbanks
- * Version: 3.3.0
+ * Version: 3.4.0
  * Author URI: https://prothemedesign.com
  * Text Domain: wp-toolbelt
  *
@@ -167,6 +167,11 @@ function toolbelt_get_modules() {
 			'description' => esc_html__( 'Remove the URL field from comment forms. This may only work on the core comment form, and not on custom ones added to themes.', 'wp-toolbelt' ),
 			'docs' => 'https://github.com/BinaryMoon/wp-toolbelt/wiki/Disable-Comment-Urls',
 			'supports' => array( 'tools' ),
+		),
+		'enable-customizer' =>  array(
+			'name' => esc_html__( 'Enable the Customizer', 'wp-toolbelt' ),
+			'description' => esc_html__( 'Ensure the customizer is enabled, even for Full Site Editing themes.', 'wp-toolbelt' ),
+			'docs' => 'https://github.com/BinaryMoon/wp-toolbelt/wiki/Enable-Customizer',
 		),
 		'fast-404' => array(
 			'name' => esc_html__( 'Fast 404s', 'wp-toolbelt' ),
@@ -620,11 +625,11 @@ function toolbelt_block_category( $categories, $post ) {
  */
 function toolbelt_register_block_category() {
 
-	if ( has_filter( 'block_categories', 'toolbelt_block_category' ) ) {
+	if ( has_filter( 'block_categories_all', 'toolbelt_block_category' ) ) {
 		return;
 	}
 
-	add_filter( 'block_categories', 'toolbelt_block_category', 10, 2 );
+	add_filter( 'block_categories_all', 'toolbelt_block_category', 10, 2 );
 
 }
 
