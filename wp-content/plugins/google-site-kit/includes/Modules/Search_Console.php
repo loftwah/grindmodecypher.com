@@ -55,6 +55,11 @@ final class Search_Console extends Module
 	use Module_With_Screen_Trait, Module_With_Scopes_Trait, Module_With_Settings_Trait, Google_URL_Matcher_Trait, Module_With_Assets_Trait, Module_With_Owner_Trait;
 
 	/**
+	 * Module slug name.
+	 */
+	const MODULE_SLUG = 'search-console';
+
+	/**
 	 * Registers functionality through WordPress hooks.
 	 *
 	 * @since 1.0.0
@@ -157,7 +162,10 @@ final class Search_Console extends Module
 	protected function get_datapoint_definitions() {
 		return array(
 			'GET:matched-sites'   => array( 'service' => 'searchconsole' ),
-			'GET:searchanalytics' => array( 'service' => 'searchconsole' ),
+			'GET:searchanalytics' => array(
+				'service'   => 'searchconsole',
+				'shareable' => Feature_Flags::enabled( 'dashboardSharing' ),
+			),
 			'POST:site'           => array( 'service' => 'searchconsole' ),
 			'GET:sites'           => array( 'service' => 'searchconsole' ),
 		);
@@ -477,12 +485,11 @@ final class Search_Console extends Module
 	 */
 	protected function setup_info() {
 		return array(
-			'slug'         => 'search-console',
-			'name'         => _x( 'Search Console', 'Service name', 'google-site-kit' ),
-			'description'  => __( 'Google Search Console and helps you understand how Google views your site and optimize its performance in search results.', 'google-site-kit' ),
-			'order'        => 1,
-			'homepage'     => __( 'https://search.google.com/search-console', 'google-site-kit' ),
-			'force_active' => true,
+			'slug'        => 'search-console',
+			'name'        => _x( 'Search Console', 'Service name', 'google-site-kit' ),
+			'description' => __( 'Google Search Console and helps you understand how Google views your site and optimize its performance in search results.', 'google-site-kit' ),
+			'order'       => 1,
+			'homepage'    => __( 'https://search.google.com/search-console', 'google-site-kit' ),
 		);
 	}
 
@@ -553,4 +560,14 @@ final class Search_Console extends Module
 		);
 	}
 
+	/**
+	 * Returns TRUE to indicate that this module should be always active.
+	 *
+	 * @since 1.49.0
+	 *
+	 * @return bool Returns `true` indicating that this module should be activated all the time.
+	 */
+	public static function is_force_active() {
+		return true;
+	}
 }
