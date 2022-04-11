@@ -2474,10 +2474,11 @@ function sek_process_column_width_for_device( $params ) {
             // First try to find a width value in options, then look in the previous width property for backward compatibility
             // After implementing https://github.com/presscustomizr/nimble-builder/issues/279
             $column_options = isset( $level['options'] ) ? $level['options'] : array();
+            $custom_width = null;
             if ( !empty( $column_options['width'] ) && !empty( $column_options['width']['custom-width'] ) ) {
                 $width_candidate = (float)$column_options['width']['custom-width'];
                 if ( $width_candidate < 0 || $width_candidate > 100 ) {
-                    sek_error_log( __FUNCTION__ . ' => invalid width value for column id : ' . $column['id'] );
+                    sek_error_log( __FUNCTION__ . ' => invalid width value for column id : ' . $level['id'] );
                 } else {
                     $custom_width = $width_candidate;
                 }
@@ -3530,7 +3531,7 @@ function sek_add_raw_local_widths_css( $css, $is_global_stylesheet ) {
     $css = is_string( $css ) ? $css : '';
     // we use the ajaxily posted skope_id when available <= typically in a customizing ajax action 'sek-refresh-stylesheet'
     // otherwise we fallback on the normal utility skp_build_skope_id()
-    $local_options = sek_get_skoped_seks( !empty( $_POST['local_skope_id'] ) ? $_POST['local_skope_id'] : skp_build_skope_id() );
+    $local_options = sek_get_skoped_seks( !empty( $_POST['local_skope_id'] ) ? sanitize_text_field($_POST['local_skope_id']) : skp_build_skope_id() );
 
     if ( !is_array( $local_options ) || empty( $local_options['local_options']) || empty( $local_options['local_options']['widths'] ) )
       return $css;
@@ -3654,7 +3655,7 @@ function sek_add_raw_local_custom_css( $css, $is_global_stylesheet ) {
       return $css;
     // we use the ajaxily posted skope_id when available <= typically in a customizing ajax action 'sek-refresh-stylesheet'
     // otherwise we fallback on the normal utility skp_build_skope_id()
-    $local_options = sek_get_skoped_seks( !empty( $_POST['local_skope_id'] ) ? $_POST['local_skope_id'] : skp_build_skope_id() );
+    $local_options = sek_get_skoped_seks( !empty( $_POST['local_skope_id'] ) ? sanitize_text_field($_POST['local_skope_id']) : skp_build_skope_id() );
     if ( is_array( $local_options ) && !empty( $local_options['local_options']) && !empty( $local_options['local_options']['custom_css'] ) ) {
         $options = $local_options['local_options']['custom_css'];
         if ( !empty( $options['local_custom_css'] ) ) {
@@ -4429,14 +4430,14 @@ function sek_get_module_params_for_sek_global_performances() {
                 //     'title_width' => 'width-80',
                 //     'input_width' => 'width-20',
                 // ),
-                'print_dyn_stylesheets_inline' => array(
-                    'input_type'  => 'nimblecheck',
-                    'title'       => __('Print generated stylesheets inline', 'nimble-builder'),
-                    'default'     => 1,
-                    'title_width' => 'width-80',
-                    'input_width' => 'width-20',
-                    'html_before' => '<hr/><h3>' . __('STYLESHEETS', 'nimble-builder') .'</h3>'
-                ),
+                // 'print_dyn_stylesheets_inline' => array(
+                //     'input_type'  => 'nimblecheck',
+                //     'title'       => __('Print generated stylesheets inline', 'text_doma'),
+                //     'default'     => 1,
+                //     'title_width' => 'width-80',
+                //     'input_width' => 'width-20',
+                //     'html_before' => '<hr/><h3>' . __('STYLESHEETS') .'</h3>'
+                // ),
                 'preload_google_fonts' => array(
                     'input_type'  => 'nimblecheck',
                     'title'       => __('Preload Google fonts', 'nimble-builder'),

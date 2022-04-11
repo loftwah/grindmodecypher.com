@@ -116,6 +116,7 @@ class Manager {
 		if ( defined( 'JETPACK__SANDBOX_DOMAIN' ) && JETPACK__SANDBOX_DOMAIN ) {
 			( new Server_Sandbox() )->init();
 		}
+
 	}
 
 	/**
@@ -315,7 +316,7 @@ class Manager {
 	 * @return false|array
 	 */
 	public function verify_xml_rpc_signature() {
-		if ( is_null( $this->xmlrpc_verification ) ) {
+		if ( $this->xmlrpc_verification === null ) {
 			$this->xmlrpc_verification = $this->internal_verify_xml_rpc_signature();
 
 			if ( is_wp_error( $this->xmlrpc_verification ) ) {
@@ -433,7 +434,7 @@ class Manager {
 			ksort( $post_data );
 
 			$body = http_build_query( stripslashes_deep( $post_data ) );
-		} elseif ( is_null( $this->raw_post_data ) ) {
+		} elseif ( $this->raw_post_data === null ) {
 			$body = file_get_contents( 'php://input' );
 		} else {
 			$body = null;
@@ -441,7 +442,7 @@ class Manager {
 		// phpcs:enable
 
 		$signature = $jetpack_signature->sign_current_request(
-			array( 'body' => is_null( $body ) ? $this->raw_post_data : $body )
+			array( 'body' => $body === null ? $this->raw_post_data : $body )
 		);
 
 		$signature_details['url'] = $jetpack_signature->current_request_url;
@@ -2004,6 +2005,13 @@ class Manager {
 
 		( new Nonce_Handler() )->clean_all();
 
+		/**
+		 * Fires when a site is disconnected.
+		 *
+		 * @since 1.36.3
+		 */
+		do_action( 'jetpack_site_before_disconnected' );
+
 		// If the site is in an IDC because sync is not allowed,
 		// let's make sure to not disconnect the production site.
 		if ( $disconnect_wpcom ) {
@@ -2481,4 +2489,5 @@ class Manager {
 		}
 		return $stats;
 	}
+
 }

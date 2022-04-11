@@ -21,7 +21,7 @@ function sek_plugin_menu() {
 }
 add_action( 'admin_init' , '\Nimble\sek_redirect_system_info' );
 function sek_redirect_system_info() {
-    if ( isset( $_GET['page'] ) && 'nimble-builder' === $_GET['page'] ) {
+    if ( isset( $_GET['page'] ) && 'nimble-builder' === sanitize_text_field($_GET['page']) ) {
         wp_safe_redirect( urldecode( admin_url( NIMBLE_OPTIONS_PAGE_URL . '&tab=system-info' ) ) );
         exit;
     }
@@ -115,7 +115,7 @@ function sek_enqueue_js_asset_for_gutenberg_edit_button() {
       true
     );
 }
-add_action( 'admin_footer', '\Nimble\sek_print_js_for_nimble_edit_btn' );
+add_action( 'admin_head', '\Nimble\sek_print_js_for_nimble_edit_btn', PHP_INT_MAX );
 function sek_print_js_for_nimble_edit_btn() {
   if ( !sek_current_user_can_access_nb_ui() || !apply_filters('nb_post_edit_btn_enabled', true ) )
     return;
@@ -131,13 +131,15 @@ function sek_print_js_for_nimble_edit_btn() {
   }
   ?>
   <?php if ( did_action( 'enqueue_block_editor_assets' ) ) : ?>
-    <?php // Only printed when Gutenberg editor is enabled ?>
+    <?php // Only printed when Gutenberg editor is enabled 
+    ?>
     <script id="sek-edit-with-nb" type="text/html">
       <?php sek_print_nb_btn_edit_with_nimble( 'gutenberg' ); ?>
     </script>
   <?php else : ?>
-    <?php // Only printed when Gutenberg editor is NOT enabled ?>
-      <script type="text/javascript">
+    <?php // Only printed when Gutenberg editor is NOT enabled 
+    ob_start();
+    ?>
       (function ($) {
           var _doRedirectToCustomizer = function( post_id, $clickedEl ) {
               wp.ajax.post( 'sek_get_customize_url_for_nimble_edit_button', {
@@ -165,7 +167,12 @@ function sek_print_js_for_nimble_edit_btn() {
               }
           });
       })(jQuery);
-    </script>
+      <?php
+      $script = ob_get_clean();
+      wp_register_script( 'nb_print_js_for_nimble_edit_btn', '');
+      wp_enqueue_script( 'nb_print_js_for_nimble_edit_btn' );
+      wp_add_inline_script( 'nb_print_js_for_nimble_edit_btn', $script );
+      ?>
   <?php endif; ?>
   <?php
 }
@@ -183,10 +190,10 @@ function sek_print_nb_btn_edit_with_nimble( $editor_type ) {
     }
     $btn_css_classes = 'classic' === $editor_type ? 'button button-primary button-hero classic-ed' : 'button button-primary button-large guten-ed';
     ?>
-    <button id="sek-edit-with-nimble" type="button" class="<?php echo $btn_css_classes; ?>" data-cust-url="<?php echo esc_url( $customize_url ); ?>">
+    <button id="sek-edit-with-nimble" type="button" class="<?php echo esc_attr($btn_css_classes); ?>" data-cust-url="<?php echo esc_url( $customize_url ); ?>">
       <?php //_e( 'Edit with Nimble Builder', 'text_doma' ); ?>
       <?php printf( '<span class="sek-spinner"></span><span class="sek-nimble-icon" title="%3$s"><img src="%1$s" alt="%2$s"/><span class="sek-nimble-admin-bar-title">%2$s</span><span class="sek-nimble-mobile-admin-bar-title">%3$s</span></span>',
-          NIMBLE_BASE_URL.'/assets/img/nimble/nimble_icon.svg?ver='.NIMBLE_VERSION,
+          esc_url( NIMBLE_BASE_URL.'/assets/img/nimble/nimble_icon.svg?ver='.NIMBLE_VERSION ),
           apply_filters( 'nb_admin_nb_button_edit_title', sek_local_skope_has_been_customized( $manually_built_skope_id ) ? __('Continue building with Nimble','nimble-builder') : __('Build with Nimble Builder','nimble-builder'), $manually_built_skope_id ),
           __('Build','nimble-builder'),
           __('Build sections in live preview with Nimble Builder', 'nimble-builder')
@@ -237,7 +244,7 @@ function sek_filter_post_row_actions( $actions, $post ) {
     $manually_built_skope_id = strtolower( NIMBLE_SKOPE_ID_PREFIX . 'post_' . $post->post_type . '_' . $post->ID );
     if ( $post && current_user_can( 'edit_post', $post->ID ) && sek_local_skope_has_been_customized( $manually_built_skope_id ) ) {
         $actions['edit_with_nimble_builder'] = sprintf( '<a href="%1$s" title="%2$s">%2$s</a>',
-            sek_get_customize_url_for_post_id( $post->ID ),
+            esc_url(sek_get_customize_url_for_post_id( $post->ID )),
             __( 'Edit with Nimble Builder', 'nimble-builder' )
         );
     }
@@ -272,10 +279,10 @@ function sek_ajax_get_nimble_content_for_seo_plugins() {
     if ( !isset( $_POST['skope_id'] ) || empty( $_POST['skope_id'] ) ) {
         wp_send_json_error( __FUNCTION__ . ' error => missing skope_id' );
     }
-    $html = sek_get_raw_html_from_skope_id( $_POST['skope_id'] );
+    $html = sek_get_raw_html_from_skope_id( sanitize_text_field($_POST['skope_id']) );
     wp_send_json_success($html);
 }
-add_action( 'admin_footer', '\Nimble\sek_print_js_for_yoast_analysis' );
+add_action( 'admin_head', '\Nimble\sek_print_js_for_yoast_analysis', PHP_INT_MAX );
 function sek_print_js_for_yoast_analysis() {
     if ( !defined( 'WPSEO_VERSION' ) )
       return;
@@ -284,13 +291,13 @@ function sek_print_js_for_yoast_analysis() {
       return;
     $post = get_post();
     $manually_built_skope_id = strtolower( NIMBLE_SKOPE_ID_PREFIX . 'post_' . $post->post_type . '_' . $post->ID );
+    ob_start();
     ?>
-    <script id="nimble-add-content-to-yoast-analysis">
         jQuery(function($){
             var NimblePlugin = function() {
                 YoastSEO.app.registerPlugin( 'nimblePlugin', {status: 'loading'} );
                 wp.ajax.post( 'sek_get_nimble_content_for_seo_plugins', {
-                    skope_id : '<?php echo $manually_built_skope_id; ?>'
+                    skope_id : '<?php echo esc_attr($manually_built_skope_id); ?>'
                 }).done( function( nimbleContent ) {
                     YoastSEO.app.pluginReady('nimblePlugin');
                     YoastSEO.app.registerModification( 'content', function(originalContent) { return originalContent + nimbleContent; }, 'nimblePlugin', 5 );
@@ -302,8 +309,11 @@ function sek_print_js_for_yoast_analysis() {
                 try { new NimblePlugin(); } catch(er){ console.log('Yoast NimblePlugin error', er );}
             });
         });
-    </script>
     <?php
+    $script = ob_get_clean();
+    wp_register_script( 'nb_yoast_compat', '');
+    wp_enqueue_script( 'nb_yoast_compat' );
+    wp_add_inline_script( 'nb_yoast_compat', $script );
 }
 add_filter('seopress_content_analysis_content', '\Nimble\sek_add_content_to_seopress_analyser', 10, 2);
 function sek_add_content_to_seopress_analyser($content, $id) {
@@ -331,7 +341,7 @@ function sek_enqueue_js_for_rank_math_analyser() {
       true
     );
 }
-add_action( 'admin_footer', '\Nimble\sek_print_js_for_rank_math_analyser' );
+add_action( 'admin_head', '\Nimble\sek_print_js_for_rank_math_analyser', PHP_INT_MAX );
 function sek_print_js_for_rank_math_analyser() {
     if ( !defined( 'RANK_MATH_VERSION' ) )
       return;
@@ -341,14 +351,17 @@ function sek_print_js_for_rank_math_analyser() {
 
     $post = get_post();
     $manually_built_skope_id = strtolower( NIMBLE_SKOPE_ID_PREFIX . 'post_' . $post->post_type . '_' . $post->ID );
+    ob_start();
     ?>
-    <script id="nimble-add-content-to-rank-math-analyzer">
         jQuery(function($){
-            window.nb_skope_id_for_rank_math_seo = '<?php echo $manually_built_skope_id; ?>';
-            $(document).trigger('nb-skope-id-ready.rank-math', { skope_id : '<?php echo $manually_built_skope_id; ?>' } );
+            window.nb_skope_id_for_rank_math_seo = '<?php echo esc_attr($manually_built_skope_id); ?>';
+            $(document).trigger('nb-skope-id-ready.rank-math', { skope_id : '<?php echo esc_attr($manually_built_skope_id); ?>' } );
         });
-    </script>
     <?php
+    $script = ob_get_clean();
+    wp_register_script( 'nb_rank_math_analyzer_js', '');
+    wp_enqueue_script( 'nb_rank_math_analyzer_js' );
+    wp_add_inline_script( 'nb_rank_math_analyzer_js', $script );
 }
 add_action( 'wp_dashboard_setup', '\Nimble\sek_register_dashboard_widgets' );
 function sek_register_dashboard_widgets() {
@@ -377,9 +390,9 @@ function sek_nimble_dashboard_callback_fn() {
     <div class="nimble-db-wrapper">
       <div class="nimble-db-header">
         <div class="nimble-logo-version">
-          <div class="nimble-logo"><div class="sek-nimble-icon" title="<?php _e('Add sections in live preview with Nimble Builder', 'nimble-builder' );?>"><img src="<?php echo NIMBLE_BASE_URL.'/assets/img/nimble/nimble_icon.svg?ver='.NIMBLE_VERSION; ?>" alt="Nimble Builder"></div></div>
+          <div class="nimble-logo"><div class="sek-nimble-icon" title="<?php _e('Add sections in live preview with Nimble Builder', 'nimble-builder' );?>"><img src="<?php echo esc_url(NIMBLE_BASE_URL.'/assets/img/nimble/nimble_icon.svg?ver='.NIMBLE_VERSION); ?>" alt="Nimble Builder"></div></div>
           <div class="nimble-version">
-            <span class="nimble-version-text"><?php _e('Nimble Builder', 'nimble-builder'); ?> v<?php echo NIMBLE_VERSION; ?></span>
+            <span class="nimble-version-text"><?php _e('Nimble Builder', 'nimble-builder'); ?> v<?php echo esc_attr(NIMBLE_VERSION); ?></span>
             <?php if ( sek_is_presscustomizr_theme( $theme_name ) ) : ?>
               <?php
                 $theme_data = wp_get_theme();
@@ -408,7 +421,7 @@ function sek_nimble_dashboard_callback_fn() {
       </div>
       <?php if ( !empty( $post_data ) ) : ?>
         <div class="nimble-post-list">
-          <h3 class="nimble-post-list-title"><?php echo __( 'News & release notes', 'nimble-builder' ); ?></h3>
+          <h3 class="nimble-post-list-title"><?php _e( 'News & release notes', 'nimble-builder' ); ?></h3>
           <ul class="nimble-collection">
             <?php foreach ( $post_data as $single_post_data ) : ?>
               <li class="nimble-single-post">
@@ -446,9 +459,9 @@ function sek_nimble_dashboard_callback_fn() {
           <?php foreach ( $footer_links as $link_id => $link_data ) : ?>
             <div class="nimble-footer-link-<?php echo esc_attr( $link_id ); ?>">
               <?php if ( !empty( $link_data['html'] ) ) : ?>
-                <?php echo $link_data['html']; ?>
+                <?php echo esc_attr($link_data['html']); ?>
               <?php else : ?>
-              <a href="<?php echo esc_attr( $link_data['link'] ); ?>" target="_blank"><?php echo esc_html( $link_data['title'] ); ?> <span class="screen-reader-text"><?php echo __( '(opens in a new window)', 'nimble-builder' ); ?></span></a><span aria-hidden="true" class="dashicons dashicons-external"></span>
+              <a href="<?php echo esc_attr( $link_data['link'] ); ?>" target="_blank"><?php echo esc_html( $link_data['title'] ); ?> <span class="screen-reader-text"><?php _e( '(opens in a new window)', 'nimble-builder' ); ?></span></a><span aria-hidden="true" class="dashicons dashicons-external"></span>
               <?php endif; ?>
             </div>
           <?php endforeach; ?>
@@ -524,17 +537,17 @@ function sek_may_be_display_update_notice() {
               __( "Thanks, you successfully upgraded", 'nimble-builder'),
               'Nimble Builder',
               __( "to version", 'nimble-builder'),
-              NIMBLE_VERSION
+              esc_attr(NIMBLE_VERSION)
           );
         ?>
         <?php
           printf( '<h4>%1$s <a class="" href="%2$s" title="%3$s" target="_blank">%3$s &raquo;</a></h4>',
               '',//__( "Let us introduce the new features we've been working on.", 'text_doma'),
-              NIMBLE_RELEASE_NOTE_URL,
+              esc_url(NIMBLE_RELEASE_NOTE_URL),
               __( "Read the detailled release notes" , 'nimble-builder' )
           );
         ?>
-        <p style="text-align:right;position: absolute;font-size: 1.1em;<?php echo is_rtl()? 'left' : 'right';?>: 7px;bottom: -6px;">
+        <p style="text-align:right;position: absolute;font-size: 1.1em;<?php echo is_rtl() ? 'left' : 'right';?>: 7px;bottom: -6px;">
         <?php printf('<a href="#" title="%1$s" class="nimble-dismiss-update-notice"> ( %1$s <strong>X</strong> ) </a>',
             __('close' , 'nimble-builder')
           );
@@ -547,9 +560,10 @@ function sek_may_be_display_update_notice() {
       </div>
       <?php
       $_html = ob_get_clean();
-      echo apply_filters( 'sek_update_notice', $_html );
+      echo wp_kses_post( apply_filters( 'sek_update_notice', $_html ) );
+      
+      ob_start();
       ?>
-      <script type="text/javascript" id="nimble-dismiss-update-notice">
         ( function($){
           var _ajax_action = function( $_el ) {
               var AjaxUrl = "<?php echo admin_url( 'admin-ajax.php' ); ?>",
@@ -578,8 +592,11 @@ function sek_may_be_display_update_notice() {
           } );
 
         })( jQuery );
-      </script>
       <?php
+      $script = ob_get_clean();
+      wp_register_script( 'nb_update_notice_js', '');
+      wp_enqueue_script( 'nb_update_notice_js' );
+      wp_add_inline_script( 'nb_update_notice_js', $script );
 }
 
 
@@ -626,7 +643,7 @@ foreach ( array( 'wptexturize', 'convert_smilies') as $callback ) {
   if ( function_exists( $callback ) )
       add_filter( 'sek_feedback_notice', $callback );
 }
-add_action( 'admin_footer', function() {
+add_action( 'admin_head', function() {
   if ( !( defined('NIMBLE_DEV') && NIMBLE_DEV ) && sek_is_pro() )
     return;
   if ( 'eligible' !== sek_get_feedback_notif_status() )
@@ -637,8 +654,8 @@ add_action( 'admin_footer', function() {
     return;
   if ( sek_feedback_notice_is_dismissed() )
     return;
+  ob_start();
   ?>
-  <script>
     jQuery( function( $ ) {
       var $optionGenMenu = $('#adminmenu').find('#menu-settings');
       if ( $optionGenMenu.length < 1 )
@@ -653,16 +670,18 @@ add_action( 'admin_footer', function() {
         $nbTitle.append(noticeHtml);
       }
     } );
-  </script>
-
   <?php
+  $script = ob_get_clean();
+  wp_register_script( 'nb_feedback_notice_js', '');
+  wp_enqueue_script( 'nb_feedback_notice_js' );
+  wp_add_inline_script( 'nb_feedback_notice_js', $script );
   $current_screen = get_current_screen();
   if( 'settings_page_nb-options' !== $current_screen->base )
     return;
   
   $notice_id = NIMBLE_FEEDBACK_NOTICE_ID;
+  ob_start();
   ?>
-  <script>
     jQuery( function( $ ) {
       $( <?php echo wp_json_encode( "#$notice_id" ); ?> ).on( 'click', '.notice-dismiss', function() {
         $(this).closest('.is-dismissible').slideUp('fast');//<= this line is not mandatory since WP has its own way to remove the is-dismissible block
@@ -676,9 +695,12 @@ add_action( 'admin_footer', function() {
         }
       } );
     } );
-  </script>
   <?php
-});
+  $script = ob_get_clean();
+  wp_register_script( 'nb_feedback_other_notice_js', '');
+  wp_enqueue_script( 'nb_feedback_other_notice_js' );
+  wp_add_inline_script( 'nb_feedback_other_notice_js', $script );
+}, PHP_INT_MAX);
 
 
 
@@ -706,7 +728,7 @@ function sek_maybe_display_feedback_notice() {
     <div class="notice notice-success is-dismissible" id="<?php echo esc_attr( $notice_id ); ?>">
       <h3><span class="nb-wp-menu-notif"><span class="update-count">1</span></span> <?php _e('Hi👋 ! A quick note on Nimble Builder Pro', 'nimble-builder'); ?> </h3>
       <div class="nimble-logo-feedback-notice">
-        <div class="nimble-logo"><div class="sek-nimble-icon"><img src="<?php echo NIMBLE_BASE_URL.'/assets/img/nimble/nimble_icon.svg?ver='.NIMBLE_VERSION; ?>" alt="Nimble Builder"></div></div>
+        <div class="nimble-logo"><div class="sek-nimble-icon"><img src="<?php echo esc_url(NIMBLE_BASE_URL.'/assets/img/nimble/nimble_icon.svg?ver='.NIMBLE_VERSION); ?>" alt="Nimble Builder"></div></div>
         <div class="nimble-feedback">
           
           <p><?php
@@ -720,14 +742,14 @@ function sek_maybe_display_feedback_notice() {
         </div>
       </div>
       <p style="font-size:14px;font-weight:600"><?php _e('Thank you 🙏 ! Nimble Builder needs your sponsorship to keep improving and helping you design your website in the best possible way.', 'nimble-builder' ); ?></p>
-      <p style="font-size:14px;font-weight:bold"><?php _e('Limited offer : get 25% off with code HELLO2022 at checkout.', 'nimble-builder' ); ?> <a class="sek-pro-link-in-dashboard" href="https://presscustomizr.com/nimble-builder-pro/" rel="noopener noreferrer" title="Go Pro" target="_blank">Go Pro</a> <span style="color: #f07829;" class="dashicons dashicons-external"></span></p>
+      <!-- upsell message location -->
       <button type="button" class="notice-dismiss" title="<?php _e('Dismiss this notice.', 'nimble-builder'); ?>">
         <span class="screen-reader-text"><?php _e('Dismiss this notice.', 'nimble-builder'); ?></span>
       </button>
     </div>
     <?php
       $_html = ob_get_clean();
-      echo apply_filters( 'sek_feedback_notice', $_html );
+      echo wp_kses_post(apply_filters( 'sek_feedback_notice', $_html ));
     ?>
     <?php
 }
@@ -749,7 +771,7 @@ function sek_render_welcome_notice() {
       return;
     if ( sek_welcome_notice_is_dismissed() )
       return;
-    if ( isset($_GET['page']) && NIMBLE_OPTIONS_PAGE === $_GET['page'] )
+    if ( isset($_GET['page']) && NIMBLE_OPTIONS_PAGE === sanitize_text_field($_GET['page']) )
       return;
     $current_screen = get_current_screen();
     if( in_array( $current_screen->base, array(
@@ -784,7 +806,7 @@ function sek_render_welcome_notice() {
       <?php sek_get_welcome_block(); ?>
     </div>
 
-    <script>
+    <?php ob_start(); ?>
     jQuery( function( $ ) {
       $( <?php echo wp_json_encode( "#$notice_id" ); ?> ).on( 'click', '.notice-dismiss', function() {
         $(this).closest('.is-dismissible').slideUp('fast');//<= this line is not mandatory since WP has its own way to remove the is-dismissible block
@@ -794,13 +816,16 @@ function sek_render_welcome_notice() {
         } );
       } );
     } );
-    </script>
     <?php
+    $script = ob_get_clean();
+    wp_register_script( 'nb_welcome_notice', '');
+    wp_enqueue_script( 'nb_welcome_notice' );
+    wp_add_inline_script( 'nb_welcome_notice', $script );
 }
 function sek_get_welcome_block() {
   ?>
   <div class="nimble-welcome-icon-holder">
-    <img class="nimble-welcome-icon" src="<?php echo NIMBLE_BASE_URL.'/assets/img/nimble/nimble_banner.svg?ver='.NIMBLE_VERSION; ?>" alt="<?php esc_html_e( 'Nimble Builder', 'nimble-builder' ); ?>" />
+    <img class="nimble-welcome-icon" src="<?php echo esc_url(NIMBLE_BASE_URL.'/assets/img/nimble/nimble_banner.svg?ver='.NIMBLE_VERSION); ?>" alt="<?php esc_html_e( 'Nimble Builder', 'nimble-builder' ); ?>" />
   </div>
   <div class="nimble-welcome-content">
     <h1><?php echo apply_filters( 'nimble_parse_admin_text', __('Welcome to Nimble Builder for WordPress :D', 'nimble-builder' ) ); ?></h1>

@@ -54,24 +54,24 @@ if ( !class_exists( 'CZR_Fmk_Base_Construct' ) ) :
             if ( !defined( 'NIMBLE_FMK_BASE_VERSION' ) ) { define( 'NIMBLE_FMK_BASE_VERSION' , isset( $params['version'] ) ? $params['version'] : '1.0.0' ); }
 
             // Cache the css attr used in the tmpl builder and in the localized params
-            $this -> czr_css_attr = $this -> czr_fmk_get_customizer_controls_css_attr();
+            $this->czr_css_attr = $this->czr_fmk_get_customizer_controls_css_attr();
 
             // Cache the default dynamic params
-            $this -> default_dynamic_setting_params = $this -> czr_fmk_get_default_dynamic_setting_params();
-            $this -> default_dynamic_module_params = $this -> czr_fmk_get_default_dynamic_module_params();
+            $this->default_dynamic_setting_params = $this->czr_fmk_get_default_dynamic_setting_params();
+            $this->default_dynamic_module_params = $this->czr_fmk_get_default_dynamic_module_params();
 
             // Enqueue the fmk control js + a module tmpl
-            $this -> czr_enqueue_fmk_resources();
+            $this->czr_enqueue_fmk_resources();
 
             // ajax filters + template generator
-            $this -> czr_setup_ajax_tmpl();
+            $this->czr_setup_ajax_tmpl();
 
             // Dynamic Module Registration
-            $this -> czr_setup_dynamic_settings_registration();
-            $this -> czr_setup_dynamic_modules_registration();
+            $this->czr_setup_dynamic_settings_registration();
+            $this->czr_setup_dynamic_modules_registration();
 
             // Content picker
-            $this -> czr_setup_content_picker_ajax_actions();
+            $this->czr_setup_content_picker_ajax_actions();
         }//__construct
 
 
@@ -261,7 +261,7 @@ if ( !class_exists( 'CZR_Fmk_Base_Load_Resources' ) ) :
                 'serverControlParams',
                 apply_filters( 'czr_js_customizer_control_params' ,
                   array(
-                      'css_attr' => $this -> czr_css_attr,
+                      'css_attr' => $this->czr_css_attr,
                       'isDevMode' => ( defined('WP_DEBUG') && true === WP_DEBUG ) || ( defined('CZR_DEV') && true === CZR_DEV ),
                       'docURL'          => esc_url('docs.presscustomizr.com/'),
                       'i18n' => array(
@@ -484,8 +484,8 @@ if ( !class_exists( 'CZR_Fmk_Base_Ajax_Filter' ) ) :
             if ( !isset( $_POST['tmpl'] ) || empty( $_POST['tmpl'] ) ) {
                 wp_send_json_error( 'ac_set_ajax_czr_tmpl => missing tmpl property in posted data' );
             }
-            $tmpl = $_POST['tmpl'];
-            $module_type = $_POST['module_type'];
+            $tmpl = sanitize_text_field($_POST['tmpl']);
+            $module_type = sanitize_text_field($_POST['module_type']);
 
             ///////////////////////////////////////////////////////////////////////
             // @param $tmpl = 'item-inputs'
@@ -537,35 +537,34 @@ if ( !class_exists( 'CZR_Fmk_Base_Ajax_Filter' ) ) :
         // 2) the module meta options, or mod-opt
         // 3) the item input options
         function ac_get_all_modules_tmpl( $html, $requested_tmpl = '', $posted_params = array() ) {
-            $css_attr = $this -> czr_css_attr;
+            $css_attr = $this->czr_css_attr;
             if ( empty( $requested_tmpl ) ) {
                 wp_send_json_error( 'ac_get_all_modules_tmpl => the requested tmpl is empty' );
             }
-
             ob_start();
             switch ( $requested_tmpl ) {
                 case 'crud-module-part' :
                     ?>
-                      <button class="<?php echo $css_attr['open_pre_add_btn']; ?>"><?php _e('Add New', 'nimble-builder'); ?> <span class="fas fa-plus-square"></span></button>
-                      <div class="<?php echo $css_attr['pre_add_wrapper']; ?>">
-                        <div class="<?php echo $css_attr['pre_add_success']; ?>"><p></p></div>
-                        <div class="<?php echo $css_attr['pre_add_item_content']; ?>">
+                      <button class="<?php echo esc_attr($css_attr['open_pre_add_btn']); ?>"><?php _e('Add New', 'nimble-builder'); ?> <span class="fas fa-plus-square"></span></button>
+                      <div class="<?php echo esc_attr($css_attr['pre_add_wrapper']); ?>">
+                        <div class="<?php echo esc_attr($css_attr['pre_add_success']); ?>"><p></p></div>
+                        <div class="<?php echo esc_attr($css_attr['pre_add_item_content']); ?>">
 
-                          <span class="<?php echo $css_attr['cancel_pre_add_btn']; ?> button"><?php _e('Cancel', 'nimble-builder'); ?></span> <span class="<?php echo $css_attr['add_new_btn']; ?> button"><?php _e('Add it', 'nimble-builder'); ?></span>
+                          <span class="<?php echo esc_attr($css_attr['cancel_pre_add_btn']); ?> button"><?php _e('Cancel', 'nimble-builder'); ?></span> <span class="<?php echo esc_attr($css_attr['add_new_btn']); ?> button"><?php _e('Add it', 'nimble-builder'); ?></span>
                         </div>
                       </div>
                     <?php
                 break;
                 case 'rud-item-part' :
                     ?>
-                      <div class="<?php echo $css_attr['item_header']; ?> czr-custom-model">
+                      <div class="<?php echo esc_attr($css_attr['item_header']); ?> czr-custom-model">
                         <# if ( ( true === data.is_sortable ) ) { #>
-                          <div class="<?php echo $css_attr['item_title']; ?> <?php echo $css_attr['item_sort_handle']; ?>"><h4>{{ data.title }}</h4></div>
+                          <div class="<?php echo esc_attr($css_attr['item_title']); ?> <?php echo esc_attr($css_attr['item_sort_handle']); ?>"><h4>{{ data.title }}</h4></div>
                         <# } else { #>
-                          <div class="<?php echo $css_attr['item_title']; ?>"><h4>{{ data.title }}</h4></div>
+                          <div class="<?php echo esc_attr($css_attr['item_title']); ?>"><h4>{{ data.title }}</h4></div>
                         <# } #>
-                        <div class="<?php echo $css_attr['item_btns']; ?>"><a title="<?php _e('Edit', 'nimble-builder'); ?>" href="javascript:void(0);" class="fas fa-pencil-alt <?php echo $css_attr['edit_view_btn']; ?>"></a>&nbsp;<a title="<?php _e('Remove', 'nimble-builder'); ?>" href="javascript:void(0);" class="fas fa-trash <?php echo $css_attr['display_alert_btn']; ?>"></a></div>
-                        <div class="<?php echo $css_attr['remove_alert_wrapper']; ?>"></div>
+                        <div class="<?php echo esc_attr($css_attr['item_btns']); ?>"><a title="<?php _e('Edit', 'nimble-builder'); ?>" href="javascript:void(0);" class="fas fa-pencil-alt <?php echo esc_attr($css_attr['edit_view_btn']); ?>"></a>&nbsp;<a title="<?php _e('Remove', 'nimble-builder'); ?>" href="javascript:void(0);" class="fas fa-trash <?php echo esc_attr($css_attr['display_alert_btn']); ?>"></a></div>
+                        <div class="<?php echo esc_attr($css_attr['remove_alert_wrapper']); ?>"></div>
                       </div>
                     <?php
                 break;
@@ -573,7 +572,7 @@ if ( !class_exists( 'CZR_Fmk_Base_Ajax_Filter' ) ) :
                 case 'rud-item-alert-part' :
                     ?>
                       <p class="czr-item-removal-title"><?php _e('Are you sure you want to remove : <strong>{{ data.title }} ?</strong>', 'nimble-builder'); ?></p>
-                      <span class="<?php echo $css_attr['remove_view_btn']; ?> button"><?php _e('Yes', 'nimble-builder'); ?></span> <span class="<?php echo $css_attr['cancel_alert_btn']; ?> button"><?php _e('No', 'nimble-builder'); ?></span>
+                      <span class="<?php echo esc_attr($css_attr['remove_view_btn']); ?> button"><?php _e('Yes', 'nimble-builder'); ?></span> <span class="<?php echo esc_attr($css_attr['cancel_alert_btn']); ?> button"><?php _e('No', 'nimble-builder'); ?></span>
                     <?php
                 break;
 
@@ -712,17 +711,16 @@ if ( !class_exists( 'CZR_Fmk_Base_Tmpl_Builder' ) ) :
                     break;
                 }
                 if ( !is_array( $input_data ) ) {
-                    wp_send_json_error( __FUNCTION__ . ' => wrong var type for the input_data of input id : ' . $input_id );
+                    wp_send_json_error( __FUNCTION__ . ' => wrong var type for the input_data of input id : ' . esc_attr($input_id) );
                     break;
                 }
                 // check that we have no unknown entries in the provided input_data
                 $maybe_diff = array_diff_key( $input_data, $default_input_entries );
                 if ( !empty( $maybe_diff ) ) {
                     error_log('<' . __FUNCTION__ . '>');
-                    error_log( '=> at least one unknown param in the registered input params for input id : ' . $input_id );
+                    error_log( '=> at least one unknown param in the registered input params for input id : ' . esc_attr($input_id) );
                     error_log( print_r( $maybe_diff, true ) );
                     error_log('</' . __FUNCTION__ . '>');
-                    //wp_send_json_error( 'ac_generate_czr_tmpl_from_map => at least one unknow entry in the input data for input id : ' . $input_id );
                     break;
                 }
 
@@ -733,7 +731,7 @@ if ( !class_exists( 'CZR_Fmk_Base_Tmpl_Builder' ) ) :
                 if ( !empty( $input_data[ 'tmpl_callback' ] ) && function_exists( $input_data[ 'tmpl_callback' ] ) ) {
                     $html .= call_user_func_array( $input_data[ 'tmpl_callback' ], array( $input_data ) );
                 } else {
-                    $html .= $this -> ac_get_default_input_tmpl( $input_id, $input_data );
+                    $html .= $this->ac_get_default_input_tmpl( $input_id, $input_data );
                 }
 
             }
@@ -745,7 +743,7 @@ if ( !class_exists( 'CZR_Fmk_Base_Tmpl_Builder' ) ) :
         // Fired in ac_generate_czr_tmpl_from_map
         function ac_get_default_input_tmpl( $input_id, $input_data ) {
             if ( !array_key_exists( 'input_type', $input_data ) || empty( $input_data[ 'input_type' ] ) ) {
-                 wp_send_json_error( 'ac_get_input_tmpl => missing input type for input id : ' . $input_id );
+                 wp_send_json_error( 'ac_get_input_tmpl => missing input type for input id : ' . esc_attr($input_id) );
             }
             $input_type = $input_data[ 'input_type' ];
 
@@ -755,53 +753,56 @@ if ( !class_exists( 'CZR_Fmk_Base_Tmpl_Builder' ) ) :
                 $is_width_100 = true;
             }
 
-            $css_attr = $this -> czr_css_attr;
+            $css_attr = $this->czr_css_attr;
 
             ob_start();
             // <INPUT WRAPPER>
             printf( '<div class="%1$s %2$s %3$s" data-input-type="%4$s" %5$s>',
-                $css_attr['sub_set_wrapper'],
+                esc_attr($css_attr['sub_set_wrapper']),
                 $is_width_100 ? 'width-100' : '',
                 'hidden' === $input_type ? 'hidden' : '',
-                $input_type,
-                !empty( $input_data['transport'] ) ? 'data-transport="'. $input_data['transport'] .'"' : ''
+                esc_attr($input_type),
+                esc_attr(!empty( $input_data['transport'] ) ? 'data-transport="'. $input_data['transport'] .'"' : '')
             );
             ?>
             <?php if ( !empty( $input_data['html_before'] ) ) : ?>
-                <div class="czr-html-before"><?php echo $input_data['html_before']; ?></div>
+                <div class="czr-html-before"><?php echo wp_kses_post($input_data['html_before']); ?></div>
             <?php endif; ?>
 
             <?php if ( !empty( $input_data['notice_before_title'] ) ) : ?>
-                <span class="czr-notice"><?php echo $input_data['notice_before_title']; ?></span><br/>
+                <span class="czr-notice"><?php echo wp_kses_post($input_data['notice_before_title']); ?></span><br/>
             <?php endif; ?>
 
             <?php
             // no need to print a title for an hidden input
             if ( $input_type !== 'hidden' ) {
-                printf( '<div class="customize-control-title %1$s">%2$s</div>', !empty( $input_data['title_width'] ) ? $input_data['title_width'] : '', $input_data['title'] );
+                printf( '<div class="customize-control-title %1$s">%2$s</div>',
+                  esc_attr(!empty( $input_data['title_width'] ) ? $input_data['title_width'] : ''),
+                  wp_kses_post($input_data['title'])
+                );
             }
             ?>
             <?php if ( !empty( $input_data['notice_before'] ) ) : ?>
-                <span class="czr-notice"><?php echo $input_data['notice_before']; ?></span>
+                <span class="czr-notice"><?php echo wp_kses_post($input_data['notice_before']); ?></span>
             <?php endif; ?>
 
-            <?php printf( '<div class="czr-input %1$s">', !empty( $input_data['input_width'] ) ? $input_data['input_width'] : '' ); ?>
+            <?php printf( '<div class="czr-input %1$s">', esc_attr(!empty( $input_data['input_width'] ) ? $input_data['input_width'] : '' ) ); ?>
 
             <?php
             if ( !empty( $input_data['input_template'] ) && is_string( $input_data['input_template'] ) ) {
-                echo $input_data['input_template'];
+                echo wp_kses_post($input_data['input_template']);
             } else {
                 // THIS IS WHERE THE ACTUAL INPUT CONTENT IS SET
-                $this -> ac_set_input_tmpl_content( $input_type, $input_id, $input_data );
+                $this->ac_set_input_tmpl_content( $input_type, $input_id, $input_data );
             }
             ?>
               </div><?php // class="czr-input" ?>
               <?php if ( !empty( $input_data['notice_after'] ) ) : ?>
-                  <span class="czr-notice"><?php echo $input_data['notice_after']; ?></span>
+                  <span class="czr-notice"><?php echo wp_kses_post($input_data['notice_after']); ?></span>
               <?php endif; ?>
 
               <?php if ( !empty( $input_data['html_after'] ) ) : ?>
-                <div class="czr-html-after"><?php echo $input_data['html_after']; ?></div>
+                <div class="czr-html-after"><?php echo wp_kses_post($input_data['html_after']); ?></div>
               <?php endif; ?>
 
             </div> <?php //class="$css_attr['sub_set_wrapper']" ?>
@@ -811,7 +812,7 @@ if ( !class_exists( 'CZR_Fmk_Base_Tmpl_Builder' ) ) :
             $tmpl_html = apply_filters( "czr_set_input_tmpl___{$input_type}", ob_get_clean(), $input_id, $input_data );
             //error_log( print_r($tmpl_html, true ) );
             if ( empty( $tmpl_html ) ) {
-                wp_send_json_error( 'ac_get_input_tmpl => no html returned for input ' . $input_id );
+                wp_send_json_error( 'ac_get_input_tmpl => no html returned for input ' . esc_attr($input_id) );
             }
             return $tmpl_html;
         }//ac_get_input_tmpl()
@@ -824,9 +825,8 @@ if ( !class_exists( 'CZR_Fmk_Base_Tmpl_Builder' ) ) :
 
         // fired in ::ac_get_default_input_tmpl();
         private function ac_set_input_tmpl_content( $input_type, $input_id, $input_data ) {
-            $css_attr = $this -> czr_css_attr;
+            $css_attr = $this->czr_css_attr;
             $input_tmpl_content = null;
-
             // First fires a hook to allow the input content to be remotely set
             // For example the module_picker, the spacing, h_text_alignment... are printed this way
             ob_start();
@@ -834,7 +834,7 @@ if ( !class_exists( 'CZR_Fmk_Base_Tmpl_Builder' ) ) :
             $input_tmpl_content = ob_get_clean();
 
             if ( !empty( $input_tmpl_content ) ) {
-                echo $input_tmpl_content;
+                echo wp_kses_post($input_tmpl_content);
             } else {
                 // Then, if we have no content yet, let's go thought the default input cases
                 switch ( $input_type ) {
@@ -843,7 +843,7 @@ if ( !class_exists( 'CZR_Fmk_Base_Tmpl_Builder' ) ) :
                     /* ------------------------------------------------------------------------- */
                     case 'hidden':
                       ?>
-                        <input data-czrtype="<?php echo $input_id; ?>" type="hidden" value=""></input>
+                        <input data-czrtype="<?php echo esc_attr($input_id); ?>" type="hidden" value=""></input>
                       <?php
                     break;
 
@@ -854,14 +854,14 @@ if ( !class_exists( 'CZR_Fmk_Base_Tmpl_Builder' ) ) :
                     case 'select'://<= used in the customizr and hueman theme
                     case 'simpleselect'://<=used in Nimble Builder
                       ?>
-                        <select data-czrtype="<?php echo $input_id; ?>"></select>
+                        <select data-czrtype="<?php echo esc_attr($input_id); ?>"></select>
                       <?php
                     break;
                     // multiselect with select2() js library
                     case 'multiselect':
                     case 'category_picker':
                       ?>
-                        <select multiple="multiple" data-czrtype="<?php echo $input_id; ?>"></select>
+                        <select multiple="multiple" data-czrtype="<?php echo esc_attr($input_id); ?>"></select>
                       <?php
                     break;
 
@@ -870,7 +870,7 @@ if ( !class_exists( 'CZR_Fmk_Base_Tmpl_Builder' ) ) :
                     /* ------------------------------------------------------------------------- */
                     case 'text' :
                       ?>
-                        <input data-czrtype="<?php echo $input_id; ?>" type="text" value="" placeholder="<?php echo $input_data['placeholder']; ?>"></input>
+                        <input data-czrtype="<?php echo esc_attr($input_id); ?>" type="text" value="" placeholder="<?php echo esc_attr($input_data['placeholder']); ?>"></input>
                       <?php
                     break;
 
@@ -881,10 +881,10 @@ if ( !class_exists( 'CZR_Fmk_Base_Tmpl_Builder' ) ) :
                       ?>
                         <?php
                         printf( '<input data-czrtype="%4$s" type="number" %1$s %2$s %3$s value="{{ data[\'%4$s\'] }}" />',
-                          !empty( $input_data['step'] ) ? 'step="'. $input_data['step'] .'"' : '',
-                          !empty( $input_data['min'] ) ? 'min="'. $input_data['min'] .'"' : '',
-                          !empty( $input_data['max'] ) ? 'max="'. $input_data['max'] .'"' : '',
-                          $input_id
+                          esc_attr(!empty( $input_data['step'] ) ? 'step="'. $input_data['step'] .'"' : ''),
+                          esc_attr(!empty( $input_data['min'] ) ? 'min="'. $input_data['min'] .'"' : ''),
+                          esc_attr(!empty( $input_data['max'] ) ? 'max="'. $input_data['max'] .'"' : ''),
+                          esc_attr($input_id)
                         );
                         ?>
                       <?php
@@ -895,12 +895,12 @@ if ( !class_exists( 'CZR_Fmk_Base_Tmpl_Builder' ) ) :
                     /* ------------------------------------------------------------------------- */
                     case 'wp_color_alpha' :
                       ?>
-                        <input data-czrtype="<?php echo $input_id; ?>" class="width-100"  data-alpha="true" type="text" value="{{ data['<?php echo $input_id; ?>'] }}"></input>
+                        <input data-czrtype="<?php echo esc_attr($input_id); ?>" class="width-100"  data-alpha="true" type="text" value="{{ data['<?php echo esc_attr($input_id); ?>'] }}"></input>
                       <?php
                     break;
                     case 'color' :
                       ?>
-                        <input data-czrtype="<?php echo $input_id; ?>" type="text" value="{{ data['<?php echo $input_id; ?>'] }}"></input>
+                        <input data-czrtype="<?php echo esc_attr($input_id); ?>" type="text" value="{{ data['<?php echo esc_attr($input_id); ?>'] }}"></input>
                       <?php
                     break;
 
@@ -911,9 +911,9 @@ if ( !class_exists( 'CZR_Fmk_Base_Tmpl_Builder' ) ) :
                     case 'check' :
                       ?>
                         <#
-                          var _checked = ( false != data['<?php echo $input_id; ?>'] ) ? "checked=checked" : '';
+                          var _checked = ( false != data['<?php echo esc_attr($input_id); ?>'] ) ? "checked=checked" : '';
                         #>
-                        <input data-czrtype="<?php echo $input_id; ?>" type="checkbox" {{ _checked }}></input>
+                        <input data-czrtype="<?php echo esc_attr($input_id); ?>" type="checkbox" {{ _checked }}></input>
                       <?php
                     break;
 
@@ -921,16 +921,16 @@ if ( !class_exists( 'CZR_Fmk_Base_Tmpl_Builder' ) ) :
                     case 'gutencheck' :
                         ?>
                           <#
-                            var _checked = ( false != data['<?php echo $input_id; ?>'] ) ? "checked=checked" : '';
+                            var _checked = ( false != data['<?php echo esc_attr($input_id); ?>'] ) ? "checked=checked" : '';
                           #>
-                          <span class="czr-toggle-check"><input class="czr-toggle-check__input" data-czrtype="<?php echo $input_id; ?>" type="checkbox" {{ _checked }}><span class="czr-toggle-check__track"></span><span class="czr-toggle-check__thumb"></span></span>
+                          <span class="czr-toggle-check"><input class="czr-toggle-check__input" data-czrtype="<?php echo esc_attr($input_id); ?>" type="checkbox" {{ _checked }}><span class="czr-toggle-check__track"></span><span class="czr-toggle-check__thumb"></span></span>
                         <?php
                     break;
 
                     case 'nimblecheck' :
                         ?>
                           <#
-                            var _checked = ( false != data['<?php echo $input_id; ?>'] ) ? "checked=checked" : '';
+                            var _checked = ( false != data['<?php echo esc_attr($input_id); ?>'] ) ? "checked=checked" : '';
                           #>
                           <?php
                           // when input and label are tied by an id - for relationship
@@ -941,8 +941,8 @@ if ( !class_exists( 'CZR_Fmk_Base_Tmpl_Builder' ) ) :
                           $unique_id = sprintf('%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535));
                           ?>
                           <div class="nimblecheck-wrap">
-                            <input id="nimblecheck-<?php echo $unique_id; ?>" data-czrtype="<?php echo $input_id; ?>" type="checkbox" {{ _checked }} class="nimblecheck-input">
-                            <label for="nimblecheck-<?php echo $unique_id; ?>" class="nimblecheck-label">Switch</label>
+                            <input id="nimblecheck-<?php echo esc_attr($unique_id); ?>" data-czrtype="<?php echo esc_attr($input_id); ?>" type="checkbox" {{ _checked }} class="nimblecheck-input">
+                            <label for="nimblecheck-<?php echo esc_attr($unique_id); ?>" class="nimblecheck-label">Switch</label>
                           </div>
                         <?php
                     break;
@@ -954,7 +954,7 @@ if ( !class_exists( 'CZR_Fmk_Base_Tmpl_Builder' ) ) :
                       // Added an id attribute for https://github.com/presscustomizr/nimble-builder/issues/403
                       // needed to instantiate wp.editor.initialize(...)
                       ?>
-                        <textarea id="textarea-{{ data.id }}" data-czrtype="<?php echo $input_id; ?>" class="width-100" name="textarea" rows="10" cols="">{{ data.value }}</textarea>
+                        <textarea id="textarea-{{ data.id }}" data-czrtype="<?php echo esc_attr($input_id); ?>" class="width-100" name="textarea" rows="10" cols="">{{ data.value }}</textarea>
                       <?php
                     break;
 
@@ -964,8 +964,8 @@ if ( !class_exists( 'CZR_Fmk_Base_Tmpl_Builder' ) ) :
                     case 'upload' :
                     case 'upload_url' :
                       ?>
-                        <input data-czrtype="<?php echo $input_id; ?>" type="hidden"/>
-                        <div class="<?php echo $css_attr['img_upload_container']; ?>"></div>
+                        <input data-czrtype="<?php echo esc_attr($input_id); ?>" type="hidden"/>
+                        <div class="<?php echo esc_attr($css_attr['img_upload_container']); ?>"></div>
                       <?php
                     break;
 
@@ -978,11 +978,11 @@ if ( !class_exists( 'CZR_Fmk_Base_Tmpl_Builder' ) ) :
                         <?php //<# //console.log( 'IN php::ac_get_default_input_tmpl() => data range_slide => ', data ); #> ?>
                         <?php
                         printf( '<input data-czrtype="%5$s" type="range" %1$s %2$s %3$s %4$s value="{{ data[\'%5$s\'] }}" />',
-                          !empty( $input_data['orientation'] ) ? 'data-orientation="'. $input_data['orientation'] .'"' : '',
-                          !empty( $input_data['unit'] ) ? 'data-unit="'. $input_data['unit'] .'"' : '',
-                          !empty( $input_data['min'] ) ? 'min="'. $input_data['min'] .'"' : '',
-                          !empty( $input_data['max'] ) ? 'max="'. $input_data['max'] .'"' : '',
-                          $input_id
+                          esc_attr(!empty( $input_data['orientation'] ) ? 'data-orientation="'. $input_data['orientation'] .'"' : ''),
+                          esc_attr(!empty( $input_data['unit'] ) ? 'data-unit="'. $input_data['unit'] .'"' : ''),
+                          esc_attr(!empty( $input_data['min'] ) ? 'min="'. $input_data['min'] .'"' : ''),
+                          esc_attr(!empty( $input_data['max'] ) ? 'max="'. $input_data['max'] .'"' : ''),
+                          esc_attr($input_id)
                         );
                         ?>
                       <?php
@@ -994,7 +994,7 @@ if ( !class_exists( 'CZR_Fmk_Base_Tmpl_Builder' ) ) :
                     case 'content_picker' :
                       ?>
                         <?php
-                        printf( '<span data-czrtype="%1$s"></span>', $input_id );
+                        printf( '<span data-czrtype="%1$s"></span>', esc_attr($input_id) );
                         ?>
                       <?php
                     break;
@@ -1402,7 +1402,7 @@ if ( !class_exists( 'CZR_Fmk_Dyn_Module_Registration' ) ) :
             }
 
             // normalize
-            $module_params = wp_parse_args( $module_params, $this -> default_dynamic_module_params );
+            $module_params = wp_parse_args( $module_params, $this->default_dynamic_module_params );
 
             $registered = $this->registered_modules;
             $module_type_candidate = $module_params['module_type'];
@@ -1475,7 +1475,7 @@ if ( !class_exists( 'CZR_Fmk_Dyn_Module_Registration' ) ) :
 
             // loop on each registered modules
             foreach ( $this->registered_modules as $module_type => $params ) {
-                $params = wp_parse_args( $params, $this -> default_dynamic_module_params );
+                $params = wp_parse_args( $params, $this->default_dynamic_module_params );
                 //error_log( print_r( $params, true ) );
                 $control_js_params = $params[ 'customizer_assets' ][ 'control_js' ];
                 // Enqueue the list of registered scripts
@@ -1531,7 +1531,7 @@ if ( !class_exists( 'CZR_Fmk_Dyn_Module_Registration' ) ) :
               return;
 
             foreach ( $this->registered_modules as $module_type => $params ) {
-                $params = wp_parse_args( $params, $this -> default_dynamic_module_params );
+                $params = wp_parse_args( $params, $this->default_dynamic_module_params );
                 if ( !empty( $params['tmpl'] ) ) {
                     $module_type = $params['module_type'];
                     // filter declared with $html = apply_filters( "ac_set_ajax_czr_tmpl___{$module_type}", '', $tmpl, $_POST );
@@ -1631,9 +1631,9 @@ if ( !class_exists( 'CZR_Fmk_Dyn_Module_Registration' ) ) :
                         // print the tabs nav
                         foreach ( $tmpl_map['tabs'] as $_key => $tab ) {
                           printf( '<li data-tab-id="section-topline-%1$s" %2$s><a href="#"><span>%3$s</span></a></li>',
-                              $_key + 1,
-                              array_key_exists('attributes', $tab) ? $tab['attributes'] : '',
-                              $tab['title']
+                              esc_attr($_key + 1),
+                              esc_attr(array_key_exists('attributes', $tab) ? $tab['attributes'] : ''),
+                              esc_html($tab['title'])
                           );
                         }//foreach
                       ?>
@@ -1643,8 +1643,8 @@ if ( !class_exists( 'CZR_Fmk_Dyn_Module_Registration' ) ) :
                     <?php
                       foreach ( $tmpl_map['tabs'] as $_key => $tab ) {
                         printf( '<section id="section-topline-%1$s">%2$s</section>',
-                            $_key + 1,
-                            $this -> ac_generate_czr_tmpl_from_map( $tab['inputs'] )
+                            esc_attr($_key + 1),
+                            wp_kses_post($this->ac_generate_czr_tmpl_from_map( $tab['inputs'] ))
                         );
                       }//foreach
                     ?>
@@ -1653,7 +1653,7 @@ if ( !class_exists( 'CZR_Fmk_Dyn_Module_Registration' ) ) :
                 <?php
                 return ob_get_clean();
             } else {
-                return $this -> ac_generate_czr_tmpl_from_map( $tmpl_map );
+                return $this->ac_generate_czr_tmpl_from_map( $tmpl_map );
             }
         }
 
@@ -2115,8 +2115,8 @@ endif;
 function czr_get_parent_theme_slug() {
     $theme_slug = get_option( 'stylesheet' );
     // $_REQUEST['theme'] is set both in live preview and when we're customizing a non active theme
-    $theme_slug = isset($_REQUEST['theme']) ? $_REQUEST['theme'] : $theme_slug; //old wp versions
-    $theme_slug = isset($_REQUEST['customize_theme']) ? $_REQUEST['customize_theme'] : $theme_slug;
+    $theme_slug = sanitize_text_field( isset($_REQUEST['theme']) ? $_REQUEST['theme'] : $theme_slug ); //old wp versions
+    $theme_slug = sanitize_text_field( isset($_REQUEST['customize_theme']) ? $_REQUEST['customize_theme'] : $theme_slug );
 
     //gets the theme name (or parent if child)
     $theme_data = wp_get_theme( $theme_slug );

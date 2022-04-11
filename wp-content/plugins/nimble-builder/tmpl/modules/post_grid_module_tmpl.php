@@ -57,10 +57,10 @@ if ( !function_exists( 'Nimble\sek_render_post_navigation') ) {
       <nav id="sek-nav-below" class="sek-col-100">
         <h2 class="sek-screen-reader-text"><?php _e('Posts navigation', 'nimble-builder') ?></h2>
         <ul class="sek-czr-pager sek-row">
-          <li class="sek-next-posts sek-col-base sek-col-33 <?php echo $tnext_align_class ?> ">
+          <li class="sek-next-posts sek-col-base sek-col-33 <?php echo esc_attr($tnext_align_class); ?> ">
           <?php if ( null != $next_link ) : ?>
-            <span class="sek-screen-reader-text"><?php echo $_newer_label ?></span>
-            <span class="sek-nav-next sek-nav-dir"><?php echo $next_link ?></span>
+            <span class="sek-screen-reader-text"><?php echo wp_kses_post($_newer_label); ?></span>
+            <span class="sek-nav-next sek-nav-dir"><?php echo wp_kses_post($next_link); ?></span>
           <?php endif ?>
           </li>
           <li class="sek-pagination sek-col-base sek-col-33">
@@ -74,7 +74,7 @@ if ( !function_exists( 'Nimble\sek_render_post_navigation') ) {
               $paged = $paged ? $paged : 1;
               $model = Nimble_Manager()->model;
               $is_nimble_pagination = isset($_GET['nb_grid_module_go_to']);
-              $is_current_grid_paginated = $is_nimble_pagination && $model['id'] === $_GET['nb_grid_module_go_to'];
+              $is_current_grid_paginated = $is_nimble_pagination && $model['id'] === sanitize_text_field($_GET['nb_grid_module_go_to']);
               // When user clicked on a pagination link, NB adds query params to the url ( removed via js once the page is loaded )
               // in this case, if there are several grids printed on the page we want to paginate only the paginated one
               // otherwise, if the pagination is accessed directly, or if the page is refreshed, all grids should be paginated according to the get_query_var($pagination_query_var) param
@@ -95,16 +95,16 @@ if ( !function_exists( 'Nimble\sek_render_post_navigation') ) {
 
               if ( is_array( $_paginate_links ) ) {
                 foreach ( $_paginate_links as $_page ) {
-                  echo "<li class='sek-paginat-item'>$_page</li>";
+                    echo wp_kses_post("<li class='sek-paginat-item'>$_page</li>");
                 }
               }
             ?>
             </ul>
           </li>
-          <li class="sek-previous-posts sek-col-base sek-col-33 <?php echo $tprev_align_class ?>">
+          <li class="sek-previous-posts sek-col-base sek-col-33 <?php echo esc_attr($tprev_align_class); ?>">
           <?php if ( null != $prev_link ) : ?>
-            <span class="sek-screen-reader-text"><?php echo $_older_label ?></span>
-            <span class="sek-nav-previous sek-nav-dir"><?php echo $prev_link ?></span>
+            <span class="sek-screen-reader-text"><?php echo wp_kses_post($_older_label); ?></span>
+            <span class="sek-nav-previous sek-nav-dir"><?php echo wp_kses_post($prev_link); ?></span>
           <?php endif; ?>
           </li>
       </ul>
@@ -157,17 +157,19 @@ if ( !function_exists( 'Nimble\sek_render_post') ) {
                       add_filter( 'wp_get_attachment_image_attributes', '\Nimble\sek_remove_image_style_attr', 999 );
                       $img_html = wp_get_attachment_image( get_post_thumbnail_id(), empty( $thumb_settings['img_size'] ) ? 'medium' : $thumb_settings['img_size']);
                       remove_filter( 'wp_get_attachment_image_attributes', '\Nimble\sek_remove_image_style_attr', 999 );
-                      if ( !skp_is_customizing() ) {
-                        // april 2020 : when customizing, smart load randomly breaks when refreshing the grids
-                        // so let's apply smart load only on front for now
-                        $img_html = apply_filters( 'nimble_parse_for_smart_load', $img_html );
-                      }
+                      
                       if ( !skp_is_customizing() && false !== strpos($img_html, 'data-sek-src="http') ) {
                           $img_html = $img_html.Nimble_Manager()->css_loader_html;
                       }
-                      echo $img_html;
+                      if ( !skp_is_customizing() ) {
+                        // april 2020 : when customizing, smart load randomly breaks when refreshing the grids
+                        // so let's apply smart load only on front for now
+                        echo apply_filters( 'nimble_parse_for_smart_load', wp_kses_post($img_html) );
+                      } else {
+                        echo wp_kses_post($img_html);
+                      }
                   } else if ( $use_post_thumb_placeholder ) {
-                      echo apply_filters( 'nimble_post_grid_module_default_featured_image', sprintf( '<img alt="default img" data-skip-lazyload="true" src="%1$s"/>', NIMBLE_BASE_URL . '/assets/img/default-img.png' ) );
+                      echo apply_filters( 'nimble_post_grid_module_default_featured_image', sprintf( '<img alt="default img" data-skip-lazyload="true" src="%1$s"/>', esc_url(NIMBLE_BASE_URL . '/assets/img/default-img.png' ) ) );
                   }
               ?>
             </a>
@@ -387,7 +389,7 @@ if ( $use_current_query ) {
 
 $paged = 1;
 $is_nimble_pagination_on = isset($_GET['nb_grid_module_go_to']);
-$is_current_grid_paginated = isset($_GET['nb_grid_module_go_to']) && $model['id'] === $_GET['nb_grid_module_go_to'];
+$is_current_grid_paginated = isset($_GET['nb_grid_module_go_to']) && $model['id'] === sanitize_text_field($_GET['nb_grid_module_go_to']);
 // may 2020 => is_front_page() was wrong to check if home was a static front page.
 // fixes https://github.com/presscustomizr/nimble-builder/issues/664
 Nimble_Manager()->is_viewing_static_front_page = is_front_page() && 'page' == get_option( 'show_on_front' );
@@ -547,8 +549,8 @@ if ( is_object( $post_query ) && $post_query->have_posts() ) {
   $grid_items_classes = implode(' ', $grid_items_classes );
   do_action( 'nb_before_post_grid_wrapper' );
   ?>
-  <div class="sek-post-grid-wrapper <?php echo $grid_wrapper_classes; ?>" id="<?php echo $model['id']; ?>">
-    <div class="sek-grid-items <?php echo $grid_items_classes; ?>">
+  <div class="sek-post-grid-wrapper <?php echo esc_attr($grid_wrapper_classes); ?>" id="<?php echo esc_attr($model['id']); ?>">
+    <div class="sek-grid-items <?php echo esc_attr($grid_items_classes); ?>">
       <?php
         // $post_query->have_posts() fires 'loop_end', which we don't want
         while ( sek_pg_the_nimble_have_post( $post_query ) ) {

@@ -56,6 +56,7 @@ class Settings {
 		'full_sync_send_duration'                => true,
 		'full_sync_limits'                       => true,
 		'checksum_disable'                       => true,
+		'dedicated_sync_enabled'                 => true,
 	);
 
 	/**
@@ -443,7 +444,7 @@ class Settings {
 	 * @return boolean Whether WordPress is currently importing.
 	 */
 	public static function is_importing() {
-		if ( ! is_null( self::$is_importing ) ) {
+		if ( self::$is_importing !== null ) {
 			return self::$is_importing;
 		}
 
@@ -484,7 +485,7 @@ class Settings {
 	 * @return boolean Whether WordPress is currently doing WP cron.
 	 */
 	public static function is_doing_cron() {
-		if ( ! is_null( self::$is_doing_cron ) ) {
+		if ( self::$is_doing_cron !== null ) {
 			return self::$is_doing_cron;
 		}
 
@@ -563,6 +564,18 @@ class Settings {
 	 */
 	public static function is_checksum_enabled() {
 		return ! (bool) self::get_setting( 'checksum_disable' );
+	}
+
+	/**
+	 * Whether dedicated Sync flow is enabled.
+	 *
+	 * @access public
+	 * @static
+	 *
+	 * @return boolean Whether dedicated Sync flow is enabled.
+	 */
+	public static function is_dedicated_sync_enabled() {
+		return (bool) self::get_setting( 'dedicated_sync_enabled' );
 	}
 
 }

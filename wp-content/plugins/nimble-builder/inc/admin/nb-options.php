@@ -38,20 +38,24 @@ function nb_options_page() {
   <div id="nimble-options" class="wrap">
       <h1 class="nb-option-page-title">
         <?php
-        printf('<span class="sek-nimble-title-icon"><img src="%1$s" alt="Build with Nimble Builder">%2$s</span>',
-            NIMBLE_BASE_URL.'/assets/img/nimble/nimble_icon.svg?ver='.NIMBLE_VERSION,
-            apply_filters( 'nimble_option_title_icon_after', '' )
+        printf('<span class="sek-nimble-title-icon"><img src="%1$s" alt="Build with Nimble Builder"></span>',
+            esc_url( NIMBLE_BASE_URL.'/assets/img/nimble/nimble_icon.svg?ver='.NIMBLE_VERSION )
         );
-        echo apply_filters( 'nimble_parse_admin_text', $page_title );
+        echo apply_filters( 'nimble_parse_admin_text', esc_html( $page_title ) ) . wp_kses_post( apply_filters( 'nimble_option_title_icon_after', '' ) );
         ?>
       </h1>
       <div class="nav-tab-wrapper">
           <?php
+            $allowed_tags = array(
+              'div' => array('class'=>true),
+              'span' => array('class'=>true),
+              'img' => array('class'=>true, 'src'=>true, 'alt'=>true),
+            ); 
             foreach ($option_tabs as $tab_id => $tab_data ) {
               printf('<a class="nav-tab %1$s" href="%2$s">%3$s</a>',
                   $tab_id === nb_get_active_option_tab() ? 'nav-tab-active' : '',
-                  admin_url( NIMBLE_OPTIONS_PAGE_URL ) . '&tab=' . $tab_id,
-                  $tab_data['title']
+                  esc_url( admin_url( NIMBLE_OPTIONS_PAGE_URL ) . '&tab=' . $tab_id ),
+                  wp_kses($tab_data['title'], $allowed_tags)
               );
             }
           ?>
@@ -63,7 +67,7 @@ function nb_options_page() {
             if ( function_exists( $_cb ) ) {
               call_user_func( $_cb );
             } else {
-              echo $_cb;
+              echo esc_attr($_cb);
             }
           } else if ( is_array($_cb) && 2 == count($_cb) ) {
             if ( is_object($_cb[0]) ) {
@@ -164,7 +168,7 @@ function nb_register_option_tab( $tab ) {
 
 function nb_get_active_option_tab() {
     // check that we have a tab param and that this tab is registered
-    $tab_id = isset( $_GET['tab'] ) ? $_GET['tab'] : 'welcome';
+    $tab_id = isset( $_GET['tab'] ) ? sanitize_text_field($_GET['tab']) : 'welcome';
     if ( !array_key_exists( $tab_id, Nimble_Manager()->admin_option_tabs ) ) {
         sek_error_log( __FUNCTION__ . ' error => invalid tab');
         $tab_id = 'welcome';
@@ -184,7 +188,7 @@ nb_register_option_tab([
 function print_welcome_page() {
     ?>
     <div class="nimble-welcome-content">
-      <?php echo sek_get_welcome_block(); ?>
+      <?php echo wp_kses_post(sek_get_welcome_block()); ?>
     </div>
     <div class="clear"></div>
     <hr/>
@@ -393,8 +397,8 @@ function print_options_page() {
             <fieldset><legend class="screen-reader-text"><span><?php _e('Remove all Nimble Builder data', 'nimble-builder'); ?></span></legend>
               <?php
                 $refresh_url = add_query_arg( array( 'tab' => 'options', 'clean_nb' => 'true' ), admin_url( NIMBLE_OPTIONS_PAGE_URL ));
+              ob_start();
               ?>
-              <script>
                 var nb_toggle_clean_button = function() {
                   jQuery( function($) {
                     $('.nb-clean-traces-confirm').stop().slideToggle('fast');
@@ -404,7 +408,7 @@ function print_options_page() {
                 var nb_refresh_opt_page = function() {
                   jQuery( function($) {
                     _nonce_value = $('#nb-base-options-nonce').val();
-                    _url = '<?php echo $refresh_url; ?>';
+                    _url = '<?php echo esc_url($refresh_url); ?>';
                     // add nonce as param so NB can verify it when the page reloads
                     if ( _nonce_value ) {
                       _url = _url + '&ecnon=' + _nonce_value;// looks like site.com/wp-admin/options-general.php?page=nb-options&tab=options&clean_nb=true&ecnon=7cc5758b65
@@ -412,9 +416,14 @@ function print_options_page() {
                     window.location.href = _url;
                   });
                 };
-              </script>
-
-              <?php if ( isset( $_GET['clean_nb'] ) && $_GET['clean_nb'] ) : ?>
+              <?php
+              $script = ob_get_clean();
+              wp_register_script( 'nb_options_js', '');
+              wp_enqueue_script( 'nb_options_js' );
+              wp_add_inline_script( 'nb_options_js', $script );
+              ?>
+              <?php $clean_nb = isset( $_GET['clean_nb'] ) ? sanitize_text_field($_GET['clean_nb']) : false; ?>
+              <?php if ( $clean_nb ) : ?>
                   <?php $status = sek_clean_all_nimble_data(); ?>
                     <?php if ( 'success' === $status ) : ?>
                       <div id="message" class="updated notice">
@@ -459,7 +468,7 @@ function nb_save_base_options() {
 // the option is updated only if different than the default val or if the option exists already
 function nb_maybe_update_checkbox_option( $opt_name, $unchecked_value ) {
     $opt_value = get_option( $opt_name );
-    $posted_value = array_key_exists( $opt_name, $_POST ) ? $_POST[$opt_name] : $unchecked_value;
+    $posted_value = array_key_exists( $opt_name, $_POST ) ? sanitize_text_field($_POST[$opt_name]) : $unchecked_value;
     if ( $unchecked_value !== $posted_value ) {
         update_option( $opt_name, esc_attr( $posted_value ), 'no' );
     } else {
@@ -521,7 +530,7 @@ function print_system_info() {
     ?>
      <h3><?php _e( 'System Informations', 'nimble-builder' ); ?></h3>
       <h4><?php _e( 'Please include your system informations when posting support requests.' , 'nimble-builder' ) ?></h4>
-      <textarea readonly="readonly" onclick="this.focus();this.select()" id="system-info-textarea" name="tc-sysinfo" title="<?php _e( 'To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'nimble-builder' ); ?>" style="width: 800px;min-height: 800px;font-family: Menlo,Monaco,monospace;background: 0 0;white-space: pre;overflow: auto;display:block;"><?php echo sek_config_infos(); ?></textarea>
+      <textarea readonly="readonly" onclick="this.focus();this.select()" id="system-info-textarea" name="tc-sysinfo" title="<?php _e( 'To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'nimble-builder' ); ?>" style="width: 800px;min-height: 800px;font-family: Menlo,Monaco,monospace;background: 0 0;white-space: pre;overflow: auto;display:block;"><?php echo wp_kses_post(sek_config_infos()); ?></textarea>
     <?php
 }
 

@@ -62,10 +62,6 @@ if ( !defined( 'NIMBLE_API_CHECK_TRANSIENT_ID' ) ) { define ( 'NIMBLE_API_CHECK_
 if ( !defined( 'NIMBLE_GOOGLE_FONTS_STYLESHEET_ID' ) ) { define ( 'NIMBLE_GOOGLE_FONTS_STYLESHEET_ID', 'sek-gfonts-local-and-global' ); }
 if ( !defined( 'NIMBLE_GLOBAL_OPTIONS_STYLESHEET_ID' ) ) { define ( 'NIMBLE_GLOBAL_OPTIONS_STYLESHEET_ID', 'nimble-global-inline-style' ); }
 
-if ( !defined( 'NIMBLE_JQUERY_ID' ) ) { define ( 'NIMBLE_JQUERY_ID', 'nb-jquery' ); }
-if ( !defined( 'NIMBLE_JQUERY_LATEST_CDN_URL' ) ) { define ( 'NIMBLE_JQUERY_LATEST_CDN_URL', 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js' ); }
-if ( !defined( 'NIMBLE_JQUERY_MIGRATE_URL' ) ) { define ( 'NIMBLE_JQUERY_MIGRATE_URL', site_url() . '/wp-includes/js/jquery/jquery-migrate.min.js' ); }
-
 if ( !defined( "NIMBLE_DATA_API_URL_V2" ) ) { define( "NIMBLE_DATA_API_URL_V2",
   ( defined('NIMBLE_FETCH_API_LOCALLY') && NIMBLE_FETCH_API_LOCALLY && defined('NIMBLE_LOCAL_API_URL') ) ? NIMBLE_LOCAL_API_URL : 'https://api.nimblebuilder.com/wp-json/nimble/v2/cravan'
 ); }
@@ -210,64 +206,6 @@ function sek_get_default_location_model( $skope_id = null ) {
 
 ?><?php
 
-
-// @return bool
-// march 2020 introduced https://github.com/presscustomizr/nimble-builder/issues/632
-// Nov 2020, replaced global option by a PHP constant : https://github.com/presscustomizr/nimble-builder/issues/763
-function sek_is_jquery_replaced() {
-    if ( skp_is_customizing() )
-      return;
-    return defined('NIMBLE_USE_LATEST_JQUERY_VERSION') && NIMBLE_USE_LATEST_JQUERY_VERSION;
-}
-
-// @return bool
-// march 2020 introduced for https://github.com/presscustomizr/nimble-builder/issues/612
-// Nov 2020, replaced global option by a PHP constant : https://github.com/presscustomizr/nimble-builder/issues/763
-function sek_load_jquery_async() {
-    return defined('NIMBLE_LOAD_JQUERY_ASYNC') && NIMBLE_LOAD_JQUERY_ASYNC;
-}
-
-// @return bool
-// march 2020 introduced for https://github.com/presscustomizr/nimble-builder/issues/626
-function sek_load_front_assets_on_scroll() {
-    $glob_perf = sek_get_global_option_value( 'performances' );
-    if ( !is_null( $glob_perf ) && is_array( $glob_perf ) && !empty( $glob_perf['load_front_assets_in_ajax'] ) ) {
-        return sek_booleanize_checkbox_val( $glob_perf['load_front_assets_in_ajax'] );
-    }
-    return false;
-}
-
-// @return bool
-// march 2020 introduced for https://github.com/presscustomizr/nimble-builder/issues/626
-// function sek_preload_font_awesome() {
-//     $glob_perf = sek_get_global_option_value( 'performances' );
-//     if ( !is_null( $glob_perf ) && is_array( $glob_perf ) && !empty( $glob_perf['preload_font_awesome'] ) ) {
-//         return sek_booleanize_checkbox_val( $glob_perf['preload_font_awesome'] );
-//     }
-//     return false;
-// }
-
-// @return bool
-// march 2020 introduced for https://github.com/presscustomizr/nimble-builder/issues/612
-// function sek_inline_module_stylesheets_on_front() {
-//     $glob_perf = sek_get_global_option_value( 'performances' );
-//     if ( !is_null( $glob_perf ) && is_array( $glob_perf ) && !empty( $glob_perf['print_partial_module_stylesheets_inline'] ) ) {
-//         return sek_booleanize_checkbox_val( $glob_perf['print_partial_module_stylesheets_inline'] );
-//     }
-//     return false;
-// }
-
-// @return bool
-// march 2020 introduced for https://github.com/presscustomizr/nimble-builder/issues/612
-function sek_inline_dynamic_stylesheets_on_front() {
-    $glob_perf = sek_get_global_option_value( 'performances' );
-    if ( !is_null( $glob_perf ) && is_array( $glob_perf ) && !empty( $glob_perf['print_dyn_stylesheets_inline'] ) ) {
-        return sek_booleanize_checkbox_val( $glob_perf['print_dyn_stylesheets_inline'] );
-    }
-    return false;
-}
-
-
 // @return bool
 // march 2020 introduced for https://github.com/presscustomizr/nimble-builder/issues/629
 // Firefox doesn not support preload
@@ -288,7 +226,7 @@ function sek_preload_google_fonts_on_front() {
 
 // @return bool
 // march 2020 introduced for https://github.com/presscustomizr/nimble-builder/issues/635
-function sek_load_front_assets_in_ajax() {
+function sek_load_front_assets_dynamically() {
     $glob_perf = sek_get_global_option_value( 'performances' );
     if ( !is_null( $glob_perf ) && is_array( $glob_perf ) && !empty( $glob_perf['load_assets_in_ajax'] ) ) {
         return !skp_is_customizing() && sek_booleanize_checkbox_val( $glob_perf['load_assets_in_ajax'] );
@@ -312,127 +250,17 @@ function sek_emit_js_event( $event = '', $echo = true ) {
       return;
     $emitted[] = $event;
     Nimble_Manager()->emitted_js_event = $emitted;
-    $html = sprintf('<script>(function(){if(window.nb_){nb_.emit("%1$s");}})();</script>', $event );
+    
     if ( $echo ) {
-        echo $html;
+        $html = sprintf('(function(){if(window.nb_){nb_.emit("%1$s");}})();', $event );
+        wp_register_script( 'nb_emit_' . $event, '');
+        wp_enqueue_script( 'nb_emit_' . $event );
+        wp_add_inline_script( 'nb_emit_' . $event, $html );
     } else {
+        $html = sprintf('<script>(function(){if(window.nb_){nb_.emit("%1$s");}})();</script>', $event );
         return $html;
     }
 }
-
-
-// October 2020 => module stylesheets are concatenated in the dynamic stylesheet
-// @return bool
-// march 2020 introduced for https://github.com/presscustomizr/nimble-builder/issues/612
-// function sek_use_split_stylesheets_on_front() {
-//     $glob_perf = sek_get_global_option_value( 'performances' );
-//     if ( !is_null( $glob_perf ) && is_array( $glob_perf ) && !empty( $glob_perf['use_partial_module_stylesheets'] ) ) {
-//         return sek_booleanize_checkbox_val( $glob_perf['use_partial_module_stylesheets'] );
-//     }
-//     return false;
-// }
-
-
-/* ------------------------------------------------------------------------- *
- *  FRONT ASSET SNIFFERS
- *  Deprecated in October 2020 in favor of a js detection using events like nb-needs-video-bg
-/* ------------------------------------------------------------------------- */
-
-// // @return bool
-// // some modules uses font awesome :
-// // Fired in 'wp_enqueue_scripts' to check if font awesome is needed
-// function sek_front_needs_font_awesome( $bool = false, $recursive_data = null ) {
-//     $contextually_active_modules = sek_get_collection_of_contextually_active_modules();
-//     $font_awesome_dependant_modules = Nimble_Manager()->modules_dependant_of_font_awesome;//'czr_button_module', 'czr_icon_module', 'czr_social_icons_module'
-//     foreach ( $font_awesome_dependant_modules as $module_type ) {
-//       if ( array_key_exists($module_type , $contextually_active_modules) )
-//         $bool = true;
-//     }
-//     return $bool;
-// }
-
-// @return bool
-// Fired in 'wp_enqueue_scripts'
-// Recursively sniff the local and global sections to find a 'img-lightbox' string
-// @see sek_get_module_params_for_czr_image_main_settings_child
-// function sek_front_needs_magnific_popup( $bool = false, $recursive_data = null ) {
-//     if ( !$bool ) {
-//         if ( is_null( $recursive_data ) ) {
-//             $local_skope_settings = sek_get_skoped_seks( skp_get_skope_id() );
-//             $local_collection = ( is_array( $local_skope_settings ) && !empty( $local_skope_settings['collection'] ) ) ? $local_skope_settings['collection'] : array();
-//             $global_skope_settings = sek_get_skoped_seks( NIMBLE_GLOBAL_SKOPE_ID );
-//             $global_collection = ( is_array( $global_skope_settings ) && !empty( $global_skope_settings['collection'] ) ) ? $global_skope_settings['collection'] : array();
-
-//             $recursive_data = array_merge( $local_collection, $global_collection );
-//         }
-
-//         foreach ($recursive_data as $key => $value) {
-//             // @see sek_get_module_params_for_czr_image_main_settings_child
-//             if ( is_string( $value ) && 'img-lightbox' === $value ) {
-//                 $bool = true;
-//                 break;
-//             }
-//             if ( is_array( $value ) ) {
-//                 $bool = sek_front_needs_magnific_popup( $bool, $value );
-//             }
-//         }
-//     }
-//     return true === $bool;
-// }
-
-// @return bool
-// Fired in 'wp_enqueue_scripts'
-// function sek_front_needs_parallax_bg( $bool = false, $recursive_data = null ) {
-//     if ( !$bool ) {
-//         if ( is_null( $recursive_data ) ) {
-//             $local_skope_settings = sek_get_skoped_seks( skp_get_skope_id() );
-//             $local_collection = ( is_array( $local_skope_settings ) && !empty( $local_skope_settings['collection'] ) ) ? $local_skope_settings['collection'] : array();
-//             $global_skope_settings = sek_get_skoped_seks( NIMBLE_GLOBAL_SKOPE_ID );
-//             $global_collection = ( is_array( $global_skope_settings ) && !empty( $global_skope_settings['collection'] ) ) ? $global_skope_settings['collection'] : array();
-
-//             $recursive_data = array_merge( $local_collection, $global_collection );
-//         }
-
-//         foreach ($recursive_data as $key => $value) {
-//             // @see sek_get_module_params_for_czr_image_main_settings_child
-//             if ( 'bg-parallax' === $key && sek_booleanize_checkbox_val($value) ) {
-//                 $bool = true;
-//                 break;
-//             }
-//             if ( is_array( $value ) ) {
-//                 $bool = sek_front_needs_parallax_bg( $bool, $value );
-//             }
-//         }
-//     }
-//     return true === $bool;
-// }
-
-// @return bool
-// Fired in 'wp_enqueue_scripts'
-// function sek_front_needs_video_bg( $bool = false, $recursive_data = null ) {
-//     if ( !$bool ) {
-//         if ( is_null( $recursive_data ) ) {
-//             $local_skope_settings = sek_get_skoped_seks( skp_get_skope_id() );
-//             $local_collection = ( is_array( $local_skope_settings ) && !empty( $local_skope_settings['collection'] ) ) ? $local_skope_settings['collection'] : array();
-//             $global_skope_settings = sek_get_skoped_seks( NIMBLE_GLOBAL_SKOPE_ID );
-//             $global_collection = ( is_array( $global_skope_settings ) && !empty( $global_skope_settings['collection'] ) ) ? $global_skope_settings['collection'] : array();
-
-//             $recursive_data = array_merge( $local_collection, $global_collection );
-//         }
-
-//         foreach ($recursive_data as $key => $value) {
-//             // @see sek_get_module_params_for_czr_image_main_settings_child
-//             if ( 'bg-video' === $key && !empty($value) ) {
-//                 $bool = true;
-//                 break;
-//             }
-//             if ( is_array( $value ) ) {
-//                 $bool = sek_front_needs_video_bg( $bool, $value );
-//             }
-//         }
-//     }
-//     return true === $bool;
-// }
 
 ?><?php
 
@@ -803,7 +631,7 @@ function sek_page_menu_fallback( $args = array() ) {
 
     //$menu = apply_filters( 'wp_page_menu', $menu, $args );
     if ( $args['echo'] )
-      echo $menu;
+      echo wp_kses_post($menu);
     else
       return $menu;
 }
@@ -858,7 +686,7 @@ function sek_list_pages( $args = '' ) {
     }
     $html = apply_filters( 'wp_list_pages', $output, $r );
     if ( $r['echo'] ) {
-        echo $html;
+        echo wp_kses_post($html);
     } else {
         return $html;
     }
@@ -1070,14 +898,6 @@ function sek_get_module_collection() {
           'font_icon' => '<i class="material-icons">menu</i>'
           //'active' => sek_are_beta_features_enabled()
         )
-        // array(
-        //   'content-type' => 'module',
-        //   'content-id' => 'czr_featured_pages_module',
-        //   'title' => __( 'Featured pages',  'text_doma' ),
-        //   'icon' => 'Nimble__featured_icon.svg'
-        // ),
-
-
     ));
 }
 
@@ -1582,6 +1402,84 @@ function _sek_normalize_single_module_values( $raw_module_value, $module_type ) 
     return $module_values;
 }
 
+
+// Returns an array of allowed HTML tags and attributes when securing form echoed with wp_kses()
+function sek_get_allowed_html_in_forms() {
+    $allowed = array(
+        'div' => array(),
+        'span' => array(),
+        'form' => array(
+            'action' => true,
+            'method' => true,
+            'post' => true
+        ),
+        'button' => array(
+            'disabled' => true,
+            'name' => true,
+            'type' => true,
+            'value' => true,
+        ),
+        'input' => array(
+            'alt' => true,
+            'capture' => true,
+            'checked' => true,
+            'disabled' => true,
+            'list' => true,
+            'name' => true,
+            'placeholder' => true,
+            'readonly' => true,
+            'type' => true,
+            'value' => true,
+        ),
+        'label' => array(
+            'for' => true,
+        ),
+        'textarea' => array(
+            'cols' => true,
+            'disabled' => true,
+            'maxlength' => true,
+            'minlength' => true,
+            'name' => true,
+            'placeholder' => true,
+            'readonly' => true,
+            'rows' => true,
+            'spellcheck' => true,
+            'wrap' => true,
+        ),
+    );
+
+    $allowed = array_map(
+        function ($to_map) {
+            $attr = array(
+                'aria-checked' => true,
+                'aria-describedby' => true,
+                'aria-details' => true,
+                'aria-disabled' => true,
+                'aria-hidden' => true,
+                'aria-invalid' => true,
+                'aria-label' => true,
+                'aria-labelledby' => true,
+                'aria-live' => true,
+                'aria-relevant' => true,
+                'aria-required' => true,
+                'aria-selected' => true,
+                'class' => true,
+                'data-*' => true,
+                'id' => true,
+                'inputmode' => true,
+                'role' => true,
+                'style' => true,
+                'tabindex' => true,
+                'title' => true,
+            );
+
+            return array_merge( $attr, (array) $to_map );
+        },
+        $allowed
+    );
+    return $allowed;
+}
+
 ?><?php
 /* ------------------------------------------------------------------------- *
  *  BREAKPOINTS HELPER
@@ -1746,7 +1644,7 @@ function sek_get_closest_section_custom_breakpoint( $params ) {
     if ( 'not_set' === $collection  ) {
         if ( empty( $skope_id ) ) {
             if ( is_array( $_POST ) && !empty( $_POST['location_skope_id'] ) ) {
-                $skope_id = $_POST['location_skope_id'];
+                $skope_id = sanitize_text_field($_POST['location_skope_id']);
             } else {
                 // When fired during an ajax 'customize_save' action, the skp_get_skope_id() is determined with $_POST['local_skope_id']
                 // @see add_filter( 'skp_get_skope_id', '\Nimble\sek_filter_skp_get_skope_id', 10, 2 );
@@ -2369,7 +2267,7 @@ function sek_get_the_content() {
     return sek_get_tmpl_tag_error( $tag = 'the_content', $msg = __('It can only be used in single pages or single posts.', 'nimble-builder') );
   }
   if ( defined( 'DOING_AJAX' ) && DOING_AJAX && skp_is_customizing() ) {
-      $post_id = sek_get_posted_query_param_when_customizing( 'post_id' );
+      $post_id = (int)sek_get_posted_query_param_when_customizing( 'post_id' );
       if ( is_int($post_id) ) {
           $post_object = get_post( $post_id );
           return !empty( $post_object ) ? apply_filters( 'the_content', $post_object->post_content ) : null;
@@ -2441,12 +2339,30 @@ function sek_get_author_id_on_front_and_when_customizing() {
 // when performing ajax action, we need the posted query params made available from the ajax params
 function sek_get_post_id_on_front_and_when_customizing() {
     if ( defined( 'DOING_AJAX' ) && DOING_AJAX && skp_is_customizing() ) {
-        $post_id = sek_get_posted_query_param_when_customizing( 'post_id' );
+        $post_id = (int)sek_get_posted_query_param_when_customizing( 'post_id' );
     } else {
         $post_id = get_the_ID();
     }
     return is_int($post_id) ? $post_id : null;
 }
+
+// recursively sanitize an array of posted ($_POST) query_params to be used when customzing
+// @param params (array)
+function sek_sanitize_query_params_array( $params = array()) {
+  foreach ($params as $prm => $val) {
+    if ( is_array($val) ) {
+      if ( empty($val) ) {
+        $sanitized_query_params[$prm] = [];
+      } else {
+        $sanitized_query_params[$prm] = sek_sanitize_query_params_array($params);
+      }
+    } else {
+      $sanitized_query_params[$prm] = sanitize_text_field($val);
+    }
+  }
+  return $sanitized_query_params;
+}
+
 
 // introduced in october 2019 for https://github.com/presscustomizr/nimble-builder/issues/401
 // Possible params as of October 2019
@@ -2457,7 +2373,11 @@ function sek_get_posted_query_param_when_customizing( $param ) {
   if ( isset( $_POST['czr_query_params'] ) ) {
       $query_params = json_decode( wp_unslash( $_POST['czr_query_params'] ), true );
       if ( array_key_exists( $param, $query_params ) ) {
-          return $query_params[$param];
+          if ( !is_array($query_params[$param]) ) {
+            return sanitize_text_field($query_params[$param]);
+          } else {
+            return sek_sanitize_query_params_array($query_params[$param]);
+          }
       } else {
           sek_error_log( __FUNCTION__ . ' => invalid param requested');
           return null;
@@ -2643,7 +2563,7 @@ function sek_get_parent_level_model( $child_level_id = '', $collection = array()
     if ( empty( $collection ) ) {
         if ( empty( $skope_id ) ) {
             if ( is_array( $_POST ) && !empty( $_POST['location_skope_id'] ) ) {
-                $skope_id = $_POST['location_skope_id'];
+                $skope_id = sanitize_text_field($_POST['location_skope_id']);
             } else {
                 // When fired during an ajax 'customize_save' action, the skp_get_skope_id() is determined with $_POST['local_skope_id']
                 // @see add_filter( 'skp_get_skope_id', '\Nimble\sek_filter_skp_get_skope_id', 10, 2 );
@@ -3021,8 +2941,8 @@ function sek_filter_skp_get_skope_id( $skope_id, $level ) {
     //       $.extend( query, { local_skope_id : api.czr_skopeBase.getSkopeProperty( 'skope_id' ) } );
     // });
     // implemented to fix : https://github.com/presscustomizr/nimble-builder/issues/242
-    if ( 'local' === $level && is_array( $_POST ) && !empty( $_POST['local_skope_id'] ) && 'customize_save' === $_POST['action'] ) {
-        $skope_id = $_POST['local_skope_id'];
+    if ( 'local' === $level && is_array( $_POST ) && !empty( $_POST['local_skope_id'] ) && 'customize_save' === sanitize_text_field($_POST['action']) ) {
+        $skope_id = sanitize_text_field($_POST['local_skope_id']);
     }
     return $skope_id;
 }
@@ -3034,18 +2954,6 @@ function sek_get_seks_setting_id( $skope_id = '' ) {
   }
   return NIMBLE_OPT_PREFIX_FOR_SEKTION_COLLECTION . "[{$skope_id}]";
 }
-
-
-
-// @return void()
-/*function sek_get_module_placeholder( $placeholder_icon = 'short_text' ) {
-  $placeholder_icon = empty( $placeholder_icon ) ? 'not_interested' : $placeholder_icon;
-  ?>
-    <div class="sek-module-placeholder">
-      <i class="material-icons"><?php echo $placeholder_icon; ?></i>
-    </div>
-  <?php
-}*/
 
 
 /* ------------------------------------------------------------------------- *
@@ -3202,8 +3110,8 @@ function sek_is_customize_previewing_a_changeset_post() {
 function sek_get_parent_theme_slug() {
     $theme_slug = get_option( 'stylesheet' );
     // $_REQUEST['theme'] is set both in live preview and when we're customizing a non active theme
-    $theme_slug = isset($_REQUEST['theme']) ? $_REQUEST['theme'] : $theme_slug; //old wp versions
-    $theme_slug = isset($_REQUEST['customize_theme']) ? $_REQUEST['customize_theme'] : $theme_slug;
+    $theme_slug = sanitize_text_field( isset($_REQUEST['theme']) ? $_REQUEST['theme'] : $theme_slug ); //old wp versions
+    $theme_slug = sanitize_text_field( isset($_REQUEST['customize_theme']) ? $_REQUEST['customize_theme'] : $theme_slug );
 
     //gets the theme name (or parent if child)
     $theme_data = wp_get_theme( $theme_slug );
@@ -3309,16 +3217,38 @@ function sek_get_th_start_ver( $theme_name ) {
  *  STRIP SCRIPT TAG WHEN CUSTOMIZING
  *  to prevent customizer breakages. See https://github.com/presscustomizr/nimble-builder/issues/688
 /* ------------------------------------------------------------------------- */
-function sek_strip_script_tags_when_customizing( $html = '' ) {
-      if ( !skp_is_customizing() || !is_string( $html ) ) {
-          return $html;
-      }
-      // June 2020 => added a notice for https://github.com/presscustomizr/nimble-builder/issues/710
-      $script_notice = sprintf('<div class="nimble-notice-in-preview"><i class="fas fa-info-circle"></i>&nbsp;%1$s</div>',
-          __('Custom javascript code is not executed when customizing.', 'nimble-builder')
-      );
-      return preg_replace('#<script(.*?)>(.*?)</script>#is', $script_notice, $html);
+function sek_strip_script_tags_and_print_js_inline( $html, $model ) {
+    if ( !is_string( $html ) )
+        return $html;
+    if ( skp_is_customizing() ) {
+        // June 2020 => added a notice for https://github.com/presscustomizr/nimble-builder/issues/710
+        $script_notice = sprintf('<div class="nimble-notice-in-preview"><i class="fas fa-info-circle"></i>&nbsp;%1$s</div>',
+        __('Custom javascript code is not executed when customizing.', 'nimble-builder')
+        );
+        return preg_replace('#<script(.*?)>(.*?)</script>#is', $script_notice, $html);
+    } else {
+        $js = "";
+        // Get the script tags content
+        preg_match_all('/<script>(.*?)<\/script>/s', $html, $matches);
+        foreach ($matches[1] as $value) {
+            if (!empty($value)) {
+                $js .= $value .";\n";
+            }
+        }
+        
+        // Remove the scripts from the content
+        $html = preg_replace('#<script(.*?)</script>#is', '', $html);
+        
+        // Print scripts inline safely
+        if ( !empty($js) ) {
+            wp_register_script( 'nb_module_custom_js_' . $model['id'], '');
+            wp_enqueue_script( 'nb_module_custom_js_' . $model['id'] );
+            wp_add_inline_script( 'nb_module_custom_js_' . $model['id'], $js );
+        }
+        return $html;
+    }
 }
+
 function sek_strip_script_tags( $html = '' ) {
       if (!is_string( $html ) ) {
           return $html;
@@ -4106,7 +4036,7 @@ function sek_add_customize_link() {
         if ( is_customize_preview() && $wp_customize->changeset_post_id() && !current_user_can( get_post_type_object( 'customize_changeset' )->cap->edit_post, $wp_customize->changeset_post_id() ) ) {
           return;
         }
-        $current_url = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+        $current_url = ( is_ssl() ? 'https://' : 'http://' ) . sanitize_text_field($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
         if ( is_customize_preview() && $wp_customize->changeset_uuid() ) {
             $current_url = remove_query_arg( 'customize_changeset_uuid', $current_url );
         }

@@ -132,11 +132,13 @@ if ( !function_exists('Nimble\sek_maybe_parse_slider_img_html_for_lazyload') ) {
                 unset( $attr['srcset'] );
             }
 
-            if ( !empty( $attr['src'] ) ) {
-                $attr['data-src'] = $attr['src'];
-                $attr['src'] = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
-                //unset( $attr['src'] );
-            }
+            // april 22 : deactivated when implementing late escape for #885 because it breaks data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7
+            // No idea how to escape this without breaking it for now
+            // if ( !empty( $attr['src'] ) ) {
+            //     $attr['data-src'] = $attr['src'];
+            //     $attr['src'] = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+            //     //unset( $attr['src'] );
+            // }
             if ( !empty( $attr['sizes'] ) ) {
                 $attr['data-sek-img-sizes'] = $attr['sizes'];
                 unset( $attr['sizes'] );
@@ -185,9 +187,9 @@ if ( !function_exists( 'Nimble\sek_get_img_slider_module_img_html') ) {
             // the default img is excluded from the Nimble Builder smart loading parsing @see nimble_regex_callback()
             // => this is needed because this image has no specific dimensions set. And therefore can create false javascript computations of other element's distance to top on page load.
             // in particular when calculting if is_visible() to decide if we smart load.
-            $html = sprintf( '<img alt="default img" data-skip-lazyload="true" src="%1$s"/>', esc_url(  $item['img'] )  );
+            $html = sprintf( '<img alt="default img" data-skip-lazyload="true" src="%1$s"/>', esc_url( $item['img'] )  );
         }
-        return skp_is_customizing() ? $html : apply_filters( 'nimble_parse_for_smart_load', $html );
+        return $html;
     }
 }
 
@@ -202,21 +204,21 @@ if ( !function_exists( 'Nimble\sek_print_img_slider' ) ) {
       $pause_on_hover = true === sek_booleanize_checkbox_val( $slider_options['pause_on_hover'] ) ? "true" : "false";
       $loop_on = true === sek_booleanize_checkbox_val( $slider_options['infinite_loop'] ) ? "true" : "false";
       $lazy_load_on = true === sek_booleanize_checkbox_val( $slider_options['lazy_load'] ) ? "true" : "false";
-      $nav_type = ( is_string( $slider_options['nav_type'] ) && !empty( $slider_options['nav_type'] ) ) ? $slider_options['nav_type'] : 'arrows_dots';
+      $nav_type = ( is_string( $slider_options['nav_type'] ) && !empty( $slider_options['nav_type'] ) ) ? esc_attr($slider_options['nav_type']) : 'arrows_dots';
       $hide_nav_on_mobiles = true === sek_booleanize_checkbox_val( $slider_options['hide_nav_on_mobiles'] );
       ?>
         <?php printf('<div class="swiper sek-swiper-loading sek-swiper%1$s" data-sek-swiper-id="%1$s" data-sek-autoplay="%2$s" data-sek-autoplay-delay="%3$s" data-sek-pause-on-hover="%4$s" data-sek-loop="%5$s" data-sek-image-layout="%6$s" data-sek-navtype="%7$s" data-sek-is-multislide="%8$s" data-sek-hide-nav-on-mobile="%9$s" data-sek-lazyload="%10$s" %11$s>',
-            $model['id'],
-            $autoplay,
-            $autoplay_delay,
-            $pause_on_hover,
-            $loop_on,
-            $slider_options['image-layout'],
-            $nav_type,
+            esc_attr($model['id']),
+            esc_attr($autoplay),
+            esc_attr($autoplay_delay),
+            esc_attr($pause_on_hover),
+            esc_attr($loop_on),
+            esc_attr($slider_options['image-layout']),
+            esc_attr($nav_type),
             $is_multislide ? 'true' : 'false',
             $hide_nav_on_mobiles ? 'true' : 'false',
-            $lazy_load_on,
-            apply_filters('nb_slider_wrapper_custom_attributes', '', $slider_options, $model )
+            esc_attr($lazy_load_on),
+            wp_kses_post(apply_filters('nb_slider_wrapper_custom_attributes', '', $slider_options, $model ))
           ); ?>
           <?php if ( is_array( $img_collection ) && count( $img_collection ) > 0 ) : ?>
             <div class="swiper-wrapper">
@@ -239,32 +241,33 @@ if ( !function_exists( 'Nimble\sek_print_img_slider' ) ) {
                   $has_overlay = true === sek_booleanize_checkbox_val( $item['apply-overlay'] );
 
                   // Put them together
-                  printf( '<div class="swiper-slide" title="%1$s" data-sek-item-id="%4$s" data-sek-has-overlay="%5$s" %6$s><figure class="sek-carousel-img">%2$s</figure>%3$s</div>',
+                  $to_render = sprintf( '<div class="swiper-slide" title="%1$s" data-sek-item-id="%4$s" data-sek-has-overlay="%5$s" %6$s><figure class="sek-carousel-img">%2$s</figure>%3$s</div>',
                       sek_slider_parse_template_tags( strip_tags( esc_attr( $item['title_attr'] ) ), $item ),
                       sek_get_img_slider_module_img_html( $item, "true" === $lazy_load_on, $index ),
                       sek_slider_parse_template_tags( $text_html, $item ),
-                      $item['id'],
+                      esc_attr($item['id']),
                       true === sek_booleanize_checkbox_val( $has_overlay ) ? 'true' : 'false',
-                      apply_filters('nb_single_slide_custom_attributes', '', $item, $model )
+                      esc_attr( apply_filters('nb_single_slide_custom_attributes', '', $item, $model ) )
                   );
+                  echo skp_is_customizing() ? wp_kses_post($to_render) : apply_filters( 'nimble_parse_for_smart_load', wp_kses_post($to_render) );
 
               }//foreach
               ?>
             </div><?php //.swiper-wrapper ?>
           <?php endif; ?>
           <?php if ( in_array($nav_type,array('arrows_dots', 'dots') ) && $is_multislide ) : ?>
-            <div class="swiper-pagination swiper-pagination<?php echo $model['id']; ?>"></div>
+            <div class="swiper-pagination swiper-pagination<?php echo esc_attr($model['id']); ?>"></div>
           <?php endif; ?>
 
           <?php if ( in_array($nav_type,array('arrows_dots', 'arrows') ) && $is_multislide ) : ?>
             <div class="sek-swiper-nav">
-              <div class="sek-swiper-arrows sek-swiper-prev sek-swiper-prev<?php echo $model['id']; ?>" title="<?php _e('previous', 'nimble-builder'); ?>"><div class="sek-chevron"></div></div>
-              <div class="sek-swiper-arrows sek-swiper-next sek-swiper-next<?php echo $model['id']; ?>" title="<?php _e('next', 'nimble-builder'); ?>"><div class="sek-chevron"></div></div>
+              <div class="sek-swiper-arrows sek-swiper-prev sek-swiper-prev<?php echo esc_attr($model['id']); ?>" title="<?php _e('previous', 'nimble-builder'); ?>"><div class="sek-chevron"></div></div>
+              <div class="sek-swiper-arrows sek-swiper-next sek-swiper-next<?php echo esc_attr($model['id']); ?>" title="<?php _e('next', 'nimble-builder'); ?>"><div class="sek-chevron"></div></div>
             </div>
           <?php endif; ?>
           <?php
             if ( !skp_is_customizing() ) {
-              echo Nimble_Manager()->css_loader_html;
+              echo '<div class="sek-css-loader sek-mr-loader"><div></div><div></div><div></div></div>';
             }
           ?>
         </div><?php //.swiper ?>
@@ -285,7 +288,7 @@ if ( !empty( $img_collection ) ) {
     if ( skp_is_customizing() ) {
         printf( '<div class="sek-mod-preview-placeholder"><div class="sek-preview-ph-text" style="%2$s"><p>%1$s</p></div></div>',
             __('Click to start adding images.', 'nimble-builder'),
-            'background: url(' . NIMBLE_MODULE_ICON_PATH . 'Nimble_slideshow_icon.svg) no-repeat 50% 75%;background-size: 200px;'
+            'background: url(' . esc_url(NIMBLE_MODULE_ICON_PATH) . 'Nimble_slideshow_icon.svg) no-repeat 50% 75%;background-size: 200px;'
         );
     }
 }

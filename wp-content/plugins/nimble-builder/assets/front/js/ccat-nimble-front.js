@@ -741,7 +741,7 @@ window.nb_.getQueryVariable = function(variable) {
                   return true;//<=> continue see https://api.jquery.com/jquery.each/
 
                 // do nothing if dynamic asset loading is not enabled for js and css AND the assets in not in "force" mode
-                var load_authorized = sekFrontLocalized.load_front_assets_on_scroll;
+                var load_authorized = sekFrontLocalized.load_front_assets_on_dynamically;
                 if ( true === handlerParams.force_loading ) {
                     load_authorized = true;
                 }
@@ -826,42 +826,42 @@ window.nb_.getQueryVariable = function(variable) {
 
 
 /* ------------------------------------------------------------------------- *
- *  LOAD MAGNIFIC POPUP
- /* ------------------------------------------------------------------------- */
+ *  LOAD SWIPEBOX
+/* ------------------------------------------------------------------------- */
 (function(w, d){
     var callbackFunc = function() {
         jQuery(function($){
-            if ( !sekFrontLocalized.load_front_assets_on_scroll )
+            if ( !sekFrontLocalized.load_front_assets_on_dynamically )
                 return;
 
             var $linkCandidates = $('[data-sek-module-type="czr_image_module"]').find('.sek-link-to-img-lightbox');
-            $linkCandidates = $linkCandidates.add($('[data-sek-level="module"]').find('.sek-gallery-lightbox'));
+            $linkCandidates = $linkCandidates.add($('[data-sek-level="module"]').find('.sek-gal-link-to-img-lightbox'));
             // Abort if no link candidate, or if the link href looks like :javascript:void(0) <= this can occur with the default image for example.
             if ( $linkCandidates.length < 1 )
               return;
             var doLoad = function() {
                   //Load the style
-                  if ( $('head').find( '#czr-magnific-popup' ).length < 1 ) {
+                  if ( $('head').find( '#nb-swipebox' ).length < 1 ) {
                         $('head').append( $('<link/>' , {
                               rel : 'stylesheet',
-                              id : 'czr-magnific-popup',
+                              id : 'nb-swipebox',
                               type : 'text/css',
-                              href : sekFrontLocalized.frontAssetsPath + 'css/libs/magnific-popup.min.css?' + sekFrontLocalized.assetVersion
+                              href : sekFrontLocalized.frontAssetsPath + 'css/libs/swipebox.min.css?' + sekFrontLocalized.assetVersion
                         }) );
                   }
 
-                  if ( !nb_.isFunction( $.fn.magnificPopup ) && sekFrontLocalized.load_front_assets_on_scroll ) {
+                  if ( !nb_.isFunction( $.fn.swipebox ) && sekFrontLocalized.load_front_assets_on_dynamically ) {
                         nb_.ajaxLoadScript({
-                            path : 'js/libs/jquery-magnific-popup.min.js',
-                            loadcheck : function() { return nb_.isFunction( $.fn.magnificPopup ); }
+                            path : 'js/libs/jquery-swipebox.min.js',
+                            loadcheck : function() { return nb_.isFunction( $.fn.swipebox ); }
                         });
                   }
               };// doLoad
 
             // Load js plugin if needed
-            // when the plugin is loaded => it emits 'nb-jmp-parsed' listened to by nb_.listenTo()
+            // when the plugin is loaded => it emits 'nb-swipebox-parsed' listened to by nb_.listenTo()
             nb_.maybeLoadAssetsWhenSelectorInScreen( {
-                id : 'magnific-popup',
+                id : 'swipebox',
                 elements : $linkCandidates,
                 func : doLoad
             });
@@ -870,12 +870,9 @@ window.nb_.getQueryVariable = function(variable) {
 
     //When loaded with defer, we can not be sure that jQuery will be loaded before
     nb_.listenTo( 'nb-app-ready', function() {
-        nb_.listenTo( 'nb-needs-magnific-popup', callbackFunc );
+        nb_.listenTo( 'nb-needs-swipebox', callbackFunc );
     });
 }(window, document));
-
-
-
 
 
 
@@ -885,7 +882,7 @@ window.nb_.getQueryVariable = function(variable) {
 (function(w, d){
     var callbackFunc = function() {
         jQuery(function($){
-            if ( !sekFrontLocalized.load_front_assets_on_scroll )
+            if ( !sekFrontLocalized.load_front_assets_on_dynamically )
               return;
             // Load js plugin if needed
             // // when the plugin is loaded => it emits 'nimble-swiper-ready' listened to by nb_.listenTo()
@@ -943,7 +940,7 @@ window.nb_.getQueryVariable = function(variable) {
 (function(w, d){
     var callbackFunc = function() {
         jQuery(function($){
-            if ( !sekFrontLocalized.load_front_assets_on_scroll )
+            if ( !sekFrontLocalized.load_front_assets_on_dynamically )
               return;
             var $candidates = $('[data-sek-video-bg-src]');
             // Abort if no link candidate, or if the link href looks like :javascript:void(0) <= this can occur with the default image for example.
@@ -951,7 +948,7 @@ window.nb_.getQueryVariable = function(variable) {
               return;
 
             // Load js plugin if needed
-            // when the plugin is loaded => it emits 'nb-jmp-parsed' listened to by nb_.listenTo()
+            // when the plugin is loaded => it emits 'nb-..-parsed' listened to by nb_.listenTo()
             nb_.maybeLoadAssetsWhenSelectorInScreen( {
                 id : 'nb-video-bg',
                 elements : $candidates,
@@ -982,7 +979,7 @@ window.nb_.getQueryVariable = function(variable) {
             // we don't need to inject font awesome if already enqueued by a theme
             if ( sekFrontLocalized.fontAwesomeAlreadyEnqueued )
               return;
-            if ( !sekFrontLocalized.load_front_assets_on_scroll )
+            if ( !sekFrontLocalized.load_front_assets_on_dynamically )
               return;
             var $candidates = $('i[class*=fa-]');
 
@@ -1010,7 +1007,7 @@ window.nb_.getQueryVariable = function(variable) {
                   }
             };// doLoad
             // Load js plugin if needed
-            // when the plugin is loaded => it emits 'nb-jmp-parsed' listened to by nb_.listenTo()
+            // when the plugin is loaded => it emits 'nb-...-parsed' listened to by nb_.listenTo()
             nb_.maybeLoadAssetsWhenSelectorInScreen({
                 id : 'font-awesome',
                 elements : $candidates,
@@ -1026,73 +1023,49 @@ window.nb_.getQueryVariable = function(variable) {
     });
 }(window, document));// global sekFrontLocalized, nimbleListenTo
 /* ------------------------------------------------------------------------- *
- *  LIGHT BOX WITH MAGNIFIC POPUP
+ *  LIGHT BOX SWIPEBOX ( April 2022 for #886)
  /* ------------------------------------------------------------------------- */
-(function(w, d){
-    nb_.listenTo('nb-jmp-parsed', function() {
-        jQuery(function($){
-            if ( nb_.isCustomizing() )
-                  return;
-
-            var $linkCandidates = [
-                  $('[data-sek-level="module"]').find('.sek-link-to-img-lightbox'),// image module
-                  $('[data-sek-level="module"]').find('.sek-gallery-lightbox')// gallery module
-            ];
-
-            var _params = {
-                  type: 'image',
-                  closeOnContentClick: true,
-                  closeBtnInside: true,
-                  fixedContentPos: true,
-                  mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
-                  image: {
-                        verticalFit: true
-                        // titleSrc: function(item) {
-                        //       return item.el.attr('title');
-                        // }
-                  },
-                  zoom: {
-                        enabled: true,
-                        duration: 300 // don't foget to change the duration also in CSS
-                  }
-            };
-            //var $linkCand;
-            $.each( $linkCandidates, function(_k, $linkCand) {
-                  // Abort if no link candidate
-                  if ( $linkCand.length < 1 )
+ (function(w, d){
+      nb_.listenTo('nb-swipebox-parsed', function() {
+            jQuery(function($){
+                  if ( nb_.isCustomizing() )
                         return;
-                  //$linkCand = $(this);
-                  if ( $linkCand.hasClass('sek-gallery-lightbox') ) {
-                        _params.delegate = 'figure .sek-gal-img-has-link';
-                        _params.gallery = {
-                              enabled: true,
-                              navigateByImgClick: true
-                              //preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-                        };
-                        _params.image = {
-                              verticalFit: true,
-                              titleSrc: function(item) {
-                                    return item.el.attr('title');
-                              }
-                        };
-                  }
-                  // Abort if candidate already setup
-                  if ( $linkCand.data('nimble-mfp-done') )
-                        return;
-                  try { $linkCand.magnificPopup( _params ); } catch( er ) {
-                        nb_.errorLog( 'error in callback of nimble-magnific-popup-loaded => ', er );
-                  }
-                  $linkCand.data('nimble-mfp-done', true );
-            });
+      
+                  var $linkCandidates = [
+                        $('[data-sek-level="module"]').find('.sek-link-to-img-lightbox'),// image module
+                        $('[data-sek-level="module"]').find('.sek-gal-link-to-img-lightbox')// gallery module
+                  ];
 
-            // July 2021, prevent gallery images to be clicked when no link is specified
-            $('.sek-gallery-lightbox').on('click', '.sek-no-img-link', function(evt) {
-                  evt.preventDefault();
-            });
+                  //https://github.com/brutaldesign/swipebox
+                  var _params = {
+                        loopAtEnd: true
+                  };
+                  //var $linkCand;
+                  $.each( $linkCandidates, function(_k, $linkCand) {
+                        // Abort if no link candidate
+                        if ( $linkCand.length < 1 ) {
+                              return;
+                        }
+                        // Abort if candidate already setup
+                        if ( $linkCand.data('nimble-swiperbox-done') )
+                              return;
+                        try { $linkCand.swipebox( _params ); } catch( er ) {
+                              nb_.errorLog( 'error in callback of nb-swipebox-parsed => ', er );
+                        }
+                        $linkCand.data('nimble-swiperbox-done', true );
+                  });
 
-        });//jQuery(function($){})
-    });
-}(window, document));
+                  // July 2021, prevent gallery images to be clicked when no link is specified
+                  $('.sek-gallery-lightbox').on('click', '.sek-no-img-link', function(evt) {
+                        evt.preventDefault();
+                  });
+
+            });//jQuery(function($){})
+      });
+  }(window, document));
+
+
+
 
 
 
@@ -1230,7 +1203,7 @@ nb_.listenTo('nb-docready', function() {
 
 // September 2021 => Solves the problem of CSS loaders not cleaned
 // see https://github.com/presscustomizr/nimble-builder/issues/874
-nb_.listenTo('nb-docready', function() {
+nb_.listenTo('nb-app-ready', function() {
       jQuery(function($){
             var $cssLoaders = $('.sek-css-loader');
             if ( $cssLoaders.length < 1 )

@@ -191,7 +191,7 @@ class Jetpack_Slideshow_Shortcode {
 				'ids' => wp_list_pluck( $gallery, 'id' ),
 			);
 
-			if ( 'true' == $autostart ) { // phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison -- attribute can be stored as boolean or string.
+			if ( 'true' == $autostart ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseEqual -- attribute can be stored as boolean or string.
 				$amp_args['autoplay'] = true;
 			}
 
@@ -251,7 +251,7 @@ class Jetpack_Slideshow_Shortcode {
 		$gallery_attributes = _wp_specialchars( wp_check_invalid_utf8( $gallery ), ENT_QUOTES, false, true );
 
 		$output .= sprintf(
-			'<div id="%s" class="slideshow-window jetpack-slideshow slideshow-%s" data-trans="%s" data-autostart="%s" data-gallery="%s" itemscope itemtype="https://schema.org/ImageGallery"></div>',
+			'<div id="%s" class="jetpack-slideshow-window jetpack-slideshow jetpack-slideshow-%s" data-trans="%s" data-autostart="%s" data-gallery="%s" itemscope itemtype="https://schema.org/ImageGallery"></div>',
 			esc_attr( $attr['selector'] . '-slideshow' ),
 			esc_attr( $attr['color'] ),
 			esc_attr( $attr['trans'] ),

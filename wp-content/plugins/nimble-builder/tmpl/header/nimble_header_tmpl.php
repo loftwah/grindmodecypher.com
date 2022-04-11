@@ -28,7 +28,7 @@ if ( !defined( 'ABSPATH' ) ) {
     ?>
     <div id="nimble-page" class="">
       <a class="sek-skip-link sek-screen-reader-text" href="#nimble-page"><?php _e( 'Skip to content', 'nimble-builder' ); ?></a>
-      <header id="nimble-header" class="<?php echo $header_classes; ?>">
+      <header id="nimble-header" class="<?php echo esc_attr($header_classes); ?>">
         <?php do_action('before_nimble_header'); ?>
         <?php Nimble_Manager()->render_nimble_locations( true === Nimble_Manager()->has_local_header_footer ? 'nimble_local_header' :'nimble_global_header' ); ?>
       </header><!-- #nimble-header -->
