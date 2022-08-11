@@ -1,6 +1,6 @@
 <?php // phpcs:ignore WordPress.Files.FileName.InvalidClassFileName
 /**
- * Module Name: Protect
+ * Module Name: Brute force protection
  * Module Description: Enabling brute force protection will prevent bots and hackers from attempting to log in to your website with common username and password combinations.
  * Sort Order: 1
  * Recommendation Order: 4
@@ -285,7 +285,7 @@ class Jetpack_Protect_Module {
 						{
 							_wpnonce: $( event.delegateTarget ).data( 'dismiss-nonce' ),
 						}
-					).fail( function( error ) { 
+					).fail( function( error ) {
 					<?php
 						// A failure here is really strange, and there's not really anything a site owner can do to fix one.
 						// Just log the error for now to help debugging.
@@ -405,14 +405,14 @@ class Jetpack_Protect_Module {
 
 		if ( isset( $_COOKIE['jpp_math_pass'] ) ) {
 
-			$transient = $this->get_transient( 'jpp_math_pass_' . $_COOKIE['jpp_math_pass'] );
+			$transient = $this->get_transient( 'jpp_math_pass_' . sanitize_key( $_COOKIE['jpp_math_pass'] ) );
 			$transient--;
 
 			if ( ! $transient || $transient < 1 ) {
-				$this->delete_transient( 'jpp_math_pass_' . $_COOKIE['jpp_math_pass'] );
-				setcookie( 'jpp_math_pass', 0, time() - DAY_IN_SECONDS, COOKIEPATH, COOKIE_DOMAIN, false );
+				$this->delete_transient( 'jpp_math_pass_' . sanitize_key( $_COOKIE['jpp_math_pass'] ) );
+				setcookie( 'jpp_math_pass', 0, time() - DAY_IN_SECONDS, COOKIEPATH, COOKIE_DOMAIN, false, true );
 			} else {
-				$this->set_transient( 'jpp_math_pass_' . $_COOKIE['jpp_math_pass'], $transient, DAY_IN_SECONDS );
+				$this->set_transient( 'jpp_math_pass_' . sanitize_key( $_COOKIE['jpp_math_pass'] ), $transient, DAY_IN_SECONDS );
 			}
 		}
 		$this->protect_call( 'failed_attempt' );
@@ -497,7 +497,7 @@ class Jetpack_Protect_Module {
 
 		foreach ( $ip_related_headers as $header ) {
 			if ( ! empty( $_SERVER[ $header ] ) ) {
-				$output[ $header ] = $_SERVER[ $header ];
+				$output[ $header ] = wp_unslash( $_SERVER[ $header ] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 			}
 		}
 
@@ -700,7 +700,7 @@ class Jetpack_Protect_Module {
 		if (
 			isset( $_GET['action'], $_GET['_wpnonce'] ) &&
 			'logout' === $_GET['action'] &&
-			wp_verify_nonce( $_GET['_wpnonce'], 'log-out' ) &&
+			wp_verify_nonce( $_GET['_wpnonce'], 'log-out' ) && // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
 			wp_get_current_user()
 
 		) {
@@ -975,7 +975,7 @@ class Jetpack_Protect_Module {
 			return $this->local_host;
 		}
 
-		$uri = 'http://' . strtolower( $_SERVER['HTTP_HOST'] );
+		$uri = 'http://' . strtolower( isset( $_SERVER['HTTP_HOST'] ) ? filter_var( wp_unslash( $_SERVER['HTTP_HOST'] ) ) : '' );
 
 		if ( is_multisite() ) {
 			$uri = network_home_url();
