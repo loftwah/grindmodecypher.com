@@ -1,0 +1,18 @@
+/*************************************
+* DIVIDER MODULE
+*************************************/
+[data-sek-module-type="czr_divider_module"] {
+    text-align: center;
+    .sek-module-inner {
+        font-size: 0;
+        line-height: 0;
+    }
+}
+.sek-module-inner .sek-divider {
+    border-top: 1px solid #5a5a5a;
+    display: inline-block;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 1rem;//so we can use em for margin
+}

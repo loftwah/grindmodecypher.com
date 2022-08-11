@@ -782,7 +782,13 @@ http://flickity.metafizzy.co
 .pro-header-on #flexslider-featured .flex-direction-nav a {
   background:none;
 }
-
+.wp-is-mobile.safari.iphone .lazy-load-on .carousel-cell .carousel-image,
+.wp-is-mobile.safari.iphone .lazy-load-on .carousel-cell img.flickity-lazyloaded {
+  height: 100%;
+}
+.wp-is-mobile.safari.iphone .carousel-inner{
+  opacity: 1;
+}
 
 
 

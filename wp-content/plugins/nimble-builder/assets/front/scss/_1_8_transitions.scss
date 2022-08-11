@@ -1,0 +1,16 @@
+// stylelint-disable selector-no-qualifying-type
+// .sek-fade {
+//   @include transition($transition-fade);
+
+//   &:not(.show) {
+//     opacity: 0;
+//   }
+// }
+
+/*
+.#{$project-prefix}collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  //@include transition($transition-collapse);
+}*/

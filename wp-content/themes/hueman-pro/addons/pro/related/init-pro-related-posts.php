@@ -22,7 +22,7 @@ final class PC_HAPRELPOSTS {
             'col_number'    => 3,
             //'cell_height'   => 'normal',//can take normal, tall
             'display_heading' => true,
-            'heading_text'   => __('You may also like...', 'hueman-pro'),
+            'heading_text'   => __('You may also like...', 'hueman'),
             'freescroll'    => true,
             'ajax_enabled'  => true,
 
@@ -82,8 +82,8 @@ final class PC_HAPRELPOSTS {
 
                 'control' => array(
                     'priority' => 10,
-                    'label' => __('Better Related Posts', 'hueman-pro'),
-                    'description' => __( 'Display related articles below the post' , 'hueman-pro'),
+                    'label' => __('Better Related Posts', 'hueman'),
+                    'description' => __( 'Display related articles below the post' , 'hueman'),
                     'type'  => 'czr_module',
                     'section' => 'content_single_sec',
                     'transport' => hu_is_partial_refreshed_on() ? 'postMessage' : 'refresh',

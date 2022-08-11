@@ -212,7 +212,7 @@ if ( !class_exists( 'HU_utils' ) ) :
 
         // Add a page number if necessary.
         if ( $paged >= 2 || $page >= 2 )
-          $title = "$title $sep " . sprintf( __( 'Page %s' , 'hueman-pro' ), max( $paged, $page ) );
+          $title = "$title $sep " . sprintf( __( 'Page %s' , 'hueman' ), max( $paged, $page ) );
 
         return $title;
     }

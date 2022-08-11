@@ -162,8 +162,8 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
       return array(
           'favicon'  => array(
                 'control'   =>  'HU_Customize_Upload_Control' ,
-                'label'     =>  __( 'Favicon Upload (supported formats : .ico, .png, .gif)' , 'hueman-pro' ),
-                'title'     => __( 'FAVICON' , 'hueman-pro'),
+                'label'     =>  __( 'Favicon Upload (supported formats : .ico, .png, .gif)' , 'hueman' ),
+                'title'     => __( 'FAVICON' , 'hueman'),
                 'section'   => 'title_tagline',//<= this is a default WP section, not created for the Hueman theme
                 'type'      => 'czr_upload',
                 'sanitize_callback' => array( $this , 'hu_sanitize_number' ),
@@ -173,10 +173,10 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
                 'default'   => 1,
                 'priority'  => 4,
                 'control'   => 'HU_controls',
-                'label'     => __( 'Display the site title in the header' , 'hueman-pro' ),
+                'label'     => __( 'Display the site title in the header' , 'hueman' ),
                 'section'   => 'title_tagline',
                 'type'      => 'nimblecheck',
-                'notice'    => __( 'The site title is displayed when there is no logo uploaded', 'hueman-pro' ),
+                'notice'    => __( 'The site title is displayed when there is no logo uploaded', 'hueman' ),
                 'ubq_section'   => array(
                     'section' => 'header_design_sec',
                     'priority' => '0'
@@ -186,13 +186,13 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
                 'default'   => 0,
                 'priority'  => 5,
                 'control'   => 'HU_controls',
-                'label'     => __( 'Display a logo in the header' , 'hueman-pro' ),
+                'label'     => __( 'Display a logo in the header' , 'hueman' ),
                 'section'   => 'title_tagline',
                 'type'      => 'nimblecheck',
                 'notice'    => sprintf( '%3$s <strong><a href="%1$s" title="%3$s">%2$s</a><strong>',
                     "javascript:wp.customize.section('title_tagline').focus();",
-                    __("here" , "hueman-pro"),
-                    __("Set your logo below or", "hueman-pro")
+                    __("here" , "hueman"),
+                    __("Set your logo below or", "hueman")
                 ),
                 'ubq_section'   => array(
                     'section' => 'header_design_sec',
@@ -201,8 +201,8 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           ),
           'mobile-header-logo'  => array(
                 'control'   =>  version_compare( $wp_version, '4.3', '>=' ) ? 'HU_Customize_Cropped_Image_Control' : 'HU_Customize_Upload_Control',
-                'label'     =>  __( 'Use a specific logo for mobile devices' , 'hueman-pro' ),
-                'title'     => __( 'Logo for mobiles', 'hueman-pro' ),
+                'label'     =>  __( 'Use a specific logo for mobile devices' , 'hueman' ),
+                'title'     => __( 'Logo for mobiles', 'hueman' ),
                 'section'   => 'title_tagline' ,
                 'priority'  => 50,
                 'sanitize_callback' => array( $this , 'hu_sanitize_number' ),
@@ -214,14 +214,14 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
                 //to keep the selected cropped size
                 'dst_width'  => false,
                 'dst_height'  => false,
-                'notice'    => __('Upload your custom logo image. Supported formats : .jpg, .png, .gif, svg, svgz' , 'hueman-pro')
+                'notice'    => __('Upload your custom logo image. Supported formats : .jpg, .png, .gif, svg, svgz' , 'hueman')
           ),
           'logo-max-height'  =>  array(
                 'default'       => 60,
                 'priority'      => 7,
                 'control'       => 'HU_controls' ,
                 'sanitize_callback' => array( $this , 'hu_sanitize_number' ),
-                'label'         => sprintf( '%1$s : %2$s %3$s' , __('Desktop devices', 'hueman-pro' ), __( "Header Logo Image Max-height" , 'hueman-pro' ) , __('(in pixels)', 'hueman-pro') ),
+                'label'         => sprintf( '%1$s : %2$s %3$s' , __('Desktop devices', 'hueman' ), __( "Header Logo Image Max-height" , 'hueman' ) , __('(in pixels)', 'hueman') ),
                 'section'       => 'title_tagline',
                 'type'          => 'number' ,
                 'step'          => 1,
@@ -232,10 +232,10 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'wrap_in_h_one' => array(
                 'default'   => 1,
                 'control'   => 'HU_controls',
-                'label'     => __('On home page wrap the site title or logo in an H1 tag', 'hueman-pro'),
+                'label'     => __('On home page wrap the site title or logo in an H1 tag', 'hueman'),
                 'section'   => 'title_tagline',
                 'type'      => 'nimblecheck',
-                'notice'    => __( 'For best SEO results, make sure your pages always include at least one H1 tag.' , 'hueman-pro' ),
+                'notice'    => __( 'For best SEO results, make sure your pages always include at least one H1 tag.' , 'hueman' ),
                 'ubq_section'   => array(
                     'section' => 'header_design_sec',
                     'priority' => '0'
@@ -252,56 +252,56 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'font' => array(
                 'default'   => 'titillium-web',
                 'control'   => 'HU_controls',
-                'label'     => __('Font', 'hueman-pro'),
+                'label'     => __('Font', 'hueman'),
                 'section'   => 'general_design_sec',
                 'type'      => 'select',
                 'choices'    => hu_get_fonts( array( 'all' => true, 'request' => 'title' ) ),
                 'transport'     => 'postMessage',
-                'notice'    => __( 'Select a font for your website' , 'hueman-pro' )
+                'notice'    => __( 'Select a font for your website' , 'hueman' )
           ),
           'body-font-size'      => array(
                 'default'       => 16,
                 'sanitize_callback' => array( $this , 'hu_sanitize_number' ),
-                'label'         => __( 'Set your website default font size in pixels.' , 'hueman-pro' ),
+                'label'         => __( 'Set your website default font size in pixels.' , 'hueman' ),
                 'control'       => 'HU_controls',
                 'section'       => 'general_design_sec',
                 'type'          => 'number' ,
                 'step'          => 1,
                 'min'           => 0,
                 'transport'     => 'postMessage',
-                'notice'        => __( "This option sets the default font size applied to any text element of your website, when no font size is already applied." , 'hueman-pro' )
+                'notice'        => __( "This option sets the default font size applied to any text element of your website, when no font size is already applied." , 'hueman' )
           ),
           'container-width'  =>  array(
                 'default'       => 1380,
                 'control'       => 'HU_controls' ,
                 'sanitize_callback' => array( $this , 'hu_sanitize_number' ),
-                'label'         => __( "Website Max-width" , 'hueman-pro' ),
+                'label'         => __( "Website Max-width" , 'hueman' ),
                 'section'       => 'general_design_sec' ,
                 'type'          => 'number' ,
                 'step'          => 1,
                 'min'           => 1024,
                 //'transport'     => 'postMessage',
-                'notice'        => __('Max-width of the container. If you use 2 sidebars, your container should be at least 1200px.<br /><i>Note: For 720px content (default) use <strong>1380px</strong> for 2 sidebars and <strong>1120px</strong> for 1 sidebar. If you use a combination of both, try something inbetween.</i>', 'hueman-pro')//@todo sprintf and split translations
+                'notice'        => __('Max-width of the container. If you use 2 sidebars, your container should be at least 1200px.<br /><i>Note: For 720px content (default) use <strong>1380px</strong> for 2 sidebars and <strong>1120px</strong> for 1 sidebar. If you use a combination of both, try something inbetween.</i>', 'hueman')//@todo sprintf and split translations
           ),
           'boxed' => array(
                 'default'   => 0,
                 'control'   => 'HU_controls',
-                'label'     => __('Boxed Layout', 'hueman-pro'),
+                'label'     => __('Boxed Layout', 'hueman'),
                 'section'   => 'general_design_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __( 'Use a boxed layout' , 'hueman-pro' )
+                'notice'    => __( 'Use a boxed layout' , 'hueman' )
           ),
           'sidebar-padding' => array(
                 'default'   => '30',
                 'control'   => 'HU_controls',
-                'label'     => __("Sidebar Width", 'hueman-pro'),
+                'label'     => __("Sidebar Width", 'hueman'),
                 'section'   => 'general_design_sec',
                 'type'      => 'select',//@todo create a radio type
                 'choices' => array(
-                  '30'          => __( '30px padding for widgets' , 'hueman-pro' ),
-                  '20'          => __( '20px padding for widgets' , 'hueman-pro' ),
+                  '30'          => __( '30px padding for widgets' , 'hueman' ),
+                  '20'          => __( '20px padding for widgets' , 'hueman' ),
                 ),
-                'notice'    => __( 'Change left and right sidebars padding' , 'hueman-pro'),
+                'notice'    => __( 'Change left and right sidebars padding' , 'hueman'),
                 'ubq_section'   => array(
                     'section' => 'sidebars_design_sec',
                     'priority' => '50'
@@ -310,7 +310,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'color-1' => array(
                 'default'     => hu_user_started_before_version( '3.3.8' ) ? '#3b8dbd' : '#16cfc1',
                 'control'     => 'HU_Customize_Color_Alpha_Control',
-                'label'       => __( 'Primary Color' , 'hueman-pro' ),
+                'label'       => __( 'Primary Color' , 'hueman' ),
                 'section'     => 'general_design_sec',
                 'type'        =>  'wp_color_alpha' ,
                 'sanitize_callback'    => 'maybe_hash_hex_color',
@@ -320,7 +320,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'color-2' => array(
                 'default'     =>  hu_user_started_before_version( '3.3.8' ) ? '#82b965' : '#efb93f',
                 'control'     => 'HU_Customize_Color_Alpha_Control',
-                'label'       => __( 'Secondary Color' , 'hueman-pro' ),
+                'label'       => __( 'Secondary Color' , 'hueman' ),
                 'section'     => 'general_design_sec',
                 'type'        =>  'wp_color_alpha' ,
                 'sanitize_callback'    => 'maybe_hash_hex_color',
@@ -334,8 +334,8 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
                 //'default'     => array(),
                 'default'       => array( 'background-color' => '#eaeaea' ),
                 'control'     => 'HU_Customize_Modules',
-                'label'       => __( 'Body Background' , 'hueman-pro' ),
-                'description' => __('Set the website background color', 'hueman-pro'),
+                'label'       => __( 'Body Background' , 'hueman' ),
+                'description' => __('Set the website background color', 'hueman'),
                 'section'     => 'general_design_sec',
                 'type'        => 'czr_module',
                 'module_type' => 'czr_background'
@@ -349,38 +349,38 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
                 'default'       => 0,
                 'control'       => 'HU_controls' ,
                 'sanitize_callback' => array( $this , 'hu_sanitize_number' ),
-                'label'         => __( "Image Border Radius" , 'hueman-pro' ),
+                'label'         => __( "Image Border Radius" , 'hueman' ),
                 'section'       => 'general_design_sec' ,
                 'type'          => 'number' ,
                 'step'          => 1,
                 'min'           => 0,
                 //'transport'     => 'postMessage',
-                'notice'        => __('Give your thumbnails and layout images rounded corners', 'hueman-pro')
+                'notice'        => __('Give your thumbnails and layout images rounded corners', 'hueman')
           ),
           'links_underlined'  =>  array(
                 'default'       => 1,
                 'control'       => 'HU_controls' ,
-                'label'         => __( "Links underlined within content" , "hueman-pro" ),
+                'label'         => __( "Links underlined within content" , "hueman" ),
                 'section'       => 'general_design_sec' ,
                 'type'          => 'nimblecheck'
           ),
           'ext_link_style'  =>  array(
                 'default'       => 0,
                 'control'       => 'HU_controls' ,
-                'label'         => __( "Display an icon next to external links" , "hueman-pro" ),
+                'label'         => __( "Display an icon next to external links" , "hueman" ),
                 'section'       => 'general_design_sec' ,
                 'type'          => 'nimblecheck' ,
-                'notice'    => __( 'This will be applied to the links included in post or page content only.' , 'hueman-pro' ),
+                'notice'    => __( 'This will be applied to the links included in post or page content only.' , 'hueman' ),
                 //'transport'     => 'postMessage'
           ),
 
           'ext_link_target'  =>  array(
                 'default'       => 0,
                 'control'       => 'HU_controls' ,
-                'label'         => __( "Open external links in a new tab" , "hueman-pro" ),
+                'label'         => __( "Open external links in a new tab" , "hueman" ),
                 'section'       => 'general_design_sec' ,
                 'type'          => 'nimblecheck' ,
-                'notice'    => __( 'This will be applied to the links included in post or page content only.' , 'hueman-pro' ),
+                'notice'    => __( 'This will be applied to the links included in post or page content only.' , 'hueman' ),
                 //'transport'     => 'postMessage'
           )
       );
@@ -406,7 +406,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
                 'registered_dynamically' => true,
                 'default'   => array(),//empty array by default
                 'control'   => 'HU_Customize_Modules',
-                'label'     => __('Create and organize your social links', 'hueman-pro'),
+                'label'     => __('Create and organize your social links', 'hueman'),
                 'section'   => 'social_links_sec',
                 'type'      => 'czr_module',
                 'module_type' => 'czr_social_module',
@@ -425,19 +425,19 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'post-comments' => array(
                 'default'   => 1,
                 'control'   => 'HU_controls',
-                'label'     => __('Posts Comments', 'hueman-pro'),
+                'label'     => __('Posts Comments', 'hueman'),
                 'section'   => 'comments_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __( 'Comments on posts' , 'hueman-pro' ),
+                'notice'    => __( 'Comments on posts' , 'hueman' ),
                 //'active_callback' => 'hu_is_single'
           ),
           'page-comments' => array(
                 'default'   => 0,
                 'control'   => 'HU_controls',
-                'label'     => __('Pages Comments', 'hueman-pro'),
+                'label'     => __('Pages Comments', 'hueman'),
                 'section'   => 'comments_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __( 'Comments on pages' , 'hueman-pro' ),
+                'notice'    => __( 'Comments on pages' , 'hueman' ),
                 //'active_callback' => 'hu_is_page'
           )
       );
@@ -470,18 +470,18 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'responsive' => array(
                 'default'   => 1,
                 'control'   => 'HU_controls',
-                'label'     => __('Enable the Mobile Friendly (or Responsive) layout', 'hueman-pro'),
+                'label'     => __('Enable the Mobile Friendly (or Responsive) layout', 'hueman'),
                 'section'   => 'mobiles_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __( "Hueman is a mobile friendly WordPress theme out of the box. This means that it will adapt and render nicely on any devices : desktops, laptops, tablets, smartphones. <br/>If you uncheck this box, this adaptive (or reponsive) behaviour will not be working anymore. In most of the cases, you won't need to disable this option, and it is not recommended." , 'hueman-pro' )
+                'notice'    => __( "Hueman is a mobile friendly WordPress theme out of the box. This means that it will adapt and render nicely on any devices : desktops, laptops, tablets, smartphones. <br/>If you uncheck this box, this adaptive (or reponsive) behaviour will not be working anymore. In most of the cases, you won't need to disable this option, and it is not recommended." , 'hueman' )
           ),
           'fittext' => array(
                 'default'   => 0,
                 'control'   => 'HU_controls',
-                'label'     => __('Make font sizes flexible. Enable this option to achieve scalable headlines that fill the width of a parent element.', 'hueman-pro'),
+                'label'     => __('Make font sizes flexible. Enable this option to achieve scalable headlines that fill the width of a parent element.', 'hueman'),
                 'section'   => 'mobiles_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __( "This option is good if you want to display a perfect font-size for your headings on any mobile devices. Note : it might override the css rules previously set in your custom stylesheet." , 'hueman-pro' )
+                'notice'    => __( "This option is good if you want to display a perfect font-size for your headings on any mobile devices. Note : it might override the css rules previously set in your custom stylesheet." , 'hueman' )
           ),
       );
     }
@@ -494,7 +494,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'attachments-in-search' => array(
                 'default'   => 0,
                 'control'   => 'HU_controls',
-                'label'     => __('Include images in search results', 'hueman-pro'),
+                'label'     => __('Include images in search results', 'hueman'),
                 'section'   => 'search_sec',
                 'type'      => 'nimblecheck'
           )
@@ -509,41 +509,41 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'minified-css' => array(
                 'default'   => 1,
                 'control'   => 'HU_controls',
-                'label'     => __('Use a minified stylesheet', 'hueman-pro'),
+                'label'     => __('Use a minified stylesheet', 'hueman'),
                 'section'   => 'performance_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __( "Unchecking this option is not recommended. Minifying css stylesheets improves performance for your website overall by decreasing the load time." , 'hueman-pro' )
+                'notice'    => __( "Unchecking this option is not recommended. Minifying css stylesheets improves performance for your website overall by decreasing the load time." , 'hueman' )
           ),
           'structured-data' => array(
                 'default'   => hu_user_started_before_version( '3.1.1' ) ? 0 : 1,
                 'control'   => 'HU_controls',
-                'label'     => __('Use Structured Data Markup for your posts', 'hueman-pro'),
+                'label'     => __('Use Structured Data Markup for your posts', 'hueman'),
                 'section'   => 'performance_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __( '"Structured data markup" is a standard way to annotate your content so machines can understand it. Implementing it will help your website rank higher in search engines.' , 'hueman-pro' )
+                'notice'    => __( '"Structured data markup" is a standard way to annotate your content so machines can understand it. Implementing it will help your website rank higher in search engines.' , 'hueman' )
           ),
           'smart_load_img'  =>  array(
                 'default'       => 0,
                 'control'     =>  'HU_controls',
-                'label'       => __( 'Load images on scroll' , 'hueman-pro' ),
+                'label'       => __( 'Load images on scroll' , 'hueman' ),
                 'section'     => 'performance_sec',
                 'type'        => 'nimblecheck',
-                'notice'      => __('Check this option to delay the loading of non visible images. Images below the viewport will be loaded dynamically on scroll. This can really boost speed performances by reducing the weight of long pages that include many images.' , 'hueman-pro')
+                'notice'      => __('Check this option to delay the loading of non visible images. Images below the viewport will be loaded dynamically on scroll. This can really boost speed performances by reducing the weight of long pages that include many images.' , 'hueman')
           ),
           'js-mobile-detect'  =>  array(
                 'default'       => 0,
                 'control'     =>  'HU_controls',
-                'label'       => __( 'Mobile device detection' , 'hueman-pro' ),
+                'label'       => __( 'Mobile device detection' , 'hueman' ),
                 'section'     => 'performance_sec',
                 'type'        => 'nimblecheck',
-                'notice'      => __('When checked, this option loads a small javascript file ( 30 kb ) to detect if your site is being displayed by a mobile device like a phone or a tablet. It is recommended to check this option if you are using a cache plugin.' , 'hueman-pro')
+                'notice'      => __('When checked, this option loads a small javascript file ( 30 kb ) to detect if your site is being displayed by a mobile device like a phone or a tablet. It is recommended to check this option if you are using a cache plugin.' , 'hueman')
           ),
 
           // added for https://github.com/presscustomizr/hueman/issues/863
           'defer_front_script'  =>  array(
                 'default'       => 0,
                 'control'     =>  'HU_controls',
-                'label'       => __( 'Defer loading javascript files to avoid render blocking issues' , 'hueman-pro' ),
+                'label'       => __( 'Defer loading javascript files to avoid render blocking issues' , 'hueman' ),
                 'section'     => 'performance_sec',
                 'type'        => 'nimblecheck'
           ),
@@ -558,7 +558,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'defer_font_awesome'  =>  array(
                 'default'       => 0,
                 'control'     =>  'HU_controls',
-                'label'       => __( 'Defer loading Font Awesome icons' , 'hueman-pro' ),
+                'label'       => __( 'Defer loading Font Awesome icons' , 'hueman' ),
                 'section'     => 'performance_sec',
                 'type'        => 'nimblecheck'
           )
@@ -575,18 +575,18 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'about-page' => array(
                 'default'   => 1,
                 'control'   => 'HU_controls',
-                'label'     => __('Display the "About Hueman" page in the "Appearance" admin menu', 'hueman-pro'),
+                'label'     => __('Display the "About Hueman" page in the "Appearance" admin menu', 'hueman'),
                 'section'   => 'admin_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __( 'This page is intended to provide information about the Hueman theme : changelog, release note, documentation link. It also display information about your current install that can be useful if you need to report an issue.' , 'hueman-pro' )
+                'notice'    => __( 'This page is intended to provide information about the Hueman theme : changelog, release note, documentation link. It also display information about your current install that can be useful if you need to report an issue.' , 'hueman' )
           ),
           'help-button' => array(
                 'default'   => 1,
                 'control'   => 'HU_controls',
-                'label'     => __('Display a Help button in the admin bar', 'hueman-pro'),
+                'label'     => __('Display a Help button in the admin bar', 'hueman'),
                 'section'   => 'admin_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __( 'This button links to the "About Hueman" page.' , 'hueman-pro' )
+                'notice'    => __( 'This button links to the "About Hueman" page.' , 'hueman' )
           )
       );
     }
@@ -606,10 +606,10 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'site-description' => array(
                 'default'   => 1,
                 'control'   => 'HU_controls',
-                'label'     => __("Display your site's description (tagline)", 'hueman-pro'),
+                'label'     => __("Display your site's description (tagline)", 'hueman'),
                 'section'   => 'header_design_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __( 'The description that appears next to your logo' , 'hueman-pro' ),
+                'notice'    => __( 'The description that appears next to your logo' , 'hueman' ),
                 'ubq_section'   => array(
                     'section' => 'title_tagline',
                     'priority' => '15'
@@ -618,20 +618,20 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'user-header-bg-color-important' => array(
                 'default'   => 0,
                 'control'   => 'HU_controls',
-                'label'     => __( 'Apply your custom background colors in priority for the topbar and the mobile menu' , 'hueman-pro' ),
+                'label'     => __( 'Apply your custom background colors in priority for the topbar and the mobile menu' , 'hueman' ),
                 'section'   => 'header_design_sec',
                 'type'      => 'nimblecheck',
                 //'active_callback' => 'hu_is_pro',
-                'notice' => sprintf( __('This can be used to ensure your background colors are applied when designing a header with a background image in %1$s', 'hueman-pro'),
+                'notice' => sprintf( __('This can be used to ensure your background colors are applied when designing a header with a background image in %1$s', 'hueman'),
                     sprintf('<a href="https://docs.presscustomizr.com/article/284-pro-designing-header-background-and-slider-with-hueman-pro" target="_blank">%1$s</a>',
-                        __('Hueman Pro', 'hueman-pro')
+                        __('Hueman Pro', 'hueman')
                     )
                 )
           ),
           'color-topbar' => array(
                 'default'     => hu_user_started_before_version( '3.3.8' ) ? '#26272b' : '#121d30',
                 'control'     => 'HU_Customize_Color_Alpha_Control',
-                'label'       => __( 'Topbar Background' , 'hueman-pro' ),
+                'label'       => __( 'Topbar Background' , 'hueman' ),
                 'section'     => 'header_design_sec',
                 'type'        =>  'wp_color_alpha',
                 'sanitize_callback'    => 'maybe_hash_hex_color',
@@ -641,7 +641,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'color-header' => array(
                 'default'     => hu_user_started_before_version( '3.3.8' ) ? '#33363b' : '#454e5c',
                 'control'     => 'HU_Customize_Color_Alpha_Control',
-                'label'       => __( 'Header Background' , 'hueman-pro' ),
+                'label'       => __( 'Header Background' , 'hueman' ),
                 'section'     => 'header_design_sec',
                 'type'        =>  'wp_color_alpha',
                 'sanitize_callback'    => 'maybe_hash_hex_color',
@@ -651,7 +651,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'color-header-menu' => array(
                 'default'     => hu_user_started_before_version( '3.3.8' ) ? '#33363b' : '#454e5c',
                 'control'     => 'HU_Customize_Color_Alpha_Control',
-                'label'       => __( 'Header Menu Background' , 'hueman-pro' ),
+                'label'       => __( 'Header Menu Background' , 'hueman' ),
                 'section'     => 'header_design_sec',
                 'type'        =>  'wp_color_alpha',
                 'sanitize_callback'    => 'maybe_hash_hex_color',
@@ -661,7 +661,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'color-mobile-menu' => array(
                 'default'     => hu_user_started_before_version( '3.3.8' ) ? '#33363b' : '#454e5c',
                 'control'     => 'HU_Customize_Color_Alpha_Control',
-                'label'       => __( 'Mobile Menu Background' , 'hueman-pro' ),
+                'label'       => __( 'Mobile Menu Background' , 'hueman' ),
                 'section'     => 'header_design_sec',
                 'type'        =>  'wp_color_alpha',
                 'sanitize_callback'    => 'maybe_hash_hex_color',
@@ -671,7 +671,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'transparent-fixed-topnav' => array(
                 'default'   => 1,
                 'control'   => 'HU_controls',
-                'label'     => __( 'Apply a semi-transparent filter to the topbar and mobile menu on scroll' , 'hueman-pro' ),
+                'label'     => __( 'Apply a semi-transparent filter to the topbar and mobile menu on scroll' , 'hueman' ),
                 'section'   => 'header_design_sec',
                 'type'      => 'nimblecheck',
           ),
@@ -686,24 +686,24 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'use-header-image' => array(
                 'default'   => 0,
                 'control'   => 'HU_controls',
-                'label'     => __( 'Use a header banner image' , 'hueman-pro' ),
+                'label'     => __( 'Use a header banner image' , 'hueman' ),
                 'section'   => 'header_image_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __('Upload a header image (supported formats : .jpg, .png, .gif, svg, svgz). This will disable header title/logo, site description, header ads widget' , 'hueman-pro')
+                'notice'    => __('Upload a header image (supported formats : .jpg, .png, .gif, svg, svgz). This will disable header title/logo, site description, header ads widget' , 'hueman')
           ),
 
           // april 2020 : 2 options added for https://github.com/presscustomizr/hueman/issues/877
           'header-img-full-width' => array(
                 'default'   => 1,
                 'control'   => 'HU_controls',
-                'label'     => __( 'Image fills 100% of the width' , 'hueman-pro' ),
+                'label'     => __( 'Image fills 100% of the width' , 'hueman' ),
                 'section'   => 'header_image_sec',
                 'type'      => 'nimblecheck'
           ),
           'header-img-natural-height' => array(
                 'default'   => 0,
                 'control'   => 'HU_controls',
-                'label'     => __( 'Use the original image height' , 'hueman-pro' ),
+                'label'     => __( 'Use the original image height' , 'hueman' ),
                 'section'   => 'header_image_sec',
                 'type'      => 'nimblecheck'
           ),
@@ -711,7 +711,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'header-img-link-home' => array(
                 'default'   => 1,
                 'control'   => 'HU_controls',
-                'label'     => __( 'Link the banner image to your home page' , 'hueman-pro' ),
+                'label'     => __( 'Link the banner image to your home page' , 'hueman' ),
                 'section'   => 'header_image_sec',
                 'type'      => 'nimblecheck'
           ),
@@ -728,13 +728,13 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'logo-title-on-header-image' => array(
                 'default'   => 0,
                 'control'   => 'HU_controls',
-                'label'     => __( 'Display your logo or site title, and tagline on top of the header image' , 'hueman-pro' ),
+                'label'     => __( 'Display your logo or site title, and tagline on top of the header image' , 'hueman' ),
                 'section'   => 'header_image_sec',
                 'type'      => 'nimblecheck',
                 'notice'    => sprintf( '%3$s <strong><a href="%1$s" title="%3$s">%2$s</a><strong>',
                     "javascript:wp.customize.section('title_tagline').focus();",
-                    __("here" , "hueman-pro"),
-                    __("Set your logo, title and tagline", "hueman-pro")
+                    __("here" , "hueman"),
+                    __("Set your logo, title and tagline", "hueman")
                 ),
           ),
       );
@@ -748,26 +748,26 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'header-ads' => array(
                 'default'   => hu_user_started_before_version( '3.2.4' ) ? 1 : 0,
                 'control'   => 'HU_controls',
-                'label'     => __("Display a widget in your header", 'hueman-pro'),
+                'label'     => __("Display a widget in your header", 'hueman'),
                 'section'   => 'header_widget_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __( 'Header widget area, perfect to insert advertisements. Note : this feature is not available when a header image is being displayed.' , 'hueman-pro')
+                'notice'    => __( 'Header widget area, perfect to insert advertisements. Note : this feature is not available when a header image is being displayed.' , 'hueman')
           ),
           'header-ads-desktop' => array(
                 'default'   => 1,
                 'control'   => 'HU_controls',
-                'label'     => __("Display the header widget zone on desktop devices", 'hueman-pro'),
+                'label'     => __("Display the header widget zone on desktop devices", 'hueman'),
                 'section'   => 'header_widget_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __( 'This will display your widget zone on devices with a width greater than 720 pixels : laptops and desktops.' , 'hueman-pro')
+                'notice'    => __( 'This will display your widget zone on devices with a width greater than 720 pixels : laptops and desktops.' , 'hueman')
           ),
           'header-ads-mobile' => array(
                 'default'   => 0,
                 'control'   => 'HU_controls',
-                'label'     => __("Display the header widget zone on mobile devices", 'hueman-pro'),
+                'label'     => __("Display the header widget zone on mobile devices", 'hueman'),
                 'section'   => 'header_widget_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __( 'This will display your widget zone on devices with a width smaller than 720 pixels : tablets, smartphones.' , 'hueman-pro')
+                'notice'    => __( 'This will display your widget zone on devices with a width smaller than 720 pixels : tablets, smartphones.' , 'hueman')
           )
 
       );
@@ -778,7 +778,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
                                    Advertisement Widget SECTION
     ------------------------------------------------------------------------------------------------------*/
     function hu_header_menus_sec() {
-      $nav_section_desc = "<br/>" . sprintf( __("You can create menus and set their locations %s." , "hueman-pro"),
+      $nav_section_desc = "<br/>" . sprintf( __("You can create menus and set their locations %s." , "hueman"),
           sprintf( '%1$s<strong><a class="jump-to-menu-panel" href="#" title="%3$s">%2$s</a><strong>',
               sprintf( '<script>%1$s</script>',
                   "jQuery( function($) {
@@ -788,17 +788,17 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
                       });
                   });"
               ),// "javascript:wp.customize.panel('nav_menus').focus();"
-              __("in the menu panel" , "hueman-pro"),
-              __("create/edit menus", "hueman-pro")
+              __("in the menu panel" , "hueman"),
+              __("create/edit menus", "hueman")
           )
       );
 
-      $header_nav_notice =  sprintf( '%1$s %2$s', __( 'The Hueman theme supports up to two menu locations in your header.', 'hueman-pro' ), $nav_section_desc );
+      $header_nav_notice =  sprintf( '%1$s %2$s', __( 'The Hueman theme supports up to two menu locations in your header.', 'hueman' ), $nav_section_desc );
       return array(
           'default-menu-header' => array(
                 'default'   => 0,//hu_user_started_before_version( '3.3.8' ) ? 0 : 1,
                 'control'   => 'HU_controls',
-                'label'     => __("Topbar menu", 'hueman-pro') . ' : ' . __("Use a default page menu if no menu has been assigned.", 'hueman-pro'),
+                'label'     => __("Topbar menu", 'hueman') . ' : ' . __("Use a default page menu if no menu has been assigned.", 'hueman'),
                 'section'   => 'header_menus_sec',
                 'type'      => 'nimblecheck',
                 'notice'    => $header_nav_notice,
@@ -810,14 +810,14 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'header-desktop-sticky' => array(
                 'default'   => 'stick_up',
                 'control'   => 'HU_controls',
-                'title'     => sprintf( '%1$s %2$s', __( 'Menus settings for', 'hueman-pro' ) , __('Desktop devices', 'hueman-pro' ) ),
-                'label'     => sprintf( '%1$s : %2$s', __('Desktop devices', 'hueman-pro' ) , __('top menu visibility on scroll', 'hueman-pro') ),
+                'title'     => sprintf( '%1$s %2$s', __( 'Menus settings for', 'hueman' ) , __('Desktop devices', 'hueman' ) ),
+                'label'     => sprintf( '%1$s : %2$s', __('Desktop devices', 'hueman' ) , __('top menu visibility on scroll', 'hueman') ),
                 'section'   => 'header_menus_sec',
                 'type'      => 'select',
                 'choices'   => array(
-                    'no_stick'      => __( 'Not visible when scrolling the page', 'hueman-pro'),
-                    'stick_up'      => __( 'Reveal on scroll up', 'hueman-pro'),
-                    'stick_always'  => __( 'Always visible', 'hueman-pro')
+                    'no_stick'      => __( 'Not visible when scrolling the page', 'hueman'),
+                    'stick_up'      => __( 'Reveal on scroll up', 'hueman'),
+                    'stick_always'  => __( 'Always visible', 'hueman')
                 ),
                 'ubq_section'   => array(
                     'section' => 'menu_locations',
@@ -828,13 +828,13 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'desktop-search' => array(
                 'default'   => 'topbar',
                 'control'   => 'HU_controls',
-                'label'     => sprintf( '%1$s : %2$s', __('Desktop devices', 'hueman-pro' ) , __('display a search field', 'hueman-pro') ),
+                'label'     => sprintf( '%1$s : %2$s', __('Desktop devices', 'hueman' ) , __('display a search field', 'hueman') ),
                 'section'   => 'header_menus_sec',
                 'type'      => 'select',
                 'choices'   => array(
-                    'no_search' => __( 'No search field', 'hueman-pro'),
-                    'topbar'    => __( 'Display a search field in the top menu', 'hueman-pro'),
-                    'header'    => __( 'Display a search field in the header menu', 'hueman-pro')
+                    'no_search' => __( 'No search field', 'hueman'),
+                    'topbar'    => __( 'Display a search field in the top menu', 'hueman'),
+                    'header'    => __( 'Display a search field in the header menu', 'hueman')
                 ),
                 'ubq_section'   => array(
                     'section' => 'menu_locations',
@@ -844,19 +844,19 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'header_mobile_menu_layout' => array(
                 'default'   => hu_user_started_before_version( '3.3.8' ) ? 'main_menu' : 'top_menu',
                 'control'   => 'HU_controls',
-                'title'     => sprintf( '%1$s %2$s', __( 'Menus settings for', 'hueman-pro' ) , __('Mobile devices', 'hueman-pro' ) ),
-                'label'     => __( 'Select the menu(s) to use for mobile devices', 'hueman-pro'),
+                'title'     => sprintf( '%1$s %2$s', __( 'Menus settings for', 'hueman' ) , __('Mobile devices', 'hueman' ) ),
+                'label'     => __( 'Select the menu(s) to use for mobile devices', 'hueman'),
                 'section'   => 'header_menus_sec',
                 'type'      => 'select',
                 'choices'   => array(
-                    'main_menu' => __('Header Menu', 'hueman-pro'),
-                    'top_menu'  => __('Topbar Menu', 'hueman-pro'),
-                    'mobile_menu' => __('Specific Mobile Menu', 'hueman-pro'),
-                    'both_menus' => __( 'Topbar and header menus, logo centered', 'hueman-pro')
+                    'main_menu' => __('Header Menu', 'hueman'),
+                    'top_menu'  => __('Topbar Menu', 'hueman'),
+                    'mobile_menu' => __('Specific Mobile Menu', 'hueman'),
+                    'both_menus' => __( 'Topbar and header menus, logo centered', 'hueman')
                 ),
                 'notice'    => sprintf( '%1$s<br/>%2$s <br/>%3$s',
-                    __( 'When your visitors are using a smartphone or a tablet, the header becomes a thin bar on top, where the menu is revealed when clicking on the hamburger button. This option let you choose which menu will be displayed.' , 'hueman-pro' ),
-                    __( 'If the selected menu location has no menu assigned, the theme will try to assign another menu in this order : topbar, mobile, header.' , 'hueman-pro' ),
+                    __( 'When your visitors are using a smartphone or a tablet, the header becomes a thin bar on top, where the menu is revealed when clicking on the hamburger button. This option let you choose which menu will be displayed.' , 'hueman' ),
+                    __( 'If the selected menu location has no menu assigned, the theme will try to assign another menu in this order : topbar, mobile, header.' , 'hueman' ),
                     $nav_section_desc
                 ),
                 'ubq_section'   => array(
@@ -867,13 +867,13 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'header-mobile-sticky' => array(
                 'default'   => 'stick_up',
                 'control'   => 'HU_controls',
-                'label'     => sprintf( '%1$s : %2$s', __('Mobile devices', 'hueman-pro' ) , __('top menu visibility on scroll', 'hueman-pro') ),
+                'label'     => sprintf( '%1$s : %2$s', __('Mobile devices', 'hueman' ) , __('top menu visibility on scroll', 'hueman') ),
                 'section'   => 'header_menus_sec',
                 'type'      => 'select',
                 'choices'   => array(
-                    'no_stick'      => __( 'Not visible when scrolling the page', 'hueman-pro'),
-                    'stick_up'      => __( 'Reveal on scroll up', 'hueman-pro'),
-                    'stick_always'  => __( 'Always visible', 'hueman-pro')
+                    'no_stick'      => __( 'Not visible when scrolling the page', 'hueman'),
+                    'stick_up'      => __( 'Reveal on scroll up', 'hueman'),
+                    'stick_always'  => __( 'Always visible', 'hueman')
                 ),
                 'ubq_section'   => array(
                     'section' => 'menu_locations',
@@ -883,12 +883,12 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'header_mobile_btn' => array(
                 'default'   => 'animated',
                 'control'   => 'HU_controls',
-                'label'     => __( 'Style of the mobile menu button', 'hueman-pro'),
+                'label'     => __( 'Style of the mobile menu button', 'hueman'),
                 'section'   => 'header_menus_sec',
                 'type'      => 'select',
                 'choices'   => array(
-                    'animated' => __('Animated', 'hueman-pro'),
-                    'simple'  => __('Simple', 'hueman-pro'),
+                    'animated' => __('Animated', 'hueman'),
+                    'simple'  => __('Simple', 'hueman'),
                 ),
                 'ubq_section'   => array(
                     'section' => 'menu_locations',
@@ -898,7 +898,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'mobile-submenu-click' => array(
                 'default'   => 1,
                 'control'   => 'HU_controls',
-                'label'     => sprintf( '%1$s : %2$s', __('Mobile devices', 'hueman-pro' ) , __( 'Expand submenus on click', 'hueman-pro') ),
+                'label'     => sprintf( '%1$s : %2$s', __('Mobile devices', 'hueman' ) , __( 'Expand submenus on click', 'hueman') ),
                 'section'   => 'header_menus_sec',
                 'type'      => 'nimblecheck',
                 'ubq_section' => array(
@@ -909,7 +909,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'mobile-search' => array(
                 'default'   => 1,
                 'control'   => 'HU_controls',
-                'label'     => sprintf( '%1$s : %2$s', __('Mobile devices', 'hueman-pro' ) , __('display a search field', 'hueman-pro') ),
+                'label'     => sprintf( '%1$s : %2$s', __('Mobile devices', 'hueman' ) , __('display a search field', 'hueman') ),
                 'section'   => 'header_menus_sec',
                 'type'      => 'nimblecheck',
                 'ubq_section'   => array(
@@ -948,33 +948,33 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
                                    CONTENT LAYOUT SECTION
     ------------------------------------------------------------------------------------------------------*/
     function hu_content_layout_sec() {
-      $layout_text = __('Columns layout for', 'hueman-pro');
+      $layout_text = __('Columns layout for', 'hueman');
       return array(
           'layout-global' => array(
                 'default'   => 'col-3cm',
                 'control'   => 'HU_Customize_Layout_Control',
-                'label'     => __('Global Layout', 'hueman-pro'),
+                'label'     => __('Global Layout', 'hueman'),
                 'section'   => 'content_layout_sec',
                 'type'      => 'czr_layouts',//@todo create a radio-image type
                 'choices'   => $this -> hu_get_content_layout_choices( 'global' ),
-                'notice'    => __('Other layouts will override this option if they are set' , 'hueman-pro')
+                'notice'    => __('Other layouts will override this option if they are set' , 'hueman')
           ),
           'force-layout-global' => array(
                 'default'   => 0,
                 'control'   => 'HU_controls',
-                'label'     => __("Force the global layout", 'hueman-pro'),
+                'label'     => __("Force the global layout", 'hueman'),
                 'section'   => 'content_layout_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __('The global layout will be applied on every pages, even when a specific layout is set.' , 'hueman-pro')
+                'notice'    => __('The global layout will be applied on every pages, even when a specific layout is set.' , 'hueman')
           ),
           'layout-home' => array(
                 'default'   => 'inherit',
                 'control'   => 'HU_Customize_Layout_Control',
-                'label'     => sprintf('%1$s : %2$s', $layout_text, __('Home', 'hueman-pro') ),
+                'label'     => sprintf('%1$s : %2$s', $layout_text, __('Home', 'hueman') ),
                 'section'   => 'content_layout_sec',
                 'type'      => 'czr_layouts',//@todo create a radio-image type
                 'choices'   => $this -> hu_get_content_layout_choices(),
-                'notice'    => __('[ <strong>is_home</strong> ] Posts homepage layout' , 'hueman-pro'),
+                'notice'    => __('[ <strong>is_home</strong> ] Posts homepage layout' , 'hueman'),
                 'ubq_section'   => array(
                     'section' => 'static_front_page',
                     'priority' => '0'
@@ -983,11 +983,11 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'layout-single' => array(
                 'default'   => 'inherit',
                 'control'   => 'HU_Customize_Layout_Control',
-                'label'     => sprintf('%1$s : %2$s', $layout_text, __('Single', 'hueman-pro') ),
+                'label'     => sprintf('%1$s : %2$s', $layout_text, __('Single', 'hueman') ),
                 'section'   => 'content_layout_sec',
                 'type'      => 'czr_layouts',//@todo create a radio-image type
                 'choices'   => $this -> hu_get_content_layout_choices(),
-                'notice'    => __('[ <strong>is_single</strong> ] Single post layout - If a post has a set layout, it will override this.' , 'hueman-pro'),
+                'notice'    => __('[ <strong>is_single</strong> ] Single post layout - If a post has a set layout, it will override this.' , 'hueman'),
                 'ubq_section'   => array(
                     'section' => 'content_single_sec',
                     'priority' => '0'
@@ -996,47 +996,47 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'layout-archive' => array(
                 'default'   => 'inherit',
                 'control'   => 'HU_Customize_Layout_Control',
-                'label'     => sprintf('%1$s : %2$s', $layout_text, __('Archive', 'hueman-pro') ),
+                'label'     => sprintf('%1$s : %2$s', $layout_text, __('Archive', 'hueman') ),
                 'section'   => 'content_layout_sec',
                 'type'      => 'czr_layouts',//@todo create a radio-image type
                 'choices'   => $this -> hu_get_content_layout_choices(),
-                'notice'    => __('[ <strong>is_archive</strong> ] Category, date, tag and author archive layout' , 'hueman-pro')
+                'notice'    => __('[ <strong>is_archive</strong> ] Category, date, tag and author archive layout' , 'hueman')
           ),
           'layout-archive-category' => array(
                 'default'   => 'inherit',
                 'control'   => 'HU_Customize_Layout_Control',
-                'label'     => sprintf('%1$s : %2$s', $layout_text, __('Archive - Category', 'hueman-pro') ),
+                'label'     => sprintf('%1$s : %2$s', $layout_text, __('Archive - Category', 'hueman') ),
                 'section'   => 'content_layout_sec',
                 'type'      => 'czr_layouts',//@todo create a radio-image type
                 'choices'   => $this -> hu_get_content_layout_choices(),
-                'notice'    => __('[ <strong>is_category</strong> ] Category archive layout' , 'hueman-pro')
+                'notice'    => __('[ <strong>is_category</strong> ] Category archive layout' , 'hueman')
           ),
           'layout-search' => array(
                 'default'   => 'inherit',
                 'control'   => 'HU_Customize_Layout_Control',
-                'label'     => sprintf('%1$s : %2$s', $layout_text, __('Search', 'hueman-pro') ),
+                'label'     => sprintf('%1$s : %2$s', $layout_text, __('Search', 'hueman') ),
                 'section'   => 'content_layout_sec',
                 'type'      => 'czr_layouts',//@todo create a radio-image type
                 'choices'   => $this -> hu_get_content_layout_choices(),
-                'notice'    => __('[ <strong>is_search</strong> ] Search page layout' , 'hueman-pro')
+                'notice'    => __('[ <strong>is_search</strong> ] Search page layout' , 'hueman')
           ),
           'layout-404' => array(
                 'default'   => 'inherit',
                 'control'   => 'HU_Customize_Layout_Control',
-                'label'     => sprintf('%1$s : %2$s', $layout_text, __('Error 404', 'hueman-pro') ),
+                'label'     => sprintf('%1$s : %2$s', $layout_text, __('Error 404', 'hueman') ),
                 'section'   => 'content_layout_sec',
                 'type'      => 'czr_layouts',//@todo create a radio-image type
                 'choices'   => $this -> hu_get_content_layout_choices(),
-                'notice'    => __('[ <strong>is_404</strong> ] Error 404 page layout' , 'hueman-pro')
+                'notice'    => __('[ <strong>is_404</strong> ] Error 404 page layout' , 'hueman')
           ),
           'layout-page' => array(
                 'default'   => 'inherit',
                 'control'   => 'HU_Customize_Layout_Control',
-                'label'     => sprintf('%1$s : %2$s', $layout_text, __('Default Page', 'hueman-pro') ),
+                'label'     => sprintf('%1$s : %2$s', $layout_text, __('Default Page', 'hueman') ),
                 'section'   => 'content_layout_sec',
                 'type'      => 'czr_layouts',//@todo create a radio-image type
                 'choices'   => $this -> hu_get_content_layout_choices(),
-                'notice'    => __('[ <strong>is_page</strong> ] Default page layout - If a page has a set layout, it will override this.' , 'hueman-pro')
+                'notice'    => __('[ <strong>is_page</strong> ] Default page layout - If a page has a set layout, it will override this.' , 'hueman')
           ),
       );
     }
@@ -1050,8 +1050,8 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'blog-heading-enabled' => array(
                 'default'   => 1,
                 'control'   => 'HU_controls',
-                'title'     => __( 'Blog Heading', 'hueman-pro' ),
-                'label'     => __("Display a custom heading for your blog.", 'hueman-pro'),
+                'title'     => __( 'Blog Heading', 'hueman' ),
+                'label'     => __("Display a custom heading for your blog.", 'hueman'),
                 'section'   => 'content_blog_sec',
                 'type'      => 'nimblecheck',
                 //'active_callback' => 'is_home',
@@ -1064,10 +1064,10 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'blog-heading' => array(
                 'default'   => get_bloginfo('name'),
                 'control'   => 'HU_controls',
-                'label'     => __( 'Blog Heading', 'hueman-pro'),
+                'label'     => __( 'Blog Heading', 'hueman'),
                 'type'      => 'text',
                 'section'   => 'content_blog_sec',
-                'notice'    => __( 'Your blog heading. Html is allowed. Note : write a blank space to hide the default content.', 'hueman-pro'),
+                'notice'    => __( 'Your blog heading. Html is allowed. Note : write a blank space to hide the default content.', 'hueman'),
                 'sanitize_callback' => array( $this, 'hu_sanitize_html_text_input' ),
                 //'active_callback' => 'is_home',
                 'priority'   => 10,
@@ -1077,12 +1077,12 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
                 )
           ),
           'blog-subheading' => array(
-                'default'   => __( 'Blog', 'hueman-pro'),
+                'default'   => __( 'Blog', 'hueman'),
                 'control'   => 'HU_controls',
-                'label'     => __( 'Blog Sub-Heading', 'hueman-pro'),
+                'label'     => __( 'Blog Sub-Heading', 'hueman'),
                 'type'      => 'text',
                 'section'   => 'content_blog_sec',
-                'notice'    => __( 'Your blog sub-heading. Html is allowed. Note : write a blank space to hide the default content.', 'hueman-pro'),
+                'notice'    => __( 'Your blog sub-heading. Html is allowed. Note : write a blank space to hide the default content.', 'hueman'),
                 'sanitize_callback' => array( $this, 'hu_sanitize_html_text_input' ),
                 //'active_callback' => 'is_home',
                 'priority'   => 15,
@@ -1094,17 +1094,17 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'blog-restrict-by-cat' => array(
             'default'   => array(),
             'type'   => 'czr_multiple_picker',
-            'label'     => __( 'Apply a category filter to your home / blog posts', 'hueman-pro' ),
+            'label'     => __( 'Apply a category filter to your home / blog posts', 'hueman' ),
             'section'   => 'content_blog_sec',
             'control'   => 'HU_Customize_Multipicker_Categories_Control',
             'priority'   => 18,
             'notice' => sprintf( '%1$s <a href="%2$s" target="_blank">%3$s<span style="font-size: 17px;" class="dashicons dashicons-external"></span></a><br>%4$s' ,
-                              __( 'Click inside the above field and pick post categories you want to display. No filter will be applied when empty.', 'hueman-pro' ),
+                              __( 'Click inside the above field and pick post categories you want to display. No filter will be applied when empty.', 'hueman' ),
                               esc_url('codex.wordpress.org/Posts_Categories_SubPanel'),
-                              __('Learn more about post categories in WordPress' , 'hueman-pro' ),
+                              __('Learn more about post categories in WordPress' , 'hueman' ),
                               sprintf( '<strong>%1$s</strong> %2$s',
-                                    __( 'Note for Pro users:', 'hueman-pro'),
-                                    __( 'The category filter will not be applied when using the <strong>Classic grid</strong> post list design if the <strong>infinite scroll</strong> option is active.', 'hueman-pro' )
+                                    __( 'Note for Pro users:', 'hueman'),
+                                    __( 'The category filter will not be applied when using the <strong>Classic grid</strong> post list design if the <strong>infinite scroll</strong> option is active.', 'hueman' )
                               )
             ),
             'ubq_section'   => array(
@@ -1115,11 +1115,11 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'blog-standard' => array(
                 'default'   => 0,
                 'control'   => 'HU_controls',
-                'title'     => __( 'Post List Design', 'hueman-pro' ),
-                'label'     => __("Display your blog posts as a standard list.", 'hueman-pro'),
+                'title'     => __( 'Post List Design', 'hueman' ),
+                'label'     => __("Display your blog posts as a standard list.", 'hueman'),
                 'section'   => 'content_blog_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __( 'While the default blog design is a grid of posts, you can check this option and display one post per row, whith the thumbnail beside the text.' , 'hueman-pro'),
+                'notice'    => __( 'While the default blog design is a grid of posts, you can check this option and display one post per row, whith the thumbnail beside the text.' , 'hueman'),
                 //'active_callback' => 'hu_is_post_list',
                 'priority'   => 20,
                 'ubq_section'   => array(
@@ -1131,7 +1131,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'blog-standard-full-content' => array(
                 'default'   => 0,
                 'control'   => 'HU_controls',
-                'label'     => __("Display your blog posts in full content", 'hueman-pro'),
+                'label'     => __("Display your blog posts in full content", 'hueman'),
                 'section'   => 'content_blog_sec',
                 'type'      => 'nimblecheck',
                 //'active_callback' => 'hu_is_post_list',
@@ -1144,7 +1144,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'blog-standard-show-thumb' => array(
                 'default'   => 1,
                 'control'   => 'HU_controls',
-                'label'     => __("Display the post thumbnail", 'hueman-pro'),
+                'label'     => __("Display the post thumbnail", 'hueman'),
                 'section'   => 'content_blog_sec',
                 'type'      => 'nimblecheck',
                 //'active_callback' => 'hu_is_post_list',
@@ -1158,10 +1158,10 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
                 'default'   => 0,
                 'control'   => 'HU_controls' ,
                 'type'      => 'nimblecheck',
-                'label'     => __( "Display featured images in their original dimensions in post lists" , 'hueman-pro' ),
+                'label'     => __( "Display featured images in their original dimensions in post lists" , 'hueman' ),
                 'section'   => 'content_blog_sec' ,
                 //'transport' => 'postMessage',
-                'notice'    => __( 'When checked, the post featured image are displayed in their original size, instead of the optimized image sizes of the theme. Make sure your original images are not too large, it could slow down your website.', 'hueman-pro'),
+                'notice'    => __( 'When checked, the post featured image are displayed in their original size, instead of the optimized image sizes of the theme. Make sure your original images are not too large, it could slow down your website.', 'hueman'),
                 //'active_callback' => 'hu_is_post_list',
                 'priority'   => 25,
                 'ubq_section'   => array(
@@ -1172,16 +1172,16 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'excerpt-length'  =>  array(
                 'default'   => 34,
                 'control'   => 'HU_controls' ,
-                'title'     => __( 'Post Summary', 'hueman-pro' ),
+                'title'     => __( 'Post Summary', 'hueman' ),
                 'sanitize_callback' => array( $this , 'hu_sanitize_number' ),
-                'label'     => __( "Excerpt Length" , 'hueman-pro' ),
+                'label'     => __( "Excerpt Length" , 'hueman' ),
                 'section'   => 'content_blog_sec' ,
                 'type'      => 'number' ,
                 'step'      => 1,
                 'min'       => 0,
                 //'transport' => 'postMessage',
-                'notice'    => sprintf( __( "The WordPress Excerpt is the summary or description of a post. By default, it will be the first words of a post, but you can write a %s if you want. You can set the number of words you want to display with this option." , "hueman-pro" ),
-                      sprintf('<a href="%1$s" title="%2$s" target="_blank">%2$s <span class="dashicons dashicons-external" style="font-size: inherit;display: inherit;"></span></a>', esc_url('codex.wordpress.org/Excerpt#How_to_add_excerpts_to_posts'), __('custom excerpt', 'hueman-pro') )
+                'notice'    => sprintf( __( "The WordPress Excerpt is the summary or description of a post. By default, it will be the first words of a post, but you can write a %s if you want. You can set the number of words you want to display with this option." , "hueman" ),
+                      sprintf('<a href="%1$s" title="%2$s" target="_blank">%2$s <span class="dashicons dashicons-external" style="font-size: inherit;display: inherit;"></span></a>', esc_url('codex.wordpress.org/Excerpt#How_to_add_excerpts_to_posts'), __('custom excerpt', 'hueman') )
                 ),
                 //'active_callback' => 'hu_is_post_list',
                 'priority'   => 25,
@@ -1193,21 +1193,21 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'archive-title-with-icon' => array(
                 'default'   => 1,
                 'control'   => 'HU_controls',
-                'label'     => __( 'Display the archive type and an icon next to the archive headings', 'hueman-pro' ),
+                'label'     => __( 'Display the archive type and an icon next to the archive headings', 'hueman' ),
                 'section'   => 'content_blog_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __( 'In WordPress, archives are the pages listing posts by category, tag, author and date.' , 'hueman-pro'),
+                'notice'    => __( 'In WordPress, archives are the pages listing posts by category, tag, author and date.' , 'hueman'),
                 //'active_callback' => 'hu_is_post_list',
                 'priority'   => 150
           ),
           'featured-posts-enabled' => array(
                 'default'   => 1,
-                'title'       => __( 'Featured posts', 'hueman-pro' ),
+                'title'       => __( 'Featured posts', 'hueman' ),
                 'control'   => 'HU_controls',
-                'label'     => __("Feature posts on top of your blog", 'hueman-pro'),
+                'label'     => __("Feature posts on top of your blog", 'hueman'),
                 'section'   => 'content_blog_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __( 'Check this box to display a selection of posts with a slideshow, on top of your blog.' , 'hueman-pro'),
+                'notice'    => __( 'Check this box to display a selection of posts with a slideshow, on top of your blog.' , 'hueman'),
                 //'active_callback' => 'is_home',
                 'priority'   => 30,
                 'ubq_section'   => array(
@@ -1218,11 +1218,11 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'featured-category' => array(
                 'default'   => "0",
                 'control'   => 'HU_controls',
-                'label'     => __("Select a category to feature", 'hueman-pro'),
+                'label'     => __("Select a category to feature", 'hueman'),
                 'section'   => 'content_blog_sec',
                 'type'      => 'select',//@todo create a simple cat picker with select type. => evolve to multipicker? Retrocompat ?
                 'choices'   => $this -> hu_get_the_cat_list(),
-                'notice'    => __( 'If no specific category is selected, the featured posts block will display your latest post(s) from all categories.' , 'hueman-pro'),
+                'notice'    => __( 'If no specific category is selected, the featured posts block will display your latest post(s) from all categories.' , 'hueman'),
                 //'active_callback' => 'is_home',
                 'priority'   => 35,
                 'ubq_section'   => array(
@@ -1234,13 +1234,13 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
                 'default'   => 1,
                 'control'   => 'HU_controls' ,
                 'sanitize_callback' => array( $this , 'hu_sanitize_number' ),
-                'label'     => __( "Featured Post Count" , 'hueman-pro' ),
+                'label'     => __( "Featured Post Count" , 'hueman' ),
                 'section'   => 'content_blog_sec' ,
                 'type'      => 'number' ,
                 'step'      => 1,
                 'min'       => 0,
                 //'transport' => 'postMessage',
-                'notice'    => __( "Max number of featured posts to display. <br /><i>Set to 1 and it will show it without any slider script</i><br /><i>Set it to 0 to disable</i>" , "hueman-pro" ),//@todo sprintf split translation
+                'notice'    => __( "Max number of featured posts to display. <br /><i>Set to 1 and it will show it without any slider script</i><br /><i>Set it to 0 to disable</i>" , "hueman" ),//@todo sprintf split translation
                 //'active_callback' => 'is_home',
                 'priority'   => 40,
                 'ubq_section'   => array(
@@ -1251,10 +1251,10 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'featured-posts-full-content' => array(
                 'default'   => 0,
                 'control'   => 'HU_controls',
-                'label'     => __("Display the full post content", 'hueman-pro'),
+                'label'     => __("Display the full post content", 'hueman'),
                 'section'   => 'content_blog_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __( 'By default, your featured posts display the first words of their content ( the "excerpt"). Check this box to display the full content.' , 'hueman-pro'),
+                'notice'    => __( 'By default, your featured posts display the first words of their content ( the "excerpt"). Check this box to display the full content.' , 'hueman'),
                 //'active_callback' => 'is_home',
                 'priority'   => 45,
                 'ubq_section'   => array(
@@ -1265,10 +1265,10 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'featured-slideshow' => array(
                 'default'   => 0,
                 'control'   => 'HU_controls',
-                'label'     => __("Animate your featured posts with a slideshow", 'hueman-pro'),
+                'label'     => __("Animate your featured posts with a slideshow", 'hueman'),
                 'section'   => 'content_blog_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __( 'Enables the automatic animation of the featured posts carousel.' , 'hueman-pro'),
+                'notice'    => __( 'Enables the automatic animation of the featured posts carousel.' , 'hueman'),
                 //'active_callback' => 'is_home',
                 'priority'   => 50,
                 'ubq_section'   => array(
@@ -1280,13 +1280,13 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
                 'default'   => 5000,
                 'control'   => 'HU_controls' ,
                 'sanitize_callback' => array( $this , 'hu_sanitize_number' ),
-                'label'     => __( "Featured Slideshow Speed" , 'hueman-pro' ),
+                'label'     => __( "Featured Slideshow Speed" , 'hueman' ),
                 'section'   => 'content_blog_sec' ,
                 'type'      => 'number' ,
                 'step'      => 500,
                 'min'       => 500,
                 'transport' => 'postMessage',
-                'notice'    => __( "Speed of the automatic slideshow animation" , "hueman-pro" ),
+                'notice'    => __( "Speed of the automatic slideshow animation" , "hueman" ),
                 //'active_callback' => 'is_home',
                 'priority'   => 55,
                 'ubq_section'   => array(
@@ -1297,10 +1297,10 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'featured-posts-include' => array(
                 'default'   => 0,
                 'control'   => 'HU_controls',
-                'label'     => __("Display the featured posts also in the list of posts", 'hueman-pro'),
+                'label'     => __("Display the featured posts also in the list of posts", 'hueman'),
                 'section'   => 'content_blog_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __( 'If this box is checked, your featured posts will be displayed both in the featured slider and in the post list below. Usually not recommended because a given post might appear two times on the same page.' , 'hueman-pro'),
+                'notice'    => __( 'If this box is checked, your featured posts will be displayed both in the featured slider and in the post list below. Usually not recommended because a given post might appear two times on the same page.' , 'hueman'),
                 //'active_callback' => 'is_home',
                 'priority'   => 60,
                 'ubq_section'   => array(
@@ -1311,8 +1311,8 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'post-list-meta-category' => array(
             'default'   => 1,
             'control'   => 'HU_controls',
-            'title'     => __('Post Metas', 'hueman-pro'),
-            'label'     => __('Display categories', 'hueman-pro'),
+            'title'     => __('Post Metas', 'hueman'),
+            'label'     => __('Display categories', 'hueman'),
             'section'   => 'content_blog_sec',
             'type'      => 'nimblecheck',
             'priority'  => 70,
@@ -1320,7 +1320,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'post-list-meta-date' => array(
             'default'   => 1,
             'control'   => 'HU_controls',
-            'label'     => __('Display post date', 'hueman-pro'),
+            'label'     => __('Display post date', 'hueman'),
             'section'   => 'content_blog_sec',
             'type'      => 'nimblecheck',
             'priority'  => 71,
@@ -1328,7 +1328,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'post-list-meta-author' => array(
             'default'   => 0,
             'control'   => 'HU_controls',
-            'label'     => __('Display author', 'hueman-pro'),
+            'label'     => __('Display author', 'hueman'),
             'section'   => 'content_blog_sec',
             'type'      => 'nimblecheck',
             'priority'  => 72,
@@ -1346,27 +1346,27 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'author-bio' => array(
                 'default'   => 1,
                 'control'   => 'HU_controls',
-                'label'     => __("Single - Author Bio", 'hueman-pro'),
+                'label'     => __("Single - Author Bio", 'hueman'),
                 'section'   => 'content_single_sec',
                 'type'      => 'nimblecheck',
                 'priority'  => 10,
-                'notice'    => __( 'Display post author description, if it exists' , 'hueman-pro'),
+                'notice'    => __( 'Display post author description, if it exists' , 'hueman'),
                 //'active_callback' => function_exists('HU_AD') ? 'hu_is_single' : ''//enabled when hueman-addons is enabled
           ),
           'singular-post-featured-image' => array(
                 'default'   => 0,
                 'control'   => 'HU_controls',
-                'label'     => __( 'Featured image', 'hueman-pro' ),
+                'label'     => __( 'Featured image', 'hueman' ),
                 'section'   => 'content_single_sec',
                 'type'      => 'nimblecheck',
                 'priority'  => 10,
-                'notice'    => __( 'Display the post\'s featured image when it is set. Note that audio and image post formats automatically display the featured image.' , 'hueman-pro'),
+                'notice'    => __( 'Display the post\'s featured image when it is set. Note that audio and image post formats automatically display the featured image.' , 'hueman'),
                 'skoped' => false// implemented initally not skopable in jan-2020, see ctx_get_excluded_settings()
           ),
           'singular-post-cropped-feat-img' => array(
                 'default'   => 0,
                 'control'   => 'HU_controls',
-                'label'     => __( 'Used cropped image ( max 1320x500 on desktops)', 'hueman-pro' ),
+                'label'     => __( 'Used cropped image ( max 1320x500 on desktops)', 'hueman' ),
                 'section'   => 'content_single_sec',
                 'type'      => 'nimblecheck',
                 'priority'  => 10,
@@ -1375,34 +1375,34 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'related-posts' => array(
                 'default'   => 'categories',
                 'control'   => 'HU_controls',
-                'title'     => __("Related posts", 'hueman-pro'),
-                'label'     => __("Single - Related Posts", 'hueman-pro'),
+                'title'     => __("Related posts", 'hueman'),
+                'label'     => __("Single - Related Posts", 'hueman'),
                 'section'   => 'content_single_sec',
                 'type'      => 'select',
                 'priority'  => 20,
                 'choices' => array(
-                  '1'           => __( 'Disable' , 'hueman-pro' ),
-                  'categories'  => __( 'Related by categories' , 'hueman-pro' ),
-                  'tags'        => __( 'Related by tags' , 'hueman-pro' )
+                  '1'           => __( 'Disable' , 'hueman' ),
+                  'categories'  => __( 'Related by categories' , 'hueman' ),
+                  'tags'        => __( 'Related by tags' , 'hueman' )
                 ),
-                'notice'    => __( 'Display randomized related articles below the post' , 'hueman-pro'),
+                'notice'    => __( 'Display randomized related articles below the post' , 'hueman'),
                 //'active_callback' => function_exists('HU_AD') ? 'hu_is_single' : ''//enabled when hueman-addons is enabled
           ),
           'post-nav' => array(
                 'default'   => 's1',
                 'control'   => 'HU_controls',
-                'title'     => __("Post navigation", 'hueman-pro'),
-                'label'     => __("Post navigation in single posts", 'hueman-pro'),
+                'title'     => __("Post navigation", 'hueman'),
+                'label'     => __("Post navigation in single posts", 'hueman'),
                 'section'   => 'content_single_sec',
                 'type'      => 'select',
                 'priority'  => 30,
                 'choices' => array(
-                  '1'           => __( 'Disable' , 'hueman-pro' ),
-                  's1'          => __( 'Left Sidebar' , 'hueman-pro' ),
-                  's2'          => __( 'Right Sidebar' , 'hueman-pro' ),
-                  'content'     => __( 'Below content' , 'hueman-pro' )
+                  '1'           => __( 'Disable' , 'hueman' ),
+                  's1'          => __( 'Left Sidebar' , 'hueman' ),
+                  's2'          => __( 'Right Sidebar' , 'hueman' ),
+                  'content'     => __( 'Below content' , 'hueman' )
                 ),
-                'notice'    => __( 'Display links to the next and previous article' , 'hueman-pro'),
+                'notice'    => __( 'Display links to the next and previous article' , 'hueman'),
                 //'active_callback' => function_exists('HU_AD') ? 'hu_is_single' : '',//enabled when hueman-addons is enabled
                 'ubq_section'   => array(
                     'section' => 'sidebars_design_sec',
@@ -1412,30 +1412,30 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'post-tags' => array(
             'default'   => 1,
             'control'   => 'HU_controls',
-            'title'     => __('Post Tags', 'hueman-pro'),
-            'label'     => __('Post tags', 'hueman-pro'),
+            'title'     => __('Post Tags', 'hueman'),
+            'label'     => __('Post tags', 'hueman'),
             'section'   => 'content_single_sec',
             'type'      => 'nimblecheck',
-            'notice'    => __( 'Display the post tags after the post content.' , 'hueman-pro'),
+            'notice'    => __( 'Display the post tags after the post content.' , 'hueman'),
             'priority'  => 33,
           ),
           'post-meta-author' => array(
             'default'   => 1,
             'control'   => 'HU_controls',
-            'title'     => __('Post Metas', 'hueman-pro'),
-            'label'     => __('Post author name', 'hueman-pro'),
+            'title'     => __('Post Metas', 'hueman'),
+            'label'     => __('Post author name', 'hueman'),
             'section'   => 'content_single_sec',
             'type'      => 'nimblecheck',
-            'notice'    => __( 'Display the author name below the post title.' , 'hueman-pro'),
+            'notice'    => __( 'Display the author name below the post title.' , 'hueman'),
             'priority'  => 31,
           ),
           'post-meta-date' => array(
             'default'   => 1,
             'control'   => 'HU_controls',
-            'label'     => __('Post date', 'hueman-pro'),
+            'label'     => __('Post date', 'hueman'),
             'section'   => 'content_single_sec',
             'type'      => 'nimblecheck',
-            'notice'    => __( 'Display the date below the post title.' , 'hueman-pro'),
+            'notice'    => __( 'Display the date below the post title.' , 'hueman'),
             'priority'  => 32,
           ),
         );
@@ -1451,15 +1451,15 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'singular-page-featured-image' => array(
                 'default'   => 0,
                 'control'   => 'HU_controls',
-                'label'     => __( 'Featured image', 'hueman-pro' ),
+                'label'     => __( 'Featured image', 'hueman' ),
                 'section'   => 'content_page_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __( 'Display the page\'s featured image when it is set' , 'hueman-pro')
+                'notice'    => __( 'Display the page\'s featured image when it is set' , 'hueman')
           ),
           'singular-page-cropped-feat-img' => array(
                 'default'   => 0,
                 'control'   => 'HU_controls',
-                'label'     => __( 'Used cropped image (max 1320x500 on desktops)', 'hueman-pro' ),
+                'label'     => __( 'Used cropped image (max 1320x500 on desktops)', 'hueman' ),
                 'section'   => 'content_page_sec',
                 'type'      => 'nimblecheck'
           ),
@@ -1476,18 +1476,18 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'placeholder' => array(
                 'default'   => 1,
                 'control'   => 'HU_controls',
-                'label'     => __("Thumbnail Placeholder", 'hueman-pro'),
+                'label'     => __("Thumbnail Placeholder", 'hueman'),
                 'section'   => 'content_thumbnail_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __( 'Display featured image placeholders if no featured image is set' , 'hueman-pro')
+                'notice'    => __( 'Display featured image placeholders if no featured image is set' , 'hueman')
           ),
           'comment-count' => array(
                 'default'   => 1,
                 'control'   => 'HU_controls',
-                'label'     => __("Thumbnail Comment Count", 'hueman-pro'),
+                'label'     => __("Thumbnail Comment Count", 'hueman'),
                 'section'   => 'content_thumbnail_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __( 'Display comment count on thumbnails' , 'hueman-pro'),
+                'notice'    => __( 'Display comment count on thumbnails' , 'hueman'),
                 'ubq_section'   => array(
                     'section' => 'comments_sec',
                     'priority' => '30'
@@ -1512,36 +1512,36 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'sidebar-top' => array(
                 'default'   => 1,
                 'control'   => 'HU_controls',
-                'label'     => __('Sidebar Top Boxes', 'hueman-pro'),
+                'label'     => __('Sidebar Top Boxes', 'hueman'),
                 'section'   => 'sidebars_design_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __('Display boxes at the top of the sidebars' , 'hueman-pro'),
+                'notice'    => __('Display boxes at the top of the sidebars' , 'hueman'),
                 'priority'  => 1
           ),
           'primary-sb-text' => array(
                 'control'   => 'HU_controls',
-                'default'   => __( 'Follow:', 'hueman-pro' ),
-                'label'     => __( 'Primary sidebar title', 'hueman-pro'),
+                'default'   => __( 'Follow:', 'hueman' ),
+                'label'     => __( 'Primary sidebar title', 'hueman'),
                 'type'      => 'text',
                 'section'   => 'sidebars_design_sec',
                 'sanitize_callback' => array( $this, 'hu_sanitize_html_text_input' ),
                 'priority'  => 2,
-                'notice'    => __( 'Html is allowed.', 'hueman-pro')
+                'notice'    => __( 'Html is allowed.', 'hueman')
           ),
           'secondary-sb-text' => array(
                 'control'   => 'HU_controls',
-                'default'   => __( 'More', 'hueman-pro' ),
-                'label'     => __( 'Secondary sidebar title', 'hueman-pro'),
+                'default'   => __( 'More', 'hueman' ),
+                'label'     => __( 'Secondary sidebar title', 'hueman'),
                 'type'      => 'text',
                 'section'   => 'sidebars_design_sec',
                 'sanitize_callback' => array( $this, 'hu_sanitize_html_text_input' ),
                 'priority'  => 2,
-                'notice'    => __( 'Html is allowed.', 'hueman-pro')
+                'notice'    => __( 'Html is allowed.', 'hueman')
           ),
           'sidebar-background' => array(
                 'default'   => '#f0f0f0',
                 'control'   => 'HU_Customize_Color_Alpha_Control',
-                'label'     => __('Sidebars background color', 'hueman-pro'),
+                'label'     => __('Sidebars background color', 'hueman'),
                 'section'   => 'sidebars_design_sec',
                 'type'      =>  'wp_color_alpha' ,
                 'sanitize_callback'    => 'maybe_hash_hex_color',
@@ -1551,33 +1551,33 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'desktop-sticky-sb' => array(
                 'default'   => hu_user_started_before_version( '3.3.9', '1.0.3' ) ? 1 : 0,
                 'control'   => 'HU_controls',
-                'label'     => sprintf( '%1$s : %2$s', __('Desktop devices', 'hueman-pro' ) , __('make sidebars sticky on scroll', 'hueman-pro') ),
+                'label'     => sprintf( '%1$s : %2$s', __('Desktop devices', 'hueman' ) , __('make sidebars sticky on scroll', 'hueman') ),
                 'section'   => 'sidebars_design_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __("Glues your website's sidebars on top of the page, making them permanently visible when scrolling up and down. Useful when a sidebar is too tall or too short compared to the rest of the content." , 'hueman-pro')
+                'notice'    => __("Glues your website's sidebars on top of the page, making them permanently visible when scrolling up and down. Useful when a sidebar is too tall or too short compared to the rest of the content." , 'hueman')
           ),
           'mobile-sticky-sb' => array(
                 'default'   => hu_user_started_before_version( '3.3.9', '1.0.3' ) ? 1 : 0,
                 'control'   => 'HU_controls',
-                'label'     => sprintf( '%1$s : %2$s', __('Mobile devices', 'hueman-pro' ) , __('make sidebars sticky on scroll', 'hueman-pro') ),
+                'label'     => sprintf( '%1$s : %2$s', __('Mobile devices', 'hueman' ) , __('make sidebars sticky on scroll', 'hueman') ),
                 'section'   => 'sidebars_design_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __( "Decide if your sidebars should be sticky on tablets and smartphones devices." , 'hueman-pro' )
+                'notice'    => __( "Decide if your sidebars should be sticky on tablets and smartphones devices." , 'hueman' )
           ),
           'mobile-sidebar-hide' => array(
                 'default'   => '1',
                 'control'   => 'HU_controls',
-                'label'     => __('Mobile Sidebar Content', 'hueman-pro'),
+                'label'     => __('Mobile Sidebar Content', 'hueman'),
                 'section'   => 'sidebars_design_sec',
                 'type'      => 'select',//@todo create a radio type
                 'priority'  => 100,
                 'choices' => array(
-                  '1'           => __( 'Display both sidebars' , 'hueman-pro' ),
-                  's1'          => __( 'Hide primary sidebar' , 'hueman-pro' ),
-                  's2'          => __( 'Hide secondary sidebar' , 'hueman-pro' ),
-                  's1-s2'       => __( 'Hide both sidebars' , 'hueman-pro' )
+                  '1'           => __( 'Display both sidebars' , 'hueman' ),
+                  's1'          => __( 'Hide primary sidebar' , 'hueman' ),
+                  's2'          => __( 'Hide secondary sidebar' , 'hueman' ),
+                  's1-s2'       => __( 'Hide both sidebars' , 'hueman' )
                 ),
-                'notice'    => __('Control how the sidebar content is displayed on smartphone mobile devices (480px).' , 'hueman-pro')
+                'notice'    => __('Control how the sidebar content is displayed on smartphone mobile devices (480px).' , 'hueman')
             ),
             'mobile-sidebar-primary-first' => array(
                   'default'   => 0,
@@ -1586,12 +1586,12 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
                   'section'   => 'sidebars_design_sec',
                   'type'      => 'nimblecheck',
                   'priority'  => 110,
-                  'notice'     => __( 'Display the primary sidebar above the content column on smartphone mobile devices (480px).', 'hueman-pro' ),
+                  'notice'     => __( 'Display the primary sidebar above the content column on smartphone mobile devices (480px).', 'hueman' ),
             ),
             'sl-in-sidebar' => array(
                 'default'   => 1,
                 'control'   => 'HU_controls',
-                'label'     => __('Display social links in the primary sidebar', 'hueman-pro'),
+                'label'     => __('Display social links in the primary sidebar', 'hueman'),
                 'section'   => 'sidebars_design_sec',
                 'type'      => 'nimblecheck',
                 'priority'  => 120,
@@ -1612,7 +1612,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
     ------------------------------------------------------------------------------------------------------*/
     function hu_footer_design_sec() {
       global $wp_version;
-      $nav_section_desc = "<br/>" . sprintf( __("You can create menus and set their locations %s." , "hueman-pro"),
+      $nav_section_desc = "<br/>" . sprintf( __("You can create menus and set their locations %s." , "hueman"),
           sprintf( '%1$s<strong><a class="jump-to-menu-panel" href="#" title="%3$s">%2$s</a><strong>',
               sprintf( '<script>%1$s</script>',
                   "jQuery( function($) {
@@ -1622,23 +1622,23 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
                       });
                   });"
               ),// "javascript:wp.customize.panel('nav_menus').focus();"
-              __("in the menu panel" , "hueman-pro"),
-              __("create/edit menus", "hueman-pro")
+              __("in the menu panel" , "hueman"),
+              __("create/edit menus", "hueman")
           )
       );
       return array(
           'footer-ads' => array(
                 'default'   => hu_user_started_before_version( '3.2.4' ) ? 1 : 0,
                 'control'   => 'HU_controls',
-                'label'     => __("Display a full width widget area in your footer", 'hueman-pro'),
+                'label'     => __("Display a full width widget area in your footer", 'hueman'),
                 'section'   => 'footer_design_sec',
                 'type'      => 'nimblecheck',
-                'notice'    => __('This zone is located before the other footer widgets and takes 100% of the width. Very appropriate to display a Google Map or an advertisement banner.', 'hueman-pro')
+                'notice'    => __('This zone is located before the other footer widgets and takes 100% of the width. Very appropriate to display a Google Map or an advertisement banner.', 'hueman')
           ),
           'default-menu-footer' => array(
                 'default'   => 0,
                 'control'   => 'HU_controls',
-                'label'     => __("Use a default page menu if no menu has been assigned.", 'hueman-pro'),
+                'label'     => __("Use a default page menu if no menu has been assigned.", 'hueman'),
                 'section'   => 'footer_design_sec',
                 'type'      => 'nimblecheck',
                 'priority'  => 15,
@@ -1647,16 +1647,16 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'footer-widgets' => array(
                 'default'   => hu_user_started_before_version( '3.2.4' ) ? '0' : '3',
                 'control'   => 'HU_Customize_Layout_Control',
-                'label'     => __('Select columns to enable footer widgets', 'hueman-pro'),
+                'label'     => __('Select columns to enable footer widgets', 'hueman'),
                 'section'   => 'footer_design_sec',
                 'type'      => 'czr_layouts',
                 'choices'   => $this -> hu_get_footer_layout_choices(),
                 'priority'  => 20,
-                'notice'    => __('Recommended number of columns : 3' , 'hueman-pro')
+                'notice'    => __('Recommended number of columns : 3' , 'hueman')
           ),
           'footer-logo'  => array(
                 'control'   =>  version_compare( $wp_version, '4.3', '>=' ) ? 'HU_Customize_Cropped_Image_Control' : 'HU_Customize_Upload_Control',
-                'label'     =>  __( 'Upload your custom logo image' , 'hueman-pro' ),
+                'label'     =>  __( 'Upload your custom logo image' , 'hueman' ),
                 'section'   => 'footer_design_sec' ,
                 'sanitize_callback' => array( $this , 'hu_sanitize_number' ),
                 //we can define suggested cropping area and allow it to be flexible (def 150x150 and not flexible)
@@ -1668,12 +1668,12 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
                 'dst_width'  => false,
                 'dst_height'  => false,
                 'priority'  => 25,
-                'notice'    => __('Upload your custom logo image. Supported formats : .jpg, .png, .gif, svg, svgz' , 'hueman-pro')
+                'notice'    => __('Upload your custom logo image. Supported formats : .jpg, .png, .gif, svg, svgz' , 'hueman')
           ),
           'color-footer' => array(
                 'default'     => '#33363b',
                 'control'     => 'HU_Customize_Color_Alpha_Control',
-                'label'       => __( 'Footer Background' , 'hueman-pro' ),
+                'label'       => __( 'Footer Background' , 'hueman' ),
                 'section'     => 'footer_design_sec',
                 'type'        =>  'wp_color_alpha' ,
                 'sanitize_callback'    => 'maybe_hash_hex_color',
@@ -1683,18 +1683,18 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           ),
           'copyright' => array(
                 'control'   => 'HU_controls',
-                'default'   => sprintf( '{{site_title}} &copy; {{year}}. %1$s', __( 'All Rights Reserved.', 'hueman-pro' ) ),
-                'label'     => __( 'Replace the footer copyright text', 'hueman-pro'),
+                'default'   => sprintf( '{{site_title}} &copy; {{year}}. %1$s', __( 'All Rights Reserved.', 'hueman' ) ),
+                'label'     => __( 'Replace the footer copyright text', 'hueman'),
                 'type'      => 'text',
                 'section'   => 'footer_design_sec',
                 'sanitize_callback' => array( $this, 'hu_sanitize_html_text_input' ),
                 'priority'  => 35,
-                'notice'    => __( 'Note : Html is allowed. The following template tags can be used : {{year}}, {{site_title}}, {{home_url}}.', 'hueman-pro')
+                'notice'    => __( 'Note : Html is allowed. The following template tags can be used : {{year}}, {{site_title}}, {{home_url}}.', 'hueman')
           ),
           'credit' => array(
                 'control'   => 'HU_controls',
                 'default'   => 1,
-                'label'     => __( 'Footer credit text', 'hueman-pro'),
+                'label'     => __( 'Footer credit text', 'hueman'),
                 'type'      => 'nimblecheck',
                 'section'   => 'footer_design_sec',
                 'priority'  => 40,
@@ -1703,7 +1703,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           'sl-in-footer' => array(
                 'default'   => 1,
                 'control'   => 'HU_controls',
-                'label'     => __('Display social links in the footer', 'hueman-pro'),
+                'label'     => __('Display social links in the footer', 'hueman'),
                 'section'   => 'footer_design_sec',
                 'type'      => 'nimblecheck',
                 'priority'  => 50
@@ -1734,25 +1734,25 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
         'hu-general-panel' => array(
                   'priority'       => 10,
                   'capability'     => 'edit_theme_options',
-                  'title'          => __( 'Web Page Design' , 'hueman-pro' ),
-                  'czr_subtitle'   => __( 'Title, Logo, Fonts, Colors, Background, Socials, Links', 'hueman-pro'),
-                  'description'    => __( "General settings for the Hueman theme : design, comments, mobile, ..." , 'hueman-pro' ),
+                  'title'          => __( 'Web Page Design' , 'hueman' ),
+                  'czr_subtitle'   => __( 'Title, Logo, Fonts, Colors, Background, Socials, Links', 'hueman'),
+                  'description'    => __( "General settings for the Hueman theme : design, comments, mobile, ..." , 'hueman' ),
                   'type'           => 'hu_panel'
         ),
         'hu-header-panel' => array(
                   'priority'       => 20,
                   'capability'     => 'edit_theme_options',
-                  'title'          => __( 'Header Design' , 'hueman-pro' ),
-                  'czr_subtitle'   => __( 'Header Image, Menu, Widget', 'hueman-pro'),
-                  'description'    => __( "Header settings for the Hueman theme." , 'hueman-pro' ),
+                  'title'          => __( 'Header Design' , 'hueman' ),
+                  'czr_subtitle'   => __( 'Header Image, Menu, Widget', 'hueman'),
+                  'description'    => __( "Header settings for the Hueman theme." , 'hueman' ),
                   'type'           => 'hu_panel'
         ),
         'hu-content-panel' => array(
                   'priority'       => 30,
                   'capability'     => 'edit_theme_options',
-                  'title'          => __( 'Main Body Design' , 'hueman-pro' ),
-                  'czr_subtitle'   => __( 'Layout, Sidebars, Blog Posts, Thumbnails', 'hueman-pro'),
-                  'description'    => __( "Content settings for the Hueman theme." , 'hueman-pro' ),
+                  'title'          => __( 'Main Body Design' , 'hueman' ),
+                  'czr_subtitle'   => __( 'Layout, Sidebars, Blog Posts, Thumbnails', 'hueman'),
+                  'description'    => __( "Content settings for the Hueman theme." , 'hueman' ),
                   'type'           => 'hu_panel'
         ),
         // 'hu-sidebars-panel' => array(
@@ -1764,17 +1764,17 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
         'hu-footer-panel' => array(
                   'priority'       => 40,
                   'capability'     => 'edit_theme_options',
-                  'title'          => __( 'Footer Design' , 'hueman-pro' ),
-                  'czr_subtitle'   => __( 'Logo, Layout, Menu', 'hueman-pro'),
-                  'description'    => __( "Footer settings for the Hueman theme." , 'hueman-pro' ),
+                  'title'          => __( 'Footer Design' , 'hueman' ),
+                  'czr_subtitle'   => __( 'Logo, Layout, Menu', 'hueman'),
+                  'description'    => __( "Footer settings for the Hueman theme." , 'hueman' ),
                   'type'           => 'hu_panel'
         ),
         'hu-advanced-panel' => array(
                   'priority'       => 1000,
                   'capability'     => 'edit_theme_options',
-                  'title'          => __( 'Advanced options' , 'hueman-pro' ),
-                  'czr_subtitle'   => __( 'Performances, SEO, CSS, Scroll', 'hueman-pro'),
-                  'description'    => __( "Advanced settings for the Hueman theme." , 'hueman-pro' ),
+                  'title'          => __( 'Advanced options' , 'hueman' ),
+                  'czr_subtitle'   => __( 'Performances, SEO, CSS, Scroll', 'hueman'),
+                  'description'    => __( "Advanced settings for the Hueman theme." , 'hueman' ),
                   'type'           => 'hu_panel'
         )
       );
@@ -1856,7 +1856,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
         //the title_tagline section holds the default WP setting for the Site Title and the Tagline
         //This section has been previously removed from its initial location and is added back here
         'title_tagline'         => array(
-              'title'    => __( 'Site Identity : Logo, Title, Tagline and Site Icon', 'hueman-pro' ),
+              'title'    => __( 'Site Identity : Logo, Title, Tagline and Site Icon', 'hueman' ),
               'priority' => 10,
               'panel'   => 'hu-general-panel',
               'section_class' => 'HU_Customize_Sections',
@@ -1866,7 +1866,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
               )
         ),
         'general_design_sec'         => array(
-              'title'    => __( 'General Design Options : Font, Colors, ...', 'hueman-pro' ),
+              'title'    => __( 'General Design Options : Font, Colors, ...', 'hueman' ),
               'priority' => 20,
               'panel'   => 'hu-general-panel'
         ),
@@ -1883,22 +1883,22 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
         -> PANEL : HEADER
         ----------------------------------------------------------------------------------------------*/
         'header_design_sec'         => array(
-              'title'    => __( "Header Design : colors and others", 'hueman-pro' ),
+              'title'    => __( "Header Design : colors and others", 'hueman' ),
               'priority' => 10,
               'panel'   => 'hu-header-panel'
         ),
         'header_image_sec'         => array(
-              'title'    => __( 'Header Image', 'hueman-pro' ),
+              'title'    => __( 'Header Image', 'hueman' ),
               'priority' => 30,
               'panel'   => 'hu-header-panel'
         ),
         'header_widget_sec'         => array(
-              'title'    => __( 'Header Advertisement Widget', 'hueman-pro' ),
+              'title'    => __( 'Header Advertisement Widget', 'hueman' ),
               'priority' => 20,
               'panel'   => 'hu-header-panel'
         ),
         'header_menus_sec'          => array(
-              'title'    => __( 'Header Menus : mobile settings, scroll behaviour, search button', 'hueman-pro' ),
+              'title'    => __( 'Header Menus : mobile settings, scroll behaviour, search button', 'hueman' ),
               'priority' => 40,
               'panel'   => 'hu-header-panel'
         ),
@@ -1907,39 +1907,39 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
         -> PANEL : CONTENT
         ----------------------------------------------------------------------------------------------*/
         'content_layout_sec'         => array(
-              'title'    => __( 'Column layout for the main content', 'hueman-pro' ),
+              'title'    => __( 'Column layout for the main content', 'hueman' ),
               'priority' => 10,
               'panel'   => 'hu-content-panel'
         ),
         'sidebars_design_sec'         => array(
-              'title'    => __( 'Sidebars : Design and Mobile Settings', 'hueman-pro' ),
+              'title'    => __( 'Sidebars : Design and Mobile Settings', 'hueman' ),
               'priority' => 20,
               'panel'   => 'hu-content-panel'
         ),
         'content_blog_sec'         => array(
-              'title'    => __( 'Post Lists Design and Content : Blog, Archives, Search Results', 'hueman-pro' ),
+              'title'    => __( 'Post Lists Design and Content : Blog, Archives, Search Results', 'hueman' ),
               'priority' => 30,
               'panel'   => 'hu-content-panel',
               //'active_callback' => 'hu_is_post_list'
         ),
         'content_page_sec'         => array(
-            'title'    => __( 'Single Pages Settings', 'hueman-pro' ),
+            'title'    => __( 'Single Pages Settings', 'hueman' ),
             'priority' => 35,
             'panel'   => 'hu-content-panel',
         ),
         'content_single_sec'         => array(
-              'title'    => __( 'Single Posts Settings', 'hueman-pro' ),
+              'title'    => __( 'Single Posts Settings', 'hueman' ),
               'priority' => 40,
               'panel'   => 'hu-content-panel',
               //'active_callback' => function_exists('HU_AD') ? 'hu_is_single' : ''
         ),
         'content_thumbnail_sec'         => array(
-              'title'    => __( 'Thumbnails Settings', 'hueman-pro' ),
+              'title'    => __( 'Thumbnails Settings', 'hueman' ),
               'priority' => 50,
               'panel'   => 'hu-content-panel'
         ),
         'comments_sec'         => array(
-              'title'    => __( 'Comments', 'hueman-pro' ),
+              'title'    => __( 'Comments', 'hueman' ),
               'priority' => 60,
               'panel'   => 'hu-content-panel',
               //'active_callback' => 'hu_is_singular'
@@ -1949,7 +1949,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
         -> PANEL : FOOTER
         ----------------------------------------------------------------------------------------------*/
         'footer_design_sec'         => array(
-              'title'    => __( 'Footer Design : Logo, layout, ...', 'hueman-pro' ),
+              'title'    => __( 'Footer Design : Logo, layout, ...', 'hueman' ),
               'priority' => 10,
               'panel'   => 'hu-footer-panel'
         ),
@@ -1966,22 +1966,22 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
         //       'panel'   => 'hu-advanced-panel'
         // ),
         'mobiles_sec'         => array(
-              'title'    => __( 'Mobile Devices', 'hueman-pro' ),
+              'title'    => __( 'Mobile Devices', 'hueman' ),
               'priority' => 20,
               'panel'   => 'hu-advanced-panel'
         ),
         'search_sec'         => array(
-              'title'    => __( 'Search Results', 'hueman-pro' ),
+              'title'    => __( 'Search Results', 'hueman' ),
               'priority' => 25,
               'panel'   => 'hu-advanced-panel'
         ),
         'performance_sec'         => array(
-              'title'    => __( 'Performances and SEO', 'hueman-pro' ),
+              'title'    => __( 'Performances and SEO', 'hueman' ),
               'priority' => 30,
               'panel'   => 'hu-advanced-panel'
         ),
         'admin_sec'         => array(
-              'title'    => __( 'Hueman Admin Settings', 'hueman-pro' ),
+              'title'    => __( 'Hueman Admin Settings', 'hueman' ),
               'priority' => 50,
               'panel'   => 'hu-advanced-panel'
         )
@@ -1993,8 +1993,8 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           $_sections = array_merge(
               array(
                   'go_pro_sec'   => array(
-                      'title'         => esc_html__( 'Upgrade to Hueman Pro', 'hueman-pro' ),
-                      'pro_text'      => esc_html__( 'Go Pro', 'hueman-pro' ),
+                      'title'         => esc_html__( 'Upgrade to Hueman Pro', 'hueman' ),
+                      'pro_text'      => esc_html__( 'Go Pro', 'hueman' ),
                       'pro_url'       => esc_url('presscustomizr.com/hueman-pro') . '?ref=c&utm_source=usersite&utm_medium=link&utm_campaign=hueman-customizer-btn',
                       'priority'      => 0,
                       'section_class' => 'HU_Customize_Section_Pro',
@@ -2021,7 +2021,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
     */
     function hu_get_the_cat_list() {
       $list = array(
-        "0" => sprintf('-- %1$s --', __('Choose one ', 'hueman-pro') )
+        "0" => sprintf('-- %1$s --', __('Choose one ', 'hueman') )
       );
       foreach ( get_categories() as $key => $cat) {
         $_id = $cat -> term_id;
@@ -2040,27 +2040,27 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
       $_layouts = array(
         'col-1c' => array(
           'src' => get_template_directory_uri() . '/assets/admin/img/col-1c.png',
-          'label' => __( '1 Column' , 'hueman-pro' )
+          'label' => __( '1 Column' , 'hueman' )
         ),
         'col-2cl'=> array(
           'src' => get_template_directory_uri() . '/assets/admin/img/col-2cl.png',
-          'label' => __( '2 Columns - Content Left' , 'hueman-pro' )
+          'label' => __( '2 Columns - Content Left' , 'hueman' )
         ),
         'col-2cr'=> array(
           'src' => get_template_directory_uri() . '/assets/admin/img/col-2cr.png',
-          'label' => __( '2 Columns - Content Right' , 'hueman-pro' )
+          'label' => __( '2 Columns - Content Right' , 'hueman' )
         ),
         'col-3cm'=> array(
           'src' => get_template_directory_uri() . '/assets/admin/img/col-3cm.png',
-          'label' => __( '3 Columns - Content Middle' , 'hueman-pro' )
+          'label' => __( '3 Columns - Content Middle' , 'hueman' )
         ),
         'col-3cl'=> array(
           'src' => get_template_directory_uri() . '/assets/admin/img/col-3cl.png',
-          'label' => __( '3 Columns - Content Left' , 'hueman-pro' )
+          'label' => __( '3 Columns - Content Left' , 'hueman' )
         ),
         'col-3cr'=> array(
           'src' => get_template_directory_uri() . '/assets/admin/img/col-3cr.png',
-          'label' => __( '3 Columns - Content Right' , 'hueman-pro' )
+          'label' => __( '3 Columns - Content Right' , 'hueman' )
         )
       );
       if ( 'global' != $_wot )
@@ -2068,7 +2068,7 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
           array(
             'inherit' => array(
               'src' => get_template_directory_uri() . '/assets/admin/img/layout-off.png',
-              'label' => __( 'Inherit Global Layout' , 'hueman-pro' )
+              'label' => __( 'Inherit Global Layout' , 'hueman' )
             )
           ),
           $_layouts
@@ -2086,23 +2086,23 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
       $_layouts = array(
         '0' => array(
           'src' => get_template_directory_uri() . '/assets/admin/img/footer-widgets-0.png',
-          'label' => __( 'Disable' , 'hueman-pro' )
+          'label' => __( 'Disable' , 'hueman' )
         ),
         '1' => array(
           'src' => get_template_directory_uri() . '/assets/admin/img/footer-widgets-1.png',
-          'label' => __( '1 Column' , 'hueman-pro' )
+          'label' => __( '1 Column' , 'hueman' )
         ),
         '2' => array(
           'src' => get_template_directory_uri() . '/assets/admin/img/footer-widgets-2.png',
-          'label' => __( '2 Columns' , 'hueman-pro' )
+          'label' => __( '2 Columns' , 'hueman' )
         ),
         '3' => array(
           'src' => get_template_directory_uri() . '/assets/admin/img/footer-widgets-3.png',
-          'label' => __( '3 Columns' , 'hueman-pro' )
+          'label' => __( '3 Columns' , 'hueman' )
         ),
         '4' => array(
           'src' => get_template_directory_uri() . '/assets/admin/img/footer-widgets-4.png',
-          'label' => __( '4 Columns' , 'hueman-pro' )
+          'label' => __( '4 Columns' , 'hueman' )
         ),
       );
 
@@ -2127,12 +2127,12 @@ if ( !class_exists( 'HU_utils_settings_map' ) ) :
 
       //return no sidebars if empty
       if ( !count( $sidebars ) ) {
-        $_to_return['no-sidebars'] = '-- ' . __( 'No Sidebars', 'hueman-pro' )  . ' --';
+        $_to_return['no-sidebars'] = '-- ' . __( 'No Sidebars', 'hueman' )  . ' --';
         return $_to_return;
       }
 
       //else populate the array
-      $_to_return[] = '-- ' . __( 'Choose Sidebar', 'hueman-pro' ) . ' --';
+      $_to_return[] = '-- ' . __( 'Choose Sidebar', 'hueman' ) . ' --';
 
       foreach ( $sidebars as $id => $sidebar ) {
         $id = esc_attr( $id );

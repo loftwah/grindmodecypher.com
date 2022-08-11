@@ -127,11 +127,11 @@ class HU_theme_updater{
 
     $_html = sprintf('<div class="notice-info notice"><p>%1$s</p></div>',
         sprintf( '%1$s <strong>%2$s</strong>. %3$s <a href="%4$s" title="%5$s">%5$s</a>.',
-          __( "We couldn't check the updates for ", 'hueman-pro'),
+          __( "We couldn't check the updates for ", 'hueman'),
           $theme_name,
-          __( 'You might need to check for updates on <a href="https://presscustomizr.com/hueman-pro" title="Press Customizr" target="_blank">presscustomizr.com</a> and ', "hueman-pro" ),
+          __( 'You might need to check for updates on <a href="https://presscustomizr.com/hueman-pro" title="Press Customizr" target="_blank">presscustomizr.com</a> and ', "hueman" ),
           admin_url( 'themes.php?page=tc-licenses'),
-          __( "upload the theme manually", "hueman-pro" )
+          __( "upload the theme manually", "hueman" )
         )
     );
 

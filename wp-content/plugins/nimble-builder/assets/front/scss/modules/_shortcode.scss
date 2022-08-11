@@ -1,0 +1,12 @@
+/*************************************
+* SHORTCODE MODULE
+*************************************/
+[data-sek-module-type="czr_shortcode_module"] [data-sek-use-flexbox="true"] {
+    // implemented to fix : https://github.com/presscustomizr/nimble-builder/issues/565
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}

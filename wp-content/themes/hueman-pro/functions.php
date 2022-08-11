@@ -13,18 +13,18 @@ if ( version_compare( $wp_version, HU_MIN_WP_VERSION, '<' ) ) {
 }
 
 function hu_display_min_php_message() {
-    hu_display_min_requirement_notice( __( 'PHP', 'hueman-pro' ), HU_MIN_PHP_VERSION );
+    hu_display_min_requirement_notice( __( 'PHP', 'hueman' ), HU_MIN_PHP_VERSION );
 }
 
 function hu_display_min_wp_message() {
-    hu_display_min_requirement_notice( __( 'WordPress', 'hueman-pro' ), HU_MIN_WP_VERSION );
+    hu_display_min_requirement_notice( __( 'WordPress', 'hueman' ), HU_MIN_WP_VERSION );
 }
 
 
 function hu_display_min_requirement_notice( $requires_what, $requires_what_version ) {
     $theme = wp_get_theme()->Name;
     printf( '<div class="error"><p>%1$s</p></div>',
-        sprintf( __( 'The <strong>%1$s</strong> theme requires at least %2$s version %3$s', 'hueman-pro' ),
+        sprintf( __( 'The <strong>%1$s</strong> theme requires at least %2$s version %3$s', 'hueman' ),
             $theme,
             $requires_what,
             $requires_what_version

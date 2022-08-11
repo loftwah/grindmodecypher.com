@@ -1,0 +1,434 @@
+
+/* TEMPLATE GALLERY */
+#nimble-tmpl-gallery, #nimble-tmpl-gallery .sek-tmpl-gal-inject-dialog {
+  -webkit-transition: top 0.3s ease-in-out;
+  -moz-transition: top, 0.3s ease-in-out;
+  -ms-transition: top, 0.3s ease-in-out;
+  -o-transition: top, 0.3s ease-in-out;
+  transition: top 0.3s ease-in-out;
+}
+
+#nimble-tmpl-gallery {
+  background: rgba(240, 240, 240, 0.89)!important;
+  border-bottom: 1px solid #aaa!important;
+  color: #222!important;
+  font-size: 12px!important;
+  position: absolute;
+  top: -100vh;
+  right: 0;
+  left: 0;
+  height: calc(100vh - 36px);
+  overflow: auto;
+  padding: 15px;
+  z-index: 1000;
+}
+.sek-template-gallery-expanded #nimble-tmpl-gallery {
+  top: 36px;
+}
+
+
+/* IMPORT DIALOG BOX */
+#nimble-tmpl-gallery .sek-tmpl-gal-inject-dialog {
+  background: rgba(240, 240, 240, 0.89)!important;
+  border-bottom: 1px solid #aaa!important;
+  color: #222!important;
+  font-size: 12px!important;
+  position: absolute;
+  top: -100vh;
+  right: 0;
+  left: 0;
+  height: calc(100vh - 36px);
+  overflow: auto;
+  padding: 15px;
+  z-index: 1001;
+}
+.sek-tmpl-dialog-expanded #nimble-tmpl-gallery .sek-tmpl-gal-inject-dialog {
+  top: 0px;
+}
+/* Hide template gallery while dialog is open. Otherwise the dialog might not be visible if a template has been clicked too low in the page */
+.sek-tmpl-dialog-expanded #nimble-tmpl-gallery .sek-tmpl-gallery-inner {
+  display: none;
+}
+
+
+#nimble-tmpl-gallery .sek-tmpl-gallery-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-right: -10px;
+  margin-left: -10px;
+  margin-top: 8px;
+}
+#nimble-tmpl-gallery .sek-tmpl-gallery-inner *, #nimble-tmpl-gallery .sek-tmpl-gallery-inner *:after, #nimble-tmpl-gallery .sek-tmpl-gallery-inner *:before{
+  box-sizing: border-box;
+}
+/* TMPL ITEM  */
+.sek-tmpl-gallery-inner .sek-tmpl-item {
+  -ms-flex: 0 0 calc(25% - 24px);
+  flex: 0 0 calc(25% - 24px);
+  max-width: calc(25% - 24px);
+  padding: 0px;
+  margin: 12px;
+  width: 100%;
+  height: 380px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+-webkit-box-direction: normal;
+-ms-flex-direction: column;
+        flex-direction: column;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  /* cursor: pointer; */
+  -webkit-box-shadow: rgb(0 0 0 / 25%) 0px 3px 11px 0px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.25) 0px 3px 11px 0px;
+    box-shadow: rgb(0 0 0 / 25%) 0px 3px 11px 0;
+}
+@media (max-width: 1300px) {
+  .sek-tmpl-gallery-inner .sek-tmpl-item {
+    -ms-flex: 0 0 calc(33.333% - 24px);
+    flex: 0 0 calc(33.333% - 24px);
+    max-width: calc(33.333% - 24px);
+  }
+}
+@media (max-width: 1000px) {
+  .sek-tmpl-gallery-inner .sek-tmpl-item {
+    -ms-flex: 0 0 calc(50% - 24px);
+    flex: 0 0 calc(50% - 24px);
+    max-width: calc(50% - 24px);
+  }
+}
+
+.tmpl-top-title {
+  padding: 10px;
+  background: #ffffff;
+  width: 100%;
+}
+.tmpl-top-title h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5em;
+  color: #555;
+}
+
+.tmpl-thumb-and-info-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.sek-tmpl-info {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  max-height: 100%;
+  padding: 10px;
+  overflow: hidden;
+}
+.sek-tmpl-info > p {
+  color: #ffffff;
+  overflow: hidden;
+}
+/* .sek-tmpl-info > .tmpl-title {
+  font-size: 15px;
+  margin: 0.5em 0;
+} */
+.sek-tmpl-info > p {
+  font-size: 13px;
+  margin: 0.5em 0;
+}
+.sek-tmpl-info > p.tmpl-date {
+  font-size: 12px;
+}
+
+/* USE TMPL BUTTON */
+.sek-tmpl-info > .use-tmpl {
+    cursor: pointer;
+    font-size: 21px;
+    width: 50px;
+    height: 50px;
+    color: #ffffff;
+    background: #33b3db;
+    border-radius: 30px;
+    opacity: 0.2;
+    -webkit-box-shadow: 0 2px 6px rgba(0,0,0,.2);
+    box-shadow: 0 2px 6px rgba(0,0,0,.2);
+    -webkit-transition: all .20s ease;
+    -o-transition: all .20s ease;
+    transition: all .20s ease;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 25px);
+}
+.sek-tmpl-info:hover > .use-tmpl {
+  opacity: 0.5;
+}
+.sek-tmpl-info > .use-tmpl:hover {
+  opacity: 0.95;
+}
+
+/* REMOVE TMPL BUTTON */
+.sek-tmpl-info > .remove-tmpl, .sek-tmpl-info > .edit-tmpl {
+    cursor: pointer;
+    font-size: 16px;
+    width: 30px;
+    height: 30px;
+    color: #535353;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 30px;
+    opacity: 0.4;
+    -webkit-box-shadow: 0 2px 6px rgba(0,0,0,.2);
+    box-shadow: 0 2px 6px rgba(0,0,0,.2);
+    -webkit-transition: all .20s ease;
+    -o-transition: all .20s ease;
+    transition: all .20s ease;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: absolute;
+}
+.sek-tmpl-info > .remove-tmpl {
+  bottom: 10px;
+  right: 10px;
+}
+.sek-tmpl-info > .edit-tmpl {
+  bottom: 10px;
+  left: 10px;
+}
+.sek-tmpl-info:hover > .remove-tmpl, .sek-tmpl-info:hover > .edit-tmpl {
+  opacity: 0.7;
+}
+.sek-tmpl-info > .remove-tmpl:hover{
+  opacity: 0.95;
+  color: red;
+}
+.sek-tmpl-info > .edit-tmpl:hover {
+  opacity: 0.95;
+  color: #000000;
+}
+
+.sek-tmpl-demo-link {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.sek-tmpl-demo-link a {
+  color: #ffffff;
+}
+.sek-tmpl-demo-link a:hover, .sek-tmpl-demo-link a:visited {
+  color: #ffffff;
+}
+
+.sek-is-site-template {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  text-transform: uppercase;
+  font-size: 10px;
+  line-height: 1.5em;
+  background: #33b3db;
+  color: #ffffff;
+  padding: 0 3px;
+}
+
+
+/*.sek-tmpl-gallery-inner .sek-tmpl-item:after, .sek-tmpl-gallery-inner .sek-tmpl-item:before {
+    box-sizing: inherit;
+}*/
+.sek-tmpl-gallery-inner .sek-tmpl-thumb {
+    /* cursor: pointer; */
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:top;
+}
+.sek-tmpl-thumb img { max-width: 100%; }
+.sek-tmpl-gallery-inner .sek-tmpl-thumb::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000000;
+    opacity: 0.40;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -ms-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+}
+.sek-tmpl-gallery-inner .sek-tmpl-item:hover .sek-tmpl-thumb::after {
+  opacity: 0.65;
+}
+
+/* FILTER AND CLOSE BUTTON*/
+#sek-gal-top-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.sek-close-button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+.sek-tmpl-filter-wrapper {
+  display: none;
+  width: 100%;
+}
+input.sek-filter-tmpl {
+  width: 60%;
+}
+#sek-gal-top-bar .sek-ui-button-group {
+  width: 37%;
+  text-align: right;
+}
+.search-active .sek-tmpl-item {
+  display: none;
+}
+.search-active .sek-tmpl-item.search-match {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/* TMPL SOURCE SWITCHER */
+#sek-tmpl-source-switcher{
+  display: none;/* <= rendered only if we could access NB api */
+  width:100%;
+  padding: 10px 0;
+}
+#sek-tmpl-source-switcher .sek-ui-button-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  /* flex-direction: column; */
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+#sek-tmpl-source-switcher .sek-ui-button[aria-pressed="true"] {
+  background: #33b3db;
+  border-color: #33b3db;
+  box-shadow: inset 0 -1px 0 #2271b1;
+}
+
+[data-sek-tmpl-item-source="api_tmpl"] .sek-tmpl-info .tmpl-api-hide {
+  opacity: 0;
+}
+.sek-tmpl-gallery-inner [data-sek-tmpl-item-source="api_tmpl"]:hover .sek-tmpl-info .tmpl-api-hide{
+  opacity: 1;
+}
+.sek-tmpl-gallery-inner [data-sek-tmpl-item-source="api_tmpl"] .sek-tmpl-thumb::after {
+  opacity: 0.10;
+}
+.sek-tmpl-coming-soon p {
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 18px;
+  color: #555;
+}
+
+
+/* TMPL PICKING */
+[data-input-type="site_tmpl_picker"] {
+  margin-bottom: 20px;;
+}
+[data-input-type="site_tmpl_picker"] > .customize-control-title {
+  text-transform: uppercase;
+}
+.sek-current-site-tmpl {
+  width: calc(100% - 16px);
+  float: left;
+  padding: 10px 8px;
+  margin: 5px 0;
+  border-color: #ccc;
+  background: #f7f7f7;
+  box-shadow: inset 0 0px 6px #ccc;
+  -webkit-box-shadow:inset 0 0px 6px #ccc;
+  vertical-align: top;
+  margin-bottom: 10px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+
+.sek-has-site-tmpl .sek-current-site-tmpl {
+    background: #33b3db;
+    border-color: #33b3db;
+    -webkit-box-shadow: inset 1px 0px 6px #2c72ab;
+    box-shadow: inset 1px 0px 6px #2c72ab;
+    color: #ffffff;
+    font-size: 13px;
+}
+.sek-site-tmpl-not-found .sek-current-site-tmpl {
+  background: #f49907;
+  border-color: #f49907;
+  -webkit-box-shadow: inset 1px 0px 6px #b26e01;
+  box-shadow: inset 1px 0px 6px #b26e01;
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.sek-site-tmpl-picking-active .sek-ui-button-group .sek-pick-site-tmpl,
+.sek-site-tmpl-picking-active .sek-ui-button-group .sek-pick-site-tmpl:focus,
+.sek-pick-site-tmpl:hover {
+  background: #33b3db;
+  border-color: #33b3db;
+  box-shadow: inset 0 -1px 0 #2271b1;
+  color: #ffffff;
+}
+.sek-pick-site-tmpl {
+  font-weight: bold;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all  0.2s ease-in-out;
+  -ms-transition: all  0.2s ease-in-out;
+  -o-transition: all  0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Site template picking mode */
+.sek-is-site-tmpl-mode [data-sek-api-site-tmpl="false"] {
+  display: none!important;
+}
+#nimble-tmpl-gallery .sek-tmpl-gallery-inner [data-sek-api-site-tmpl="true"] {display: none;}
+.sek-is-site-tmpl-mode .sek-tmpl-gallery-inner [data-sek-api-site-tmpl="true"] {
+  display: -webkit-box!important;
+  display: -ms-flexbox!important;
+  display: flex!important;
+}

@@ -364,15 +364,15 @@ final class PC_HAPINF {
                   'infinite-scroll'  =>  array(
                         'default'   => false,
                         'control'   => 'HU_controls' ,
-                        'title'     => __( 'Infinite scroll', 'hueman-pro' ),
-                        'label'     => __( 'Enable infinite scroll' , 'hueman-pro' ),
+                        'title'     => __( 'Infinite scroll', 'hueman' ),
+                        'label'     => __( 'Enable infinite scroll' , 'hueman' ),
                         'section'   => 'content_blog_sec' ,
                         'type'      => 'nimblecheck' ,
                         //'active_callback' => 'hu_is_post_list',
                         'priority'        => 23,
                         'notice'        => sprintf("%s<br />%s",
-                                    __( 'When this option is enabled, your posts are revealed when scrolling down, from the most recent to the oldest one, like on a Facebook wall.', 'hueman-pro' ),
-                                    __( '<strong>Note :</strong> this setting is not applied when customizing, but will take effect on front end.', 'hueman-pro' )
+                                    __( 'When this option is enabled, your posts are revealed when scrolling down, from the most recent to the oldest one, like on a Facebook wall.', 'hueman' ),
+                                    __( '<strong>Note :</strong> this setting is not applied when customizing, but will take effect on front end.', 'hueman' )
                         ),
                         //temporary hack
                         //since atm this option is not available in the preview, let's avoid refresh
@@ -385,12 +385,12 @@ final class PC_HAPINF {
                   'load_on_scroll_desktop'  =>  array(
                         'default'   => true,
                         'control'   => 'HU_controls' ,
-                        'label'     => __( 'Desktop and laptop devices : when the infinite scroll is enabled, load posts automatically when scrolling.' , 'hueman-pro' ),
+                        'label'     => __( 'Desktop and laptop devices : when the infinite scroll is enabled, load posts automatically when scrolling.' , 'hueman' ),
                         'section'   => 'content_blog_sec',
                         'type'      => 'nimblecheck' ,
                         //'active_callback' => 'czr_fn_is_list_of_posts',
                         'priority'        => 24,
-                        'notice'          =>   __( 'When this option is disabled, a "Load more posts" button will be printed.', 'hueman-pro' ),
+                        'notice'          =>   __( 'When this option is disabled, a "Load more posts" button will be printed.', 'hueman' ),
                         'ubq_section'   => array(
                                 'section' => 'performance_sec',
                                 'priority' => '60'
@@ -399,12 +399,12 @@ final class PC_HAPINF {
                   'load_on_scroll_mobile'  =>  array(
                         'default'   => false,
                         'control'   => 'HU_controls' ,
-                        'label'     => __( 'Mobile devices : when the infinite scroll is enabled, load posts automatically when scrolling.' , 'hueman-pro' ),
+                        'label'     => __( 'Mobile devices : when the infinite scroll is enabled, load posts automatically when scrolling.' , 'hueman' ),
                         'section'   => 'content_blog_sec',
                         'type'      => 'nimblecheck' ,
                         //'active_callback' => 'czr_fn_is_list_of_posts',
                         'priority'        => 24,
-                        'notice'          =>   __( 'For better performances on mobile devices, we recommend to let this option unchecked.', 'hueman-pro' ),
+                        'notice'          =>   __( 'For better performances on mobile devices, we recommend to let this option unchecked.', 'hueman' ),
                         'ubq_section'   => array(
                                 'section' => 'performance_sec',
                                 'priority' => '60'

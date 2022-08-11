@@ -1,0 +1,266 @@
+/*************************************
+* IMAGE SLIDER MODULE
+*************************************/
+.sek-column-inner [data-sek-module-type="czr_img_slider_module"] {
+    // enlarge the module wrapper to "compensate" the parent column paddings
+    // @fixes https://github.com/presscustomizr/nimble-builder/issues/566
+    width: calc(100% + 20px);
+    max-width: calc(100% + 20px);
+}
+
+[data-sek-module-type="czr_img_slider_module"] {
+    .sek-carousel-img [src*="data:image/gif;"] {
+      display: none;
+    }
+    .sek-swiper-loading .sek-carousel-img img {
+      display: none;//<= sek-swiper-loading is removed on swiper init event
+    }
+    // nov 2020 => hide swiper built-in preloader when customizing because won't be auto-hidden
+    @at-root .customizer-preview .swiper-wrapper .swiper-lazy-preloader {
+        display: none;
+    }
+    .swiper {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      .swiper-wrapper {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        height: 400px;//consistent with defaults on registration
+        @include media-breakpoint-only(xs) {
+          height: 200px;
+        }
+      }
+      &[data-sek-image-layout="nimble-wizard"] {
+        .sek-carousel-img {
+          height: 100%;
+          overflow: hidden;
+          img {
+            max-width: none;
+            opacity:0;
+            -webkit-transition: opacity 0.15s ease-in-out;
+            -moz-transition: opacity, 0.15s ease-in-out;
+            -ms-transition: opacity, 0.15s ease-in-out;
+            -o-transition: opacity, 0.15s ease-in-out;
+            transition: opacity 0.15s ease-in-out;
+          }
+        }
+      }
+      &[data-sek-image-layout="height-100"] {
+        .sek-carousel-img {
+          height: 100%;
+          width: auto;
+          overflow: hidden;
+          img {
+            width: auto;
+            height: 100%;
+            max-width: none;
+          }
+        }
+      }
+      // Sept 2020, for https://github.com/presscustomizr/nimble-builder/issues/743
+      &[data-sek-image-layout="cover"] {
+        .sek-carousel-img {
+          height: 100%;
+          width: 100%;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img {
+            width: 100%;
+            height: 100%;
+            max-width: none;
+            object-fit: cover;
+          }
+        }
+      }
+    }//.swiper
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      // background: #fff;
+      /* Center slide image vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      &[data-sek-slide-link] {
+        cursor: pointer;
+      }
+      .sek-carousel-img {
+        width: 100%;
+        img {
+          width: 100%;
+          // When Nimble Wizard is enabled
+          &.sek-h-centrd {
+            width: auto !important;
+            max-width: none !important;
+            position: relative;
+            opacity: 1;
+          }
+          &.sek-v-centrd {
+            height: auto !important;
+            max-height: none !important;
+            vertical-align: top;
+            position: relative;
+            max-width: none !important;
+            opacity: 1;
+          }
+        }
+
+      }
+      &[data-sek-has-overlay="true"] .sek-carousel-img::after {
+        content: '';
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        position: absolute;
+        //background: rgba(49,49,49,.5);
+        background-color: #000000;
+        opacity: 0.3;
+      }
+      .sek-slider-text-wrapper {
+        height: 100%;
+        width: 100%;
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        -webkit-transform: translate3d(-50%,-50%,0);
+        transform: translate3d(-50%,-50%,0);
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        /* Center slide text vertically
+         => consistent with defaults in module registration */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+      .sek-slider-text-content {
+        height: auto;
+        max-height: 100%;
+        width: 100%;
+        padding:5%;//consistent with defaults in module registration
+        text-align: center;//consistent with defaults in module registration
+        z-index: 3;
+        overflow: hidden;
+        //why this light grey text color ? => if set to white ( #fff ), the text is not visible when no image is picked, which might be difficult to understand for users
+        color: #e2e2e2;//consistent with defaults in module registration
+        font-size:16px;//consistent with defaults in module registration
+        line-height:1.5em;//consistent with defaults in module registration
+        * {
+          font-size:16px;//consistent with defaults in module registration
+          line-height:1.5em;//consistent with defaults in module registration
+        }
+      }
+    }//.swiper-slide
+
+    /* SWIPER BULLETS */
+    .swiper-pagination-bullet-active {
+      background-color: #ffffff;//consistent with defaults registration param
+    }
+
+    /* SWIPER ARROWS */
+    .sek-swiper-nav {
+      cursor: pointer;
+
+      // Chevron inspired by the pen shared by @wksy on Codepen
+      // @see https://codepen.io/wsky/pen/BKoKxV
+      .sek-chevron {
+        display: inline-block;
+        border-right: 2px solid #ffffff;//consistent with defaults registration param
+        border-bottom: 2px solid #ffffff;//consistent with defaults registration param
+        width: 11px;
+        height: 11px;
+      }
+
+      .sek-swiper-prev {
+        left: 0;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+        border-bottom-left-radius: 0px;
+        .sek-chevron {
+          -webkit-transform: rotate(-225deg);
+          -ms-transform: rotate(-225deg);
+          transform: rotate(-225deg);
+        }
+      }
+      .sek-swiper-next {
+        right: 0;
+        border-top-left-radius: 2px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 2px;
+        .sek-chevron {
+          -webkit-transform: rotate(-45deg);
+          -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+        }
+      }
+
+
+      .sek-swiper-prev, .sek-swiper-next{
+          position: absolute;
+          z-index: 2;
+          top: calc((100% - 60px)/2);
+          text-align: center;
+          margin-top: 0px;
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+          display: block;
+          height: 60px;
+          width: 50px;
+          opacity: 0.6;
+          background-color: rgba(32, 32, 32, 0.4);
+          -webkit-transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+          transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+          line-height: 64px;
+          cursor: pointer;
+          font-size: 18px;
+      }
+
+      .sek-swiper-prev:hover, .sek-swiper-next:hover {
+          background-color: rgba(32, 32, 32, 0.7);
+          opacity: 1;
+          width: 100px;
+      }
+    }//.sek-swiper-nav
+
+
+    @include media-breakpoint-only(xs) {
+      [data-sek-hide-nav-on-mobile="true"] {
+        .swiper-pagination {display: none;}
+        .sek-swiper-nav{display: none;}
+      }
+    }
+
+
+    // @media only screen and (max-width: 719px) {
+    //     .sek-swiper-nav { display: none;}
+    // }
+}//[data-sek-module-type="czr_img_slider_module"]

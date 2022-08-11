@@ -64,8 +64,8 @@ if ( ! class_exists( 'HU_Customize_Upload_Control' ) ) :
           <span class="description customize-control-description"><?php echo $this->description; ?></span>
         <?php endif; ?>
         <div>
-          <a href="#" class="button-secondary czr-upload"><?php _e( 'Upload' , 'hueman-pro'  ); ?></a>
-          <a href="#" class="remove"><?php _e( 'Remove' , 'hueman-pro'  ); ?></a>
+          <a href="#" class="button-secondary czr-upload"><?php _e( 'Upload' , 'hueman'  ); ?></a>
+          <a href="#" class="remove"><?php _e( 'Remove' , 'hueman'  ); ?></a>
         </div>
         <?php if(!empty( $this -> notice)) : ?>
           <span class="czr-notice"><?php echo $this -> notice; ?></span>

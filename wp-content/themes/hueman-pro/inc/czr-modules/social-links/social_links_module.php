@@ -74,11 +74,11 @@ function function_prefix_to_be_replaced_register_social_links_module( $args ) {
                     'defaultSocialColor' => 'rgb(90,90,90)',
                     'defaultSocialSize'  => 14,
                     'i18n' => array(
-                        'Rss' => __('Rss', 'hueman-pro'),
-                        'Select a social icon' => __('Select a social icon', 'hueman-pro'),
-                        'Follow us on' => __('Follow us on', 'hueman-pro'),
-                        'Done !' => __('Done !', 'hueman-pro'),
-                        'New Social Link created ! Scroll down to edit it.' => __('New Social Link created ! Scroll down to edit it.', 'hueman-pro'),
+                        'Rss' => __('Rss', 'text_domain_to_be_replaced'),
+                        'Select a social icon' => __('Select a social icon', 'text_domain_to_be_replaced'),
+                        'Follow us on' => __('Follow us on', 'text_domain_to_be_replaced'),
+                        'Done !' => __('Done !', 'text_domain_to_be_replaced'),
+                        'New Social Link created ! Scroll down to edit it.' => __('New Social Link created ! Scroll down to edit it.', 'text_domain_to_be_replaced'),
                     )
                     //option value for dynamic registration
                 )
@@ -89,19 +89,19 @@ function function_prefix_to_be_replaced_register_social_links_module( $args ) {
             'pre-item' => array(
                 'social-icon' => array(
                     'input_type'  => 'select',
-                    'title'       => __('Select an icon', 'hueman-pro')
+                    'title'       => __('Select an icon', 'text_domain_to_be_replaced')
                 ),
                 'social-link'  => array(
                     'input_type'  => 'text',
-                    'title'       => __('Social link url', 'hueman-pro'),
-                    'notice_after'      => __('Enter the full url of your social profile (must be valid url).', 'hueman-pro'),
-                    'placeholder' => __('http://...,mailto:...,...', 'hueman-pro')
+                    'title'       => __('Social link url', 'text_domain_to_be_replaced'),
+                    'notice_after'      => __('Enter the full url of your social profile (must be valid url).', 'text_domain_to_be_replaced'),
+                    'placeholder' => __('http://...,mailto:...,...', 'text_domain_to_be_replaced')
                 )
             ),
             'mod-opt' => array(
                 'social-size' => array(
                     'input_type'  => 'number',
-                    'title'       => __('Size in px', 'hueman-pro'),
+                    'title'       => __('Size in px', 'text_domain_to_be_replaced'),
                     'step'        => 1,
                     'min'         => 5,
                     'transport' => 'postMessage'
@@ -110,29 +110,29 @@ function function_prefix_to_be_replaced_register_social_links_module( $args ) {
             'item-inputs' => array(
                 'social-icon' => array(
                     'input_type'  => 'select',
-                    'title'       => __('Social icon', 'hueman-pro')
+                    'title'       => __('Social icon', 'text_domain_to_be_replaced')
                 ),
                 'social-link'  => array(
                     'input_type'  => 'text',
-                    'title'       => __('Social link', 'hueman-pro'),
-                    'notice_after'      => __('Enter the full url of your social profile (must be valid url).', 'hueman-pro'),
-                    'placeholder' => __('http://...,mailto:...,...', 'hueman-pro')
+                    'title'       => __('Social link', 'text_domain_to_be_replaced'),
+                    'notice_after'      => __('Enter the full url of your social profile (must be valid url).', 'text_domain_to_be_replaced'),
+                    'placeholder' => __('http://...,mailto:...,...', 'text_domain_to_be_replaced')
                 ),
                 'title'  => array(
                     'input_type'  => 'text',
-                    'title'       => __('Title', 'hueman-pro'),
-                    'notice_after'      => __('This is the text displayed on mouse over.', 'hueman-pro'),
+                    'title'       => __('Title', 'text_domain_to_be_replaced'),
+                    'notice_after'      => __('This is the text displayed on mouse over.', 'text_domain_to_be_replaced'),
                 ),
                 'social-color'  => array(
                     'input_type'  => 'color',
-                    'title'       => sprintf( '%1$s <i>%2$s %3$s</i>', __('Icon color', 'hueman-pro'), __('default:', 'hueman-pro'), 'rgba(255,255,255,0.7)' ),
-                    'notice_after'      => __('Set a unique color for your icon.', 'hueman-pro'),
+                    'title'       => sprintf( '%1$s <i>%2$s %3$s</i>', __('Icon color', 'text_domain_to_be_replaced'), __('default:', 'text_domain_to_be_replaced'), 'rgba(255,255,255,0.7)' ),
+                    'notice_after'      => __('Set a unique color for your icon.', 'text_domain_to_be_replaced'),
                     'transport' => 'postMessage'
                 ),
                 'social-target' => array(
                     'input_type'  => 'nimblecheck',
-                    'title'       => __('Link target', 'hueman-pro'),
-                    'notice_after'      => __('Check this option to open the link in a another tab of the browser.', 'hueman-pro'),
+                    'title'       => __('Link target', 'text_domain_to_be_replaced'),
+                    'notice_after'      => __('Check this option to open the link in a another tab of the browser.', 'text_domain_to_be_replaced'),
                     'title_width' => 'width-80',
                     'input_width' => 'width-20',
                 )
@@ -170,7 +170,7 @@ function function_prefix_to_be_replaced_validate_callback__czr_social_module( $v
   // error_log( 'IN VALIDATION CALLBACK' );
   // error_log( print_r( $socials, true ));
   $ids_malformed_url = array();
-  $malformed_message = __( 'An error occurred: malformed social links', 'hueman-pro');
+  $malformed_message = __( 'An error occurred: malformed social links', 'text_domain_to_be_replaced');
 
   if ( empty( $socials ) )
     return array();
@@ -214,6 +214,6 @@ function function_prefix_to_be_replaced_validate_callback__czr_social_module( $v
   if ( empty( $ids_malformed_url) )
     return null;
 
-  return new WP_Error( 'required', __( 'Please fill the social link inputs with a valid URLs', 'hueman-pro' ), $ids_malformed_url );
+  return new WP_Error( 'required', __( 'Please fill the social link inputs with a valid URLs', 'text_domain_to_be_replaced' ), $ids_malformed_url );
 }
 

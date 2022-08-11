@@ -104,10 +104,10 @@ if ( !function_exists( 'hu_setup' ) ) {
 
     // Custom menu areas
     register_nav_menus( array(
-      'topbar' => __( 'Topbar', 'hueman-pro' ),
-      'mobile' => __( 'Mobile. You can set a specific menu for mobile devices. If not set, the theme will use the menu assigned to the Topbar, or the Header.', 'hueman-pro' ),
-      'header' => __( 'Header', 'hueman-pro' ),
-      'footer' => __( 'Footer', 'hueman-pro' )
+      'topbar' => __( 'Topbar', 'hueman' ),
+      'mobile' => __( 'Mobile. You can set a specific menu for mobile devices. If not set, the theme will use the menu assigned to the Topbar, or the Header.', 'hueman' ),
+      'header' => __( 'Header', 'hueman' ),
+      'footer' => __( 'Footer', 'hueman' )
     ) );
   }
 
@@ -163,14 +163,14 @@ function hu_load_social_links_module() {
 
             'section' => array(
                 'id' => 'social_links_sec',
-                'title' => __( 'Social links', 'hueman-pro' ),
+                'title' => __( 'Social links', 'hueman' ),
                 'panel' => 'hu-general-panel',
                 'priority' => 30
             ),
 
             'control' => array(
                 'priority' => 10,
-                'label' => __( 'Create and organize your social links', 'hueman-pro' ),
+                'label' => __( 'Create and organize your social links', 'hueman' ),
                 'type'  => 'czr_module',
             )
         )
@@ -209,8 +209,8 @@ function hu_maybe_load_body_bg_module() {
 
             'control' => array(
                 'priority' => 10,
-                'label' => __( 'Site Wide Body Background', 'hueman-pro' ),
-                'description' => __('Set the website background color', 'hueman-pro'),
+                'label' => __( 'Site Wide Body Background', 'hueman' ),
+                'description' => __('Set the website background color', 'hueman'),
                 'type'  => 'czr_module',
                 // When contx is on and activated for the theme options, let's move the body background in the contx_body_bg section
                 'section' => function_exists('ctx_we_can_contextualize_not_wp_core_options') && ctx_we_can_contextualize_not_wp_core_options() ? 'contx_body_bg' : 'general_design_sec'
@@ -249,9 +249,9 @@ function hu_load_widget_areas_module() {
 
             'control' => array(
                 'priority' => 10,
-                'label' => __('Create And Order Widget Areas', 'hueman-pro'),
+                'label' => __('Create And Order Widget Areas', 'hueman'),
                 'type'  => 'czr_module',
-                'notice'    => __('You must save changes for the new areas to appear below. <br /><i>Warning: Make sure each area has a unique ID.</i>' , 'hueman-pro'),
+                'notice'    => __('You must save changes for the new areas to appear below. <br /><i>Warning: Make sure each area has a unique ID.</i>' , 'hueman'),
                 'transport' => 'postMessage',
                 'section' => 'HU_DYN_WIDGETS_SECTION'
             )

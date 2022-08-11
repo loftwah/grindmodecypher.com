@@ -14,71 +14,71 @@ locate_template( 'functions/widgets/alx-posts.php', true );
 function hu_get_default_widget_zones() {
   return array(
     'primary' => array(
-      'name' => __( 'Primary', 'hueman-pro' ),
+      'name' => __( 'Primary', 'hueman' ),
       'id' => 'primary',
-      'description' => __( "Full width widget zone. Located in the left sidebar in a 3 columns layout. Can be on the right of a 2 columns sidebar when content is on the left.", 'hueman-pro'),
+      'description' => __( "Full width widget zone. Located in the left sidebar in a 3 columns layout. Can be on the right of a 2 columns sidebar when content is on the left.", 'hueman'),
       'before_widget' => '<div id="%1$s" class="widget %2$s">',
       'after_widget' => '</div>',
       'before_title' => '<h3 class="widget-title">',
       'after_title' => '</h3>',
     ),
     'secondary' => array(
-      'name' => __( 'Secondary', 'hueman-pro' ),
+      'name' => __( 'Secondary', 'hueman' ),
       'id' => 'secondary',
-      'description' => __( "Full width widget zone. Located in the right sidebar in a 3 columns layout.", 'hueman-pro'),
+      'description' => __( "Full width widget zone. Located in the right sidebar in a 3 columns layout.", 'hueman'),
       'before_widget' => '<div id="%1$s" class="widget %2$s">',
       'after_widget' => '</div>',
       'before_title' => '<h3 class="widget-title">',
       'after_title' => '</h3>'
     ),
     'footer-1' => array(
-      'name' => __( 'Footer 1', 'hueman-pro'),
+      'name' => __( 'Footer 1', 'hueman'),
       'id' => 'footer-1',
-      'description' => __( "Widgetized footer 1", 'hueman-pro'),
+      'description' => __( "Widgetized footer 1", 'hueman'),
       'before_widget' => '<div id="%1$s" class="widget %2$s">',
       'after_widget' => '</div>',
       'before_title' => '<h3 class="widget-title">',
       'after_title' => '</h3>'
     ),
     'footer-2' => array(
-      'name' => __('Footer 2', 'hueman-pro' ),
+      'name' => __('Footer 2', 'hueman' ),
       'id' => 'footer-2',
-      'description' => __("Widgetized footer 2", 'hueman-pro' ),
+      'description' => __("Widgetized footer 2", 'hueman' ),
       'before_widget' => '<div id="%1$s" class="widget %2$s">',
       'after_widget' => '</div>',
       'before_title' => '<h3 class="widget-title">',
       'after_title' => '</h3>'
     ),
     'footer-3' => array(
-      'name' => __('Footer 3', 'hueman-pro' ),
+      'name' => __('Footer 3', 'hueman' ),
       'id' => 'footer-3',
-      'description' => __("Widgetized footer 3", 'hueman-pro' ),
+      'description' => __("Widgetized footer 3", 'hueman' ),
       'before_widget' => '<div id="%1$s" class="widget %2$s">',
       'after_widget' => '</div>',
       'before_title' => '<h3 class="widget-title">',
       'after_title' => '</h3>'
     ),
     'footer-4' => array(
-      'name' => __('Footer 4', 'hueman-pro' ),
+      'name' => __('Footer 4', 'hueman' ),
       'id' => 'footer-4',
-      'description' => __("Widgetized footer 4", 'hueman-pro' ),
+      'description' => __("Widgetized footer 4", 'hueman' ),
       'before_widget' => '<div id="%1$s" class="widget %2$s">',
       'after_widget' => '</div>',
       'before_title' => '<h3 class="widget-title">','after_title' => '</h3>'
     ),
     'header-ads' => array(
-      'name' => __( 'Header (next to logo / title)', 'hueman-pro' ),
+      'name' => __( 'Header (next to logo / title)', 'hueman' ),
       'id' => 'header-ads',
-      'description' => __( "The Header Widget Zone is located next to your logo or site title.", 'hueman-pro'),
+      'description' => __( "The Header Widget Zone is located next to your logo or site title.", 'hueman'),
       'before_widget' => '<div id="%1$s" class="widget %2$s">',
       'after_widget' => '</div>',
       'before_title' => '<h3 class="widget-title">',
       'after_title' => '</h3>'
     ),
     'footer-ads' => array(
-      'name' => __('Footer Full Width', 'hueman-pro'),
+      'name' => __('Footer Full Width', 'hueman'),
       'id' => 'footer-ads',
-      'description' => __( "The Footer Widget Zone is located before the other footer widgets and takes 100% of the width. Very appropriate to display a Google Map or an advertisement banner.", 'hueman-pro'),
+      'description' => __( "The Footer Widget Zone is located before the other footer widgets and takes 100% of the width. Very appropriate to display a Google Map or an advertisement banner.", 'hueman'),
       'before_widget' => '<div id="%1$s" class="widget %2$s">',
       'after_widget' => '</div>',
       'before_title' => '<h3 class="widget-title">',
@@ -128,15 +128,15 @@ function hu_get_widget_zone_rosetta_stone() {
 //used both on front end and in the customizer
 function hu_get_contexts_list() {
   return array(
-    '_all_'             => __('All contexts', 'hueman-pro'),
-    'home'              => __('Home', 'hueman-pro'),
-    'blog-page'         => __('Blog Page', 'hueman-pro'),
-    'page'              => __('Pages', 'hueman-pro'),
-    'single'            => __('Single Posts', 'hueman-pro'),
-    'archive'           => __('Archives', 'hueman-pro'),
-    'archive-category'  => __('Categories', 'hueman-pro'),
-    'search'            => __('Search Results', 'hueman-pro'),
-    '404'               => __('404 Error Pages', 'hueman-pro')
+    '_all_'             => __('All contexts', 'hueman'),
+    'home'              => __('Home', 'hueman'),
+    'blog-page'         => __('Blog Page', 'hueman'),
+    'page'              => __('Pages', 'hueman'),
+    'single'            => __('Single Posts', 'hueman'),
+    'archive'           => __('Archives', 'hueman'),
+    'archive-category'  => __('Categories', 'hueman'),
+    'search'            => __('Search Results', 'hueman'),
+    '404'               => __('404 Error Pages', 'hueman')
   );
 }
 
@@ -145,14 +145,14 @@ function hu_get_contexts_list() {
 //widget_zone_name => location, title
 function hu_get_builtin_widget_zones_location() {
   return array(
-    'primary'     => array( 's1' => __('Primary Sidebar (on the left in a 3 columns layout)', 'hueman-pro') ),
-    'secondary'   => array( 's2' => __('Secondary Sidebar (on the right in a 3 columns layout)', 'hueman-pro') ),
-    'footer-1'    => array( 'footer-1' => __('Footer 1', 'hueman-pro') ),
-    'footer-2'    => array( 'footer-2' => __('Footer 2', 'hueman-pro') ),
-    'footer-3'    => array( 'footer-3' => __('Footer 3', 'hueman-pro') ),
-    'footer-4'    => array( 'footer-4' => __('Footer 4', 'hueman-pro') ),
-    'header-ads'  => array( 'header-ads' => __('Header (next to logo / title)', 'hueman-pro') ),
-    'footer-ads'  => array( 'footer-ads' => __('Footer Full Width', 'hueman-pro') )
+    'primary'     => array( 's1' => __('Primary Sidebar (on the left in a 3 columns layout)', 'hueman') ),
+    'secondary'   => array( 's2' => __('Secondary Sidebar (on the right in a 3 columns layout)', 'hueman') ),
+    'footer-1'    => array( 'footer-1' => __('Footer 1', 'hueman') ),
+    'footer-2'    => array( 'footer-2' => __('Footer 2', 'hueman') ),
+    'footer-3'    => array( 'footer-3' => __('Footer 3', 'hueman') ),
+    'footer-4'    => array( 'footer-4' => __('Footer 4', 'hueman') ),
+    'header-ads'  => array( 'header-ads' => __('Header (next to logo / title)', 'hueman') ),
+    'footer-ads'  => array( 'footer-ads' => __('Footer Full Width', 'hueman') )
   );
 }
 

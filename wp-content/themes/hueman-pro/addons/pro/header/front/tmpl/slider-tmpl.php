@@ -465,8 +465,8 @@ function _print_script( $args ) {
 
         <?php if ( ! $is_single_slide ) : ?>
           <div class="slider-nav">
-              <span class="slider-control slider-prev control-left icn-left-open-big" title="<?php _e( 'previous', 'hueman-pro' ); ?>"><i class="fas fa-chevron-left"></i></span>
-              <span class="slider-control slider-next control-right icn-right-open-big" title="<?php _e( 'next', 'hueman-pro' ); ?>"><i class="fas fa-chevron-right"></i></span>
+              <span class="slider-control slider-prev control-left icn-left-open-big" title="<?php _e( 'previous', 'hueman' ); ?>"><i class="fas fa-chevron-left"></i></span>
+              <span class="slider-control slider-next control-right icn-right-open-big" title="<?php _e( 'next', 'hueman' ); ?>"><i class="fas fa-chevron-right"></i></span>
           </div>
         <?php endif; ?>
 

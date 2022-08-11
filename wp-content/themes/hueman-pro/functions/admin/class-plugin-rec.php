@@ -25,13 +25,13 @@ function hu_maybe_render_rec_notice() {
     if ( !current_user_can( 'activate_plugins' ) ) {
       return;
     }
-    $button_text = __( 'Activate Nimble Builder Now', 'hueman-pro' );
+    $button_text = __( 'Activate Nimble Builder Now', 'hueman' );
     $button_link = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin );
   } else {
     if ( !current_user_can( 'install_plugins' ) ) {
       return;
     }
-    $button_text = __( 'Install Nimble Builder Now', 'hueman-pro' );
+    $button_text = __( 'Install Nimble Builder Now', 'hueman' );
     $button_link = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=nimble-builder' ), 'install-plugin_nimble-builder' );
   }
 
@@ -43,22 +43,22 @@ function hu_maybe_render_rec_notice() {
 }
 
 function hu_print_l_rec_notice( $button_text, $button_link ) {
-  $heading = sprintf( __('Hueman theme recommends %1$s.', 'hueman-pro' ),
+  $heading = sprintf( __('Hueman theme recommends %1$s.', 'hueman' ),
           sprintf('<a href="%1$s" class="thickbox" target="_blank">%2$s</a>',
               wp_nonce_url( 'plugin-install.php?tab=plugin-information&amp;plugin=nimble-builder&amp;TB_iframe=true&amp;width=640&amp;height=500'),
-              __('Nimble Page Builder', 'hueman-pro')
+              __('Nimble Page Builder', 'hueman')
           )
       );
 
   $message = sprintf( '<span style="font-weight:normal;">%1$s<br/> %2$s<br/>%3$s<br/>%4$s</span>',
-    __( 'Developers of the Hueman theme have created Nimble Builder, a free, powerful yet easy-to-use page builder already active on 50K+ WordPress websites.',  'hueman-pro'),
-    __( 'It allows you to drag and drop mobile-ready sections on <i>really</i> any page of your site, including home, posts, pages, products, archives, 404, search pages, ...', 'hueman-pro' ),
+    __( 'Developers of the Hueman theme have created Nimble Builder, a free, powerful yet easy-to-use page builder already active on 50K+ WordPress websites.',  'hueman'),
+    __( 'It allows you to drag and drop mobile-ready sections on <i>really</i> any page of your site, including home, posts, pages, products, archives, 404, search pages, ...', 'hueman' ),
     sprintf(
-        __( 'You can insert simple text zones, but also create %1$s, insert post grids, column structures, buttons, widget zones, maps, icons, and much more, or use pre-designed sections with professional %2$s.', 'hueman-pro'),
-        sprintf('<a href="%1$s" target="_blank" title="%2$s">%2$s</a>', esc_url('nimblebuilder.com/mp4-video-background-with-delay/'), __('video backgrounds', 'hueman-pro') ),
-        sprintf('<a href="%1$s" target="_blank" title="%2$s">%2$s</a>', esc_url('demo.presscustomizr.com/nimble-builder/'), __('parallax effect', 'hueman-pro') )
+        __( 'You can insert simple text zones, but also create %1$s, insert post grids, column structures, buttons, widget zones, maps, icons, and much more, or use pre-designed sections with professional %2$s.', 'hueman'),
+        sprintf('<a href="%1$s" target="_blank" title="%2$s">%2$s</a>', esc_url('nimblebuilder.com/mp4-video-background-with-delay/'), __('video backgrounds', 'hueman') ),
+        sprintf('<a href="%1$s" target="_blank" title="%2$s">%2$s</a>', esc_url('demo.presscustomizr.com/nimble-builder/'), __('parallax effect', 'hueman') )
     ),
-    __( "The plugin is lightweight and has been designed to integrate seamlessly with Hueman and any WordPress theme.", 'hueman-pro')
+    __( "The plugin is lightweight and has been designed to integrate seamlessly with Hueman and any WordPress theme.", 'hueman')
   );
 
   $notice_id = REC_NOTICE_ID;
@@ -89,13 +89,13 @@ function hu_print_l_rec_notice( $button_text, $button_link ) {
 }
 
 function hu_print_s_rec_notice( $button_text, $button_link ) {
-  $heading = sprintf( __('Hueman theme recommends the simple and smart %1$s companion ( free 😍 ) to help you build pages %2$s.', 'hueman-pro' ),
+  $heading = sprintf( __('Hueman theme recommends the simple and smart %1$s companion ( free 😍 ) to help you build pages %2$s.', 'hueman' ),
       sprintf('<a href="%1$s" class="thickbox" target="_blank">%2$s</a>',
           wp_nonce_url( 'plugin-install.php?tab=plugin-information&amp;plugin=nimble-builder&amp;TB_iframe=true&amp;width=640&amp;height=500'),
-          __('Nimble Builder', 'hueman-pro')
+          __('Nimble Builder', 'hueman')
       ),
       sprintf('<a href="https://nimblebuilder.com/landing-page-one/" target="_blank" rel="noreferrer noopener">%1$s</a>',
-          __('like this', 'hueman-pro')
+          __('like this', 'hueman')
       )
   );
   $notice_id = REC_NOTICE_ID;

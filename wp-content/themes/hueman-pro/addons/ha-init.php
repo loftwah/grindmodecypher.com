@@ -87,13 +87,13 @@ if ( ! class_exists( 'HU_AD' ) ) :
           'enable-skope' => array(
               'default'   => 'yes',
               'control'   => 'HU_controls',
-              'label'     => __('Enable a "per page" customization', 'hueman-pro'),
-              'notice'    => __('Enabling this option allows you to customize each page as a stand alone website.', 'hueman-pro'),
+              'label'     => __('Enable a "per page" customization', 'hueman-addons'),
+              'notice'    => __('Enabling this option allows you to customize each page as a stand alone website.', 'hueman-addons'),
               'section'   => 'admin_sec',
               'type'      => 'select',
               'choices'   => array(
-                  'yes'     => __( 'Enable', 'hueman-pro'),
-                  'no'      => __( 'Disable', 'hueman-pro')
+                  'yes'     => __( 'Enable', 'hueman'),
+                  'no'      => __( 'Disable', 'hueman')
               ),
               'priority'  => 0
           )
@@ -232,14 +232,14 @@ if ( ! class_exists( 'HU_AD' ) ) :
       //hook : admin_notices
       function ha_admin_notice() {
           if ( version_compare( self::$theme -> version, MINIMAL_AUTHORIZED_THEME_VERSION, '<' ) ) {
-            $message = sprintf( __( 'This version of the <strong>%1$s</strong> plugin requires at least the version %2$s of the Hueman theme.', 'hueman-pro' ),
+            $message = sprintf( __( 'This version of the <strong>%1$s</strong> plugin requires at least the version %2$s of the Hueman theme.', 'hueman-addons' ),
               'Hueman Addons',
               MINIMAL_AUTHORIZED_THEME_VERSION
             );
           } else if ( false === strpos( self::$theme_name, 'hueman' ) ) {
-            $message = sprintf( __( 'The <strong>%1$s</strong> plugin %2$s.', 'hueman-pro' ),
+            $message = sprintf( __( 'The <strong>%1$s</strong> plugin %2$s.', 'hueman-addons' ),
               'Hueman Addons',
-              __( 'works only with the Hueman theme', 'hueman-pro' )
+              __( 'works only with the Hueman theme', 'hueman-addons' )
             );
           } else {
             return;
@@ -336,7 +336,7 @@ if ( ! class_exists( 'HU_AD' ) ) :
         ?>
             <script type="text/javascript" id="ha-customize-btn">
               jQuery( function($) {
-                  $( "#wp-admin-bar-customize").find('a').attr('title', '<?php _e( "Customize this page !", "hueman-pro"); ?>' );
+                  $( "#wp-admin-bar-customize").find('a').attr('title', '<?php _e( "Customize this page !", "hueman-addons"); ?>' );
               });
             </script>
             <style type="text/css" id="ha-fun-ab">

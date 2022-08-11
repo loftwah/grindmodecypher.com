@@ -542,8 +542,8 @@ if ( ! class_exists( 'CZR_Contx_Construct' ) ) :
             // SKOPE POST
             register_post_type( CONTX_POST_TYPE, array(
               'labels' => array(
-                'name'          => __( 'Contextual settings', 'hueman-pro' ),
-                'singular_name' => __( 'Contextual settings', 'hueman-pro' ),
+                'name'          => __( 'Contextual settings', 'text_domain_to_be_replaced' ),
+                'singular_name' => __( 'Contextual settings', 'text_domain_to_be_replaced' ),
               ),
               'public'           => false,
               'hierarchical'     => false,
@@ -611,8 +611,8 @@ if ( ! class_exists( 'CZR_Contx_Construct' ) ) :
                     $tmpl_map = array(
                         'setting-id'  => array(
                             'input_type'  => 'select',
-                            'title'       => __('Select', 'hueman-pro'),
-                            'notice_before' => __('Pick an option and add it to the collection of contextualized settings.', 'hueman-pro'),
+                            'title'       => __('Select', 'text_domain_to_be_replaced'),
+                            'notice_before' => __('Pick an option and add it to the collection of contextualized settings.', 'text_domain_to_be_replaced'),
                             'width-100'   => true
                         ),
                         'id' => array('input_type'  => 'hidden' ),
@@ -660,7 +660,7 @@ if ( ! class_exists( 'CZR_Contx_Construct' ) ) :
                             $tmpl_map = array(
                                 'value' => array(
                                     'input_type'  => $item_type,
-                                    'title'       => __( 'Contextual Value', 'hueman-pro'),
+                                    'title'       => __( 'Contextual Value', 'text_domain_to_be_replaced'),
                                     'input_template'    => '<input class="placeholder-to-be-replaced-by-dynamic-content" type="hidden" data-czrtype="value"></input>'
                                 )
                             );
@@ -670,7 +670,7 @@ if ( ! class_exists( 'CZR_Contx_Construct' ) ) :
                             $tmpl_map = array(
                                 'value' => array(
                                     'input_type'  => $item_type,
-                                    'title'       => __( 'Contextual Value', 'hueman-pro'),
+                                    'title'       => __( 'Contextual Value', 'text_domain_to_be_replaced'),
                                     'input_template'    => '<#
                                       var defaultValue = "#RRGGBB",
                                         defaultValueAttr = "",
@@ -695,7 +695,7 @@ if ( ! class_exists( 'CZR_Contx_Construct' ) ) :
                             $tmpl_map = array(
                                 'value' => array(
                                     'input_type'  => $item_type,
-                                    'title'       => __( 'Contextual Value', 'hueman-pro'),
+                                    'title'       => __( 'Contextual Value', 'text_domain_to_be_replaced'),
                                 )
                             );
                         break;
@@ -1221,12 +1221,12 @@ if ( ! class_exists( 'Contx_Customize_Register' ) ) :
         // hook : customize_register
         function ctx_register_contextualizer_settings_controls_section( $wp_customize ) {
             $wp_customize->add_panel( 'contx_panel', array(
-                'title'    => __( 'Contextualizer', 'hueman-pro' ),
+                'title'    => __( 'Contextualizer', 'text_domain_to_be_replaced' ),
                 'priority' => PHP_INT_MAX,
             ) );
 
             $wp_customize->add_section( 'contx_sec', array(
-                'title'    => __( 'Contextualized Settings', 'hueman-pro' ),
+                'title'    => __( 'Contextualized Settings', 'text_domain_to_be_replaced' ),
                 'priority' => 0,
                 'panel'   => 'contx_panel',
             ) );
@@ -1413,37 +1413,37 @@ if ( ! class_exists( 'Contx' ) ) :
 
                     'defaultModel' => ctx_get_default_model(),
                     'i18n' => array(
-                        'Confirm the removal of the customizations for'  => __('Please confirm the removal of the customizations for', 'hueman-pro'),
-                        'Back to the site wide option' => __( 'Back to the site wide option', 'hueman-pro'),
-                        'Can be contextualized for' => __( 'Can be contextualized for', 'hueman-pro'),
-                        'Is contextualized for' => __('Is contextualized for', 'hueman-pro'),
-                        'this page' => __( 'this page', 'hueman-pro'),
-                        'This setting is already customized for this context.' => __( 'This setting is already customized for this context', 'hueman-pro'),
-                        'All settings have already been contextualized for this page.' => __( 'All settings have already been contextualized for this page.', 'hueman-pro'),
-                        'Contextual' => __('Contextual', 'hueman-pro'),
+                        'Confirm the removal of the customizations for'  => __('Please confirm the removal of the customizations for', 'text_domain_to_be_replaced'),
+                        'Back to the site wide option' => __( 'Back to the site wide option', 'text_domain_to_be_replaced'),
+                        'Can be contextualized for' => __( 'Can be contextualized for', 'text_domain_to_be_replaced'),
+                        'Is contextualized for' => __('Is contextualized for', 'text_domain_to_be_replaced'),
+                        'this page' => __( 'this page', 'text_domain_to_be_replaced'),
+                        'This setting is already customized for this context.' => __( 'This setting is already customized for this context', 'text_domain_to_be_replaced'),
+                        'All settings have already been contextualized for this page.' => __( 'All settings have already been contextualized for this page.', 'text_domain_to_be_replaced'),
+                        'Contextual' => __('Contextual', 'text_domain_to_be_replaced'),
 
-                        'This setting is already contextualized locally. The local customization will be applied in priority in this context.' => __( 'This setting is already contextualized locally. The local customization will be applied in priority in this context.', 'hueman-pro' ),
-                        'When the setting is already customized specifically for' => __( 'When the setting is already customized specifically for', 'hueman-pro'),
-                        'Reset' => __('Reset', 'hueman-pro'),
+                        'This setting is already contextualized locally. The local customization will be applied in priority in this context.' => __( 'This setting is already contextualized locally. The local customization will be applied in priority in this context.', 'text_domain_to_be_replaced' ),
+                        'When the setting is already customized specifically for' => __( 'When the setting is already customized specifically for', 'text_domain_to_be_replaced'),
+                        'Reset' => __('Reset', 'text_domain_to_be_replaced'),
 
 
-                        'this local value will be applied in priority.' => __('this local value will be applied in priority.', 'hueman-pro'),
-                        'When the setting is contextualized, the contextual value applies in priority.' => __('When the setting is contextualized, the contextual value applies in priority.', 'hueman-pro'),
+                        'this local value will be applied in priority.' => __('this local value will be applied in priority.', 'text_domain_to_be_replaced'),
+                        'When the setting is contextualized, the contextual value applies in priority.' => __('When the setting is contextualized, the contextual value applies in priority.', 'text_domain_to_be_replaced'),
 
-                        'in context' => __('in context', 'hueman-pro'),
+                        'in context' => __('in context', 'text_domain_to_be_replaced'),
 
                         // Hueman specifics
-                        'Body Background' => __('Body Background', 'hueman-pro'),
+                        'Body Background' => __('Body Background', 'text_domain_to_be_replaced'),
 
-                        'Header Background / Slider' => __('Header Background / Slider', 'hueman-pro'),
-                        'Full Width Header Background / Slider' => __('Full Width Header Background / Slider', 'hueman-pro'),
-                        'Display a full width header background' => __('Display a full width header background', 'hueman-pro'),
+                        'Header Background / Slider' => __('Header Background / Slider', 'text_domain_to_be_replaced'),
+                        'Full Width Header Background / Slider' => __('Full Width Header Background / Slider', 'text_domain_to_be_replaced'),
+                        'Display a full width header background' => __('Display a full width header background', 'text_domain_to_be_replaced'),
 
-                        'Yes' => __('Yes', 'hueman-pro'),
-                        'No' => __('No', 'hueman-pro'),
-                        'Inherit' => __('Inherit', 'hueman-pro'),
+                        'Yes' => __('Yes', 'text_domain_to_be_replaced'),
+                        'No' => __('No', 'text_domain_to_be_replaced'),
+                        'Inherit' => __('Inherit', 'text_domain_to_be_replaced'),
 
-                        'jump to the contextual settings' => __('jump to the contextual settings', 'hueman-pro')
+                        'jump to the contextual settings' => __('jump to the contextual settings', 'text_domain_to_be_replaced')
 
                     )
                 )

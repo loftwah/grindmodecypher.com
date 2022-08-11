@@ -17,7 +17,7 @@ $related_img_size = array_key_exists( $sb_layout, $map ) ? $map[ $sb_layout ] : 
 
 ?>
 <h4 class="heading">
-	<i class="far fa-hand-point-right"></i><?php _e('You may also like...','hueman-pro'); ?>
+	<i class="far fa-hand-point-right"></i><?php _e('You may also like...','hueman'); ?>
 </h4>
 
 <ul class="related-posts group">

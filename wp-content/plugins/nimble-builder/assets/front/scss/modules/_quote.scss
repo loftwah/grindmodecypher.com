@@ -1,0 +1,132 @@
+/*************************************
+* QUOTE MODULE
+*************************************/
+.sek-quote {
+    p {
+        margin: 0 0 .5em;
+        padding: 0;
+    }
+    .sek-cite {
+        font-size: 14px;
+        line-height: 1.5em;
+        font-style: inherit;
+    }
+    &[data-sek-quote-design="none"] { border-left: none;}//<= make sure the blockquote doesn't inherit another border style from the theme or a plugin
+    .sek-quote-content {
+      font-weight: 400;
+      font-size: 1.2em;//as defined as default value on module registration
+      line-height: 1.5em;
+      color: inherit;
+    }
+    &.sek-quote-design {
+        //reset
+        background: none;
+        font-style: inherit;
+        margin-right: 0;
+        margin-left: 0;
+        padding: 15px 0;
+        border: none;
+        > * {
+            padding: 0;
+            margin: 0;
+        }
+        &::before, &::after {
+            display: none;
+        }
+        .sek-cite {
+            padding: 0;
+            &::before {
+                display: none;
+            }
+            font-weight: normal;
+        }
+        .sek-quote-inner {
+            color: inherit;
+        }
+        &.sek-quote-icon-before .sek-quote-inner{
+          @if ( true == $is_rtl ) {
+            padding-right: calc( 10px + 0.7 * 50px );//50px is the default size of the quote icon, this CSS rule is overriden in dyn CSS if user changes the font size of the icon
+          }
+          @else {
+            padding-left: calc( 10px + 0.7 * 50px );//50px is the default size of the quote icon, this CSS rule is overriden in dyn CSS if user changes the font size of the icon
+          }
+        }
+        //border before
+        &.sek-border-before {
+            @if ( true == $is_rtl ) {
+              padding-right: 15px;
+              border-right: 5px solid rgba(0,0,0,.1);;
+            }
+            @else {
+              padding-left: 15px;
+              border-left: 5px solid rgba(0,0,0,.1);;
+            }
+            .sek-cite {
+                clear: both;
+                display: block;
+                margin-top: 1.5em;
+                position: relative;
+                //font-style: italic;
+                @if ( true == $is_rtl ) {
+                  padding-right: 2.2em;
+                  padding-left: 0.25em;
+                }
+                @else {
+                  padding-left: 2.2em;
+                  padding-right: 0.25em;
+                }
+                &::before {
+                    display: block;
+                    content: '';
+                    top: 1em;
+                    position: absolute;
+                    background: none;
+                    width: 2em;
+                    height: auto;
+                    @if ( true == $is_rtl ) {
+                      right: 0;
+                    }
+                    @else {
+                      left: 0;
+                    }
+                    //border color inherited from the text color
+                    border-top: 1px solid;
+                }
+            }
+        }
+        //icon before
+        &.sek-quote-icon-before {
+            position: relative;
+            display: flex;
+            .sek-quote-content *:last-child {
+                margin-bottom: .75em;
+            }
+            &::before {
+                // Feb 2020 => replaced font awesome by a unicode character well supported
+                // see https://github.com/presscustomizr/nimble-builder/issues/603
+                content: "\275D";//https://unicode-table.com/en/275D/
+                font-family: "Arial Unicode MS", Code2000;//<= https://www.fileformat.info/info/unicode/char/275D/fontsupport.htm
+                font-size: 50px;
+                line-height: 1em;
+                color: #ccc;
+                font-style: normal;
+                text-align: center;
+                -moz-osx-font-smoothing: grayscale;
+                -webkit-font-smoothing: antialiased;
+                font-variant: normal;
+                text-rendering: auto;
+                display: flex;
+                width: auto;
+                margin: 0;
+                @if ( true == $is_rtl ) {
+                  right: 0;
+                }
+                @else {
+                  left: 0;
+                }
+                position: absolute;
+                top: 10px;
+            }
+        }
+    }
+}

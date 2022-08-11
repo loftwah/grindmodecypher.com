@@ -1,0 +1,44 @@
+// synchronized with default on registration
+/*************************************
+* BUTTON MODULE
+*************************************/
+[data-sek-module-type="czr_button_module"] .#{$project-prefix}module-inner {
+  text-align: center;
+}
+.nb-loc .sek-module .#{$project-prefix}module-inner {
+  .sek-btn {
+    background:#020202;
+    color: #ffffff;
+    padding: 0.5em 1em;
+    margin: 0.5em;
+    i {
+      margin: 0 8px;
+    }
+    &:hover, &:focus, &:active {
+      color: #ffffff;
+      background-color: #282828;
+      text-decoration:none;
+    }
+  }
+}
+// more specific rule ( than the default _buttons.scss style ) to make sure there's no underline when hovering/focusing
+// fixes https://github.com/presscustomizr/nimble-builder/issues/514
+[data-sek-module-type="czr_button_module"] .sek-module-inner .sek-btn:focus, [data-sek-module-type="czr_button_module"] .sek-module-inner .sek-btn:hover {
+  text-decoration: none;
+}
+
+.#{$project-prefix}btn-inner {
+    display: flex;
+    align-items: center;
+    .sek-btn-text  {
+        width: 100%;
+        text-align: center;
+    }
+}
+.#{$project-prefix}btn.box-shadow {
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2) !important;
+    &.push-effect:active {
+        transform: translateY(2px);
+    }
+}

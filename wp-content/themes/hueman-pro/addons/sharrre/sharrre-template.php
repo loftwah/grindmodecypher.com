@@ -1,16 +1,16 @@
 <div class="sharrre-container no-counter">
-	<span><?php _e('Share','hueman-pro'); ?></span>
+	<span><?php _e('Share','hueman-addons'); ?></span>
   <?php if ( hu_is_checked('sharrre-twitter-on') ) : ?>
-	   <div id="twitter" data-url="<?php echo the_permalink(); ?>" data-text="<?php the_title_attribute(); ?>" data-title="<?php _e('Tweet', 'hueman-pro'); ?>"><a class="box" href="#"><div class="count" href="#"><i class="fas fa-plus"></i></div><div class="share"><i class="fab fa-twitter"></i></div></a></div>
+	   <div id="twitter" data-url="<?php echo the_permalink(); ?>" data-text="<?php the_title_attribute(); ?>" data-title="<?php _e('Tweet', 'hueman-addons'); ?>"><a class="box" href="#"><div class="count" href="#"><i class="fas fa-plus"></i></div><div class="share"><i class="fab fa-twitter"></i></div></a></div>
   <?php endif; ?>
   <?php if ( hu_is_checked('sharrre-facebook-on') ) : ?>
-	   <div id="facebook" data-url="<?php echo the_permalink(); ?>" data-text="<?php the_title_attribute(); ?>" data-title="<?php _e('Like', 'hueman-pro'); ?>"></div>
+	   <div id="facebook" data-url="<?php echo the_permalink(); ?>" data-text="<?php the_title_attribute(); ?>" data-title="<?php _e('Like', 'hueman-addons'); ?>"></div>
   <?php endif; ?>
   <?php if ( hu_is_checked('sharrre-pinterest-on') ) : ?>
-	   <div id="pinterest" data-url="<?php echo the_permalink(); ?>" data-text="<?php the_title_attribute(); ?>" data-title="<?php _e('Pin It', 'hueman-pro'); ?>"></div>
+	   <div id="pinterest" data-url="<?php echo the_permalink(); ?>" data-text="<?php the_title_attribute(); ?>" data-title="<?php _e('Pin It', 'hueman-addons'); ?>"></div>
   <?php endif; ?>
   <?php if ( hu_is_checked('sharrre-linkedin-on') ) : ?>
-    <div id="linkedin" data-url="<?php echo the_permalink(); ?>" data-text="<?php the_title_attribute(); ?>" data-title="<?php _e('Publish on Linked In', 'hueman-pro'); ?>"></div>
+    <div id="linkedin" data-url="<?php echo the_permalink(); ?>" data-text="<?php the_title_attribute(); ?>" data-title="<?php _e('Publish on Linked In', 'hueman-addons'); ?>"></div>
   <?php endif; ?>
 </div><!--/.sharrre-container-->
 <style type="text/css"></style>

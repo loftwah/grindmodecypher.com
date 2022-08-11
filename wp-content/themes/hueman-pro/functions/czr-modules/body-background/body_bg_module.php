@@ -72,31 +72,31 @@ function hu_register_body_bg_module( $args ) {
                 'params' => array(
                     //background repeat select options
                     'bg_repeat_options' => array(
-                        'no-repeat'      => __( 'No Repeat', 'hueman-pro' ),
-                        'repeat'         => __( 'Repeat All', 'hueman-pro' ),
-                        'repeat-x'       => __( 'Repeat Horizontally', 'hueman-pro' ),
-                        'repeat-y'       => __( 'Repeat Vertically', 'hueman-pro' ),
-                        'inherit'        => __( 'Inherit', 'hueman-pro' ),
+                        'no-repeat'      => __( 'No Repeat', 'hueman' ),
+                        'repeat'         => __( 'Repeat All', 'hueman' ),
+                        'repeat-x'       => __( 'Repeat Horizontally', 'hueman' ),
+                        'repeat-y'       => __( 'Repeat Vertically', 'hueman' ),
+                        'inherit'        => __( 'Inherit', 'hueman' ),
                     ),
 
                     //background attachment select options
                     'bg_attachment_options' => array(
-                        'fixed'           => __( 'Fixed', 'hueman-pro' ),
-                        'scroll'          => __( 'Scroll', 'hueman-pro' ),
-                        'inherit'         => __( 'Inherit', 'hueman-pro' ),
+                        'fixed'           => __( 'Fixed', 'hueman' ),
+                        'scroll'          => __( 'Scroll', 'hueman' ),
+                        'inherit'         => __( 'Inherit', 'hueman' ),
                     ),
 
                     //background position select options
                     'bg_position_options' => array(
-                        'left top'        => __( 'Left Top', 'hueman-pro' ),
-                        'left center'     => __( 'Left Center', 'hueman-pro' ),
-                        'left bottom'     => __( 'Left Bottom', 'hueman-pro' ),
-                        'center top'      => __( 'Center Top', 'hueman-pro' ),
-                        'center center'   => __( 'Center Center', 'hueman-pro' ),
-                        'center bottom'   => __( 'Center Bottom', 'hueman-pro' ),
-                        'right top'       => __( 'Right Top', 'hueman-pro' ),
-                        'right center'    => __( 'Right Center', 'hueman-pro' ),
-                        'right bottom'    => __( 'Right Bottom', 'hueman-pro' ),
+                        'left top'        => __( 'Left Top', 'hueman' ),
+                        'left center'     => __( 'Left Center', 'hueman' ),
+                        'left bottom'     => __( 'Left Bottom', 'hueman' ),
+                        'center top'      => __( 'Center Top', 'hueman' ),
+                        'center center'   => __( 'Center Center', 'hueman' ),
+                        'center bottom'   => __( 'Center Bottom', 'hueman' ),
+                        'right top'       => __( 'Right Top', 'hueman' ),
+                        'right center'    => __( 'Right Center', 'hueman' ),
+                        'right bottom'    => __( 'Right Bottom', 'hueman' ),
                     )
                 )
             )
@@ -106,34 +106,34 @@ function hu_register_body_bg_module( $args ) {
             'item-inputs' => array(
                 'background-color'           => array(
                     'input_type'  => 'wp_color_alpha',
-                    'title'       => __('Color', 'hueman-pro'),
+                    'title'       => __('Color', 'hueman'),
                     'default'     => '#eaeaea',
                     'width-100'   => true
                 ),//"#000000",
                 'background-image'  => array(
                     'input_type'  => 'upload',
-                    'title'       => __('Background Image', 'hueman-pro'),
+                    'title'       => __('Background Image', 'hueman'),
                 ),
                 'background-repeat'  => array(
                     'input_type'  => 'select',
-                    'title'       => __('Repeat', 'hueman-pro'),
+                    'title'       => __('Repeat', 'hueman'),
                 ),
                 'background-attachment'  => array(
                     'input_type'  => 'select',
-                    'title'       => __('Background attachment', 'hueman-pro'),
+                    'title'       => __('Background attachment', 'hueman'),
                 ),
                 'background-position'  => array(
                     'input_type'  => 'select',
-                    'title'       => __('Background position', 'hueman-pro'),
+                    'title'       => __('Background position', 'hueman'),
                 ),
                 'background-size'  => array(
                     'input_type'  => 'text',
-                    'title'       => __('Background size', 'hueman-pro'),
+                    'title'       => __('Background size', 'hueman'),
                     'notice_after'   => sprintf( '%1$s %2$s',
-                        __('The background-size CSS property specifies the size of the background images. The size of the image can be fully constrained or only partially in order to preserve its intrinsic ratio.', 'hueman-pro'),
+                        __('The background-size CSS property specifies the size of the background images. The size of the image can be fully constrained or only partially in order to preserve its intrinsic ratio.', 'hueman'),
                         sprintf(' %1$s %2$s.',
-                            __('Learn more', 'hueman-pro'),
-                            sprintf('<a href="%1$s" target="_blank">%2$s</a>', esc_url('developer.mozilla.org/en-US/docs/Web/CSS/background-size'), __('here', 'hueman-pro') )
+                            __('Learn more', 'hueman'),
+                            sprintf('<a href="%1$s" target="_blank">%2$s</a>', esc_url('developer.mozilla.org/en-US/docs/Web/CSS/background-size'), __('here', 'hueman') )
                         )
                     )
                 )

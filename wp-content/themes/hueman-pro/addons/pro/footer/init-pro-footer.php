@@ -17,7 +17,7 @@ final class PC_HAFOOTER {
         ob_start();
         ?>
           <div id="credit" style="<?php echo ! hu_is_checked( 'credit' ) ? 'display:none' : ''; ?>">
-            <p><?php _e('Powered by','hueman-pro'); ?>&nbsp;<a class="fab fa-wordpress" title="<?php _e( 'Powered by WordPress', 'hueman-pro' ) ?>" href="<?php echo esc_url( __( 'https://wordpress.org/', 'hueman-pro' ) ); ?>" target="_blank"></a> - <?php _e('Designed with','hueman-pro'); ?>&nbsp;<a href="https://presscustomizr.com/hueman-pro" title="<?php _e('Hueman Pro','hueman-pro'); ?>"><?php _e('Hueman Pro','hueman-pro'); ?></a></p>
+            <p><?php _e('Powered by','hueman'); ?>&nbsp;<a class="fab fa-wordpress" title="<?php _e( 'Powered by WordPress', 'hueman' ) ?>" href="<?php echo esc_url( __( 'https://wordpress.org/', 'hueman' ) ); ?>" target="_blank"></a> - <?php _e('Designed with','hueman'); ?>&nbsp;<a href="https://presscustomizr.com/hueman-pro" title="<?php _e('Hueman Pro','hueman'); ?>"><?php _e('Hueman Pro','hueman'); ?></a></p>
           </div><!--/#credit-->
         <?php
         $credits_html = ob_get_contents();

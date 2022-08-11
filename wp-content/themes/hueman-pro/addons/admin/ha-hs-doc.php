@@ -53,12 +53,12 @@ function ha_enqueue_hs_doc_js() {
       'minLength' => 3, // Minimum number of characters required to trigger search
       'limit' => 25, // Max limit for # of results to show
       'text' => array(
-        'result_found' => __('We found {count} article that may help:', 'hueman-pro'),
-        'results_found' => __('We found {count} articles that may help:', 'hueman-pro'),
-        'no_results_found' => __('No results found&hellip;', 'hueman-pro'),
-        'enter_search' => __('Please enter a search term.', 'hueman-pro'),
-        'not_long_enough' => __('Search must be at least {minLength} characters.', 'hueman-pro'),
-        'error' => __('There was an error fetching search results.', 'hueman-pro'),
+        'result_found' => __('We found {count} article that may help:'),
+        'results_found' => __('We found {count} articles that may help:'),
+        'no_results_found' => __('No results found&hellip;'),
+        'enter_search' => __('Please enter a search term.'),
+        'not_long_enough' => __('Search must be at least {minLength} characters.'),
+        'error' => __('There was an error fetching search results.'),
       ),
       'template' => array(
         'wrap_class' => 'docs-search-wrap',

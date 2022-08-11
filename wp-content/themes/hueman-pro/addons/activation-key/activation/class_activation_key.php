@@ -30,30 +30,30 @@ class HU_activation_key {
       }
 
       $this -> strings = array(
-        'theme-license' => __( 'Theme activation key', 'hueman-pro' ),
-        'enter-key' => __( 'Enter your Activation Key and press "Save Changes"', 'hueman-pro' ),
-        'license-key' => __( 'Activation Key', 'hueman-pro' ),
-        'license-action' => __( 'Key Action', 'hueman-pro' ),
-        'deactivate-license' => __( 'Deactivate Key', 'hueman-pro' ),
-        'activate-license' => __( 'Activate Key', 'hueman-pro' ),
-        'status-unknown' => __( 'Key status is unknown.', 'hueman-pro' ),
-        'renew' => __( 'Renew now.', 'hueman-pro' ),
-        'not-receiving-updates' => __( "You are not receiving updates for bug fixes and new features anymore.", 'hueman-pro' ),
-        'unlimited' => __( 'unlimited', 'hueman-pro' ),
-        'license-key-is-valid' => __( 'Your key is valid, you are safely receiving the latest theme updates for bug fixes and new features.', 'hueman-pro' ),
-        'will_be_renewed%s' => __( 'Will be renewed %s.', 'hueman-pro' ),
-        'expires-never'             => __( 'Lifetime Activation Key.', 'hueman-pro' ),
-        '%1$s/%2$-sites' => __( 'You have %1$s / %2$s sites activated.', 'hueman-pro' ),
-        'license-key-expired-%s' => __( 'Key expired %s.', 'hueman-pro' ),
-        'license-key-expired' => __( 'Key has expired.', 'hueman-pro' ),
-        'license-key-lifetime' => __( 'Lifetime duration.', 'hueman-pro' ),
-        'license-keys-do-not-match' => __( 'Keys do not match.', 'hueman-pro' ),
-        'license-is-inactive' => __( 'Activation key is inactive.', 'hueman-pro' ),
-        'license-key-is-disabled' => __( 'Activation key is disabled.', 'hueman-pro' ),
-        'site-is-inactive' => __( 'Site is inactive.', 'hueman-pro' ),
-        'license-status-unknown' => __( 'Activation key status is unknown. This is usually due to a connection problem or a server firewall issue.', 'hueman-pro' ),
-        'update-notice' => __( "Updating this theme will lose any customizations you have made. 'Cancel' to stop, 'OK' to update.", 'hueman-pro' ),
-        'update-available' => __('<strong>%1$s %2$s</strong> is available. <a href="%3$s" class="thickbox" title="%4s">Check out what\'s new</a> or <a href="%5$s"%6$s>update now</a>.', 'hueman-pro' )
+        'theme-license' => __( 'Theme activation key', 'edd-theme-updater' ),
+        'enter-key' => __( 'Enter your Activation Key and press "Save Changes"', 'edd-theme-updater' ),
+        'license-key' => __( 'Activation Key', 'edd-theme-updater' ),
+        'license-action' => __( 'Key Action', 'edd-theme-updater' ),
+        'deactivate-license' => __( 'Deactivate Key', 'edd-theme-updater' ),
+        'activate-license' => __( 'Activate Key', 'edd-theme-updater' ),
+        'status-unknown' => __( 'Key status is unknown.', 'edd-theme-updater' ),
+        'renew' => __( 'Renew now.', 'edd-theme-updater' ),
+        'not-receiving-updates' => __( "You are not receiving updates for bug fixes and new features anymore.", 'edd-theme-updater' ),
+        'unlimited' => __( 'unlimited', 'edd-theme-updater' ),
+        'license-key-is-valid' => __( 'Your key is valid, you are safely receiving the latest theme updates for bug fixes and new features.', 'edd-theme-updater' ),
+        'will_be_renewed%s' => __( 'Will be renewed %s.', 'edd-theme-updater' ),
+        'expires-never'             => __( 'Lifetime Activation Key.', 'edd-theme-updater' ),
+        '%1$s/%2$-sites' => __( 'You have %1$s / %2$s sites activated.', 'edd-theme-updater' ),
+        'license-key-expired-%s' => __( 'Key expired %s.', 'edd-theme-updater' ),
+        'license-key-expired' => __( 'Key has expired.', 'edd-theme-updater' ),
+        'license-key-lifetime' => __( 'Lifetime duration.', 'edd-theme-updater' ),
+        'license-keys-do-not-match' => __( 'Keys do not match.', 'edd-theme-updater' ),
+        'license-is-inactive' => __( 'Activation key is inactive.', 'edd-theme-updater' ),
+        'license-key-is-disabled' => __( 'Activation key is disabled.', 'edd-theme-updater' ),
+        'site-is-inactive' => __( 'Site is inactive.', 'edd-theme-updater' ),
+        'license-status-unknown' => __( 'Activation key status is unknown. This is usually due to a connection problem or a server firewall issue.', 'edd-theme-updater' ),
+        'update-notice' => __( "Updating this theme will lose any customizations you have made. 'Cancel' to stop, 'OK' to update.", 'edd-theme-updater' ),
+        'update-available' => __('<strong>%1$s %2$s</strong> is available. <a href="%3$s" class="thickbox" title="%4s">Check out what\'s new</a> or <a href="%5$s"%6$s>update now</a>.', 'edd-theme-updater' )
       );
 
       // Config settings
@@ -134,8 +134,8 @@ class HU_activation_key {
     */
     public function tc_licenses_menu() {
         add_theme_page(
-          sprintf( __('%1$s Key', 'hueman-pro') , $this -> theme_name ),
-          sprintf( __('%1$s Key', 'hueman-pro') , $this -> theme_name ),
+          sprintf( __('%1$s Key') , $this -> theme_name ),
+          sprintf( __('%1$s Key') , $this -> theme_name ),
           'manage_options',
           'tc-licenses',
           array( $this , 'tc_theme_license_page' )
@@ -193,26 +193,26 @@ class HU_activation_key {
       ob_start();
         ?>
           <div class="update-nag notice notice-info" style="position:relative;width: calc( 100% - 56px );">
-            <h3><?php _e("You did not activate Hueman Pro theme key yet.", 'hueman-pro') ?></h3>
+            <h3><?php _e("You did not activate Hueman Pro theme key yet.", 'edd-theme-updater') ?></h3>
             <p>
               <?php printf('%1$s ( %2$s ) <br/><br/><strong><a class="button-primary" href="%3$s" title="%4$s">%4$s</a></strong>',
-                    __("It is <span style='text-decoration: underline;'>important to activate your key</span> in order to receive the new versions of the theme in your dashboard. This way you'll make sure that <span style='text-decoration: underline;'>your website is always compatible with the latest version of WordPress</span>, and that you'll have all the latest features and bug fixes for the theme.", 'hueman-pro' ),
-                    sprintf( '<a href="%1$s" title="%2$s" target="_blank">%2$s</a>', 'https://docs.presscustomizr.com/article/276-why-should-you-keep-your-theme-up-to-date', __( "Why should you keep your Wordpress theme up to date ?", 'hueman-pro' ) ),
+                    __("It is <span style='text-decoration: underline;'>important to activate your key</span> in order to receive the new versions of the theme in your dashboard. This way you'll make sure that <span style='text-decoration: underline;'>your website is always compatible with the latest version of WordPress</span>, and that you'll have all the latest features and bug fixes for the theme.", 'edd-theme-updater' ),
+                    sprintf( '<a href="%1$s" title="%2$s" target="_blank">%2$s</a>', 'https://docs.presscustomizr.com/article/276-why-should-you-keep-your-theme-up-to-date', __( "Why should you keep your Wordpress theme up to date ?", 'edd-theme-updater' ) ),
                     admin_url( 'themes.php?page=tc-licenses'),
-                    __('Enter your activation key now' , 'hueman-pro')
+                    __('Enter your activation key now' , 'edd-theme-updater')
                   );
                ?>
                 <?php printf('<em>%1$s <strong><a href="%2$s" target="_blank" title="%3$s">%3$s</a></strong>.</em>',
-                    __("You'll find your key in your purchase receipt email or in your", 'hueman-pro' ),
+                    __("You'll find your key in your purchase receipt email or in your", 'edd-theme-updater' ),
                     'https://presscustomizr.com/account/',
-                    __('account' , 'hueman-pro')
+                    __('account' , 'edd-theme-updater')
                   );
                 ?>
               </p>
               <p style="text-align:right;position: absolute;right: 5px;bottom: -8px;">
                 <?php printf('<em>%1$s <a href="#" title="%1$s" class="tc-dismiss-key-update"> ( %2$s <strong>x</strong> ) </a></strong></em>',
-                    __("OK got it. Remind me later.", 'hueman-pro' ),
-                    __('close' , 'hueman-pro')
+                    __("OK got it. Remind me later.", 'edd-theme-updater' ),
+                    __('close' , 'edd-theme-updater')
                   );
                 ?>
               </p>
@@ -236,7 +236,7 @@ class HU_activation_key {
 
                 <?php wp_nonce_field( 'tc_theme_licenses_nonce', 'tc_theme_licenses_nonce' ); ?>
 
-                <h2>&nbsp;<?php printf( __('%1$s Key', 'hueman-pro') , $this -> theme_name ) ; ?></h2>
+                <h2>&nbsp;<?php printf( __('%1$s Key') , $this -> theme_name ) ; ?></h2>
                 <?php settings_fields('tc_' . $this->theme_prefix . '_license'); ?>
 
                 <table class="form-table">
@@ -247,7 +247,7 @@ class HU_activation_key {
                               <?php echo $strings['license-key']; ?>
                             </th>
                             <td>
-                                <input id="tc_<?php echo $this->theme_prefix ?>_license_key" name="tc_<?php echo $this->theme_prefix ?>_license_key" type="text" class="regular-text" value="<?php esc_attr_e( $license, 'hueman-pro' ); ?>" />
+                                <input id="tc_<?php echo $this->theme_prefix ?>_license_key" name="tc_<?php echo $this->theme_prefix ?>_license_key" type="text" class="regular-text" value="<?php esc_attr_e( $license ); ?>" />
                                 <label class="description" for="tc_<?php echo $this->theme_prefix ?>_license_key"><?php echo $message; ?></label>
                             </td>
                         </tr>
@@ -258,10 +258,10 @@ class HU_activation_key {
                                 </th>
                                 <td>
                                   <?php if( $status !== false && 'valid' == $status )  : ?>
-                                      <span style="color:green;line-height: 27px;font-weight: bold;"><?php _e('active', 'hueman-pro'); ?></span>
-                                      <input type="submit" class="button-secondary" name="tc_<?php echo $this->theme_prefix ?>_license_desactivate" value="<?php esc_attr_e( $strings['deactivate-license'], 'hueman-pro' ); ?>"/>
+                                      <span style="color:green;line-height: 27px;font-weight: bold;"><?php _e('active'); ?></span>
+                                      <input type="submit" class="button-secondary" name="tc_<?php echo $this->theme_prefix ?>_license_desactivate" value="<?php esc_attr_e( $strings['deactivate-license'] ); ?>"/>
                                   <?php else : ?>
-                                      <input type="submit" class="button-secondary" name="tc_<?php echo $this->theme_prefix ?>_license_activate" value="<?php esc_attr_e( $strings['activate-license'], 'hueman-pro' ); ?>"/>
+                                      <input type="submit" class="button-secondary" name="tc_<?php echo $this->theme_prefix ?>_license_activate" value="<?php esc_attr_e( $strings['activate-license'] ); ?>"/>
                                   <?php endif; ?>
                                 </td>
                             </tr>
@@ -291,7 +291,7 @@ class HU_activation_key {
                 <h3 style="text-align: center;">It is important to always save first, and then click on activate. This also applies if you need to replace one license key by another.</h3>
             </div>
             <hr>
-            <h3><span class="dashicons-before dashicons-info" style="color:#0085ba">&nbsp;</span><?php _e('Helpful links', 'hueman-pro'); ?></h3>
+            <h3><span class="dashicons-before dashicons-info" style="color:#0085ba">&nbsp;</span><?php _e('Helpful links'); ?></h3>
             <ul>
                 <li><a href="https://docs.presscustomizr.com/article/11-how-to-activate-your-product-key" target="_blank">How to activate your product key ?</a></li>
                 <li><a href="https://docs.presscustomizr.com/article/10-where-can-i-find-my-activation-key" target="_blank">Where can I find my activation key once purchased ?</a></li>
@@ -347,23 +347,23 @@ class HU_activation_key {
       ob_start();
         ?>
           <div class="update-nag">
-            <h3><?php _e( "We couldn't reach our remote server to get the latest version of the theme.", 'hueman-pro') ?></h3>
-            <p><?php _e( "This can happen sometimes when your host server filters requests to remote servers.", 'hueman-pro'); ?></p>
-            <p><?php _e( "If the problem persists after several tries, please follow those simple steps to update your theme : ", 'hueman-pro' ); ?>
+            <h3><?php _e( "We couldn't reach our remote server to get the latest version of the theme.", 'edd-theme-updater') ?></h3>
+            <p><?php _e( "This can happen sometimes when your host server filters requests to remote servers.", 'edd-theme-updater'); ?></p>
+            <p><?php _e( "If the problem persists after several tries, please follow those simple steps to update your theme : ", 'edd-theme-updater' ); ?>
               <ol>
                 <li><?php printf( '%1$s <strong><a href="%2$s" target="_blank">%3$s</a></strong>',
-                      __('Connect to', 'hueman-pro'),
+                      __('Connect to', 'edd-theme-updater'),
                       'https://presscustomizr.com/account',
-                      __('your account', 'hueman-pro')
+                      __('your account', 'edd-theme-updater')
                   ); ?>
                 </li>
-                <li><?php _e("Download the latest version of the theme", 'hueman-pro') ?></li>
+                <li><?php _e("Download the latest version of the theme", 'edd-theme-updater') ?></li>
                 <li>
                   <?php printf( '%1$s <strong><a href="%2$s" target="_blank">%3$s</a></strong> %4$s',
-                              __('Install the theme ( check ' , 'hueman-pro' ) ,
+                              __('Install the theme ( check ' , 'edd-theme-updater' ) ,
                               'https://docs.presscustomizr.com/article/259-pro-installing-customizr-pro-theme',
-                              __('this guide', 'hueman-pro'),
-                              __("if you're not sure how to install a theme )", 'hueman-pro' )
+                              __('this guide', 'edd-theme-updater'),
+                              __("if you're not sure how to install a theme )", 'edd-theme-updater' )
                         );?>
                 </li>
               </ol>
@@ -426,7 +426,7 @@ class HU_activation_key {
       // make sure the response came back okay
       if ( is_wp_error( $response ) || 200 !== wp_remote_retrieve_response_code( $response ) ) {
           $error_message = is_wp_error( $response ) ? $response->get_error_message() : '';
-          $message =  ( ! empty( $error_message ) ) ? $error_message : __( 'Error when trying to activate, this is usually due to a connection problem or a server firewall issue.', 'hueman-pro' );
+          $message =  ( ! empty( $error_message ) ) ? $error_message : __( 'Error when trying to activate, this is usually due to a connection problem or a server firewall issue.' );
 
           $base_url = admin_url( 'themes.php?page=tc-licenses');
           $redirect = add_query_arg( array( 'sl_theme_activation' => 'false', 'message' => urlencode( $message ) ), $base_url );
@@ -486,39 +486,39 @@ class HU_activation_key {
             case 'expired' :
 
               $message = sprintf(
-                __( 'Your activation key expired on %s.', 'hueman-pro' ),
+                __( 'Your activation key expired on %s.' ),
                 date_i18n( get_option( 'date_format' ), strtotime( $license_data->expires, current_time( 'timestamp' ) ) )
               );
               break;
 
             case 'revoked' :
 
-              $message = __( 'Your activation key has been disabled.', 'hueman-pro' );
+              $message = __( 'Your activation key has been disabled.' );
               break;
 
             case 'missing' :
 
-              $message = __( 'Invalid activation key.', 'hueman-pro' );
+              $message = __( 'Invalid activation key.' );
               break;
 
             case 'invalid' :
             case 'site_inactive' :
 
-              $message = __( 'Your activation key is not active for this URL.', 'hueman-pro' );
+              $message = __( 'Your activation key is not active for this URL.' );
               break;
 
             case 'item_name_mismatch' :
-              $message = sprintf( __( 'This appears to be an invalid activation key for %s.', 'hueman-pro' ), isset( $license_data->item_name ) ? str_replace('+', ' ', $license_data->item_name) : __('your product', 'hueman-pro') );
+              $message = sprintf( __( 'This appears to be an invalid activation key for %s.' ), isset( $license_data->item_name ) ? str_replace('+', ' ', $license_data->item_name) : __('your product') );
               break;
 
             case 'no_activations_left':
 
-              $message = __( 'Your key has reached its activation limit.', 'hueman-pro' );
+              $message = __( 'Your key has reached its activation limit.' );
               break;
 
             default :
-              $message =  __( "<u>An error occurred, please try again.</u> In most of the cases, it's due to a wrong key, like for example a missing character. Make sure you copy the correct activation key. Sometimes there can be a missing character at the beginning or at the end.", 'hueman-pro' );
-              $message .= sprintf( '&nbsp;<a href="//docs.presscustomizr.com/article/10-where-can-i-find-my-activation-key" target="_blank">%1$s</a>', __('Where can you find your activation key ?', 'hueman-pro') );
+              $message =  __( "<u>An error occurred, please try again.</u> In most of the cases, it's due to a wrong key, like for example a missing character. Make sure you copy the correct activation key. Sometimes there can be a missing character at the beginning or at the end." );
+              $message .= sprintf( '&nbsp;<a href="//docs.presscustomizr.com/article/10-where-can-i-find-my-activation-key" target="_blank">%1$s</a>', __('Where can you find your activation key ?') );
               break;
           }
         return $message;
@@ -537,12 +537,12 @@ class HU_activation_key {
         ob_start();
         ?>
           <div class="updated">
-            <h3><?php _e("You've reached the limit of activated websites for your current plan.", 'hueman-pro') ?></h3>
+            <h3><?php _e("You've reached the limit of activated websites for your current plan.", 'edd-theme-updater') ?></h3>
             <?php
               printf( '<p>%1$s <strong><a href="%2$s" target="_blank">%3$s</a></strong></p>',
-                    __( "Connect to your account on presscustomizr.com", 'hueman-pro' ),
+                    __( "Connect to your account on presscustomizr.com", 'edd-theme-updater' ),
                     esc_url('docs.presscustomizr.com/article/18-how-can-i-upgrade-my-current-package'),
-                    __( "and upgrade your plan.", 'hueman-pro' )
+                    __( "and upgrade your plan.", 'edd-theme-updater' )
               );
             ?>
           </div>
@@ -585,7 +585,7 @@ class HU_activation_key {
       // make sure the response came back okay
       if ( is_wp_error( $response ) || 200 !== wp_remote_retrieve_response_code( $response ) ) {
           $error_message = is_wp_error( $response ) ? $response->get_error_message() : '';
-          $message =  ( ! empty( $error_message ) ) ? $error_message : __( 'An error occurred, please try again.', 'hueman-pro' );
+          $message =  ( ! empty( $error_message ) ) ? $error_message : __( 'An error occurred, please try again.' );
 
           $base_url = admin_url( 'themes.php?page=tc-licenses');
           $redirect = add_query_arg( array( 'sl_theme_activation' => 'false', 'message' => urlencode( $message ) ), $base_url );
@@ -758,7 +758,7 @@ class HU_activation_key {
         if ( false === $license_data->success ) {
             $message = $this -> tc_get_license_error_message( $license_data );
         } else if ( 0 === $license_data->activations_left && ( $current_site_activation_status === false || $current_site_activation_status  != 'valid' ) ) {
-            $message = sprintf( '<span style="color:#f57717;line-height: 27px">%1$s <a style="color:#f57717;line-height: 27px;font-weight: bold;" href="https://docs.presscustomizr.com/search?query=upgrade+key" target="_blank">%2$s</a></span>', __( 'Your key has reached its activation limit.', 'hueman-pro' ), __('Upgrade to unlock new activations.', 'hueman-pro') );
+            $message = sprintf( '<span style="color:#f57717;line-height: 27px">%1$s <a style="color:#f57717;line-height: 27px;font-weight: bold;" href="https://docs.presscustomizr.com/search?query=upgrade+key" target="_blank">%2$s</a></span>', __( 'Your key has reached its activation limit.' ), __('Upgrade to unlock new activations.') );
         } else if ( $license_data->license == 'valid' ) {
             // Get site counts
             $site_count = $license_data->site_count;
@@ -769,9 +769,9 @@ class HU_activation_key {
               $license_limit = $strings['unlimited'];
             }
             if( $current_site_activation_status === false || $current_site_activation_status  != 'valid' ) {
-                  $message = sprintf( '<span style="color:#f57717;line-height: 27px;font-weight: bold;">%1$s </span>', __('Key is not activated for this website yet. Enter your key and press "Activate Key".', 'hueman-pro') );
+                  $message = sprintf( '<span style="color:#f57717;line-height: 27px;font-weight: bold;">%1$s </span>', __('Key is not activated for this website yet. Enter your key and press "Activate Key".') );
               } else {
-                $message = sprintf( '<span style="color:green;line-height: 27px;font-weight: bold;">%1$s </span>', __('Key is activated for this website.', 'hueman-pro') );
+                $message = sprintf( '<span style="color:green;line-height: 27px;font-weight: bold;">%1$s </span>', __('Key is activated for this website.') );
                 $message .= $strings['license-key-is-valid'] . ' ';
                 if ( isset( $expires ) && 'lifetime' != $expires ) {
                   $message .= sprintf( $strings['will_be_renewed%s'], $expires ) . ' ';
@@ -803,9 +803,9 @@ class HU_activation_key {
             $message = $strings['site-is-inactive'];
         } else if ( $license_data->license == 'item_name_mismatch' ) {
             // Site is inactive
-            $message = sprintf( __( 'This appears to be an invalid activation key for %s.', 'hueman-pro' ), isset( $license_data->item_name ) ? str_replace('+', ' ', $license_data->item_name) : __('your product', 'hueman-pro') );
-            $message .= '&nbsp' . sprintf( __( 'This can for example happen if you try to use a Bundle key instead of the product key.', 'hueman-pro' ) );
-            $message .= '&nbsp' . sprintf( __( '<a href="https://docs.presscustomizr.com/article/11-how-to-activate-your-product-key" target="_blank">%1$s</a>', 'hueman-pro' ), __('How to activate your product key ?', 'hueman-pro') );
+            $message = sprintf( __( 'This appears to be an invalid activation key for %s.' ), isset( $license_data->item_name ) ? str_replace('+', ' ', $license_data->item_name) : __('your product') );
+            $message .= '&nbsp' . sprintf( __( 'This can for example happen if you try to use a Bundle key instead of the product key.' ) );
+            $message .= '&nbsp' . sprintf( __( '<a href="https://docs.presscustomizr.com/article/11-how-to-activate-your-product-key" target="_blank">%1$s</a>' ), __('How to activate your product key ?') );
         } else {
             $message = $strings['license-status-unknown'];
         }

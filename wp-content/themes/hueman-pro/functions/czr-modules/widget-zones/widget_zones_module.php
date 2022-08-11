@@ -78,14 +78,14 @@ function hu_register_widget_zones_module( $args ) {
                     'sidebar_locations' => hu_get_widget_el_locations(),
 
                     'i18n' => array(
-                        'widgetZone' => __('Widget Zone', 'hueman-pro'),
-                        'widgetZoneAdded' => __('New Widget Zone created ! Scroll down to edit it.', 'hueman-pro'),
-                        'inactiveWidgetZone' => __('Inactive in current context/location', 'hueman-pro'),
-                        'unavailableLocation' => __('Unavailable location. Some settings must be changed.', 'hueman-pro'),
-                        'locationWarning' => __('A selected location is not available with the current settings.', 'hueman-pro'),
-                        'locations' => __('Location(s)', 'hueman-pro'),
-                        'contexts' => __('Context(s)', 'hueman-pro'),
-                        'notset' => __('Not set', 'hueman-pro'),
+                        'widgetZone' => __('Widget Zone', 'hueman'),
+                        'widgetZoneAdded' => __('New Widget Zone created ! Scroll down to edit it.', 'hueman'),
+                        'inactiveWidgetZone' => __('Inactive in current context/location', 'hueman'),
+                        'unavailableLocation' => __('Unavailable location. Some settings must be changed.', 'hueman'),
+                        'locationWarning' => __('A selected location is not available with the current settings.', 'hueman'),
+                        'locations' => __('Location(s)', 'hueman'),
+                        'contexts' => __('Context(s)', 'hueman'),
+                        'notset' => __('Not set', 'hueman'),
                     )
                     //'default_zones' => hu_get_widget_el_default_zones()
                 )
@@ -201,15 +201,15 @@ function hu_print_widget_areas_templates() {
   ?>
   <script type="text/html" id="tmpl-czr-module-widgets-pre-add-view-content">
     <div class="<?php echo $css_attr['sub_set_wrapper']; ?>" data-input-type="text">
-      <div class="customize-control-title"><?php _e('Name', 'hueman-pro'); ?></div>
+      <div class="customize-control-title"><?php _e('Name', 'hueman'); ?></div>
       <div class="czr-input">
-        <input data-czrtype="title" type="text" value="" placeholder="<?php _e('Give it a name', 'hueman-pro'); ?>"></input>
+        <input data-czrtype="title" type="text" value="" placeholder="<?php _e('Give it a name', 'hueman'); ?>"></input>
       </div>
-      <span class="czr-notice"><?php _e('Personalizing the name of the widget zone will help you identify it.', 'hueman-pro'); ?></span>
+      <span class="czr-notice"><?php _e('Personalizing the name of the widget zone will help you identify it.', 'hueman'); ?></span>
     </div>
     <div class="<?php echo $css_attr['sub_set_wrapper']; ?> width-100" data-input-type="select">
-      <div class="customize-control-title"><?php _e('Location(s)', 'hueman-pro'); ?></div>
-      <span class="czr-notice"><?php _e('Select the pre-defined location(s) in which you will embed this widget zone.', 'hueman-pro'); ?></span>
+      <div class="customize-control-title"><?php _e('Location(s)', 'hueman'); ?></div>
+      <span class="czr-notice"><?php _e('Select the pre-defined location(s) in which you will embed this widget zone.', 'hueman'); ?></span>
       <div class="czr-input">
         <select data-czrtype="locations" class="js-example-basic-multiple" multiple="multiple"></select>
       </div>
@@ -224,7 +224,7 @@ function hu_print_widget_areas_templates() {
     <script type="text/html" id="tmpl-czr-module-widgets-ru-item-part">
         <div class="<?php echo $css_attr['item_header']; ?> czr-builtin-model">
           <div class="<?php echo $css_attr['item_title']; ?> <?php echo $css_attr['item_sort_handle']; ?>"><h4>{{ data.title }}</h4></div>
-          <div class="<?php echo $css_attr['item_btns']; ?>"><a title="<?php _e('Edit', 'hueman-pro'); ?>" href="javascript:void(0);" class="fas fa-pencil-alt <?php echo $css_attr['edit_view_btn']; ?>"></a></div>
+          <div class="<?php echo $css_attr['item_btns']; ?>"><a title="<?php _e('Edit', 'hueman'); ?>" href="javascript:void(0);" class="fas fa-pencil-alt <?php echo $css_attr['edit_view_btn']; ?>"></a></div>
         </div>
     </script>
   <?php
@@ -237,27 +237,27 @@ function hu_print_widget_areas_templates() {
 
   <script type="text/html" id="tmpl-czr-module-widgets-item-input-list">
     <div class="<?php echo $css_attr['sub_set_wrapper']; ?>" data-input-type="text">
-      <div class="customize-control-title"><?php _e('id', 'hueman-pro'); ?></div>
+      <div class="customize-control-title"><?php _e('id', 'hueman'); ?></div>
         <input data-czrtype="id" type="hidden"></input>
-        <span><?php _e('unique id', 'hueman-pro')?> : {{ data.id }}</span>
+        <span><?php _e('unique id', 'hueman')?> : {{ data.id }}</span>
     </div>
     <div class="<?php echo $css_attr['sub_set_wrapper']; ?>" data-input-type="text">
-      <div class="customize-control-title"><?php _e('Name', 'hueman-pro'); ?></div>
+      <div class="customize-control-title"><?php _e('Name', 'hueman'); ?></div>
       <div class="czr-input">
-        <input data-czrtype="title" type="text" value="{{ data.title }}" placeholder="<?php _e('Enter a name', 'hueman-pro'); ?>"></input>
+        <input data-czrtype="title" type="text" value="{{ data.title }}" placeholder="<?php _e('Enter a name', 'hueman'); ?>"></input>
       </div>
-      <span class="czr-notice"><?php _e('Personalizing the name of the widget zone will help you identify it.', 'hueman-pro'); ?></span>
+      <span class="czr-notice"><?php _e('Personalizing the name of the widget zone will help you identify it.', 'hueman'); ?></span>
     </div>
     <div class="<?php echo $css_attr['sub_set_wrapper']; ?> width-100" data-input-type="select">
-      <div class="customize-control-title"><?php _e('Location(s)', 'hueman-pro'); ?></div>
-      <span class="czr-notice"><?php _e('Select the pre-defined location(s) in which you will embed this widget zone.', 'hueman-pro'); ?></span>
+      <div class="customize-control-title"><?php _e('Location(s)', 'hueman'); ?></div>
+      <span class="czr-notice"><?php _e('Select the pre-defined location(s) in which you will embed this widget zone.', 'hueman'); ?></span>
       <div class="czr-input">
         <select data-czrtype="locations" class="js-example-basic-multiple" multiple="multiple"></select>
       </div>
     </div>
     <div class="<?php echo $css_attr['sub_set_wrapper']; ?> width-100" data-input-type="select">
-      <div class="customize-control-title"><?php _e('Context(s)', 'hueman-pro'); ?></div>
-      <span class="czr-notice"><?php _e('Pick the context(s) where this widget area will be displayed.', 'hueman-pro'); ?></span>
+      <div class="customize-control-title"><?php _e('Context(s)', 'hueman'); ?></div>
+      <span class="czr-notice"><?php _e('Pick the context(s) where this widget area will be displayed.', 'hueman'); ?></span>
       <div class="czr-input">
         <select data-czrtype="contexts" class="js-example-basic-multiple" multiple="multiple"></select>
       </div>

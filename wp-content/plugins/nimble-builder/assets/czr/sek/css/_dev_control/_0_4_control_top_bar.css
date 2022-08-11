@@ -1,0 +1,205 @@
+
+
+/* TOP BAR */
+/* space for the Nimble topbar */
+#customize-preview iframe {
+  top: 36px;
+}
+
+#nimble-top-bar {
+  max-height: 36px;
+  position: absolute;
+  text-align: center;
+  right: 0;
+  left: 0;
+  z-index: 20;
+  color: #fff;
+  display: block;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all, 0.3s ease-in-out;
+  -ms-transition: all, 0.3s ease-in-out;
+  -o-transition: all, 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  /*visibility: hidden;*/
+  opacity: 0.3;
+  top : 0%;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2px;
+  z-index: 99999;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+    -ms-flex-align: center;
+        align-items: center;
+  /* flex-direction: column; */
+  flex: 0 0 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* fixes https://github.com/presscustomizr/nimble-builder/issues/340 */
+.themes-panel-expanded #nimble-top-bar, .outer-section-open #nimble-top-bar {
+  display: none;
+}
+
+body.nimble-top-bar-visible #nimble-top-bar {
+  /*visibility: inherit;*/
+  opacity: 1;
+}
+
+#nimble-top-bar:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+#nimble-top-bar .nimble-top-bar-content {
+  display: inline-block;
+  line-height: 20px;
+  width: 80%;
+}
+
+#nimble-top-bar .sek-do-undo .icon:before {
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  font: normal 20px/30px "dashicons";
+  vertical-align: top;
+/*  margin: 3px 0;
+  padding: 4px 8px;*/
+  color: #fff;
+}
+/* April 2020 : tmpl-saving btn added for https://github.com/presscustomizr/nimble-builder/issues/655 */
+#nimble-top-bar .sek-settings, #nimble-top-bar .sek-tmpl-saving, .sek-add-content, .sek-do-undo, .sek-level-tree  {
+  font-size: 16px;
+  padding: 0 4px;
+}
+
+/* vertical separators between option groups */
+.sek-level-tree:before, .sek-do-undo:before, #nimble-top-bar .sek-tmpl-saving:before, #nimble-top-bar .sek-settings:before {
+  content: '';
+  border-left: 1px solid #aaa;
+  width: 0px;
+  padding: 10px 4px;
+  height: 100%;
+  position: relative;
+}
+#nimble-top-bar .sek-tmpl-saving:after {
+  content: '';
+  border-right: 1px solid #aaa;
+  width: 0px;
+  padding: 10px 5px;
+  height: 100%;
+  position: relative;
+}
+
+#nimble-top-bar button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+/*  opacity: 0.8;*/
+}
+#nimble-top-bar button[data-nimble-state="disabled"] {
+  cursor: inherit;
+  opacity: 0.4!important;
+  cursor: not-allowed;
+}
+#nimble-top-bar .sek-do-undo button:hover {
+  opacity: 1;
+}
+#nimble-top-bar .sek-do-undo button:focus {
+  outline: none;
+}
+#nimble-top-bar .sek-do-undo .icon:before {
+  /*top: -6px;*/
+  position: relative;
+}
+#nimble-top-bar .sek-do-undo .icon.undo:before {
+  content:"\f171";
+    -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+#nimble-top-bar .sek-do-undo .icon.do:before {
+  content:"\f172";
+    -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+#nimble-top-bar .sek-add-content {
+  width: 34px;
+}
+#nimble-top-bar .sek-add-content button {
+  padding-top: 1px;
+  padding-left: 5px;
+  margin: 0px 4px;
+  font-size: 21px;
+  width: 30px;
+  height: 30px;
+  color: #ffffff;
+  background: #33b3db;
+  border-radius: 30px;
+  position: absolute;
+  left: 5px;
+  top: 3px;
+  /* font-size: 28px; */
+}
+#nimble-top-bar .sek-nimble-doc {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  /* flex-direction: column; */
+  flex: 0 0 100%;
+  max-width: 100%;
+  font-size: 12px;
+}
+#nimble-top-bar .sek-nimble-doc .sek-pointer {
+  text-decoration: underline;
+}
+.rtl #nimble-top-bar .sek-nimble-doc {
+  left:10px;
+  right: auto;
+}
+#nimble-top-bar .sek-nimble-doc img {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 2px;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -webkit-filter: gray;
+  filter: gray;
+}
+#nimble-top-bar .sek-nimble-doc:hover img {
+  -webkit-filter: none;
+  filter: none;
+}
+#nimble-top-bar .sek-notifications {
+  max-width: 410px;
+  overflow: hidden;
+  padding: 0 10px;
+  font-size: 12px;
+  text-decoration: none;
+}
+#nimble-top-bar .sek-notifications.is-linked {
+  text-decoration: underline;
+  cursor: pointer;
+}
+#nimble-top-bar .sek-goto-site-tmpl-options {
+  text-decoration: underline;
+  cursor: pointer;
+}
+/* May 2020 : debug mode notification */
+#nimble-top-bar .sek-notifications .debug-mode-notif {
+  color:#ff0000;
+  line-height:1.5em;
+  padding:3px;
+  background:#ffffff;
+  display: inline-block;
+  overflow: hidden;
+}

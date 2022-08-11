@@ -26,7 +26,7 @@ if ( ! class_exists( 'HU_admin_page' ) ) :
    * @since Hueman 1.1
    */
     function hu_add_welcome_page() {
-        $_name = __( 'About Hueman' , 'hueman-pro' );
+        $_name = __( 'About Hueman' , 'hueman' );
         $_name = HU_IS_PRO ? sprintf( '%s Pro', $_name ) : $_name;
 
         $theme_page = add_theme_page(
@@ -52,7 +52,7 @@ if ( ! class_exists( 'HU_admin_page' ) ) :
         <div class="about-text tc-welcome">
           <?php
             $title = sprintf( '<h1 class="czr-welcome-title">%1$s %2$s %3$s :)</h1>',
-              __( "Thank you for using", "hueman-pro" ),
+              __( "Thank you for using", "hueman" ),
               $_theme_name,
               HUEMAN_VER
             );
@@ -62,11 +62,11 @@ if ( ! class_exists( 'HU_admin_page' ) ) :
           <?php
             if ( !HU_IS_PRO ) {
               printf( '<h3>%1$s ❤️.</h3><h4>%2$s</h4><h4>%3$s 🙏</h4><h4 style="font-weight:bold">%4$s</h4>',
-                sprintf( __( "If you enjoy using the Hueman theme for your website, you will love %s", "hueman-pro"),
-                  sprintf( '<a style="color:#d87f00" href="%1$s" title="%2$s" target="_blank" rel="noopener noreferrer">%2$s</a>', 'https://presscustomizr.com/hueman-pro/', __("Hueman Pro", "hueman-pro") )
+                sprintf( __( "If you enjoy using the Hueman theme for your website, you will love %s", "hueman"),
+                  sprintf( '<a style="color:#d87f00" href="%1$s" title="%2$s" target="_blank" rel="noopener noreferrer">%2$s</a>', 'https://presscustomizr.com/hueman-pro/', __("Hueman Pro", "hueman") )
                 ),
-                __("With Hueman Pro, you get premium features like infinite scrolling, footer and header customization, font customizer and many more. In addition, our premium support will be there to help you resolve any issue you may have with the theme. When installing Hueman Pro, all your previous options used in Hueman free are kept.", 'hueman-pro'),
-                __('And of course your support allows us to keep the theme at the highest level for your website. Thank you!', 'hueman-pro'),
+                __("With Hueman Pro, you get premium features like infinite scrolling, footer and header customization, font customizer and many more. In addition, our premium support will be there to help you resolve any issue you may have with the theme. When installing Hueman Pro, all your previous options used in Hueman free are kept.", 'hueman'),
+                __('And of course your support allows us to keep the theme at the highest level for your website. Thank you!', 'hueman'),
                 'Limited offer : get 25% off with code EOY2021 at checkout.' . ' <a class="hu-pro-link-in-dashboard" href="https://presscustomizr.com/hueman-pro/" rel="noopener noreferrer" title="Go Pro" target="_blank">Go Pro</a> <span style="color: #f07829;" class="dashicons dashicons-external"></span>'
               );
             }
@@ -77,16 +77,16 @@ if ( ! class_exists( 'HU_admin_page' ) ) :
 
         
         <div class="czr-col-50 first-col">
-          <h3 style="font-size:1.3em;"><?php _e( 'Knowledge base','hueman-pro' ); ?></h3>
-          <p><?php _e( "We have prepared a complete online documentation of the theme.",'hueman-pro' ) ?></br>
-          <a class="button-primary review-hueman" href="<?php echo 'https://docs.presscustomizr.com/' ?>" target="_blank"><?php _e('Hueman Documentation','hueman-pro'); ?></a></p>
+          <h3 style="font-size:1.3em;"><?php _e( 'Knowledge base','hueman' ); ?></h3>
+          <p><?php _e( "We have prepared a complete online documentation of the theme.",'hueman' ) ?></br>
+          <a class="button-primary review-hueman" href="<?php echo 'https://docs.presscustomizr.com/' ?>" target="_blank"><?php _e('Hueman Documentation','hueman'); ?></a></p>
           <!-- Place this tag where you want the widget to render. -->
         </div>
         
         <div class="czr-col-50">
-          <h3 style="font-size:1.3em;"><?php _e( 'Share your feedback','hueman-pro' ); ?></h3>
-          <p><?php _e( 'If you are happy with the theme, say it on wordpress.org and give Hueman a nice review!','hueman-pro' ) ?></br>
-          <a class="button-primary review-hueman" href="<?php echo esc_url('wordpress.org/support/view/theme-reviews/hueman') ?>" target="_blank"><?php _e('Share a review','hueman-pro'); ?></a></p>
+          <h3 style="font-size:1.3em;"><?php _e( 'Share your feedback','hueman' ); ?></h3>
+          <p><?php _e( 'If you are happy with the theme, say it on wordpress.org and give Hueman a nice review!','hueman' ) ?></br>
+          <a class="button-primary review-hueman" href="<?php echo esc_url('wordpress.org/support/view/theme-reviews/hueman') ?>" target="_blank"><?php _e('Share a review','hueman'); ?></a></p>
         </div>
 
       <?php echo $this->hu_config_infos() ?>
@@ -135,11 +135,11 @@ if ( ! class_exists( 'HU_admin_page' ) ) :
       ?>
 
       <div id="hueman-changelog" class="changelog">
-        <h3><?php printf( __( 'Changelog' , 'hueman-pro' ) , HUEMAN_VER ); ?></h3>
+        <h3><?php printf( __( 'Changelog' , 'hueman' ) , HUEMAN_VER ); ?></h3>
         <p><?php echo $html ?></p>
         <p><strong><?php printf('<a href="%1$s" title="%2$s" target="_blank" rel="noopener noreferrer">%2$s %3$s</a>',
                     HU_WEBSITE . "/category/hueman-releases/",
-                    __( "Read the latest release notes" , "hueman-pro" ),
+                    __( "Read the latest release notes" , "hueman" ),
                     is_rtl() ? '&laquo;' : '&raquo;'
           ); ?></strong></p>
       </div>
@@ -165,9 +165,9 @@ if ( ! class_exists( 'HU_admin_page' ) ) :
 
       ?>
 <div class="hu-config-info">
-<h3><?php _e( 'System Information', 'hueman-pro' ); ?></h3>
-<h4 style="text-align: left"><?php _e( 'Please include the following information when posting support requests' , 'hueman-pro' ) ?></h4>
-<textarea readonly="readonly" onclick="this.focus();this.select()" id="system-info-textarea" name="tc-sysinfo" title="<?php _e( 'To copy the system infos, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'hueman-pro' ); ?>" style="width: 100%;min-height: 800px;font-family: Menlo,Monaco,monospace;background: 0 0;white-space: pre;overflow: auto;display:block;">
+<h3><?php _e( 'System Information', 'hueman' ); ?></h3>
+<h4 style="text-align: left"><?php _e( 'Please include the following information when posting support requests' , 'hueman' ) ?></h4>
+<textarea readonly="readonly" onclick="this.focus();this.select()" id="system-info-textarea" name="tc-sysinfo" title="<?php _e( 'To copy the system infos, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'hueman' ); ?>" style="width: 100%;min-height: 800px;font-family: Menlo,Monaco,monospace;background: 0 0;white-space: pre;overflow: auto;display:block;">
 <?php do_action( '__system_config_before' ); ?>
 # SITE_URL:               <?php echo site_url() . "\n"; ?>
 # HOME_URL:               <?php echo esc_url( home_url() ) . "\n"; ?>

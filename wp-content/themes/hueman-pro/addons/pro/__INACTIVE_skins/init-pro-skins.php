@@ -31,16 +31,16 @@ final class PC_HASKINS {
             'pro_skins' => array(
                 'default'   => 'none',
                 'control'   => 'HU_controls',
-                'label'     => __('Pick a predefined skin', 'hueman-pro'),
+                'label'     => __('Pick a predefined skin', 'hueman'),
                 'section'   => 'general_design_sec',
                 'type'      => 'select',
                 'choices' => array(
-                    'none'    => __( 'None', 'hueman-pro' ),
-                    'light'   => __( 'Light' , 'hueman-pro' ),
-                    'dark'      => __( 'Dark' , 'hueman-pro' )
+                    'none'    => __( 'None', 'hueman' ),
+                    'light'   => __( 'Light' , 'hueman' ),
+                    'dark'      => __( 'Dark' , 'hueman' )
                 ),
                 'priority'  => 0,
-                'notice'    => __( 'This will apply a predefined light or dark style to your website. You will be able to set more specific colors to your website in the other sections of the customizer : header, content, footer.' , 'hueman-pro')
+                'notice'    => __( 'This will apply a predefined light or dark style to your website. You will be able to set more specific colors to your website in the other sections of the customizer : header, content, footer.' , 'hueman')
             )
         ), $settings );
     }

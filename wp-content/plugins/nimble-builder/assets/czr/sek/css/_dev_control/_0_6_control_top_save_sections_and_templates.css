@@ -1,0 +1,260 @@
+
+/* TOP SAVE TMPL UI
+* introduced april 2020 for https://github.com/presscustomizr/nimble-builder/issues/655
+* and TOP SAVE SECTION UI
+* introduced June 2020 for for https://github.com/presscustomizr/nimble-builder/issues/520
+*/
+#nimble-top-tmpl-save-ui,
+#nimble-top-section-save-ui {
+  height: auto;
+  min-height: 300px;
+  padding: 20px;
+  position: absolute;
+  top: -300px;
+  /*text-align: center;*/
+  right: 0;
+  left: 0;
+  z-index: 20;
+  color: #fff;
+  display: block;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all, 0.3s ease-in-out;
+  -ms-transition: all, 0.3s ease-in-out;
+  -o-transition: all, 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  /*visibility: hidden;*/
+  opacity: 0.3;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 99999;
+  /*display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+    -ms-flex-align: center;
+        align-items: center;
+  flex: 0 0 100%;*/
+  max-width: 100%;
+  font-size: 16px;
+    line-height: 1.5em;
+}
+
+#nimble-top-tmpl-save-ui .nb-tmpl-save-inner,
+#nimble-top-section-save-ui .nb-section-save-inner {
+  max-width: 800px;
+  margin: auto;
+}
+
+/*#nimble-top-tmpl-save-ui > div {
+  width: 100%;
+}*/
+
+body.sek-save-tmpl-ui-visible #nimble-top-tmpl-save-ui,
+body.sek-save-section-ui-visible #nimble-top-section-save-ui {
+  /*visibility: inherit;*/
+  opacity: 1;
+  top:36px;
+}
+
+#nimble-top-tmpl-save-ui .sek-close-dialog,
+#nimble-top-section-save-ui .sek-close-dialog {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 3px!important;
+}
+
+#nimble-top-tmpl-save-ui #sek-saved-tmpl-title.error,
+#nimble-top-section-save-ui #sek-saved-section-title.error {
+  border: 1px solid #ff0000;
+}
+
+
+/* INPUT STYLE */
+.sek-tmpl-title,
+.sek-tmpl-description,
+select.sek-saved-tmpl-picker,
+.sek-section-title,
+.sek-section-description,
+select.sek-saved-section-picker {
+  margin-top: 10px;
+  float: left;
+  clear: both;
+  width: 100%;
+}
+
+.sek-tmpl-description textarea,
+input#sek-saved-tmpl-title,
+select.sek-saved-tmpl-picker,
+.sek-section-description textarea,
+input#sek-saved-section-title,
+select.sek-saved-section-picker {
+  width: 97%;
+  max-width: none;
+  margin-bottom: 10px;
+}
+.sek-tmpl-description textarea,
+.sek-section-description textarea {
+  min-height: 100px;
+}
+.sek-saved-tmpl-picker,
+.sek-tmpl-title,
+.sek-tmpl-description,
+.sek-save-tmpl-action .sek-do-save-tmpl,
+.sek-save-tmpl-action .sek-do-update-tmpl,
+.sek-save-tmpl-action .sek-open-remove-confirmation,
+.sek-saved-section-picker,
+.sek-section-title,
+.sek-section-description,
+.sek-save-section-action .sek-do-save-section,
+.sek-save-section-action .sek-do-update-section,
+.sek-save-section-action .sek-open-remove-confirmation {
+  display: none;
+}
+
+/* the template picker is visible when template collection has been ajaxily fetched */
+.tmpl-collection-populated .sek-saved-tmpl-picker,
+.section-collection-populated .sek-saved-section-picker {
+  display:block
+}
+
+.sek-tmpl-remove-dialog,
+.sek-section-remove-dialog {
+  display: none;
+  color: red;
+  background: #ffffff;
+  padding: 5px;
+  text-transform: uppercase;
+  float: left;
+  width: 96%;
+}
+.sek-tmpl-remove-dialog .sek-do-remove-tmpl,
+.sek-section-remove-dialog .sek-do-remove-section {
+  color: red;
+}
+
+/* TMPL UI VISIBILITY = f(mode) */
+[data-sek-tmpl-dialog-mode="save"] [data-tmpl-mode-switcher="remove"] {display: none;}
+[data-sek-tmpl-dialog-mode="save"] .sek-saved-tmpl-picker {display: none;}
+[data-sek-tmpl-dialog-mode="save"] .sek-tmpl-title {display: block;}
+[data-sek-tmpl-dialog-mode="save"] .sek-tmpl-description {display: block;}
+[data-sek-tmpl-dialog-mode="save"] .sek-do-save-tmpl {display: block;border-color: #ffff00;background: #f9f9b6f7;border-radius: 3px!important;}
+
+[data-sek-tmpl-dialog-mode="update"] [data-tmpl-mode-switcher="remove"] {display: none;}
+[data-sek-tmpl-dialog-mode="update"].sek-tmpl-update-selected .sek-tmpl-title {display: block;}
+[data-sek-tmpl-dialog-mode="update"].sek-tmpl-update-selected .sek-tmpl-description {display: block;}
+[data-sek-tmpl-dialog-mode="update"].sek-tmpl-update-selected .sek-do-update-tmpl {display: block;}
+
+.sek-save-tmpl-mode-switcher .sek-ui-button[data-tmpl-mode-switcher="edit"] {display: none;}
+[data-sek-tmpl-dialog-mode="edit"] [data-tmpl-mode-switcher="edit"] {display: inline-block!important;}
+[data-sek-tmpl-dialog-mode="edit"] [data-tmpl-mode-switcher="update"] {display: none;}
+[data-sek-tmpl-dialog-mode="edit"] [data-tmpl-mode-switcher="save"] {display: none;}
+[data-sek-tmpl-dialog-mode="edit"] [data-tmpl-mode-switcher="remove"] {display: none;}
+[data-sek-tmpl-dialog-mode="edit"] .sek-saved-tmpl-picker {display: block;}
+[data-sek-tmpl-dialog-mode="edit"] .sek-tmpl-title {display: block;}
+[data-sek-tmpl-dialog-mode="edit"] .sek-tmpl-description {display: block;}
+[data-sek-tmpl-dialog-mode="edit"] .sek-do-update-tmpl {display: block;}
+
+[data-sek-tmpl-dialog-mode="remove"] [data-tmpl-mode-switcher="update"] {display: none;}
+[data-sek-tmpl-dialog-mode="remove"] [data-tmpl-mode-switcher="save"] {display: none;}
+[data-sek-tmpl-dialog-mode="remove"].sek-tmpl-remove-selected .sek-open-remove-confirmation {display: block;}
+[data-sek-tmpl-dialog-mode="remove"].sek-removal-confirmation-opened .sek-open-remove-confirmation {display: none!important;}
+[data-sek-tmpl-dialog-mode="remove"].sek-removal-confirmation-opened .sek-tmpl-remove-dialog { display: block;}
+
+/* SECTION UI VISIBILITY = f(mode) */
+[data-sek-section-dialog-mode="save"] [data-section-mode-switcher="remove"] {display: none;}
+[data-sek-section-dialog-mode="save"] .sek-saved-section-picker {display: none;}
+[data-sek-section-dialog-mode="save"] .sek-section-title {display: block;}
+[data-sek-section-dialog-mode="save"] .sek-section-description {display: block;}
+[data-sek-section-dialog-mode="save"] .sek-do-save-section {display: block;border-color: #ffff00;background: #f9f9b6f7;border-radius: 3px!important;}
+
+[data-sek-section-dialog-mode="update"] [data-section-mode-switcher="remove"] {display: none;}
+[data-sek-section-dialog-mode="update"].sek-section-update-selected .sek-section-title {display: block;}
+[data-sek-section-dialog-mode="update"].sek-section-update-selected .sek-section-description {display: block;}
+[data-sek-section-dialog-mode="update"].sek-section-update-selected .sek-do-update-section {display: block;}
+
+.sek-save-section-mode-switcher .sek-ui-button[data-section-mode-switcher="edit"] {display: none;}
+[data-sek-section-dialog-mode="edit"] [data-section-mode-switcher="edit"] {display: inline-block!important;}
+[data-sek-section-dialog-mode="edit"] [data-section-mode-switcher="update"] {display: none;}
+[data-sek-section-dialog-mode="edit"] [data-section-mode-switcher="save"] {display: none;}
+[data-sek-section-dialog-mode="edit"] [data-section-mode-switcher="remove"] {display: none;}
+[data-sek-section-dialog-mode="edit"] .sek-saved-section-picker {display: block;}
+[data-sek-section-dialog-mode="edit"] .sek-section-title {display: block;}
+[data-sek-section-dialog-mode="edit"] .sek-section-description {display: block;}
+[data-sek-section-dialog-mode="edit"] .sek-do-update-section {display: block;}
+
+[data-sek-section-dialog-mode="remove"].sek-section-remove-selected .sek-open-remove-confirmation {display: block;}
+[data-sek-section-dialog-mode="remove"].sek-removal-confirmation-opened .sek-open-remove-confirmation {display: none!important;}
+[data-sek-section-dialog-mode="remove"].sek-removal-confirmation-opened .sek-section-remove-dialog { display: block;}
+[data-sek-section-dialog-mode="remove"].sek-is-removal-only [data-section-mode-switcher="save"], [data-sek-section-dialog-mode="remove"].sek-is-removal-only [data-section-mode-switcher="update"] { display: none;}
+
+
+#nimble-top-tmpl-save-ui .spinner,
+#nimble-top-section-save-ui .spinner {
+  display: none;
+}
+
+#nimble-top-tmpl-save-ui.nimble-tmpl-processing-ajax .spinner,
+#nimble-top-section-save-ui.nimble-section-processing-ajax .spinner {
+  display: block;
+  visibility: visible;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* OLD TOP SAVE SECTION UI */
+/* #nimble-top-section-save-ui {
+  height: 300px;
+  padding: 20px;
+  position: absolute;
+  top: -300px;
+
+  right: 0;
+  left: 0;
+  z-index: 20;
+  color: #fff;
+  display: block;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all, 0.3s ease-in-out;
+  -ms-transition: all, 0.3s ease-in-out;
+  -o-transition: all, 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+
+  opacity: 0.3;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99999;
+
+  max-width: 100%;
+}
+
+#nimble-top-section-save-ui > div {
+  width: 100%;
+}
+
+body.sek-save-section-ui-visible #nimble-top-section-save-ui {
+
+  opacity: 1;
+  top:36px;
+}
+
+#nimble-top-section-save-ui .sek-close-dialog {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+#nimble-top-section-save-ui #sek-saved-section-title.error {
+  border: 1px solid #ff0000;
+}
+*/

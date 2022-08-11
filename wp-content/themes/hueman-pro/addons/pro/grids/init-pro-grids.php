@@ -172,14 +172,14 @@ final class PC_HAPGRIDS {
               'pro_post_list_design'  =>  array(
                   'default'   => 'masonry-grid',
                   'control'   => 'HU_controls' ,
-                  'title'     => __( 'Post list design', 'hueman-pro' ),
-                  'label'     => __( 'Select post list design type' , 'hueman-pro' ),
+                  'title'     => __( 'Post list design', 'hueman' ),
+                  'label'     => __( 'Select post list design type' , 'hueman' ),
                   'section'   => 'content_blog_sec' ,
                   'type'      => 'select' ,
                   'choices'   => array(
-                      'standard'          => __( 'Standard list' , 'hueman-pro'),
-                      'classic-grid'      => __( 'Classic grid' , 'hueman-pro'),
-                      'masonry-grid'      => __( 'Masonry grid' , 'hueman-pro')
+                      'standard'          => __( 'Standard list' , 'hueman'),
+                      'classic-grid'      => __( 'Classic grid' , 'hueman'),
+                      'masonry-grid'      => __( 'Masonry grid' , 'hueman')
                   ),
                   //'active_callback' => 'hu_is_post_list',
                   'priority'        => 20,
@@ -192,16 +192,16 @@ final class PC_HAPGRIDS {
               'pro_grid_columns'  =>  array(
                   'default'   => '2',
                   'control'   => 'HU_controls' ,
-                  'label'     => __( 'Max number of columns' , 'hueman-pro' ),
+                  'label'     => __( 'Max number of columns' , 'hueman' ),
                   'section'   => 'content_blog_sec' ,
                   'type'      => 'select' ,
                   'choices'   => array(
-                      '1'      => __( '1', 'hueman-pro' ),
-                      '2'      => __( '2' , 'hueman-pro' ),
-                      '3'      => __( '3' , 'hueman-pro' ),
-                      '4'      => __( '4' , 'hueman-pro' )
+                      '1'      => __( '1', 'hueman' ),
+                      '2'      => __( '2' , 'hueman' ),
+                      '3'      => __( '3' , 'hueman' ),
+                      '4'      => __( '4' , 'hueman' )
                   ),
-                  'notice'    => __( 'Note : columns are limited to 3 for single sidebar layouts and to 2 for double sidebar layouts.', 'hueman-pro' ),
+                  'notice'    => __( 'Note : columns are limited to 3 for single sidebar layouts and to 2 for double sidebar layouts.', 'hueman' ),
                   //'active_callback' => 'hu_is_post_list',
                   'priority'        => 22,
                   'ubq_section'   => array(

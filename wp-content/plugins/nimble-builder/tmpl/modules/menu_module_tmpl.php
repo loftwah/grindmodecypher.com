@@ -27,7 +27,7 @@ sek_emit_js_event('nb-needs-menu-js');
 // in the future, this value could be set by users, see $grid-breakpoints in scss variables
 ?>
 <nav class="<?php echo esc_attr($nav_classes); ?>" data-sek-expand-below="<?php echo esc_attr($expand_below); ?>" data-sek-mobile-menu-breakpoint=768>
-    <button class="sek-nav-toggler sek-collapsed" type="button" data-target="#<?php echo esc_attr($model['id']); ?>" aria-controls="<?php echo esc_attr($model['id']); ?>" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'nimble-builder' ) ?>">
+    <button class="sek-nav-toggler sek-collapsed" type="button" data-target="#<?php echo esc_attr($model['id']); ?>" aria-controls="<?php echo esc_attr($model['id']); ?>" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'textdomain_to_be_replaced' ) ?>">
         <span class="sek-ham__span-wrapper">
           <span class="line line-1"></span>
           <span class="line line-2"></span>

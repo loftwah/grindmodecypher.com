@@ -702,7 +702,7 @@ if ( ! class_exists( 'OT_Loader' ) && defined( 'ABSPATH' ) ) {
 
 				// Once is enough.
 				remove_filter( 'gettext', array( $this, 'ot_change_image_button' ) );
-				return apply_filters( 'ot_upload_text', esc_html__( 'Send to OptionTree', 'hueman-pro' ) );
+				return apply_filters( 'ot_upload_text', esc_html__( 'Send to OptionTree', 'hueman' ) );
 
 			}
 

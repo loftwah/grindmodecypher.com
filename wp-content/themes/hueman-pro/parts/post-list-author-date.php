@@ -9,15 +9,15 @@
 <?php if ( hu_is_checked( 'post-list-meta-author' ) ) : ?>
   <p class="post-date">
     <?php if ( is_rtl() ) : ?>
-      <?php _e('by','hueman-pro'); ?>&nbsp;<?php the_author_posts_link(); ?>&nbsp;
+      <?php _e('by','hueman'); ?>&nbsp;<?php the_author_posts_link(); ?>&nbsp;
     <?php else : ?>
-      &nbsp;<?php _e('by','hueman-pro'); ?>&nbsp;<?php the_author_posts_link(); ?>
+      &nbsp;<?php _e('by','hueman'); ?>&nbsp;<?php the_author_posts_link(); ?>
     <?php endif; ?>
   </p>
 <?php endif; ?>
 
 <?php if ( hu_is_checked('structured-data') ) : ?>
-  <p class="post-byline" style="display:none">&nbsp;<?php _e('by','hueman-pro'); ?>
+  <p class="post-byline" style="display:none">&nbsp;<?php _e('by','hueman'); ?>
     <span class="vcard author">
       <span class="fn"><?php the_author_posts_link(); ?></span>
     </span> &middot; Published <span class="published"><?php echo get_the_date( get_option('date_format') ); ?></span>

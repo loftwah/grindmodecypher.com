@@ -18,9 +18,9 @@ class AlxTabs extends WP_Widget {
 	function __construct() {
 		parent::__construct(
       'alxtabs',
-      __('Hueman Dynamic Tabs', 'hueman-pro'),
+      __('Hueman Dynamic Tabs', 'hueman'),
       array(
-        'description' => __('List posts, comments, and/or tags with or without tabs.', 'hueman-pro'),
+        'description' => __('List posts, comments, and/or tags with or without tabs.', 'hueman'),
         'classname' => 'widget_hu_tabs'
       )
     );
@@ -63,10 +63,10 @@ class AlxTabs extends WP_Widget {
 	private function _create_tabs($tabs,$count) {
 		// Borrowed from Jermaine Maree, thanks mate!
 		$titles = array(
-			'recent'	=> __('Recent Posts','hueman-pro'),
-			'popular'	=> __('Popular Posts','hueman-pro'),
-			'comments'	=> __('Recent Comments','hueman-pro'),
-			'tags'		=> __('Tags','hueman-pro')
+			'recent'	=> __('Recent Posts','hueman'),
+			'popular'	=> __('Popular Posts','hueman'),
+			'comments'	=> __('Recent Comments','hueman'),
+			'tags'		=> __('Tags','hueman')
 		);
 		$icons = array(
 			'recent'   => 'far fa-clock',
@@ -163,7 +163,7 @@ class AlxTabs extends WP_Widget {
 					<div class="tab-item-inner group">
 						<?php if($instance['tabs_category']) { ?><p class="tab-item-category"><?php the_category(' / '); ?></p><?php } ?>
 						<p class="tab-item-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></p>
-						<?php if($instance['tabs_date']) { ?><p class="tab-item-date"><?php the_time('j M, Y'); ?></p><?php } ?>
+						<?php if($instance['tabs_date']) { ?><p class="tab-item-date"><?php echo get_the_date(); ?></p><?php } ?>
 					</div>
 
 				</li>
@@ -219,7 +219,7 @@ class AlxTabs extends WP_Widget {
 					<div class="tab-item-inner group">
 						<?php if($instance['tabs_category']) { ?><p class="tab-item-category"><?php the_category(' / '); ?></p><?php } ?>
 						<p class="tab-item-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></p>
-						<?php if($instance['tabs_date']) { ?><p class="tab-item-date"><?php the_time('j M, Y'); ?></p><?php } ?>
+						<?php if($instance['tabs_date']) { ?><p class="tab-item-date"><?php echo get_the_date(); ?></p><?php } ?>
 					</div>
 
 				</li>
@@ -249,7 +249,7 @@ class AlxTabs extends WP_Widget {
 
 						<div class="tab-item-inner group">
 							<?php $str=explode(' ',get_comment_excerpt($comment->comment_ID)); $comment_excerpt=implode(' ',array_slice($str,0,11)); if(count($str) > 11 && substr($comment_excerpt,-1)!='.') $comment_excerpt.='...' ?>
-							<div class="tab-item-name"><?php echo esc_html( $comment->comment_author ); ?> <?php _e('says:','hueman-pro'); ?></div>
+							<div class="tab-item-name"><?php echo esc_html( $comment->comment_author ); ?> <?php _e('says:','hueman'); ?></div>
 							<div class="tab-item-comment"><a href="<?php echo esc_url(get_comment_link($comment->comment_ID)); ?>"><?php echo esc_html( $comment_excerpt ); ?></a></div>
 
 						</div>

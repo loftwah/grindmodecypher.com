@@ -30,7 +30,7 @@ final class PC_HA_CUSTOM_SCRIPTS  {
             -> PANEL : ADVANCED
             ----------------------------------------------------------------------------------------------*/
             'custom_scripts_sec'     => array(
-                'title'     =>  __( 'Additional scripts' , 'hueman-pro' ),
+                'title'     =>  __( 'Additional scripts' , 'hueman' ),
                 'priority'  =>  15,
                 'panel'     => 'hu-advanced-panel'
             )
@@ -45,27 +45,27 @@ final class PC_HA_CUSTOM_SCRIPTS  {
             return;
 
         $_refresh_notice = sprintf( '%1$s%2$s',
-            __( '<strong>Note:</strong>You need to click on the refresh button below to see the code applied to your site live preview.', 'hueman-pro' ),
+            __( '<strong>Note:</strong>You need to click on the refresh button below to see the code applied to your site live preview.', 'hueman' ),
             sprintf( '<input type="button" style="cursor:pointer; display:block" onclick="wp.customize.previewer.refresh()" title="%1$s" value="%1$s" />',
-                __( 'Refresh', 'hueman-pro' )
+                __( 'Refresh', 'hueman' )
             )
         );
 
         $_new_map = array(
                 'custom_head_script' =>  array(
                                   'control'   => 'HU_Customize_Code_Editor_Control',
-                                  'label'     => __( 'Add your custom scripts to the <head> of your site' , 'hueman-pro' ),
+                                  'label'     => __( 'Add your custom scripts to the <head> of your site' , 'hueman' ),
                                   'section'   => 'custom_scripts_sec' ,
                                   'code_type' => 'text/html',
                                   'transport' => 'postMessage', //<- to avoid the refresh while typing, also we cannot really apply this live even debouncing the refresh because, if the user didn't finish to write the code, incomplete (see unbalanced tags) scripts might break the page layout, which is always scaring for users.
                                   'notice'    => sprintf( '%1$s<br/>%2$s',
-                                      __( 'Any code you place here will appear in the head section of every page of your site. This is particularly useful if you need to input a tracking pixel for a state counter such as <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/" title="google-analytics" target="_blank">Google Analytics</a>', 'hueman-pro'),
+                                      __( 'Any code you place here will appear in the head section of every page of your site. This is particularly useful if you need to input a tracking pixel for a state counter such as <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/" title="google-analytics" target="_blank">Google Analytics</a>', 'hueman'),
                                       $_refresh_notice
                                   )
                 ),
                 'custom_footer_script' =>  array(
                                   'control'   => 'HU_Customize_Code_Editor_Control',
-                                  'label'     => __( 'Add your custom scripts before the </body> of your site' , 'hueman-pro' ),
+                                  'label'     => __( 'Add your custom scripts before the </body> of your site' , 'hueman' ),
                                   'section'   => 'custom_scripts_sec' ,
                                   'input_attrs' => array(
                                     'aria-describedby' => 'editor-keyboard-trap-help-1 editor-keyboard-trap-help-2 editor-keyboard-trap-help-3 editor-keyboard-trap-help-4',
@@ -73,7 +73,7 @@ final class PC_HA_CUSTOM_SCRIPTS  {
                                   'code_type' => 'text/html',
                                   'transport' => 'postMessage', //<- to avoid the refresh while typing, also we cannot really apply this live even debouncing the refresh because, if the user didn't finish to write the code, incomplete (see unbalanced tags) scripts might break the page layout, which is always scaring for users.
                                   'notice'    => sprintf( '%1$s<br/>%2$s',
-                                      __( 'Any code you place here will appear at the very bottom of every page of your site, just before the closing &lt;/body&gt; tag.', 'hueman-pro'),
+                                      __( 'Any code you place here will appear at the very bottom of every page of your site, just before the closing &lt;/body&gt; tag.', 'hueman'),
                                       $_refresh_notice
                                   )
                 ),

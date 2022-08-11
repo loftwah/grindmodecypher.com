@@ -41,7 +41,7 @@ class TC_wfc_admin_notices {
         /* Check that the user hasn't already clicked to ignore the message */
         if ( ! get_user_meta( $user_id, 'tc_' . $this -> plug_prefix . '_notice' ) ) {
             printf( '<div class="updated"><p>%1$s</p><a href="%2$s">Dismiss</a></div>',
-              sprintf( __('The <strong>%1$s</strong> plugin can not be used with a theme (or a parent theme) different than Customizr with a version less than v3.1.0.' , 'hueman-pro'),
+              sprintf( __('The <strong>%1$s</strong> plugin can not be used with a theme (or a parent theme) different than Customizr with a version less than v3.1.0.' , 'customizr-plugins'),
                 $this -> plug_name
                 ),
               '?dismiss_' . $this -> plug_prefix . '_notice=0'

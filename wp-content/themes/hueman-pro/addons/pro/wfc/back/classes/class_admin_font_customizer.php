@@ -40,10 +40,10 @@ class TC_admin_font_customizer {
 		$this -> tc_static_effect_list 							= $this -> tc_get_static_effect_list();
 
         $this -> font_weight_list = array(
-				'normal' 	=> __( 'normal', 'hueman-pro' ),
-				'bold' 		=> __( 'bold', 'hueman-pro' ),
-				'bolder' 	=> __( 'bolder', 'hueman-pro' ),
-				'lighter' 	=> __( 'lighter', 'hueman-pro' ),
+				'normal' 	=> __( 'normal', 'wordpress_font_customizer' ),
+				'bold' 		=> __( 'bold', 'wordpress_font_customizer' ),
+				'bolder' 	=> __( 'bolder', 'wordpress_font_customizer' ),
+				'lighter' 	=> __( 'lighter', 'wordpress_font_customizer' ),
 				100 		=> 100,
 				200 		=> 200,
 				300 		=> 300,
@@ -56,34 +56,34 @@ class TC_admin_font_customizer {
 		);
 
 		$this -> font_style_list = array(
-				'inherit' 	=> __( 'inherit', 'hueman-pro' ),
-				'italic' 	=> __( 'italic', 'hueman-pro' ),
-				'normal'	=> __( 'normal', 'hueman-pro' ),
-				'oblique'	=> __( 'oblique', 'hueman-pro' )
+				'inherit' 	=> __( 'inherit', 'wordpress_font_customizer' ),
+				'italic' 	=> __( 'italic', 'wordpress_font_customizer' ),
+				'normal'	=> __( 'normal', 'wordpress_font_customizer' ),
+				'oblique'	=> __( 'oblique', 'wordpress_font_customizer' )
 		);
 
 		$this -> text_align_list = array(
-				'center' 	=> __( 'center', 'hueman-pro' ),
-				'justify' 	=> __( 'justify', 'hueman-pro' ),
-				'inherit' 	=> __( 'inherit', 'hueman-pro' ),
-				'left' 		=> __( 'left', 'hueman-pro' ),
-				'right' 	=> __( 'right', 'hueman-pro' )
+				'center' 	=> __( 'center', 'wordpress_font_customizer' ),
+				'justify' 	=> __( 'justify', 'wordpress_font_customizer' ),
+				'inherit' 	=> __( 'inherit', 'wordpress_font_customizer' ),
+				'left' 		=> __( 'left', 'wordpress_font_customizer' ),
+				'right' 	=> __( 'right', 'wordpress_font_customizer' )
 		);
 
 		$this -> text_decoration_list =  array(
-				'none'			=> __( 'none', 'hueman-pro' ),
-				'inherit'		=> __( 'inherit', 'hueman-pro' ),
-				'line-through' => __( 'line-through', 'hueman-pro' ),
-				'overline'		=> __( 'overline', 'hueman-pro' ),
-				'underline'		=> __( 'underline', 'hueman-pro' )
+				'none'			=> __( 'none', 'wordpress_font_customizer' ),
+				'inherit'		=> __( 'inherit', 'wordpress_font_customizer' ),
+				'line-through' => __( 'line-through', 'wordpress_font_customizer' ),
+				'overline'		=> __( 'overline', 'wordpress_font_customizer' ),
+				'underline'		=> __( 'underline', 'wordpress_font_customizer' )
 		);
 
 		$this -> text_transform_list =  array(
-				'none'			=> __( 'none', 'hueman-pro' ),
-				'inherit'		=> __( 'inherit', 'hueman-pro' ),
-				'capitalize' 	=> __( 'capitalize', 'hueman-pro' ),
-				'uppercase'		=> __( 'uppercase', 'hueman-pro' ),
-				'lowercase'		=> __( 'lowercase', 'hueman-pro' )
+				'none'			=> __( 'none', 'wordpress_font_customizer' ),
+				'inherit'		=> __( 'inherit', 'wordpress_font_customizer' ),
+				'capitalize' 	=> __( 'capitalize', 'wordpress_font_customizer' ),
+				'uppercase'		=> __( 'uppercase', 'wordpress_font_customizer' ),
+				'lowercase'		=> __( 'lowercase', 'wordpress_font_customizer' )
 		);
 
 	}//end of construct
@@ -273,28 +273,28 @@ class TC_admin_font_customizer {
   		return 	apply_filters( 'tc_static_effect_list',
   				array(
   					//key => effect name, class, recommended color
-  					'none'				=> array( __('No effect' , 'hueman-pro' ) , 'no-effect', ''),
+  					'none'				=> array( __('No effect' , 'wordpress_font_customizer' ) , 'no-effect', ''),
   					'emboss' 			=> array('Emboss', 'font-effect-emboss', '#ddd'),
-  					'3d-one' 			=> array( __('3D one' , 'hueman-pro' ) , 'font-effect-3d-one', '#fff'),
-  					'3d-two' 			=> array( __('3D two' , 'hueman-pro' ) , 'font-effect-3d-two', '#555'),
+  					'3d-one' 			=> array( __('3D one' , 'wordpress_font_customizer' ) , 'font-effect-3d-one', '#fff'),
+  					'3d-two' 			=> array( __('3D two' , 'wordpress_font_customizer' ) , 'font-effect-3d-two', '#555'),
   					'3d-float' 			=> array('3D-float', 'font-effect-3d-float', '#fff'),
   					'static' 			=> array('Static', 'font-effect-static', '#343956'),
   					'outline' 			=> array('Outline', 'font-effect-outline', '#fff'),
-  					'shadow-soft' 		=> array( __('Shadow soft' , 'hueman-pro' ) , 'font-effect-shadow-soft', '#5a5a5a'),
-  					'shadow-simple' 	=> array( __('Shadow simple' , 'hueman-pro' ) , 'font-effect-shadow-simple', '#5a5a5a'),
-  					'shadow-distant' 	=> array( __('Shadow distant' , 'hueman-pro' ) , 'font-effect-shadow-distant', '#5a5a5a'),
-  					'shadow-close-one' 	=> array( __('Shadow close one' , 'hueman-pro' ) , 'font-effect-shadow-close-one', '#5a5a5a'),
-  					'shadow-close-two' 	=> array( __('Shadow close two' , 'hueman-pro' ) , 'font-effect-shadow-close-two', '#5a5a5a'),
-  					'shadow-multiple' 	=> array( __('Shadow multiple' , 'hueman-pro' ) , 'font-effect-shadow-multiple', '#222'),
-  					'vintage-retro' 	=> array( __('Vintage retro' , 'hueman-pro' ) , 'font-effect-vintage-retro', '#5a5a5a'),
-  					'neon-blue' 		=> array( __('Neon blue' , 'hueman-pro' ) , 'font-effect-neon-blue', '#fff'),
-  					'neon-green' 		=> array( __('Neon green' , 'hueman-pro' ) , 'font-effect-neon-green', '#fff'),
-  					'neon-orange' 		=> array( __('Neon orange' , 'hueman-pro' ) , 'font-effect-neon-orange', '#fff'),
-  					'neon-pink' 		=> array( __('Neon pink' , 'hueman-pro' ) , 'font-effect-neon-pink', '#fff'),
-  					'neon-red' 			=> array( __('Neon red' , 'hueman-pro' ) , 'font-effect-neon-red', '#fff'),
-  					'neon-grey' 		=> array( __('Neon grey' , 'hueman-pro' ) , 'font-effect-neon-grey', '#fff'),
-  					'neon-black' 		=> array( __('Neon black' , 'hueman-pro' ) , 'font-effect-neon-black', '#fff'),
-  					'neon-white' 		=> array( __('Neon white' , 'hueman-pro' ) , 'font-effect-neon-white', '#fff'),
+  					'shadow-soft' 		=> array( __('Shadow soft' , 'wordpress_font_customizer' ) , 'font-effect-shadow-soft', '#5a5a5a'),
+  					'shadow-simple' 	=> array( __('Shadow simple' , 'wordpress_font_customizer' ) , 'font-effect-shadow-simple', '#5a5a5a'),
+  					'shadow-distant' 	=> array( __('Shadow distant' , 'wordpress_font_customizer' ) , 'font-effect-shadow-distant', '#5a5a5a'),
+  					'shadow-close-one' 	=> array( __('Shadow close one' , 'wordpress_font_customizer' ) , 'font-effect-shadow-close-one', '#5a5a5a'),
+  					'shadow-close-two' 	=> array( __('Shadow close two' , 'wordpress_font_customizer' ) , 'font-effect-shadow-close-two', '#5a5a5a'),
+  					'shadow-multiple' 	=> array( __('Shadow multiple' , 'wordpress_font_customizer' ) , 'font-effect-shadow-multiple', '#222'),
+  					'vintage-retro' 	=> array( __('Vintage retro' , 'wordpress_font_customizer' ) , 'font-effect-vintage-retro', '#5a5a5a'),
+  					'neon-blue' 		=> array( __('Neon blue' , 'wordpress_font_customizer' ) , 'font-effect-neon-blue', '#fff'),
+  					'neon-green' 		=> array( __('Neon green' , 'wordpress_font_customizer' ) , 'font-effect-neon-green', '#fff'),
+  					'neon-orange' 		=> array( __('Neon orange' , 'wordpress_font_customizer' ) , 'font-effect-neon-orange', '#fff'),
+  					'neon-pink' 		=> array( __('Neon pink' , 'wordpress_font_customizer' ) , 'font-effect-neon-pink', '#fff'),
+  					'neon-red' 			=> array( __('Neon red' , 'wordpress_font_customizer' ) , 'font-effect-neon-red', '#fff'),
+  					'neon-grey' 		=> array( __('Neon grey' , 'wordpress_font_customizer' ) , 'font-effect-neon-grey', '#fff'),
+  					'neon-black' 		=> array( __('Neon black' , 'wordpress_font_customizer' ) , 'font-effect-neon-black', '#fff'),
+  					'neon-white' 		=> array( __('Neon white' , 'wordpress_font_customizer' ) , 'font-effect-neon-white', '#fff'),
   					'fire' 				=> array('Fire', 'font-effect-fire', '#ffe'),
   					'fire-animation' 	=> array('Fire Animation', 'font-effect-fire-animation', '#ffe'),
   					'anaglyph' 			=> array('Anaglyph', 'font-effect-anaglyph', ''),
@@ -510,24 +510,24 @@ class TC_admin_font_customizer {
                 'CFonts'						=> TC_utils_wfc::$instance -> get_cfonts_names(),
 
                 'Translations'		 			=> array(
-                	'reset_all_button' 	=> __('Reset all' , 'hueman-pro' ),
-                	'reset_all_confirm'	=> __('All settings reset to default' , 'hueman-pro' ),
-                	'reset_all_warning'	=> __('Are you sure you want to reset all your font settings to default?' , 'hueman-pro' ),
-                	'reset_all_yes'		=> __('Yes' , 'hueman-pro' ),
-                	'reset_all_no'		=> __('No' , 'hueman-pro' ),
-                  'This selector has already been added.' => __('This selector has already been added.','hueman-pro' ),
-                  'Custom' => __('Custom', 'hueman-pro' ),
-                  'Please specify a CSS selector' => __( 'Please specify a CSS selector', 'hueman-pro' ),
-                  'Select a font family' => __('Select a font family' , 'hueman-pro' ),
-                  'Pre-defined selectors' => __( 'Pre-defined selectors', 'hueman-pro' ),
-                  'Define a custom selector' => __( 'Define a custom selector', 'hueman-pro' ),
-                  'Web Safe Fonts' => __( 'Web Safe Fonts', 'hueman-pro' ),
-                  'Google Fonts' => __( 'Google Fonts', 'hueman-pro' ),
-                  'Please confirm the removal of the customizations for' => __( 'Please confirm the removal of the customizations for', 'hueman-pro' ),
-                  'Make sure to use valid css selectors.' => __( 'Make sure to use valid css selectors.', 'hueman-pro' ),
-                  'This css selector is not valid.' => __( 'This css selector is not valid.', 'hueman-pro' ),
-                  'This selector does not exist in this context.' => __('This selector does not exist in this context.', 'hueman-pro' ),
-                  'Select' => __( 'Select', 'hueman-pro' )
+                	'reset_all_button' 	=> __('Reset all' , 'wordpress_font_customizer' ),
+                	'reset_all_confirm'	=> __('All settings reset to default' , 'wordpress_font_customizer' ),
+                	'reset_all_warning'	=> __('Are you sure you want to reset all your font settings to default?' , 'wordpress_font_customizer' ),
+                	'reset_all_yes'		=> __('Yes' , 'wordpress_font_customizer' ),
+                	'reset_all_no'		=> __('No' , 'wordpress_font_customizer' ),
+                  'This selector has already been added.' => __('This selector has already been added.','wordpress_font_customizer' ),
+                  'Custom' => __('Custom', 'wordpress_font_customizer' ),
+                  'Please specify a CSS selector' => __( 'Please specify a CSS selector', 'wordpress_font_customizer' ),
+                  'Select a font family' => __('Select a font family' , 'wordpress_font_customizer' ),
+                  'Pre-defined selectors' => __( 'Pre-defined selectors', 'wordpress_font_customizer' ),
+                  'Define a custom selector' => __( 'Define a custom selector', 'wordpress_font_customizer' ),
+                  'Web Safe Fonts' => __( 'Web Safe Fonts', 'wordpress_font_customizer' ),
+                  'Google Fonts' => __( 'Google Fonts', 'wordpress_font_customizer' ),
+                  'Please confirm the removal of the customizations for' => __( 'Please confirm the removal of the customizations for', 'wordpress_font_customizer' ),
+                  'Make sure to use valid css selectors.' => __( 'Make sure to use valid css selectors.', 'wordpress_font_customizer' ),
+                  'This css selector is not valid.' => __( 'This css selector is not valid.', 'wordpress_font_customizer' ),
+                  'This selector does not exist in this context.' => __('This selector does not exist in this context.', 'wordpress_font_customizer' ),
+                  'Select' => __( 'Select', 'wordpress_font_customizer' )
                 ),
 
                 'AjaxUrl'          				=> admin_url( 'admin-ajax.php' ),
@@ -584,8 +584,8 @@ class TC_admin_font_customizer {
 
   	function tc_plugin_action_links( $links, $file ) {
 		if ( $file == plugin_basename( dirname( dirname( dirname(__FILE__) ) ). '/' . basename( TC_wfc::$instance -> plug_file ) ) ) {
-			$links[] = '<a href="' . admin_url( 'customize.php' ) . '">'.__( 'Settings', 'hueman-pro' ).'</a>';
-			$links[] = '<a href="' . admin_url( 'options.php?page=tc-system-info' ) . '">'.__('System Informations', 'hueman-pro').'</a>';
+			$links[] = '<a href="' . admin_url( 'customize.php' ) . '">'.__( 'Settings', 'wordpress_font_customizer' ).'</a>';
+			$links[] = '<a href="' . admin_url( 'options.php?page=tc-system-info' ) . '">'.__('System Informations', 'wordpress_font_customizer').'</a>';
 		}
 		return $links;
 	  }

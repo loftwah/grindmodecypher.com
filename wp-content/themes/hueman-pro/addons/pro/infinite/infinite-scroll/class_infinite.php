@@ -754,7 +754,7 @@ final class PC_infinite_scroll {
             global $currentday;
 
             // Default click handle text
-            $click_handle_text = __( 'Load more', 'hueman-pro' );
+            $click_handle_text = __( 'Load more', 'hueman' );
 
             // If a single CPT is displayed, use its plural name instead of "posts"
             // Could be empty (posts) or an array of multiple post types.
@@ -797,7 +797,7 @@ final class PC_infinite_scroll {
 
                         if ( isset( $cpt_text ) ) {
                               $post_type_name = strtolower( $post_type->labels->name );
-                              $click_handle_text = sprintf( __( 'Older %s', 'hueman-pro' ), $cpt_text );
+                              $click_handle_text = sprintf( __( 'Older %s', 'hueman' ), $cpt_text );
                               unset( $cpt_text );
                         }
                   }
@@ -822,7 +822,7 @@ final class PC_infinite_scroll {
                   'click_handle'     => esc_js( self::get_settings()->click_handle ),
 
                   'text'             => apply_filters( 'czr_infinite_scroll_handle_text', esc_js( $click_handle_text ) ),
-                  'totop'            => esc_js( __( 'Scroll back to top', 'hueman-pro' ) ),
+                  'totop'            => esc_js( __( 'Scroll back to top', 'hueman' ) ),
                   'currentday'       => $currentday,
                   'order'            => 'DESC',
                   'scripts'          => array(),
@@ -1586,10 +1586,10 @@ final class PC_infinite_scroll {
 
             $credits = sprintf(
               '<a href="http://wordpress.org/" target="_blank" rel="generator">%1$s</a> ',
-              __( 'Proudly powered by WordPress', 'hueman-pro' )
+              __( 'Proudly powered by WordPress', 'hueman' )
             );
             $credits .= sprintf(
-              __( 'Theme: %1$s.', 'hueman-pro' ),
+              __( 'Theme: %1$s.', 'hueman' ),
               function_exists( 'wp_get_theme' ) ? wp_get_theme()->Name : get_current_theme()
             );
             /**

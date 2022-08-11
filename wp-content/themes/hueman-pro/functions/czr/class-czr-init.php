@@ -97,7 +97,7 @@ if ( ! class_exists( 'HU_customize' ) ) :
               array(
                   'custom-logo'  => array(
                     'control'   =>  version_compare( $wp_version, '4.3', '>=' ) ? 'HU_Customize_Cropped_Image_Control' : 'HU_Customize_Upload_Control',
-                    'label'     =>  __( 'Custom Header Logo' , 'hueman-pro' ),
+                    'label'     =>  __( 'Custom Header Logo' , 'hueman' ),
                     'section'   => 'title_tagline' ,
                     'sanitize_callback' => array( HU_utils_settings_map::$instance , 'hu_sanitize_number' ),
                     //we can define suggested cropping area and allow it to be flexible (def 150x150 and not flexible)
@@ -108,7 +108,7 @@ if ( ! class_exists( 'HU_customize' ) ) :
                     //to keep the selected cropped size
                     'dst_width'  => false,
                     'dst_height'  => false,
-                    'notice'    => __('Upload your custom logo image. Supported formats : .jpg, .png, .gif, svg, svgz' , 'hueman-pro'),
+                    'notice'    => __('Upload your custom logo image. Supported formats : .jpg, .png, .gif, svg, svgz' , 'hueman'),
                     'priority' => 7
                   )
               )
@@ -279,7 +279,7 @@ if ( ! class_exists( 'HU_customize' ) ) :
             //MOVE WP FRONT PAGE SECTION TO ROOT PANEL
             if ( is_object( $wp_customize -> get_section( 'static_front_page' ) ) ) {
               $wp_customize -> get_section( 'static_front_page' ) -> panel = '';//'hu-content-panel';
-              $wp_customize -> get_section( 'static_front_page' ) -> title = __( 'Front Page Content', 'hueman-pro' );
+              $wp_customize -> get_section( 'static_front_page' ) -> title = __( 'Front Page Content', 'hueman' );
               $wp_customize -> get_section( 'static_front_page' ) -> priority = 10;
               //$wp_customize -> get_section( 'static_front_page' ) -> active_callback = 'hu_is_home';
             }
@@ -288,9 +288,9 @@ if ( ! class_exists( 'HU_customize' ) ) :
             if ( is_object( $wp_customize -> get_control( 'show_on_front' ) ) ) {
               $wp_customize -> get_control( 'show_on_front' ) -> type = 'select';
               $wp_customize -> get_control( 'show_on_front' ) -> choices = array(
-                  '__nothing__'   => __( 'Don\'t show any posts or page' , 'hueman-pro'),
-                  'posts'   => __( 'Your latest posts' , 'hueman-pro'),
-                  'page'    => __( 'A static page' , 'hueman-pro'  )
+                  '__nothing__'   => __( 'Don\'t show any posts or page' , 'hueman'),
+                  'posts'   => __( 'Your latest posts' , 'hueman'),
+                  'page'    => __( 'A static page' , 'hueman'  )
               );
             }
 
@@ -405,7 +405,7 @@ if ( ! class_exists( 'HU_customize' ) ) :
         * Display a title for the favicon control, after the logo
         */
         function hu_add_favicon_title($set_id) {
-            printf( '<h3 class="czr-hueman-title">%s</h3>', __( 'SITE ICON' , 'hueman-pro') );
+            printf( '<h3 class="czr-hueman-title">%s</h3>', __( 'SITE ICON' , 'hueman') );
         }
 
 
@@ -462,11 +462,11 @@ if ( ! class_exists( 'HU_customize' ) ) :
                               'registered_dynamically' => true,
                               'default'   => array(),//empty array by default
                               'control'   => 'HU_Customize_Modules',
-                              'label'     => __('Create And Order Widget Areas', 'hueman-pro'),
+                              'label'     => __('Create And Order Widget Areas', 'hueman'),
                               'section'   => HU_DYN_WIDGETS_SECTION,
                               'type'      => 'czr_module',
                               'module_type' => 'czr_widget_areas_module',
-                              'notice'    => __('You must save changes for the new areas to appear below. <br /><i>Warning: Make sure each area has a unique ID.</i>' , 'hueman-pro'),
+                              'notice'    => __('You must save changes for the new areas to appear below. <br /><i>Warning: Make sure each area has a unique ID.</i>' , 'hueman'),
                               'transport' => 'postMessage',
                               'skoped' => false,
 
@@ -493,18 +493,18 @@ if ( ! class_exists( 'HU_customize' ) ) :
                         'registered_dynamically' => true,
                         'default'   => array(),//empty array by default
                         'control'   => 'HU_Customize_Modules',
-                        'label'     => __('Create And Manage Widget Areas', 'hueman-pro'),
+                        'label'     => __('Create And Manage Widget Areas', 'hueman'),
                         'section'   => $_widget_section_name,
                         'type'      => 'czr_module',
                         'module_type' => 'czr_widget_areas_module',
-                        'notice'    => __('You must save changes for the new areas to appear below. <br /><i>Warning: Make sure each area has a unique ID.</i>' , 'hueman-pro'),
+                        'notice'    => __('You must save changes for the new areas to appear below. <br /><i>Warning: Make sure each area has a unique ID.</i>' , 'hueman'),
                         'transport' => 'postMessage'
                   )
 
               ),//'add_control'
               'add_section' => array(
                   "{$_widget_section_name}" => array(
-                    'title'    => __( 'Create and manage widget zones', 'hueman-pro' ),
+                    'title'    => __( 'Create and manage widget zones', 'hueman' ),
                     'priority' => 1000,
                     'panel'    => 'widgets',
                     'section_class' => 'HU_Customize_Manage_Widgets_Section',
@@ -525,7 +525,7 @@ if ( ! class_exists( 'HU_customize' ) ) :
               $_map
             );
 
-            $wp_customize -> get_panel('widgets') -> title = __('Dynamic Sidebars and Widgets', 'hueman-pro');
+            $wp_customize -> get_panel('widgets') -> title = __('Dynamic Sidebars and Widgets', 'hueman');
         }
 
 

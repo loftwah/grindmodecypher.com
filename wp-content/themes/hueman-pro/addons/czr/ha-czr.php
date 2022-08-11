@@ -57,13 +57,13 @@ class HA_Czr {
     <script id="rate-tpl" type="text/template" >
       <?php
         printf( '<span class="czr-rate-link">%1$s %2$s, <br/>%3$s <a href="%4$s" title="%5$s" class="czr-stars" target="_blank">%6$s</a> %7$s</span>',
-          __( 'If you like' , 'hueman-pro' ),
-          __( 'the Hueman theme' , 'hueman-pro'),
-          __( 'we would love to receive a' , 'hueman-pro' ),
+          __( 'If you like' , 'hueman' ),
+          __( 'the Hueman theme' , 'hueman'),
+          __( 'we would love to receive a' , 'hueman' ),
           'https://' . 'wordpress.org/support/view/theme-reviews/hueman?filter=5',
-          __( 'Review the Hueman theme' , 'hueman-pro' ),
+          __( 'Review the Hueman theme' , 'hueman' ),
           '&#9733;&#9733;&#9733;&#9733;&#9733;',
-          __( 'rating. Thanks :) !' , 'hueman-pro')
+          __( 'rating. Thanks :) !' , 'hueman')
         );
       ?>
     </script>
@@ -212,7 +212,7 @@ class HA_Czr {
             return array_merge(
                 array(
                     array(
-                       'title'      => sprintf( '<span style="font-weight:bold">%1$s</span>', __('Set a custom url', 'hueman-pro') ),
+                       'title'      => sprintf( '<span style="font-weight:bold">%1$s</span>', __('Set a custom url', 'hueman') ),
                        'type'       => '',
                        'type_label' => '',
                        'object'     => '',

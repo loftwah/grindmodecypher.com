@@ -1,0 +1,638 @@
+// @todo rtl
+/*************************************
+* POST GRID MODULE
+*************************************/
+// DESIGN SETTINGS FOR LIST AND GRID
+.sek-post-grid-wrapper {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  // Spacing
+  .sek-grid-items {
+    grid-row-gap: 25px;
+    &.sek-list-layout article>*:not(:last-child):not(.sek-pg-thumbnail){
+      margin-bottom: 10px;
+    }
+    &.sek-grid-layout article>*:not(:last-child){
+      margin-bottom: 10px;
+    }
+
+    article {
+      >:first-child {
+        margin-top: 0!important;
+      }
+      >:last-child {
+        margin-top: 0!important;
+      }
+      >*:not(:last-child) {
+        margin-top: 0!important;
+      }
+      overflow: hidden;
+      .sek-pg-content {
+        >*:not(:last-child) {
+          margin-top: 0!important;
+          margin-bottom: 10px;
+        }
+        >:first-child {
+          margin-top: 0!important;
+        }
+        >:last-child {
+          margin-top: 0!important;
+        }
+      }
+    }
+    &.sek-shadow-on-hover article {
+      -webkit-box-shadow: 0 0 40px 0 rgba(0,0,0,.05);
+              box-shadow: 0 0 40px 0 rgba(0,0,0,.05);
+      -webkit-transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+           -o-transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+              transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+      &:hover {
+       -webkit-transform: translateY(-4px);
+           -ms-transform: translateY(-4px);
+               transform: translateY(-4px);
+       -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.18), 0 10px 10px rgba(0,0,0,0.15);
+               box-shadow: 0 14px 28px rgba(0,0,0,0.18), 0 10px 10px rgba(0,0,0,0.15);
+      }
+    }
+  }//.sek-grid-items
+
+  // POST THUMBNAIL
+  .sek-pg-thumbnail {
+    img {
+      box-shadow: 0 5px 5px 0 rgba(18,63,82,.035), 0 0 0 1px rgba(176,181,193,.2);
+      border-radius: 4px;
+    }
+    background: inherit;
+    overflow: hidden;
+    // padding: 60px 35px;
+    // --box-padding-vert: 60px;
+    // --box-padding-hori: 35px;
+    // padding: 0!important;
+    // margin-left: 0;
+    // margin-right: 0;
+    a {
+      display: block;
+      position: relative;
+    }
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }//.sek-pg-thumbnail
+
+  // Item box shadow
+  &.nb-thumb-box-shadow article .sek-pg-thumbnail img {
+    -webkit-box-shadow:  0 3px 8px rgba(0, 0, 0, 0.2);
+    box-shadow:  0 3px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  // POST THUMBNAIL WITH CUSTOM HEIGHT
+  // we set the height of the image container ( <a> tag ), with the padding property
+  // because padding and margin are relative to the width in CSS
+  // @see https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#padding-properties
+  // This is set dynamically by users in PHP sek_add_css_rules_for_czr_post_grid_module()
+  .sek-thumb-custom-height .sek-pg-thumbnail {
+    a {
+      height: 0;
+      padding-top: 65%;
+      // Fix for ie11. @see https://github.com/presscustomizr/nimble-builder/issues/450
+      @media all and (-ms-high-contrast:none) {
+        height: auto!important;
+        padding-top:inherit!important;
+      }
+    }
+    img {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        max-height: none;
+        max-width: none;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        -o-object-fit: cover;
+        object-fit: cover;
+        // Fix for ie11. @see https://github.com/presscustomizr/nimble-builder/issues/450
+        @media all and (-ms-high-contrast:none) {
+          height: auto!important;
+          position: relative;
+        }
+    }
+  }//.sek-thumb-custom-height .sek-pg-thumbnail
+
+  // Metas
+  .sek-pg-metas > span:not(:last-child)::after {
+      content: "\B7";
+      vertical-align: middle;
+      margin: 0 5px;
+      line-height: 1;
+  }
+
+  // Content : title, excerpt, metas
+  .sek-pg-content {
+    @if ( true == $is_rtl ) { text-align: right; }
+    @else { text-align: left; }
+  }
+
+  // Excerpt
+  // => remove margin bottom after the last element in excerpt, typically a <p> tag
+  .sek-excerpt>:last-child {
+    margin-bottom: 0;
+  }
+
+}//.sek-post-grid-wrapper  DESIGN SETTINGS
+
+
+
+
+
+
+
+// FONTS
+.nb-loc .sek-module-inner .sek-post-grid-wrapper {
+  // Category font
+  .sek-pg-category {
+    line-height: 1.2em;
+    color: #767676;
+    a {
+      text-transform: uppercase;
+      font-size: 13px;
+      text-decoration: none;
+      color: #767676;
+      &:hover {
+        color: inherit;
+        text-decoration: underline;
+      }
+    }
+  }
+  // Title
+  .sek-pg-title {
+    // reset theme and plugins value for h2
+    font-size: 28px;
+    @include media-breakpoint-down(md) {
+      font-size: 22px;
+    }
+    @include media-breakpoint-down(xs) {
+      font-size: 20px;
+    }
+    line-height: 1.1em;
+    a {
+      text-decoration: none;
+      color: #121212;
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 1.1em;
+      -ms-word-wrap: break-word;
+      word-wrap: break-word;
+      &:hover {
+        color: #666
+      }
+      @include media-breakpoint-down(md) {
+        font-size: 22px;
+      }
+      @include media-breakpoint-down(xs) {
+        font-size: 20px;
+      }
+    }
+  }
+  // Metas font
+  .sek-pg-metas {
+      line-height: 1.2em;
+      span, a {
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: #767676;
+    }
+    a:hover {
+      text-decoration: underline;
+      color: inherit;
+    }
+  }
+  // Excerpt
+  .sek-pg-content p {
+    margin: 0 0 10px 0;
+    line-height: 1.3em;
+    font-size: 14px;
+    color: #555;
+  }
+}// .sek-post-grid-wrapper FONTS
+
+
+
+
+
+
+
+
+// LIST LAYOUT
+.sek-post-grid-wrapper {
+  .sek-list-layout {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: minmax(0,1fr);
+    grid-template-columns: minmax(0,1fr);
+    // Fix for ie11. @see https://github.com/presscustomizr/nimble-builder/issues/450
+    @media all and (-ms-high-contrast:none) {
+      display: block!important;
+    }
+  }
+  .sek-list-layout article {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: minmax(0,1fr);
+    grid-template-columns: minmax(0,1fr);
+    -ms-grid-rows: 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 20px;
+    // Fix for ie11. @see https://github.com/presscustomizr/nimble-builder/issues/450
+    @media all and (-ms-high-contrast:none) {
+      display: block!important;
+      padding-top: 10px;
+    }
+  }
+  // The following has been added automatically when autoprefixing with https://autoprefixer.github.io/
+  // not sure why...
+  .sek-list-layout article > *:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+  // article has 2 columns when the thumbnail is displayed
+  .sek-list-layout article.sek-has-thumb {
+    -ms-grid-columns: 30% minmax(0,1fr);
+    grid-template-columns: 30% minmax(0,1fr);
+  }
+
+  // .sek-post-grid-wrapper .sek-list-layout article:not(:last-child) {
+  //     margin-bottom: 5%;
+  //     padding-bottom: 5%;
+  // }
+  .sek-list-layout article .sek-pg-thumbnail {
+    margin-bottom: 0;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+  }
+}//.sek-post-grid-wrapper LIST LAYOUT
+
+
+
+
+
+
+// COLUMN LAYOUT
+.sek-post-grid-wrapper {
+  .sek-grid-layout {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 20px 1fr;
+    grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr;
+    grid-template-rows: 1fr;
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+    // Fix for ie11. @see https://github.com/presscustomizr/nimble-builder/issues/450
+    @media all and (-ms-high-contrast:none) {
+      display: block!important;
+    }
+  }
+  // The following has been added automatically when autoprefixing with https://autoprefixer.github.io/
+  // not sure why...
+  .sek-grid-layout > *:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+  .sek-grid-layout > *:nth-child(2) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+  }
+}//.sek-post-grid-wrapper COLUMN LAYOUT
+
+// Masonry
+.sek-module-inner .nb-masonry-post-grid {
+  // &.nb-waiting-for-images-to-be-loaded {
+    // article figure {
+    //   a {
+    //     height: auto!important;
+    //     padding-top: 0!important;
+    //   }
+    //   img {
+    //     position: relative;
+    //     height: auto;
+    //   }
+    // }
+
+  .sek-grid-items {
+    //display: grid;
+    // grid-gap: 10px;
+    //grid-template-columns: repeat(auto-fill, minmax(250px,1fr))!important;
+    //grid-auto-rows: 5px;
+    &.nb-masonry-grid-images-loaded {
+      grid-auto-rows: 5px;
+    }
+    article { overflow: hidden;}
+    &.sek-thumb-no-custom-height .sek-pg-thumbnail {
+      a {
+        height: auto;
+        padding-top: 0;
+      }
+      img {
+        position: relative;
+        height: auto;
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+// Item box shadow
+.sek-module-inner .nb-item-box-shadow .sek-grid-items article {
+  -webkit-box-shadow:  0 3px 8px rgba(0, 0, 0, 0.2);
+  box-shadow:  0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+// PAGINATION LINKS
+// added for https://github.com/presscustomizr/nimble-builder/issues/490
+.sek-post-navigation #sek-nav-below {
+  background-color: #f7f8f9;
+  margin-top: 20px;
+  padding: 5px;
+  .sek-pagination {
+    text-align: center;
+    ul {
+      display: inline-block;
+      vertical-align:
+      middle;
+      margin: 0
+    }
+
+    // &.sek-post-pagination {
+    //   @extend .small;
+    // }
+    .page-numbers {
+      font-family: inherit;
+      opacity:0.7;
+      text-decoration: none!important;
+    }
+    .current {
+      font-weight: 600;
+      opacity:1;
+    }
+
+    .sek-pag-list > * {
+      margin: 0 5px;
+    }
+    .sek-pag-list {
+      margin: 0 -5px;
+    }
+  }
+  nav {
+    padding-top: 20px;;
+    padding-bottom: 20px;;
+  }
+  ul.sek-czr-pager {
+    margin: 0;
+  }
+  li {
+    display: inline-block;
+    font-size: 16px;
+  }
+  a, .sek-meta-nav-title {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #5A5A5A;
+    &:hover{
+      color: #3b3b3b;
+      opacity: 1!important;
+    }
+  }
+  .sek-czr-pager > li {
+    display: block;
+  }
+  .sek-nav-dir {
+    display: block;
+    > a {
+      max-width: 100%;
+    }
+  }
+  a i.arrow {
+    font-size: 0.9em;
+  }
+  .page-numbers, a {
+    font-family: inherit;
+    line-height: 30px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    transition: all 0.3s ease;
+    position: relative;
+    // @extend .demi-small;
+    // @extend .caps;
+    // @extend .letter-spacing-2;
+  }
+  //.post-prev a {
+  //  left: $base-line-height;
+  //}
+  //.post-next a {
+  //  right: $base-line-height;
+  //}
+  .sek-meta-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    transition: all .2s,.6s ease;
+    opacity: .7;
+  }
+  a:hover {
+    .sek-meta-nav {
+      opacity: 1;
+      text-decoration: underline;
+    }
+  }
+  .sek-meta-nav-title {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+    font-size: 0.9em;
+  }
+}
+
+
+
+
+
+// NOV 2020 : max column number grows from 4 to 12
+// Therefore the following rules are now generated server side which is much more flexible
+
+  // .sek-grid-layout.sek-all-col-1 {
+  //   -ms-grid-columns: minmax(0,1fr);
+  //   grid-template-columns: minmax(0,1fr);
+  // }
+  // .sek-grid-layout.sek-all-col-2 {
+  //   -ms-grid-columns: minmax(0,1fr) 20px minmax(0,1fr);
+  //   grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  //   grid-column-gap: 20px;
+  //   grid-row-gap: 20px;
+  // }
+  // .sek-grid-layout.sek-all-col-3 {
+  //   -ms-grid-columns: minmax(0,1fr) 15px minmax(0,1fr) 15px minmax(0,1fr);
+  //   grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+  //   grid-column-gap: 15px;
+  //   grid-row-gap: 15px;
+  // }
+  // .sek-grid-layout.sek-all-col-4 {
+  //   -ms-grid-columns: minmax(0,1fr) 15px minmax(0,1fr) 15px minmax(0,1fr) 15px minmax(0,1fr);
+  //   grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+  //   grid-column-gap: 15px;
+  //   grid-row-gap: 15px;
+  // }
+  // .sek-grid-layout.sek-all-col-5 {
+  //   -ms-grid-columns: minmax(0,1fr) 10px minmax(0,1fr) 10px minmax(0,1fr) 10px minmax(0,1fr) 10px minmax(0,1fr);
+  //   grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+  //   grid-column-gap: 10px;
+  //   grid-row-gap: 10px;
+  // }
+  // .sek-grid-layout.sek-all-col-6 {
+  //   -ms-grid-columns: minmax(0,1fr) 10px minmax(0,1fr) 10px minmax(0,1fr) 10px minmax(0,1fr) 10px minmax(0,1fr) 10px minmax(0,1fr);
+  //   grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+  //   grid-column-gap: 10px;
+  //   grid-row-gap: 10px;
+  // }
+
+
+
+
+// @include media-breakpoint-up(md) {
+//   .sek-post-grid-wrapper {
+//     .sek-grid-layout.sek-desktop-col-1 {
+//       -ms-grid-columns: minmax(0,1fr);
+//       grid-template-columns: minmax(0,1fr);
+//     }
+//     .sek-grid-layout.sek-desktop-col-2 {
+//       -ms-grid-columns: minmax(0,1fr) 20px minmax(0,1fr);
+//       grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+//       grid-column-gap: 20px;
+//       grid-row-gap: 20px;
+//     }
+//     .sek-grid-layout.sek-desktop-col-3 {
+//       -ms-grid-columns: minmax(0,1fr) 15px minmax(0,1fr) 15px minmax(0,1fr);
+//       grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+//       grid-column-gap: 15px;
+//       grid-row-gap: 15px;
+//     }
+//     .sek-grid-layout.sek-desktop-col-4 {
+//       -ms-grid-columns: minmax(0,1fr) 15px minmax(0,1fr) 15px minmax(0,1fr) 15px minmax(0,1fr);
+//       grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+//       grid-column-gap: 15px;
+//       grid-row-gap: 15px;
+//     }
+//   }
+// }
+
+// @include media-breakpoint-between(sm, sm) {
+//   .sek-post-grid-wrapper {
+//     .sek-grid-layout.sek-tablet-col-1 {
+//       -ms-grid-columns: minmax(0,1fr)!important;
+//       grid-template-columns: minmax(0,1fr)!important;
+//     }
+//     .sek-grid-layout.sek-tablet-col-2 {
+//       -ms-grid-columns: minmax(0,1fr) 20px minmax(0,1fr)!important;
+//       grid-template-columns: minmax(0,1fr) minmax(0,1fr)!important;
+//       grid-column-gap: 20px;
+//       grid-row-gap: 20px;
+//     }
+//     .sek-grid-layout.sek-tablet-col-3 {
+//       -ms-grid-columns: minmax(0,1fr) 15px minmax(0,1fr) 15px minmax(0,1fr)!important;
+//       grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)!important;
+//       grid-column-gap: 15px;
+//       grid-row-gap: 15px;
+//     }
+//     .sek-grid-layout.sek-tablet-col-4 {
+//       -ms-grid-columns: minmax(0,1fr) 15px minmax(0,1fr) 15px minmax(0,1fr) 15px minmax(0,1fr)!important;
+//       grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)!important;
+//       grid-column-gap: 15px;
+//       grid-row-gap: 15px;
+//     }
+//   }
+// }
+// @include media-breakpoint-only(xs) {
+//   .sek-post-grid-wrapper {
+//     .sek-grid-layout.sek-mobile-col-1 {
+//       -ms-grid-columns: minmax(0,1fr)!important;
+//       grid-template-columns: minmax(0,1fr)!important;
+//     }
+//     .sek-grid-layout.sek-mobile-col-2 {
+//       -ms-grid-columns: minmax(0,1fr) 20px minmax(0,1fr)!important;
+//       grid-template-columns: minmax(0,1fr) minmax(0,1fr)!important;
+//       grid-column-gap: 20px;
+//       grid-row-gap: 20px;
+//     }
+//     .sek-grid-layout.sek-mobile-col-3 {
+//       -ms-grid-columns: minmax(0,1fr) 15px minmax(0,1fr) 15px minmax(0,1fr)!important;
+//       grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)!important;
+//       grid-column-gap: 15px;
+//       grid-row-gap: 15px;
+//     }
+//     .sek-grid-layout.sek-mobile-col-4 {
+//       -ms-grid-columns: minmax(0,1fr) 15px minmax(0,1fr) 15px minmax(0,1fr) 15px minmax(0,1fr)!important;
+//       grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)!important;
+//       grid-column-gap: 15px;
+//       grid-row-gap: 15px;
+//     }
+//   }
+// }
+
+
+
+// $grid-breakpoints: (
+//   xs: 0,
+//   sm: 576px,
+//   md: 768px,
+//   lg: 992px,
+//   xl: 1200px
+// ) !default;
+
+// @include media-breakpoint-between(sm, sm) {
+//   .sek-post-grid-wrapper.sek-has-tablet-breakpoint {
+//     .sek-list-layout article {
+//       -ms-grid-columns: minmax(0,1fr)!important;
+//       grid-template-columns: minmax(0,1fr)!important;//<= important because this property can be customized by users for desktop
+//       grid-gap: 0;
+//       .sek-pg-thumbnail {
+//         margin-bottom: 15px;
+//       }
+//     }
+//     // .sek-grid-layout {
+//     //   &[class*="sek-desktop-col-"] {
+//     //     grid-template-columns: minmax(0,1fr);
+//     //   }
+//     // }
+//   }
+// }
+
+// @include media-breakpoint-only(xs) {
+//   .sek-post-grid-wrapper.sek-has-mobile-breakpoint {
+//     .sek-list-layout article {
+//       -ms-grid-columns: minmax(0,1fr)!important;
+//       grid-template-columns: minmax(0,1fr)!important;//<= important because this property can be customized by users for desktop
+//       grid-gap: 0;
+//       .sek-pg-thumbnail {
+//         margin-bottom: 15px;
+//       }
+//     }
+//     // .sek-grid-layout {
+//     //   &[class*="sek-desktop-col-"] {
+//     //     grid-template-columns: minmax(0,1fr);
+//     //   }
+//     // }
+//   }
+// }
+
+

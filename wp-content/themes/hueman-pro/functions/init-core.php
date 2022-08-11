@@ -78,7 +78,7 @@ add_filter('ot_theme_options_page_title', 'hu_change_option_tree_title');
 add_filter('ot_theme_options_menu_title', 'hu_change_option_tree_title');
 
 function hu_change_option_tree_title() {
-  return __('Theme Options [OLD]', 'hueman-pro');
+  return __('Theme Options [OLD]', 'hueman');
 }
 
 

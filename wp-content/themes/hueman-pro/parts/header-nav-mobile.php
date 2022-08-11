@@ -69,9 +69,9 @@ $we_have_a_menu = has_nav_menu( $mobile_menu_location ) || ! empty( $fallback_cb
                 <li>
                   <?php
                       printf( '<p style="text-transform:none;font-size: 0.8em;color:white;">%1$s. <strong><a style="color: white;text-decoration:underline;display:inline;border:none;padding:0;" href="%2$s" title="%3$s">%3$s &raquo;</a></strong></p>',
-                          __('No menu has been assigned for mobile devices yet. You can set it from the live customizer', 'hueman-pro'),
+                          __('No menu has been assigned for mobile devices yet. You can set it from the live customizer', 'hueman'),
                           admin_url( 'customize.php?autofocus[section]=menu_locations' ),
-                          __('Customize now', 'hueman-pro')
+                          __('Customize now', 'hueman')
                       );
                   ?>
                 </li>

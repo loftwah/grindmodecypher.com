@@ -1,3 +1,4 @@
+_, _.
 _abercrom
 _adidas
 _adsense
@@ -65,6 +66,7 @@ _latisse
 _lesbian
 _litecoin
 _longchamp
+_lotto
 _loubou
 _lululemon
 _marijuana
@@ -225,6 +227,9 @@ _zapat
 -1.ru
 -1.su
 -1.za
+-1win-
+-1win.
+-1win/
 -2.co
 -2.in
 -2.ro
@@ -882,6 +887,8 @@ _zapat
 -law-firm-
 -law-firm.
 -law-firm/
+-lawn-care-
+-lawn-care/
 -le-pliage
 -lesbian-
 -lesbian.
@@ -1056,6 +1063,12 @@ _zapat
 -phexin-
 -phexin.
 -phexin/
+-phone-info-
+-phone-info.
+-phone-info/
+-phoneinfo-
+-phoneinfo.
+-phoneinfo/
 -picload-
 -picload.
 -picload/
@@ -1585,6 +1598,9 @@ _zapat
 .1-pack.
 .1-pack/
 .1com
+.1win-
+.1win.
+.1win/
 .2com
 .2u4.us
 .7x.cz
@@ -2126,6 +2142,12 @@ _zapat
 .phexin-
 .phexin.
 .phexin/
+.phone-info-
+.phone-info.
+.phone-info/
+.phoneinfo-
+.phoneinfo.
+.phoneinfo/
 .picload-
 .picload.
 .picload/
@@ -2515,6 +2537,8 @@ _zapat
 .zybbs.
 .zzz.
 。ｃoｍ
+'s depression
+’s depression
 " dildo
 «link»
 «комбо»
@@ -2674,6 +2698,9 @@ _zapat
 /01.php
 /1.php
 /1i1.me
+/1win-
+/1win.
+/1win/
 /02.asp
 /2.asp
 /02.cfm
@@ -2817,6 +2844,7 @@ _zapat
 /activity-
 /activity.
 /adclick?
+/adclick.ashx?
 /adclick.asp?
 /adclick.aspx?
 /adclick.cfm?
@@ -2923,6 +2951,7 @@ _zapat
 /avto-
 /avto.
 /away?
+/away.ashx?
 /away.asp?
 /away.aspx?
 /away.cfm?
@@ -2942,6 +2971,7 @@ _zapat
 /bags/
 /baidu.
 /banner?
+/banner.ashx?
 /banner.asp?
 /banner.aspx?
 /banner.cfm?
@@ -2953,6 +2983,7 @@ _zapat
 /banner.php?
 /banner/?
 /banners?
+/banners.ashx?
 /banners.asp?
 /banners.aspx?
 /banners.cfm?
@@ -3063,6 +3094,7 @@ _zapat
 /bvlgari-
 /bvlgari.
 /bye?
+/bye.ashx?
 /bye.asp?
 /bye.aspx?
 /bye.cfm?
@@ -3248,6 +3280,7 @@ _zapat
 /crimea-
 /crwl.it
 /cs?
+/cs.ashx?
 /cs.asp?
 /cs.aspx?
 /cs.cfm?
@@ -3300,6 +3333,7 @@ _zapat
 /dieta.
 /dior.
 /director?
+/director.ashx?
 /director.asp?
 /director.aspx?
 /director.cfm?
@@ -3395,6 +3429,7 @@ _zapat
 /event.
 /executive-
 /exit?
+/exit.ashx?
 /exit.asp?
 /exit.aspx?
 /exit.cfm?
@@ -3458,6 +3493,7 @@ _zapat
 /forum0
 /forum1
 /forwarder?
+/forwarder.ashx?
 /forwarder.asp?
 /forwarder.aspx?
 /forwarder.cfm?
@@ -3472,6 +3508,7 @@ _zapat
 /foto.
 /fpdb/
 /frame?
+/frame.ashx?
 /frame.asp?
 /frame.aspx?
 /frame.cfm?
@@ -3518,6 +3555,7 @@ _zapat
 /gh1/
 /glowna.
 /go_url?
+/go_url.ashx?
 /go_url.asp?
 /go_url.aspx?
 /go_url.cfm?
@@ -3529,6 +3567,7 @@ _zapat
 /go_url.php?
 /go_url/?
 /go?
+/go.ashx?
 /go.asp?
 /go.aspx?
 /go.cfm?
@@ -3548,6 +3587,7 @@ _zapat
 /goose/
 /got.by
 /goto_url?
+/goto_url.ashx?
 /goto_url.asp?
 /goto_url.aspx?
 /goto_url.cfm?
@@ -3559,6 +3599,7 @@ _zapat
 /goto_url.php?
 /goto_url/?
 /goto?
+/goto.ashx?
 /goto.asp?
 /goto.aspx?
 /goto.cfm?
@@ -3570,6 +3611,7 @@ _zapat
 /goto.php?
 /goto/?
 /gotourl?
+/gotourl.ashx?
 /gotourl.asp?
 /gotourl.aspx?
 /gotourl.cfm?
@@ -3581,6 +3623,7 @@ _zapat
 /gotourl.php?
 /gotourl/?
 /gourl?
+/gourl.ashx?
 /gourl.asp?
 /gourl.aspx?
 /gourl.cfm?
@@ -3651,6 +3694,7 @@ _zapat
 /homepage.
 /homepage/
 /hop?
+/hop.ashx?
 /hop.asp?
 /hop.aspx?
 /hop.cfm?
@@ -3706,6 +3750,7 @@ _zapat
 /index-3
 /index-4
 /index-5
+/index.ashx?/
 /index.asp?/
 /index.aspx?/
 /index.cfm?/
@@ -3730,6 +3775,7 @@ _zapat
 /insurance-
 /insurance.
 /internal/
+/inx.inbox.lv
 /inx.lv
 /ip/
 /iphone-s-
@@ -3769,6 +3815,7 @@ _zapat
 /js.
 /js/
 /jump?
+/jump.ashx?
 /jump.asp?
 /jump.aspx?
 /jump.cfm?
@@ -3780,6 +3827,7 @@ _zapat
 /jump.php?
 /jump/?
 /jumplink?
+/jumplink.ashx?
 /jumplink.asp?
 /jumplink.aspx?
 /jumplink.cfm?
@@ -3815,6 +3863,7 @@ _zapat
 /kitchenknives-
 /kitchenknives.
 /klik?
+/klik.ashx?
 /klik.asp?
 /klik.aspx?
 /klik.cfm?
@@ -3839,6 +3888,7 @@ _zapat
 /law-firm-
 /law-firm.
 /law-firm/
+/lawn-care-
 /layout1/
 /layout2/
 /legal/
@@ -3867,6 +3917,7 @@ _zapat
 /lingerie.
 /link-
 /link?
+/link.ashx?
 /link.asp?
 /link.aspx?
 /link.cfm?
@@ -3891,6 +3942,7 @@ _zapat
 /litecoin.
 /litecoin/
 /lnkcnt?
+/lnkcnt.ashx?
 /lnkcnt.asp?
 /lnkcnt.aspx?
 /lnkcnt.cfm?
@@ -3903,6 +3955,7 @@ _zapat
 /lnkcnt/?
 /loans
 /logout?
+/logout.ashx?
 /logout.asp?
 /logout.aspx?
 /logout.cfm?
@@ -3937,6 +3990,7 @@ _zapat
 /lv/
 /lvl.vn
 /m?
+/m.ashx?
 /m.asp?
 /m.aspx?
 /m.cfm?
@@ -3955,6 +4009,7 @@ _zapat
 /maillot.
 /maillot/
 /mainframe?
+/mainframe.ashx?
 /mainframe.asp?
 /mainframe.aspx?
 /mainframe.cfm?
@@ -4093,6 +4148,7 @@ _zapat
 /openlink.
 /openlink/
 /optout?
+/optout.ashx?
 /optout.asp?
 /optout.aspx?
 /optout.cfm?
@@ -4107,6 +4163,7 @@ _zapat
 /orgasm
 /oulu
 /out?
+/out.ashx?
 /out.asp?
 /out.aspx?
 /out.cfm?
@@ -4121,6 +4178,7 @@ _zapat
 /outlet/
 /outlink-
 /outlink?
+/outlink.ashx?
 /outlink.asp?
 /outlink.aspx?
 /outlink.cfm?
@@ -4138,6 +4196,7 @@ _zapat
 /owtf.co.uk
 /p-laid-
 /p?
+/p.ashx?
 /p.asp?
 /p.aspx?
 /p.cfm?
@@ -4179,6 +4238,12 @@ _zapat
 /phexin-
 /phexin.
 /phexin/
+/phone-info-
+/phone-info.
+/phone-info/
+/phoneinfo-
+/phoneinfo.
+/phoneinfo/
 /php.
 /picload-
 /picload.
@@ -4285,6 +4350,7 @@ _zapat
 /qsymia.
 /qsymia/
 /r?
+/r.ashx?
 /r.asp?
 /r.aspx?
 /r.cfm?
@@ -4305,6 +4371,7 @@ _zapat
 /ralphlauren.
 /ralphlauren/
 /rank?
+/rank.ashx?
 /rank.asp?
 /rank.aspx?
 /rank.cfm?
@@ -4322,6 +4389,7 @@ _zapat
 /rayban.
 /rayban/
 /rdr?
+/rdr.ashx?
 /rdr.asp?
 /rdr.aspx?
 /rdr.cfm?
@@ -4337,6 +4405,7 @@ _zapat
 /readme.
 /readnews.
 /reauexit?
+/reauexit.ashx?
 /reauexit.asp?
 /reauexit.aspx?
 /reauexit.cfm?
@@ -4393,6 +4462,7 @@ _zapat
 /ri.ms
 /rih.co
 /rk?
+/rk.ashx?
 /rk.asp?
 /rk.aspx?
 /rk.cfm?
@@ -4445,6 +4515,7 @@ _zapat
 /seo.
 /seo/
 /share?
+/share.ashx?
 /share.asp?
 /share.aspx?
 /share.cfm?
@@ -4643,6 +4714,7 @@ _zapat
 /tr.im
 /trac/ticket/
 /trace?
+/trace.ashx?
 /trace.asp?
 /trace.aspx?
 /trace.cfm?
@@ -4654,6 +4726,7 @@ _zapat
 /trace.php?
 /trace/?
 /track?
+/track.ashx?
 /track.asp?
 /track.aspx?
 /track.cfm?
@@ -4672,6 +4745,7 @@ _zapat
 /transexuelle.
 /transexuelle/
 /trs?
+/trs.ashx?
 /trs.asp?
 /trs.aspx?
 /trs.cfm?
@@ -4703,6 +4777,7 @@ _zapat
 /uploads.
 /uploads/
 /url?
+/url.ashx?
 /url.asp?
 /url.aspx?
 /url.cfm?
@@ -4744,6 +4819,7 @@ _zapat
 /viewstory
 /vip.
 /visit?
+/visit.ashx?
 /visit.asp?
 /visit.aspx?
 /visit.cfm?
@@ -5071,10 +5147,13 @@ _zapat
 | online
 | year
 ||
+|cash
 |chi
 |dal
 |det
 |for
+|loan
+|payday
 |per
 |porn
 |year
@@ -5844,6 +5923,7 @@ $sixty
 10000$
 100000$
 1000000$
+1231231
 123456789
 a aaa
 a article author
@@ -6034,6 +6114,7 @@ a9.jsp
 a09.php
 a9.php
 ã¹
+ã¼
 ã²
 ãª
 aaa replic
@@ -6189,6 +6270,7 @@ accupril
 accutane
 ace 33
 ace-33
+acedemic
 acel google
 acel-google
 acellphone
@@ -7363,6 +7445,10 @@ apk-ucretsiz
 apkdeponuz
 apkucretsiz
 aplicacin
+aplikasi bintang
+aplikasi kasir
+aplikasi-bintang
+aplikasi-kasir
 app full download
 app growth education
 app hacked
@@ -7434,6 +7520,16 @@ appreciate your content
 appreciate your post
 appreciate your site
 appreciate your web
+appreciated this blog
+appreciated this content
+appreciated this post
+appreciated this site
+appreciated this web
+appreciated your blog
+appreciated your content
+appreciated your post
+appreciated your site
+appreciated your web
 appreckate
 appro-chait
 approaching article
@@ -7646,6 +7742,8 @@ articlessub
 articlestag
 articlesub
 articletag
+articulo como este
+articulos como este
 artiicle
 artikel
 artiklar snart
@@ -7961,6 +8059,7 @@ automatic-swimming
 automatic+swimming
 automaticpay
 automaticswimming
+automation – website
 automobile profit
 automobile proper
 automobile-profit
@@ -8000,6 +8099,9 @@ avatar therapy
 avatar trimoxazole
 avatar-live
 avatar-therapy
+avax yorum
+avax-yorum
+avaxyorum
 avental indispensavel
 avental indispensável
 avental-indispensavel
@@ -8056,6 +8158,7 @@ aг
 aԁ
 aѕ
 aі
+aк
 aҟ
 aу
 aү
@@ -8715,6 +8818,7 @@ become buying
 become bytecoin
 become litecoin
 become our consumer
+become visitor
 become-a-success
 become-an-expert
 become-bitcoin
@@ -8737,6 +8841,7 @@ before-purchas
 begeni hilesi
 begeni-hilesi
 beggun
+begin full of life
 beginnende crypto
 beginnende-crypto
 beginner blog
@@ -8850,6 +8955,8 @@ besstet
 best anal
 best article about
 best attorn
+best betting canada
+best betting usa
 best birthday bouquet
 best blog about
 best blogging
@@ -8891,6 +8998,8 @@ best sex
 best shapewear
 best shoe price
 best site about
+best smm
+best social media
 best suppl
 best tummy
 best vape
@@ -8948,6 +9057,8 @@ best-shapewear
 best-shoe-price
 best-shop
 best-small-
+best-smm
+best-social-media
 best-software-for
 best-suppl
 best-tummy
@@ -9018,6 +9129,7 @@ bestsellersbag
 bestsex
 bestshop
 bestsmart
+bestsmm
 bestsuppl
 besttummy
 bestvape
@@ -9188,6 +9300,9 @@ binary-crypto
 binary-option
 binarycrypto
 binaryoption
+bintang 4d
+bintang-4d
+bintang4d
 bio bronz
 bio skin
 bio-bronz
@@ -9248,6 +9363,8 @@ bitcoin + crypto
 bitcoin $
 bitcoin acc
 bitcoin add
+bitcoin age
+bitcoin aja
 bitcoin bot
 bitcoin buy
 bitcoin casino
@@ -9269,6 +9386,8 @@ bitcoin wallet
 bitcoin_
 bitcoin-acc
 bitcoin-add
+bitcoin-age
+bitcoin-aja
 bitcoin-buy
 bitcoin-casino
 bitcoin-code
@@ -9287,6 +9406,9 @@ bitcoin-talk
 bitcoin-wallet
 bitcoinacc
 bitcoinadd
+bitcoinage
+bitcoinaja
+bitcoinbot
 bitcoinbuy
 bitcoincas
 bitcoincode
@@ -9361,6 +9483,8 @@ black-ugg
 black-www
 blackfriday
 blackgay
+blackhat freedom
+blackhat-freedom
 blackjack pit
 blackjack slot
 blackjack terbaik
@@ -9469,6 +9593,8 @@ blog może
 blog occasion
 blog on regular
 blog on the web
+blog optim
+blog owner
 blog platform
 blog post
 blog projet
@@ -9543,6 +9669,8 @@ blog-look
 blog-mark
 blog-menu
 blog-occasion
+blog-optim
+blog-owner
 blog-platform
 blog-post
 blog-projet
@@ -9659,6 +9787,7 @@ bloglook
 bloglove
 blogmark
 blogmenu
+blogoptim
 blogow
 blogów
 blogplatform
@@ -9707,6 +9836,7 @@ blogspothave
 blogspotprov
 blogsys
 blogtitle
+blogu jak
 blogue0
 blogue1
 blogue2
@@ -9815,6 +9945,21 @@ boilers-ireland
 boilers-spare
 boilerspare
 boilersspare
+bokep abg
+bokep anak
+bokep indo
+bokep jepan
+bokep jilbab
+bokep-abg
+bokep-anak
+bokep-indo
+bokep-jepan
+bokep-jilbab
+bokepabg
+bokepanak
+bokepindo
+bokepjepan
+bokepjilbab
 bokkmark
 bokserki
 bola online
@@ -9932,7 +10077,14 @@ bookmarked-you
 bookmarked!
 bookmarking and checking
 bookmarking it
+bookmarking land
+bookmarking web
+bookmarking-it
+bookmarking-land
+bookmarking-web
+bookmarkingit
 bookmarkingland
+bookmarkingweb
 bookmarks thank
 bookmarks web
 bookmarks-thank
@@ -10297,6 +10449,7 @@ brittanybattle
 brittny-battle
 brittnybattle
 bro thank you
+brockenstube
 broker blueprint
 broker dealer
 broker forex
@@ -10611,7 +10764,9 @@ business know
 business online world
 business seo
 business setup
+business to google
 business train
+business website
 business-a2review
 business-award
 business-boss
@@ -10619,20 +10774,17 @@ business-catalyst
 business-collect
 business-daily
 business-empire
-business-finder
 business-first
 business-formation
 business-in
 business-intel
 business-know
 business-loan
-business-market
-business-net
-business-network
-business-profile
 business-seo
 business-setup
+business-to-google
 business-train
+business-website
 business’ status
 business’s status
 businessaward
@@ -10642,17 +10794,13 @@ businesscollect
 businessdaily
 businesses status
 businesses-status
-businessfinder
 businessfirst
 businessintel
 businessknow
+businesslisting
 businessloan
-businessmarket
-businessnetwork
-businessprofile
 businessseo
 businesstogoogle
-businesstrain
 busiunes
 buspirone
 busquemail
@@ -11253,6 +11401,7 @@ cập website
 capabilities also
 capabilities-also
 capable of effortless
+capable of provide
 capable to provide
 capacidad produccion
 capacidad producción
@@ -11285,6 +11434,9 @@ card-cheat
 card-debt
 card-dump
 card-financial
+cardano coin
+cardano-coin
+cardanocoin
 cardcheat
 carder board
 carder-board
@@ -11388,6 +11540,7 @@ cash-progress
 cash-team
 cash.com.
 cash.xyz
+cash|
 cash4
 cashadvance
 cashbuzz
@@ -11408,6 +11561,7 @@ cashteam
 casier judiciaire
 casier-judiciaire
 casino account
+casino bet
 casino bonus
 casino enligne
 casino fish
@@ -11432,6 +11586,7 @@ casino_
 casino-1
 casino-24
 casino-account
+casino-bet
 casino-bonus
 casino-enligne
 casino-fish
@@ -11456,6 +11611,7 @@ casino.co
 casino1
 casino24
 casinoaccount
+casinobet
 casinobonus
 casinoenligne
 casinoer
@@ -11566,6 +11722,9 @@ cc shop
 cc-shop
 ccan visit
 ccheap
+ccleaner full
+ccleaner-full
+ccleanerfull
 ccshop
 cctv dahua
 cctv distrib
@@ -11578,6 +11737,8 @@ ccv-shop
 ccvshop
 ce billet
 ce-billet
+cecha talentu
+cechą talentu
 celeb diet
 celeb hair
 celeb nude
@@ -11601,11 +11762,14 @@ celebritieshair
 celebritiesnude
 celebrity diet
 celebrity hair
+celebrity milf
 celebrity-diet
 celebrity-hair
+celebrity-milf
 celebrity-nude
 celebritydiet
 celebrityhair
+celebritymilf
 celebritynude
 celebs diet
 celebs hair
@@ -12074,6 +12238,7 @@ cheap sexy
 cheap sherr
 cheap shoe
 cheap silver
+cheap smm
 cheap soccer
 cheap stephen
 cheap sunglass
@@ -12181,6 +12346,7 @@ cheap-sexy
 cheap-sherr
 cheap-shoe
 cheap-silver
+cheap-smm
 cheap-soccer
 cheap-stephen
 cheap-sunglass
@@ -12236,15 +12402,18 @@ cheapest lowest
 cheapest pokemon
 cheapest price
 cheapest ray
+cheapest smm
 cheapest-hockey
 cheapest-lowest
 cheapest-pokemon
 cheapest-price
 cheapest-ray
+cheapest-smm
 cheapest.co
 cheapesthockey
 cheapestlow
 cheapestprice
+cheapestsmm
 cheapferrag
 cheapflowergirl
 cheapfootbal
@@ -12291,6 +12460,7 @@ cheapseo
 cheapsex
 cheapshoe
 cheapsilver
+cheapsmm
 cheapstephen
 cheapsugg
 cheapsunglass
@@ -12834,10 +13004,12 @@ click for more
 click fraud
 click here
 click in bio
+click in my profile
 click in profile
 click now
 click on secure
 click over here
+click that link
 click the blog
 click the last site
 click the link
@@ -12887,6 +13059,9 @@ clickcount
 clickforu
 clickfraud
 clicking it
+clicking that link
+clicking the link
+clicking this link
 clicking world
 clicking-world
 clicknow
@@ -13163,6 +13338,7 @@ coin master free
 coin master hack
 coin offering
 coin xbox
+coin yorum
 coin-cheat
 coin-cloud
 coin-foot
@@ -13175,6 +13351,7 @@ coin-master-free
 coin-master-hack
 coin-offering
 coin-xbox
+coin-yorum
 coincheat
 coincloud
 coinfoot
@@ -13209,6 +13386,7 @@ coinss
 coinsxbox
 coinvest
 coinxbox
+coinyorum
 cokment
 colastrina
 colchon alta gama
@@ -13897,6 +14075,8 @@ couponsense
 couponspriv
 courses casino
 courses-casino
+coursework service
+coursework-service
 couture avec
 couture-avec
 couyld
@@ -14021,13 +14201,16 @@ createtee
 creating short article
 creation will run
 credit direct
+credit loan
 credit repair
 credit report
 credit score
 credit_
 credit-card
+credit-check
 credit-direct
 credit-format
+credit-loan
 credit-repair
 credit-report
 credit-score
@@ -14037,6 +14220,54 @@ creditcard.org
 creditcard.us
 creditdirect
 creditformat
+creditloan
+credito gratis
+crédito gratis
+credito inmediato
+crédito inmediato
+credito online
+crédito online
+credito personal
+crédito personal
+credito por internet
+credito rapid
+crédito rápid
+credito-gratis
+credito-inmediato
+credito-online
+credito-personal
+credito-por-internet
+credito-rapid
+creditogratis
+creditoinmediato
+creditoonline
+creditopersonal
+creditorapid
+creditos gratis
+créditos gratis
+creditos inmediato
+créditos inmediato
+creditos online
+créditos online
+creditos personal
+créditos personal
+creditos por internet
+creditos rapid
+creditos rapido
+créditos rápido
+creditos-gratis
+creditos-inmediato
+creditos-online
+creditos-personal
+creditos-por-internet
+creditos-rapid
+creditos-rapido
+creditosgratis
+creditosinmediato
+creditosonline
+creditospersonal
+creditosrapid
+creditosrapido
 creditrepair
 creditreport
 creditscore
@@ -14083,7 +14314,9 @@ crypto enth
 crypto hack
 crypto moneda
 crypto script
+crypto stak
 crypto tab
+crypto thumb
 crypto_
 crypto-ad
 crypto-bitcoin
@@ -14093,7 +14326,9 @@ crypto-enth
 crypto-hack
 crypto-moneda
 crypto-script
+crypto-stak
 crypto-tab
+crypto-thumb
 crypto/btc
 cryptoad
 cryptobtc
@@ -14108,7 +14343,9 @@ cryptocurrency-strat
 cryptohack
 cryptomoneda
 cryptoscript
+cryptostak
 cryptotab
+cryptothumb
 crystal hack
 crystal-hack
 crystalhack
@@ -14511,6 +14748,7 @@ day-bountiful
 day-diet
 day-lengthy
 day-loubou
+day-to-day deal
 day. bye
 day.did
 dayloubou
@@ -14535,6 +14773,8 @@ de-site
 de-tivi
 dead composed subject
 deal benefit
+deal flow
+deal livingsocial
 deal of problem
 deal this blog
 deal this page
@@ -14544,11 +14784,13 @@ deal-4-u
 deal-4u
 deal-benefit
 deal-eu
+deal-flow
 deal-uk
 deal-us
 deal.bl
 deal4u
 dealeu
+dealflow
 dealongamento
 dealonline
 deals-4-u
@@ -14617,6 +14859,7 @@ deficitfight
 definate
 definetely
 definitelly
+definition econo
 degree expert
 degree twenty
 degree-expert
@@ -14658,6 +14901,7 @@ dem-gay
 dem-kauf-eines
 dem-tien
 đếm-tiền
+demasiado tu post
 demo0
 demo1
 demo2
@@ -14711,12 +14955,30 @@ depnhat
 depoimentos reais
 depoimentos-reais
 deposit casino
+deposit-bonus
 deposit-casino
 deposit.ru
 depositbank
 depositcasino
+depression 1
+depression 2
+depression 3
+depression 4
+depression 5
+depression 6
+depression 7
+depression 8
+depression 9
+depression and obs
+depression and preg
+depression definition
+depression ecg
+depression m kya
+depression medication
+depression symptom
+depression-definition
+depression-medication
 depression-symptom
-depressionsymptom
 derm exclus
 derm-exclus
 dermexclus
@@ -14724,7 +14986,6 @@ derniers modele
 derniers modèle
 derniers-modele
 derniers-modèle
-derniersmodele
 derogatory circum
 derogatory item
 derun escort
@@ -14738,6 +14999,9 @@ des-services-web
 desconto
 describes feasible
 describes-feasible
+description career
+description-career
+descriptioncareer
 descriptive article
 descriptive blog
 descriptive post
@@ -14838,6 +15102,8 @@ detskie diskotek
 detskie-diskotek
 deutschland-online
 deutschlandonline
+development – digital
+development – website
 development an app
 devenir trade
 devenir-trade
@@ -14883,6 +15149,7 @@ did yoou
 didnít
 didrex online
 didrex-online
+die besten nativ
 die kuhlbox
 die kühlbox
 die-kühlbox
@@ -14991,6 +15258,9 @@ digicam move
 diiclfuf
 diid yoou
 diid you
+dikkat eksikligi
+dikkat eksikliği
+dikkat-eksikligi
 dili optim
 dili-optim
 dilioptim
@@ -15116,6 +15386,11 @@ disfuncao eretil
 disfunçăo erétil
 disfuncao-eretil
 disfunçăo-erétil
+disi birak
+disi-birak
+disibirak
+diskret leveran
+diskret-leveran
 disney se pega
 disorder quiz
 disorder-quiz
@@ -15150,6 +15425,7 @@ divorces-simplif
 divulgaemail
 diy divorce
 diy-divorce
+dışı bırak
 djstool
 djtool
 đľđ
@@ -15332,6 +15608,7 @@ dooes not
 dooes-not
 door-blog
 dopamine
+dopningsrelevanta
 dora-scrum
 dorascrum
 dos-seios
@@ -15433,6 +15710,7 @@ downloadsfree
 downloadsonline
 downlowd
 downlown
+downtown quintessence
 doxycycline
 dr prescription
 dr visit online
@@ -15566,7 +15844,6 @@ drop me a mail
 drop your premium
 drop,dehy
 drop.dehy
-dropshipping winning
 drug buy
 drug cheap
 drug-buy
@@ -15900,6 +16177,9 @@ ejuicereview
 ekologiczne logo
 ekologiczne-logo
 ekorting
+eksikligi afyon
+eksikliği afyon
+eksikligi-afyon
 ekskluzywne zestaw
 ekskluzywne-zestaw
 ekspedisi murah
@@ -16059,9 +16339,17 @@ encouirag
 endlaved
 endocrinol meta
 endocrinol-meta
+eneagrama
+eneagramizar
+eneatipo
+enemy to covid
+enerbetic
 energetic article
 energetic blog
+energetic page
 energetic post
+energetic site
+energetic web
 energetic-article
 energetic-blog
 energetic-post
@@ -16084,6 +16372,7 @@ eng/private
 engagementring
 engagermate
 engagge
+engagment
 engine account
 engine online
 engine optim
@@ -16728,6 +17017,12 @@ executivecoach
 exelon
 exercice
 exgirlfriend
+exipure discount
+exipure supplement
+exipure-discount
+exipure-supplement
+exipurediscount
+exipuresupplement
 exists lots
 exit.asp
 exmo.co
@@ -17069,10 +17364,13 @@ familiarity daily
 family motor vehicle
 family-motor-vehicle
 famous blog
+famous news
 famous palmist
-famous social network
+famous social net
 famous-blog
+famous-news
 famous-palmist
+famousnews
 fan hack
 fan-hack
 fanalert
@@ -17181,6 +17479,7 @@ fashion comp
 fashion hair
 fashion list
 fashion men
+fashion room
 fashion store
 fashion trend
 fashion web
@@ -17192,6 +17491,7 @@ fashion-compan
 fashion-hair
 fashion-list
 fashion-men
+fashion-room
 fashion-store
 fashion-trend
 fashion-web
@@ -17931,12 +18231,16 @@ flo-wiki
 floating-board
 floatingboard
 floridaflee
+flower store
 flower tomorrow
+flower_store
+flower-store
 flower-tomorrow
 flowers tomorrow
 flowers-on-line
 flowers-online
 flowers-tomorrow
+flowerstore
 floxacin
 fluccun
 fluconazole
@@ -18345,6 +18649,7 @@ free hack
 free hip hop
 free hookup
 free if you win
+free indexer
 free instagram
 free internation
 free ios
@@ -18376,15 +18681,18 @@ free robux
 free sex
 free simple
 free skins
+free snapchat
 free spin link
 free spins link
 free strat
 free super
 free tarot
+free tiktok
 free to surf
 free too surf
 free trap ins
 free trial incent
+free twitter
 free v buck
 free visit
 free watch
@@ -18422,6 +18730,7 @@ free-hack
 free-hemp
 free-hip-hop
 free-hookup
+free-indexer
 free-instagram
 free-internation
 free-ios
@@ -18462,12 +18771,15 @@ free-service
 free-sex
 free-simple
 free-skins
+free-snapchat
 free-spin-link
 free-spins-link
 free-strat
 free-super
 free-tarot
+free-tiktok
 free-trial-incent
+free-twitter
 free-v-buck
 free-v-bucks
 free-watch
@@ -18506,6 +18818,7 @@ freegay
 freegold
 freehookup
 freehub
+freeindexer
 freeinternation
 freeipad
 freeiphone
@@ -18737,18 +19050,21 @@ ful-malware
 fulgor fantastic
 fulgor fantástic
 fulgor-fantastic
+full crack
 full download page
 full length motion
 full length movie
 full length-motion
 full movie
 full porn
+full-crack
 full-house-for-rent
 full-length-movie
 full-movie
 full-porn
 full.com/watch
 full4k
+fullcrack
 fullmovie
 fullporn
 fullz info
@@ -19049,6 +19365,9 @@ garantizadas por escrito
 garantizar la calidad
 garantizar product
 garantizar-product
+garbage domain
+garbage-domain
+garbagedomain
 garcinia
 garden of this funeral
 garena free
@@ -19077,6 +19396,7 @@ gathering-utile
 gau bong dore
 gấu bông dore
 gau-bong-dore
+gave attain
 gawab.com
 gay cartoon
 gay chat
@@ -19286,6 +19606,7 @@ get tinder
 get tthe
 get tthis
 get v buck
+get you winning
 get yours here
 get_rid
 get_started
@@ -19322,6 +19643,7 @@ get-tinder
 get-translate
 get-u-promo
 get-widget
+get-you-winning
 getaloan
 getastyle
 getbitcoin
@@ -19406,7 +19728,10 @@ gifts4promo
 giftsclick
 giftsingapore
 giftssingapore
+giga porn
+giga-porn
 gigantix.co
+gigaporn
 gikves
 gilet moncler
 gilet-moncler
@@ -20029,6 +20354,8 @@ gooseyork
 gooseyouth
 gopgle
 goping to
+gorgeous bath design
+gorgeous bathroom design
 gorgeous elegant
 gorgeous escort
 gorgeous eskort
@@ -20037,6 +20364,9 @@ gorgeous-escort
 gorgeous-eskort
 gorgeousescort
 gorgeouseskort
+gorod top
+gorod-top
+gorod.top
 gosgov
 goshop.
 gossip posted
@@ -20562,6 +20892,8 @@ guys porn
 guys-porn
 guysporn
 guyys
+guzel bir sayfa
+gymgrossisten
 gyslera
 gⲟ
 gо
@@ -20986,6 +21318,10 @@ healthrecipe
 healthrelated
 healthstock
 healthsuppl
+hearing aid near
+hearing aids near
+hearing-aid-near
+hearing-aids-near
 heart food consult
 heart site
 heart-food-consult
@@ -21123,6 +21459,7 @@ hemp-tycoon
 hence choose
 hentai
 heook
+hepatitis b depression
 hepcinat
 her escort
 her eskort
@@ -21313,6 +21650,18 @@ hi, it’s me
 hi, its good
 hi, its me
 hi, yup
+hidra club
+hidra onion
+hidra rus
+hidra ruz
+hidra-club
+hidra-onion
+hidra-rus
+hidra-ruz
+hidraclub
+hidraonion
+hidrarus
+hidraruz
 hidro-ponik
 hidroponik
 hien nay
@@ -21594,6 +21943,12 @@ hollistertiendas
 hollisteruk
 hollywood-online
 hollywoodonline
+holo coin
+holo yorum
+holo-coin
+holo-yorum
+holocoin
+holoyorum
 home online
 home-based
 home-loan
@@ -21683,6 +22038,8 @@ hormônio masculin
 hormonio-masculin
 horoscopes
 horoskop
+horrible credit
+horrible-credit
 horsesimul
 host seller
 host-file
@@ -21853,6 +22210,8 @@ how to make $
 how would certain
 how_do
 howdy just wanted
+howdy superb
+howdy-superb
 however before
 however good topic
 however great topic
@@ -21957,7 +22316,18 @@ husky lips
 hut,hang
 hut.hang
 hyclate
-hydraulik-
+hydra club
+hydra onion
+hydra rus
+hydra ruz
+hydra-club
+hydra-onion
+hydra-rus
+hydra-ruz
+hydraclub
+hydraonion
+hydrarus
+hydraruz
 hydrocodone
 hydroponicsys
 hydroxatone
@@ -22009,6 +22379,7 @@ i'd care to find
 i'd hump to
 i'll bookmark and
 i'm bookmarking and
+i'm horny
 i'm will soon
 i'mnot
 i'v got
@@ -22018,6 +22389,7 @@ i’d care to find
 i’d hump to
 i’ll bookmark and
 i’m bookmarking and
+i’m horny
 i’m will soon
 i’mn
 i’ts
@@ -22052,6 +22424,7 @@ idenfify
 idm crack
 idm-crack
 idmcrack
+if depression gets
 if like it
 if you're.
 if you’re.
@@ -22100,6 +22473,7 @@ illusion origami
 illusion-origami
 im grateful
 im happy
+im horny
 im looking
 im not
 im please
@@ -22216,6 +22590,7 @@ improves reminiscence
 imptortant
 imqge
 imtmdiae
+in a a lot
 in a ll
 in blog commenting
 in delicious
@@ -22349,9 +22724,11 @@ indited subject
 individual friendly
 individual pleasant
 individual stuffs
+individual their
 individual-friendly
 individual-pleasant
 individual-stuffs
+individuals their
 indo blackjack
 indo casino
 indo-blackjack
@@ -22419,6 +22796,7 @@ info/ratno
 info/tag
 info/user
 info/view
+info>>>
 info0.site
 info0site
 info1.site
@@ -22595,6 +22973,8 @@ inscritas-cerveja
 insdier
 inseminacion artificial
 inseminacion-artificial
+insert my data
+insert your data
 inside an setting
 inside reputation
 inside-reputation
@@ -22813,6 +23193,7 @@ internetlink
 internetmarket
 internetmosque
 internetowe
+internetowy
 internetpage
 internetparish
 internetpoker
@@ -23569,13 +23950,19 @@ job on the content
 job on the page
 job on the site
 job on the web
+job search engine
+job search site
 job usa
 job-mom
+job-search-engine
+job-search-site
 job-usa
 jobs mom
 jobs usa
 jobs-mom
 jobs-usa
+jobsearchengine
+jobsearchsite
 jogadore assiduos
 jogadore assíduos
 jogadore-assiduos
@@ -24222,9 +24609,14 @@ koop dsqu
 koop-dsqu
 koopdsqu
 koopsted
+kop steroid
+köp steroid
+kop-steroid
 kope jassen
 kope-jassen
 kopejassen
+kopen growshop
+kopen-growshop
 kopfhoerer
 kopia-zapasowa
 kor out
@@ -24344,14 +24736,26 @@ kreatif-membuat
 kreddit
 kreddyt
 kreddyyt
+kredi yonetim
+kredi yönetim
+kredi-yonetim
 kredit
+krediyonetim
 kredyt
 kredyyt
+kripto borsasi
+kripto para
+kripto-borsasi
+kripto-para
+kriptopara
 kristi longchamp
 kristi-longchamp
 kristilongchamp
 krossoverov
 ku42.
+kuat termurah
+kuat-termurah
+kuattermurah
 kugelbahn
 kult und genuss
 kulturtasche habe
@@ -24610,6 +25014,7 @@ laurentfemme
 laurentsandal
 laurenuk
 lavado de dinero
+law run from
 lawful page
 lawful-page
 lawoffice.net
@@ -24675,6 +25080,7 @@ learn-traffic-law
 learn+health
 learnface
 learnhelp
+learning speaking
 learningxchange
 learnpain
 learnpianohere
@@ -24982,6 +25388,7 @@ link camp
 link change arrange
 link competence
 link creati
+link dapatkan
 link directory
 link download
 link exchang
@@ -25008,6 +25415,7 @@ link-camp
 link-click
 link-competence
 link-creati
+link-dapatkan
 link-directory
 link-download
 link-exchang
@@ -25128,6 +25536,7 @@ liveroulette
 livesex
 livesmale
 living by google
+livingsocial discount
 livro advert
 livro marketing
 livro-advert
@@ -25164,6 +25573,7 @@ loan comp
 loan fast
 loan lender
 loan online
+loan payday
 loan-canad
 loan-cash
 loan-comp
@@ -25171,10 +25581,12 @@ loan-direct
 loan-fast
 loan-lender
 loan-online
+loan-payday
 loan.bid
 loan.co
 loan.in
 loan.net
+loan|
 loanalys
 loancash
 loancomp
@@ -25182,19 +25594,23 @@ loandirect
 loanfast
 loanlender
 loanonline
+loanpayday
 loans canad
 loans compan
 loans fast
 loans online
+loans payday
 loans-canad
 loans-compan
 loans-direct
 loans-fast
 loans-online
+loans-payday
 loans.co
 loans.in
 loans.net
 loans.xyz
+loans|
 loans1
 loans2
 loans3
@@ -25204,6 +25620,7 @@ loanscompan
 loansdirect
 loansfast
 loansonline
+loanspayday
 locate-cell-phone
 locatecellphone
 lociraj
@@ -25218,8 +25635,10 @@ log.se.
 log/?
 logcabins
 login uk
+login wap
 login widget
 login-uk
+login-wap
 login-widget
 login.asp
 login.cfm
@@ -25448,9 +25867,11 @@ los-beneficio
 los-replic
 lose at casino
 lose belly fat
+lose virginity
 lose weight motivat
 lose weight simply
 lose-belly-fat
+lose-virginity
 lose-weight
 losers beat
 losers outnumbered
@@ -25458,6 +25879,8 @@ losers-beat
 losers-outnumbered
 loseweight
 losing maany
+losing virginity
+losing-virginity
 losreplic
 loss weight
 loss-weight
@@ -25497,7 +25920,11 @@ lotterypro
 lottie maxi
 lottie-maxi
 lottiemaxi
+lotto power
+lotto_
+lotto-power
 lotto-tip
+lottopower
 lottotip
 loubiton
 louboutin bianca
@@ -26424,8 +26851,14 @@ material stylish
 material-stylish
 material, regards
 matiion
-matka gambling
-matka-gambling
+matka gambl
+matka online
+matka play
+matka-gambl
+matka-online
+matka-play
+matkaonline
+matkaplay
 matluoi
 matters on the web
 matthews jers
@@ -26754,11 +27187,27 @@ meja casino
 meja-casino
 mejacasino
 mejor calidad
+mejor credito
+mejor crédito
+mejor prestamo
+mejor préstamo
 mejor servicio
 mejor-calidad
+mejor-credito
+mejor-prestamo
 mejor-servicio
+mejorcredito
 mejores booster
+mejores credito
+mejores crédito
+mejores prestamo
+mejores préstamo
 mejores-booster
+mejores-credito
+mejores-prestamo
+mejorescredito
+mejoresprestamo
+mejorprestamo
 melatonin
 melhor preco
 melhor preço
@@ -27047,7 +27496,13 @@ milanouk
 mild activ
 mild-activ
 milendress
+milf nipple
+milf porn
 milf_
+milf-nipple
+milf-porn
+milfnipple
+milfporn
 milfs_
 military friendly
 military vacation
@@ -27504,6 +27959,7 @@ mondayugg
 monetize you
 monetize-you
 money adder
+money bonus
 money buzz
 money fast
 money generat
@@ -27516,6 +27972,7 @@ money prim
 money robot
 money vault
 money-adder
+money-bonus
 money-buzz
 money-fast
 money-game
@@ -27539,6 +27996,7 @@ money.ctr
 money.htm
 money.jsp
 money.php
+moneybonus
 moneybuzz
 moneyfast
 moneygame
@@ -27669,6 +28127,7 @@ more-effective!
 more-eventually
 more-lv
 more-smartly
+more>>>
 morelv
 morpg
 morre about
@@ -27828,6 +28287,7 @@ much-gucci
 much-important
 much-utile
 muchgucci
+mucho mas articulo
 mucho tu post
 mudah beli
 mudah-beli
@@ -28029,6 +28489,7 @@ my pagee
 my pagge
 my personal own
 my ppage
+my profile link
 my pzge
 my sikte
 my site ;
@@ -28293,6 +28754,7 @@ nâng-mũi
 nanogold
 naproxen
 narkologicheskaya
+narkotikamissbruk
 naruto hottest
 naruto-hottest
 nashivki leibly
@@ -28831,6 +29293,7 @@ nnuauec
 no collateral
 no continu
 no copy right
+no credit check
 no fee apart
 no genuine difference
 no guarant
@@ -28842,7 +29305,6 @@ no-collateral
 no-continu
 no-copy-right
 no-credit
-no-deposit-bonus
 no-fuss
 no-guarant
 no-hassle
@@ -29365,9 +29827,11 @@ officeautopilot
 officeerror
 official giub
 official moncler
+official porn
 official web
 official-giub
 official-moncler
+official-porn
 official-sale
 official-steeler
 official-style
@@ -29379,6 +29843,7 @@ officialemoncler
 officialgiub
 officialmailsite
 officialmoncler
+officialporn
 officialsale
 officialsteeler
 officialstyle
@@ -29569,6 +30034,7 @@ online life coach
 online loan
 online longbow
 online m4a
+online matka
 online movie
 online mp3
 online mp4
@@ -29651,6 +30117,7 @@ online-loan
 online-longbow
 online-m4a
 online-market
+online-matka
 online-med
 online-money
 online-movie
@@ -29715,12 +30182,14 @@ onlineeurax
 onlineforsale
 onlinefree
 onlinegambl
+onlinegame
 onlineheel
 onlineinternet
 onlineinvest
 onlinejp
 onlineloan
 onlinem4a
+onlinematka
 onlinemed
 onlinemoney
 onlinemp3
@@ -29847,6 +30316,8 @@ orderforte
 ordergeneric
 orderparafon
 ordersoma
+org download
+org-download
 organic hemp
 organic seo
 organic-hemp
@@ -29856,6 +30327,7 @@ organizovana zlo
 organizovana-zlo
 organogold
 orgazma
+orgdownload
 orghttp
 oriflame
 origami origami
@@ -30242,9 +30714,11 @@ página-web
 pagss
 paid autosurf
 paid google
+paid online survey
 paid review
 paid-autosurf
 paid-google
+paid-online-survey
 paid-review
 pain-behind
 pain-relief
@@ -30644,7 +31118,9 @@ paulsmithsu
 paxil
 pay_day
 pay-as-you-go
+payday cash
 payday loan
+payday-cash
 payday-loan
 payday-on
 payday.co
@@ -30654,6 +31130,8 @@ payday.ro
 payday.ru
 payday.su
 payday.za
+payday|
+paydaycash
 paydayloan
 paydaynote
 paydayon
@@ -30896,14 +31374,17 @@ person prov
 person-prov
 persona attribute
 personal blogroll
+personal loan
 personal pc
 personal personal
 personal pupil
 personal silicone
 personal stuffs
+personal_loan
 personal-blogroll
 personal-exper
 personal-injury
+personal-loan
 personal-natur
 personal-pc
 personal-personal
@@ -30917,6 +31398,7 @@ personalised silicone
 personalised-silicone
 personalized silicone
 personalizedsilicone
+personalloan
 personalnatur
 personalpc
 personen daten
@@ -30924,6 +31406,8 @@ personen-daten
 personenbezogener daten
 personenbezogener-daten
 personnalis
+peruse google
+perusing google
 perxon
 pesimdesiniz
 peşimdesiniz
@@ -31162,6 +31646,7 @@ piece chap
 piece of writing
 piece off writing
 piece-chap
+piel besos
 piezas de alta
 piezas de pro
 pignee
@@ -31299,18 +31784,22 @@ play film trailer
 play films trailer
 play fortuna
 play hack
+play matka
 play video review
 play videos review
+play website
 play-film-trailer
 play-films-trailer
 play-fortuna
 play-free
 play-hack
+play-matka
 play-online
 play-reel-king
 play-runescape
 play-video-review
 play-videos-review
+play-website
 playedd
 playerblock
 playfortuna
@@ -31324,10 +31813,12 @@ playing-film-trailer
 playing-films-trailer
 playing-video-review
 playing-videos-review
+playmatka
 playonline
 playstation code
 playstation-code
 playvid
+playwebsite
 plazajp
 pleasant article
 pleasant blog
@@ -31418,6 +31909,7 @@ pohudenie
 point ,
 point !
 point .
+point depression
 point generat
 point-generat
 point|
@@ -31917,6 +32409,7 @@ portalu-multimedia
 portray & decorat
 portray &amp; decorat
 portray and decorat
+posamochod opinie
 positikon
 positive credit history
 positively helpful
@@ -31929,6 +32422,7 @@ possess
 possible kill you
 possibly can constant
 possibly kill you
+possibly possibly
 possui publicidade
 possui zero
 possui-publicidade
@@ -32066,6 +32560,7 @@ ppvcpa
 ppvtraff
 pr článek
 pr článk
+pr-bookmark
 pra acabar
 pra-acabar
 prac licencjackich
@@ -32136,6 +32631,7 @@ prawnik
 prazer sexual
 prazer-sexual
 prazosin
+prbookmark
 prdetty
 precios_
 precisely lots
@@ -32204,6 +32700,7 @@ premium free
 premium improve
 premium key
 premium out
+premium wiet
 premium wordpress
 premium-account
 premium-anschluss
@@ -32214,6 +32711,7 @@ premium-dignit
 premium-free
 premium-key
 premium-out
+premium-wiet
 premium-wordpress
 premium.ru
 premiumaccount
@@ -32276,12 +32774,39 @@ press-web-page
 press-webpage
 pressuppose
 presta dinero
+présta dinero
 presta rapidos
+présta rapidos
 presta-dinero
 presta-rapidos
 prestadinero
+prestamo inmediato
+préstamo inmediato
+prestamo online
+préstamo online
+prestamo rapidos
+préstamo rapidos
+prestamo-inmediato
+prestamo-online
+prestamo-rapidos
+prestamoinmediato
+prestamoonline
+prestamorapidos
+prestamos inmediato
+préstamos inmediato
+prestamos online
+préstamos online
+prestamos personal
+préstamos personal
 prestamos rapidos
+préstamos rapidos
+prestamos-inmediato
+prestamos-online
+prestamos-personal
 prestamos-rapidos
+prestamosinmediato
+prestamosonline
+prestamospersonal
 prestamosrapidos
 prestarapidos
 pretty candy as
@@ -32669,6 +33194,7 @@ prospects of decay
 prostate stimul
 prostate-stimul
 prostitutki
+prosubiekt
 protandim
 protein bene
 protein powder
@@ -32681,6 +33207,7 @@ protein-review
 protein-tozu
 proteinbene
 proteindiet
+proteinpulver
 proteintozu
 prova da oab
 prova-da-oab
@@ -32812,16 +33339,19 @@ purchase guilt
 purchase instagram
 purchase pitch
 purchase privilege
+purchase sympathy
 purchase telegram
 purchase tiffany
 purchase tiktok
 purchase twitter
+purchase_sympathy
 purchase-facebook
 purchase-generic
 purchase-guilt
 purchase-instagram
 purchase-pitch
 purchase-privilege
+purchase-sympathy
 purchase-telegram
 purchase-tiffany
 purchase-tiktok
@@ -33033,6 +33563,7 @@ quincy-femme
 quincyfemme
 quinoa stomach
 quinoa-stomach
+quintessence causing
 quit masturbat
 quit-masturbat
 quit-smok
@@ -34356,6 +34887,7 @@ s top database
 s:.
 s!.
 s.@
+s.|
 s.all
 s.for
 s.p.o.r.t
@@ -34693,6 +35225,10 @@ sat electrodomestico
 sat-electrodomestico
 satchelbag
 satcheldbag
+satisfaccion externa
+satisfacción externa
+satisfacciones externa
+satisfacciónes externa
 satisfied reading
 satisfied-reading
 satisfying existence
@@ -34708,6 +35244,7 @@ save-you-time
 saved as a fave
 saved as a favorite
 saved as a favourite
+saved to bookmark
 savor a movie
 sawfwaf
 say about this article
@@ -34866,6 +35403,8 @@ search engine pref
 search engines list
 search engines posi
 search engines pref
+search expired domain
+search expiring domain
 search ffor
 search gogle
 search master knowledge
@@ -34873,6 +35412,8 @@ search optim
 search porn
 search-engine-
 search-engines-
+search-expired-
+search-expiring-
 search-gogle
 search-optim
 search-porn
@@ -34915,8 +35456,10 @@ secured-result
 secureimage
 securesmtp
 security ip camera
+security quantity
 security-for
 security-ip-camera
+security-quantity
 see this blog
 see this site
 see this weblog
@@ -35287,6 +35830,7 @@ several opportune
 several websites can
 several-opportune
 sex advice
+sex beba
 sex blog
 sex budd
 sex cam
@@ -35309,6 +35853,7 @@ sex indian
 sex kat
 sex kontakt
 sex live
+sex love
 sex mama
 sex mount
 sex movie
@@ -35340,6 +35885,7 @@ sex wyna
 sex zit je
 sex_
 sex-advice
+sex-beba
 sex-blog
 sex-budd
 sex-cam
@@ -35363,6 +35909,7 @@ sex-indian
 sex-kat
 sex-kontakt
 sex-live
+sex-love
 sex-mama
 sex-mount
 sex-movie
@@ -35398,6 +35945,7 @@ sex.php
 sex>
 sex2call
 sexadvice
+sexbeba
 sexblog
 sexbudd
 sexcam
@@ -35418,6 +35966,7 @@ sexinyou
 sexkat
 sexkontakt
 sexlive
+sexlove
 sexmama
 sexmount
 sexmovie
@@ -35469,6 +36018,7 @@ sexualmoment
 sexvid
 sexvirgin
 sexweb
+sexy baccarat
 sexy blog
 sexy escort
 sexy eskort
@@ -35490,6 +36040,7 @@ sexy woman
 sexy women
 sexy_
 sexy-app
+sexy-baccarat
 sexy-blog
 sexy-escort
 sexy-eskort
@@ -35519,6 +36070,7 @@ sexy.jsp
 sexy.php
 sexy2call
 sexyapp
+sexybaccarat
 sexyblog
 sexyescort
 sexyeskort
@@ -35679,10 +36231,15 @@ shemale-movie
 shemale-porn
 shemale-sex
 shemale-vid
+shiba coin
+shiba-coin
+shibacoin
 shield your self
 shift dress
 shift-dress
 shiftdress
+shipping winning
+shipping-winning
 shirt cease
 shirt cheap
 shirt custom
@@ -36165,6 +36722,7 @@ site looks weird
 site now ;)
 site offer
 site offic
+site optim
 site owner
 site particular
 site platform
@@ -36196,6 +36754,7 @@ site-is-extreme
 site-link
 site-offer
 site-offic
+site-optim
 site-owner
 site-particular
 site-platform
@@ -36215,8 +36774,6 @@ site-wordpress
 site:-
 site:)
 site? my web
-site.co
-site.in
 site.vip
 site/essay
 site24
@@ -36243,6 +36800,7 @@ sitemizi ziyaret
 sitemizi-siyaret
 sitemizi-ziyaret
 siteoffic
+siteoptim
 sites and blogs
 sites luke
 sites on the internet
@@ -36384,10 +36942,12 @@ slongchamp
 slot gacor
 slot machine
 slot online
+slot terga
 slot_gacor
 slot-gacor
 slot-machine
 slot-online
+slot-terga
 slotgacor
 slotmachine
 slotonline
@@ -36459,14 +37019,19 @@ smarketoprogram
 smarketoreview
 smarketosecret
 smarketosoftware
+smart casino
 smart hoverboard
 smart-balance
+smart-buy
+smart-casino
 smart-drug
 smart-hoverboard
 smart-watch-gps
 smartbalance
 smartbeting
 smartbets
+smartbuy
+smartcasino
 smartdrug
 smarthoverboard
 smartly written article
@@ -36478,6 +37043,9 @@ smith sold
 smith-sold
 smithsold
 smm pannel
+smm supreme
+smm-supreme
+smmsupreme
 smnall
 smok priv
 smok-priv
@@ -36494,10 +37062,13 @@ smsgrupp
 smurf account
 smurf-account
 smurfaccount
+snabb leveran
+snabb-leveran
 snapback-cap
 snapbacks
 snapchat ++
 snapchat intro
+snapchat like
 snapchat monetiz
 snapchat money
 snapchat privado
@@ -36505,6 +37076,7 @@ snapchat score
 snapchat you tube
 snapchat youtube
 snapchat-intro
+snapchat-like
 snapchat-monetiz
 snapchat-money
 snapchat-privado
@@ -36586,12 +37158,15 @@ socal-tms
 socaltms
 soccer betting
 soccer jersey sale
+soccer wager
 soccer-betting
 soccer-jersey-sale
+soccer-wager
 soccerbet
 soccerjerseyclub
 soccerjerseysale
 soccerjerseysclub
+soccerwager
 sociable worker
 social butler
 social buzz
@@ -36640,10 +37215,12 @@ soft-secret
 softsecret
 software beneath
 software house
+software kasir
 software program operate
 software secret
 software-beneath
 software-house
+software-kasir
 software-program-operate
 software-secret
 software.in
@@ -36843,6 +37420,7 @@ sparkle ugg
 sparkle-ugg
 sparkleugg
 speaking approximate
+speaking learning
 special approximate
 special daay
 special-approximate
@@ -36858,6 +37436,7 @@ specific gift
 specific-gift
 specifics as feasible
 specifucally
+speculative institute
 spedified
 speed proxi
 speed proxy
@@ -37118,6 +37697,7 @@ steroid-ripoff
 steroid-satin
 steroid-scam
 steroid-siparis
+steroidapoteket
 steroidcounter
 steroidfake
 steroidler online
@@ -37144,6 +37724,8 @@ steroidsonline
 steroidsripoff
 steroidsscam
 stevewynnloan
+stew about hosting
+stew about upgrade
 stewart furniture
 stewart patio
 stewart-furniture
@@ -37478,6 +38060,7 @@ subsequent-submit
 substance deal
 substance-deal
 substancedeal
+substantive congestion
 subtitle indo
 subtitle-indo
 subtitleindo
@@ -37949,6 +38532,7 @@ takenwith
 takie poglosk
 takie pogłosk
 takie-poglosk
+takim blogu
 takin note
 takin-note
 taking curcumin
@@ -38244,18 +38828,23 @@ teeshollis
 teeth teeth
 tegs:
 tekhbez
+tele entulho
 tele gratuit
 tele realite
 télé réalité
+tele-entulho
 tele-gratuit
 tele-realite
 télé-réalité
+teleentulho
 telefono de informacion
 teléfono de información
 telegratuit
 telepon-
 telerealite
 téléréalité
+television channel for
+television channels for
 telhadista-em
 telling everything concern
 tem.p.test
@@ -38628,6 +39217,7 @@ thetopdog
 thetwo
 theuniversity
 they are discussing online
+they dont
 they loophole
 they the t
 they-loophole
@@ -38755,6 +39345,11 @@ this post offer
 this post will assist
 this proficiency
 this publish
+this pure article
+this pure blog
+this pure page
+this pure site
+this pure web
 this site before
 this site certain
 this site defin
@@ -38989,6 +39584,7 @@ tiktok begeni
 tiktok beğeni
 tiktok fan
 tiktok intro
+tiktok like
 tiktok monetiz
 tiktok money
 tiktok privado
@@ -38999,6 +39595,7 @@ tiktok-begeni
 tiktok-fan
 tiktok-hack
 tiktok-intro
+tiktok-like
 tiktok-monetiz
 tiktok-money
 tiktok-privado
@@ -39187,6 +39784,7 @@ to commenting
 to daylight
 to ddo
 to gget
+to look to for
 to my blog
 to my page
 to my sire
@@ -39333,6 +39931,7 @@ top sight
 top stop
 top tier
 top top
+top venture capital
 top vid
 top viral
 top_bank
@@ -39369,6 +39968,7 @@ top-tai
 top-tier
 top-tool
 top-top
+top-venture-capital
 top-vid
 top-viral
 top.asses
@@ -39516,6 +40116,8 @@ tracking-a-phone
 tradaoquan
 trade_you
 trading-method
+traditional bath design
+traditional bathroom design
 traffic attorn
 traffic bot
 traffic exchang
@@ -39601,6 +40203,7 @@ treatyment
 trello freetalk
 trello-freetalk
 tremendous blog
+tremendous feminist
 tremendous post
 tremendous site
 tremendous web
@@ -39708,6 +40311,12 @@ trumptrain
 trumptrump
 trumpvote
 trumpwon
+trust website
+trust-website
+trusted website
+trusted-website
+trusting website
+trusting-website
 truth however
 truth teaching article
 truth-however
@@ -39805,6 +40414,7 @@ twerkvid
 twit.t.
 twitter advert
 twitter intro
+twitter like
 twitter monetiz
 twitter money
 twitter privado
@@ -39814,6 +40424,7 @@ twitter takipçi
 twitter-advert
 twitter-hack
 twitter-intro
+twitter-like
 twitter-monetiz
 twitter-money
 twitter-privado
@@ -39859,11 +40470,15 @@ u4nba
 ua-eqt-sup
 uae escort
 uae eskort
+uae shop
 uae-escort
 uae-eskort
+uae-shop
+uae.shop
 uaeescort
 uaeeskort
 uaepearl
+uaeshop
 uaewomensclub
 uau incrivel
 uau incrível
@@ -40412,6 +41027,10 @@ upgrade-your-bath
 upgrade-your-bed
 upgrade-your-living
 upgradekey
+upholstery cost
+upholstery couch
+upholstery-cost
+upholstery-couch
 upload and promo
 upload foto
 upload-file
@@ -40670,6 +41289,7 @@ van-body
 van-counter
 van-sound
 van-washing
+vanguard education
 vanilla balance
 vanilla gift
 vanilla-balance
@@ -41181,6 +41801,7 @@ views on this site
 viewtopic
 vigara
 vigrx
+viktminskning
 villa-for-rent
 villas-for-rent
 vimax
@@ -41414,6 +42035,10 @@ viww
 vk.cc
 vkews
 vkgnfx
+vod request
+vod service
+vod-request
+vod-service
 vodstreaming
 vogue toms
 vogue-toms
@@ -41705,6 +42330,8 @@ waterweight
 wating for you
 watte ausgestopft
 watte-ausgestopft
+wave depression
+wave-depression
 way of amateur
 way of blog
 way your design
@@ -41962,6 +42589,9 @@ website india
 website inquiry
 website is a center
 website is a centre
+website is appreciate
+website is beneficial
+website is benefit
 website is loading
 website it help
 website kami
@@ -42263,8 +42893,10 @@ whn i
 whn the
 whn you
 who don know
+who dont
 who theyre
 who usess
+who youre
 whoa this
 whoa-this
 whoah this
@@ -42353,6 +42985,7 @@ whore-butt
 whorebutt
 whttp
 whwn choos
+why but this
 why designing shabby
 why_designing_shabby
 why-designing-shabby
@@ -42373,6 +43006,12 @@ wiecej tutaj
 więcej tutaj
 wiecej-tutaj
 więcej-tutaj
+wiet soort
+wiet zaden
+wiet-soort
+wiet-zaden
+wietsoort
+wietzaden
 wife app
 wife-app
 wife-tube
@@ -42439,6 +43078,7 @@ wille-sold
 willebijoux
 willesold
 willhemp
+willl the
 wilson jers
 wilson-jers
 wilsonjers
@@ -42555,6 +43195,11 @@ without-ya!
 withthose
 withwebtraffic
 withwebvisit
+witth my
+witth our
+witth the
+witth this
+witth your
 wiuth a
 wiuth the
 wlasciwy blog
@@ -43222,6 +43867,7 @@ y http
 y pezone
 y teta
 y tetona
+y tte sigo
 y-culo
 y-pezone
 y-teta
@@ -43429,6 +44075,7 @@ you’re info
 you’re sill
 you”ll
 you”re
+you@example
 you`ll
 you`re
 youcanwear
@@ -43748,6 +44395,8 @@ yօ
 z http
 z.@
 zabaw
+zaden kopen
+zaden-kopen
 zafar islamov
 zafar-islamov
 zafarislamov
@@ -44039,6 +44688,7 @@ zyvox
 адекватного муж
 адекватного-муж
 админу
+активировать счет
 алкогольн
 алкогольные
 альтернатива
@@ -44101,6 +44751,7 @@ zyvox
 бутик отел
 бутик-отел
 быстро!
+в ватсап
 валка деревьев
 валка-деревьев
 вариантов дизайна несколько
@@ -44145,6 +44796,7 @@ zyvox
 винтовой-нас
 вклады сбербанк
 вклады-сбербанк
+во ватсап
 вольво (
 вольво-вольво
 вот - http
@@ -44174,6 +44826,7 @@ zyvox
 гадание-online
 гей питер
 гей-питер
+гидра сайт
 глубокое глот
 глубокое-глот
 говорим гово
@@ -44186,6 +44839,7 @@ zyvox
 говорю-гово
 головные устройс
 головные-устройс
+город топ
 грузоперевозки
 давайте обсудим
 давайте-обсудим
@@ -44273,6 +44927,7 @@ zyvox
 заболевани
 загородный дом
 загородный-дом
+зайти на официальную
 зайти на сайт
 зайти-на-сайт
 заказ
@@ -44410,6 +45065,7 @@ zyvox
 любит глубокое
 любит-глубокое
 магаз
+магазин гидра
 маркет
 массажер тренажер
 массажер-тренажер
@@ -44506,6 +45162,7 @@ zyvox
 оs
 оt
 оv
+образец обслуживания
 обрезка деревьев
 обрезка-деревьев
 обучение
@@ -44527,6 +45184,7 @@ zyvox
 открыть сайт
 открыть-сайт
 отличные
+официальную гидру
 официальный сайт
 официальный-сайт
 официальных
@@ -44817,6 +45475,7 @@ zyvox
 сроке службы
 сроке-службы
 сруба
+ссылке
 статей
 стать богатым
 стать-богатым
@@ -44955,6 +45614,7 @@ zyvox
 язык-алматы
 языка алматы
 языка-алматы
+якості link
 яндekc
 ԝa
 ԝe
@@ -45008,6 +45668,7 @@ zyvox
 מאפרת מקצועית
 מתקין מזגנים
 תיקון מזגנים
+آگهی ارزان
 آموزش شرط
 أخبار , اخبار
 أخبار اخبار
@@ -45029,6 +45690,7 @@ zyvox
 ازواج حكاية
 ازواج,حكاية
 افراد ارزان
+افراد همجنس
 افضل شركه
 افلام اونلاين
 اقل اسعار
@@ -45055,6 +45717,7 @@ zyvox
 ايفون مجانية
 بازاریابی
 بازی انفجار
+باکرگی
 برندهای مختلف
 بست افلام
 بست,افلام
@@ -45081,6 +45744,7 @@ zyvox
 جمال مكياج
 جمال, مكياج
 جمال,مكياج
+جنسی برای
 حبيبة كوميديا
 حبيبة,كوميديا
 حزينه حزينة
@@ -45088,6 +45752,7 @@ zyvox
 حزينه,حزينة
 خبر عن الرياضة
 خرید تلویزیون
+خرید رپورتاژ
 خسارة الوزن
 خصم,كود
 خلاصه داستان - دانلود
@@ -45102,6 +45767,8 @@ zyvox
 دستگاه حضور
 دورات تدريب
 ديالى،علوم
+رابطه جنسی
+رپورتاژ آگهی
 رتويت تويتر
 زواج المسيار
 زواج سعودية
@@ -45250,6 +45917,8 @@ zyvox
 검증사이트
 게임
 경마배팅
+놀이터 보너
+놀이터보너
 대출
 로얄카지노
 루이비통
@@ -45259,6 +45928,7 @@ zyvox
 먹튀
 무료쿠폰
 바카라
+보너스
 보험
 블랙잭
 성인사이트
@@ -45278,9 +45948,11 @@ zyvox
 축구중계
 출장업소
 카지노
+쿠폰
 태풍티비
 토토
 트위터
+파워볼
 파워볼사이트
 포인트받
 필수적이다
@@ -45314,6 +45986,7 @@ zyvox
 オークリー
 おざ
 オロビアンコ
+オンラインカジノ
 お客
 お店を
 お金を
@@ -45383,6 +46056,7 @@ zyvox
 パワハラ
 バンクオブアメリカ
 バンズ
+ビットコイン
 ビトン
 ブーツ
 ファッショ
@@ -45436,6 +46110,7 @@ zyvox
 信息平台
 倒
 借錢網
+優惠
 光碟破解
 全球华人
 公式
@@ -45464,7 +46139,9 @@ zyvox
 商城
 块钱
 基測|
+壯陽
 外贸
+大除毛
 奖网
 好評
 婚庆礼仪
@@ -45491,6 +46168,7 @@ zyvox
 投注网站
 摔死女
 攜心山
+春藥
 晶燈
 服务
 札入れ
@@ -45545,6 +46223,7 @@ zyvox
 茅
 荷物
 落枕
+藥專
 血症
 行動電源
 装着
@@ -45576,6 +46255,7 @@ zyvox
 锘縉
 锟斤拷
 门户网
+除毛雷射
 革の
 靴
 韓国音楽

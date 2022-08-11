@@ -33,7 +33,7 @@ if ( ! class_exists( 'HU_Customize_Manage_Widgets_Section' ) ) :
       <li id="accordion-section-{{ data.id }}" class="czr-widget-zone-section accordion-section control-section control-section-{{ data.type }}">
       <h3 class="accordion-section-title" tabindex="0">
         {{ data.title }}
-        <span class="screen-reader-text"><?php _e( 'Press return or enter to open this section', 'hueman-pro' ); ?></span>
+        <span class="screen-reader-text"><?php _e( 'Press return or enter to open this section', 'hueman' ); ?></span>
       </h3>
       <ul class="accordion-section-content"></ul>
     </li>

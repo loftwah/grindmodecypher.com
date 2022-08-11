@@ -18,9 +18,9 @@ class AlxVideo extends WP_Widget {
 	function __construct() {
 		parent::__construct(
       'alxvideo',
-      __('Hueman Videos', 'hueman-pro'),
+      __('Hueman Videos', 'hueman'),
       array(
-        'description' => __('Display a responsive video with a YouTube or Vimeo link.', 'hueman-pro'),
+        'description' => __('Display a responsive video with a YouTube or Vimeo link.', 'hueman'),
         'classname' => 'widget_hu_video'
       )
     );

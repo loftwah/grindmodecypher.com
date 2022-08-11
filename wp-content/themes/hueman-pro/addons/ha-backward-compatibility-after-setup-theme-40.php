@@ -154,13 +154,13 @@ function ha_generate_and_save_new_contx_options( $_old_skoped_options, $status )
             $final_skoped_setting_data = $skoped_setting_data;
             switch ( $final_skoped_setting_data['setting-id'] ) {
                 case 'hu_theme_options[body-background]' :
-                    $final_skoped_setting_data['title'] = __('Body Background', 'hueman-pro');
+                    $final_skoped_setting_data['title'] = __('Body Background', 'hueman');
                 break;
                 case 'hu_theme_options[display-a-pro-header-slider]' :
-                    $final_skoped_setting_data['title'] = __('Display a full width header background', 'hueman-pro');
+                    $final_skoped_setting_data['title'] = __('Display a full width header background', 'hueman');
                 break;
                 case 'hu_theme_options[pro_slider_header_bg]' :
-                    $final_skoped_setting_data['title'] = __('Full Width Header Background', 'hueman-pro');
+                    $final_skoped_setting_data['title'] = __('Full Width Header Background', 'hueman');
                 break;
             }// switch second pass
             $final_new_skoped_options[] = $final_skoped_setting_data;

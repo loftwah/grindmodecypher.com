@@ -1,0 +1,273 @@
+// COLUMN LAYOUT
+.sek-gal-wrapper {
+    &:not(.nb-auto-column-width) {//<= classes added by nb pro when auto-fill option is enabled
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+    }
+    .sek-gal-items {
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: 1fr 20px 1fr;
+      grid-template-columns: 1fr 1fr;
+      -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+      grid-row-gap: 20px;
+      grid-column-gap: 20px;
+      // Fix for ie11. @see https://github.com/presscustomizr/nimble-builder/issues/450
+      @media all and (-ms-high-contrast:none) {
+        display: block!important;
+      }
+    }
+    // The following has been added automatically when autoprefixing with https://autoprefixer.github.io/
+    // not sure why...
+    .sek-gal-items > *:nth-child(1) {
+      -ms-grid-row: 1;
+      -ms-grid-column: 1;
+    }
+    .sek-gal-items > *:nth-child(2) {
+      -ms-grid-row: 1;
+      -ms-grid-column: 3;
+    }
+
+    // images
+    .sek-img-gal-item {
+        -webkit-transition: all 0.15s ease-in-out;
+        -moz-transition: all, 0.15s ease-in-out;
+        -ms-transition: all, 0.15s ease-in-out;
+        -o-transition: all, 0.15s ease-in-out;
+        transition: all 0.15s ease-in-out;
+        overflow: hidden;
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+        &:hover {
+            opacity: .9;
+        }
+    }
+}//.sek-post-grid-wrapper COLUMN LAYOUT
+  
+// Item box shadow
+.sek-module-inner .nb-gal-item-box-shadow .sek-gal-items figure {
+    -webkit-box-shadow:  0 3px 8px rgba(0, 0, 0, 0.2);
+    box-shadow:  0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+// Masonry
+.sek-module-inner .nb-masonry-gal-grid {
+    // &.nb-waiting-for-images-to-be-loaded {
+      // article figure {
+      //   a {
+      //     height: auto!important;
+      //     padding-top: 0!important;
+      //   }
+      //   img {
+      //     position: relative;
+      //     height: auto;
+      //   }
+      // }
+  
+    .sek-gal-items {
+      //display: grid;
+      // grid-gap: 10px;
+      //grid-template-columns: repeat(auto-fill, minmax(250px,1fr))!important;
+      //grid-auto-rows: 5px;
+      &.nb-masonry-gal-images-loaded {
+        grid-auto-rows: 5px;
+      }
+      .sek-img-gal-item {
+        img {
+            height: auto;
+        }
+      }
+      // CSS class added while resizing masonry gallery
+      // => let img have a natural height so NB can determine the height when resizing
+      &.sek-gal-img-natural-height {
+        img {
+          height: auto!important;
+        }
+      }
+      // CSS class added when masonry resizing is complete
+      &.sek-gal-img-height-100-percent {
+        img {
+          height: 100%;
+        }
+      }
+    }
+}
+
+
+// synchronized with default on registration
+// [data-sek-module-type="czr_accordion_module"] .#{$project-prefix}module-inner {
+//   text-align: center;
+// }
+/*************************************
+* ACCORDION MODULE
+*************************************/
+// .sek-accord-wrapper {
+//   text-align: left;
+//   .sek-accord-item {
+//     border: 1px solid #e3e3e3;//consistent with default on registration
+//     overflow: hidden;
+//     &:not(:last-child) {
+//       margin-bottom: 0px;//space between items, consistent with defaults on registration
+//     }
+//     .sek-accord-title {
+//       cursor: pointer;
+//       color: #565656;//consistent with default on registration
+//       background: #ffffff;//consistent with default on registration
+//       display: -webkit-box;
+//       display: -ms-flexbox;
+//       display: flex;
+//       -webkit-box-align: center;
+//           -ms-flex-align: center;
+//               align-items: center;
+//       -webkit-box-pack: justify;
+//      -ms-flex-pack: justify;
+//      justify-content: space-between;
+
+//       padding: 15px 20px;
+
+//       border-top: none;
+//       border-right: none;
+//       border-left: none;
+//       border-bottom: 1px solid #e3e3e3;//consistent with default on registration
+//       font-size: 16px;
+//       line-height: 1.5em;
+//       font-weight: 600;
+//       -webkit-box-flex: 1;
+//       -ms-flex-positive: 1;
+//       flex-grow: 1;
+
+//       // Default active color and button bg
+//       &:hover * {
+//           color: #1e261f;//consistent with default on registration
+//       }
+//       &:hover .expander span {
+//           background:#1e261f//consistent with default on registration
+//       }
+//       @at-root [data-sek-expanded="true"] {
+//         .sek-accord-title * {
+//             color: #1e261f;//consistent with default on registration
+//         }
+//         .sek-accord-title .expander span {
+//             background:#1e261f//consistent with default on registration
+//         }
+//       }
+
+
+//       .sek-inner-accord-title {
+//         padding-right: 10px;
+//         max-width: calc(100% - 30px);
+//       }
+
+//       .sek-inner-accord-title, .expander span {
+//           -webkit-transition: all 0.15s ease-in-out;
+//           -moz-transition: all, 0.15s ease-in-out;
+//           -ms-transition: all, 0.15s ease-in-out;
+//           -o-transition: all, 0.15s ease-in-out;
+//           transition: all 0.15s ease-in-out;
+//       }
+//       // morphing + / -
+//       // inspired from https://stackoverflow.com/questions/38136077/how-to-morph-a-plus-sign-to-a-minus-sign-using-css-transition
+//       .expander {
+//         color: #1e261f;//consistent with default on registration
+//         width: 30px;
+//         height: 30px;
+//         // reset some properties
+//         padding: 0;
+//         margin: 0;
+//         outline: none;
+//         border: 0;
+//         background: none;
+
+//         -webkit-box-shadow: none;
+//         box-shadow: none;
+//         font-size: 1.5em;
+//         position: relative;
+//         cursor: pointer;
+//       }
+
+//       .expander span {
+//         position: absolute;
+//         -webkit-transition: .3s;
+//           -o-transition: .3s;
+//               transition: .3s;
+//         background: #565656;//consistent with default on registration
+//         border-radius: 2px;
+//       }
+
+//       .expander span:first-of-type {
+//         top: 25%;
+//         bottom: 25%;
+//         width: 10%;
+//         left: 45%;
+//       }
+
+//       .expander span:last-of-type {
+//         left: 25%;
+//         right: 25%;
+//         height: 10%;
+//         top: 45%;
+//       }
+
+//       @at-root [data-sek-expanded="true"] {
+//         .expander span:first-of-type, .expander span:last-of-type {
+//           -webkit-transform: rotate(90deg);
+//             -ms-transform: rotate(90deg);
+//                 transform: rotate(90deg);
+//         }
+//         .expander span:last-of-type {
+//           left: 50%;
+//           right: 50%;
+//         }
+//       }
+//     }//.sek-accord-title
+
+
+//     // make sure we don't have a double bottom border when the item is collapsed
+//     @at-root [data-sek-has-global-border="true"][data-sek-has-title-border="true"] [data-sek-expanded="false"] .sek-accord-title {
+//       border-bottom: none;
+//     }
+
+//     @at-root [data-sek-has-global-border="true"][data-sek-has-title-border="true"] .sek-accord-item:not(:last-child) {
+//       border-bottom: none;
+//     }
+
+//     &[data-sek-expanded="true"] .sek-accord-title {
+//       .expander span:first-of-type, .expander span:last-of-type {
+//         -webkit-transform: rotate(90deg);
+//             -ms-transform: rotate(90deg);
+//                 transform: rotate(90deg);
+//       }
+//       .expander span:last-of-type {
+//         left: 50%;
+//         right: 50%;
+//       }
+//     }
+
+//     .sek-accord-content {
+//       padding: 15px 20px;
+//       background: #f2f2f2;
+//       color: #1e261f;
+//       font-size: 16px;
+//       line-height: 1.5em;
+//     }
+//     &[data-sek-expanded="true"] > .sek-accord-content {
+//       display: block;
+//     }
+//     &[data-sek-expanded="false"] > .sek-accord-content {
+//       display: none;
+//     }
+
+//   }
+// }

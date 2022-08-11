@@ -96,19 +96,19 @@ if ( !class_exists( 'HU_admin_update_notification' ) ) :
                 echo apply_filters(
                   'hu_update_notice',
                   sprintf('<h3>➡️ %1$s %2$s %3$s %4$s. <strong><a href="%5$s" title="%6$s">%6$s %7$s</a></strong></h3>',
-                    __( "You have recently updated to", "hueman-pro"),
+                    __( "You have recently updated to", "hueman"),
                     HU_IS_PRO ? 'Hueman Pro' : 'Hueman',
-                    __( "version", "hueman-pro"),
+                    __( "version", "hueman"),
                     HUEMAN_VER,
                     admin_url() .'themes.php?page=welcome.php',
-                    __( "Make sure to read the changelog" , "hueman-pro" ),
+                    __( "Make sure to read the changelog" , "hueman" ),
                     is_rtl() ? '&laquo;' : '&raquo;'
                   )
                 );
               ?>
                 <p style="text-align:right;position: absolute;font-size: 1.1em;<?php echo is_rtl()? 'left' : 'right';?>: 7px;bottom: -6px;">
                 <?php printf('<a href="#" title="%1$s" class="tc-dismiss-update-notice"> ( %1$s <strong>X</strong> ) </a>',
-                    __('close' , 'hueman-pro')
+                    __('close' , 'hueman')
                   );
                 ?>
                 </p>

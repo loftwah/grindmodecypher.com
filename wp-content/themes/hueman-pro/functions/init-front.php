@@ -196,8 +196,8 @@ if ( !function_exists('hu_print_widgets_in_location') ) {
     //=> print only when customizing
     if ( empty( $_eligible_zones ) && in_array( $location, array('s1', 's2') ) && hu_is_customize_preview_frame() ) {
         printf('<div class="widget"><div class="hu-placeholder-widget"><h3>%1$s<br/></h3><p>%2$s</p></div></div>',
-        __('No widget zones available in this sidebar.', 'hueman-pro'),
-        __('You can add Widget Areas here from the customizer, in the <strong>Dynamic Sidebars and Widgets</strong> panel, or you can change the layout to remove this sidebar in <strong>Content &raquo; Layout Options for the main content</strong>.', 'hueman-pro')
+        __('No widget zones available in this sidebar.', 'hueman'),
+        __('You can add Widget Areas here from the customizer, in the <strong>Dynamic Sidebars and Widgets</strong> panel, or you can change the layout to remove this sidebar in <strong>Content &raquo; Layout Options for the main content</strong>.', 'hueman')
       );
       return;
     }
@@ -225,16 +225,16 @@ function hu_print_dynamic_sidebars( $_id, $location ) {
     //is there a meta setting overriding the customizer ?
     if ( false != hu_get_singular_meta_widget_zone($location) ) {
       printf('<div class="widget"><div class="hu-placeholder-widget"><h3>%1$s<br/><span class="zone-name">"%2$s"</span> %3$s</h3><br/><p>%4$s</p></div></div>',
-        __('You have already assigned the following widget zone here : ', 'hueman-pro'),
+        __('You have already assigned the following widget zone here : ', 'hueman'),
         $wp_registered_sidebars[$_id]['name'],
-        __('in this post or page options.', 'hueman-pro'),
-        __('You can change or disable this setting by editing the options of the current post / page.', 'hueman-pro')
+        __('in this post or page options.', 'hueman'),
+        __('You can change or disable this setting by editing the options of the current post / page.', 'hueman')
       );
     }
     if ( 'header-ads' !== $_id ) {// we don't want to print a placeholder for the header ads widget zone.
         if ( empty( $sidebars_widgets[ $_id ] ) || !is_array( $sidebars_widgets[ $_id ] ) ) {
           printf('<div class="widget" id="hu-widget-zone-when-customizing-%3$s"><div class="hu-placeholder-widget"><h3>%1$s<br/><span class="zone-name">"%2$s"</span></h3></div></div>',
-            __('Add widgets to the zone :', 'hueman-pro'),
+            __('Add widgets to the zone :', 'hueman'),
             $wp_registered_sidebars[$_id]['name'],
             $_id
           );
@@ -274,7 +274,7 @@ if ( !function_exists( 'hu_print_social_links' ) ) {
     if ( empty( $_social_items ) ) {
         if ( hu_is_customizing() ) {
             printf( '<ul class="social-links"><li style="font-size:0.9em;color:white"><span><i>%1$s</i></span></li></ul>',
-                __('You can set your social links here from the live customizer', 'hueman-pro')
+                __('You can set your social links here from the live customizer', 'hueman')
             );
         }
         return;
@@ -492,13 +492,13 @@ if ( !function_exists( 'hu_do_render_logo_site_tite' ) ) {
                 printf( '<a class="custom-logo-link" href="%1$s" rel="home" title="%3$s">%2$s</a>',
                     home_url('/'),
                     $logo_or_title,
-                    sprintf( '%1$s | %2$s', get_bloginfo('name') , __('Home page', 'hueman-pro') )
+                    sprintf( '%1$s | %2$s', get_bloginfo('name') , __('Home page', 'hueman') )
                 );
             } else {
                 return sprintf( '<a class="custom-logo-link" href="%1$s" rel="home" title="%3$s">%2$s</a>',
                     home_url('/'),
                     $logo_or_title,
-                    sprintf( '%1$s | %2$s', get_bloginfo('name') , __('Home page', 'hueman-pro') )
+                    sprintf( '%1$s | %2$s', get_bloginfo('name') , __('Home page', 'hueman') )
                 );
             }
         }
@@ -550,9 +550,9 @@ if ( !function_exists( 'hu_get_search_title' ) ) {
       $icon           = have_posts() ? '<i class="fas fa-search"></i> ' : '<i class="fas fa-exclamation-circle"></i> ';
 
       if ( 1 == $search_results ) {
-          return sprintf( '%1$s%2$s %3$s', $icon, $search_results, __('Search result','hueman-pro') );
+          return sprintf( '%1$s%2$s %3$s', $icon, $search_results, __('Search result','hueman') );
       } else {
-          return sprintf( '%1$s%2$s %3$s', $icon, $search_results, __('Search results','hueman-pro') );
+          return sprintf( '%1$s%2$s %3$s', $icon, $search_results, __('Search results','hueman') );
       }
   }
 }
@@ -563,8 +563,8 @@ if ( !function_exists( 'hu_get_search_title' ) ) {
 if ( !function_exists( 'hu_get_404_title' ) ) {
   function hu_get_404_title() {
     return sprintf('<i class="fas fa-exclamation-circle"></i>%1$s <span>%2$s </span>',
-        __('Error 404.','hueman-pro'),
-        __('Page not found!','hueman-pro')
+        __('Error 404.','hueman'),
+        __('Page not found!','hueman')
     );
   }
 }
@@ -579,7 +579,7 @@ if ( !function_exists( 'hu_get_author_title' ) ) {
         return $author->display_name;
     } else {
         return sprintf('<i class="fas fa-user"></i>%1$s <span>%2$s </span>',
-            __('Author:','hueman-pro'),
+            __('Author:','hueman'),
             $author->display_name
         );
     }
@@ -597,7 +597,7 @@ if ( !function_exists( 'hu_get_term_page_title' ) ) {
           $title = single_cat_title('', false);
       } else {
           $title = sprintf('<i class="fas fa-folder-open"></i>%1$s <span>%2$s </span>',
-              __('Category:','hueman-pro'),
+              __('Category:','hueman'),
               single_cat_title('', false)
           );
       }
@@ -606,7 +606,7 @@ if ( !function_exists( 'hu_get_term_page_title' ) ) {
           $title = single_tag_title('', false);
       } else {
           $title = sprintf('<i class="fas fa-tags"></i>%1$s <span>%2$s </span>',
-              __('Tagged:','hueman-pro'),
+              __('Tagged:','hueman'),
               single_tag_title('', false)
           );
       }
@@ -625,7 +625,7 @@ if ( !function_exists( 'hu_get_date_archive_title' ) ) {
           $title = get_the_time('F j, Y');
       } else {
           $title = sprintf('<i class="fas fa-calendar"></i>%1$s <span>%2$s </span>',
-              __('Daily Archive:','hueman-pro'),
+              __('Daily Archive:','hueman'),
               get_the_time('F j, Y')
           );
       }
@@ -635,7 +635,7 @@ if ( !function_exists( 'hu_get_date_archive_title' ) ) {
           $title = get_the_time('F Y');
       } else {
           $title = sprintf('<i class="fas fa-calendar"></i>%1$s <span>%2$s </span>',
-              __('Monthly Archive:','hueman-pro'),
+              __('Monthly Archive:','hueman'),
               get_the_time('F Y')
           );
       }
@@ -645,7 +645,7 @@ if ( !function_exists( 'hu_get_date_archive_title' ) ) {
           $title = get_the_time('Y');
       } else {
           $title = sprintf('<i class="fas fa-calendar"></i>%1$s <span>%2$s </span>',
-              __('Yearly Archive:','hueman-pro'),
+              __('Yearly Archive:','hueman'),
               get_the_time('Y')
           );
       }
@@ -663,7 +663,7 @@ if ( !function_exists( 'hu_blog_title' ) ) {
     $heading    =  wp_kses_post( hu_get_option('blog-heading') );
     $heading    = $heading ? $heading : get_bloginfo('name');
     $subheading =  wp_kses_post( hu_get_option('blog-subheading') );
-    $subheading = $subheading ? $subheading : __('Blog', 'hueman-pro');
+    $subheading = $subheading ? $subheading : __('Blog', 'hueman');
 
     return apply_filters( 'hu_blog_title', sprintf('%1$s <span class="hu-blog-subheading">%2$s</span>',
         $heading,
@@ -1250,8 +1250,8 @@ if ( !function_exists( 'hu_scripts' ) ) {
                 'isWelcomeNoteOn' => $is_welcome_note_on,
                 'welcomeContent'  => $welcome_note_content,
                 'i18n' => array(
-                  'collapsibleExpand'   => __( 'Expand', 'hueman-pro' ),
-                  'collapsibleCollapse' => __( 'Collapse', 'hueman-pro' )
+                  'collapsibleExpand'   => __( 'Expand', 'hueman' ),
+                  'collapsibleCollapse' => __( 'Collapse', 'hueman' )
                 ),
                 'deferFontAwesome' => hu_is_checked( 'defer_font_awesome' ),
                 'fontAwesomeUrl' => sprintf('%1$s/assets/front/css/font-awesome.min.css?%2$s',
@@ -1784,7 +1784,7 @@ function hu_page_menu( $args = array() ) {
   // Show Home in the menu
   if ( !empty($args['show_home']) ) {
     if ( true === $args['show_home'] || '1' === $args['show_home'] || 1 === $args['show_home'] )
-      $text = __('Home' , 'hueman-pro');
+      $text = __('Home' , 'hueman');
     else
       $text = $args['show_home'];
     $class = '';
@@ -1832,7 +1832,7 @@ function hu_list_pages( $args = '' ) {
     'depth' => 0, 'show_date' => '',
     'date_format' => get_option( 'date_format' ),
     'child_of' => 0, 'exclude' => '',
-    'title_li' => __( 'Pages', 'hueman-pro' ), 'echo' => 1,
+    'title_li' => __( 'Pages', 'hueman' ), 'echo' => 1,
     'authors' => '', 'sort_column' => 'menu_order, post_title',
     'link_before' => '', 'link_after' => '', 'walker' => '',
   );
@@ -2108,25 +2108,25 @@ function hu_get_welcome_note_content() {
       ?>
         <div id="bottom-welcome-note">
           <div class="note-content">
-            <h2><?php printf( '%1$s :D' , __('Welcome in the Hueman theme', 'hueman-pro' ) ); ?></h2>
+            <h2><?php printf( '%1$s :D' , __('Welcome in the Hueman theme', 'hueman' ) ); ?></h2>
               <?php
                   printf('<p>%1$s <a href="%2$s" target="_blank">%3$s</a> %4$s</p>',
-                      __('The theme offers a wide range', 'hueman-pro'),
+                      __('The theme offers a wide range', 'hueman'),
                        admin_url( 'customize.php'),
-                      __('of customization options', 'hueman-pro'),
-                      __('to let you create the best possible websites.', 'hueman-pro' )
+                      __('of customization options', 'hueman'),
+                      __('to let you create the best possible websites.', 'hueman' )
                   );
                   printf('<p>%1$s : <a href="%2$s" title="%3$s" target="_blank">%3$s <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>&nbsp;,<a href="%4$s" title="%5$s" target="_blank">%5$s <i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p>',
-                      __("If you need inspiration, you can visit our online demos", 'hueman-pro'),
+                      __("If you need inspiration, you can visit our online demos", 'hueman'),
                       esc_url('https://wp-themes.com/hueman/'),
-                      __('Hueman Demo 1', 'hueman-pro'),
+                      __('Hueman Demo 1', 'hueman'),
                       esc_url('demo-hueman.presscustomizr.com/'),
-                      __('Hueman Demo 2', 'hueman-pro')
+                      __('Hueman Demo 2', 'hueman')
                   );
                   printf( '<br/><br/><p>%1$s <a href="%2$s" target="_blank">%3$s <i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p>',
-                      __('To help you getting started with Hueman, we have published', 'hueman-pro'),
+                      __('To help you getting started with Hueman, we have published', 'hueman'),
                       esc_url('docs.presscustomizr.com/article/236-first-steps-with-the-hueman-wordpress-theme'),
-                      __('a short guide here.', 'hueman-pro')
+                      __('a short guide here.', 'hueman')
                   );
               ?>
               <span class="fas fa-times close-note" title="Close"></span>

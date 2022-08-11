@@ -4,11 +4,11 @@
 
 	<?php if ( have_comments() ) : global $wp_query; ?>
 
-		<h3 class="heading"><?php comments_number( __( 'No Responses', 'hueman-pro' ), __( '1 Response', 'hueman-pro' ), __( '% Responses', 'hueman-pro' ) ); ?></h3>
+		<h3 class="heading"><?php comments_number( __( 'No Responses', 'hueman' ), __( '1 Response', 'hueman' ), __( '% Responses', 'hueman' ) ); ?></h3>
 
 		<ul class="comment-tabs group">
-			<li class="active"><a href="#commentlist-container"><i class="far fa-comments"></i><?php _e( 'Comments', 'hueman-pro' ); ?><span><?php echo count($wp_query->comments_by_type['comment']); ?></span></a></li>
-			<li><a href="#pinglist-container"><i class="fas fa-share"></i><?php _e( 'Pingbacks', 'hueman-pro' ); ?><span><?php echo count($wp_query->comments_by_type['pings']); ?></span></a></li>
+			<li class="active"><a href="#commentlist-container"><i class="far fa-comments"></i><?php _e( 'Comments', 'hueman' ); ?><span><?php echo count($wp_query->comments_by_type['comment']); ?></span></a></li>
+			<li><a href="#pinglist-container"><i class="fas fa-share"></i><?php _e( 'Pingbacks', 'hueman' ); ?><span><?php echo count($wp_query->comments_by_type['pings']); ?></span></a></li>
 		</ul>
 
 		<?php if ( ! empty( $comments_by_type['comment'] ) ) { ?>

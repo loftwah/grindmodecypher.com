@@ -11,7 +11,7 @@ if ( $display_author || $display_date ) {
   ?>
   <p class="post-byline">
   <?php if ( $display_author ) :?>
-     <?php _e('by','hueman-pro'); ?>
+     <?php _e('by','hueman'); ?>
      <span class="vcard author">
        <span class="fn"><?php the_author_posts_link(); ?></span>
      </span>
@@ -26,8 +26,8 @@ if ( $display_author || $display_date ) {
                   $modified_date = get_the_modified_date( get_option('date_format') );
                   $machine_readable_modified_date = esc_attr( get_the_modified_date( 'c' ) );
                 ?>
-                <?php _e('Published', 'hueman-pro'); ?> <time class="published" datetime="<?php echo $machine_readable_published_date; ?>"><?php echo $published_date; ?></time>
-                &middot; <?php _e('Updated', 'hueman-pro'); ?> <time class="updated" datetime="<?php echo $machine_readable_modified_date; ?>"><?php echo $modified_date; ?></time>
+                <?php _e('Published', 'hueman'); ?> <time class="published" datetime="<?php echo $machine_readable_published_date; ?>"><?php echo $published_date; ?></time>
+                &middot; <?php _e('Updated', 'hueman'); ?> <time class="updated" datetime="<?php echo $machine_readable_modified_date; ?>"><?php echo $modified_date; ?></time>
             <?php else : ?>
                 <time class="published" datetime="<?php echo $machine_readable_published_date; ?>"><?php echo $published_date; ?></time>
             <?php endif; ?>

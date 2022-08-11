@@ -12,7 +12,7 @@
           if ( function_exists('wp_pagenavi') )
             wp_pagenavi( array( 'type' => 'multipart' ) );
           else
-            wp_link_pages(array('before'=>'<div class="post-pages">'.__('Pages:','hueman-pro'),'after'=>'</div>'));
+            wp_link_pages(array('before'=>'<div class="post-pages">'.__('Pages:','hueman'),'after'=>'</div>'));
         ?>
       </nav><!--/.pagination-->
       <div class="clear"></div>

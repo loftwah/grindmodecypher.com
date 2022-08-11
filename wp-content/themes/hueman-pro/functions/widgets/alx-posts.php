@@ -18,9 +18,9 @@ class AlxPosts extends WP_Widget {
 	function __construct() {
 		parent::__construct(
       'alxposts',
-      __('Hueman Posts', 'hueman-pro'),
+      __('Hueman Posts', 'hueman'),
       array(
-        'description' => __('Display posts from a category', 'hueman-pro'),
+        'description' => __('Display posts from a category', 'hueman'),
         'classname' => 'widget_hu_posts'
       )
     );
@@ -75,7 +75,7 @@ class AlxPosts extends WP_Widget {
     ) );
 		$posts = new WP_Query( is_array( $posts_query_params ) ? $posts_query_params : array() );
 
-    $date_format = apply_filters( 'hu_posts_widget_date_format', 'j M, Y' );
+    $date_format = apply_filters( 'hu_posts_widget_date_format', get_option( 'date_format' ) );
 	?>
 
 	<ul class="alx-posts group <?php if($instance['posts_thumb']) { echo 'thumbs-enabled'; } ?>">

@@ -422,25 +422,25 @@ add_filter( 'tc_default_selector_title_map', 'hu_wfc_selector_title' );
 function hu_wfc_selector_title( $_list) {
 
   $_hu_list = array(
-            'top_menu_items'          => __( 'Top-Menu items' , 'hueman-pro' ),
-            'slider_title'            => __( 'Slider title', 'hueman-pro' ),
-            'slider_subtitle'         => __( 'Slider subtitle', 'hueman-pro' ),
-            'slider_button'           => __( 'Slider button', 'hueman-pro' ),
+            'top_menu_items'          => __( 'Top-Menu items' , 'hueman' ),
+            'slider_title'            => __( 'Slider title', 'hueman' ),
+            'slider_subtitle'         => __( 'Slider subtitle', 'hueman' ),
+            'slider_button'           => __( 'Slider button', 'hueman' ),
             //'marketing'               => __( 'Featured Pages', 'hueman' ),
-            'single_post_title'       => __( 'Single Post titles' , 'hueman-pro' ),
-            'single_page_title'       => __( 'Single Page titles' , 'hueman-pro' ),
-            'post_content'            => __( 'Post/Page content' , 'hueman-pro' ),
-            'post_excerpt'            => __( 'Post/Page excerpt' , 'hueman-pro' ),
-            'post_lists'              => __( 'Lists in post/pages' , 'hueman-pro' ),
-            'single_category_meta'    => __( 'Single Post Categories meta' , 'hueman-pro' ),
-            'single_tag'              => __( 'Single Post tags' , 'hueman-pro' ),
-            'archive_type_titles'     => __( 'Archive Type Title' , 'hueman-pro' ),
-            'postlist_post_metas'     => __( 'Post list post metas' , 'hueman-pro' ),
-            'postlist_category_meta'  => __( 'Post list category meta' , 'hueman-pro' ),
-            'single_tags'             => __( 'Single post tags' , 'hueman-pro' ),
-            'comment_meta'            => __( 'Comments metas' , 'hueman-pro' ),
-            'sidebars_top'            => __( 'Sidebar Top Boxes' , 'hueman-pro' ),
-            'footer_social_links'     => __( 'Footer Social Links', 'hueman-pro' )
+            'single_post_title'       => __( 'Single Post titles' , 'hueman' ),
+            'single_page_title'       => __( 'Single Page titles' , 'hueman' ),
+            'post_content'            => __( 'Post/Page content' , 'hueman' ),
+            'post_excerpt'            => __( 'Post/Page excerpt' , 'hueman' ),
+            'post_lists'              => __( 'Lists in post/pages' , 'hueman' ),
+            'single_category_meta'    => __( 'Single Post Categories meta' , 'hueman' ),
+            'single_tag'              => __( 'Single Post tags' , 'hueman' ),
+            'archive_type_titles'     => __( 'Archive Type Title' , 'hueman' ),
+            'postlist_post_metas'     => __( 'Post list post metas' , 'hueman' ),
+            'postlist_category_meta'  => __( 'Post list category meta' , 'hueman' ),
+            'single_tags'             => __( 'Single post tags' , 'hueman' ),
+            'comment_meta'            => __( 'Comments metas' , 'hueman' ),
+            'sidebars_top'            => __( 'Sidebar Top Boxes' , 'hueman' ),
+            'footer_social_links'     => __( 'Footer Social Links', 'hueman' )
   );
 
   return array_merge( $_list, $_hu_list );
@@ -453,7 +453,7 @@ function hu_wfc_zone_map( $zone_map ) {
 
 
   $_hu_zone_map = array(
-    'marketing'     => array('full-layout'  , __( 'Featured pages' , 'hueman-pro' ))
+    'marketing'     => array('full-layout'  , __( 'Featured pages' , 'hueman' ))
   );
   return array_merge( $zone_map, $_hu_zone_map );
 

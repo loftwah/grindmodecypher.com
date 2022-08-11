@@ -3,7 +3,7 @@
 
 	<div class="sidebar s1 collapsed" data-position="<?php echo hu_get_sidebar_position( 's1' ); ?>" data-layout="<?php echo $layout ?>" data-sb-id="s1">
 
-		<button class="sidebar-toggle" title="<?php _e('Expand Sidebar','hueman-pro'); ?>"><i class="fas sidebar-toggle-arrows"></i></button>
+		<button class="sidebar-toggle" title="<?php _e('Expand Sidebar','hueman'); ?>"><i class="fas sidebar-toggle-arrows"></i></button>
 
 		<div class="sidebar-content">
 
@@ -24,9 +24,9 @@
               <?php if ( hu_user_can_see_customize_notices_on_front() ) : ?>
                   <?php
                     printf( '<p style="text-transform:none;font-size: 0.8em;">%1$s. <a style="color: white;text-decoration:underline;" href="%2$s" title="%3$s">%3$s &raquo;</a></p>',
-                        __('You can set your social links here from the live customizer', 'hueman-pro'),
+                        __('You can set your social links here from the live customizer', 'hueman'),
                         admin_url( 'customize.php?autofocus[section]=social_links_sec' ),
-                        __('Customize now', 'hueman-pro')
+                        __('Customize now', 'hueman')
                     );
                   ?>
               <?php elseif ( ! is_user_logged_in() ) : ?>

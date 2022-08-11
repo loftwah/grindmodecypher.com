@@ -46,9 +46,9 @@ class TC_utils_wfc {
         $add_section 					= array(
 				                        'add_section'           =>   array(
 				                                        'tc_font_customizer_settings'   => array(
-				                                                                            'title'         =>  __( 'Font Customizer' , 'hueman-pro' ),
+				                                                                            'title'         =>  __( 'Font Customizer' , 'wordpress_font_customizer' ),
 				                                                                            'priority'      =>  0,
-				                                                                            'description'   =>  __( 'Play with beautiful fonts!' , 'hueman-pro' )
+				                                                                            'description'   =>  __( 'Play with beautiful fonts!' , 'wordpress_font_customizer' )
 				                                        ),
 				                        )
         );//end of add_sections array
@@ -60,8 +60,8 @@ class TC_utils_wfc {
              TC_wfc::$opt_name => array(
                 'default'   => array(),//empty items array by default
                 'control'   => 'WFC_Customize_Modules',
-                'label'     => __('Manage your customized text elements.', 'hueman-pro'),
-                'description' => __( 'The New WFC' , 'hueman-pro'),
+                'label'     => __('Manage your customized text elements.', 'wordpress_font_customizer'),
+                'description' => __( 'The New WFC' , 'wordpress_font_customizer'),
                 'section'   => 'tc_font_customizer_settings',
                 'type'      => 'czr_module',
                 'module_type' => 'czr_wfc_module',
@@ -73,7 +73,7 @@ class TC_utils_wfc {
             TC_wfc::$opt_name . '_deactivated' => array(
                 'default'   => 0,//empty items array by default
                 //'control'   => 'WFC_Customize_Modules',
-                'label'     => __('Check this option to deactivate Font Customizer ( and all related CSS and JS assets ) on this website.', 'hueman-pro'),
+                'label'     => __('Check this option to deactivate Font Customizer ( and all related CSS and JS assets ) on this website.', 'wordpress_font_customizer'),
                 //'description' => __( 'You can totally disable the Font Customizer by unchecking this option', 'wordpress_font_customizer'),
                 'section'   => 'tc_font_customizer_settings',
                 'type'      => 'checkbox',
@@ -104,37 +104,37 @@ class TC_utils_wfc {
 	  	  $default_map =  apply_filters(
         	'tc_default_selector_title_map',
         	array(
-        		'body' 					=> __( 'Default website font' , 'hueman-pro' ),
-        		'site_title'			=> __( 'Site title' , 'hueman-pro' ),
-        		'site_description' 		=> __( 'Site description' , 'hueman-pro' ),
-        		'menu_items' 			=> __( 'Menu items' , 'hueman-pro' ),
-        		'slider_title' 			=> __( 'Slider title' , 'hueman-pro' ),
-        		'slider_text' 			=> __( 'Slider text' , 'hueman-pro' ),
-        		'slider_button' 		=> __( 'Slider button' , 'hueman-pro' ),
-        		'fp_title' 				=> __( 'Featured pages title' , 'hueman-pro' ),
-        		'fp_text' 				=> __( 'Featured pages text' , 'hueman-pro' ),
-        		'fp_btn' 				=> __( 'Featured pages button' , 'hueman-pro' ),
-        		'single_post_title' 	=> __( 'Single post/page titles' , 'hueman-pro' ),
-        		'post_list_titles' 		=> __( 'Post list titles' , 'hueman-pro' ),
-        		'archive_titles' 		=> __( 'Archive/Blog titles' , 'hueman-pro' ),
-        		'post_content' 			=> __( 'Post content / excerpt' , 'hueman-pro' ),
-        		'post_metas' 			=> __( 'Post metas' , 'hueman-pro' ),
-        		'post_links' 			=> __( 'Links in post/pages' , 'hueman-pro' ),
-        		'post_hone' 			=> __( 'H1 headings' , 'hueman-pro' ),
-        		'post_htwo' 			=> __( 'H2 headings' , 'hueman-pro' ),
-        		'post_hthree' 			=> __( 'H3 headings' , 'hueman-pro' ),
-        		'post_hfour' 			=> __( 'H4 headings' , 'hueman-pro' ),
-        		'post_hfive' 			=> __( 'H5 headings' , 'hueman-pro' ),
-        		'post_hsix' 			=> __( 'H6 headings' , 'hueman-pro' ),
-        		'blockquote' 			=> __( 'Blockquotes' , 'hueman-pro' ),
-        		'comment_title' 		=> __( 'Comments title' , 'hueman-pro' ),
-        		'comment_author' 		=> __( 'Comments author' , 'hueman-pro' ),
-        		'comment_content'		=> __( 'Comments content' , 'hueman-pro' ),
-        		'sidebars_widget_title' => __( 'Sidebar widget titles' , 'hueman-pro' ),
-        		'sidebars_links' 		=> __( 'Links in sidebars' , 'hueman-pro' ),
-        		'footer_widget_title' 	=> __( 'Widget titles' , 'hueman-pro' ),
-        		'footer_credits' 		=> __( 'Footer credits' , 'hueman-pro' ),
-            'footer_credits_links'    => __( 'Footer credits links' , 'hueman-pro' )
+        		'body' 					=> __( 'Default website font' , 'wordpress_font_customizer' ),
+        		'site_title'			=> __( 'Site title' , 'wordpress_font_customizer' ),
+        		'site_description' 		=> __( 'Site description' , 'wordpress_font_customizer' ),
+        		'menu_items' 			=> __( 'Menu items' , 'wordpress_font_customizer' ),
+        		'slider_title' 			=> __( 'Slider title' , 'wordpress_font_customizer' ),
+        		'slider_text' 			=> __( 'Slider text' , 'wordpress_font_customizer' ),
+        		'slider_button' 		=> __( 'Slider button' , 'wordpress_font_customizer' ),
+        		'fp_title' 				=> __( 'Featured pages title' , 'wordpress_font_customizer' ),
+        		'fp_text' 				=> __( 'Featured pages text' , 'wordpress_font_customizer' ),
+        		'fp_btn' 				=> __( 'Featured pages button' , 'wordpress_font_customizer' ),
+        		'single_post_title' 	=> __( 'Single post/page titles' , 'wordpress_font_customizer' ),
+        		'post_list_titles' 		=> __( 'Post list titles' , 'wordpress_font_customizer' ),
+        		'archive_titles' 		=> __( 'Archive/Blog titles' , 'wordpress_font_customizer' ),
+        		'post_content' 			=> __( 'Post content / excerpt' , 'wordpress_font_customizer' ),
+        		'post_metas' 			=> __( 'Post metas' , 'wordpress_font_customizer' ),
+        		'post_links' 			=> __( 'Links in post/pages' , 'wordpress_font_customizer' ),
+        		'post_hone' 			=> __( 'H1 headings' , 'wordpress_font_customizer' ),
+        		'post_htwo' 			=> __( 'H2 headings' , 'wordpress_font_customizer' ),
+        		'post_hthree' 			=> __( 'H3 headings' , 'wordpress_font_customizer' ),
+        		'post_hfour' 			=> __( 'H4 headings' , 'wordpress_font_customizer' ),
+        		'post_hfive' 			=> __( 'H5 headings' , 'wordpress_font_customizer' ),
+        		'post_hsix' 			=> __( 'H6 headings' , 'wordpress_font_customizer' ),
+        		'blockquote' 			=> __( 'Blockquotes' , 'wordpress_font_customizer' ),
+        		'comment_title' 		=> __( 'Comments title' , 'wordpress_font_customizer' ),
+        		'comment_author' 		=> __( 'Comments author' , 'wordpress_font_customizer' ),
+        		'comment_content'		=> __( 'Comments content' , 'wordpress_font_customizer' ),
+        		'sidebars_widget_title' => __( 'Sidebar widget titles' , 'wordpress_font_customizer' ),
+        		'sidebars_links' 		=> __( 'Links in sidebars' , 'wordpress_font_customizer' ),
+        		'footer_widget_title' 	=> __( 'Widget titles' , 'wordpress_font_customizer' ),
+        		'footer_credits' 		=> __( 'Footer credits' , 'wordpress_font_customizer' ),
+            'footer_credits_links'    => __( 'Footer credits links' , 'wordpress_font_customizer' )
         	)//end of array
 		);//end of filter
 
@@ -261,9 +261,9 @@ class TC_utils_wfc {
 		$subsets = array();
 
 		$subsets['all-subsets'] = sprintf( '%1$s ( %2$s %3$s )',
-			__( 'All languages' , 'hueman-pro' ),
+			__( 'All languages' , 'wordpress_font_customizer' ),
 			count($gfonts_decoded['items']) + count( $this -> get_cfonts() ),
-			__('fonts' , 'hueman-pro' )
+			__('fonts' , 'wordpress_font_customizer' )
 		);
 
 		foreach ( $gfonts_decoded['items'] as $font ) {
@@ -287,7 +287,7 @@ class TC_utils_wfc {
 			$subsets[$subset] = sprintf('%1$s ( %2$s %3$s )',
 				$subset,
 				$font_number,
-				__('fonts' , 'hueman-pro' )
+				__('fonts' , 'wordpress_font_customizer' )
 			);
 		}
 

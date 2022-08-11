@@ -566,7 +566,7 @@ class TC_wfc {
         <div class="error">
             <p>
               <?php
-              printf( __( 'The <strong>%s</strong> plugin has been disabled since it is included in this theme.' , 'hueman-pro' ),
+              printf( __( 'The <strong>%s</strong> plugin has been disabled since it is included in this theme.' , 'tc_unlimited_fp' ),
                 $this -> plug_name
               );
               ?>
@@ -762,7 +762,7 @@ class TC_wfc {
                     $selector_candidate = $predefined_selectors_list[$item_id]['selector'];
                 }
             } else {
-                $title_candidate = __( 'Custom', 'hueman-pro' );
+                $title_candidate = __( 'Custom', 'wordpress_font_customizer' );
                 // if this is a custom selector, the css selector is stored in the $before_dec_2017_custom_selector_options
                 if ( array_key_exists( $item_id, $before_dec_2017_custom_selector_options ) && array_key_exists( 'selector', $before_dec_2017_custom_selector_options[$item_id] ) ) {
                     $selector_candidate = $before_dec_2017_custom_selector_options[$item_id]['selector'];

@@ -1,0 +1,25 @@
+{
+  "name": "hueman-pro",
+  "version": "1.4.23",
+  "description": "The premium version of the popular Hueman WordPress theme.",
+  "author": "Press Customizr",
+  "license": "GNU GPL v3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/presscustomizr/hueman-pro.git"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-compress": "^1.2.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-stripcomments": "^0.7.2",
+    "grunt-text-replace": "^0.4.0",
+    "grunt-potomo": "^3.5.0",
+    "grunt-wp-i18n": "^1.0.1",
+    "load-grunt-config": "^0.19.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}

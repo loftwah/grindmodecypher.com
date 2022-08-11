@@ -96,13 +96,13 @@ function hu_custom_meta_boxes() {
           'type'    => 'text'
         ),
         array(
-          'label'   => sprintf('%1$s</br><i style="font-size:12px">%2$s</i>', __('Select a widget zone for the primary sidebar.', 'hueman-pro'), __('Notes : 1)This will override any default settings of the customizer options panel. 2) The primary sidebar is placed on the left in a 3 columns layout. It can be on the right in a 2 columns layout, when the content is on the left.', 'hueman-pro') ),
+          'label'   => sprintf('%1$s</br><i style="font-size:12px">%2$s</i>', __('Select a widget zone for the primary sidebar.', 'hueman'), __('Notes : 1)This will override any default settings of the customizer options panel. 2) The primary sidebar is placed on the left in a 3 columns layout. It can be on the right in a 2 columns layout, when the content is on the left.', 'hueman') ),
           'id'    => '_sidebar_primary',
           'type'    => 'sidebar-select',
           'desc'    => ''
         ),
         array(
-          'label'   => sprintf('%1$s</br><i style="font-size:12px">%2$s</i>', __('Select a widget zone for the secondary sidebar.', 'hueman-pro'), __('Notes : 1)This will override any default settings of the customizer options panel. 2) The secondary sidebar is placed on the right in a 3 columns layout.', 'hueman-pro') ),
+          'label'   => sprintf('%1$s</br><i style="font-size:12px">%2$s</i>', __('Select a widget zone for the secondary sidebar.', 'hueman'), __('Notes : 1)This will override any default settings of the customizer options panel. 2) The secondary sidebar is placed on the right in a 3 columns layout.', 'hueman') ),
           'id'    => '_sidebar_secondary',
           'type'    => 'sidebar-select',
           'desc'    => ''
@@ -119,13 +119,13 @@ function hu_custom_meta_boxes() {
       'priority'    => 'high',
       'fields'      => array(
         array(
-          'label'    => sprintf('%1$s</br><i style="font-size:12px">%2$s</i>', __('Select a widget zone for the left sidebar.', 'hueman-pro'), __('This will override any default settings of the customizer options panel.', 'hueman-pro') ),
+          'label'    => sprintf('%1$s</br><i style="font-size:12px">%2$s</i>', __('Select a widget zone for the left sidebar.', 'hueman'), __('This will override any default settings of the customizer options panel.', 'hueman') ),
           'id'    => '_sidebar_primary',
           'type'    => 'sidebar-select',
           'desc'    => ''
         ),
         array(
-          'label'    => sprintf('%1$s</br><i style="font-size:12px">%2$s</i>', __('Select a widget zone for the right sidebar.', 'hueman-pro'), __('This will override any default settings of the customizer options panel.', 'hueman-pro') ),
+          'label'    => sprintf('%1$s</br><i style="font-size:12px">%2$s</i>', __('Select a widget zone for the right sidebar.', 'hueman'), __('This will override any default settings of the customizer options panel.', 'hueman') ),
           'id'    => '_sidebar_secondary',
           'type'    => 'sidebar-select',
           'desc'    => ''
@@ -181,7 +181,7 @@ function hu_custom_meta_boxes() {
         );
 
         $page_options['fields'][] = array(
-          'label'   => sprintf('%1$s</br><i style="font-size:12px">%2$s</i>', __('Select a layout for this page.', 'hueman-pro'), __('This will override any default settings of the customizer options panel.', 'hueman-pro') ),
+          'label'   => sprintf('%1$s</br><i style="font-size:12px">%2$s</i>', __('Select a layout for this page.', 'hueman'), __('This will override any default settings of the customizer options panel.', 'hueman') ),
           'id'    => '_layout',
           'type'    => 'radio-image',
           'desc'    => '',

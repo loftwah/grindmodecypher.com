@@ -40,7 +40,7 @@
               if ( function_exists('wp_pagenavi') )
                 wp_pagenavi( array( 'type' => 'multipart' ) );
               else
-                wp_link_pages(array('before'=>'<div class="post-pages">'.__('Pages:','hueman-pro'),'after'=>'</div>'));
+                wp_link_pages(array('before'=>'<div class="post-pages">'.__('Pages:','hueman'),'after'=>'</div>'));
             ?>
           </nav><!--/.pagination-->
         </div>
@@ -58,7 +58,7 @@
 
 <?php
   if ( hu_is_checked( 'post-tags' ) ) {
-    the_tags('<p class="post-tags"><span>'.__('Tags:','hueman-pro').'</span> ','','</p>');
+    the_tags('<p class="post-tags"><span>'.__('Tags:','hueman').'</span> ','','</p>');
   }
 ?>
 

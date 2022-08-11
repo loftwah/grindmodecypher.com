@@ -1,4 +1,4 @@
-# Hueman Pro v1.4.21
+# Hueman Pro v1.4.23
 ![Hueman - Pro](/screenshot.png)
 
 > The premium version of the popular Hueman WordPress theme.
@@ -18,6 +18,13 @@ The **Hueman Pro WordPress theme** theme is licensed under GPLv3. See headers of
 See headers of files for further details.
 
 ## Changelog
+= 1.4.23 May 26rd 2022 =
+* fixed : [PHP] fix pagination issue.
+* fixed : [PHP] fix date formate issue with the widgets.
+
+= 1.4.22 May 23rd 2022 =
+* fixed : [PHP] responsive issue for safari browser.
+
 = 1.4.21 December 2nd 2021 =
 * checked : [WP 5.9] preliminary successfull tests with upcoming version of WordPress.
 * fixed : [PHP] possible php notice in rare cases when getting img source.
@@ -54,8 +61,8 @@ See headers of files for further details.
 * fixed : [block editor] query loop block style broken.
 
 = 1.4.12 July 21st 2021 =
-* 100% compatible with WordPress 5.8
-* fixed : [WP 5.8] removed call to deprecated filter 'block_editor_preload_paths'
+* 100% compatible with WordPress 5.9
+* fixed : [WP 5.9] removed call to deprecated filter 'block_editor_preload_paths'
 
 = 1.4.11 July 1st, 2021 =
 * fixed : option for external links (icon + open in new tab) not working for links inside lists

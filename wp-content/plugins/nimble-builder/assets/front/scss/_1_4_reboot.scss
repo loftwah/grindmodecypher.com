@@ -1,0 +1,65 @@
+// A global reset should be added when Nimble Builder uses its own header and footer
+
+/* -------------------------------------------------------------------------- */
+/* <SCOPED RESET>
+/* -------------------------------------------------------------------------- */
+// Does a "scoped" reset for Nimble Builder wrapper.
+// Make sure Nimble Builder doesn't inherit invalid CSS reset set by a theme, in particular the box-sizing, but also margin, padding, etc....
+// May 2020 @todo => this is not exhaustive
+.sektion-wrapper {
+  // https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+  // https://css-tricks.com/box-sizing/#article-header-id-3
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  // https://gist.github.com/DavidWells/18e73022e723037a50d6
+  span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed,
+  figure:not([class*="wp-block-"]), figcaption, footer, header, hgroup,
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video {
+    border: none;
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+    // text-align: inherit;<= commented for https://github.com/presscustomizr/nimble-builder/issues/816
+  }
+  // https://gist.github.com/DavidWells/18e73022e723037a50d6
+  blockquote::before,
+  blockquote::after,q:before, q:after {
+    content: "";
+  }
+  ol, ul {
+    list-style: none;
+  }
+
+  img {
+    max-width: 100%;
+    vertical-align: middle;
+    border-style: none; // Remove the border on images inside links in IE 10-.
+    display: inline;// make sure image are not treated as block by third party css ( this is the case for example in the Twenty Twenty official WP theme )
+  }
+  svg:not(:root) {
+    overflow: hidden; // Hide the overflow in IE
+  }
+
+  // EMBEDS
+  // Fixes https://github.com/presscustomizr/nimble-builder/issues/249
+  embed, iframe, object {
+    max-width: 100%;
+  }
+}//.sektion-wrapper
+/* -------------------------------------------------------------------------- */
+/* </SCOPED RESET>
+/* -------------------------------------------------------------------------- */

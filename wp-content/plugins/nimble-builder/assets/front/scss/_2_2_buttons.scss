@@ -1,0 +1,95 @@
+//
+// Button Base styles (bs based)
+//
+.sek-module .sek-module-inner %btn_base {
+  display: inline-block;
+  font-weight: normal;
+  line-height: 1.25em;
+  text-align: center;
+  /*white-space: nowrap;*/
+  white-space: normal;
+  word-break: break-all;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.5em 1em;
+  border-radius: 2px;
+  border-width: 2px;
+  border-style: solid;
+  font-size: 1em;
+  @extend .#{$project-prefix}service-font;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: none;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+
+  // Share hover and focus styles
+  @include hover-focus {
+    text-decoration: none;
+  }
+  &:focus,
+  &.focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.25);
+  }
+
+  // Disabled comes first so active can properly restyle
+  &.disabled,
+  &:disabled {
+    cursor: $cursor-disabled;
+    opacity: .65;
+    box-shadow: none;
+  }
+
+  &:active,
+  &.active {
+    background-image: none;
+    box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.25);
+  }
+}
+
+
+.sek-btn {
+  @extend %btn_base;
+}
+
+// Future-proof disabling of clicks on `<a>` elements
+a.sek-btn.disabled,
+fieldset[disabled] a.sek-btn {
+  pointer-events: none;
+}
+
+.#{$project-base-wrapper} {
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"] {
+    -webkit-appearance: button;
+  }
+
+  button::-moz-focus-inner,
+  [type="button"]::-moz-focus-inner,
+  [type="reset"]::-moz-focus-inner,
+  [type="submit"]::-moz-focus-inner {
+    padding: 0;
+    border-style: none;
+    // Commented because generating error when validating with https://jigsaw.w3.org/
+    // see https://github.com/presscustomizr/nimble-builder/issues/597
+    // .sek-btn {
+    //   padding: 0.5em 1em;
+    //   border-style: solid;
+    // }
+  }
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  &.sek-btn {
+    -wekbit-appearance: none !important;
+    background: transparent;
+  }
+}

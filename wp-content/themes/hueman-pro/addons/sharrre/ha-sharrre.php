@@ -91,9 +91,9 @@ class HA_Sharrre {
       'sharrre' => array(
             'default'   => 1,
             'control'   => 'HU_controls',
-            'label'     => __('Display social sharing buttons in your single posts', 'hueman-pro'),
-            'title'     => __('Social Sharring Bar Settings', 'hueman-pro'),
-            'notice'    => __('Display social sharing buttons in each single articles.', 'hueman-pro'),
+            'label'     => __('Display social sharing buttons in your single posts', 'hueman-addons'),
+            'title'     => __('Social Sharring Bar Settings', 'hueman-addons'),
+            'notice'    => __('Display social sharing buttons in each single articles.', 'hueman-addons'),
             'section'   => 'content_single_sec',
             'type'      => 'nimblecheck',
             'priority'  => 40
@@ -101,8 +101,8 @@ class HA_Sharrre {
       'sharrre-scrollable' => array(
             'default'   => 1,
             'control'   => 'HU_controls',
-            'label'     => __('Make the Share Bar "sticky"', 'hueman-pro'),
-            'notice'    => __('Make the social share bar stick to the browser window when scrolling down a post.', 'hueman-pro'),
+            'label'     => __('Make the Share Bar "sticky"', 'hueman-addons'),
+            'notice'    => __('Make the social share bar stick to the browser window when scrolling down a post.', 'hueman-addons'),
             'section'   => 'content_single_sec',
             'type'      => 'nimblecheck',
             'priority'  => 50
@@ -110,17 +110,17 @@ class HA_Sharrre {
       'sharrre-twitter-on' => array(
             'default'   => 1,
             'control'   => 'HU_controls',
-            'label'     => __('Enable Twitter Button', 'hueman-pro'),
+            'label'     => __('Enable Twitter Button', 'hueman-addons'),
             'section'   => 'content_single_sec',
             'type'      => 'nimblecheck',
-            'notice'    => __('Since Nov. 2015, Twitter disabled the share counts from its API. If you want to get the display count anyway, you can create an account for free (as of Feb. 2016) on [https://opensharecount.com/]. The Hueman Addons plugin is configured to use opensharecount.', 'hueman-pro'),
+            'notice'    => __('Since Nov. 2015, Twitter disabled the share counts from its API. If you want to get the display count anyway, you can create an account for free (as of Feb. 2016) on [https://opensharecount.com/]. The Hueman Addons plugin is configured to use opensharecount.', 'hueman-addons'),
             'priority'  => 60
       ),
       'twitter-username' => array(
             'default'   => '',
             'control'   => 'HU_controls',
-            'label'     => __('Twitter Username (without "@")', 'hueman-pro'),
-            'notice'    => __('Simply enter your username without the "@" prefix. Your username will be added to share-tweets of your posts (optional).', 'hueman-pro'),
+            'label'     => __('Twitter Username (without "@")', 'hueman-addons'),
+            'notice'    => __('Simply enter your username without the "@" prefix. Your username will be added to share-tweets of your posts (optional).', 'hueman-addons'),
             'section'   => 'content_single_sec',
             'type'      => 'text',
             'transport' => 'postMessage',
@@ -129,7 +129,7 @@ class HA_Sharrre {
       'sharrre-facebook-on' => array(
             'default'   => 1,
             'control'   => 'HU_controls',
-            'label'     => __('Enable Facebook Button', 'hueman-pro'),
+            'label'     => __('Enable Facebook Button', 'hueman-addons'),
             'section'   => 'content_single_sec',
             'type'      => 'nimblecheck',
             'priority'  => 80
@@ -137,7 +137,7 @@ class HA_Sharrre {
       'sharrre-pinterest-on' => array(
             'default'   => 0,
             'control'   => 'HU_controls',
-            'label'     => __('Enable Pinterest Button', 'hueman-pro'),
+            'label'     => __('Enable Pinterest Button', 'hueman-addons'),
             'section'   => 'content_single_sec',
             'type'      => 'nimblecheck',
             'priority'  => 100
@@ -145,7 +145,7 @@ class HA_Sharrre {
       'sharrre-linkedin-on' => array(
             'default'   => 0,
             'control'   => 'HU_controls',
-            'label'     => __('Enable LinkedIn Button', 'hueman-pro'),
+            'label'     => __('Enable LinkedIn Button', 'hueman-addons'),
             'section'   => 'content_single_sec',
             'type'      => 'nimblecheck',
             'priority'  => 100
