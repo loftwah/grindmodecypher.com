@@ -1,4 +1,6 @@
 <?php // phpcs:ignore WordPress.Files.FileName.InvalidClassFileName
+use Automattic\Jetpack\VideoPress\Jwt_Token_Bridge;
+
 /**
  * VideoPress playback module markup generator.
  *
@@ -58,7 +60,7 @@ class VideoPress_Player {
 			self::$shown[ $guid ] = 0;
 		}
 
-		self::$shown[ $guid ]++;
+		++self::$shown[ $guid ];
 
 		$this->video_container_id = 'v-' . $guid . '-' . self::$shown[ $guid ];
 		$this->video_id           = $this->video_container_id . '-video';
@@ -612,6 +614,8 @@ class VideoPress_Player {
 	public function html5_dynamic_next() {
 		$video_container_id = 'v-' . $this->video->guid;
 
+		Jwt_Token_Bridge::enqueue_jwt_token_bridge();
+
 		// Must not use iframes for IE11 due to a fullscreen bug
 		if ( isset( $_SERVER['HTTP_USER_AGENT'] ) && stristr( sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) ), 'Trident/7.0; rv:11.0' ) ) {
 			$iframe_embed = false;
@@ -688,6 +692,7 @@ class VideoPress_Player {
 				}
 			}
 
+			$cover  = $videopress_options['cover'] ? ' data-resize-to-parent="true"' : '';
 			$js_url = 'https://s0.wp.com/wp-content/plugins/video/assets/js/next/videopress-iframe.js';
 			// phpcs:disable WordPress.WP.EnqueuedResources.NonEnqueuedScript
 			return "<iframe title='" . __( 'VideoPress Video Player', 'jetpack' )
@@ -695,7 +700,9 @@ class VideoPress_Player {
 				. "' width='" . esc_attr( $videopress_options['width'] )
 				. "' height='" . esc_attr( $videopress_options['height'] )
 				. "' src='" . esc_attr( $iframe_url )
-				. "' frameborder='0' allowfullscreen allow='clipboard-write'></iframe>"
+				. "' frameborder='0' allowfullscreen"
+				. $cover
+				. " allow='clipboard-write'></iframe>"
 				. "<script src='" . esc_attr( $js_url ) . "'></script>";
 
 		} else {

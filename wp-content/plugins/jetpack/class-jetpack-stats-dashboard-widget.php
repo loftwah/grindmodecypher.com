@@ -5,6 +5,7 @@
  * @package jetpack
  */
 
+use Automattic\Jetpack\Assets;
 use Automattic\Jetpack\Assets\Logo as Jetpack_Logo;
 use Automattic\Jetpack\Redirect;
 use Automattic\Jetpack\Status;
@@ -43,7 +44,7 @@ class Jetpack_Stats_Dashboard_Widget {
 
 		if ( has_action( 'jetpack_dashboard_widget' ) ) {
 			$widget_title = sprintf(
-				__( 'Stats by Jetpack', 'jetpack' )
+				__( 'Jetpack Stats', 'jetpack' )
 			);
 
 			wp_add_dashboard_widget(
@@ -51,7 +52,15 @@ class Jetpack_Stats_Dashboard_Widget {
 				$widget_title,
 				array( __CLASS__, 'dashboard_widget' )
 			);
-			wp_enqueue_style( 'jetpack-dashboard-widget', plugins_url( 'css/dashboard-widget.css', JETPACK__PLUGIN_FILE ), array(), JETPACK__VERSION );
+			wp_enqueue_style(
+				'jetpack-dashboard-widget',
+				Assets::get_file_url_for_environment(
+					'css/dashboard-widget.min.css',
+					'css/dashboard-widget.css'
+				),
+				array(),
+				JETPACK__VERSION
+			);
 			wp_style_add_data( 'jetpack-dashboard-widget', 'rtl', 'replace' );
 		}
 	}
@@ -107,7 +116,7 @@ class Jetpack_Stats_Dashboard_Widget {
 			</div>
 
 			<div class="akismet">
-				<h3><?php esc_html_e( 'Anti-spam', 'jetpack' ); ?></h3>
+				<h3><?php esc_html_e( 'Akismet Anti-spam', 'jetpack' ); ?></h3>
 				<?php if ( is_plugin_active( 'akismet/akismet.php' ) ) : ?>
 					<p class="blocked-count">
 						<?php echo esc_html( number_format_i18n( get_option( 'akismet_spam_count', 0 ) ) ); ?>
@@ -141,24 +150,29 @@ class Jetpack_Stats_Dashboard_Widget {
 			<?php
 				$jetpack_logo = new Jetpack_Logo();
 				echo $jetpack_logo->get_jp_emblem( true );// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			?>
-			<span>
-				<?php
-				if ( current_user_can( 'jetpack_manage_modules' ) ) :
-					$i18n_headers = jetpack_get_module_i18n( 'stats' );
-					?>
-			<a href="<?php echo esc_url( admin_url( 'admin.php?page=jetpack#/settings?term=' . rawurlencode( $i18n_headers['name'] ) ) ); ?>"
-				>
-					<?php
-					esc_html_e( 'Configure stats', 'jetpack' );
-					?>
-			</a>
-			|
-					<?php
-					endif;
+
+			if ( Jetpack::is_module_active( 'stats' ) ) :
 				?>
-			<a href="<?php echo esc_url( Redirect::get_url( 'jetpack-support-wordpress-com-stats' ) ); ?>" target="_blank"><?php esc_html_e( 'Learn more', 'jetpack' ); ?></a>
-			</span>
+				<span>
+					<?php
+					if ( current_user_can( 'jetpack_manage_modules' ) ) :
+						$i18n_headers = jetpack_get_module_i18n( 'stats' );
+						?>
+				<a href="<?php echo esc_url( admin_url( 'admin.php?page=jetpack#/settings?term=' . rawurlencode( $i18n_headers['name'] ) ) ); ?>"
+					>
+						<?php
+						esc_html_e( 'Configure Jetpack Stats', 'jetpack' );
+						?>
+				</a>
+				|
+						<?php
+						endif;
+					?>
+				<a href="<?php echo esc_url( Redirect::get_url( 'jetpack-support-wordpress-com-stats' ) ); ?>" target="_blank"><?php esc_html_e( 'Learn more', 'jetpack' ); ?></a>
+				</span>
+				<?php
+			endif;
+			?>
 
 		</div>
 		</footer>

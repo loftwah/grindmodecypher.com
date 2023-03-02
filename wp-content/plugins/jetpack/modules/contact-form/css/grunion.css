@@ -16,18 +16,24 @@
 	opacity: 0.3;
 }
 
-.contact-form input[type='text'],
-.contact-form input[type='email'],
-.contact-form input[type='tel'],
-.contact-form input[type='url'] {
+/*
+	Using :where we will keep a lower CSS specificity,
+	allowing themes to easily override these styles
+ */
+:where(
+	.contact-form input[type='text'],
+	.contact-form input[type='email'],
+	.contact-form input[type='tel'],
+	.contact-form input[type='url']
+) {
 	box-sizing: border-box;
-	margin-bottom: 1.5em;
 	width: 100%;
-	padding: 14px 7px;
+	padding: 12px 8px;
+	border-width: 1px;
+	line-height: normal;
 }
 
 .contact-form select {
-	margin-bottom: 1.5em;
 	padding: 14px 7px;
 	min-width: 150px;
 }
@@ -36,7 +42,6 @@
 	box-sizing: border-box;
 	float: none;
 	height: 200px;
-	margin-bottom: 1.5em;
 	width: 100%;
 	padding: 7px;
 	font: inherit;
@@ -44,8 +49,10 @@
 
 .contact-form input[type='radio'],
 .contact-form input[type='checkbox'] {
+	width: 1rem;
+	height: 1rem;
 	float: none;
-	margin: 0 0.75rem 0 5px;
+	margin: 0 0.75rem 0 0;
 }
 
 .contact-form input[type='checkbox'] {
@@ -58,6 +65,14 @@
 	float: none;
 	font-weight: bold;
 	display: block;
+}
+
+.contact-form label.consent {
+	font-size: 13px;
+	font-weight: normal;
+	text-transform: uppercase;
+	display: flex;
+	align-items: center;
 }
 
 .contact-form label.consent-implicit input {
@@ -74,27 +89,50 @@
 	align-items: center;
 }
 
-.contact-form .grunion-field-checkbox-wrap,
-.contact-form .grunion-field-consent-wrap,
-.contact-form .grunion-field-checkbox-multiple-wrap,
-.contact-form .grunion-field-radio-wrap {
-	margin-bottom: 1em;
-}
-
 .contact-form label span {
 	font-size: 85%;
 	margin-left: 0.25em;
 	font-weight: normal;
+	opacity: 0.45;
 }
 
 .contact-form-submission {
 	margin-bottom: 4em;
 	padding: 1.5em 1em;
+	width: 100%;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
 }
 
 .contact-form-submission p {
 	margin: 0 auto;
 	word-wrap: break-word;
+}
+
+.contact-form-submission h4 {
+	margin-top: 32px;
+	margin-bottom: 32px;
+	font-weight: 200;
+}
+
+.contact-form-submission .go-back-message {
+	margin-top: 20px;
+	margin-bottom: 32px;
+	text-align: left;
+}
+
+.contact-form-submission .go-back-message .link {
+	font-weight: 200;
+	color: #000;
+}
+
+.contact-form-submission .field-name {
+	font-weight: 200;
+}
+
+.contact-form-submission .field-value {
+	margin-bottom: 20px;
+	font-weight: 600;
 }
 
 .form-errors .form-error-message {
@@ -128,11 +166,18 @@
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	flex-direction: row;
+	flex-grow: 1;
+	gap: var(--wp--style--block-gap, 1.5rem);
 }
 
-.wp-block-jetpack-contact-form .grunion-field-wrap,
-.wp-block-jetpack-button {
+.wp-block-jetpack-contact-form > * {
 	flex: 0 0 100%;
+}
+
+/* Added circa Nov 2022: container class assigned to topmost block div */
+.wp-block-jetpack-contact-form-container.alignfull .wp-block-jetpack-contact-form {
+	padding-right: 0;
+	padding-left: 0;
 }
 
 .wp-block-jetpack-button.alignright button {
@@ -140,21 +185,22 @@
 }
 
 .wp-block-jetpack-contact-form .grunion-field-wrap {
-	/* Use transparent border to maintain consistent
-	 * space between elements with flexbox */
-	border-right: 15px solid transparent;
+	box-sizing: border-box;
 }
 
 .wp-block-jetpack-contact-form .grunion-field-width-25-wrap {
-	flex: 0 0 25%;
+	flex: 1 1 calc( 25% - calc(var(--wp--style--block-gap, 1.5rem) * 1) );
+	max-width: 25%;
 }
 
 .wp-block-jetpack-contact-form .grunion-field-width-50-wrap {
-	flex: 0 0 50%;
+	flex: 1 1 calc( 50% - calc(var(--wp--style--block-gap, 1.5rem) * 1) );
+	max-width: 50%;
 }
 
 .wp-block-jetpack-contact-form .grunion-field-width-75-wrap {
-	flex: 0 0 75%;
+	flex: 1 1 calc( 75% - calc(var(--wp--style--block-gap, 1.5rem) * 1) );
+	max-width: 75%;
 }
 
 .grunion-field-checkbox-wrap,
@@ -198,4 +244,96 @@
 /* Make sure the set height of the Spacer block nested inside the Contact Form block is respected */
 .wp-block-jetpack-contact-form .wp-block-spacer {
 	width: 100%;
+}
+
+.contact-form-dropdown-wrap {
+	z-index: unset;
+}
+
+.contact-form .contact-form-dropdown__button.ui-button {
+	width: 100%;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	border: var(--jetpack--contact-form--border);
+	border-color: var(--jetpack--contact-form--border-color);
+	border-style: var(--jetpack--contact-form--border-style);
+	border-width: var(--jetpack--contact-form--border-size);
+	border-radius: var(--jetpack--contact-form--border-radius);
+	background-color: var(--jetpack--contact-form--input-background);
+	color: var(--jetpack--contact-form--text-color);
+	font-size: var(--jetpack--contact-form--font-size);
+	font-family: var(--jetpack--contact-form--font-family);
+	line-height: var(--jetpack--contact-form--line-height);
+	padding: var(--jetpack--contact-form--input-padding);
+}
+
+.contact-form .contact-form-dropdown__button.ui-button .ui-selectmenu-icon.ui-icon {
+	background: none;
+}
+
+.contact-form .contact-form-dropdown__button .ui-selectmenu-icon,
+.contact-form .contact-form-dropdown__button.ui-selectmenu-button-open .ui-selectmenu-icon {
+	width: 0.8em;
+	height: 0.8em;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	border: 2px solid transparent;
+	overflow: visible;
+	margin-right: 4px;
+}
+
+.contact-form .contact-form-dropdown__button .ui-selectmenu-icon::after {
+	content: "";
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	border-bottom: 2px solid;
+	border-right: 2px solid;
+	transform: rotate(45deg);
+	margin-top: -5px;
+	transition: all 0.2s ease-in-out;
+}
+
+.contact-form .contact-form-dropdown__button.ui-selectmenu-button-open .ui-selectmenu-icon::after {
+	transform: rotate(225deg);
+	margin-top: 8px;
+}
+
+.contact-form .contact-form-dropdown__menu ul.ui-menu {
+	border: var(--jetpack--contact-form--border);
+	border-color: var(--jetpack--contact-form--border-color);
+	border-style: var(--jetpack--contact-form--border-style);
+	border-width: var(--jetpack--contact-form--border-size);
+	border-radius: var(--jetpack--contact-form--border-radius);
+	background-color: var(--jetpack--contact-form--input-background);
+	color: var(--jetpack--contact-form--text-color);
+	font-size: var(--jetpack--contact-form--font-size);
+	font-family: var(--jetpack--contact-form--font-family);
+	max-height: 230px;
+	overflow: auto;
+	padding: 0;
+	line-height: normal;
+	box-shadow: 0 2px 6px rgb(0 0 0 / 5%);
+}
+
+.contact-form .contact-form-dropdown__menu .ui-menu {
+	margin-top: 8px;
+}
+
+.contact-form .contact-form-dropdown__menu .ui-menu .ui-menu-item-wrapper {
+	padding: var(--jetpack--contact-form--input-padding);
+}
+
+.contact-form .contact-form-dropdown__menu .ui-menu .ui-menu-item-wrapper.ui-state-active {
+	position: relative;
+	border: none;
+	color: var(--jetpack--contact-form--input-background);
+	background-color: var(--jetpack--contact-form--text-color);
 }

@@ -4,6 +4,7 @@
 		"button",
 		"calendly",
 		"contact-form",
+		"contact-form/salesforce-lead-form",
 		"contact-info",
 		"donations",
 		"eventbrite",
@@ -40,10 +41,27 @@
 		"videopress",
 		"wordads",
 		"payments-intro",
-		"post-publish-qr-post-panel"
+		"post-publish-qr-post-panel",
+		"payment-buttons"
 	],
-	"beta": [ "amazon", "recipe", "videopress-block" ],
-	"experimental": [ "anchor-fm", "premium-content", "conversation", "dialogue" ],
+	"beta": [
+		"amazon",
+		"google-docs-embed",
+		"launchpad-save-modal",
+		"post-publish-promote-post-panel",
+		"recipe",
+		"videopress/video",
+		"videopress/video-chapters"
+	],
+	"experimental": [
+		"ai-image",
+		"ai-paragraph",
+		"anchor-fm",
+		"blogging-prompts",
+		"premium-content",
+		"conversation",
+		"dialogue"
+	],
 	"no-post-editor": [
 		"business-hours",
 		"button",

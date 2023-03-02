@@ -75,6 +75,20 @@ class Admin_Menu extends Base_Admin_Menu {
 	}
 
 	/**
+	 * Point the Site Editor's `< Dashboard` link to wpcom home.
+	 *
+	 * Although this isn't strictly an admin menu item, it belongs here because it's part of
+	 * changing wp-admin links to their wp.com equivalents.
+	 *
+	 * @param  array $settings Editor settings.
+	 * @return array           Updated Editor settings.
+	 */
+	public function site_editor_dashboard_link( $settings ) {
+		$settings['__experimentalDashboardLink'] = 'https://wordpress.com/home/' . $this->domain;
+		return $settings;
+	}
+
+	/**
 	 * Check if Links Manager is being used.
 	 */
 	public function should_disable_links_manager() {
@@ -361,6 +375,21 @@ class Admin_Menu extends Base_Admin_Menu {
 			$submenus_to_update['options-writing.php'] = 'https://wordpress.com/settings/writing/' . $this->domain;
 		}
 
+		if (
+			/**
+			 * Filter to enable the modernized Reading Settings in Calypso UI.
+			 *
+			 * @since 11.8
+			 * @module masterbar
+			 *
+			 * @param bool false Should the modernized Reading Settings be enabled? Default to false.
+			 */
+			apply_filters( 'calypso_use_modernized_reading_settings', false )
+			&& self::DEFAULT_VIEW === $this->get_preferred_view( 'options-reading.php' )
+		) {
+			$submenus_to_update['options-reading.php'] = 'https://wordpress.com/settings/reading/' . $this->domain;
+		}
+
 		if ( self::DEFAULT_VIEW === $this->get_preferred_view( 'options-discussion.php' ) ) {
 			$submenus_to_update['options-discussion.php'] = 'https://wordpress.com/settings/discussion/' . $this->domain;
 		}
@@ -402,7 +431,7 @@ class Admin_Menu extends Base_Admin_Menu {
 	 * Update Site Editor menu item's link and position.
 	 */
 	public function add_gutenberg_menus() {
-		if ( self::CLASSIC_VIEW === $this->get_preferred_view( 'admin.php?page=gutenberg-edit-site' ) ) {
+		if ( self::CLASSIC_VIEW === $this->get_preferred_view( 'site-editor.php' ) ) {
 			return;
 		}
 
@@ -410,13 +439,12 @@ class Admin_Menu extends Base_Admin_Menu {
 
 		// Gutenberg 11.9 moves the Site Editor to an Appearance submenu as Editor.
 		$submenus_to_update = array(
+			// Keep the old rule in order to Calypsoify the route for GB < 13.7.
 			'gutenberg-edit-site' => 'https://wordpress.com/site-editor/' . $this->domain,
+			// New route: Gutenberg 13.7 changes the site editor menu item slug and url.
+			'site-editor.php'     => 'https://wordpress.com/site-editor/' . $this->domain,
 		);
 		$this->update_submenus( 'themes.php', $submenus_to_update );
-		// Gutenberg 11.9 adds an redundant site editor entry point that requires some calypso work
-		// before it can be exposed.  Note, there are also already discussions to remove this excess
-		// item in Gutenberg.
-		$this->hide_submenu_page( 'themes.php', 'gutenberg-edit-site&styles=open' );
 	}
 
 	/**
