@@ -76,6 +76,7 @@ class Tasks {
 
 		$tasks = [
 			SummaryEmailTask::class,
+			DebugEventsCleanupTask::class,
 		];
 
 		/**
@@ -144,6 +145,45 @@ class Tasks {
 
 		if ( class_exists( 'ActionScheduler_DBStore' ) ) {
 			ActionScheduler_DBStore::instance()->cancel_actions_by_group( $group );
+		}
+	}
+
+	/**
+	 * Remove all the AS actions for a group and remove group.
+	 *
+	 * @since 3.7.0
+	 *
+	 * @param string $group Group to remove all actions for.
+	 */
+	public function remove_all( $group = '' ) {
+
+		global $wpdb;
+
+		if ( empty( $group ) ) {
+			$group = self::GROUP;
+		} else {
+			$group = sanitize_key( $group );
+		}
+
+		if (
+			class_exists( 'ActionScheduler_DBStore' ) &&
+			isset( $wpdb->actionscheduler_actions ) &&
+			isset( $wpdb->actionscheduler_groups )
+		) {
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery.NoCaching
+			$group_id = $wpdb->get_var(
+				$wpdb->prepare( "SELECT group_id FROM {$wpdb->actionscheduler_groups} WHERE slug=%s", $group )
+			);
+
+			if ( ! empty( $group_id ) ) {
+				// Delete actions.
+				// phpcs:ignore WordPress.DB.DirectDatabaseQuery.NoCaching
+				$wpdb->delete( $wpdb->actionscheduler_actions, [ 'group_id' => (int) $group_id ], [ '%d' ] );
+
+				// Delete group.
+				// phpcs:ignore WordPress.DB.DirectDatabaseQuery.NoCaching
+				$wpdb->delete( $wpdb->actionscheduler_groups, [ 'slug' => $group ], [ '%s' ] );
+			}
 		}
 	}
 

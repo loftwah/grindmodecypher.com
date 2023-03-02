@@ -2,7 +2,7 @@
 
 namespace WPMailSMTP\Providers\Sendlayer;
 
-use WPMailSMTP\Options as PluginOptions;
+use WPMailSMTP\ConnectionInterface;
 use WPMailSMTP\Providers\OptionsAbstract;
 
 /**
@@ -25,13 +25,19 @@ class Options extends OptionsAbstract {
 	 * Options constructor.
 	 *
 	 * @since 3.4.0
+	 *
+	 * @param ConnectionInterface $connection The Connection object.
 	 */
-	public function __construct() {
+	public function __construct( $connection = null ) {
+
+		if ( is_null( $connection ) ) {
+			$connection = wp_mail_smtp()->get_connections_manager()->get_primary_connection();
+		}
 
 		$description = sprintf(
 			wp_kses(
 			/* translators: %1$s - URL to sendlayer.com; %2$s - URL to SendLayer documentation on wpmailsmtp.com. */
-				__( '<strong><a href="%1$s" target="_blank" rel="noopener noreferrer">SendLayer</a> is our #1 recommended mailer.</strong> Its affordable pricing and simple setup make it the perfect choice for WordPress sites. SendLayer will authenticate your outgoing emails to make sure they always hit customers’ inboxes, and it has detailed documentation to help you authorize your domain.<br><br>You can send up to 500 emails for free when you sign up for a trial.<br><br>To get started, read our <a href="%2$s" target="_blank" rel="noopener noreferrer">SendLayer documentation</a>.', 'wp-mail-smtp' ),
+				__( '<strong><a href="%1$s" target="_blank" rel="noopener noreferrer">SendLayer</a> is our #1 recommended mailer.</strong> Its affordable pricing and simple setup make it the perfect choice for WordPress sites. SendLayer will authenticate your outgoing emails to make sure they always hit customers’ inboxes, and it has detailed documentation to help you authorize your domain.<br><br>You can send hundreds of emails for free when you sign up for a trial.<br><br>To get started, read our <a href="%2$s" target="_blank" rel="noopener noreferrer">SendLayer documentation</a>.', 'wp-mail-smtp' ),
 				[
 					'strong' => [],
 					'br'     => [],
@@ -45,10 +51,10 @@ class Options extends OptionsAbstract {
 			// phpcs:ignore WordPress.Arrays.ArrayDeclarationSpacing.AssociativeArrayFound, WordPress.Security.NonceVerification.Recommended
 			esc_url( wp_mail_smtp()->get_utm_url( 'https://sendlayer.com/wp-mail-smtp/', [ 'source' => 'wpmailsmtpplugin', 'medium' => 'WordPress', 'content' => isset( $_GET['page'] ) && $_GET['page'] === 'wp-mail-smtp-setup-wizard' ? 'Setup Wizard - Mailer Description' : 'Plugin Settings - Mailer Description' ] ) ),
 			// phpcs:ignore WordPress.Arrays.ArrayDeclarationSpacing.AssociativeArrayFound
-			esc_url( wp_mail_smtp()->get_utm_url( 'https://wpmailsmtp.com/docs/how-to-set-up-the-sendlayer-mailer-in-wp-mail-smtp/', 'Mailer Description' ) )
+			esc_url( wp_mail_smtp()->get_utm_url( 'https://wpmailsmtp.com/docs/how-to-set-up-the-sendlayer-mailer-in-wp-mail-smtp/', 'SendLayer Documentation' ) )
 		);
 
-		$mailer_options = PluginOptions::init()->get_group( self::SLUG );
+		$mailer_options = $connection->get_options()->get_group( self::SLUG );
 
 		if ( empty( $mailer_options['api_key'] ) ) {
 			$description .= sprintf(
@@ -66,7 +72,8 @@ class Options extends OptionsAbstract {
 				'title'       => esc_html__( 'SendLayer', 'wp-mail-smtp' ),
 				'description' => $description,
 				'recommended' => true,
-			]
+			],
+			$connection
 		);
 	}
 
@@ -87,7 +94,7 @@ class Options extends OptionsAbstract {
 				<label for="wp-mail-smtp-setting-<?php echo esc_attr( $this->get_slug() ); ?>-api_key"><?php esc_html_e( 'API Key', 'wp-mail-smtp' ); ?></label>
 			</div>
 			<div class="wp-mail-smtp-setting-field">
-				<?php if ( $this->options->is_const_defined( $this->get_slug(), 'api_key' ) ) : ?>
+				<?php if ( $this->connection_options->is_const_defined( $this->get_slug(), 'api_key' ) ) : ?>
 					<input type="text" disabled value="****************************************"
 						id="wp-mail-smtp-setting-<?php echo esc_attr( $this->get_slug() ); ?>-api_key"
 					/>
@@ -95,7 +102,7 @@ class Options extends OptionsAbstract {
 				<?php else : ?>
 					<input type="password" spellcheck="false"
 						name="wp-mail-smtp[<?php echo esc_attr( $this->get_slug() ); ?>][api_key]"
-						value="<?php echo esc_attr( $this->options->get( $this->get_slug(), 'api_key' ) ); ?>"
+						value="<?php echo esc_attr( $this->connection_options->get( $this->get_slug(), 'api_key' ) ); ?>"
 						id="wp-mail-smtp-setting-<?php echo esc_attr( $this->get_slug() ); ?>-api_key"
 					/>
 				<?php endif; ?>
